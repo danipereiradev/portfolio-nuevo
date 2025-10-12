@@ -40,8 +40,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                     <strong>NIF:</strong> 36153235H
                   </p>
                   <p>
-                    <strong>Dirección:</strong> Plaza de la Solidaridad 7 - 4C,
-                    28850 Torrejón de Ardoz, Madrid
+                    <strong>Dirección:</strong> Calle Condega 1, Madrid
                   </p>
                   <p>
                     <strong>Email:</strong> info.danipereira@gmail.com
@@ -202,8 +201,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                     <strong>Teléfono:</strong> +34 644 669 828
                   </p>
                   <p>
-                    <strong>Dirección:</strong> Plaza de la Solidaridad 7 - 4C,
-                    28850 Torrejón de Ardoz, Madrid
+                    <strong>Dirección:</strong> Calle Condega 1, Madrid
                   </p>
                 </div>
               </section>
@@ -239,8 +237,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                     <strong>NIF:</strong> 36153235H
                   </p>
                   <p>
-                    <strong>Dirección:</strong> Plaza de la Solidaridad 7 - 4C,
-                    28850 Torrejón de Ardoz, Madrid
+                    <strong>Dirección:</strong> Calle Condega 1, Madrid
                   </p>
                   <p>
                     <strong>Email:</strong> info.danipereira@gmail.com
@@ -602,14 +599,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                         <strong>NIF:</strong> 36153235H
                       </p>
                       <p>
-                        <strong>Domicilio:</strong> Plaza de la Solidaridad 7 -
-                        4C
-                      </p>
-                      <p>
-                        <strong>Código Postal:</strong> 28850
-                      </p>
-                      <p>
-                        <strong>Localidad:</strong> Torrejón de Ardoz, Madrid
+                        <strong>Domicilio:</strong> Calle Condega 1, Madrid
                       </p>
                     </div>
                     <div>
@@ -767,8 +757,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                     <strong>Teléfono:</strong> +34 644 669 828
                   </p>
                   <p>
-                    <strong>Dirección:</strong> Plaza de la Solidaridad 7 - 4C,
-                    28850 Torrejón de Ardoz, Madrid
+                    <strong>Dirección:</strong> Calle Condega 1, Madrid
                   </p>
                 </div>
               </section>

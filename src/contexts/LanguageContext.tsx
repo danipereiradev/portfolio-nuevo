@@ -52,7 +52,7 @@ const translations = {
     'Posicionamiento web en buscadores para aumentar tu visibilidad y captar más clientes.',
 
   // Portfolio
-  'portfolio.title': 'Algunos de mis Últimos Trabajos',
+  'portfolio.title': 'Algunos de mis últimos Trabajos',
   'portfolio.description':
     'Una selección de proyectos recientes que demuestran mi experiencia en desarrollo web moderno y diseño innovador',
   'portfolio.view': 'Ver Proyecto',
@@ -108,7 +108,7 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const t = (key: string): string => {
-    return translations[key] || key;
+    return (translations as { [key: string]: string })[key] || key;
   };
 
   return (

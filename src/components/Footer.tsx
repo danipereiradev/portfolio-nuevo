@@ -65,13 +65,17 @@ const Footer = () => {
                   <Mail className='w-5 h-5' />
                 </a>
                 <a
-                  href='https://linkedin.com/in/danipereira'
+                  href='https://www.linkedin.com/in/dani-pereira-396618226/'
+                  target='_blank'
+                  rel='noopener noreferrer'
                   className='bg-blue-600 hover:bg-blue-700 p-3 rounded-lg transition-colors duration-200'
                 >
                   <Linkedin className='w-5 h-5' />
                 </a>
                 <a
-                  href='https://github.com/danipereira'
+                  href='https://github.com/danipereiradev'
+                  target='_blank'
+                  rel='noopener noreferrer'
                   className='bg-gray-700 hover:bg-gray-600 p-3 rounded-lg transition-colors duration-200'
                 >
                   <Github className='w-5 h-5' />
@@ -85,54 +89,12 @@ const Footer = () => {
                 {t('footer.services_title')}
               </h3>
               <ul className='space-y-3 text-gray-300'>
-                <li>
-                  <a
-                    href='#services'
-                    className='hover:text-white transition-colors duration-200'
-                  >
-                    {t('services.corporate.title')}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='#services'
-                    className='hover:text-white transition-colors duration-200'
-                  >
-                    {t('services.ecommerce.title')}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='#services'
-                    className='hover:text-white transition-colors duration-200'
-                  >
-                    {t('services.webapp.title')}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='#services'
-                    className='hover:text-white transition-colors duration-200'
-                  >
-                    {t('services.design.title')}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='#services'
-                    className='hover:text-white transition-colors duration-200'
-                  >
-                    {t('services.frontend.title')}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='#services'
-                    className='hover:text-white transition-colors duration-200'
-                  >
-                    {t('services.seo.title')}
-                  </a>
-                </li>
+                <li>{t('services.corporate.title')}</li>
+                <li>{t('services.ecommerce.title')}</li>
+                <li>{t('services.webapp.title')}</li>
+                <li>{t('services.design.title')}</li>
+                <li>{t('services.frontend.title')}</li>
+                <li>{t('services.seo.title')}</li>
               </ul>
             </div>
 

@@ -1,38 +1,76 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <!-- SEO Meta Tags -->
-    <title>Desarrollo Web Dani Pereira | Páginas Web Profesionales Madrid España</title>
-    <meta name="description" content="🚀 Desarrollo Web Profesional con Dani Pereira | Páginas web corporativas, e-commerce, aplicaciones web | +10 años experiencia | Madrid, España y toda España" />
-    <meta name="keywords" content="desarrollo web, diseño web, páginas web, e-commerce, aplicaciones web, programador web, Madrid, España, Dani Pereira, desarrollo web profesional" />
+    <title>
+      Páginas Web Profesionales para Destacar y Conseguir Más Clientes | Dani
+      Pereira
+    </title>
+    <meta
+      name="description"
+      content="Desarrollo web profesional que genera resultados reales. Páginas corporativas, tiendas online y aplicaciones web | +10 años experiencia | Desde €350 | Madrid y toda España"
+    />
+    <meta
+      name="keywords"
+      content="desarrollo web, diseño web, páginas web, e-commerce, aplicaciones web, programador web, Madrid, España, Dani Pereira, desarrollo web profesional"
+    />
     <meta name="author" content="Dani Pereira" />
-    
+
     <!-- Open Graph -->
-    <meta property="og:title" content="🚀 Desarrollo Web Dani Pereira - Páginas Web Profesionales" />
-    <meta property="og:description" content="Desarrollo web profesional en Madrid y toda España. Páginas web corporativas, e-commerce y aplicaciones web modernas." />
+    <meta
+      property="og:title"
+      content="Tu Página Web Profesional para Destacar y Conseguir Más Clientes"
+    />
+    <meta
+      property="og:description"
+      content="Desarrollo web que genera resultados reales. +10 años de experiencia creando páginas corporativas, tiendas online y aplicaciones web. Desde €350. Madrid y toda España."
+    />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_ES" />
-    
+
     <!-- Schema.org -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Desarrollo Web Dani Pereira",
-      "description": "Servicios de desarrollo web profesional, diseño web y aplicaciones web",
-      "provider": {
-        "@type": "Person",
-        "name": "Dani Pereira",
-        "jobTitle": "Desarrollador Web"
-      },
-      "areaServed": "España",
-      "serviceType": ["Desarrollo Web", "Diseño Web", "E-commerce", "Aplicaciones Web"]
-    }
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Desarrollo Web Dani Pereira",
+        "description": "Servicios de desarrollo web profesional, diseño web y aplicaciones web",
+        "provider": {
+          "@type": "Person",
+          "name": "Dani Pereira",
+          "jobTitle": "Desarrollador Web"
+        },
+        "areaServed": "España",
+        "serviceType": ["Desarrollo Web", "Diseño Web", "E-commerce", "Aplicaciones Web"]
+      }
+    </script>
+
+    <!-- Google Analytics 4 -->
+    <!-- IMPORTANTE: Reemplaza 'G-XXXXXXXXXX' con tu ID real de GA4 -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX', {
+        'send_page_view': true,
+        'cookie_flags': 'SameSite=None;Secure'
+      });
+
+      // Eventos personalizados de conversión
+      window.trackEvent = function(eventName, eventParams) {
+        if (typeof gtag === 'function') {
+          gtag('event', eventName, eventParams);
+        }
+      };
     </script>
   </head>
   <body>

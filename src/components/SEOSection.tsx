@@ -34,40 +34,26 @@ const SEOSection = () => {
 
           <div className='text-lg text-gray-700 leading-relaxed mb-8 max-w-3xl mx-auto'>
             <p>
-              En 2025, tener una <strong>página web profesional</strong> es
-              fundamental para cualquier negocio en España. El{' '}
-              <strong>diseño web</strong> y <strong>desarrollo web</strong> de
-              calidad no solo mejora tu <strong>presencia online</strong>, sino
-              que también aumenta la <strong>visibilidad en Google</strong> y
-              genera más <strong>clientes potenciales</strong>. Una{' '}
-              <strong>web corporativa</strong> optimizada con{' '}
-              <strong>SEO</strong> te posiciona como líder en tu sector,
-              mientras que un <strong>e-commerce</strong> bien desarrollado
-              puede multiplicar tus ventas.
+              En 2025, una <strong>página web profesional</strong> es esencial
+              para cualquier negocio. Un buen <strong>diseño web</strong> no
+              solo mejora tu presencia online, sino que atrae más clientes a
+              través de <strong>Google</strong> y genera oportunidades de
+              negocio reales.
             </p>
             <p className='mt-4'>
-              La <strong>transformación digital</strong> ya no es opcional: es
-              una necesidad para competir en el mercado actual. Un{' '}
-              <strong>sitio web responsive</strong> y{' '}
-              <strong>optimizado para móviles</strong> mejora la experiencia del
-              usuario y aumenta las conversiones. El{' '}
-              <strong>posicionamiento web</strong> en buscadores como Google es
-              clave para que tu <strong>empresa online</strong> sea encontrada
-              por clientes en <strong>Madrid</strong>,{' '}
-              <strong>Barcelona</strong>,<strong>Valencia</strong>,{' '}
-              <strong>Sevilla</strong>, <strong>Bilbao</strong> y todas las{' '}
-              <strong>comunidades autónomas de España</strong>.
+              La transformación digital ya no es opcional. Un sitio web
+              responsive y optimizado mejora la experiencia de tus visitantes y
+              aumenta las conversiones. El <strong>posicionamiento SEO</strong>{' '}
+              es clave para que tu empresa sea encontrada por clientes en{' '}
+              <strong>Madrid</strong>,<strong> Barcelona</strong>,{' '}
+              <strong>Valencia</strong> y toda España.
             </p>
             <p className='mt-4'>
-              Un <strong>programador web</strong> experimentado puede crear una{' '}
-              <strong>tienda online</strong> que genere ventas 24/7, implementar{' '}
-              <strong>marketing digital</strong> efectivo y desarrollar{' '}
-              <strong>aplicaciones web</strong> personalizadas. La{' '}
-              <strong>usabilidad web</strong> y el <strong>diseño UX/UI</strong>{' '}
-              profesional son elementos diferenciadores que convierten
-              visitantes en clientes. Invertir en{' '}
-              <strong>desarrollo web profesional</strong> es invertir en el
-              futuro de tu negocio en la era digital.
+              Tanto si necesitas una <strong>tienda online</strong> para vender
+              24/7, una web corporativa para tu empresa, o una aplicación
+              personalizada, un desarrollo profesional marca la diferencia.
+              Invertir en tu presencia digital es invertir en el futuro de tu
+              negocio.
             </p>
           </div>
 

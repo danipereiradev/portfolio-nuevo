@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -14,7 +14,7 @@ const Portfolio = () => {
         'https://images.pexels.com/photos/2144112/pexels-photo-2144112.jpeg?auto=compress&cs=tinysrgb&w=800',
       tech: ['WordPress', 'WooCommerce', 'PHP', 'JavaScript', 'CSS3'],
       category: t('contact.project.ecommerce'),
-      url: 'https://delishvegan.com',
+      url: 'https://delishvegann.com',
     },
     {
       title: t('portfolio.carper.title'),

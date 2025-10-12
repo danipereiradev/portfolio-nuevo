@@ -12,12 +12,12 @@ const Clients = () => {
   const stats = [
     {
       icon: <Users className='w-8 h-8' />,
-      number: '100+',
+      number: '50+',
       label: 'Clientes Satisfechos',
     },
     {
       icon: <Award className='w-8 h-8' />,
-      number: '100+',
+      number: '50+',
       label: 'Proyectos Completados',
     },
     {
