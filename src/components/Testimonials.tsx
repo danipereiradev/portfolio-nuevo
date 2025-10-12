@@ -142,7 +142,13 @@ const Testimonials = () => {
           </p>
 
           {/* Rating */}
-          <div className='flex items-center justify-center gap-3'>
+          <div className='flex items-center justify-center gap-3 flex-wrap'>
+            <img
+              src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/100px-Google_2015_logo.svg.png'
+              width='100'
+              height='33'
+              className='h-8 w-auto'
+            />
             <div className='flex items-center gap-1'>
               {/* 4 estrellas completas */}
               {[...Array(4)].map((_, i) => (
