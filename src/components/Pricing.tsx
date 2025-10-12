@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   Check,
   Star,
@@ -5,11 +6,53 @@ import {
   Globe,
   ShoppingCart,
   Smartphone,
+  ChevronDown,
 } from 'lucide-react';
 
 const Pricing = () => {
+  const [openAccordion, setOpenAccordion] = useState<{
+    [key: string]: number | null;
+  }>({});
+
   const scrollToContact = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const toggleAccordion = (planId: string, index: number) => {
+    setOpenAccordion((prev) => ({
+      ...prev,
+      [planId]: prev[planId] === index ? null : index,
+    }));
+  };
+
+  const getAdditionalInfo = (planId: string) => {
+    const numRevisiones = planId === 'corporate' ? 1 : 2;
+
+    return [
+      {
+        icon: '💳',
+        title: 'Pago flexible: 50% al inicio, 50% a la entrega',
+        description:
+          'Para facilitar tu inversión, dividimos el pago en dos partes: un 50% al comenzar el proyecto (que nos permite reservar tu espacio en la agenda y empezar a trabajar) y el 50% restante a la entrega final del proyecto completado y aprobado. Así gestionas mejor tu presupuesto sin comprometer la calidad.',
+      },
+      {
+        icon: '✅',
+        title: 'Garantía de satisfacción del 100%',
+        description:
+          'Tu satisfacción es mi prioridad. Me comprometo a entregar un proyecto que cumpla con tus expectativas y requisitos. Si algo no te convence durante el desarrollo, lo ajustamos hasta que estés completamente satisfecho. Además, incluyo un período de garantía post-entrega para corregir cualquier error técnico sin coste adicional.',
+      },
+      {
+        icon: '🔄',
+        title: `Hasta ${numRevisiones} ${
+          numRevisiones === 1 ? 'revisión incluida' : 'revisiones incluidas'
+        }`,
+        description: `Entiendo que durante el desarrollo pueden surgir ajustes o cambios de perspectiva. Por eso, incluyo hasta ${numRevisiones} ${
+          numRevisiones === 1
+            ? 'ronda de revisión completa'
+            : 'rondas de revisiones completas'
+        } sin coste adicional. Esto te permite refinar el diseño, modificar contenidos o ajustar funcionalidades para lograr el resultado perfecto. Las revisiones adicionales se cotizarán por separado según la complejidad.`,
+      },
+    ];
   };
 
   const pricingPlans = [
@@ -25,15 +68,14 @@ const Pricing = () => {
       color: 'from-blue-500 to-cyan-500',
       features: [
         'Diseño responsivo profesional',
-        'Hasta 5 páginas incluidas',
+        'Hasta 5 secciones incluidas',
         'Formulario de contacto avanzado',
-        'Optimización SEO básica',
+        'Optimización SEO ON PAGE',
         'Integración con Google Analytics',
         'Certificado SSL incluido',
-        '1 mes de soporte técnico',
         'Entrega en formato responsive',
       ],
-      deliveryTime: '1-2 semanas',
+      deliveryTime: '2 semanas',
       bestFor:
         'Empresas establecidas, profesionales independientes, consultorías',
     },
@@ -56,8 +98,8 @@ const Pricing = () => {
         'Configuración de envíos',
         'Sistema de cupones y descuentos',
         'Integración con redes sociales',
+        'Optimización SEO ON PAGE',
         'Estadísticas básicas de ventas',
-        '2 meses de soporte técnico',
       ],
       deliveryTime: '2-4 semanas',
       bestFor: 'Tiendas físicas expandiéndose online, emprendedores, retailers',
@@ -79,12 +121,11 @@ const Pricing = () => {
         'Autenticación de usuarios',
         'API REST personalizada',
         'Integración con servicios externos',
+        'Optimización SEO ON PAGE',
         'Funcionalidades específicas',
         'Backup automático de datos',
-        'Hosting incluido 6 meses',
-        '3 meses de soporte técnico',
       ],
-      deliveryTime: '4-8 semanas',
+      deliveryTime: '8-16 semanas',
       bestFor:
         'Startups, proyectos innovadores, empresas con necesidades específicas',
     },
@@ -147,7 +188,7 @@ const Pricing = () => {
                     <span className='text-4xl font-bold text-gray-900'>
                       {parseInt(plan.price) > 999
                         ? `€${plan.price.slice(0, 1)},${plan.price.slice(1)}`
-                        : plan.price}
+                        : `€${plan.price}`}
                     </span>
                     <div className='flex flex-col'>
                       <span className='text-sm text-gray-500 line-through'>
@@ -200,15 +241,51 @@ const Pricing = () => {
                   <ArrowRight className='w-4 h-4 group-hover:translate-x-1 transition-transform duration-200' />
                 </button>
 
-                {/* Additional Info */}
-                <div className='mt-6 text-center'>
-                  <p className='text-xs text-gray-500'>
-                    💳 Pago flexible: 50% al inicio, 50% a la entrega
-                    <br />
-                    ✅ Garantía de satisfacción del 100%
-                    <br />
-                    🔄 Hasta 2 revisiones incluidas
-                  </p>
+                {/* Accordion - Additional Info */}
+                <div className='mt-6'>
+                  <h5 className='text-sm font-semibold text-gray-700 mb-3 text-center'>
+                    Condiciones incluidas:
+                  </h5>
+                  <div className='space-y-2'>
+                    {getAdditionalInfo(plan.id).map((item, index) => (
+                      <div
+                        key={index}
+                        className='border border-gray-200 rounded-lg overflow-hidden'
+                      >
+                        <button
+                          onClick={() => toggleAccordion(plan.id, index)}
+                          className='w-full px-4 py-3 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors duration-200'
+                        >
+                          <div className='flex items-center gap-2'>
+                            <span className='text-lg'>{item.icon}</span>
+                            <span className='text-xs font-medium text-gray-700 text-left'>
+                              {item.title}
+                            </span>
+                          </div>
+                          <ChevronDown
+                            className={`w-4 h-4 text-gray-500 transition-transform duration-200 ${
+                              openAccordion[plan.id] === index
+                                ? 'rotate-180'
+                                : ''
+                            }`}
+                          />
+                        </button>
+                        <div
+                          className={`overflow-hidden transition-all duration-300 ${
+                            openAccordion[plan.id] === index
+                              ? 'max-h-96'
+                              : 'max-h-0'
+                          }`}
+                        >
+                          <div className='px-4 py-3 bg-white'>
+                            <p className='text-xs text-gray-600 leading-relaxed'>
+                              {item.description}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>

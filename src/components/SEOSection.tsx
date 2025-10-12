@@ -1,4 +1,3 @@
-import React from 'react';
 import { TrendingUp, Globe, Users, Zap } from 'lucide-react';
 
 const SEOSection = () => {
@@ -76,7 +75,7 @@ const SEOSection = () => {
             {benefits.map((benefit, index) => (
               <div
                 key={index}
-                className='bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 group'
+                className='bg-white place-items-center p-6 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 group'
               >
                 <div className='bg-gradient-to-r from-blue-500 to-purple-500 w-12 h-12 rounded-lg flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform duration-200'>
                   {benefit.icon}
