@@ -19,7 +19,7 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
       period: 'Junio 2024 - Presente',
       location: 'A Coruña, Galicia',
       description:
-        'Desarrollo front-end en proyectos para Inditex utilizando tecnologías modernas.',
+        'Desarrollo front-end en proyectos para <strong>Inditex</strong> utilizando tecnologías modernas.',
     },
     {
       company: 'Babel',
@@ -27,7 +27,7 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
       period: 'Julio 2021 - Enero 2024',
       location: 'Barcelona',
       description:
-        'Desarrollo front-end para diversos clientes corporativos. Actualización de código legacy a React 17-18, corrección de bugs y mejoras de rendimiento. Creación de UI completas desde cero usando React, React Query, React Testing Library, Tailwind y Konvajs. Trabajo en proyectos para empresas como Banco Santander Alemania, Ferrovial, Acciona y Xacobeo 21/22.',
+        'Desarrollo front-end para diversos clientes corporativos. Actualización de código legacy a React 17-18, corrección de bugs y mejoras de rendimiento. Creación de UI completas desde cero usando React, React Query, React Testing Library, Tailwind y Konvajs. Trabajo en proyectos para empresas como <strong>Banco Santander Alemania</strong>, <strong>Ferrovial</strong>, <strong>Acciona</strong> y <strong>Xacobeo 21/22</strong>.',
     },
     {
       company: 'Pg Webs',
@@ -142,9 +142,10 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
                       </div>
                     </div>
                     <p className='text-sm text-gray-500 mb-2'>{job.location}</p>
-                    <p className='text-gray-700 leading-relaxed'>
-                      {job.description}
-                    </p>
+                    <p
+                      className='text-gray-700 leading-relaxed'
+                      dangerouslySetInnerHTML={{ __html: job.description }}
+                    />
                   </div>
                 ))}
               </div>

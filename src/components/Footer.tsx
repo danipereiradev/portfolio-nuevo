@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Code2, Mail, Linkedin, Github, MapPin, Phone } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import LegalPages from './LegalPages';
 
@@ -86,15 +87,49 @@ const Footer = () => {
             {/* Services */}
             <div>
               <h3 className='text-xl font-bold mb-6 text-blue-400'>
-                {t('footer.services_title')}
+                Servicios
               </h3>
               <ul className='space-y-3 text-gray-300'>
-                <li>{t('services.corporate.title')}</li>
-                <li>{t('services.ecommerce.title')}</li>
-                <li>{t('services.webapp.title')}</li>
-                <li>{t('services.design.title')}</li>
-                <li>{t('services.frontend.title')}</li>
-                <li>{t('services.seo.title')}</li>
+                <li>
+                  <Link
+                    to='/landing-express'
+                    className='hover:text-white transition-colors duration-200'
+                  >
+                    Landing Page Express
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to='/web-autonomos-pymes'
+                    className='hover:text-white transition-colors duration-200'
+                  >
+                    Autónomos y Pymes
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to='/tienda-online'
+                    className='hover:text-white transition-colors duration-200'
+                  >
+                    Tienda Online
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to='/aplicacion-web'
+                    className='hover:text-white transition-colors duration-200'
+                  >
+                    Aplicación Web/Móvil
+                  </Link>
+                </li>
+                <li className='pt-2 border-t border-gray-800'>
+                  <Link
+                    to='/'
+                    className='hover:text-blue-400 transition-colors duration-200 text-sm'
+                  >
+                    Ver todos los servicios →
+                  </Link>
+                </li>
               </ul>
             </div>
 

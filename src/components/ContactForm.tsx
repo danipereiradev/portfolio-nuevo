@@ -12,7 +12,11 @@ import {
 } from 'lucide-react';
 import { trackFormSubmit, trackFormStep } from '../utils/analytics';
 
-const ContactForm = () => {
+interface ContactFormProps {
+  preselectedPlan?: string;
+}
+
+const ContactForm = ({ preselectedPlan }: ContactFormProps = {}) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<
@@ -41,7 +45,7 @@ const ContactForm = () => {
     company: '',
 
     // Step 2: Plan Selection and Project Details
-    plan: '',
+    plan: preselectedPlan || '',
     lowCostBudget: '',
     description: '',
     inspiration: '',
