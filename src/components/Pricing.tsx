@@ -175,7 +175,7 @@ const Pricing = () => {
             </span>
           </h2>
           <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-            Desde €750 puedes tener tu presencia digital profesional. Sin costes
+            Desde €350 puedes tener tu presencia digital profesional. Sin costes
             ocultos, con garantía de satisfacción y entrega puntual.
           </p>
         </div>
