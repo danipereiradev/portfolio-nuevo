@@ -53,12 +53,8 @@ const Header = () => {
     setAboutMeOpen({ isOpen: false, language: 'es' });
   };
 
-  const changeLanguage = (lang: 'es' | 'en') => {
-    setAboutMeOpen((prev) => ({ ...prev, language: lang }));
-  };
-
   const services = [
-    { name: 'Landing Page Express', path: '/landing-express', price: '€350' },
+    { name: 'Página Sencilla', path: '/landing-express', price: '€350' },
     {
       name: 'Página Web Autónomos y Pymes',
       path: '/web-autonomos-pymes',

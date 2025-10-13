@@ -5,7 +5,6 @@ import {
   CreditCard,
   Package,
   TrendingUp,
-  Shield,
   BarChart2,
   Settings,
   Star,
@@ -14,6 +13,12 @@ import ContactForm from '../components/ContactForm';
 import TestimonialsCarousel from '../components/TestimonialsCarousel';
 import { trackButtonClick } from '../utils/analytics';
 import { useEffect } from 'react';
+
+declare global {
+  interface Window {
+    gtag?: (command: string, ...args: unknown[]) => void;
+  }
+}
 
 const LandingTienda = () => {
   useEffect(() => {
@@ -397,8 +402,8 @@ const LandingTienda = () => {
                   50% al inicio (€625) y 50% a la entrega (€625).
                 </p>
                 <p className='text-gray-700 text-sm'>
-                  ✅ <strong>Garantía de satisfacción 100%</strong> - Tu tienda
-                  funcionará perfectamente o te devuelvo tu dinero.
+                  ✅ <strong>Garantía de satisfacción 100%</strong> - No se
+                  realizará el cobro total hasta que estés conforme.
                 </p>
               </div>
             </div>

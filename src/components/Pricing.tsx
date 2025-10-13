@@ -55,7 +55,7 @@ const Pricing = () => {
     {
       id: 'lowcost',
       icon: <Zap className='w-8 h-8' />,
-      name: 'Landing Page Express',
+      name: 'Página Sencilla',
       description:
         'Solución rápida y económica ideal para emprendedores y lanzamientos',
       price: '350',

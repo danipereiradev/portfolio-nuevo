@@ -17,7 +17,7 @@ const LandingExpress = () => {
     // Track landing page view
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', 'page_view', {
-        page_title: 'Landing Page Express',
+        page_title: 'Página Sencilla',
         page_location: window.location.href,
         page_path: '/landing-express',
       });
@@ -62,7 +62,7 @@ const LandingExpress = () => {
           </div>
 
           <h1 className='text-5xl md:text-7xl font-bold text-white mb-6 leading-tight'>
-            Landing Page Express
+            Página Sencilla
             <span className='block text-3xl md:text-4xl mt-4 text-white/90'>
               Tu presencia online en tiempo récord
             </span>
@@ -122,7 +122,7 @@ const LandingExpress = () => {
         <div className='container mx-auto px-6'>
           <div className='text-center mb-16'>
             <h2 className='text-4xl md:text-5xl font-bold text-gray-900 mb-4'>
-              ¿Por qué elegir Landing Page Express?
+              ¿Por qué elegir Página Sencilla?
             </h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
               Diseñada específicamente para emprendedores y proyectos que
@@ -347,7 +347,7 @@ const LandingExpress = () => {
       </section>
 
       {/* Contact Form with preselected plan */}
-      <ContactForm preselectedPlan='Landing Page Express (Desde €350)' />
+      <ContactForm preselectedPlan='Página Sencilla (Desde €350)' />
     </>
   );
 };

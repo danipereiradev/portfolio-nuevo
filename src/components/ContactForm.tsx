@@ -24,7 +24,7 @@ const ContactForm = ({ preselectedPlan }: ContactFormProps = {}) => {
   >('idle');
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [antiSpamAnswer, setAntiSpamAnswer] = useState('');
-  const [antiSpamQuestion, setAntiSpamQuestion] = useState(() => {
+  const [antiSpamQuestion] = useState(() => {
     const questions = [
       { question: '¿Cuánto es 5 + 3?', answer: '8' },
       {
@@ -109,13 +109,13 @@ const ContactForm = ({ preselectedPlan }: ContactFormProps = {}) => {
           newErrors.plan = 'Selecciona un plan';
         }
         if (
-          formData.plan === 'Landing Page Express (Desde €350)' &&
+          formData.plan === 'Página Sencilla (Desde €350)' &&
           !formData.lowCostBudget
         ) {
           newErrors.lowCostBudget = 'Introduce tu presupuesto disponible';
         }
         if (
-          formData.plan === 'Landing Page Express (Desde €350)' &&
+          formData.plan === 'Página Sencilla (Desde €350)' &&
           formData.lowCostBudget
         ) {
           const budget = parseFloat(formData.lowCostBudget);
@@ -220,7 +220,7 @@ const ContactForm = ({ preselectedPlan }: ContactFormProps = {}) => {
         // Plan y detalles del proyecto
         plan: formData.plan,
         lowCostBudget:
-          formData.plan === 'Landing Page Express (Desde €350)'
+          formData.plan === 'Página Sencilla (Desde €350)'
             ? `€${formData.lowCostBudget}`
             : 'N/A',
         description: formData.description,
@@ -242,7 +242,7 @@ Empresa: ${formData.company || 'No especificada'}
 
 Plan Seleccionado: ${formData.plan}
 ${
-  formData.plan === 'Landing Page Express (Desde €350)'
+  formData.plan === 'Página Sencilla (Desde €350)'
     ? `Presupuesto disponible: €${formData.lowCostBudget}`
     : ''
 }
@@ -279,7 +279,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
       // Track conversión exitosa
       const planPrices: { [key: string]: number } = {
-        'Landing Page Express (Desde €350)': 350,
+        'Página Sencilla (Desde €350)': 350,
         'Página Web Autónomos y Pymes (Desde €750)': 750,
         'Tienda Online (Desde €1250)': 1250,
         'Aplicación Web o Móvil (Desde €3200)': 3200,
@@ -382,10 +382,6 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       {error}
     </div>
   );
-
-  const isStepValid = () => {
-    return Object.keys(errors).length === 0 && validateCurrentStep();
-  };
 
   const renderStep = () => {
     switch (currentStep) {
@@ -492,13 +488,10 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                 <button
                   type='button'
                   onClick={() =>
-                    handleInputChange(
-                      'plan',
-                      'Landing Page Express (Desde €350)'
-                    )
+                    handleInputChange('plan', 'Página Sencilla (Desde €350)')
                   }
                   className={`p-5 text-left border-2 rounded-xl transition-all duration-200 ${
-                    formData.plan === 'Landing Page Express (Desde €350)'
+                    formData.plan === 'Página Sencilla (Desde €350)'
                       ? 'border-orange-500 bg-orange-50'
                       : errors.plan
                       ? 'border-red-500'
@@ -509,7 +502,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                     <h4 className='font-bold text-gray-900'>
                       Landing Page Express
                     </h4>
-                    {formData.plan === 'Landing Page Express (Desde €350)' && (
+                    {formData.plan === 'Página Sencilla (Desde €350)' && (
                       <Check className='w-5 h-5 text-orange-600' />
                     )}
                   </div>
@@ -618,7 +611,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             </div>
 
             {/* Campo de presupuesto Landing Page Express - solo visible si se selecciona este plan */}
-            {formData.plan === 'Landing Page Express (Desde €350)' && (
+            {formData.plan === 'Página Sencilla (Desde €350)' && (
               <div className='bg-orange-50 p-4 rounded-lg border border-orange-200'>
                 <label className='block text-sm font-medium text-gray-700 mb-2'>
                   Presupuesto disponible (en euros) *
