@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X, Code2, ChevronDown } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -54,7 +54,7 @@ const Header = () => {
   };
 
   const services = [
-    { name: 'Página Sencilla', path: '/landing-express', price: '€350' },
+    { name: 'Página Web Sencilla', path: '/landing-express', price: '€350' },
     {
       name: 'Página Web Autónomos y Pymes',
       path: '/web-autonomos-pymes',

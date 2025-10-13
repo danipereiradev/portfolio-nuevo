@@ -95,7 +95,7 @@ const Footer = () => {
                     to='/landing-express'
                     className='hover:text-white transition-colors duration-200'
                   >
-                    Página Sencilla
+                    Página Web Sencilla
                   </Link>
                 </li>
                 <li>
