@@ -211,7 +211,7 @@ const LandingExpress = () => {
                 Resultados Probados
               </h3>
               <p className='text-gray-600 leading-relaxed'>
-                Más de <strong>7 años de experiencia</strong> ayudando a
+                Más de <strong>10 años de experiencia</strong> ayudando a
                 emprendedores a tener su primera presencia online exitosa.
               </p>
             </div>
