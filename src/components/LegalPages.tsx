@@ -43,7 +43,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                     <strong>Dirección:</strong> Calle Condega 1, Madrid
                   </p>
                   <p>
-                    <strong>Email:</strong> info.danipereira@gmail.com
+                    <strong>Email:</strong> web.danipereira@gmail.com
                   </p>
                   <p>
                     <strong>Teléfono:</strong> +34 644 669 828
@@ -170,7 +170,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                 </ul>
                 <p className='mt-4'>
                   Para ejercer estos derechos, contacta con nosotros en:
-                  info.danipereira@gmail.com
+                  web.danipereira@gmail.com
                 </p>
               </section>
 
@@ -195,7 +195,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                 </p>
                 <div className='bg-blue-50 p-4 rounded-lg mt-4'>
                   <p>
-                    <strong>Email:</strong> info.danipereira@gmail.com
+                    <strong>Email:</strong> web.danipereira@gmail.com
                   </p>
                   <p>
                     <strong>Teléfono:</strong> +34 644 669 828
@@ -240,7 +240,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                     <strong>Dirección:</strong> Calle Condega 1, Madrid
                   </p>
                   <p>
-                    <strong>Email:</strong> info.danipereira@gmail.com
+                    <strong>Email:</strong> web.danipereira@gmail.com
                   </p>
                   <p>
                     <strong>Teléfono:</strong> +34 644 669 828
@@ -565,7 +565,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                 </p>
                 <div className='bg-gray-50 p-4 rounded-lg mt-4'>
                   <p>
-                    <strong>Email:</strong> info.danipereira@gmail.com
+                    <strong>Email:</strong> web.danipereira@gmail.com
                   </p>
                   <p>
                     <strong>Teléfono:</strong> +34 644 669 828
@@ -604,7 +604,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                     </div>
                     <div>
                       <p>
-                        <strong>Email:</strong> info.danipereira@gmail.com
+                        <strong>Email:</strong> web.danipereira@gmail.com
                       </p>
                       <p>
                         <strong>Teléfono:</strong> +34 644 669 828
@@ -751,7 +751,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                 </p>
                 <div className='bg-blue-50 p-4 rounded-lg mt-4'>
                   <p>
-                    <strong>Email:</strong> info.danipereira@gmail.com
+                    <strong>Email:</strong> web.danipereira@gmail.com
                   </p>
                   <p>
                     <strong>Teléfono:</strong> +34 644 669 828

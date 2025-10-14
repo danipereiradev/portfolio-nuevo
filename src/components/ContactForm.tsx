@@ -905,7 +905,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                   </div>
                   <p className='text-red-700 text-sm mt-1'>
                     Por favor, inténtalo de nuevo o contacta directamente por
-                    email: info.danipereira@gmail.com
+                    email: web.danipereira@gmail.com
                   </p>
                 </div>
               )}
@@ -920,11 +920,11 @@ Fecha: ${new Date().toLocaleString('es-ES')}
           </p>
           <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
             <a
-              href='mailto:info.danipereira@gmail.com'
+              href='mailto:web.danipereira@gmail.com'
               className='flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium'
             >
               <Mail className='w-5 h-5' />
-              info.danipereira@gmail.com
+              web.danipereira@gmail.com
             </a>
             <span className='hidden sm:block text-gray-300'>|</span>
             <a

@@ -1,5 +1,13 @@
 import { useState } from 'react';
-import { Code2, Mail, Linkedin, Github, MapPin, Phone } from 'lucide-react';
+import {
+  Code2,
+  Mail,
+  Linkedin,
+  Github,
+  MapPin,
+  Phone,
+  Instagram,
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import LegalPages from './LegalPages';
@@ -60,7 +68,7 @@ const Footer = () => {
               </p>
               <div className='flex space-x-4'>
                 <a
-                  href='mailto:info.danipereira@gmail.com'
+                  href='mailto:web.danipereira@gmail.com'
                   className='bg-blue-600 hover:bg-blue-700 p-3 rounded-lg transition-colors duration-200'
                 >
                   <Mail className='w-5 h-5' />
@@ -80,6 +88,14 @@ const Footer = () => {
                   className='bg-gray-700 hover:bg-gray-600 p-3 rounded-lg transition-colors duration-200'
                 >
                   <Github className='w-5 h-5' />
+                </a>
+                <a
+                  href='https://www.instagram.com/danipereira.web/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 hover:from-purple-700 hover:via-pink-700 hover:to-orange-600 p-3 rounded-lg transition-colors duration-200'
+                >
+                  <Instagram className='w-5 h-5' />
                 </a>
               </div>
             </div>
@@ -144,10 +160,10 @@ const Footer = () => {
                   <div>
                     <p className='font-medium'>Email</p>
                     <a
-                      href='mailto:info.danipereira@gmail.com'
+                      href='mailto:web.danipereira@gmail.com'
                       className='hover:text-white transition-colors duration-200'
                     >
-                      info.danipereira@gmail.com
+                      web.danipereira@gmail.com
                     </a>
                   </div>
                 </li>

@@ -40,10 +40,10 @@ const FooterLanding = () => {
                 <li className='flex items-center gap-2'>
                   <Mail className='w-4 h-4 text-blue-400' />
                   <a
-                    href='mailto:info.danipereira@gmail.com'
+                    href='mailto:web.danipereira@gmail.com'
                     className='hover:text-white transition-colors duration-200'
                   >
-                    info.danipereira@gmail.com
+                    web.danipereira@gmail.com
                   </a>
                 </li>
                 <li className='flex items-center gap-2'>
