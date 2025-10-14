@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Github, Instagram } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import LegalPages from './LegalPages';
 
@@ -51,6 +51,32 @@ const FooterLanding = () => {
                   <span>Madrid, España</span>
                 </li>
               </ul>
+              <div className='flex space-x-3 mt-6'>
+                <a
+                  href='https://www.linkedin.com/in/dani-pereira-396618226/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='bg-blue-600 hover:bg-blue-700 p-2 rounded-lg transition-colors duration-200'
+                >
+                  <Linkedin className='w-4 h-4' />
+                </a>
+                <a
+                  href='https://github.com/danipereiradev'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='bg-gray-700 hover:bg-gray-600 p-2 rounded-lg transition-colors duration-200'
+                >
+                  <Github className='w-4 h-4' />
+                </a>
+                <a
+                  href='https://www.instagram.com/danipereira.web/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 hover:from-purple-700 hover:via-pink-700 hover:to-orange-600 p-2 rounded-lg transition-colors duration-200'
+                >
+                  <Instagram className='w-4 h-4' />
+                </a>
+              </div>
             </div>
 
             {/* Services */}
