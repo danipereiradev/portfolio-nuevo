@@ -2,7 +2,6 @@ import { Star, Award, TrendingUp, Users } from 'lucide-react';
 
 const Clients = () => {
   const clients = [
-    { name: 'Inditex', sector: 'Moda y Retail' },
     { name: 'Banco Santander Alemania', sector: 'Servicios Financieros' },
     { name: 'Ferrovial', sector: 'Construcción y Servicios' },
     { name: 'Acciona', sector: 'Energía e Infraestructuras' },
