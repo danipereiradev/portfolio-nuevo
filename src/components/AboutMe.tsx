@@ -19,7 +19,7 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
       period: 'Junio 2024 - Presente',
       location: 'A Coruña, Galicia',
       description:
-        'Desarrollo front-end en proyectos corporativos utilizando tecnologías modernas <strong>para la empresa textil más grande del mundo ;)</strong>',
+        'Desarrollo front-end en proyectos corporativos utilizando tecnologías modernas <strong>para la empresa textil más grande del mundo.</strong>',
     },
     {
       company: 'Babel',
