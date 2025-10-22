@@ -610,8 +610,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                         <strong>Teléfono:</strong> +34 644 669 828
                       </p>
                       <p>
-                        <strong>Sitio web:</strong>{' '}
-                        desarrolloweb-danipereira.com
+                        <strong>Sitio web:</strong> danipereiraweb.es
                       </p>
                       <p>
                         <strong>Actividad:</strong> Desarrollo y diseño web
@@ -627,8 +626,8 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                 </h2>
                 <p>
                   El presente aviso legal regula el uso del sitio web
-                  desarrolloweb-danipereira.com (en adelante, "el sitio web"),
-                  del que es titular Daniel Pereira Gesteiro.
+                  danipereiraweb.es (en adelante, "el sitio web"), del que es
+                  titular Daniel Pereira Gesteiro.
                 </p>
                 <p className='mt-4'>
                   La navegación por el sitio web atribuye la condición de
