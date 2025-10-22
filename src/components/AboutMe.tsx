@@ -19,7 +19,7 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
       period: 'Junio 2024 - Presente',
       location: 'A Coruña, Galicia',
       description:
-        'Desarrollo front-end en proyectos corporativos utilizando tecnologías modernas.',
+        'Desarrollo front-end en proyectos corporativos utilizando tecnologías modernas <strong>para la empresa textil más grande del mundo ;)</strong>',
     },
     {
       company: 'Babel',
@@ -31,9 +31,9 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
     },
     {
       company: 'Pg Webs',
-      role: 'Freelance Web Designer',
+      role: 'Web Designer',
       period: 'Septiembre 2016 - Abril 2022',
-      location: 'Logroño, La Rioja',
+      location: 'Galicia y La Rioja',
       description: 'Diseño y desarrollo web freelance para diversos clientes.',
     },
     {
@@ -83,33 +83,28 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
             <div className='prose max-w-none'>
               <div className='text-gray-700 leading-relaxed space-y-4'>
                 <p>
-                  Soy un desarrollador autodidacta y naturalmente curioso (un
-                  caso clásico de TDAH, seamos honestos). Mi primera experiencia
-                  con el código surgió por necesidad: romper, arreglar y
-                  reconstruir una tienda online para el negocio de música y
-                  audio de mi familia sin conocimiento previo. Fue entonces
-                  cuando me di cuenta de lo mucho que disfruto este mundo.
+                  Soy un desarrollador web autodidacta y naturalmente curioso
+                  (sí, un clásico caso de TDAH). Empecé por necesidad, rompiendo
+                  y reconstruyendo la tienda online del negocio familiar de
+                  música y audio… y ahí, tras noches en foros y tutoriales
+                  descubrí que el código me apasionaba.
                 </p>
                 <p>
-                  Antes de eso, pasé la mitad de mi vida tocando la batería, y
-                  aunque la programación es ahora mi día a día, la música sigue
-                  siendo una gran parte de quien soy.
+                  Aunque hoy mi día a día está lleno de líneas de código, la
+                  música sigue ocupando gran parte de mi vida: la mitad de mi
+                  tiempo la dedico a trabajar como batería en giras y en
+                  estudio. Me considero una persona cercana, alegre y con buen
+                  sentido del humor, pero también comprometida. Durante cuatro
+                  años fui voluntario en Red Acoge La Rioja, colaborando en
+                  proyectos de apoyo a personas migrantes en situación de
+                  vulnerabilidad. Creo firmemente en usar la tecnología y la
+                  creatividad con propósito.
                 </p>
                 <p>
-                  Me veo como alguien alegre, cercano, abierto y con buen
-                  sentido del humor, pero también profundamente comprometido,
-                  especialmente con las causas sociales. He sido voluntario en
-                  diferentes proyectos apoyando a migrantes en situaciones
-                  vulnerables, y no tengo miedo de hablar de cosas que importan,
-                  siempre desde un lugar honesto y con una mentalidad de
-                  crecimiento personal continuo.
-                </p>
-                <p>
-                  Me gusta el punk rock y me encanta viajar para asistir a
-                  festivales por todas partes. Cuando logro vencer la
-                  procrastinación, el deporte también juega un papel clave en mi
-                  vida, especialmente el boxeo, que me ayuda tanto física como
-                  mentalmente.
+                  Me inspiran la música, los viajes, los festivales y el deporte
+                  (cuando logro vencer la procrastinación). En el fondo, me
+                  mueve la misma energía que me trajo hasta aquí: aprender,
+                  crear y conectar con personas a través de proyectos con alma.
                 </p>
               </div>
             </div>
