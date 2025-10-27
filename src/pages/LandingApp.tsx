@@ -85,12 +85,12 @@ const LandingApp = () => {
             </span>
             <div className='flex items-center gap-3'>
               <div>
-                <p className='text-gray-500 text-sm line-through'>€3,800</p>
-                <p className='text-6xl font-bold text-purple-600'>€3,200</p>
-              </div>
-              <div className='text-left'>
-                <p className='text-green-600 font-bold text-lg'>Ahorras €600</p>
-                <p className='text-gray-600 text-sm'>Desde</p>
+                <p className='text-5xl font-bold text-purple-600'>
+                  Precio a Consultar
+                </p>
+                <p className='text-gray-600 text-sm mt-2'>
+                  Cada proyecto es único
+                </p>
               </div>
             </div>
           </div>
@@ -355,10 +355,10 @@ const LandingApp = () => {
                   <Check className='w-6 h-6 text-purple-500 flex-shrink-0 mt-1' />
                   <div>
                     <h3 className='font-bold text-gray-900 mb-1'>
-                      Entrega en 8-16 semanas
+                      Tiempo de entrega a consultar
                     </h3>
                     <p className='text-gray-600 text-sm'>
-                      Según complejidad del proyecto
+                      Según complejidad y alcance del proyecto
                     </p>
                   </div>
                 </div>
@@ -367,10 +367,10 @@ const LandingApp = () => {
                   <Check className='w-6 h-6 text-purple-500 flex-shrink-0 mt-1' />
                   <div>
                     <h3 className='font-bold text-gray-900 mb-1'>
-                      2 revisiones incluidas
+                      Revisiones acordadas en proyecto
                     </h3>
                     <p className='text-gray-600 text-sm'>
-                      Ajustes sin coste adicional
+                      Número de revisiones según necesidades
                     </p>
                   </div>
                 </div>
@@ -393,7 +393,8 @@ const LandingApp = () => {
                   💳 Pago flexible
                 </h3>
                 <p className='text-gray-700 text-sm mb-2'>
-                  50% al inicio (€1,600) y 50% a la entrega (€1,600).
+                  Modalidad de pago 50% al inicio y 50% a la entrega (se acuerda
+                  según presupuesto).
                 </p>
                 <p className='text-gray-700 text-sm'>
                   ✅ <strong>Garantía de satisfacción 100%</strong> -
@@ -496,7 +497,7 @@ const LandingApp = () => {
       </section>
 
       {/* Contact Form with preselected plan */}
-      <ContactForm preselectedPlan='Aplicación Web o Móvil (Desde €3200)' />
+      <ContactForm preselectedPlan='Aplicación Web o Móvil (Precio a Consultar)' />
     </>
   );
 };

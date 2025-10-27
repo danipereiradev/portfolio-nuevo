@@ -30,6 +30,7 @@ const Pricing = () => {
     let numRevisiones = 2; // Por defecto
     if (planId === 'lowcost') numRevisiones = 0;
     else if (planId === 'corporate') numRevisiones = 1;
+    else if (planId === 'webapp') numRevisiones = 0; // Las revisiones se acuerdan en el proyecto
 
     const infoItems = [];
 
@@ -127,8 +128,8 @@ const Pricing = () => {
       name: 'Aplicación Web o Móvil',
       description:
         'Desarrollo a medida para proyectos únicos con funcionalidades específicas',
-      price: '3200',
-      originalPrice: '3800',
+      price: 'consultar',
+      originalPrice: null,
       popular: false,
       color: 'from-purple-500 to-pink-500',
       features: [
@@ -142,7 +143,7 @@ const Pricing = () => {
         'Funcionalidades específicas',
         'Backup automático de datos',
       ],
-      deliveryTime: '8-16 semanas',
+      deliveryTime: 'A consultar según alcance',
       bestFor:
         'Startups, proyectos innovadores, empresas con necesidades específicas',
     },
@@ -236,25 +237,43 @@ const Pricing = () => {
 
                 {/* Pricing */}
                 <div className='text-center mb-8'>
-                  <div className='flex items-center justify-center gap-2 mb-2'>
-                    <span className='text-4xl font-bold text-gray-900'>
-                      {parseInt(plan.price) > 999
-                        ? `€${plan.price.slice(0, 1)},${plan.price.slice(1)}`
-                        : `€${plan.price}`}
-                    </span>
-                    <div className='flex flex-col'>
-                      <span className='text-sm text-gray-500 line-through'>
-                        €{plan.originalPrice}
+                  {plan.price === 'consultar' ? (
+                    <div className='mb-2'>
+                      <span className='text-4xl font-bold text-gray-900'>
+                        Precio a Consultar
                       </span>
-                      <span className='text-xs text-green-600 font-semibold'>
-                        Ahorras €
-                        {parseInt(plan.originalPrice) - parseInt(plan.price)}
-                      </span>
+                      <p className='text-sm text-gray-500 mt-2 mb-4'>
+                        Cada proyecto es único y personalizado
+                      </p>
                     </div>
-                  </div>
-                  <p className='text-sm text-gray-500 mb-4'>
-                    Precio final del proyecto completo
-                  </p>
+                  ) : (
+                    <>
+                      <div className='flex items-center justify-center gap-2 mb-2'>
+                        <span className='text-4xl font-bold text-gray-900'>
+                          {parseInt(plan.price) > 999
+                            ? `€${plan.price.slice(0, 1)},${plan.price.slice(
+                                1
+                              )}`
+                            : `€${plan.price}`}
+                        </span>
+                        {plan.originalPrice && (
+                          <div className='flex flex-col'>
+                            <span className='text-sm text-gray-500 line-through'>
+                              €{plan.originalPrice}
+                            </span>
+                            <span className='text-xs text-green-600 font-semibold'>
+                              Ahorras €
+                              {parseInt(plan.originalPrice) -
+                                parseInt(plan.price)}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                      <p className='text-sm text-gray-500 mb-4'>
+                        Precio final del proyecto completo
+                      </p>
+                    </>
+                  )}
 
                   <div className='bg-gray-50 rounded-lg p-3 mb-4'>
                     <p className='text-sm font-semibold text-gray-700'>

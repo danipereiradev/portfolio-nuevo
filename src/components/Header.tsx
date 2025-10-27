@@ -69,7 +69,7 @@ const Header = () => {
     {
       name: 'Aplicación Web o Móvil',
       path: '/aplicacion-web',
-      price: '€3,200',
+      price: 'Consultar',
     },
   ];
 
@@ -147,7 +147,9 @@ const Header = () => {
                             )}
                           </div>
                           <span className='text-blue-600 font-bold text-sm'>
-                            Desde {service.price}
+                            {service.price === 'Consultar'
+                              ? service.price
+                              : `Desde ${service.price}`}
                           </span>
                         </Link>
                       ))}
