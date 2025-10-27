@@ -242,7 +242,7 @@ const LandingAutonomos = () => {
                   <Check className='w-6 h-6 text-green-500 flex-shrink-0 mt-1' />
                   <div>
                     <h3 className='font-bold text-gray-900 mb-1'>
-                      Hasta 5 secciones incluidas
+                      Hasta 8 secciones incluidas
                     </h3>
                     <p className='text-gray-600 text-sm'>
                       Inicio, Servicios, Sobre mí, Portfolio, Contacto

@@ -78,8 +78,8 @@ const LandingExpress = () => {
           <div className='bg-white rounded-2xl shadow-2xl p-6 mb-8 inline-block'>
             <div className='flex items-center gap-3'>
               <div>
-                <p className='text-gray-500 text-sm line-through'>€500</p>
-                <p className='text-6xl font-bold text-orange-600'>€350</p>
+                <p className='text-gray-500 text-sm line-through'>€600</p>
+                <p className='text-6xl font-bold text-orange-600'>€450</p>
               </div>
               <div className='text-left'>
                 <p className='text-green-600 font-bold text-lg'>Ahorras €150</p>
@@ -155,8 +155,8 @@ const LandingExpress = () => {
                 Económica
               </h3>
               <p className='text-gray-600 leading-relaxed'>
-                Por solo <strong>€350</strong> tendrás una landing profesional,
-                responsiva y optimizada. Sin costes ocultos.
+                Tendrás una <strong>web profesional</strong>, responsiva y
+                optimizada. Sin costes ocultos.
               </p>
             </div>
 
@@ -238,7 +238,7 @@ const LandingExpress = () => {
                   <Check className='w-6 h-6 text-green-500 flex-shrink-0 mt-1' />
                   <div>
                     <h3 className='font-bold text-gray-900 mb-1'>
-                      1-2 secciones personalizadas
+                      Hasta 4 secciones personalizadas
                     </h3>
                     <p className='text-gray-600 text-sm'>
                       Perfectas para presentar tu servicio o evento
@@ -347,7 +347,7 @@ const LandingExpress = () => {
       </section>
 
       {/* Contact Form with preselected plan */}
-      <ContactForm preselectedPlan='Página Web Sencilla (Desde €350)' />
+      <ContactForm preselectedPlan='Página Web Sencilla (Desde €450)' />
     </>
   );
 };

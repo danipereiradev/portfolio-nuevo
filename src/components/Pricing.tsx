@@ -59,12 +59,12 @@ const Pricing = () => {
       name: 'Página Web Sencilla',
       description:
         'Solución rápida y económica ideal para emprendedores y lanzamientos',
-      price: '350',
-      originalPrice: '500',
+      price: '450',
+      originalPrice: '600',
       popular: false,
       color: 'from-orange-500 to-yellow-500',
       features: [
-        '1-2 secciones personalizadas',
+        'Hasta 4 secciones personalizadas',
         'Diseño responsivo',
         'Formulario de contacto básico',
         'Certificado SSL incluido',
@@ -86,7 +86,7 @@ const Pricing = () => {
       color: 'from-blue-500 to-cyan-500',
       features: [
         'Diseño responsivo profesional',
-        'Hasta 5 secciones incluidas',
+        'Hasta 8 secciones incluidas',
         'Formulario de contacto avanzado',
         'Optimización SEO ON PAGE',
         'Integración con Google Analytics',
@@ -163,7 +163,7 @@ const Pricing = () => {
             </span>
           </h2>
           <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-            Desde €350 puedes tener tu presencia digital profesional. Sin costes
+            Desde €450 puedes tener tu presencia digital profesional. Sin costes
             ocultos, con garantía de satisfacción y entrega puntual.
           </p>
         </div>
@@ -366,7 +366,7 @@ const Pricing = () => {
         <div className='text-center mt-24'>
           <div className='bg-gradient-to-br from-orange-50 to-yellow-50 rounded-2xl shadow-lg p-8 max-w-4xl mx-auto border-2 border-orange-200'>
             <h3 className='text-2xl md:text-3xl font-bold text-gray-900 mb-4'>
-              ¿Tienes un presupuesto por debajo de €350?
+              ¿Tienes un presupuesto por debajo de €450?
             </h3>
             <p className='text-xl text-gray-700 mb-2 font-semibold'>
               ¡No te vayas! Hablemos 💬

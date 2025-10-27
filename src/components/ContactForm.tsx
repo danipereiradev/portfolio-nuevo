@@ -109,19 +109,19 @@ const ContactForm = ({ preselectedPlan }: ContactFormProps = {}) => {
           newErrors.plan = 'Selecciona un plan';
         }
         if (
-          formData.plan === 'Página Web Sencilla (Desde €350)' &&
+          formData.plan === 'Página Web Sencilla (Desde €450)' &&
           !formData.lowCostBudget
         ) {
           newErrors.lowCostBudget = 'Introduce tu presupuesto disponible';
         }
         if (
-          formData.plan === 'Página Web Sencilla (Desde €350)' &&
+          formData.plan === 'Página Web Sencilla (Desde €450)' &&
           formData.lowCostBudget
         ) {
           const budget = parseFloat(formData.lowCostBudget);
-          if (isNaN(budget) || budget < 350 || budget > 1000) {
+          if (isNaN(budget) || budget < 450 || budget > 1000) {
             newErrors.lowCostBudget =
-              'El presupuesto debe estar entre €350 y €1000';
+              'El presupuesto debe estar entre €450 y €1000';
           }
         }
         if (!formData.description || formData.description.trim().length < 20) {
@@ -220,7 +220,7 @@ const ContactForm = ({ preselectedPlan }: ContactFormProps = {}) => {
         // Plan y detalles del proyecto
         plan: formData.plan,
         lowCostBudget:
-          formData.plan === 'Página Web Sencilla (Desde €350)'
+          formData.plan === 'Página Web Sencilla (Desde €450)'
             ? `€${formData.lowCostBudget}`
             : 'N/A',
         description: formData.description,
@@ -242,7 +242,7 @@ Empresa: ${formData.company || 'No especificada'}
 
 Plan Seleccionado: ${formData.plan}
 ${
-  formData.plan === 'Página Web Sencilla (Desde €350)'
+  formData.plan === 'Página Web Sencilla (Desde €450)'
     ? `Presupuesto disponible: €${formData.lowCostBudget}`
     : ''
 }
@@ -279,10 +279,10 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
       // Track conversión exitosa
       const planPrices: { [key: string]: number } = {
-        'Página Web Sencilla (Desde €350)': 350,
+        'Página Web Sencilla (Desde €450)': 450,
         'Página Web Autónomos y Pymes (Desde €750)': 750,
         'Tienda Online (Desde €1250)': 1250,
-        'Aplicación Web o Móvil (Desde €3200)': 3200,
+        'Aplicación Web o Móvil (Precio a Consultar)': 0,
       };
       const planValue = planPrices[formData.plan] || 0;
       trackFormSubmit(formData.plan, planValue);
@@ -490,11 +490,11 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                   onClick={() =>
                     handleInputChange(
                       'plan',
-                      'Página Web Sencilla (Desde €350)'
+                      'Página Web Sencilla (Desde €450)'
                     )
                   }
                   className={`p-5 text-left border-2 rounded-xl transition-all duration-200 ${
-                    formData.plan === 'Página Web Sencilla (Desde €350)'
+                    formData.plan === 'Página Web Sencilla (Desde €450)'
                       ? 'border-orange-500 bg-orange-50'
                       : errors.plan
                       ? 'border-red-500'
@@ -503,9 +503,9 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                 >
                   <div className='flex items-start justify-between mb-2'>
                     <h4 className='font-bold text-gray-900'>
-                      Landing Page Express
+                      Página Web Sencilla
                     </h4>
-                    {formData.plan === 'Página Web Sencilla (Desde €350)' && (
+                    {formData.plan === 'Página Web Sencilla (Desde €450)' && (
                       <Check className='w-5 h-5 text-orange-600' />
                     )}
                   </div>
@@ -513,7 +513,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                     Solución rápida y económica para emprendedores
                   </p>
                   <p className='text-lg font-bold text-orange-600'>
-                    Desde €350
+                    Desde €450
                   </p>
                 </button>
 
@@ -613,8 +613,8 @@ Fecha: ${new Date().toLocaleString('es-ES')}
               {errors.plan && <ErrorMessage error={errors.plan} />}
             </div>
 
-            {/* Campo de presupuesto Landing Page Express - solo visible si se selecciona este plan */}
-            {formData.plan === 'Página Web Sencilla (Desde €350)' && (
+            {/* Campo de presupuesto Página Web Sencilla - solo visible si se selecciona este plan */}
+            {formData.plan === 'Página Web Sencilla (Desde €450)' && (
               <div className='bg-orange-50 p-4 rounded-lg border border-orange-200'>
                 <label className='block text-sm font-medium text-gray-700 mb-2'>
                   Presupuesto disponible (en euros) *
@@ -625,7 +625,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                   </span>
                   <input
                     type='number'
-                    min='350'
+                    min='450'
                     max='1000'
                     step='50'
                     value={formData.lowCostBudget}
@@ -637,12 +637,12 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                         ? 'border-red-500'
                         : 'border-gray-300'
                     }`}
-                    placeholder='350'
+                    placeholder='450'
                   />
                 </div>
                 <p className='text-sm text-gray-600 mt-2'>
                   Indica el presupuesto que tienes disponible para tu proyecto
-                  (entre €350 y €1000)
+                  (entre €450 y €1000)
                 </p>
                 {errors.lowCostBudget && (
                   <ErrorMessage error={errors.lowCostBudget} />

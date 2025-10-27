@@ -78,7 +78,7 @@ const Hero = () => {
                 clipRule='evenodd'
               />
             </svg>
-            Desde €350
+            Desde €450
           </span>
           <span className='bg-purple-500 text-white px-2 py-1 rounded-full text-xs font-bold shadow-lg flex items-center gap-1'>
             <svg className='w-3 h-3' fill='currentColor' viewBox='0 0 20 20'>

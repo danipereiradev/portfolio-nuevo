@@ -54,7 +54,7 @@ const Header = () => {
   };
 
   const services = [
-    { name: 'Página Web Sencilla', path: '/landing-express', price: '€350' },
+    { name: 'Página Web Sencilla', path: '/landing-express', price: '€450' },
     {
       name: 'Página Web Autónomos y Pymes',
       path: '/web-autonomos-pymes',
