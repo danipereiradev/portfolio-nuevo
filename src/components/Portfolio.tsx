@@ -57,7 +57,7 @@ const Portfolio = () => {
       description: t('portfolio.elefantes.desc'),
       image:
         'https://images.pexels.com/photos/1371360/pexels-photo-1371360.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tech: ['WordPress', 'CSS3', 'JavaScript', 'PHP'],
+      tech: ['WordPress', 'Genesis framework', 'CSS3', 'JavaScript', 'PHP'],
       category: 'Influencer/Travel',
       url: 'https://elviajedeloselefantes.com',
     },
