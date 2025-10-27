@@ -91,7 +91,8 @@ const LandingTienda = () => {
               ⭐ PLAN MÁS ELEGIDO
             </span>
             <div className='flex items-center gap-3'>
-              <div>
+              <div className='flex flex-col items-center'>
+                <p className='text-lg text-gray-600 font-medium mb-1'>Desde</p>
                 <p className='text-gray-500 text-sm line-through'>€1,650</p>
                 <p className='text-6xl font-bold text-green-600'>€1,250</p>
               </div>

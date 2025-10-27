@@ -77,7 +77,8 @@ const LandingExpress = () => {
           {/* Price Badge */}
           <div className='bg-white rounded-2xl shadow-2xl p-6 mb-8 inline-block'>
             <div className='flex items-center gap-3'>
-              <div>
+              <div className='flex flex-col items-center'>
+                <p className='text-lg text-gray-600 font-medium mb-1'>Desde</p>
                 <p className='text-gray-500 text-sm line-through'>€600</p>
                 <p className='text-6xl font-bold text-orange-600'>€450</p>
               </div>

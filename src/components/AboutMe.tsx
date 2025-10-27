@@ -85,9 +85,9 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
                 <p>
                   Soy un desarrollador web autodidacta y naturalmente curioso
                   (sí, un clásico caso de TDAH). Empecé por necesidad, rompiendo
-                  y reconstruyendo la tienda online del negocio familiar de
-                  música y audio… y ahí, tras noches en foros y tutoriales
-                  descubrí que el código me apasionaba.
+                  y reconstruyendo la tienda online del negocio familiar… y ahí,
+                  tras noches en foros y tutoriales descubrí que el código me
+                  apasionaba.
                 </p>
                 <p>
                   Aunque hoy mi día a día está lleno de líneas de código, la

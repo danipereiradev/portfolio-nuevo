@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Check,
   Star,
@@ -63,6 +64,7 @@ const Pricing = () => {
       originalPrice: '600',
       popular: false,
       color: 'from-orange-500 to-yellow-500',
+      path: '/landing-express',
       features: [
         'Hasta 4 secciones personalizadas',
         'Diseño responsivo',
@@ -84,6 +86,7 @@ const Pricing = () => {
       originalPrice: '950',
       popular: false,
       color: 'from-blue-500 to-cyan-500',
+      path: '/web-autonomos-pymes',
       features: [
         'Diseño responsivo profesional',
         'Hasta 8 secciones incluidas',
@@ -107,6 +110,7 @@ const Pricing = () => {
       originalPrice: '1650',
       popular: true,
       color: 'from-green-500 to-emerald-500',
+      path: '/tienda-online',
       features: [
         'Hasta 50 productos incluidos',
         'Sistema de pagos seguro (Stripe/PayPal)',
@@ -132,6 +136,7 @@ const Pricing = () => {
       originalPrice: null,
       popular: false,
       color: 'from-purple-500 to-pink-500',
+      path: '/aplicacion-web',
       features: [
         'Desarrollo 100% personalizado',
         'Base de datos avanzada',
@@ -248,26 +253,31 @@ const Pricing = () => {
                     </div>
                   ) : (
                     <>
-                      <div className='flex items-center justify-center gap-2 mb-2'>
-                        <span className='text-4xl font-bold text-gray-900'>
-                          {parseInt(plan.price) > 999
-                            ? `€${plan.price.slice(0, 1)},${plan.price.slice(
-                                1
-                              )}`
-                            : `€${plan.price}`}
+                      <div className='flex flex-col items-center mb-2'>
+                        <span className='text-lg text-gray-600 font-medium mb-1'>
+                          Desde
                         </span>
-                        {plan.originalPrice && (
-                          <div className='flex flex-col'>
-                            <span className='text-sm text-gray-500 line-through'>
-                              €{plan.originalPrice}
-                            </span>
-                            <span className='text-xs text-green-600 font-semibold'>
-                              Ahorras €
-                              {parseInt(plan.originalPrice) -
-                                parseInt(plan.price)}
-                            </span>
-                          </div>
-                        )}
+                        <div className='flex items-center gap-2'>
+                          <span className='text-4xl font-bold text-gray-900'>
+                            {parseInt(plan.price) > 999
+                              ? `€${plan.price.slice(0, 1)},${plan.price.slice(
+                                  1
+                                )}`
+                              : `€${plan.price}`}
+                          </span>
+                          {plan.originalPrice && (
+                            <div className='flex flex-col'>
+                              <span className='text-sm text-gray-500 line-through'>
+                                €{plan.originalPrice}
+                              </span>
+                              <span className='text-xs text-green-600 font-semibold'>
+                                Ahorras €
+                                {parseInt(plan.originalPrice) -
+                                  parseInt(plan.price)}
+                              </span>
+                            </div>
+                          )}
+                        </div>
                       </div>
                       <p className='text-sm text-gray-500 mb-4'>
                         Precio final del proyecto completo
@@ -304,13 +314,13 @@ const Pricing = () => {
                 </div>
 
                 {/* CTA Button */}
-                <button
-                  onClick={scrollToContact}
+                <Link
+                  to={plan.path}
                   className={`w-full bg-gradient-to-r ${plan.color} text-white px-6 py-4 rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2 group`}
                 >
-                  Solicitar Presupuesto
+                  Ver más información
                   <ArrowRight className='w-4 h-4 group-hover:translate-x-1 transition-transform duration-200' />
-                </button>
+                </Link>
 
                 {/* Accordion - Revisions (only if applicable) */}
                 {getAdditionalInfo(plan.id).length > 0 && (
