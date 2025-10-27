@@ -82,7 +82,7 @@ const LandingTienda = () => {
           <p className='text-xl md:text-2xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto'>
             Solución <strong>e-commerce completa</strong> con pasarela de pagos,
             gestión de inventario y panel de administración.{' '}
-            <strong>Hasta 50 productos incluidos</strong>.
+            <strong>Hasta 20 productos cargados incluidos</strong>.
           </p>
 
           {/* Price Badge */}
@@ -122,7 +122,7 @@ const LandingTienda = () => {
             </span>
             <span className='bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 border border-white/30'>
               <Package className='w-4 h-4' />
-              50 Productos
+              20 Productos iniciales
             </span>
             <span className='bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 border border-white/30'>
               <Star className='w-4 h-4' />
@@ -254,10 +254,10 @@ const LandingTienda = () => {
                   <Check className='w-6 h-6 text-green-500 flex-shrink-0 mt-1' />
                   <div>
                     <h3 className='font-bold text-gray-900 mb-1'>
-                      Hasta 50 productos incluidos
+                      Hasta 20 productos cargados por mi
                     </h3>
                     <p className='text-gray-600 text-sm'>
-                      Yo cargo los primeros 50 productos por ti
+                      Configuración inicial incluida
                     </p>
                   </div>
                 </div>
@@ -266,10 +266,10 @@ const LandingTienda = () => {
                   <Check className='w-6 h-6 text-green-500 flex-shrink-0 mt-1' />
                   <div>
                     <h3 className='font-bold text-gray-900 mb-1'>
-                      Pagos con Stripe/PayPal
+                      Pasarelas de pago seguras
                     </h3>
                     <p className='text-gray-600 text-sm'>
-                      Configuración completa de pasarelas
+                      Stripe y PayPal configurados
                     </p>
                   </div>
                 </div>
@@ -278,10 +278,58 @@ const LandingTienda = () => {
                   <Check className='w-6 h-6 text-green-500 flex-shrink-0 mt-1' />
                   <div>
                     <h3 className='font-bold text-gray-900 mb-1'>
-                      Gestión completa de inventario
+                      Gestión completa de pedidos e inventario
                     </h3>
                     <p className='text-gray-600 text-sm'>
-                      Actualiza stock en tiempo real
+                      Control total de tu stock y ventas
+                    </p>
+                  </div>
+                </div>
+
+                <div className='flex items-start gap-3'>
+                  <Check className='w-6 h-6 text-green-500 flex-shrink-0 mt-1' />
+                  <div>
+                    <h3 className='font-bold text-gray-900 mb-1'>
+                      Carrito de compra con cupones y descuentos
+                    </h3>
+                    <p className='text-gray-600 text-sm'>
+                      Promociones y códigos de descuento
+                    </p>
+                  </div>
+                </div>
+
+                <div className='flex items-start gap-3'>
+                  <Check className='w-6 h-6 text-green-500 flex-shrink-0 mt-1' />
+                  <div>
+                    <h3 className='font-bold text-gray-900 mb-1'>
+                      Configuración básica de envíos nacionales
+                    </h3>
+                    <p className='text-gray-600 text-sm'>
+                      Tarifas y zonas de envío en España
+                    </p>
+                  </div>
+                </div>
+
+                <div className='flex items-start gap-3'>
+                  <Check className='w-6 h-6 text-green-500 flex-shrink-0 mt-1' />
+                  <div>
+                    <h3 className='font-bold text-gray-900 mb-1'>
+                      Optimización SEO ON PAGE técnica
+                    </h3>
+                    <p className='text-gray-600 text-sm'>
+                      Títulos, meta descripciones y estructura
+                    </p>
+                  </div>
+                </div>
+
+                <div className='flex items-start gap-3'>
+                  <Check className='w-6 h-6 text-green-500 flex-shrink-0 mt-1' />
+                  <div>
+                    <h3 className='font-bold text-gray-900 mb-1'>
+                      Integración con redes sociales
+                    </h3>
+                    <p className='text-gray-600 text-sm'>
+                      Enlaces y botones para compartir
                     </p>
                   </div>
                 </div>
@@ -293,7 +341,7 @@ const LandingTienda = () => {
                       Panel de administración intuitivo
                     </h3>
                     <p className='text-gray-600 text-sm'>
-                      Fácil de usar, sin conocimientos técnicos
+                      Completamente en español
                     </p>
                   </div>
                 </div>
@@ -302,82 +350,10 @@ const LandingTienda = () => {
                   <Check className='w-6 h-6 text-green-500 flex-shrink-0 mt-1' />
                   <div>
                     <h3 className='font-bold text-gray-900 mb-1'>
-                      Carrito de compra avanzado
+                      Estadísticas básicas de ventas y tráfico
                     </h3>
                     <p className='text-gray-600 text-sm'>
-                      Con cupones y descuentos
-                    </p>
-                  </div>
-                </div>
-
-                <div className='flex items-start gap-3'>
-                  <Check className='w-6 h-6 text-green-500 flex-shrink-0 mt-1' />
-                  <div>
-                    <h3 className='font-bold text-gray-900 mb-1'>
-                      Configuración de envíos
-                    </h3>
-                    <p className='text-gray-600 text-sm'>
-                      Zonas, tarifas y opciones personalizadas
-                    </p>
-                  </div>
-                </div>
-
-                <div className='flex items-start gap-3'>
-                  <Check className='w-6 h-6 text-green-500 flex-shrink-0 mt-1' />
-                  <div>
-                    <h3 className='font-bold text-gray-900 mb-1'>
-                      Sistema de cupones
-                    </h3>
-                    <p className='text-gray-600 text-sm'>
-                      Crea descuentos y promociones
-                    </p>
-                  </div>
-                </div>
-
-                <div className='flex items-start gap-3'>
-                  <Check className='w-6 h-6 text-green-500 flex-shrink-0 mt-1' />
-                  <div>
-                    <h3 className='font-bold text-gray-900 mb-1'>
-                      Redes sociales integradas
-                    </h3>
-                    <p className='text-gray-600 text-sm'>
-                      Conecta con tus perfiles sociales
-                    </p>
-                  </div>
-                </div>
-
-                <div className='flex items-start gap-3'>
-                  <Check className='w-6 h-6 text-green-500 flex-shrink-0 mt-1' />
-                  <div>
-                    <h3 className='font-bold text-gray-900 mb-1'>
-                      Optimización SEO ON PAGE
-                    </h3>
-                    <p className='text-gray-600 text-sm'>
-                      Para aparecer en Google
-                    </p>
-                  </div>
-                </div>
-
-                <div className='flex items-start gap-3'>
-                  <Check className='w-6 h-6 text-green-500 flex-shrink-0 mt-1' />
-                  <div>
-                    <h3 className='font-bold text-gray-900 mb-1'>
-                      Estadísticas básicas de ventas
-                    </h3>
-                    <p className='text-gray-600 text-sm'>
-                      Conoce tu rendimiento
-                    </p>
-                  </div>
-                </div>
-
-                <div className='flex items-start gap-3'>
-                  <Check className='w-6 h-6 text-green-500 flex-shrink-0 mt-1' />
-                  <div>
-                    <h3 className='font-bold text-gray-900 mb-1'>
-                      Entrega en 2-4 semanas
-                    </h3>
-                    <p className='text-gray-600 text-sm'>
-                      Según complejidad del catálogo
+                      Conoce el rendimiento de tu tienda
                     </p>
                   </div>
                 </div>
@@ -389,7 +365,19 @@ const LandingTienda = () => {
                       2 revisiones incluidas
                     </h3>
                     <p className='text-gray-600 text-sm'>
-                      Ajustes y mejoras sin coste
+                      Ajustes de diseño o contenido
+                    </p>
+                  </div>
+                </div>
+
+                <div className='flex items-start gap-3'>
+                  <Check className='w-6 h-6 text-green-500 flex-shrink-0 mt-1' />
+                  <div>
+                    <h3 className='font-bold text-gray-900 mb-1'>
+                      1 mes de soporte técnico postentrega
+                    </h3>
+                    <p className='text-gray-600 text-sm'>
+                      Asistencia después del lanzamiento
                     </p>
                   </div>
                 </div>
