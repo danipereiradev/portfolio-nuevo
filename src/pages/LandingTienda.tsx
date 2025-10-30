@@ -395,6 +395,47 @@ const LandingTienda = () => {
                   realizará el cobro total hasta que estés conforme.
                 </p>
               </div>
+
+              {/* Servicios Adicionales Opcionales */}
+              <div className='mt-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border-2 border-blue-200'>
+                <h3 className='font-bold text-gray-900 mb-4 text-lg'>
+                  ➕ Servicios adicionales opcionales
+                </h3>
+                <div className='space-y-3'>
+                  <div className='flex items-start gap-2'>
+                    <span className='text-blue-600 font-bold text-sm mt-0.5'>
+                      •
+                    </span>
+                    <p className='text-gray-700 text-sm'>
+                      <strong>Carga adicional de productos:</strong>
+                    </p>
+                  </div>
+                  <div className='flex items-start gap-2'>
+                    <span className='text-blue-600 font-bold text-sm mt-0.5'>
+                      •
+                    </span>
+                    <p className='text-gray-700 text-sm'>
+                      <strong>Configuración avanzada de envíos</strong>
+                    </p>
+                  </div>
+                  <div className='flex items-start gap-2'>
+                    <span className='text-blue-600 font-bold text-sm mt-0.5'>
+                      •
+                    </span>
+                    <p className='text-gray-700 text-sm'>
+                      <strong>Copywriting SEO o textos de producto:</strong>
+                    </p>
+                  </div>
+                  <div className='flex items-start gap-2'>
+                    <span className='text-blue-600 font-bold text-sm mt-0.5'>
+                      •
+                    </span>
+                    <p className='text-gray-700 text-sm'>
+                      <strong>Mantenimiento mensual:</strong>
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

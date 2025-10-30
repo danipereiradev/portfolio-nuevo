@@ -14,10 +14,34 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
 
   const experience = [
     {
+      company: 'Freelance',
+      role: 'Desarrollador Front-end',
+      period: 'Octubre 2025 - Presente',
+      location: 'Madrid, Comunidad de Madrid, España · Remoto',
+      description: (
+        <div>
+          <p className='mb-2 font-medium'>Proyectos:</p>
+          <ul className='list-none space-y-3 ml-2'>
+            <li>
+              <div className='font-medium text-gray-800'>
+                Jitsi Meet – Integración y optimización de WebAssembly
+              </div>
+              <p className='text-sm mt-1 ml-4'>
+                Colaboración en un proyecto basado en Jitsi Meet, enfocándome en
+                la integración y optimización de módulos WebAssembly
+                personalizados y mejorando el rendimiento del lado del cliente y
+                los flujos de trabajo de cifrado.
+              </p>
+            </li>
+          </ul>
+        </div>
+      ),
+    },
+    {
       company: 'Kelea',
       role: 'Front-end Software Developer',
-      period: 'Junio 2024 - Presente',
-      location: 'A Coruña, Galicia',
+      period: 'Junio 2024 - Octubre 2025',
+      location: 'Remoto',
       description:
         'Desarrollo front-end en proyectos corporativos utilizando tecnologías modernas <strong>para la empresa textil más grande del mundo.</strong>',
     },
@@ -25,7 +49,7 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
       company: 'Babel',
       role: 'Front-end Software Developer',
       period: 'Julio 2021 - Enero 2024',
-      location: 'Barcelona',
+      location: 'Remoto',
       description:
         'Desarrollo front-end para diversos clientes corporativos. Actualización de código legacy a React 17-18, corrección de bugs y mejoras de rendimiento. Creación de UI completas desde cero usando React, React Query, React Testing Library, Tailwind y Konvajs. Trabajo en proyectos para empresas como <strong>Banco Santander Alemania</strong>, <strong>Ferrovial</strong>, <strong>Acciona</strong> y <strong>Xacobeo 21/22</strong>.',
     },
@@ -137,10 +161,15 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
                       </div>
                     </div>
                     <p className='text-sm text-gray-500 mb-2'>{job.location}</p>
-                    <p
-                      className='text-gray-700 leading-relaxed'
-                      dangerouslySetInnerHTML={{ __html: job.description }}
-                    />
+                    <div className='text-gray-700 leading-relaxed'>
+                      {typeof job.description === 'string' ? (
+                        <p
+                          dangerouslySetInnerHTML={{ __html: job.description }}
+                        />
+                      ) : (
+                        job.description
+                      )}
+                    </div>
                   </div>
                 ))}
               </div>
