@@ -407,7 +407,7 @@ const LandingTienda = () => {
                       •
                     </span>
                     <p className='text-gray-700 text-sm'>
-                      <strong>Carga adicional de productos:</strong>
+                      <strong>Carga adicional de productos</strong>
                     </p>
                   </div>
                   <div className='flex items-start gap-2'>
@@ -423,7 +423,7 @@ const LandingTienda = () => {
                       •
                     </span>
                     <p className='text-gray-700 text-sm'>
-                      <strong>Copywriting SEO o textos de producto:</strong>
+                      <strong>Copywriting SEO o textos de producto</strong>
                     </p>
                   </div>
                   <div className='flex items-start gap-2'>
@@ -431,7 +431,7 @@ const LandingTienda = () => {
                       •
                     </span>
                     <p className='text-gray-700 text-sm'>
-                      <strong>Mantenimiento mensual:</strong>
+                      <strong>Mantenimiento mensual</strong>
                     </p>
                   </div>
                 </div>
