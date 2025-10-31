@@ -48,7 +48,8 @@ const Clients = () => {
           <p className='text-xl text-gray-300 max-w-3xl mx-auto text-center'>
             He colaborado en proyectos diversos, desde startups hasta grandes
             corporaciones, aportando mi experiencia en desarrollo web y
-            soluciones digitales
+            soluciones digitales a través de varias consultoras tecnológicas
+            tanto nacionales como internacionales
           </p>
         </div>
 
