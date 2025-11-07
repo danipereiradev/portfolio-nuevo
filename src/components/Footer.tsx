@@ -60,7 +60,7 @@ const Footer = () => {
               <div className='flex items-center space-x-2 mb-6'>
                 <Code2 className='w-8 h-8 text-blue-400' />
                 <span className='text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent'>
-                  Dani Pereira
+                  DPW
                 </span>
               </div>
               <p className='text-gray-300 mb-6 leading-relaxed'>
