@@ -91,8 +91,7 @@ const translations = {
   'footer.contact_title': 'Contacto',
   'footer.areas_title': 'Áreas de Servicio',
   'footer.areas_desc': 'Desarrollo web profesional en toda España',
-  'footer.copyright':
-    'Desarrollo Web DPW. Todos los derechos reservados.',
+  'footer.copyright': 'Desarrollo Web DPW. Todos los derechos reservados.',
   'footer.privacy': 'Política de Privacidad',
   'footer.terms': 'Términos de Servicio',
   'footer.cookies': 'Cookies',
