@@ -20,7 +20,7 @@ const translations = {
 
   // Hero
   'hero.title': 'Desarrollo Web',
-  'hero.subtitle': 'Dani Pereira',
+  'hero.subtitle': 'DPW',
   'hero.description':
     '+10 años creando experiencias web que transforman negocios.',
   'hero.features': 'Código Limpio • Diseño Moderno • Resultados Reales',
@@ -92,7 +92,7 @@ const translations = {
   'footer.areas_title': 'Áreas de Servicio',
   'footer.areas_desc': 'Desarrollo web profesional en toda España',
   'footer.copyright':
-    'Desarrollo Web Dani Pereira. Todos los derechos reservados.',
+    'Desarrollo Web DPW. Todos los derechos reservados.',
   'footer.privacy': 'Política de Privacidad',
   'footer.terms': 'Términos de Servicio',
   'footer.cookies': 'Cookies',
