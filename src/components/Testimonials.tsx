@@ -11,6 +11,8 @@ const Testimonials = () => {
       website: 'https://www.o2ods.com/',
       date: '27/11/2025',
       text: 'Durante el tiempo que ha durado la colaboración con Daniel, ha quedado en evidencia que es un desarrollador altamente competente, con un enfoque claro en la excelencia técnica y la experiencia de usuario. Durante nuestra colaboración ha demostrado un dominio sobresaliente de frameworks modernos, una gran sensibilidad por el diseño y un compromiso constante con la calidad y la optimización del producto. Ha mostrado tener capacidad para trabajar en equipo y atención meticulosa a los detalles, lo que lo convierte en un profesional excepcional y confiable.',
+      highlight:
+        'Durante nuestra colaboración ha demostrado un dominio sobresaliente de frameworks modernos, una gran sensibilidad por el diseño y un compromiso constante con la calidad y la optimización del producto.',
       rating: 5,
       avatar: 'A',
     },
