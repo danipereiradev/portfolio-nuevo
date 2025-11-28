@@ -16,6 +16,19 @@ const TestimonialsCarousel = ({
 
   const testimonials = [
     {
+      name: 'Arantxa',
+      company: 'Mobile One2One, S.L.',
+      website: 'https://www.o2ods.com',
+      date: '27/11/2025',
+      text: 'Durante el tiempo que ha durado nuestra colaboración quedó claro que Daniel es un desarrollador altamente competente, con un enfoque claro en la excelencia técnica y la experiencia de usuario.',
+      highlight:
+        'Domina frameworks modernos, cuida el diseño y mantiene un compromiso constante con la calidad y la optimización del producto.',
+      extraText:
+        'Su capacidad para trabajar en equipo y la atención meticulosa a los detalles lo convierten en un profesional excepcional y confiable.',
+      rating: 5,
+      avatar: 'A',
+    },
+    {
       name: 'Víctor',
       company: 'O Alicornio - Casa Rural',
       website: 'oalicornio.com',
