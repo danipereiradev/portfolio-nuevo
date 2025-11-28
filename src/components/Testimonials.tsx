@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Testimonials = () => {
@@ -10,11 +10,7 @@ const Testimonials = () => {
       company: 'Mobile One2One, S.L.',
       website: 'https://www.o2ods.com/',
       date: '27/11/2025',
-      text: 'Durante el tiempo que ha durado nuestra colaboración quedó claro que Daniel es un desarrollador altamente competente, con un enfoque claro en la excelencia técnica y la experiencia de usuario.',
-      highlight:
-        'Domina frameworks modernos, cuida el diseño y mantiene un compromiso constante con la calidad y la optimización del producto.',
-      extraText:
-        'Su capacidad para trabajar en equipo y la atención meticulosa a los detalles lo convierten en un profesional excepcional y confiable.',
+      text: 'Durante el tiempo que ha durado la colaboración con Daniel, ha quedado en evidencia que es un desarrollador altamente competente, con un enfoque claro en la excelencia técnica y la experiencia de usuario. Durante nuestra colaboración ha demostrado un dominio sobresaliente de frameworks modernos, una gran sensibilidad por el diseño y un compromiso constante con la calidad y la optimización del producto. Ha mostrado tener capacidad para trabajar en equipo y atención meticulosa a los detalles, lo que lo convierte en un profesional excepcional y confiable.',
       rating: 5,
       avatar: 'A',
     },
@@ -218,11 +214,13 @@ const Testimonials = () => {
             </blockquote>
 
             {/* Highlight Text */}
-            <div className='bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg mb-6'>
-              <p className='text-blue-800 font-medium italic'>
-                "{currentTest.highlight}"
-              </p>
-            </div>
+            {currentTest.highlight && (
+              <div className='bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg mb-6'>
+                <p className='text-blue-800 font-medium italic'>
+                  "{currentTest.highlight}"
+                </p>
+              </div>
+            )}
 
             {/* Extra Text for Carlos */}
             {currentTest.extraText && (
