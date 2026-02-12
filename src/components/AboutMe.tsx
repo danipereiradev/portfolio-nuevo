@@ -43,7 +43,7 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
       period: 'Junio 2024 - Octubre 2025',
       location: 'Remoto',
       description:
-        'Desarrollo front-end en proyectos corporativos utilizando tecnologías modernas <strong>para la empresa textil más grande del mundo.</strong>',
+        'Desarrollo front-end en proyectos corporativos utilizando tecnologías modernas para cliente <strong>INDITEX</strong>',
     },
     {
       company: 'Babel',
