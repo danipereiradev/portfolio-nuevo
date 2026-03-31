@@ -55,103 +55,32 @@ const Pricing = () => {
 
   const pricingPlans = [
     {
-      id: 'lowcost',
-      icon: <Zap className='w-8 h-8' />,
-      name: 'Página Web Sencilla',
-      description:
-        'Solución rápida y económica ideal para emprendedores y lanzamientos',
-      price: '450',
-      originalPrice: '600',
-      popular: false,
-      color: 'from-orange-500 to-yellow-500',
-      path: '/landing-express',
-      features: [
-        'Hasta 4 secciones personalizadas',
-        'Diseño responsivo',
-        'Formulario de contacto básico',
-        'Certificado SSL incluido',
-        'Entrega ultra-rápida',
-      ],
-      deliveryTime: '1 semana',
-      bestFor:
-        'Emprendedores, eventos, lanzamientos rápidos, presupuesto limitado',
-    },
-    {
-      id: 'corporate',
-      icon: <Globe className='w-8 h-8' />,
-      name: 'Página Web Autónomos y Pymes',
-      description:
-        'Perfecta para empresas que buscan establecer su presencia digital profesional',
-      price: '750',
-      originalPrice: '950',
-      popular: false,
-      color: 'from-blue-500 to-cyan-500',
-      path: '/web-autonomos-pymes',
-      features: [
-        'Diseño responsivo profesional',
-        'Hasta 8 secciones incluidas',
-        'Formulario de contacto avanzado',
-        'Optimización SEO ON PAGE',
-        'Integración con Google Analytics',
-        'Certificado SSL incluido',
-        'Entrega en formato responsive',
-      ],
-      deliveryTime: '2 semanas',
-      bestFor:
-        'Empresas establecidas, profesionales independientes, consultorías',
-    },
-    {
-      id: 'ecommerce',
-      icon: <ShoppingCart className='w-8 h-8' />,
-      name: 'Tienda Online',
-      description:
-        'Solución completa para vender productos online con todas las funcionalidades necesarias',
-      price: '1250',
-      originalPrice: '1650',
-      popular: true,
-      color: 'from-green-500 to-emerald-500',
-      path: '/tienda-online',
-      features: [
-        'Hasta 20 productos cargados por mi',
-        'Pasarelas de pago seguras (Stripe/PayPal)',
-        'Gestión completa de pedidos e inventario',
-        'Carrito con cupones y descuentos',
-        'Configuración básica de envíos nacionales',
-        'Optimización SEO ON PAGE técnica',
-        'Integración con redes sociales',
-        'Panel de administración en español',
-        'Estadísticas básicas de ventas y tráfico',
-        '2 revisiones incluidas',
-        '1 mes de soporte técnico postentrega',
-      ],
-      deliveryTime: '2-4 semanas',
-      bestFor: 'Tiendas físicas expandiéndose online, emprendedores, retailers',
-    },
-    {
       id: 'webapp',
       icon: <Smartphone className='w-8 h-8' />,
-      name: 'Aplicación Web o Móvil',
+      name: 'Desarrollo Web Personalizado',
       description:
-        'Desarrollo a medida para proyectos únicos con funcionalidades específicas',
+        'Desarrollo a medida para todo tipo de proyectos web: desde páginas corporativas hasta aplicaciones complejas',
       price: 'consultar',
       originalPrice: null,
-      popular: false,
+      popular: true,
       color: 'from-purple-500 to-pink-500',
       path: '/aplicacion-web',
       features: [
         'Desarrollo 100% personalizado',
-        'Base de datos avanzada',
-        'Panel de administración completo',
+        'Diseño responsivo profesional',
+        'Base de datos si es necesario',
+        'Panel de administración si es necesario',
         'Autenticación de usuarios',
         'API REST personalizada',
         'Integración con servicios externos',
         'Optimización SEO ON PAGE',
-        'Funcionalidades específicas',
+        'Funcionalidades específicas para tu proyecto',
         'Backup automático de datos',
+        'Soporte técnico postentrega',
       ],
       deliveryTime: 'A consultar según alcance',
       bestFor:
-        'Startups, proyectos innovadores, empresas con necesidades específicas',
+        'Todo tipo de proyectos: páginas web, tiendas online, aplicaciones web, startups y empresas',
     },
   ];
 
@@ -163,14 +92,13 @@ const Pricing = () => {
       <div className='container mx-auto px-6'>
         <div className='text-center mb-16'>
           <h2 className='text-4xl md:text-5xl font-bold text-gray-900 mb-4'>
-            Planes y Precios
+            Servicios de Desarrollo Web
             <span className='block text-2xl text-blue-600 font-normal mt-2'>
-              Precios competitivos y transparentes
+              Soluciones personalizadas para tu proyecto
             </span>
           </h2>
           <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-            Desde €450 puedes tener tu presencia digital profesional. Sin costes
-            ocultos, con garantía de satisfacción y entrega puntual.
+            Cada proyecto es único. Cuéntame tu idea y te prepararé un presupuesto ajustado a tus necesidades.
           </p>
         </div>
 
@@ -209,7 +137,7 @@ const Pricing = () => {
           </div>
         </div>
 
-        <div className='grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto'>
+        <div className='flex justify-center max-w-2xl mx-auto'>
           {pricingPlans.map((plan) => (
             <div
               key={plan.id}
@@ -377,14 +305,13 @@ const Pricing = () => {
         <div className='text-center mt-24'>
           <div className='bg-gradient-to-br from-orange-50 to-yellow-50 rounded-2xl shadow-lg p-8 max-w-4xl mx-auto border-2 border-orange-200'>
             <h3 className='text-2xl md:text-3xl font-bold text-gray-900 mb-4'>
-              ¿Tienes un presupuesto por debajo de €450?
+              ¿Tienes un proyecto en mente?
             </h3>
             <p className='text-xl text-gray-700 mb-2 font-semibold'>
-              ¡No te vayas! Hablemos 💬
+              ¡Hablemos! 💬
             </p>
             <p className='text-gray-600 mb-6'>
-              Siempre hay opciones. Cuéntame tu proyecto y encontraremos una
-              solución que se ajuste a tus posibilidades. Sin compromiso.
+              Cuéntame tu idea y encontraremos una solución que se ajuste a tu proyecto y presupuesto. Sin compromiso.
             </p>
             <div className='flex flex-col sm:flex-row gap-4 justify-center'>
               <button

@@ -64,11 +64,8 @@ const LandingTienda = () => {
 
         <div className='relative z-10 text-center px-6 max-w-5xl mx-auto py-20'>
           <div className='flex justify-center mb-6'>
-            <div className='bg-white/20 backdrop-blur-sm p-4 rounded-2xl relative'>
+            <div className='bg-white/20 backdrop-blur-sm p-4 rounded-2xl'>
               <ShoppingCart className='w-16 h-16 text-white animate-pulse' />
-              <span className='absolute -top-2 -right-2 bg-yellow-400 text-green-900 font-bold text-xs px-2 py-1 rounded-full'>
-                MÁS POPULAR
-              </span>
             </div>
           </div>
 
@@ -79,29 +76,11 @@ const LandingTienda = () => {
             </span>
           </h1>
 
-          <p className='text-xl md:text-2xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto'>
+          <p className='text-xl md:text-2xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto'>
             Solución <strong>e-commerce completa</strong> con pasarela de pagos,
             gestión de inventario y panel de administración.{' '}
-            <strong>Hasta 20 productos cargados incluidos</strong>.
+            <strong>Todo lo que necesitas para vender online</strong>.
           </p>
-
-          {/* Price Badge */}
-          <div className='bg-white rounded-2xl shadow-2xl p-6 mb-8 inline-block ring-4 ring-yellow-400'>
-            <span className='bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold mb-2 inline-block'>
-              ⭐ PLAN MÁS ELEGIDO
-            </span>
-            <div className='flex items-center gap-3'>
-              <div className='flex flex-col items-center'>
-                <p className='text-lg text-gray-600 font-medium mb-1'>Desde</p>
-                <p className='text-gray-500 text-sm line-through'>€1,650</p>
-                <p className='text-6xl font-bold text-green-600'>€1,250</p>
-              </div>
-              <div className='text-left'>
-                <p className='text-green-600 font-bold text-lg'>Ahorras €400</p>
-                <p className='text-gray-600 text-sm'>Precio final</p>
-              </div>
-            </div>
-          </div>
 
           {/* CTA Buttons */}
           <div className='flex flex-col sm:flex-row gap-4 justify-center items-center mb-12'>

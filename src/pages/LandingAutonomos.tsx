@@ -70,27 +70,12 @@ const LandingAutonomos = () => {
             </span>
           </h1>
 
-          <p className='text-xl md:text-2xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto'>
+          <p className='text-xl md:text-2xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto'>
             La solución perfecta para{' '}
             <strong>autónomos, pymes y profesionales</strong> que buscan
             establecer su presencia digital con <strong>SEO optimizado</strong>{' '}
             y diseño profesional.
           </p>
-
-          {/* Price Badge */}
-          <div className='bg-white rounded-2xl shadow-2xl p-6 mb-8 inline-block'>
-            <div className='flex items-center gap-3'>
-              <div className='flex flex-col items-center'>
-                <p className='text-lg text-gray-600 font-medium mb-1'>Desde</p>
-                <p className='text-gray-500 text-sm line-through'>€950</p>
-                <p className='text-6xl font-bold text-blue-600'>€750</p>
-              </div>
-              <div className='text-left'>
-                <p className='text-green-600 font-bold text-lg'>Ahorras €200</p>
-                <p className='text-gray-600 text-sm'>Precio final</p>
-              </div>
-            </div>
-          </div>
 
           {/* CTA Buttons */}
           <div className='flex flex-col sm:flex-row gap-4 justify-center items-center mb-12'>

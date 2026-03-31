@@ -71,29 +71,12 @@ const LandingApp = () => {
             </span>
           </h1>
 
-          <p className='text-xl md:text-2xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto'>
+          <p className='text-xl md:text-2xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto'>
             Convierte tu <strong>idea innovadora</strong> en realidad con
             desarrollo a medida. Ideal para{' '}
             <strong>startups, proyectos únicos</strong> y empresas con
             necesidades específicas.
           </p>
-
-          {/* Price Badge */}
-          <div className='bg-white rounded-2xl shadow-2xl p-6 mb-8 inline-block'>
-            <span className='bg-purple-500 text-white px-3 py-1 rounded-full text-xs font-bold mb-2 inline-block'>
-              💎 PLAN PREMIUM
-            </span>
-            <div className='flex items-center gap-3'>
-              <div>
-                <p className='text-5xl font-bold text-purple-600'>
-                  Precio a Consultar
-                </p>
-                <p className='text-gray-600 text-sm mt-2'>
-                  Cada proyecto es único
-                </p>
-              </div>
-            </div>
-          </div>
 
           {/* CTA Buttons */}
           <div className='flex flex-col sm:flex-row gap-4 justify-center items-center mb-12'>

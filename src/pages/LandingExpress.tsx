@@ -68,26 +68,11 @@ const LandingExpress = () => {
             </span>
           </h1>
 
-          <p className='text-xl md:text-2xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto'>
+          <p className='text-xl md:text-2xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto'>
             Perfecta para{' '}
             <strong>emprendedores, eventos y lanzamientos rápidos</strong>. Una
-            solución profesional y económica lista en <strong>1 semana</strong>.
+            solución profesional lista en <strong>tiempo récord</strong>.
           </p>
-
-          {/* Price Badge */}
-          <div className='bg-white rounded-2xl shadow-2xl p-6 mb-8 inline-block'>
-            <div className='flex items-center gap-3'>
-              <div className='flex flex-col items-center'>
-                <p className='text-lg text-gray-600 font-medium mb-1'>Desde</p>
-                <p className='text-gray-500 text-sm line-through'>€600</p>
-                <p className='text-6xl font-bold text-orange-600'>€450</p>
-              </div>
-              <div className='text-left'>
-                <p className='text-green-600 font-bold text-lg'>Ahorras €150</p>
-                <p className='text-gray-600 text-sm'>Precio final</p>
-              </div>
-            </div>
-          </div>
 
           {/* CTA Buttons */}
           <div className='flex flex-col sm:flex-row gap-4 justify-center items-center mb-12'>
