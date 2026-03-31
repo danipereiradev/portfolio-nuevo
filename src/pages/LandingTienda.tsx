@@ -367,7 +367,7 @@ const LandingTienda = () => {
                   💳 Pago flexible
                 </h3>
                 <p className='text-gray-700 text-sm mb-2'>
-                  50% al inicio (€625) y 50% a la entrega (€625).
+                  50% al inicio y 50% a la entrega.
                 </p>
                 <p className='text-gray-700 text-sm'>
                   ✅ <strong>Garantía de satisfacción 100%</strong> - No se

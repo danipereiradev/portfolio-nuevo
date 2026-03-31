@@ -326,7 +326,7 @@ const LandingAutonomos = () => {
                   💳 Pago flexible
                 </h3>
                 <p className='text-gray-700 text-sm mb-2'>
-                  50% al inicio (€375) y 50% a la entrega (€375).
+                  50% al inicio y 50% a la entrega.
                 </p>
                 <p className='text-gray-700 text-sm'>
                   ✅ <strong>Garantía de satisfacción 100%</strong> - Ajustamos

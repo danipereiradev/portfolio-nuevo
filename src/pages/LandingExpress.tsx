@@ -298,7 +298,7 @@ const LandingExpress = () => {
                   💳 Pago flexible
                 </h3>
                 <p className='text-gray-700 text-sm'>
-                  50% al inicio (€175) y 50% a la entrega (€175). Sin sorpresas.
+                  50% al inicio y 50% a la entrega. Sin sorpresas.
                 </p>
               </div>
             </div>
