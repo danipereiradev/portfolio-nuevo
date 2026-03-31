@@ -28,14 +28,14 @@ const Pricing = () => {
   };
 
   const getAdditionalInfo = (planId: string) => {
-    let numRevisiones = 2; // Por defecto
+    let numRevisiones = 2;
     if (planId === 'lowcost') numRevisiones = 0;
     else if (planId === 'corporate') numRevisiones = 1;
-    else if (planId === 'webapp') numRevisiones = 0; // Las revisiones se acuerdan en el proyecto
+    else if (planId === 'ecommerce') numRevisiones = 2;
+    else if (planId === 'webapp') numRevisiones = 0;
 
     const infoItems = [];
 
-    // Solo añadir revisiones si numRevisiones > 0
     if (numRevisiones > 0) {
       infoItems.push({
         icon: '🔄',
@@ -55,32 +55,102 @@ const Pricing = () => {
 
   const pricingPlans = [
     {
-      id: 'webapp',
-      icon: <Smartphone className='w-8 h-8' />,
-      name: 'Desarrollo Web Personalizado',
+      id: 'lowcost',
+      icon: <Zap className='w-8 h-8' />,
+      name: 'Página Web Sencilla',
       description:
-        'Desarrollo a medida para todo tipo de proyectos web: desde páginas corporativas hasta aplicaciones complejas',
+        'Solución rápida ideal para emprendedores y lanzamientos',
+      price: 'consultar',
+      originalPrice: null,
+      popular: false,
+      color: 'from-orange-500 to-yellow-500',
+      path: '/landing-express',
+      features: [
+        'Hasta 4 secciones personalizadas',
+        'Diseño responsivo',
+        'Formulario de contacto básico',
+        'Certificado SSL incluido',
+        'Entrega ultra-rápida',
+      ],
+      deliveryTime: 'A consultar',
+      bestFor:
+        'Emprendedores, eventos, lanzamientos rápidos, presupuesto limitado',
+    },
+    {
+      id: 'corporate',
+      icon: <Globe className='w-8 h-8' />,
+      name: 'Página Web Autónomos y Pymes',
+      description:
+        'Perfecta para empresas que buscan establecer su presencia digital profesional',
+      price: 'consultar',
+      originalPrice: null,
+      popular: false,
+      color: 'from-blue-500 to-cyan-500',
+      path: '/web-autonomos-pymes',
+      features: [
+        'Diseño responsivo profesional',
+        'Hasta 8 secciones incluidas',
+        'Formulario de contacto avanzado',
+        'Optimización SEO ON PAGE',
+        'Integración con Google Analytics',
+        'Certificado SSL incluido',
+        'Entrega en formato responsive',
+      ],
+      deliveryTime: 'A consultar',
+      bestFor:
+        'Empresas establecidas, profesionales independientes, consultorías',
+    },
+    {
+      id: 'ecommerce',
+      icon: <ShoppingCart className='w-8 h-8' />,
+      name: 'Tienda Online',
+      description:
+        'Solución completa para vender productos online con todas las funcionalidades necesarias',
       price: 'consultar',
       originalPrice: null,
       popular: true,
+      color: 'from-green-500 to-emerald-500',
+      path: '/tienda-online',
+      features: [
+        'Productos cargados incluidos',
+        'Pasarelas de pago seguras (Stripe/PayPal)',
+        'Gestión completa de pedidos e inventario',
+        'Carrito con cupones y descuentos',
+        'Configuración de envíos',
+        'Optimización SEO ON PAGE técnica',
+        'Integración con redes sociales',
+        'Panel de administración en español',
+        'Estadísticas básicas de ventas y tráfico',
+        'Soporte técnico postentrega',
+      ],
+      deliveryTime: 'A consultar',
+      bestFor: 'Tiendas físicas expandiéndose online, emprendedores, retailers',
+    },
+    {
+      id: 'webapp',
+      icon: <Smartphone className='w-8 h-8' />,
+      name: 'Aplicación Web o Móvil',
+      description:
+        'Desarrollo a medida para proyectos únicos con funcionalidades específicas',
+      price: 'consultar',
+      originalPrice: null,
+      popular: false,
       color: 'from-purple-500 to-pink-500',
       path: '/aplicacion-web',
       features: [
         'Desarrollo 100% personalizado',
-        'Diseño responsivo profesional',
-        'Base de datos si es necesario',
-        'Panel de administración si es necesario',
+        'Base de datos avanzada',
+        'Panel de administración completo',
         'Autenticación de usuarios',
         'API REST personalizada',
         'Integración con servicios externos',
         'Optimización SEO ON PAGE',
-        'Funcionalidades específicas para tu proyecto',
+        'Funcionalidades específicas',
         'Backup automático de datos',
-        'Soporte técnico postentrega',
       ],
       deliveryTime: 'A consultar según alcance',
       bestFor:
-        'Todo tipo de proyectos: páginas web, tiendas online, aplicaciones web, startups y empresas',
+        'Startups, proyectos innovadores, empresas con necesidades específicas',
     },
   ];
 
@@ -94,11 +164,11 @@ const Pricing = () => {
           <h2 className='text-4xl md:text-5xl font-bold text-gray-900 mb-4'>
             Servicios de Desarrollo Web
             <span className='block text-2xl text-blue-600 font-normal mt-2'>
-              Soluciones personalizadas para tu proyecto
+              Elige el tipo de proyecto que necesitas
             </span>
           </h2>
           <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-            Cada proyecto es único. Cuéntame tu idea y te prepararé un presupuesto ajustado a tus necesidades.
+            Cada proyecto es único. Consulta precios personalizados según tus necesidades y el alcance de tu idea.
           </p>
         </div>
 
@@ -113,11 +183,10 @@ const Pricing = () => {
                 <span className='text-2xl'>💳</span>
                 <div>
                   <p className='font-semibold text-gray-900 text-sm mb-1'>
-                    Pago flexible: 50% al inicio, 50% a la entrega
+                    Pago flexible disponible
                   </p>
                   <p className='text-xs text-gray-600'>
-                    Dividimos el pago en dos partes para facilitar tu inversión
-                    sin comprometer la calidad.
+                    Opciones de pago adaptadas a tu proyecto para facilitar tu inversión.
                   </p>
                 </div>
               </div>
@@ -137,7 +206,7 @@ const Pricing = () => {
           </div>
         </div>
 
-        <div className='flex justify-center max-w-2xl mx-auto'>
+        <div className='grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto'>
           {pricingPlans.map((plan) => (
             <div
               key={plan.id}

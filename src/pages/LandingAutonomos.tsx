@@ -365,7 +365,7 @@ const LandingAutonomos = () => {
       </section>
 
       {/* Contact Form with preselected plan */}
-      <ContactForm preselectedPlan='Página Web Autónomos y Pymes (Desde €750)' />
+      <ContactForm preselectedPlan='Página Web Autónomos y Pymes' />
     </>
   );
 };

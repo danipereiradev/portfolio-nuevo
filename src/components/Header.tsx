@@ -54,22 +54,19 @@ const Header = () => {
   };
 
   const services = [
-    { name: 'Página Web Sencilla', path: '/landing-express', price: '€450' },
+    { name: 'Página Web Sencilla', path: '/landing-express' },
     {
       name: 'Página Web Autónomos y Pymes',
       path: '/web-autonomos-pymes',
-      price: '€750',
     },
     {
       name: 'Tienda Online',
       path: '/tienda-online',
-      price: '€1,250',
       popular: true,
     },
     {
       name: 'Aplicación Web o Móvil',
       path: '/aplicacion-web',
-      price: 'Consultar',
     },
   ];
 
@@ -146,11 +143,6 @@ const Header = () => {
                               </span>
                             )}
                           </div>
-                          <span className='text-blue-600 font-bold text-sm'>
-                            {service.price === 'Consultar'
-                              ? service.price
-                              : `Desde ${service.price}`}
-                          </span>
                         </Link>
                       ))}
                       <div className='border-t border-gray-200 mt-2 pt-2'>
@@ -161,7 +153,7 @@ const Header = () => {
                           }}
                           className='block w-full text-left px-4 py-2 text-gray-600 hover:text-blue-600 text-sm font-medium'
                         >
-                          Ver todos los precios →
+                          Ver todos los servicios →
                         </button>
                       </div>
                     </div>
@@ -261,9 +253,6 @@ const Header = () => {
                             </span>
                           )}
                         </div>
-                        <span className='text-blue-600 font-semibold text-xs'>
-                          {service.price}
-                        </span>
                       </Link>
                     ))}
                   </div>

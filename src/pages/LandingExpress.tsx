@@ -333,7 +333,7 @@ const LandingExpress = () => {
       </section>
 
       {/* Contact Form with preselected plan */}
-      <ContactForm preselectedPlan='Página Web Sencilla (Desde €450)' />
+      <ContactForm preselectedPlan='Página Web Sencilla' />
     </>
   );
 };

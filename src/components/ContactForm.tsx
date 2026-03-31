@@ -108,22 +108,6 @@ const ContactForm = ({ preselectedPlan }: ContactFormProps = {}) => {
         if (!formData.plan) {
           newErrors.plan = 'Selecciona un plan';
         }
-        if (
-          formData.plan === 'Página Web Sencilla (Desde €450)' &&
-          !formData.lowCostBudget
-        ) {
-          newErrors.lowCostBudget = 'Introduce tu presupuesto disponible';
-        }
-        if (
-          formData.plan === 'Página Web Sencilla (Desde €450)' &&
-          formData.lowCostBudget
-        ) {
-          const budget = parseFloat(formData.lowCostBudget);
-          if (isNaN(budget) || budget < 450 || budget > 1000) {
-            newErrors.lowCostBudget =
-              'El presupuesto debe estar entre €450 y €1000';
-          }
-        }
         if (!formData.description || formData.description.trim().length < 20) {
           newErrors.description =
             'La descripción debe tener al menos 20 caracteres';
@@ -219,10 +203,6 @@ const ContactForm = ({ preselectedPlan }: ContactFormProps = {}) => {
 
         // Plan y detalles del proyecto
         plan: formData.plan,
-        lowCostBudget:
-          formData.plan === 'Página Web Sencilla (Desde €450)'
-            ? `€${formData.lowCostBudget}`
-            : 'N/A',
         description: formData.description,
         inspiration: formData.inspiration || 'No especificada',
 
@@ -241,11 +221,6 @@ Teléfono: ${formData.phone || 'No proporcionado'}
 Empresa: ${formData.company || 'No especificada'}
 
 Plan Seleccionado: ${formData.plan}
-${
-  formData.plan === 'Página Web Sencilla (Desde €450)'
-    ? `Presupuesto disponible: €${formData.lowCostBudget}`
-    : ''
-}
 
 Descripción: ${formData.description}
 
@@ -279,10 +254,10 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
       // Track conversión exitosa
       const planPrices: { [key: string]: number } = {
-        'Página Web Sencilla (Desde €450)': 450,
-        'Página Web Autónomos y Pymes (Desde €750)': 750,
-        'Tienda Online (Desde €1250)': 1250,
-        'Aplicación Web o Móvil (Precio a Consultar)': 0,
+        'Página Web Sencilla': 0,
+        'Página Web Autónomos y Pymes': 0,
+        'Tienda Online': 0,
+        'Aplicación Web o Móvil': 0,
       };
       const planValue = planPrices[formData.plan] || 0;
       trackFormSubmit(formData.plan, planValue);
@@ -490,11 +465,11 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                   onClick={() =>
                     handleInputChange(
                       'plan',
-                      'Página Web Sencilla (Desde €450)'
+                      'Página Web Sencilla'
                     )
                   }
                   className={`p-5 text-left border-2 rounded-xl transition-all duration-200 ${
-                    formData.plan === 'Página Web Sencilla (Desde €450)'
+                    formData.plan === 'Página Web Sencilla'
                       ? 'border-orange-500 bg-orange-50'
                       : errors.plan
                       ? 'border-red-500'
@@ -505,15 +480,12 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                     <h4 className='font-bold text-gray-900'>
                       Página Web Sencilla
                     </h4>
-                    {formData.plan === 'Página Web Sencilla (Desde €450)' && (
+                    {formData.plan === 'Página Web Sencilla' && (
                       <Check className='w-5 h-5 text-orange-600' />
                     )}
                   </div>
-                  <p className='text-sm text-gray-600 mb-2'>
+                  <p className='text-sm text-gray-600'>
                     Solución rápida y económica para emprendedores
-                  </p>
-                  <p className='text-lg font-bold text-orange-600'>
-                    Desde €450
                   </p>
                 </button>
 
@@ -522,12 +494,12 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                   onClick={() =>
                     handleInputChange(
                       'plan',
-                      'Página Web Autónomos y Pymes (Desde €750)'
+                      'Página Web Autónomos y Pymes'
                     )
                   }
                   className={`p-5 text-left border-2 rounded-xl transition-all duration-200 ${
                     formData.plan ===
-                    'Página Web Autónomos y Pymes (Desde €750)'
+                    'Página Web Autónomos y Pymes'
                       ? 'border-blue-500 bg-blue-50'
                       : errors.plan
                       ? 'border-red-500'
@@ -539,24 +511,23 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                       Página Web Autónomos y Pymes
                     </h4>
                     {formData.plan ===
-                      'Página Web Autónomos y Pymes (Desde €750)' && (
+                      'Página Web Autónomos y Pymes' && (
                       <Check className='w-5 h-5 text-blue-600' />
                     )}
                   </div>
-                  <p className='text-sm text-gray-600 mb-2'>
+                  <p className='text-sm text-gray-600'>
                     Perfecta para empresas que buscan presencia digital
                     profesional
                   </p>
-                  <p className='text-lg font-bold text-blue-600'>Desde €750</p>
                 </button>
 
                 <button
                   type='button'
                   onClick={() =>
-                    handleInputChange('plan', 'Tienda Online (Desde €1250)')
+                    handleInputChange('plan', 'Tienda Online')
                   }
                   className={`p-5 text-left border-2 rounded-xl transition-all duration-200 ${
-                    formData.plan === 'Tienda Online (Desde €1250)'
+                    formData.plan === 'Tienda Online'
                       ? 'border-green-500 bg-green-50'
                       : errors.plan
                       ? 'border-red-500'
@@ -565,15 +536,12 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                 >
                   <div className='flex items-start justify-between mb-2'>
                     <h4 className='font-bold text-gray-900'>Tienda Online</h4>
-                    {formData.plan === 'Tienda Online (Desde €1250)' && (
+                    {formData.plan === 'Tienda Online' && (
                       <Check className='w-5 h-5 text-green-600' />
                     )}
                   </div>
-                  <p className='text-sm text-gray-600 mb-2'>
+                  <p className='text-sm text-gray-600'>
                     Solución completa para vender productos online
-                  </p>
-                  <p className='text-lg font-bold text-green-600'>
-                    Desde €1250
                   </p>
                 </button>
 
@@ -582,11 +550,11 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                   onClick={() =>
                     handleInputChange(
                       'plan',
-                      'Aplicación Web o Móvil (Desde €3200)'
+                      'Aplicación Web o Móvil'
                     )
                   }
                   className={`p-5 text-left border-2 rounded-xl transition-all duration-200 ${
-                    formData.plan === 'Aplicación Web o Móvil (Desde €3200)'
+                    formData.plan === 'Aplicación Web o Móvil'
                       ? 'border-purple-500 bg-purple-50'
                       : errors.plan
                       ? 'border-red-500'
@@ -598,57 +566,17 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                       Aplicación Web o Móvil
                     </h4>
                     {formData.plan ===
-                      'Aplicación Web o Móvil (Desde €3200)' && (
+                      'Aplicación Web o Móvil' && (
                       <Check className='w-5 h-5 text-purple-600' />
                     )}
                   </div>
-                  <p className='text-sm text-gray-600 mb-2'>
+                  <p className='text-sm text-gray-600'>
                     Desarrollo a medida para proyectos únicos
-                  </p>
-                  <p className='text-lg font-bold text-purple-600'>
-                    Desde €3200
                   </p>
                 </button>
               </div>
               {errors.plan && <ErrorMessage error={errors.plan} />}
             </div>
-
-            {/* Campo de presupuesto Página Web Sencilla - solo visible si se selecciona este plan */}
-            {formData.plan === 'Página Web Sencilla (Desde €450)' && (
-              <div className='bg-orange-50 p-4 rounded-lg border border-orange-200'>
-                <label className='block text-sm font-medium text-gray-700 mb-2'>
-                  Presupuesto disponible (en euros) *
-                </label>
-                <div className='relative'>
-                  <span className='absolute left-3 top-3 text-gray-600 font-medium'>
-                    €
-                  </span>
-                  <input
-                    type='number'
-                    min='450'
-                    max='1000'
-                    step='50'
-                    value={formData.lowCostBudget}
-                    onChange={(e) =>
-                      handleInputChange('lowCostBudget', e.target.value)
-                    }
-                    className={`w-full pl-8 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent ${
-                      errors.lowCostBudget
-                        ? 'border-red-500'
-                        : 'border-gray-300'
-                    }`}
-                    placeholder='450'
-                  />
-                </div>
-                <p className='text-sm text-gray-600 mt-2'>
-                  Indica el presupuesto que tienes disponible para tu proyecto
-                  (entre €450 y €1000)
-                </p>
-                {errors.lowCostBudget && (
-                  <ErrorMessage error={errors.lowCostBudget} />
-                )}
-              </div>
-            )}
 
             <div>
               <label className='block text-sm font-medium text-gray-700 mb-2'>

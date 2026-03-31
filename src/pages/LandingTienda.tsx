@@ -447,7 +447,7 @@ const LandingTienda = () => {
       </section>
 
       {/* Contact Form with preselected plan */}
-      <ContactForm preselectedPlan='Tienda Online (Desde €1250)' />
+      <ContactForm preselectedPlan='Tienda Online' />
     </>
   );
 };
