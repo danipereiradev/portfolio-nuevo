@@ -53,10 +53,10 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
 
               <section className='mb-8'>
                 <h2 className='text-2xl font-bold text-gray-900 mb-4'>
-                  2. Información que Recopilamos
+                  2. Información que Recopilo
                 </h2>
                 <p className='mb-4'>
-                  Recopilamos la siguiente información cuando utilizas nuestros
+                  Recopilo la siguiente información cuando utilizas nuestros
                   servicios:
                 </p>
                 <ul className='list-disc pl-6 space-y-2'>
@@ -83,7 +83,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                 <h2 className='text-2xl font-bold text-gray-900 mb-4'>
                   3. Finalidad del Tratamiento
                 </h2>
-                <p className='mb-4'>Utilizamos tus datos para:</p>
+                <p className='mb-4'>Utilizo tus datos para:</p>
                 <ul className='list-disc pl-6 space-y-2'>
                   <li>
                     Responder a tus consultas y solicitudes de presupuesto
@@ -125,7 +125,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                 <h2 className='text-2xl font-bold text-gray-900 mb-4'>
                   5. Conservación de Datos
                 </h2>
-                <p>Conservaremos tus datos durante:</p>
+                <p>Conservaré tus datos durante:</p>
                 <ul className='list-disc pl-6 space-y-2 mt-4'>
                   <li>
                     <strong>Datos de contacto:</strong> Hasta que solicites su
@@ -149,7 +149,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                 <p className='mb-4'>Tienes derecho a:</p>
                 <ul className='list-disc pl-6 space-y-2'>
                   <li>
-                    <strong>Acceso:</strong> Conocer qué datos tenemos sobre ti
+                    <strong>Acceso:</strong> Conocer qué datos tengo sobre ti
                   </li>
                   <li>
                     <strong>Rectificación:</strong> Corregir datos inexactos
@@ -179,7 +179,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                   7. Seguridad
                 </h2>
                 <p>
-                  Implementamos medidas técnicas y organizativas apropiadas para
+                  Implemento medidas técnicas y organizativas apropiadas para
                   proteger tus datos personales contra acceso no autorizado,
                   alteración, divulgación o destrucción.
                 </p>
@@ -267,7 +267,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                 <h2 className='text-2xl font-bold text-gray-900 mb-4'>
                   3. Servicios
                 </h2>
-                <p className='mb-4'>Ofrecemos los siguientes servicios:</p>
+                <p className='mb-4'>Ofrezco los siguientes servicios:</p>
                 <ul className='list-disc pl-6 space-y-2'>
                   <li>Desarrollo de páginas web corporativas</li>
                   <li>Desarrollo de tiendas online (e-commerce)</li>
@@ -289,7 +289,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                     a través del formulario web o email
                   </li>
                   <li>
-                    <strong>Propuesta:</strong> Enviamos propuesta detallada en
+                    <strong>Propuesta:</strong> Envío propuesta detallada en
                     máximo 48 horas
                   </li>
                   <li>
@@ -301,11 +301,11 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                     iniciar el proyecto
                   </li>
                   <li>
-                    <strong>Desarrollo:</strong> Ejecutamos el proyecto según
+                    <strong>Desarrollo:</strong> Ejecuto el proyecto según
                     especificaciones
                   </li>
                   <li>
-                    <strong>Entrega:</strong> Entregamos el proyecto y se abona
+                    <strong>Entrega:</strong> Entrego el proyecto y se abona
                     el 50% restante
                   </li>
                 </ol>
@@ -346,7 +346,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                     abonado íntegramente
                   </li>
                   <li>
-                    Nos reservamos el derecho a mostrar el proyecto en nuestro
+                    Nos reservo el derecho a mostrar el proyecto en nuestro
                     portfolio
                   </li>
                   <li>
@@ -362,7 +362,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                 </h2>
                 <ul className='list-disc pl-6 space-y-2'>
                   <li>
-                    Garantizamos el correcto funcionamiento durante 3 meses
+                    Garantizo el correcto funcionamiento durante 3 meses
                     post-entrega
                   </li>
                   <li>Corrección gratuita de errores de programación</li>
@@ -378,8 +378,8 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                   9. Limitación de Responsabilidad
                 </h2>
                 <p>
-                  Nuestra responsabilidad se limita al importe del proyecto
-                  contratado. No nos hacemos responsables de daños indirectos o
+                  Mi responsabilidad se limita al importe del proyecto
+                  contratado. No me hago responsable de daños indirectos o
                   lucro cesante.
                 </p>
               </section>
@@ -428,7 +428,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
 
               <section className='mb-8'>
                 <h2 className='text-2xl font-bold text-gray-900 mb-4'>
-                  Tipos de cookies que utilizamos
+                  Tipos de cookies que utilizo
                 </h2>
 
                 <div className='space-y-6'>
@@ -525,7 +525,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                   Cookies de terceros
                 </h2>
                 <p className='mb-4'>
-                  Utilizamos servicios de terceros que pueden instalar sus
+                  Utilizo servicios de terceros que pueden instalar sus
                   propias cookies:
                 </p>
                 <ul className='list-disc pl-6 space-y-2'>

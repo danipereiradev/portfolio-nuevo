@@ -9,6 +9,7 @@ interface ButtonProps {
   className?: string;
   disabled?: boolean;
   to?: string;
+  href?: string;
   fullWidth?: boolean;
   isLoading?: boolean;
 }
@@ -21,6 +22,7 @@ const Button: React.FC<ButtonProps> = ({
   className = '',
   disabled = false,
   to,
+  href,
   fullWidth = false,
   isLoading = false,
 }) => {
@@ -66,6 +68,14 @@ const Button: React.FC<ButtonProps> = ({
   ) : (
     children
   );
+
+  if (href) {
+    return (
+      <a href={href} className={combinedStyles}>
+        {content}
+      </a>
+    );
+  }
 
   if (to) {
     return (

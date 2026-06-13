@@ -25,7 +25,7 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
 
   const scrollToSection = (sectionId: string) => {
     if (!isHomePage) {
-      // Si no estamos en home, navegar primero
+      // Si no estoy en home, navegar primero
       navigate('/');
       setTimeout(() => {
         document

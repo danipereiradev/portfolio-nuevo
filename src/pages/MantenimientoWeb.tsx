@@ -65,31 +65,31 @@ const MantenimientoWeb = () => {
       icon: Shield,
       title: 'Seguridad Garantizada',
       description:
-        'Monitorizamos tu web 24/7 y aplicamos parches de seguridad inmediatamente para protegerte de vulnerabilidades y ataques.',
+        'Monitorizo tu web 24/7 y aplico parches de seguridad inmediatamente para protegerte de vulnerabilidades y ataques.',
     },
     {
       icon: RefreshCw,
       title: 'Actualizaciones Automáticas',
       description:
-        'Mantenemos tu web, plugins y sistema actualizado sin que tengas que preocuparte por nada, evitando incompatibilidades.',
+        'Mantengo tu web, plugins y sistema actualizado sin que tengas que preocuparte por nada, evitando incompatibilidades.',
     },
     {
       icon: Zap,
       title: 'Optimización Continua',
       description:
-        'Mejoramos constantemente la velocidad y rendimiento de tu web para ofrecer la mejor experiencia a tus usuarios.',
+        'Mejoro constantemente la velocidad y rendimiento de tu web para ofrecer la mejor experiencia a tus usuarios.',
     },
     {
       icon: Lock,
       title: 'Copias de Seguridad Diarias',
       description:
-        'Realizamos backups automáticos diarios de tu web para que nunca pierdas información importante y puedas recuperarla rápidamente.',
+        'Realizo backups automáticos diarios de tu web para que nunca pierdas información importante y puedas recuperarla rápidamente.',
     },
     {
       icon: TrendingUp,
       title: 'Monitoreo y Reporting',
       description:
-        'Te enviamos informes mensuales sobre el estado de tu web, métricas de rendimiento y las mejoras implementadas.',
+        'Te envío informes mensuales sobre el estado de tu web, métricas de rendimiento y las mejoras implementadas.',
     },
     {
       icon: HeadphonesIcon,
@@ -103,7 +103,7 @@ const MantenimientoWeb = () => {
     {
       title: 'Actualizaciones de CMS y Plugins',
       description:
-        'Mantenemos WordPress, WooCommerce y todos los plugins actualizados a las últimas versiones estables.',
+        'Mantengo WordPress, WooCommerce y todos los plugins actualizados a las últimas versiones estables.',
     },
     {
       title: 'Monitorización 24/7',
@@ -147,25 +147,25 @@ const MantenimientoWeb = () => {
       number: '1',
       title: 'Auditoría Inicial',
       description:
-        'Analizamos el estado actual de tu web: seguridad, velocidad, SEO y posibles vulnerabilidades. Te entregamos un informe completo.',
+        'Analizo el estado actual de tu web: seguridad, velocidad, SEO y posibles vulnerabilidades. Te entrego un informe completo.',
     },
     {
       number: '2',
       title: 'Configuración del Servicio',
       description:
-        'Instalamos herramientas de monitorización, configuramos copias de seguridad automáticas y optimizamos la web.',
+        'Instalo herramientas de monitorización, configuro copias de seguridad automáticas y optimizo la web.',
     },
     {
       number: '3',
       title: 'Mantenimiento Continuo',
       description:
-        'Realizamos actualizaciones, optimizaciones y monitoreamos tu web constantemente sin que tengas que hacer nada.',
+        'Realizo actualizaciones, optimizaciones y monitoreo tu web constantemente sin que tengas que hacer nada.',
     },
     {
       number: '4',
       title: 'Reporting Mensual',
       description:
-        'Te enviamos un informe cada mes con todas las acciones realizadas, métricas de rendimiento y recomendaciones de mejora.',
+        'Te envío un informe cada mes con todas las acciones realizadas, métricas de rendimiento y recomendaciones de mejora.',
     },
   ];
 
@@ -223,13 +223,13 @@ const MantenimientoWeb = () => {
       icon: Target,
       title: 'Enfoque Proactivo',
       description:
-        'No esperamos a que surjan problemas. Identificamos y resolvemos incidencias antes de que afecten a tu negocio.',
+        'No espero a que surjan problemas. Identifico y resuelvo incidencias antes de que afecten a tu negocio.',
     },
     {
       icon: Award,
       title: 'Servicio Personalizado',
       description:
-        'No somos una agencia masiva. Cada cliente recibe atención directa y planes adaptados a sus necesidades específicas.',
+        'No soy una agencia masiva. Cada cliente recibe atención directa y personalizada adaptada a sus necesidades específicas.',
     },
     {
       icon: HeadphonesIcon,
@@ -241,13 +241,13 @@ const MantenimientoWeb = () => {
       icon: Shield,
       title: 'Transparencia Total',
       description:
-        'Informes mensuales detallados de todo lo que hacemos. Sabrás exactamente en qué invertimos el tiempo.',
+        'Informes mensuales detallados de todo lo que hago. Sabrás exactamente en qué invierto el tiempo.',
     },
     {
       icon: TrendingUp,
       title: 'Mejora Continua',
       description:
-        'No solo mantenemos, también optimizamos constantemente tu web para mejorar velocidad, SEO y conversiones.',
+        'No solo mantengo, también optimizo constantemente tu web para mejorar velocidad, SEO y conversiones.',
     },
   ];
 
@@ -260,27 +260,27 @@ const MantenimientoWeb = () => {
     {
       question: '¿Cuánto cuesta el mantenimiento web mensual?',
       answer:
-        'Los planes de mantenimiento comienzan desde 60€/mes para webs básicas. El precio varía según el tamaño de tu web, tecnologías utilizadas y nivel de soporte requerido. Te ofrecemos un presupuesto personalizado sin compromiso.',
+        'Los planes de mantenimiento comienzan desde 60€/mes para webs básicas. El precio varía según el tamaño de tu web, tecnologías utilizadas y nivel de soporte requerido. Te ofrezco un presupuesto personalizado sin compromiso.',
     },
     {
       question: '¿Qué pasa si mi web tiene un problema urgente?',
       answer:
-        'Respondemos a incidencias urgentes en menos de 2 horas durante horario laboral. Para emergencias críticas fuera de horario, ofrecemos soporte prioritario 24/7 en planes premium.',
+        'Respondo a incidencias urgentes en menos de 2 horas durante horario laboral. Para emergencias críticas fuera de horario, ofrezco soporte prioritario 24/7 en planes premium.',
     },
     {
       question: '¿Hacéis copias de seguridad de mi web?',
       answer:
-        'Sí, realizamos copias de seguridad automáticas diarias de toda tu web (archivos y base de datos) que almacenamos en la nube con retención de 30 días. Puedes solicitar restauraciones en cualquier momento.',
+        'Sí, realizo copias de seguridad automáticas diarias de toda tu web (archivos y base de datos) que almaceno en la nube con retención de 30 días. Puedes solicitar restauraciones en cualquier momento.',
     },
     {
       question: '¿Puedo cancelar el servicio cuando quiera?',
       answer:
-        'Sí, no hay permanencia. Puedes cancelar el servicio con un preaviso de 30 días. Antes de irte, te entregamos una copia completa de tu web actualizada.',
+        'Sí, no hay permanencia. Puedes cancelar el servicio con un preaviso de 30 días. Antes de irte, te entrego una copia completa de tu web actualizada.',
     },
     {
       question: '¿Trabajáis con cualquier tipo de web?',
       answer:
-        'Sí, trabajamos con WordPress, WooCommerce, Shopify, webs personalizadas en PHP, React, Vue y otras tecnologías. Si tu web usa una tecnología específica, consúltanos para confirmar compatibilidad.',
+        'Sí, trabajo con WordPress, WooCommerce, Shopify, webs personalizadas en PHP, React, Vue y otras tecnologías. Si tu web usa una tecnología específica, consúltame para confirmar compatibilidad.',
     },
     {
       question: '¿Qué tipo de cambios puedo solicitar cada mes?',
@@ -308,7 +308,7 @@ const MantenimientoWeb = () => {
 
       <SEOProblem
         title='¿Tu Web Te Está Dando Problemas?'
-        subtitle='Estos son los problemas más comunes que solucionamos'
+        subtitle='Estos son los problemas más comunes que soluciono'
         problems={problems}
       />
 

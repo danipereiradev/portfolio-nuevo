@@ -33,7 +33,7 @@ const Clients = () => {
     },
   ];
 
-  // Duplicamos los clientes para el efecto infinito
+  // Duplico los clientes para el efecto infinito
   const duplicatedClients = [...clients, ...clients];
 
   return (

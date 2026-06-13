@@ -18,7 +18,7 @@ const Services = () => {
       icon: <Palette className='w-8 h-8' />,
       title: 'Diseño Web',
       description:
-        'Creamos diseños web modernos y atractivos que reflejan tu marca y captan la atención de tus clientes.',
+        'Creo diseños web modernos y atractivos que reflejan tu marca y captan la atención de tus clientes.',
       link: '/diseno-web',
     },
     {

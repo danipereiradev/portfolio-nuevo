@@ -253,13 +253,11 @@ const Pricing = () => {
 
                 {/* CTA Button + Accordion - pushed to bottom */}
                 <div className='mt-auto'>
-                  {/* CTA Button */}
-                  <Button to={plan.path} variant='primary' fullWidth>
+                  <Button href={plan.path} variant='primary' fullWidth>
                     Más información
                     <ArrowRight className='w-4 h-4 group-hover:translate-x-1 transition-transform duration-200' />
                   </Button>
 
-                  {/* Accordion - Revisions (only if applicable) */}
                   {getAdditionalInfo(plan.id).length > 0 && (
                     <div className='mt-6'>
                       <div className='space-y-2'>
@@ -307,7 +305,6 @@ const Pricing = () => {
           ))}
         </div>
 
-        {/* Bottom Section */}
         <div className='text-center mt-24'>
           <div className='bg-white border-2 border-gray-200 rounded-2xl shadow-2xl p-8 max-w-4xl mx-auto transform hover:scale-105 transition-all duration-300'>
             <h3 className='text-2xl md:text-3xl font-bold text-black mb-4'>
@@ -319,7 +316,7 @@ const Pricing = () => {
             </p>
             <p className='text-gray-700 mb-6'>
               Landing pages sencillas, páginas de presentación o webs básicas
-              ideales para empezar. Cuéntame qué necesitas y buscaremos la mejor
+              ideales para empezar. Cuéntame qué necesitas y buscaré la mejor
               opción que se ajuste a tu presupuesto.
             </p>
             <div className='flex flex-col sm:flex-row gap-4 justify-center'>

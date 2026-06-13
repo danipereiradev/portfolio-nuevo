@@ -70,19 +70,19 @@ const AplicacionesWeb = () => {
       icon: Smartphone,
       title: 'Multiplataforma',
       description:
-        'Desarrollamos apps web que funcionan perfectamente en navegadores, móviles y tablets, con una sola base de código.',
+        'Desarrollo apps web que funcionan perfectamente en navegadores, móviles y tablets, con una sola base de código.',
     },
     {
       icon: Code,
       title: 'Código Limpio y Escalable',
       description:
-        'Utilizamos las mejores prácticas de desarrollo para crear aplicaciones mantenibles que pueden crecer con tu negocio.',
+        'Utilizo las mejores prácticas de desarrollo para crear aplicaciones mantenibles que pueden crecer con tu negocio.',
     },
     {
       icon: Database,
       title: 'Base de Datos Robusta',
       description:
-        'Implementamos sistemas de base de datos seguros y eficientes que gestionan tu información de forma óptima.',
+        'Implemento sistemas de base de datos seguros y eficientes que gestionan tu información de forma óptima.',
     },
     {
       icon: Zap,
@@ -94,13 +94,13 @@ const AplicacionesWeb = () => {
       icon: Shield,
       title: 'Seguridad Avanzada',
       description:
-        'Protegemos tu aplicación con autenticación robusta, encriptación de datos y cumplimiento de normativas de seguridad.',
+        'Protejo tu aplicación con autenticación robusta, encriptación de datos y cumplimiento de normativas de seguridad.',
     },
     {
       icon: Layers,
       title: 'Integraciones API',
       description:
-        'Conectamos tu aplicación con servicios externos y APIs para ampliar sus funcionalidades y automatizar procesos.',
+        'Conecto tu aplicación con servicios externos y APIs para ampliar sus funcionalidades y automatizar procesos.',
     },
   ];
 
@@ -138,7 +138,7 @@ const AplicacionesWeb = () => {
     {
       title: 'Integraciones y APIs',
       description:
-        'Conectamos tu app con servicios de terceros, CRMs, ERPs y otras herramientas.',
+        'Conecto tu app con servicios de terceros, CRMs, ERPs y otras herramientas.',
     },
     {
       title: 'Despliegue en Cloud',
@@ -206,31 +206,31 @@ const AplicacionesWeb = () => {
       number: '1',
       title: 'Definición del Proyecto',
       description:
-        'Analizamos tu idea, objetivos y necesidades para definir el alcance, funcionalidades y tecnologías más adecuadas para tu aplicación web.',
+        'Analizo tu idea, objetivos y necesidades para definir el alcance, funcionalidades y tecnologías más adecuadas para tu aplicación web.',
     },
     {
       number: '2',
       title: 'Prototipado y Diseño UX/UI',
       description:
-        'Creamos prototipos interactivos y diseñamos la experiencia de usuario, asegurando que la interfaz sea intuitiva y atractiva.',
+        'Creo prototipos interactivos y diseño la experiencia de usuario, asegurando que la interfaz sea intuitiva y atractiva.',
     },
     {
       number: '3',
       title: 'Desarrollo Frontend y Backend',
       description:
-        'Programamos el frontend con React o Vue y el backend con Node.js o Python, integrando base de datos y lógica de negocio.',
+        'Programo el frontend con React o Vue y el backend con Node.js o Python, integrando base de datos y lógica de negocio.',
     },
     {
       number: '4',
       title: 'Testing y Optimización',
       description:
-        'Realizamos pruebas exhaustivas de funcionalidad, rendimiento y seguridad, optimizando cada aspecto de tu aplicación.',
+        'Realizo pruebas exhaustivas de funcionalidad, rendimiento y seguridad, optimizando cada aspecto de tu aplicación.',
     },
     {
       number: '5',
       title: 'Despliegue y Mantenimiento',
       description:
-        'Lanzamos tu aplicación en servidores cloud seguros y ofrecemos mantenimiento continuo, actualizaciones y soporte técnico.',
+        'Lanzo tu aplicación en servidores cloud seguros y ofrezco mantenimiento continuo, actualizaciones y soporte técnico.',
     },
   ];
 
@@ -244,27 +244,27 @@ const AplicacionesWeb = () => {
     {
       question: '¿Cuánto cuesta desarrollar una aplicación web a medida?',
       answer:
-        'El coste de una aplicación web depende de su complejidad y funcionalidades. Proyectos sencillos desde 3000 euros, mientras que aplicaciones más complejas pueden costar más. Te proporcionamos un presupuesto detallado tras analizar tus necesidades específicas.',
+        'El coste de una aplicación web depende de su complejidad y funcionalidades. Proyectos sencillos desde 3000 euros, mientras que aplicaciones más complejas pueden costar más. Te proporciono un presupuesto detallado tras analizar tus necesidades específicas.',
     },
     {
       question: '¿Qué tecnologías utilizan para desarrollar aplicaciones web?',
       answer:
-        'Utilizamos tecnologías modernas y probadas como React, Vue.js o Angular para el frontend, Node.js, Python o PHP para el backend, y bases de datos como PostgreSQL o MongoDB. Elegimos el stack tecnológico más adecuado para cada proyecto.',
+        'Utilizo tecnologías modernas y probadas como React, Vue.js o Angular para el frontend, Node.js, Python o PHP para el backend, y bases de datos como PostgreSQL o MongoDB. Elijo el stack tecnológico más adecuado para cada proyecto.',
     },
     {
       question: '¿Cuánto tiempo lleva desarrollar una aplicación web?',
       answer:
-        'El tiempo de desarrollo varía según la complejidad. Una aplicación web básica puede estar lista en 8-12 semanas, mientras que proyectos más complejos pueden requerir 3-6 meses. Te proporcionamos un cronograma detallado en la fase de planificación.',
+        'El tiempo de desarrollo varía según la complejidad. Una aplicación web básica puede estar lista en 8-12 semanas, mientras que proyectos más complejos pueden requerir 3-6 meses. Te proporciono un cronograma detallado en la fase de planificación.',
     },
     {
       question: '¿Puedo escalar mi aplicación web en el futuro?',
       answer:
-        'Sí, desarrollamos aplicaciones preparadas para crecer. La arquitectura modular permite añadir nuevas funcionalidades, integrar servicios adicionales o ampliar capacidades sin necesidad de rehacer el proyecto desde cero.',
+        'Sí, desarrollo aplicaciones preparadas para crecer. La arquitectura modular permite añadir nuevas funcionalidades, integrar servicios adicionales o ampliar capacidades sin necesidad de rehacer el proyecto desde cero.',
     },
     {
       question: '¿Ofrecen mantenimiento después del lanzamiento?',
       answer:
-        'Sí, ofrecemos planes de mantenimiento que incluyen actualizaciones de seguridad, corrección de bugs, optimizaciones de rendimiento, backups automáticos y soporte técnico continuo para garantizar que tu aplicación funcione perfectamente.',
+        'Sí, ofrezco planes de mantenimiento que incluyen actualizaciones de seguridad, corrección de bugs, optimizaciones de rendimiento, backups automáticos y soporte técnico continuo para garantizar que tu aplicación funcione perfectamente.',
     },
   ];
 
@@ -273,7 +273,7 @@ const AplicacionesWeb = () => {
       <SEOLandingHero
         title='Desarrollo de Aplicaciones Web'
         subtitle='Soluciones Web a Medida para tu Negocio'
-        description='Creamos aplicaciones web personalizadas que resuelven problemas reales, automatizan procesos y transforman digitalmente tu empresa.'
+        description='Creo aplicaciones web personalizadas que resuelven problemas reales, automatizan procesos y transforman digitalmente tu empresa.'
         ctaText='Consultar Proyecto de App Web'
         onCTAClick={openModal}
         secondaryCTAText='Llamar Ahora'
@@ -282,7 +282,7 @@ const AplicacionesWeb = () => {
 
       <SEOProblem
         title='¿Necesitas una Aplicación Web Personalizada?'
-        subtitle='Estos son los desafíos que resolvemos con apps web a medida'
+        subtitle='Estos son los desafíos que resuelvo con apps web a medida'
         problems={problems}
       />
 
@@ -300,7 +300,7 @@ const AplicacionesWeb = () => {
       <Portfolio />
 
       <SEOProcess
-        title='Cómo Desarrollamos tu Aplicación Web'
+        title='Cómo Desarrollo tu Aplicación Web'
         steps={process}
       />
 
@@ -316,7 +316,7 @@ const AplicacionesWeb = () => {
 
       <SEOCTAFinal
         title='¿Listo para Transformar tu Idea en una App Web?'
-        subtitle='Conversemos sobre tu proyecto. Te ayudo a definir requisitos, elegir tecnologías y crear una hoja de ruta clara para desarrollar tu aplicación web.'
+        subtitle='Cuéntame sobre tu proyecto. Te ayudo a definir requisitos, elegir tecnologías y crear una hoja de ruta clara para desarrollar tu aplicación web.'
         buttonText='Consultar Proyecto de Aplicación Web'
         onButtonClick={openModal}
       />

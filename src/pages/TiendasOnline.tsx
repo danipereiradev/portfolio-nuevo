@@ -79,7 +79,7 @@ const TiendasOnline = () => {
       icon: TrendingUp,
       title: 'Optimizada para Conversión',
       description:
-        'Diseñamos cada elemento de tu tienda pensando en maximizar las ventas, con checkout simplificado y proceso de compra optimizado.',
+        'Diseño cada elemento de tu tienda pensando en maximizar las ventas, con checkout simplificado y proceso de compra optimizado.',
     },
     {
       icon: Lock,
@@ -105,12 +105,12 @@ const TiendasOnline = () => {
     {
       title: 'Hasta 50 Productos Cargados',
       description:
-        'Cargamos tu catálogo inicial completo con descripciones, imágenes optimizadas, precios y variantes.',
+        'Cargo tu catálogo inicial completo con descripciones, imágenes optimizadas, precios y variantes.',
     },
     {
       title: 'Pasarela de Pago Integrada',
       description:
-        'Configuramos Stripe, Redsys, PayPal o la pasarela que prefieras para cobros seguros online.',
+        'Configuro Stripe, Redsys, PayPal o la pasarela que prefieras para cobros seguros online.',
     },
     {
       title: 'Gestión de Stock Automática',
@@ -174,7 +174,7 @@ const TiendasOnline = () => {
       icon: Target,
       title: 'Enfoque en Conversión',
       description:
-        'Diseñamos cada elemento de la tienda pensando en maximizar ventas y reducir abandonos de carrito.',
+        'Diseño cada elemento de la tienda pensando en maximizar ventas y reducir abandonos de carrito.',
     },
     {
       icon: Award,
@@ -207,31 +207,31 @@ const TiendasOnline = () => {
       number: '1',
       title: 'Análisis de tu Negocio',
       description:
-        'Estudiamos tu catálogo de productos, modelo de negocio, competencia y objetivos para diseñar la tienda online perfecta para tu caso.',
+        'Estudio tu catálogo de productos, modelo de negocio, competencia y objetivos para diseñar la tienda online perfecta para tu caso.',
     },
     {
       number: '2',
       title: 'Diseño de la Tienda',
       description:
-        'Creamos el diseño visual de tu e-commerce, optimizando la experiencia de compra y asegurando que tus productos destaquen.',
+        'Creo el diseño visual de tu e-commerce, optimizando la experiencia de compra y asegurando que tus productos destaquen.',
     },
     {
       number: '3',
       title: 'Desarrollo E-commerce',
       description:
-        'Desarrollamos tu tienda con WooCommerce o Shopify, configurando pasarelas de pago, envíos, impuestos y todas las funcionalidades necesarias.',
+        'Desarrollo tu tienda con WooCommerce o Shopify, configurando pasarelas de pago, envíos, impuestos y todas las funcionalidades necesarias.',
     },
     {
       number: '4',
       title: 'Carga de Productos',
       description:
-        'Cargamos tu catálogo de productos con descripciones, imágenes optimizadas, precios, variantes y stock para que puedas empezar a vender.',
+        'Cargo tu catálogo de productos con descripciones, imágenes optimizadas, precios, variantes y stock para que puedas empezar a vender.',
     },
     {
       number: '5',
       title: 'Lanzamiento y Formación',
       description:
-        'Lanzamos tu tienda online, te formamos en la gestión de pedidos, productos y te acompañamos en tus primeras ventas.',
+        'Lanzo tu tienda online, te formo en la gestión de pedidos, productos y te acompaño en tus primeras ventas.',
     },
   ];
 
@@ -244,27 +244,27 @@ const TiendasOnline = () => {
     {
       question: '¿Qué plataforma recomiendan para crear una tienda online?',
       answer:
-        'Recomendamos WooCommerce para tiendas con WordPress o Shopify para soluciones más sencillas. Ambas son potentes, seguras y permiten gestionar tu tienda fácilmente. Elegimos la mejor opción según tus necesidades y preferencias.',
+        'Recomiendo WooCommerce para tiendas con WordPress o Shopify para soluciones más sencillas. Ambas son potentes, seguras y permiten gestionar tu tienda fácilmente. Elijo la mejor opción según tus necesidades y preferencias.',
     },
     {
       question: '¿Incluye la integración de pasarelas de pago?',
       answer:
-        'Sí, configuramos e integramos las pasarelas de pago que prefieras: Redsys, Stripe, PayPal, Bizum u otras. Tus clientes podrán pagar de forma segura con tarjeta, transferencia o el método que elijas.',
+        'Sí, configuro e integro las pasarelas de pago que prefieras: Redsys, Stripe, PayPal, Bizum u otras. Tus clientes podrán pagar de forma segura con tarjeta, transferencia o el método que elijas.',
     },
     {
       question: '¿Podré gestionar yo mismo los productos y pedidos?',
       answer:
-        'Por supuesto. Tu tienda incluye un panel de administración intuitivo donde podrás añadir productos, gestionar stock, procesar pedidos y hacer seguimiento de ventas. Te damos formación completa para que seas autónomo.',
+        'Por supuesto. Tu tienda incluye un panel de administración intuitivo donde podrás añadir productos, gestionar stock, procesar pedidos y hacer seguimiento de ventas. Te doy formación completa para que seas autónomo.',
     },
     {
       question: '¿Cómo funciona el sistema de envíos?',
       answer:
-        'Configuramos zonas de envío con tarifas personalizadas según peso, destino o precio del pedido. Podemos integrar con transportistas como Correos, SEUR o MRW para automatizar el proceso de envío.',
+        'Configuro zonas de envío con tarifas personalizadas según peso, destino o precio del pedido. Puedo integrar con transportistas como Correos, SEUR o MRW para automatizar el proceso de envío.',
     },
     {
       question: '¿Qué pasa si necesito añadir más funcionalidades después?',
       answer:
-        'Tu tienda está preparada para crecer. Podemos añadir funcionalidades como cupones descuento, programa de puntos, suscripciones, venta mayorista, multi-idioma o cualquier característica adicional que necesites.',
+        'Tu tienda está preparada para crecer. Puedo añadir funcionalidades como cupones descuento, programa de puntos, suscripciones, venta mayorista, multi-idioma o cualquier característica adicional que necesites.',
     },
   ];
 
@@ -273,7 +273,7 @@ const TiendasOnline = () => {
       <SEOLandingHero
         title='Crear Tienda Online Profesional'
         subtitle='Vende Online con una Tienda que Convierte'
-        description='Desarrollamos tu tienda online completa con todo lo necesario para vender con éxito: diseño atractivo, pasarelas de pago y gestión sencilla.'
+        description='Desarrollo tu tienda online completa con todo lo necesario para vender con éxito: diseño atractivo, pasarelas de pago y gestión sencilla.'
         ctaText='Solicitar Presupuesto de E-commerce'
         onCTAClick={openModal}
         secondaryCTAText='Llamar Ahora'

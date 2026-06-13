@@ -33,7 +33,7 @@ const DisenoWeb = () => {
     if (metaDescription) {
       metaDescription.setAttribute(
         'content',
-        'Diseño web profesional en Madrid. Creamos páginas web modernas, atractivas y optimizadas que convierten visitantes en clientes. Presupuesto gratuito.',
+        'Diseño web profesional en Madrid. Creo páginas web modernas, atractivas y optimizadas que convierten visitantes en clientes. Presupuesto gratuito.',
       );
     }
   }, []);
@@ -64,7 +64,7 @@ const DisenoWeb = () => {
       icon: Palette,
       title: 'Diseño Personalizado',
       description:
-        'Creamos un diseño único que refleja la identidad de tu marca y se adapta perfectamente a tus necesidades específicas.',
+        'Creo un diseño único que refleja la identidad de tu marca y se adapta perfectamente a tus necesidades específicas.',
     },
     {
       icon: Smartphone,
@@ -76,13 +76,13 @@ const DisenoWeb = () => {
       icon: Zap,
       title: 'Rápida y Optimizada',
       description:
-        'Desarrollamos webs ultrarrápidas optimizadas para ofrecer la mejor experiencia de usuario y mejorar tu posicionamiento en Google.',
+        'Desarrollo webs ultrarrápidas optimizadas para ofrecer la mejor experiencia de usuario y mejorar tu posicionamiento en Google.',
     },
     {
       icon: TrendingUp,
       title: 'Orientada a Conversión',
       description:
-        'Diseñamos cada elemento pensando en convertir visitantes en clientes, con llamadas a la acción estratégicamente ubicadas.',
+        'Diseño cada elemento pensando en convertir visitantes en clientes, con llamadas a la acción estratégicamente ubicadas.',
     },
     {
       icon: Users,
@@ -94,7 +94,7 @@ const DisenoWeb = () => {
       icon: Award,
       title: 'Soporte Continuo',
       description:
-        'Te acompañamos después del lanzamiento con soporte técnico, actualizaciones y mejoras continuas de tu web.',
+        'Te acompaño después del lanzamiento con soporte técnico, actualizaciones y mejoras continuas de tu web.',
     },
   ];
 
@@ -103,31 +103,31 @@ const DisenoWeb = () => {
       number: '1',
       title: 'Análisis y Estrategia',
       description:
-        'Estudiamos tu negocio, competencia y objetivos para definir la mejor estrategia de diseño web que se adapte a tus necesidades.',
+        'Estudio tu negocio, competencia y objetivos para definir la mejor estrategia de diseño web que se adapte a tus necesidades.',
     },
     {
       number: '2',
       title: 'Diseño Visual',
-      description:
-        'Creamos mockups y prototipos del diseño visual de tu web, asegurando que refleje tu marca y sea atractivo para tu audiencia.',
+        description:
+          'Creo mockups y prototipos del diseño visual de tu web, asegurando que refleje tu marca y sea atractivo para tu audiencia.',
     },
     {
       number: '3',
       title: 'Desarrollo Web',
       description:
-        'Programamos tu web con código limpio y tecnologías modernas, garantizando rapidez, seguridad y facilidad de mantenimiento.',
+        'Programo tu web con código limpio y tecnologías modernas, garantizando rapidez, seguridad y facilidad de mantenimiento.',
     },
     {
       number: '4',
       title: 'Pruebas y Ajustes',
       description:
-        'Realizamos pruebas exhaustivas en diferentes dispositivos y navegadores, ajustando cada detalle antes del lanzamiento.',
+        'Realizo pruebas exhaustivas en diferentes dispositivos y navegadores, ajustando cada detalle antes del lanzamiento.',
     },
     {
       number: '5',
       title: 'Lanzamiento y Formación',
       description:
-        'Publicamos tu web y te formamos para que puedas gestionar contenidos de forma autónoma y aprovechar al máximo tu nueva página.',
+        'Publico tu web y te formo para que puedas gestionar contenidos de forma autónoma y aprovechar al máximo tu nueva página.',
     },
   ];
 
@@ -135,7 +135,7 @@ const DisenoWeb = () => {
     {
       question: '¿Cuánto cuesta el diseño de una página web profesional?',
       answer:
-        'El precio del diseño web depende de las funcionalidades que necesites. Una web corporativa básica desde 800 euros, mientras que proyectos más complejos pueden costar más. Te ofrecemos un presupuesto personalizado sin compromiso adaptado a tu presupuesto.',
+        'El precio del diseño web depende de las funcionalidades que necesites. Una web corporativa básica desde 800 euros, mientras que proyectos más complejos pueden costar más. Te ofrezco un presupuesto personalizado sin compromiso adaptado a tu presupuesto.',
     },
     {
       question: '¿Cuánto tiempo se tarda en diseñar y desarrollar una web?',
@@ -150,7 +150,7 @@ const DisenoWeb = () => {
     {
       question: '¿Podré actualizar yo mismo el contenido de mi web?',
       answer:
-        'Por supuesto. Desarrollamos tu web con un panel de administración intuitivo y te damos formación personalizada para que puedas actualizar textos, imágenes y contenidos sin conocimientos técnicos.',
+        'Por supuesto. Desarrollo tu web con un panel de administración intuitivo y te doy formación personalizada para que puedas actualizar textos, imágenes y contenidos sin conocimientos técnicos.',
     },
     {
       question: '¿El diseño será optimizado para móviles?',
@@ -160,7 +160,7 @@ const DisenoWeb = () => {
     {
       question: '¿Qué pasa si necesito cambios después del lanzamiento?',
       answer:
-        'Incluimos hasta 2 revisiones durante el desarrollo. Después del lanzamiento, ofrecemos soporte continuo para cualquier ajuste, actualización o mejora que necesites, con tarifas muy competitivas.',
+        'Incluyo hasta 2 revisiones durante el desarrollo. Después del lanzamiento, ofrezco soporte continuo para cualquier ajuste, actualización o mejora que necesites, con tarifas muy competitivas.',
     },
   ];
 
@@ -282,7 +282,7 @@ const DisenoWeb = () => {
       <SEOLandingHero
         title='Diseño Web Profesional'
         subtitle='Páginas Web que Impactan y Convierten'
-        description='Creamos sitios web modernos, atractivos y optimizados que reflejan la esencia de tu marca y generan resultados reales para tu negocio.'
+        description='Creo sitios web modernos, atractivos y optimizados que reflejan la esencia de tu marca y generan resultados reales para tu negocio.'
         ctaText='Solicitar Presupuesto Gratuito'
         onCTAClick={openModal}
         secondaryCTAText='Llamar Ahora'
@@ -291,7 +291,7 @@ const DisenoWeb = () => {
 
       <SEOProblem
         title='¿Tu Web Actual No Te Está Dando Resultados?'
-        subtitle='Estos son los problemas más comunes que solucionamos'
+        subtitle='Estos son los problemas más comunes que soluciono'
         problems={problems}
       />
 
@@ -322,7 +322,7 @@ const DisenoWeb = () => {
 
       <SEOCTAFinal
         title='¿Listo para Tener la Web que Tu Negocio Merece?'
-        subtitle='No esperes más para destacar frente a tu competencia. Solicita tu presupuesto personalizado sin compromiso y descubre cómo podemos ayudarte.'
+        subtitle='No esperes más para destacar frente a tu competencia. Solicita tu presupuesto personalizado sin compromiso y descubre cómo puedo ayudarte.'
         buttonText='Solicitar Presupuesto Gratuito'
         onButtonClick={openModal}
       />

@@ -56,13 +56,13 @@ const SEOSection = () => {
             </p>
 
             <p className='mt-4'>
-              Creamos{' '}
+              Creo{' '}
               <strong className='font-semibold text-gray-900'>
                 páginas web a medida
               </strong>{' '}
               para empresas que necesitan una presencia digital sólida, moderna
               y preparada para convertir visitas en oportunidades reales de
-              negocio. Desarrollamos{' '}
+              negocio. Desarrollo{' '}
               <strong className='font-semibold text-gray-900'>
                 webs corporativas
               </strong>
@@ -81,7 +81,7 @@ const SEOSection = () => {
             <p className='mt-4'>
               Cada proyecto se diseña con un objetivo claro: ayudarte a
               conseguir más visibilidad, más contactos y más clientes. Por eso
-              trabajamos cada web desde una estrategia completa que combina{' '}
+              trabajo cada web desde una estrategia completa que combina{' '}
               <strong className='font-semibold text-gray-900'>
                 diseño web
               </strong>

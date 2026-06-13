@@ -34,7 +34,7 @@ const ContactForm = ({ preselectedPlan, isInModal = false }: ContactFormProps = 
         answer: 'azul',
       },
       { question: '¿Cuántas patas tiene un gato?', answer: '4' },
-      { question: '¿En qué año estamos? (4 dígitos)', answer: '2025' },
+      { question: '¿Cuál es el año actual? (4 dígitos)', answer: '2025' },
       { question: '¿Cuál es la capital de España?', answer: 'madrid' },
     ];
     return questions[Math.floor(Math.random() * questions.length)];
