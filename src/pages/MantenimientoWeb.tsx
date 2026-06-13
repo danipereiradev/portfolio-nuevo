@@ -10,6 +10,7 @@ import {
   Target,
   Award,
 } from 'lucide-react';
+import { useContactModal } from '../contexts/ContactModalContext';
 import SEOLandingHero from '../components/SEOLandingHero';
 import SEOProblem from '../components/SEOProblem';
 import SEOBenefits from '../components/SEOBenefits';
@@ -22,6 +23,8 @@ import Testimonials from '../components/Testimonials';
 import ContactForm from '../components/ContactForm';
 
 const MantenimientoWeb = () => {
+  const { openModal } = useContactModal();
+
   useEffect(() => {
     document.title =
       'Mantenimiento Web Profesional | Soporte y Actualizaciones | Dani Pereira';
@@ -33,10 +36,6 @@ const MantenimientoWeb = () => {
       );
     }
   }, []);
-
-  const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   const callPhone = () => {
     window.location.href = 'tel:+34644669828';
@@ -302,7 +301,7 @@ const MantenimientoWeb = () => {
         subtitle='Protege, Actualiza y Optimiza tu Sitio Web'
         description='Servicio completo de mantenimiento web: seguridad, actualizaciones, copias de seguridad y soporte técnico para que tu web funcione perfectamente 24/7.'
         ctaText='Solicitar Presupuesto'
-        onCTAClick={scrollToContact}
+        onCTAClick={openModal}
         secondaryCTAText='Llamar Ahora'
         secondaryCTAAction={callPhone}
       />
@@ -343,7 +342,7 @@ const MantenimientoWeb = () => {
         title='¿Listo para Olvidarte de los Problemas Técnicos?'
         subtitle='Déjame encargarme del mantenimiento de tu web mientras tú te centras en hacer crecer tu negocio. Sin permanencia, sin sorpresas.'
         buttonText='Solicitar Presupuesto Personalizado'
-        onButtonClick={scrollToContact}
+        onButtonClick={openModal}
       />
 
       <ContactForm preselectedPlan='Mantenimiento Web' />

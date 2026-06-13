@@ -10,6 +10,7 @@ import {
   Target,
   Award,
 } from 'lucide-react';
+import { useContactModal } from '../contexts/ContactModalContext';
 import SEOLandingHero from '../components/SEOLandingHero';
 import SEOProblem from '../components/SEOProblem';
 import SEOBenefits from '../components/SEOBenefits';
@@ -23,6 +24,8 @@ import Testimonials from '../components/Testimonials';
 import Portfolio from '../components/Portfolio';
 
 const PaginasWebEmpresas = () => {
+  const { openModal } = useContactModal();
+
   useEffect(() => {
     document.title =
       'Páginas Web para Empresas | Desarrollo Web Corporativo | Dani Pereira';
@@ -34,10 +37,6 @@ const PaginasWebEmpresas = () => {
       );
     }
   }, []);
-
-  const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   const callPhone = () => {
     window.location.href = 'tel:+34644669828';
@@ -280,7 +279,7 @@ const PaginasWebEmpresas = () => {
         subtitle='Soluciones Web Corporativas que Impulsan tu Negocio'
         description='Desarrollamos webs corporativas profesionales que transmiten confianza, generan leads cualificados y posicionan tu empresa como líder en tu sector.'
         ctaText='Solicitar Presupuesto Corporativo'
-        onCTAClick={scrollToContact}
+        onCTAClick={openModal}
         secondaryCTAText='Llamar Ahora'
         secondaryCTAAction={callPhone}
       />
@@ -326,7 +325,7 @@ const PaginasWebEmpresas = () => {
         title='¿Listo para Impulsar la Presencia Digital de tu Empresa?'
         subtitle='Solicita un presupuesto personalizado y descubre cómo una web corporativa profesional puede transformar tu negocio.'
         buttonText='Solicitar Presupuesto Corporativo'
-        onButtonClick={scrollToContact}
+        onButtonClick={openModal}
       />
 
       <ContactForm preselectedPlan='Página Web' />

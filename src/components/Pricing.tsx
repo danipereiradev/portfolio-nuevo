@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import {
   Check,
-  Star,
   ArrowRight,
   Globe,
   ShoppingCart,
@@ -9,16 +8,14 @@ import {
   ChevronDown,
   Settings,
 } from 'lucide-react';
+import { useContactModal } from '../contexts/ContactModalContext';
 import Button from './Button';
 
 const Pricing = () => {
+  const { openModal } = useContactModal();
   const [openAccordion, setOpenAccordion] = useState<{
     [key: string]: number | null;
   }>({});
-
-  const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   const toggleAccordion = (planId: string, index: number) => {
     setOpenAccordion((prev) => ({
@@ -327,7 +324,7 @@ const Pricing = () => {
             </p>
             <div className='flex flex-col sm:flex-row gap-4 justify-center'>
               <Button
-                onClick={scrollToContact}
+                onClick={() => openModal()}
                 variant='ghost'
                 className='!bg-black !text-white hover:!bg-accent hover:!text-white !shadow-lg'
               >

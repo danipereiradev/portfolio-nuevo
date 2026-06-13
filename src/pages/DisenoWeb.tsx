@@ -10,6 +10,7 @@ import {
   Target,
   HeadphonesIcon,
 } from 'lucide-react';
+import { useContactModal } from '../contexts/ContactModalContext';
 import SEOLandingHero from '../components/SEOLandingHero';
 import SEOProblem from '../components/SEOProblem';
 import SEOBenefits from '../components/SEOBenefits';
@@ -23,6 +24,8 @@ import ContactForm from '../components/ContactForm';
 import Portfolio from '../components/Portfolio';
 
 const DisenoWeb = () => {
+  const { openModal } = useContactModal();
+
   useEffect(() => {
     document.title =
       'Diseño Web Profesional | Páginas Web Modernas | Dani Pereira';
@@ -34,10 +37,6 @@ const DisenoWeb = () => {
       );
     }
   }, []);
-
-  const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   const callPhone = () => {
     window.location.href = 'tel:+34644669828';
@@ -285,7 +284,7 @@ const DisenoWeb = () => {
         subtitle='Páginas Web que Impactan y Convierten'
         description='Creamos sitios web modernos, atractivos y optimizados que reflejan la esencia de tu marca y generan resultados reales para tu negocio.'
         ctaText='Solicitar Presupuesto Gratuito'
-        onCTAClick={scrollToContact}
+        onCTAClick={openModal}
         secondaryCTAText='Llamar Ahora'
         secondaryCTAAction={callPhone}
       />
@@ -325,7 +324,7 @@ const DisenoWeb = () => {
         title='¿Listo para Tener la Web que Tu Negocio Merece?'
         subtitle='No esperes más para destacar frente a tu competencia. Solicita tu presupuesto personalizado sin compromiso y descubre cómo podemos ayudarte.'
         buttonText='Solicitar Presupuesto Gratuito'
-        onButtonClick={scrollToContact}
+        onButtonClick={openModal}
       />
 
       <ContactForm preselectedPlan='Diseño Web' />

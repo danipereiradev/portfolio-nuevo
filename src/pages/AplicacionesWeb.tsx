@@ -13,6 +13,7 @@ import {
   TrendingUp,
   Users,
 } from 'lucide-react';
+import { useContactModal } from '../contexts/ContactModalContext';
 import SEOLandingHero from '../components/SEOLandingHero';
 import SEOProblem from '../components/SEOProblem';
 import SEOBenefits from '../components/SEOBenefits';
@@ -26,6 +27,8 @@ import Testimonials from '../components/Testimonials';
 import Portfolio from '../components/Portfolio';
 
 const AplicacionesWeb = () => {
+  const { openModal } = useContactModal();
+
   useEffect(() => {
     document.title = 'Desarrollo de Aplicaciones Web a Medida | Dani Pereira';
     const metaDescription = document.querySelector('meta[name="description"]');
@@ -36,10 +39,6 @@ const AplicacionesWeb = () => {
       );
     }
   }, []);
-
-  const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   const callPhone = () => {
     window.location.href = 'tel:+34644669828';
@@ -276,7 +275,7 @@ const AplicacionesWeb = () => {
         subtitle='Soluciones Web a Medida para tu Negocio'
         description='Creamos aplicaciones web personalizadas que resuelven problemas reales, automatizan procesos y transforman digitalmente tu empresa.'
         ctaText='Consultar Proyecto de App Web'
-        onCTAClick={scrollToContact}
+        onCTAClick={openModal}
         secondaryCTAText='Llamar Ahora'
         secondaryCTAAction={callPhone}
       />
@@ -319,7 +318,7 @@ const AplicacionesWeb = () => {
         title='¿Listo para Transformar tu Idea en una App Web?'
         subtitle='Conversemos sobre tu proyecto. Te ayudo a definir requisitos, elegir tecnologías y crear una hoja de ruta clara para desarrollar tu aplicación web.'
         buttonText='Consultar Proyecto de Aplicación Web'
-        onButtonClick={scrollToContact}
+        onButtonClick={openModal}
       />
 
       <ContactForm preselectedPlan='App Móvil' />

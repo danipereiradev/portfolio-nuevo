@@ -12,6 +12,7 @@ import {
   Zap,
   Users,
 } from 'lucide-react';
+import { useContactModal } from '../contexts/ContactModalContext';
 import SEOLandingHero from '../components/SEOLandingHero';
 import SEOProblem from '../components/SEOProblem';
 import SEOBenefits from '../components/SEOBenefits';
@@ -25,6 +26,8 @@ import Testimonials from '../components/Testimonials';
 import Portfolio from '../components/Portfolio';
 
 const ServicioSEO = () => {
+  const { openModal } = useContactModal();
+
   useEffect(() => {
     document.title =
       'Posicionamiento SEO | Optimización Web para Google | Dani Pereira';
@@ -36,10 +39,6 @@ const ServicioSEO = () => {
       );
     }
   }, []);
-
-  const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   const callPhone = () => {
     window.location.href = 'tel:+34644669828';
@@ -281,7 +280,7 @@ const ServicioSEO = () => {
         subtitle='Mejora tu Visibilidad y Atrae Más Clientes'
         description='Optimizamos tu web para que aparezca en las primeras posiciones de Google, generando tráfico cualificado que se convierte en clientes reales.'
         ctaText='Solicitar Auditoría SEO Gratuita'
-        onCTAClick={scrollToContact}
+        onCTAClick={openModal}
         secondaryCTAText='Llamar Ahora'
         secondaryCTAAction={callPhone}
       />
@@ -321,7 +320,7 @@ const ServicioSEO = () => {
         title='¿Listo para Dominar los Resultados de Google?'
         subtitle='Solicita tu auditoría SEO gratuita y descubre el potencial de posicionamiento de tu web. Te muestro qué mejoras implementar para superar a tu competencia.'
         buttonText='Solicitar Auditoría SEO Gratuita'
-        onButtonClick={scrollToContact}
+        onButtonClick={openModal}
       />
 
       <ContactForm preselectedPlan='Posicionamiento SEO' />

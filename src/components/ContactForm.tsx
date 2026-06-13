@@ -15,9 +15,10 @@ import Button from './Button';
 
 interface ContactFormProps {
   preselectedPlan?: string;
+  isInModal?: boolean;
 }
 
-const ContactForm = ({ preselectedPlan }: ContactFormProps = {}) => {
+const ContactForm = ({ preselectedPlan, isInModal = false }: ContactFormProps = {}) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<
@@ -276,14 +277,9 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
   // Si el formulario fue enviado exitosamente, mostrar mensaje de confirmación
   if (submitStatus === 'success') {
-    return (
-      <section
-        id='contact'
-        className='py-20 bg-gradient-to-br from-gray-50 to-blue-50'
-      >
-        <div className='container mx-auto px-6'>
-          <div className='max-w-2xl mx-auto'>
-            <div className='bg-white rounded-2xl shadow-2xl p-8 md:p-12 text-center'>
+    const successContent = (
+      <div className='max-w-2xl mx-auto'>
+        <div className='bg-white rounded-2xl shadow-2xl p-8 md:p-12 text-center'>
               {/* Icono de éxito */}
               <div className='flex justify-center mb-6'>
                 <div className='bg-green-100 rounded-full p-4'>
@@ -345,6 +341,19 @@ Fecha: ${new Date().toLocaleString('es-ES')}
               </div>
             </div>
           </div>
+    );
+
+    if (isInModal) {
+      return successContent;
+    }
+
+    return (
+      <section
+        id='contact'
+        className='py-20 bg-gradient-to-br from-gray-50 to-blue-50'
+      >
+        <div className='container mx-auto px-6'>
+          {successContent}
         </div>
       </section>
     );
@@ -789,122 +798,132 @@ Fecha: ${new Date().toLocaleString('es-ES')}
     }
   };
 
+  const formContent = (
+    <>
+      <div className='text-center mb-16'>
+        <h2 className='text-4xl md:text-5xl font-bold text-gray-900 mb-4'>
+          Solicita tu Presupuesto
+        </h2>
+        <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
+          Cuéntame sobre tu proyecto y te enviaré una propuesta personalizada
+          en menos de 24 horas
+        </p>
+      </div>
+
+      <div className='max-w-4xl mx-auto'>
+        <div className='bg-white rounded-2xl shadow-2xl overflow-hidden'>
+          {/* Progress Bar */}
+          <div className='bg-gray-50 px-8 py-6'>
+            <div className='flex items-center justify-between mb-2'>
+              <span className='text-sm font-medium text-gray-600'>
+                Paso {currentStep} de 3
+              </span>
+              <span className='text-sm font-medium text-gray-600'>
+                {Math.round((currentStep / 3) * 100)}% completado
+              </span>
+            </div>
+            <div className='w-full bg-gray-200 rounded-full h-2'>
+              <div
+                className='bg-accent h-2 rounded-full transition-all duration-500'
+                style={{ width: `${(currentStep / 3) * 100}%` }}
+              ></div>
+            </div>
+          </div>
+
+          {/* Form Content */}
+          <form onSubmit={handleSubmit} className='p-8'>
+            {renderStep()}
+
+            {/* Navigation Buttons */}
+            <div className='flex flex-col sm:flex-row justify-between gap-4 mt-8 pt-6 border-t border-gray-200'>
+              <Button
+                type='button'
+                onClick={prevStep}
+                disabled={currentStep === 1}
+                variant='ghost'
+                className='px-6 py-3 text-base w-full sm:w-auto'
+              >
+                <ArrowLeft className='w-4 h-4' />
+                Anterior
+              </Button>
+
+              {currentStep < 3 ? (
+                <Button
+                  type='button'
+                  onClick={nextStep}
+                  variant='primary'
+                  className='px-6 py-3 text-base w-full sm:w-auto'
+                >
+                  Siguiente
+                  <ArrowRight className='w-4 h-4' />
+                </Button>
+              ) : (
+                <Button
+                  type='submit'
+                  disabled={isSubmitting}
+                  isLoading={isSubmitting}
+                  variant='primary'
+                  className='px-8 py-3 text-base w-full sm:w-auto'
+                >
+                  {isSubmitting ? 'Enviando...' : 'Enviar Solicitud'}
+                  {!isSubmitting && <Check className='w-4 h-4' />}
+                </Button>
+              )}
+            </div>
+
+            {submitStatus === 'error' && (
+              <div className='mt-6 p-4 bg-gray-50 border border-gray-200 rounded-lg'>
+                <div className='flex items-center gap-2 text-gray-800'>
+                  <AlertCircle className='w-5 h-5' />
+                  <p className='font-medium'>Error al enviar la solicitud</p>
+                </div>
+                <p className='text-gray-700 text-sm mt-1'>
+                  Por favor, inténtalo de nuevo o contacta directamente por
+                  email: web.danipereira@gmail.com
+                </p>
+              </div>
+            )}
+          </form>
+        </div>
+      </div>
+
+      {/* Contact Info */}
+      <div className='text-center mt-12'>
+        <p className='text-gray-600 mb-4'>
+          ¿Prefieres contactar directamente?
+        </p>
+        <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
+          <a
+            href='mailto:web.danipereira@gmail.com'
+            className='flex items-center gap-2 text-accent hover:text-accent-hover font-medium'
+          >
+            <Mail className='w-5 h-5' />
+            web.danipereira@gmail.com
+          </a>
+          <span className='hidden sm:block text-gray-300'>|</span>
+          <a
+            href='https://wa.me/34644669828'
+            className='flex items-center gap-2 text-green-600 hover:text-green-700 font-medium'
+          >
+            <Phone className='w-5 h-5' />
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </>
+  );
+
+  if (isInModal) {
+    return formContent;
+  }
+
   return (
     <section
       id='contact'
       className='py-20 bg-gradient-to-br from-gray-50 to-blue-50'
     >
       <div className='container mx-auto px-6'>
-        <div className='text-center mb-16'>
-          <h2 className='text-4xl md:text-5xl font-bold text-gray-900 mb-4'>
-            Solicita tu Presupuesto
-          </h2>
-          <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-            Cuéntame sobre tu proyecto y te enviaré una propuesta personalizada
-            en menos de 24 horas
-          </p>
-        </div>
-
-        <div className='max-w-4xl mx-auto'>
-          <div className='bg-white rounded-2xl shadow-2xl overflow-hidden'>
-            {/* Progress Bar */}
-            <div className='bg-gray-50 px-8 py-6'>
-              <div className='flex items-center justify-between mb-2'>
-                <span className='text-sm font-medium text-gray-600'>
-                  Paso {currentStep} de 3
-                </span>
-                <span className='text-sm font-medium text-gray-600'>
-                  {Math.round((currentStep / 3) * 100)}% completado
-                </span>
-              </div>
-              <div className='w-full bg-gray-200 rounded-full h-2'>
-                <div
-                  className='bg-accent h-2 rounded-full transition-all duration-500'
-                  style={{ width: `${(currentStep / 3) * 100}%` }}
-                ></div>
-              </div>
-            </div>
-
-            {/* Form Content */}
-            <form onSubmit={handleSubmit} className='p-8'>
-              {renderStep()}
-
-              {/* Navigation Buttons */}
-              <div className='flex flex-col sm:flex-row justify-between gap-4 mt-8 pt-6 border-t border-gray-200'>
-                <Button
-                  type='button'
-                  onClick={prevStep}
-                  disabled={currentStep === 1}
-                  variant='ghost'
-                  className='px-6 py-3 text-base w-full sm:w-auto'
-                >
-                  <ArrowLeft className='w-4 h-4' />
-                  Anterior
-                </Button>
-
-                {currentStep < 3 ? (
-                  <Button
-                    type='button'
-                    onClick={nextStep}
-                    variant='primary'
-                    className='px-6 py-3 text-base w-full sm:w-auto'
-                  >
-                    Siguiente
-                    <ArrowRight className='w-4 h-4' />
-                  </Button>
-                ) : (
-                  <Button
-                    type='submit'
-                    disabled={isSubmitting}
-                    isLoading={isSubmitting}
-                    variant='primary'
-                    className='px-8 py-3 text-base w-full sm:w-auto'
-                  >
-                    {isSubmitting ? 'Enviando...' : 'Enviar Solicitud'}
-                    {!isSubmitting && <Check className='w-4 h-4' />}
-                  </Button>
-                )}
-              </div>
-
-              {submitStatus === 'error' && (
-                <div className='mt-6 p-4 bg-gray-50 border border-gray-200 rounded-lg'>
-                  <div className='flex items-center gap-2 text-gray-800'>
-                    <AlertCircle className='w-5 h-5' />
-                    <p className='font-medium'>Error al enviar la solicitud</p>
-                  </div>
-                  <p className='text-gray-700 text-sm mt-1'>
-                    Por favor, inténtalo de nuevo o contacta directamente por
-                    email: web.danipereira@gmail.com
-                  </p>
-                </div>
-              )}
-            </form>
-          </div>
-        </div>
-
-        {/* Contact Info */}
-        <div className='text-center mt-12'>
-          <p className='text-gray-600 mb-4'>
-            ¿Prefieres contactar directamente?
-          </p>
-          <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
-            <a
-              href='mailto:web.danipereira@gmail.com'
-              className='flex items-center gap-2 text-accent hover:text-accent-hover font-medium'
-            >
-              <Mail className='w-5 h-5' />
-              web.danipereira@gmail.com
-            </a>
-            <span className='hidden sm:block text-gray-300'>|</span>
-            <a
-              href='https://wa.me/34644669828'
-              className='flex items-center gap-2 text-green-600 hover:text-green-700 font-medium'
-            >
-              <Phone className='w-5 h-5' />
-              WhatsApp
-            </a>
-          </div>
-        </div>
+        {formContent}
       </div>
     </section>
   );

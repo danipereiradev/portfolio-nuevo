@@ -8,7 +8,6 @@ import {
   Phone,
   Instagram,
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import LegalPages from './LegalPages';
 

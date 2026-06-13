@@ -1,9 +1,11 @@
 import { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
+import { ContactModalProvider } from './contexts/ContactModalContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
+import ContactFormModal from './components/ContactFormModal';
 import Home from './pages/Home';
 import DisenoWeb from './pages/DisenoWeb';
 import PaginasWebEmpresas from './pages/PaginasWebEmpresas';
@@ -43,6 +45,9 @@ function AppContent() {
 
       {/* WhatsApp Button - Solo en landings */}
       {isLandingPage && <WhatsAppButton />}
+
+      {/* Contact Form Modal - disponible en todas las páginas */}
+      <ContactFormModal />
     </div>
   );
 }
@@ -50,7 +55,9 @@ function AppContent() {
 function App() {
   return (
     <LanguageProvider>
-      <AppContent />
+      <ContactModalProvider>
+        <AppContent />
+      </ContactModalProvider>
     </LanguageProvider>
   );
 }

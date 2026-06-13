@@ -1,15 +1,16 @@
-import React from 'react';
-import { ArrowDown, Zap } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useContactModal } from '../contexts/ContactModalContext';
 import { trackButtonClick } from '../utils/analytics';
 import Button from './Button';
 
 const Hero = () => {
   const { t } = useLanguage();
+  const { openModal } = useContactModal();
 
-  const scrollToContact = () => {
+  const handleRequestQuote = () => {
     trackButtonClick('Solicitar Presupuesto', 'Hero');
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    openModal();
   };
 
   return (
@@ -38,7 +39,7 @@ const Hero = () => {
         </h2>
 
         <div className='flex flex-col sm:flex-row gap-4 justify-center items-center mb-12'>
-          <Button onClick={scrollToContact} variant='primary'>
+          <Button onClick={handleRequestQuote} variant='primary'>
             {t('hero.cta.quote')}
           </Button>
         </div>

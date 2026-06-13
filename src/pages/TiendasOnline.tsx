@@ -13,6 +13,7 @@ import {
   Zap,
   Shield,
 } from 'lucide-react';
+import { useContactModal } from '../contexts/ContactModalContext';
 import SEOLandingHero from '../components/SEOLandingHero';
 import SEOProblem from '../components/SEOProblem';
 import SEOBenefits from '../components/SEOBenefits';
@@ -26,6 +27,8 @@ import Testimonials from '../components/Testimonials';
 import Portfolio from '../components/Portfolio';
 
 const TiendasOnline = () => {
+  const { openModal } = useContactModal();
+
   useEffect(() => {
     document.title =
       'Crear Tienda Online Profesional | E-commerce a Medida | Dani Pereira';
@@ -37,10 +40,6 @@ const TiendasOnline = () => {
       );
     }
   }, []);
-
-  const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   const callPhone = () => {
     window.location.href = 'tel:+34644669828';
@@ -276,7 +275,7 @@ const TiendasOnline = () => {
         subtitle='Vende Online con una Tienda que Convierte'
         description='Desarrollamos tu tienda online completa con todo lo necesario para vender con éxito: diseño atractivo, pasarelas de pago y gestión sencilla.'
         ctaText='Solicitar Presupuesto de E-commerce'
-        onCTAClick={scrollToContact}
+        onCTAClick={openModal}
         secondaryCTAText='Llamar Ahora'
         secondaryCTAAction={callPhone}
       />
@@ -316,7 +315,7 @@ const TiendasOnline = () => {
         title='¿Listo para Empezar a Vender Online?'
         subtitle='No esperes más para lanzar tu tienda online. Solicita tu presupuesto personalizado y comienza a vender en internet con éxito.'
         buttonText='Solicitar Presupuesto de Tienda Online'
-        onButtonClick={scrollToContact}
+        onButtonClick={openModal}
       />
 
       <ContactForm preselectedPlan='Tienda Online' />

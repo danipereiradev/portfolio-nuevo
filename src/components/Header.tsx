@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Menu, X, Code2, ChevronDown, Mail, MessageCircle } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useContactModal } from '../contexts/ContactModalContext';
 import AboutMe from './AboutMe';
 
 interface HeaderProps {
@@ -12,6 +13,7 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
   const { t } = useLanguage();
   const location = useLocation();
   const navigate = useNavigate();
+  const { openModal } = useContactModal();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -130,9 +132,9 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
                     <div className='absolute top-full left-0 pt-2 w-72 z-50'>
                       <div className='bg-white rounded-lg shadow-xl py-2'>
                         {services.map((service) => (
-                          <Link
+                          <a
                             key={service.path}
-                            to={service.path}
+                            href={service.path}
                             className='group block px-4 py-3 hover:bg-accent transition-colors'
                             onClick={() => setIsServicesOpen(false)}
                           >
@@ -146,7 +148,7 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
                                 </span>
                               )}
                             </div>
-                          </Link>
+                          </a>
                         ))}
                         <div className='border-t border-gray-200 mt-2 pt-2'>
                           <button
@@ -172,7 +174,10 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
                 </button>
 
                 <button
-                  onClick={() => scrollToSection('contact')}
+                  onClick={() => {
+                    openModal();
+                    setIsMenuOpen(false);
+                  }}
                   className='font-bold text-md uppercase text-black transition-colors duration-200 hover:text-accent'
                 >
                   {t('nav.contact')}
@@ -250,9 +255,9 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
                 {isServicesOpen && (
                   <div className='bg-gray-50'>
                     {services.map((service) => (
-                      <Link
+                      <a
                         key={service.path}
-                        to={service.path}
+                        href={service.path}
                         onClick={() => {
                           setIsMenuOpen(false);
                           setIsServicesOpen(false);
@@ -267,7 +272,7 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
                             </span>
                           )}
                         </div>
-                      </Link>
+                      </a>
                     ))}
                   </div>
                 )}
@@ -281,7 +286,10 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
               </button>
 
               <button
-                onClick={() => scrollToSection('contact')}
+                onClick={() => {
+                  openModal();
+                  setIsMenuOpen(false);
+                }}
                 className='block w-full text-left px-4 py-2 font-bold text-md uppercase text-black hover:bg-gray-100 hover:text-accent transition-colors duration-200'
               >
                 {t('nav.contact')}
