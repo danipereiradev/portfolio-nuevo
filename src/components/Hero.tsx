@@ -29,12 +29,12 @@ const Hero = () => {
         <div className='absolute inset-0 bg-black/60'></div>
       </div>
 
-      <div className='relative z-10 text-center max-w-4xl mx-auto p-4'>
-        <h1 className='text-5xl md:text-7xl font-bold text-white mb-4 leading-tight'>
+      <div className='relative z-10 text-center max-w-4xl mx-auto px-6 py-4'>
+        <h1 className='text-3xl md:text-5xl lg:text-7xl font-bold text-white mb-4 leading-tight'>
           {t('hero.title')}
         </h1>
 
-        <h2 className='text-2xl md:text-3xl font-semibold text-white/90 mb-8'>
+        <h2 className='text-lg md:text-2xl lg:text-3xl font-semibold text-white/90 mb-8'>
           {t('hero.subtitle')}
         </h2>
 
