@@ -108,8 +108,8 @@ const DisenoWeb = () => {
     {
       number: '2',
       title: 'Diseño Visual',
-        description:
-          'Creo mockups y prototipos del diseño visual de tu web, asegurando que refleje tu marca y sea atractivo para tu audiencia.',
+      description:
+        'Creo mockups y prototipos del diseño visual de tu web, asegurando que refleje tu marca y sea atractivo para tu audiencia.',
     },
     {
       number: '3',
@@ -283,7 +283,7 @@ const DisenoWeb = () => {
         title='Diseño Web Profesional'
         subtitle='Páginas Web que Impactan y Convierten'
         description='Creo sitios web modernos, atractivos y optimizados que reflejan la esencia de tu marca y generan resultados reales para tu negocio.'
-        ctaText='Solicitar Presupuesto Gratuito'
+        ctaText='Solicita presupuesto'
         onCTAClick={openModal}
         secondaryCTAText='Llamar Ahora'
         secondaryCTAAction={callPhone}
@@ -314,7 +314,7 @@ const DisenoWeb = () => {
 
       <SEOWhyMe
         title='Por Qué Trabajar Conmigo'
-        subtitle='Más de 10 años creando webs que generan resultados'
+        subtitle='Más de 12 años creando webs que generan resultados'
         reasons={whyMeReasons}
       />
 
@@ -323,7 +323,7 @@ const DisenoWeb = () => {
       <SEOCTAFinal
         title='¿Listo para Tener la Web que Tu Negocio Merece?'
         subtitle='No esperes más para destacar frente a tu competencia. Solicita tu presupuesto personalizado sin compromiso y descubre cómo puedo ayudarte.'
-        buttonText='Solicitar Presupuesto Gratuito'
+        buttonText='Solicita presupuesto'
         onButtonClick={openModal}
       />
 

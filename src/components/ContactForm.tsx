@@ -338,13 +338,13 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       case 1:
         return (
           <div className='space-y-6'>
-            <h3 className='text-2xl font-bold text-gray-900 mb-6'>
+            <h3 className='text-xl md:text-2xl font-bold text-gray-900 mb-6 text-center md:text-left'>
               Información de Contacto
             </h3>
 
             <div className='grid md:grid-cols-2 gap-6'>
               <div>
-                <label className='block text-sm font-medium text-gray-700 mb-2'>
+                <label className='block text-sm font-medium text-gray-700 mb-2 text-center md:text-left'>
                   Nombre Completo *
                 </label>
                 <div className='relative'>
@@ -364,7 +364,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
               </div>
 
               <div>
-                <label className='block text-sm font-medium text-gray-700 mb-2'>
+                <label className='block text-sm font-medium text-gray-700 mb-2 text-center md:text-left'>
                   Email *
                 </label>
                 <div className='relative'>
@@ -383,7 +383,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
               </div>
 
               <div>
-                <label className='block text-sm font-medium text-gray-700 mb-2'>
+                <label className='block text-sm font-medium text-gray-700 mb-2 text-center md:text-left'>
                   Teléfono
                 </label>
                 <div className='relative'>
@@ -402,7 +402,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
               </div>
 
               <div>
-                <label className='block text-sm font-medium text-gray-700 mb-2'>
+                <label className='block text-sm font-medium text-gray-700 mb-2 text-center md:text-left'>
                   Empresa
                 </label>
                 <div className='relative'>
@@ -426,7 +426,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       case 2:
         return (
           <div className='space-y-6'>
-            <h3 className='text-2xl font-bold text-gray-900 mb-6'>
+            <h3 className='text-xl md:text-2xl font-bold text-gray-900 mb-6 text-center md:text-left'>
               Selecciona tu Plan
             </h3>
 
@@ -608,7 +608,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             </div>
 
             <div>
-              <label className='block text-sm font-medium text-gray-700 mb-2'>
+              <label className='block text-sm font-medium text-gray-700 mb-2 text-center md:text-left'>
                 Descripción del Proyecto *
               </label>
               <textarea
@@ -634,7 +634,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             </div>
 
             <div>
-              <label className='block text-sm font-medium text-gray-700 mb-2'>
+              <label className='block text-sm font-medium text-gray-700 mb-2 text-center md:text-left'>
                 Referencias o Inspiración
               </label>
               <textarea
@@ -657,7 +657,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       case 3:
         return (
           <div className='space-y-6'>
-            <h3 className='text-2xl font-bold text-gray-900 mb-6'>
+            <h3 className='text-xl md:text-2xl font-bold text-gray-900 mb-6 text-center md:text-left'>
               Preferencias de Contacto
             </h3>
 
@@ -716,7 +716,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
             {/* Verificación Anti-Spam */}
             <div className='bg-yellow-50 p-4 rounded-lg border border-yellow-200'>
-              <label className='block text-sm font-medium text-gray-700 mb-2'>
+              <label className='block text-sm font-medium text-gray-700 mb-2 text-center md:text-left'>
                 Verificación de Seguridad *
               </label>
               <p className='text-sm text-gray-600 mb-3'>
@@ -766,11 +766,11 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
   const formContent = (
     <>
-      <div className='text-center mb-16'>
-        <h2 className='text-4xl md:text-5xl font-bold text-gray-900 mb-4'>
+      <div className='text-center mb-12 md:mb-16'>
+        <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4'>
           Solicita tu Presupuesto
         </h2>
-        <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
+        <p className='text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto'>
           Cuéntame sobre tu proyecto y te enviaré una propuesta personalizada
           en menos de 24 horas
         </p>

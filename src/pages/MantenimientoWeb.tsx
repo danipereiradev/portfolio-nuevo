@@ -300,7 +300,7 @@ const MantenimientoWeb = () => {
         title='Mantenimiento Web Profesional'
         subtitle='Protege, Actualiza y Optimiza tu Sitio Web'
         description='Servicio completo de mantenimiento web: seguridad, actualizaciones, copias de seguridad y soporte técnico para que tu web funcione perfectamente 24/7.'
-        ctaText='Solicitar Presupuesto'
+        ctaText='Solicita presupuesto'
         onCTAClick={openModal}
         secondaryCTAText='Llamar Ahora'
         secondaryCTAAction={callPhone}
@@ -329,7 +329,7 @@ const MantenimientoWeb = () => {
 
       <SEOWhyMe
         title='Por Qué Elegir Mi Servicio de Mantenimiento'
-        subtitle='Más de 10 años cuidando webs como la tuya'
+        subtitle='Más de 12 años cuidando webs como la tuya'
         reasons={whyMeReasons}
       />
 
@@ -341,7 +341,7 @@ const MantenimientoWeb = () => {
       <SEOCTAFinal
         title='¿Listo para Olvidarte de los Problemas Técnicos?'
         subtitle='Déjame encargarme del mantenimiento de tu web mientras tú te centras en hacer crecer tu negocio. Sin permanencia, sin sorpresas.'
-        buttonText='Solicitar Presupuesto Personalizado'
+        buttonText='Solicita presupuesto'
         onButtonClick={openModal}
       />
 

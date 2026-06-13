@@ -274,7 +274,7 @@ const AplicacionesWeb = () => {
         title='Desarrollo de Aplicaciones Web'
         subtitle='Soluciones Web a Medida para tu Negocio'
         description='Creo aplicaciones web personalizadas que resuelven problemas reales, automatizan procesos y transforman digitalmente tu empresa.'
-        ctaText='Consultar Proyecto de App Web'
+        ctaText='Solicita presupuesto'
         onCTAClick={openModal}
         secondaryCTAText='Llamar Ahora'
         secondaryCTAAction={callPhone}
@@ -317,7 +317,7 @@ const AplicacionesWeb = () => {
       <SEOCTAFinal
         title='¿Listo para Transformar tu Idea en una App Web?'
         subtitle='Cuéntame sobre tu proyecto. Te ayudo a definir requisitos, elegir tecnologías y crear una hoja de ruta clara para desarrollar tu aplicación web.'
-        buttonText='Consultar Proyecto de Aplicación Web'
+        buttonText='Solicita presupuesto'
         onButtonClick={openModal}
       />
 

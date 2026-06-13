@@ -19,27 +19,6 @@ const Footer = () => {
     page: 'privacy' | 'terms' | 'cookies' | 'legal' | null;
   }>({ isOpen: false, page: null });
 
-  const comunidades = [
-    'Madrid',
-    'Barcelona',
-    'Valencia',
-    'Sevilla',
-    'Bilbao',
-    'Málaga',
-    'Zaragoza',
-    'Murcia',
-    'Palma',
-    'Las Palmas',
-    'Alicante',
-    'Córdoba',
-    'Valladolid',
-    'Vigo',
-    'Gijón',
-    'Hospitalet',
-    'Vitoria',
-    'Granada',
-  ];
-
   const openLegalPage = (page: 'privacy' | 'terms' | 'cookies' | 'legal') => {
     setLegalPageOpen({ isOpen: true, page });
   };
@@ -52,15 +31,15 @@ const Footer = () => {
     <>
       <footer className='bg-black text-white'>
         <div className='container mx-auto px-6 py-16'>
-          <div className='grid lg:grid-cols-4 gap-8'>
-            <div className='lg:col-span-1'>
-              <div className='flex items-center mb-6'>
+          <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
+            <div className='lg:col-span-1 text-center md:text-left'>
+              <div className='flex items-center mb-6 justify-center md:justify-start'>
                 <Code2 className='w-12 h-12 text-accent' />
               </div>
               <p className='text-gray-300 mb-6 leading-relaxed'>
                 {t('footer.description')}
               </p>
-              <div className='flex space-x-4'>
+              <div className='flex space-x-4 justify-center md:justify-start'>
                 <a
                   href='mailto:web.danipereira@gmail.com'
                   className='bg-accent hover:bg-accent-hover p-3 rounded-lg transition-colors duration-200'
@@ -94,8 +73,8 @@ const Footer = () => {
               </div>
             </div>
 
-            <div>
-              <h3 className='text-xl font-bold mb-6 text-gray-400'>
+            <div className='text-center md:text-left'>
+              <h3 className='text-xl md:text-2xl font-bold mb-6 text-accent'>
                 Servicios
               </h3>
               <ul className='space-y-3 text-gray-300'>
@@ -147,37 +126,29 @@ const Footer = () => {
                     Mantenimiento Web
                   </a>
                 </li>
-                <li className='pt-2 border-t border-gray-700'>
-                  <a
-                    href='/'
-                    className='hover:text-gray-400 transition-colors duration-200 text-sm'
-                  >
-                    Ver todos los servicios →
-                  </a>
-                </li>
               </ul>
             </div>
 
-            <div>
-              <h3 className='text-xl font-bold mb-6 text-gray-400'>
+            <div className='text-center md:text-left'>
+              <h3 className='text-xl md:text-2xl font-bold mb-6 text-accent'>
                 {t('footer.contact_title')}
               </h3>
               <ul className='space-y-4 text-gray-300'>
-                <li className='flex items-start gap-3'>
-                  <Mail className='w-5 h-5 text-accent mt-0.5' />
-                  <div>
+                <li className='flex flex-col items-center md:flex-row md:items-start gap-3 md:justify-start'>
+                  <Mail className='w-5 h-5 text-accent flex-shrink-0' />
+                  <div className='text-center md:text-left'>
                     <p className='font-medium'>Email</p>
                     <a
                       href='mailto:web.danipereira@gmail.com'
-                      className='hover:text-white transition-colors duration-200'
+                      className='hover:text-white transition-colors duration-200 break-all'
                     >
                       web.danipereira@gmail.com
                     </a>
                   </div>
                 </li>
-                <li className='flex items-start gap-3'>
-                  <Phone className='w-5 h-5 text-accent mt-0.5' />
-                  <div>
+                <li className='flex flex-col items-center md:flex-row md:items-start gap-3 md:justify-start'>
+                  <Phone className='w-5 h-5 text-accent flex-shrink-0' />
+                  <div className='text-center md:text-left'>
                     <p className='font-medium'>Teléfono</p>
                     <a
                       href='tel:+34644669828'
@@ -187,42 +158,25 @@ const Footer = () => {
                     </a>
                   </div>
                 </li>
-                <li className='flex items-start gap-3'>
-                  <MapPin className='w-5 h-5 text-accent mt-0.5' />
-                  <div>
+                <li className='flex flex-col items-center md:flex-row md:items-start gap-3 md:justify-start'>
+                  <MapPin className='w-5 h-5 text-accent flex-shrink-0' />
+                  <div className='text-center md:text-left'>
                     <p className='font-medium'>Ubicación</p>
                     <p>Madrid, España - Servicios en todas las CCAA</p>
                   </div>
                 </li>
               </ul>
             </div>
-
-            <div>
-              <h3 className='text-xl font-bold mb-6 text-gray-400'>
-                {t('footer.areas_title')}
-              </h3>
-              <p className='text-gray-300 mb-4'>{t('footer.areas_desc')}</p>
-              <div className='grid grid-cols-2 gap-1 text-sm text-gray-400'>
-                {comunidades.map((ciudad, index) => (
-                  <div
-                    key={index}
-                    className='hover:text-white transition-colors duration-200 cursor-default'
-                  >
-                    {ciudad}
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
 
         <div className='border-t border-gray-700'>
           <div className='container mx-auto px-6 py-6'>
-            <div className='flex flex-col md:flex-row justify-between items-center gap-4'>
+            <div className='flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left'>
               <p className='text-gray-400 text-sm'>
                 © {currentYear} {t('footer.copyright')}
               </p>
-              <div className='flex gap-6 text-sm text-gray-400'>
+              <div className='flex flex-wrap justify-center gap-4 md:gap-6 text-sm text-gray-400'>
                 <button
                   onClick={() => openLegalPage('privacy')}
                   className='hover:text-white transition-colors duration-200'

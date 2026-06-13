@@ -34,28 +34,28 @@ const SEOLandingHero = ({
         <div className='absolute inset-0 bg-black/60'></div>
       </div>
 
-      <div className='relative z-10 text-center max-w-4xl mx-auto p-4'>
-        <h1 className='text-5xl md:text-7xl font-bold text-white mb-4 leading-tight'>
+      <div className='relative z-10 text-center max-w-4xl mx-auto px-6 py-4'>
+        <h1 className='text-3xl md:text-5xl lg:text-7xl font-bold text-white mb-4 leading-tight'>
           {title}
         </h1>
 
-        <h2 className='text-2xl md:text-3xl font-semibold text-white/90 mb-8'>
+        <h2 className='text-lg md:text-2xl lg:text-3xl font-semibold text-white/90 mb-6'>
           {subtitle}
         </h2>
 
-        <p className='text-xl md:text-2xl text-white/90 mb-8 leading-relaxed'>
+        <p className='text-base md:text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed'>
           {description}
         </p>
 
-        <div className='flex flex-col sm:flex-row gap-4 justify-center items-center mb-12'>
-          <Button onClick={onCTAClick} variant='primary'>
+        <div className='flex flex-col sm:flex-row gap-4 justify-center items-stretch mb-12'>
+          <Button onClick={onCTAClick} variant='primary' className='sm:min-w-[240px]'>
             {ctaText}
-            <ArrowRight className='w-5 h-5' />
+            <ArrowRight className='w-4 h-4 md:w-5 md:h-5' />
           </Button>
           {secondaryCTAText && secondaryCTAAction && (
-            <Button onClick={secondaryCTAAction} variant='secondary'>
+            <Button onClick={secondaryCTAAction} variant='secondary' className='sm:min-w-[240px]'>
               {secondaryCTAText}
-              <Phone className='w-5 h-5' />
+              <Phone className='w-4 h-4 md:w-5 md:h-5' />
             </Button>
           )}
         </div>

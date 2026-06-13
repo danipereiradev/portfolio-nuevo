@@ -24,7 +24,7 @@ const translations = {
   'hero.description':
     '+12 años creando experiencias web que transforman negocios.',
   'hero.features': 'Código Limpio • Diseño Moderno • Resultados Reales',
-  'hero.cta.quote': 'Solicitar Presupuesto',
+  'hero.cta.quote': 'Solicita presupuesto',
   'hero.cta.portfolio': 'Ver Portfolio',
 
   // Services

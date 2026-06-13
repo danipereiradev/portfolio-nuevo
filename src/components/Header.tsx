@@ -173,7 +173,20 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
               </nav>
             )}
 
-            <div className='hidden md:flex items-center gap-4'>
+            <div className='flex items-center gap-4 md:gap-4'>
+              {showNavMenu && (
+                <button
+                  className='md:hidden'
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                >
+                  {isMenuOpen ? (
+                    <X className='w-6 h-6 text-black' />
+                  ) : (
+                    <Menu className='w-6 h-6 text-black' />
+                  )}
+                </button>
+              )}
+              
               <a
                 href='mailto:web.danipereira@gmail.com'
                 className='p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors duration-200'
@@ -191,19 +204,6 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
                 <MessageCircle className='w-5 h-5 text-white' />
               </a>
             </div>
-
-            {showNavMenu && (
-              <button
-                className='md:hidden'
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-              >
-                {isMenuOpen ? (
-                  <X className='w-6 h-6 text-black' />
-                ) : (
-                  <Menu className='w-6 h-6 text-black' />
-                )}
-              </button>
-            )}
           </div>
 
           {showNavMenu && isMenuOpen && (
@@ -278,27 +278,6 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
               >
                 {t('nav.contact')}
               </button>
-
-              <div className='flex items-center gap-4 px-4 py-4 mt-2 border-t border-gray-200'>
-                <a
-                  href='mailto:web.danipereira@gmail.com'
-                  className='flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors duration-200 flex-1 justify-center'
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <Mail className='w-5 h-5 text-gray-700' />
-                  <span className='text-sm font-medium text-gray-700'>Email</span>
-                </a>
-                <a
-                  href='https://wa.me/34644669828'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='flex items-center gap-2 px-4 py-2 rounded-lg bg-accent hover:bg-accent-hover transition-colors duration-200 flex-1 justify-center'
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <MessageCircle className='w-5 h-5 text-white' />
-                  <span className='text-sm font-medium text-white'>WhatsApp</span>
-                </a>
-              </div>
             </nav>
           )}
         </div>

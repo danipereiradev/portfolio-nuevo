@@ -20,6 +20,7 @@ El backend incluye un panel de administración personalizado que facilita la car
 
 La tienda también cuenta con un programa de afiliados que ha generado una red de promotores que generan ventas adicionales mediante comisiones. El proyecto ha sido un éxito comercial, procesando miles de pedidos mensuales.`,
       image: '/img/portfolio/camisetas-ahora.png',
+      headerImage: '/img/portfolio/mock-camisetas.png',
       tech: ['WordPress', 'WooCommerce', 'jQuery', 'CSS3'],
       category: 'Tienda Online',
       url: 'https://camisetas-ahora.com',
@@ -37,9 +38,10 @@ El blog incluye funcionalidades interactivas como mapas de destinos visitados, c
 
 La monetización se logró mediante publicidad estratégica, enlaces de afiliados a booking y productos de viaje, y colaboraciones con marcas del sector turístico. El blog genera actualmente ingresos pasivos consistentes.`,
       image: '/img/portfolio/hoyviajamos.png',
+      headerImage: '/img/portfolio/mock-viajamos.png',
       tech: ['HTML5', 'CSS3', 'JavaScript', 'PHP'],
       category: 'Página Web',
-      url: 'https://hoyviajamos.com',
+      url: 'https://hoyviajamosweb.com',
     },
     {
       title: t('portfolio.carper.title'),
@@ -54,6 +56,7 @@ Se implementó un formulario de contacto inteligente que pre-califica los leads 
 
 La web ha mejorado significativamente la captación de clientes corporativos y ha posicionado a Carper como referente en el sector del audio profesional en su región.`,
       image: '/img/portfolio/carper.png',
+      headerImage: '/img/portfolio/mock-carper.png',
       tech: ['WordPress', 'HTML5', 'CSS3', 'JavaScript'],
       category: 'Página Web',
       url: 'https://carpersonido.com',
@@ -71,6 +74,7 @@ Se integró Instagram directamente en la web para mostrar cómo los clientes rea
 
 Desde el lanzamiento, la tienda ha procesado miles de pedidos y ha permitido a la marca expandirse internacionalmente, enviando productos a más de 15 países.`,
       image: '/img/portfolio/chicxs.png',
+      headerImage: '/img/portfolio/mock-chicxs.png',
       tech: ['WordPress', 'WooCommerce', 'CSS3', 'JavaScript'],
       category: 'Tienda Online',
       url: 'https://chicxsdelacalle.com',
@@ -86,6 +90,7 @@ Una de las características más destacadas es el sistema de suscripción mensua
 
 El proyecto incluyó optimización SEO específica para búsquedas relacionadas con productos veganos, lo que ha resultado en un incremento significativo del tráfico orgánico. La tienda procesa actualmente cientos de pedidos mensuales y continúa creciendo.`,
       image: '/img/portfolio/delish.png',
+      headerImage: '/img/portfolio/mock-delish.png',
       tech: ['WordPress', 'WooCommerce', 'PHP', 'JavaScript', 'CSS3'],
       category: 'Tienda Online',
       url: 'https://delishvegann.com',
@@ -113,7 +118,7 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
         </div>
 
         {/* Grid de 3 columnas - Cards simplificadas */}
-        <div className='grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto'>
+        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto'>
           {projects.map((project, index) => (
             <div
               key={index}
@@ -158,6 +163,17 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
 
               {/* Contenido tipo blog */}
               <div className='bg-white'>
+                {/* Imagen de cabecera (si existe) */}
+                {projects[selectedProject].headerImage && (
+                  <div className='w-full'>
+                    <img
+                      src={projects[selectedProject].headerImage}
+                      alt={projects[selectedProject].title}
+                      className='w-full h-auto object-cover'
+                    />
+                  </div>
+                )}
+
                 <div className='max-w-4xl mx-auto px-6 md:px-12 py-12 md:py-16'>
                   {/* Título */}
                   <h3 className='text-3xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6'>

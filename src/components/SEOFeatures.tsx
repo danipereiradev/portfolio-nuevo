@@ -15,12 +15,12 @@ const SEOFeatures = ({ title, subtitle, features }: SEOFeaturesProps) => {
   return (
     <section className='py-20 bg-gray-50'>
       <div className='container mx-auto px-6'>
-        <div className='text-center mb-16'>
-          <h2 className='text-4xl md:text-5xl font-bold text-gray-900 mb-4'>
+        <div className='text-center mb-12 md:mb-16'>
+          <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4'>
             {title}
           </h2>
           {subtitle && (
-            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
+            <p className='text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto'>
               {subtitle}
             </p>
           )}
@@ -30,19 +30,19 @@ const SEOFeatures = ({ title, subtitle, features }: SEOFeaturesProps) => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className='bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300'
+              className='bg-white p-4 md:p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300'
             >
-              <div className='flex items-start gap-4'>
+              <div className='flex items-start gap-3 md:gap-4'>
                 <div className='flex-shrink-0'>
-                  <div className='w-8 h-8 bg-accent rounded-lg flex items-center justify-center'>
-                    <Check className='w-5 h-5 text-white' />
+                  <div className='w-7 h-7 md:w-8 md:h-8 bg-accent rounded-lg flex items-center justify-center'>
+                    <Check className='w-4 h-4 md:w-5 md:h-5 text-white' />
                   </div>
                 </div>
                 <div>
-                  <h3 className='text-xl font-bold text-gray-900 mb-2'>
+                  <h3 className='text-base md:text-lg lg:text-xl font-bold text-gray-900 mb-2'>
                     {feature.title}
                   </h3>
-                  <p className='text-gray-600 leading-relaxed'>
+                  <p className='text-sm md:text-base text-gray-600 leading-relaxed'>
                     {feature.description}
                   </p>
                 </div>

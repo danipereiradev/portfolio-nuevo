@@ -29,20 +29,20 @@ const SEOCTAFinal = ({
       {/* Content */}
       <div className='container mx-auto px-6 relative z-10'>
         <div className='max-w-4xl mx-auto text-center'>
-          <h2 className='text-4xl md:text-5xl font-bold text-white mb-6'>
+          <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6'>
             {title}
           </h2>
-          <p className='text-xl text-white/90 mb-8 leading-relaxed'>
+          <p className='text-base md:text-lg lg:text-xl text-white/90 mb-6 md:mb-8 leading-relaxed'>
             {subtitle}
           </p>
           <div className='flex justify-center'>
             <Button
               onClick={onButtonClick}
               variant='primary'
-              className='!bg-accent !text-white hover:!bg-accent-hover'
+              className='!bg-accent !text-white hover:!bg-accent-hover text-sm md:text-base'
             >
               {buttonText}
-              <ArrowRight className='w-5 h-5' />
+              <ArrowRight className='w-4 h-4 md:w-5 md:h-5' />
             </Button>
           </div>
         </div>

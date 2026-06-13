@@ -279,7 +279,7 @@ const ServicioSEO = () => {
         title='Posicionamiento SEO en Google'
         subtitle='Mejora tu Visibilidad y Atrae Más Clientes'
         description='Optimizo tu web para que aparezca en las primeras posiciones de Google, generando tráfico cualificado que se convierte en clientes reales.'
-        ctaText='Solicitar Auditoría SEO Gratuita'
+        ctaText='Solicita auditoría SEO'
         onCTAClick={openModal}
         secondaryCTAText='Llamar Ahora'
         secondaryCTAAction={callPhone}
@@ -319,7 +319,7 @@ const ServicioSEO = () => {
       <SEOCTAFinal
         title='¿Listo para Dominar los Resultados de Google?'
         subtitle='Solicita tu auditoría SEO gratuita y descubre el potencial de posicionamiento de tu web. Te muestro qué mejoras implementar para superar a tu competencia.'
-        buttonText='Solicitar Auditoría SEO Gratuita'
+        buttonText='Solicita auditoría SEO'
         onButtonClick={openModal}
       />
 

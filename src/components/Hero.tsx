@@ -9,7 +9,7 @@ const Hero = () => {
   const { openModal } = useContactModal();
 
   const handleRequestQuote = () => {
-    trackButtonClick('Solicitar Presupuesto', 'Hero');
+    trackButtonClick('Solicita presupuesto', 'Hero');
     openModal();
   };
 

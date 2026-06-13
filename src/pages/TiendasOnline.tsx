@@ -274,7 +274,7 @@ const TiendasOnline = () => {
         title='Crear Tienda Online Profesional'
         subtitle='Vende Online con una Tienda que Convierte'
         description='Desarrollo tu tienda online completa con todo lo necesario para vender con éxito: diseño atractivo, pasarelas de pago y gestión sencilla.'
-        ctaText='Solicitar Presupuesto de E-commerce'
+        ctaText='Solicita presupuesto'
         onCTAClick={openModal}
         secondaryCTAText='Llamar Ahora'
         secondaryCTAAction={callPhone}
@@ -314,7 +314,7 @@ const TiendasOnline = () => {
       <SEOCTAFinal
         title='¿Listo para Empezar a Vender Online?'
         subtitle='No esperes más para lanzar tu tienda online. Solicita tu presupuesto personalizado y comienza a vender en internet con éxito.'
-        buttonText='Solicitar Presupuesto de Tienda Online'
+        buttonText='Solicita presupuesto'
         onButtonClick={openModal}
       />
 

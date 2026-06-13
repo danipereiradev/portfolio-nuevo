@@ -9,7 +9,7 @@ const Contacto = () => {
     if (metaDescription) {
       metaDescription.setAttribute(
         'content',
-        'Contacta conmigo para tu proyecto web. Solicita presupuesto sin compromiso para diseño web, tienda online o aplicación web personalizada.'
+        'Contacta conmigo para tu proyecto web. Solicita presupuesto sin compromiso para diseño web, tienda online o aplicación web personalizada.',
       );
     }
   }, []);
@@ -60,7 +60,9 @@ const Contacto = () => {
                     <Phone className='w-6 h-6 text-white' />
                   </div>
                   <div>
-                    <h3 className='font-bold text-gray-900 mb-1'>Teléfono / WhatsApp</h3>
+                    <h3 className='font-bold text-gray-900 mb-1'>
+                      Teléfono / WhatsApp
+                    </h3>
                     <a
                       href='tel:+34644669828'
                       className='text-gray-600 hover:text-accent transition-colors'
@@ -114,7 +116,7 @@ const Contacto = () => {
                     <span className='text-white text-sm font-bold'>✓</span>
                   </div>
                   <p className='text-gray-600'>
-                    Más de 10 años de experiencia en desarrollo web
+                    Más de 12 años de experiencia en desarrollo web
                   </p>
                 </li>
                 <li className='flex items-start gap-3'>

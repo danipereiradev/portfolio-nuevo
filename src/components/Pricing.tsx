@@ -29,6 +29,7 @@ const Pricing = () => {
     if (planId === 'webpage') numRevisiones = 2;
     else if (planId === 'ecommerce') numRevisiones = 2;
     else if (planId === 'mobileapp') numRevisiones = 3;
+    else if (planId === 'maintenance') numRevisiones = 0;
 
     const infoItems = [];
 
@@ -253,13 +254,8 @@ const Pricing = () => {
 
                 {/* CTA Button + Accordion - pushed to bottom */}
                 <div className='mt-auto'>
-                  <Button href={plan.path} variant='primary' fullWidth>
-                    Más información
-                    <ArrowRight className='w-4 h-4 group-hover:translate-x-1 transition-transform duration-200' />
-                  </Button>
-
                   {getAdditionalInfo(plan.id).length > 0 && (
-                    <div className='mt-6'>
+                    <div className='mb-6'>
                       <div className='space-y-2'>
                         {getAdditionalInfo(plan.id).map((item, index) => (
                           <div
@@ -299,6 +295,11 @@ const Pricing = () => {
                       </div>
                     </div>
                   )}
+
+                  <Button href={plan.path} variant='primary' fullWidth>
+                    Más información
+                    <ArrowRight className='w-4 h-4 group-hover:translate-x-1 transition-transform duration-200' />
+                  </Button>
                 </div>
               </div>
             </div>

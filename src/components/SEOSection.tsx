@@ -111,9 +111,9 @@ const SEOSection = () => {
             {benefits.map((benefit, index) => (
               <div
                 key={index}
-                className='bg-white place-items-center p-6 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 group'
+                className='bg-white text-center p-6 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 group'
               >
-                <div className='bg-white border-2 border-black w-12 h-12 rounded-lg flex items-center justify-center text-black mb-4 group-hover:scale-110 transition-transform duration-200'>
+                <div className='bg-white border-2 border-black w-12 h-12 rounded-lg flex items-center justify-center text-black mb-4 mx-auto group-hover:scale-110 transition-transform duration-200'>
                   {benefit.icon}
                 </div>
                 <h3 className='font-bold text-gray-900 mb-2'>

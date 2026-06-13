@@ -278,7 +278,7 @@ const PaginasWebEmpresas = () => {
         title='Páginas Web para Empresas'
         subtitle='Soluciones Web Corporativas que Impulsan tu Negocio'
         description='Desarrollo webs corporativas profesionales que transmiten confianza, generan leads cualificados y posicionan tu empresa como líder en tu sector.'
-        ctaText='Solicitar Presupuesto Corporativo'
+        ctaText='Solicita presupuesto'
         onCTAClick={openModal}
         secondaryCTAText='Llamar Ahora'
         secondaryCTAAction={callPhone}
@@ -324,7 +324,7 @@ const PaginasWebEmpresas = () => {
       <SEOCTAFinal
         title='¿Listo para Impulsar la Presencia Digital de tu Empresa?'
         subtitle='Solicita un presupuesto personalizado y descubre cómo una web corporativa profesional puede transformar tu negocio.'
-        buttonText='Solicitar Presupuesto Corporativo'
+        buttonText='Solicita presupuesto'
         onButtonClick={openModal}
       />
 
