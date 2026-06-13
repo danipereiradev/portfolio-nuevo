@@ -176,11 +176,10 @@ const Pricing = () => {
         <div className='max-w-4xl mx-auto mb-12'>
           <div className='bg-white rounded-2xl shadow-md p-6 border-2 border-blue-100'>
             <h3 className='text-lg font-bold text-gray-900 mb-4 text-center'>
-              ✨ Todos los planes incluyen:
+              Todos los planes incluyen:
             </h3>
             <div className='grid md:grid-cols-2 gap-4'>
               <div className='flex items-start gap-3 bg-gray-50 rounded-lg p-4'>
-                <span className='text-2xl'>💳</span>
                 <div>
                   <p className='font-semibold text-gray-900 text-sm mb-1'>
                     Pago flexible disponible
@@ -191,7 +190,6 @@ const Pricing = () => {
                 </div>
               </div>
               <div className='flex items-start gap-3 bg-gray-50 rounded-lg p-4'>
-                <span className='text-2xl'>✅</span>
                 <div>
                   <p className='font-semibold text-gray-900 text-sm mb-1'>
                     Garantía de satisfacción del 100%

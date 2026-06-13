@@ -72,18 +72,12 @@ const Header = () => {
 
   return (
     <>
-      <header
-        className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? 'bg-white/90 backdrop-blur-md shadow-lg'
-            : 'bg-transparent'
-        }`}
-      >
+      <header className='fixed w-full top-0 z-50 bg-white shadow-lg'>
         <div className='container mx-auto px-6 py-4'>
           <div className='flex items-center justify-between'>
             <Link to='/' className='flex items-center space-x-2'>
-              <Code2 className='w-8 h-8 text-blue-600' />
-              <span className='text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent'>
+              <Code2 className='w-8 h-8 text-ink-dark' />
+              <span className='text-xl font-bold bg-gradient-to-r from-ink-dark to-ink-gray bg-clip-text'>
                 Dani Pereira
               </span>
             </Link>
@@ -92,18 +86,14 @@ const Header = () => {
             <nav className='hidden md:flex items-center space-x-8'>
               <Link
                 to='/'
-                className={`font-medium transition-colors duration-200 hover:text-blue-600 ${
-                  isScrolled ? 'text-gray-700' : 'text-white'
-                }`}
+                className='font-bold text-md uppercase text-gray-700 transition-colors duration-200 hover:text-ink-dark'
               >
                 Inicio
               </Link>
 
               <button
                 onClick={openAboutMe}
-                className={`font-medium transition-colors duration-200 hover:text-blue-600 ${
-                  isScrolled ? 'text-gray-700' : 'text-white'
-                }`}
+                className='font-bold text-md uppercase text-gray-700 transition-colors duration-200 hover:text-ink-dark'
               >
                 {t('nav.about')}
               </button>
@@ -114,11 +104,7 @@ const Header = () => {
                 onMouseEnter={() => setIsServicesOpen(true)}
                 onMouseLeave={() => setIsServicesOpen(false)}
               >
-                <button
-                  className={`font-medium transition-colors duration-200 hover:text-blue-600 flex items-center gap-1 ${
-                    isScrolled ? 'text-gray-700' : 'text-white'
-                  }`}
-                >
+                <button className='font-bold text-md uppercase text-gray-700 transition-colors duration-200 hover:text-ink-dark flex items-center gap-1'>
                   Servicios
                   <ChevronDown className='w-4 h-4' />
                 </button>
@@ -138,7 +124,7 @@ const Header = () => {
                               {service.name}
                             </span>
                             {service.popular && (
-                              <span className='bg-green-500 text-white text-xs px-2 py-1 rounded-full'>
+                              <span className='bg-ink-gray text-white text-xs px-2 py-1 rounded-full'>
                                 Popular
                               </span>
                             )}
@@ -151,7 +137,7 @@ const Header = () => {
                             scrollToSection('pricing');
                             setIsServicesOpen(false);
                           }}
-                          className='block w-full text-left px-4 py-2 text-gray-600 hover:text-blue-600 text-sm font-medium'
+                          className='block w-full text-left px-4 py-2 text-gray-600 hover:text-ink-dark text-sm font-medium'
                         >
                           Ver todos los servicios →
                         </button>
@@ -163,18 +149,14 @@ const Header = () => {
 
               <button
                 onClick={() => scrollToSection('portfolio')}
-                className={`font-medium transition-colors duration-200 hover:text-blue-600 ${
-                  isScrolled ? 'text-gray-700' : 'text-white'
-                }`}
+                className='font-bold text-md uppercase text-gray-700 transition-colors duration-200 hover:text-ink-dark'
               >
                 {t('nav.portfolio')}
               </button>
 
               <button
                 onClick={() => scrollToSection('contact')}
-                className={`font-medium transition-colors duration-200 hover:text-blue-600 ${
-                  isScrolled ? 'text-gray-700' : 'text-white'
-                }`}
+                className='font-bold text-md uppercase text-gray-700 transition-colors duration-200 hover:text-ink-dark'
               >
                 {t('nav.contact')}
               </button>
@@ -186,35 +168,27 @@ const Header = () => {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? (
-                <X
-                  className={`w-6 h-6 ${
-                    isScrolled ? 'text-gray-700' : 'text-white'
-                  }`}
-                />
+                <X className='w-6 h-6 text-gray-700' />
               ) : (
-                <Menu
-                  className={`w-6 h-6 ${
-                    isScrolled ? 'text-gray-700' : 'text-white'
-                  }`}
-                />
+                <Menu className='w-6 h-6 text-gray-700' />
               )}
             </button>
           </div>
 
           {/* Mobile Menu */}
           {isMenuOpen && (
-            <nav className='md:hidden mt-4 pb-4 bg-white/95 backdrop-blur-md rounded-lg shadow-lg'>
+            <nav className='md:hidden mt-4 pb-4 bg-white rounded-lg shadow-lg'>
               <Link
                 to='/'
                 onClick={() => setIsMenuOpen(false)}
-                className='block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200'
+                className='block w-full text-left px-4 py-2 font-bold text-md uppercase text-gray-700 hover:bg-gray-100 hover:text-ink-dark transition-colors duration-200'
               >
                 Inicio
               </Link>
 
               <button
                 onClick={openAboutMe}
-                className='block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200'
+                className='block w-full text-left px-4 py-2 font-bold text-md uppercase text-gray-700 hover:bg-gray-100 hover:text-ink-dark transition-colors duration-200'
               >
                 {t('nav.about')}
               </button>
@@ -223,7 +197,7 @@ const Header = () => {
               <div>
                 <button
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
-                  className='flex items-center justify-between w-full px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200'
+                  className='flex items-center justify-between w-full px-4 py-2 font-bold text-md uppercase text-gray-700 hover:bg-gray-100 hover:text-ink-dark transition-colors duration-200'
                 >
                   <span>Servicios</span>
                   <ChevronDown
@@ -243,12 +217,12 @@ const Header = () => {
                           setIsMenuOpen(false);
                           setIsServicesOpen(false);
                         }}
-                        className='block px-6 py-2 text-sm text-gray-600 hover:text-blue-600'
+                        className='block px-6 py-2 text-sm text-gray-600 hover:text-ink-dark'
                       >
                         <div className='flex items-center justify-between'>
                           <span>{service.name}</span>
                           {service.popular && (
-                            <span className='bg-green-500 text-white text-xs px-2 py-0.5 rounded-full'>
+                            <span className='bg-ink-gray text-white text-xs px-2 py-0.5 rounded-full'>
                               ★
                             </span>
                           )}
@@ -261,14 +235,14 @@ const Header = () => {
 
               <button
                 onClick={() => scrollToSection('portfolio')}
-                className='block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200'
+                className='block w-full text-left px-4 py-2 font-bold text-md uppercase text-gray-700 hover:bg-gray-100 hover:text-ink-dark transition-colors duration-200'
               >
                 {t('nav.portfolio')}
               </button>
 
               <button
                 onClick={() => scrollToSection('contact')}
-                className='block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200'
+                className='block w-full text-left px-4 py-2 font-bold text-md uppercase text-gray-700 hover:bg-gray-100 hover:text-ink-dark transition-colors duration-200'
               >
                 {t('nav.contact')}
               </button>
