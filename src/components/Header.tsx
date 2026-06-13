@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Menu, X, Code2, ChevronDown, Mail, MessageCircle } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -15,7 +15,6 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
   const navigate = useNavigate();
   const { openModal } = useContactModal();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [aboutMeOpen, setAboutMeOpen] = useState<{
     isOpen: boolean;
@@ -23,14 +22,6 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
   }>({ isOpen: false, language: 'es' });
 
   const isHomePage = location.pathname === '/';
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const scrollToSection = (sectionId: string) => {
     if (!isHomePage) {
@@ -92,7 +83,6 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
       <header className='fixed w-full top-0 z-50 bg-white shadow-lg'>
         <div className='container mx-auto px-6 py-4'>
           <div className='flex items-center justify-between'>
-            {/* Logo */}
             <Link to='/' className='flex items-center space-x-2'>
               <Code2 className='w-8 h-8 text-accent' />
               <span className='text-xl font-bold bg-gradient-to-r from-ink-dark to-ink-gray bg-clip-text'>
@@ -100,7 +90,6 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
               </span>
             </Link>
 
-            {/* Desktop Navigation - Center (solo si showNavMenu es true) */}
             {showNavMenu && (
               <nav className='hidden md:flex items-center space-x-8'>
                 <Link
@@ -117,7 +106,6 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
                   {t('nav.about')}
                 </button>
 
-                {/* Services Dropdown */}
                 <div
                   className='relative'
                   onMouseEnter={() => setIsServicesOpen(true)}
@@ -185,7 +173,6 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
               </nav>
             )}
 
-            {/* Contact Icons - Right */}
             <div className='hidden md:flex items-center gap-4'>
               <a
                 href='mailto:web.danipereira@gmail.com'
@@ -205,7 +192,6 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
               </a>
             </div>
 
-            {/* Mobile Menu Button (solo si showNavMenu es true) */}
             {showNavMenu && (
               <button
                 className='md:hidden'
@@ -220,7 +206,6 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
             )}
           </div>
 
-          {/* Mobile Menu (solo si showNavMenu es true) */}
           {showNavMenu && isMenuOpen && (
             <nav className='md:hidden mt-4 pb-4 bg-white rounded-lg shadow-lg'>
               <Link
@@ -238,7 +223,6 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
                 {t('nav.about')}
               </button>
 
-              {/* Services Submenu Mobile */}
               <div>
                 <button
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
@@ -295,7 +279,6 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
                 {t('nav.contact')}
               </button>
 
-              {/* Contact Icons Mobile */}
               <div className='flex items-center gap-4 px-4 py-4 mt-2 border-t border-gray-200'>
                 <a
                   href='mailto:web.danipereira@gmail.com'
@@ -321,7 +304,6 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
         </div>
       </header>
 
-      {/* About Me Modal */}
       <AboutMe isOpen={aboutMeOpen.isOpen} onClose={closeAboutMe} />
     </>
   );

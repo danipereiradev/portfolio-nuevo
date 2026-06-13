@@ -40,54 +40,43 @@ const ContactForm = ({ preselectedPlan, isInModal = false }: ContactFormProps = 
     return questions[Math.floor(Math.random() * questions.length)];
   });
   const [formData, setFormData] = useState({
-    // Step 1: Basic Info
     name: '',
     email: '',
     phone: '',
     company: '',
-
-    // Step 2: Plan Selection and Project Details
     plan: preselectedPlan || '',
     lowCostBudget: '',
     description: '',
     inspiration: '',
-
-    // Step 3: Contact Preferences
     preferredContact: '',
     urgency: '',
   });
 
-  // Validación de email
   const validateEmail = (email: string): boolean => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return emailRegex.test(email);
   };
 
-  // Validación de teléfono (formato español e internacional)
   const validatePhone = (phone: string): boolean => {
-    if (!phone) return true; // Campo opcional
+    if (!phone) return true;
     const phoneRegex = /^(\+34|0034|34)?[6789]\d{8}$|^\+\d{1,3}\d{6,14}$/;
     const cleanPhone = phone.replace(/[\s-()]/g, '');
     return phoneRegex.test(cleanPhone);
   };
 
-  // Sanitización de texto (prevenir XSS)
   const sanitizeText = (text: string): string => {
     return text
-      .replace(/[<>]/g, '') // Eliminar solo < y >
-      .replace(/javascript:/gi, '') // Eliminar javascript:
-      .replace(/on\w+=/gi, ''); // Eliminar eventos onclick, onload, etc.
-    // NO hacer trim aquí para preservar espacios mientras el usuario escribe
+      .replace(/[<>]/g, '')
+      .replace(/javascript:/gi, '')
+      .replace(/on\w+=/gi, '');
   };
 
-  // Validación de nombre (solo letras, espacios, acentos)
   const validateName = (name: string): boolean => {
-    const trimmedName = name.trim(); // Solo trim para validación
+    const trimmedName = name.trim();
     const nameRegex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,50}$/;
     return nameRegex.test(trimmedName) && trimmedName.length >= 2;
   };
 
-  // Validar paso actual
   const validateCurrentStep = (): boolean => {
     const newErrors: { [key: string]: string } = {};
 
@@ -140,7 +129,6 @@ const ContactForm = ({ preselectedPlan, isInModal = false }: ContactFormProps = 
   };
 
   const handleInputChange = (field: string, value: string | string[]) => {
-    // Sanitizar texto si es string
     const sanitizedValue =
       typeof value === 'string' ? sanitizeText(value) : value;
 
@@ -149,7 +137,6 @@ const ContactForm = ({ preselectedPlan, isInModal = false }: ContactFormProps = 
       [field]: sanitizedValue,
     }));
 
-    // Limpiar error del campo cuando el usuario empiece a escribir
     if (errors[field]) {
       setErrors((prev) => ({
         ...prev,
@@ -163,7 +150,6 @@ const ContactForm = ({ preselectedPlan, isInModal = false }: ContactFormProps = 
       const nextStepNumber = currentStep + 1;
       setCurrentStep(nextStepNumber);
 
-      // Track form step
       const stepNames = [
         '',
         'Información Básica',
@@ -177,7 +163,6 @@ const ContactForm = ({ preselectedPlan, isInModal = false }: ContactFormProps = 
   const prevStep = () => {
     if (currentStep > 1) {
       setCurrentStep(currentStep - 1);
-      // Limpiar errores al retroceder
       setErrors({});
     }
   };
@@ -193,26 +178,18 @@ const ContactForm = ({ preselectedPlan, isInModal = false }: ContactFormProps = 
     setSubmitStatus('idle');
 
     try {
-      // Tu endpoint de Formspree configurado
       const formspreeEndpoint = 'https://formspree.io/f/movlevkj';
 
       const formDataToSend = {
-        // Información de contacto
         name: formData.name,
         email: formData.email,
         phone: formData.phone || 'No proporcionado',
         company: formData.company || 'No especificada',
-
-        // Plan y detalles del proyecto
         plan: formData.plan,
         description: formData.description,
         inspiration: formData.inspiration || 'No especificada',
-
-        // Preferencias
         preferredContact: formData.preferredContact,
         urgency: formData.urgency || 'No especificada',
-
-        // Información adicional
         submissionDate: new Date().toLocaleString('es-ES'),
         _replyto: formData.email,
         _subject: `Nueva Solicitud de Presupuesto - ${formData.name} - ${formData.plan}`,
@@ -254,7 +231,6 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       console.log('Formulario enviado exitosamente');
       setSubmitStatus('success');
 
-      // Track conversión exitosa
       const planPrices: { [key: string]: number } = {
         'Página Web': 0,
         'Tienda Online': 0,
@@ -265,8 +241,6 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       };
       const planValue = planPrices[formData.plan] || 0;
       trackFormSubmit(formData.plan, planValue);
-
-      // No resetear el formulario, mantener el estado de éxito para mostrar el mensaje
     } catch (error) {
       console.error('Error al enviar formulario:', error);
       setSubmitStatus('error');
@@ -275,30 +249,25 @@ Fecha: ${new Date().toLocaleString('es-ES')}
     }
   };
 
-  // Si el formulario fue enviado exitosamente, mostrar mensaje de confirmación
   if (submitStatus === 'success') {
     const successContent = (
       <div className='max-w-2xl mx-auto'>
         <div className='bg-white rounded-2xl shadow-2xl p-8 md:p-12 text-center'>
-              {/* Icono de éxito */}
               <div className='flex justify-center mb-6'>
                 <div className='bg-green-100 rounded-full p-4'>
                   <CheckCircle className='w-16 h-16 text-green-600' />
                 </div>
               </div>
 
-              {/* Título */}
               <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>
                 ¡Solicitud Enviada con Éxito!
               </h2>
 
-              {/* Mensaje principal */}
               <p className='text-lg text-gray-700 mb-6 leading-relaxed'>
                 Gracias por confiar en mí para tu proyecto. He recibido tu
                 solicitud correctamente.
               </p>
 
-              {/* Información de contacto */}
               <div className='bg-gray-50 border border-gray-200 rounded-xl p-6 mb-6'>
                 <div className='flex items-center justify-center gap-2 mb-3'>
                   <Mail className='w-5 h-5 text-accent' />
@@ -313,7 +282,6 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                 </p>
               </div>
 
-              {/* Información adicional */}
               <div className='text-sm text-gray-600 mb-6'>
                 <p className='mb-2'>
                   📧 Revisa tu bandeja de entrada (y spam) por si acaso
@@ -324,7 +292,6 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                 </p>
               </div>
 
-              {/* Botones de acción */}
               <div className='flex flex-col sm:flex-row gap-4 justify-center'>
                 <Button onClick={() => window.location.reload()} variant='primary'>
                   Volver al Inicio
@@ -359,7 +326,6 @@ Fecha: ${new Date().toLocaleString('es-ES')}
     );
   }
 
-  // Componente para mostrar errores
   const ErrorMessage = ({ error }: { error: string }) => (
     <div className='flex items-center gap-2 text-accent text-sm mt-1'>
       <AlertCircle className='w-4 h-4' />
@@ -812,7 +778,6 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
       <div className='max-w-4xl mx-auto'>
         <div className='bg-white rounded-2xl shadow-2xl overflow-hidden'>
-          {/* Progress Bar */}
           <div className='bg-gray-50 px-8 py-6'>
             <div className='flex items-center justify-between mb-2'>
               <span className='text-sm font-medium text-gray-600'>
@@ -830,11 +795,9 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             </div>
           </div>
 
-          {/* Form Content */}
           <form onSubmit={handleSubmit} className='p-8'>
             {renderStep()}
 
-            {/* Navigation Buttons */}
             <div className='flex flex-col sm:flex-row justify-between gap-4 mt-8 pt-6 border-t border-gray-200'>
               <Button
                 type='button'
@@ -887,7 +850,6 @@ Fecha: ${new Date().toLocaleString('es-ES')}
         </div>
       </div>
 
-      {/* Contact Info */}
       <div className='text-center mt-12'>
         <p className='text-gray-600 mb-4'>
           ¿Prefieres contactar directamente?

@@ -51,10 +51,8 @@ const Footer = () => {
   return (
     <>
       <footer className='bg-black text-white'>
-        {/* Main Footer */}
         <div className='container mx-auto px-6 py-16'>
           <div className='grid lg:grid-cols-4 gap-8'>
-            {/* Brand Section */}
             <div className='lg:col-span-1'>
               <div className='flex items-center mb-6'>
                 <Code2 className='w-12 h-12 text-accent' />
@@ -96,7 +94,6 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Services */}
             <div>
               <h3 className='text-xl font-bold mb-6 text-gray-400'>
                 Servicios
@@ -161,7 +158,6 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Contact Info */}
             <div>
               <h3 className='text-xl font-bold mb-6 text-gray-400'>
                 {t('footer.contact_title')}
@@ -201,7 +197,6 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Service Areas */}
             <div>
               <h3 className='text-xl font-bold mb-6 text-gray-400'>
                 {t('footer.areas_title')}
@@ -221,7 +216,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className='border-t border-gray-700'>
           <div className='container mx-auto px-6 py-6'>
             <div className='flex flex-col md:flex-row justify-between items-center gap-4'>
@@ -259,7 +253,6 @@ const Footer = () => {
         </div>
       </footer>
 
-      {/* Legal Pages Modal */}
       {legalPageOpen.isOpen && legalPageOpen.page && (
         <LegalPages
           isOpen={legalPageOpen.isOpen}

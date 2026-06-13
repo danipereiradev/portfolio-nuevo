@@ -20,14 +20,12 @@ export const ContactModalProvider: React.FC<{ children: React.ReactNode }> = ({
   const openModal = (plan?: string) => {
     setPreselectedPlan(plan);
     setIsOpen(true);
-    // Prevenir scroll en el body cuando el modal está abierto
     document.body.style.overflow = 'hidden';
   };
 
   const closeModal = () => {
     setIsOpen(false);
     setPreselectedPlan(undefined);
-    // Restaurar scroll
     document.body.style.overflow = 'unset';
   };
 
