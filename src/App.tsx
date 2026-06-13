@@ -24,8 +24,8 @@ function AppContent() {
 
   return (
     <div className='min-h-screen bg-white'>
-      {/* Header condicional - mismo componente pero sin navMenu en landings */}
-      <Header showNavMenu={!isLandingPage} />
+      {/* Header - mismo componente con navMenu para todas las páginas */}
+      <Header />
 
       <Routes>
         <Route path='/' element={<Home />} />
