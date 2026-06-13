@@ -3,13 +3,15 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import HeaderLanding from './components/HeaderLanding';
-import FooterLanding from './components/FooterLanding';
 import WhatsAppButton from './components/WhatsAppButton';
 import Home from './pages/Home';
-import LandingAutonomos from './pages/LandingAutonomos';
-import LandingTienda from './pages/LandingTienda';
-import LandingApp from './pages/LandingApp';
+import DisenoWeb from './pages/DisenoWeb';
+import PaginasWebEmpresas from './pages/PaginasWebEmpresas';
+import TiendasOnline from './pages/TiendasOnline';
+import AplicacionesWeb from './pages/AplicacionesWeb';
+import ServicioSEO from './pages/ServicioSEO';
+import MantenimientoWeb from './pages/MantenimientoWeb';
+import Contacto from './pages/Contacto';
 
 function AppContent() {
   const location = useLocation();
@@ -22,18 +24,22 @@ function AppContent() {
 
   return (
     <div className='min-h-screen bg-white'>
-      {/* Header condicional */}
-      {isLandingPage ? <HeaderLanding /> : <Header />}
+      {/* Header condicional - mismo componente pero sin navMenu en landings */}
+      <Header showNavMenu={!isLandingPage} />
 
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/web-autonomos-pymes' element={<LandingAutonomos />} />
-        <Route path='/tienda-online' element={<LandingTienda />} />
-        <Route path='/aplicacion-web' element={<LandingApp />} />
+        <Route path='/diseno-web' element={<DisenoWeb />} />
+        <Route path='/paginas-web-empresas' element={<PaginasWebEmpresas />} />
+        <Route path='/tiendas-online' element={<TiendasOnline />} />
+        <Route path='/aplicaciones-web' element={<AplicacionesWeb />} />
+        <Route path='/seo' element={<ServicioSEO />} />
+        <Route path='/mantenimiento-web' element={<MantenimientoWeb />} />
+        <Route path='/contacto' element={<Contacto />} />
       </Routes>
 
-      {/* Footer condicional */}
-      {isLandingPage ? <FooterLanding /> : <Footer />}
+      {/* Footer - mismo para todas las páginas */}
+      <Footer />
 
       {/* WhatsApp Button - Solo en landings */}
       {isLandingPage && <WhatsAppButton />}

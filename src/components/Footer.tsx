@@ -108,26 +108,50 @@ const Footer = () => {
               <ul className='space-y-3 text-gray-300'>
                 <li>
                   <Link
-                    to='/web-autonomos-pymes'
+                    to='/diseno-web'
                     className='hover:text-white transition-colors duration-200'
                   >
-                    Página Web
+                    Diseño Web
                   </Link>
                 </li>
                 <li>
                   <Link
-                    to='/tienda-online'
+                    to='/paginas-web-empresas'
                     className='hover:text-white transition-colors duration-200'
                   >
-                    Tienda Online
+                    Páginas Web Empresas
                   </Link>
                 </li>
                 <li>
                   <Link
-                    to='/aplicacion-web'
+                    to='/tiendas-online'
                     className='hover:text-white transition-colors duration-200'
                   >
-                    App Móvil
+                    Tiendas Online
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to='/aplicaciones-web'
+                    className='hover:text-white transition-colors duration-200'
+                  >
+                    Aplicaciones Web
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to='/seo'
+                    className='hover:text-white transition-colors duration-200'
+                  >
+                    Posicionamiento SEO
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to='/mantenimiento-web'
+                    className='hover:text-white transition-colors duration-200'
+                  >
+                    Mantenimiento Web
                   </Link>
                 </li>
                 <li className='pt-2 border-t border-gray-700'>

@@ -62,7 +62,7 @@ const Pricing = () => {
       originalPrice: null,
       popular: false,
       color: 'from-ink-dark to-ink-gray',
-      path: '/web-autonomos-pymes',
+      path: '/paginas-web-empresas',
       features: [
         'Diseño responsive adaptado a móviles',
         'Hasta 6 páginas o secciones',
@@ -86,7 +86,7 @@ const Pricing = () => {
       originalPrice: null,
       popular: true,
       color: 'from-ink-dark to-ink-gray',
-      path: '/tienda-online',
+      path: '/tiendas-online',
       features: [
         'Hasta 50 productos cargados',
         'Pasarela de pago (Stripe/Redsys)',
@@ -111,7 +111,7 @@ const Pricing = () => {
       originalPrice: null,
       popular: false,
       color: 'from-ink-dark to-ink-gray',
-      path: '/aplicacion-web',
+      path: '/aplicaciones-web',
       features: [
         'Desarrollo iOS y Android',
         'Diseño UI/UX personalizado',

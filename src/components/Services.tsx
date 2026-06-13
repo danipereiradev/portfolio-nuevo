@@ -7,6 +7,7 @@ import {
   Code,
   Rocket,
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const Services = () => {
@@ -14,40 +15,45 @@ const Services = () => {
 
   const services = [
     {
+      icon: <Palette className='w-8 h-8' />,
+      title: 'Diseño Web',
+      description:
+        'Creamos diseños web modernos y atractivos que reflejan tu marca y captan la atención de tus clientes.',
+      link: '/diseno-web',
+    },
+    {
       icon: <Globe className='w-8 h-8' />,
       title: t('services.corporate.title'),
-      description: t('services.corporate.desc'),
-      color: 'from-blue-500 to-cyan-500',
+      description:
+        'Páginas web corporativas profesionales para empresas que necesitan fortalecer su presencia digital.',
+      link: '/paginas-web-empresas',
     },
     {
       icon: <ShoppingCart className='w-8 h-8' />,
       title: t('services.ecommerce.title'),
-      description: t('services.ecommerce.desc'),
-      color: 'from-green-500 to-emerald-500',
+      description:
+        'Tiendas online completas con pasarela de pago, gestión de productos y todo lo necesario para vender online.',
+      link: '/tiendas-online',
     },
     {
       icon: <Smartphone className='w-8 h-8' />,
       title: t('services.webapp.title'),
-      description: t('services.webapp.desc'),
-      color: 'from-purple-500 to-pink-500',
+      description:
+        'Desarrollo de aplicaciones web y móviles a medida para proyectos únicos y startups.',
+      link: '/aplicaciones-web',
     },
     {
-      icon: <Palette className='w-8 h-8' />,
-      title: t('services.design.title'),
-      description: t('services.design.desc'),
-      color: 'from-orange-500 to-red-500',
+      icon: <Rocket className='w-8 h-8' />,
+      title: 'Posicionamiento SEO',
+      description:
+        'Optimización SEO para mejorar tu visibilidad en Google y atraer más clientes a tu negocio.',
+      link: '/seo',
     },
     {
       icon: <Code className='w-8 h-8' />,
       title: t('services.frontend.title'),
       description: t('services.frontend.desc'),
-      color: 'from-indigo-500 to-blue-500',
-    },
-    {
-      icon: <Rocket className='w-8 h-8' />,
-      title: t('services.seo.title'),
-      description: t('services.seo.desc'),
-      color: 'from-teal-500 to-green-500',
+      link: '/contacto',
     },
   ];
 
@@ -68,22 +74,19 @@ const Services = () => {
 
         <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
           {services.map((service, index) => (
-            <div
+            <Link
               key={index}
-              className='bg-white p-8 rounded-2xl shadow-lg transition-all duration-300 text-center'
+              to={service.link}
+              className='bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 text-center group'
             >
-              <div
-                className='w-16 h-16 bg-white border-2 border-black rounded-xl flex items-center justify-center text-black mb-6 transition-all duration-300 mx-auto'
-              >
+              <div className='w-16 h-16 bg-white border-2 border-black rounded-xl flex items-center justify-center text-black mb-6 transition-all duration-300 mx-auto group-hover:border-accent group-hover:text-accent'>
                 {service.icon}
               </div>
-              <h3 className='text-xl font-bold text-gray-900 mb-4'>
+              <h3 className='text-xl font-bold text-gray-900 mb-4 group-hover:text-accent transition-colors'>
                 {service.title}
               </h3>
-              <p className='text-gray-600 leading-relaxed'>
-                {service.description}
-              </p>
-            </div>
+              <p className='text-gray-600 leading-relaxed'>{service.description}</p>
+            </Link>
           ))}
         </div>
       </div>

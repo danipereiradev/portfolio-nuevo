@@ -258,6 +258,9 @@ Fecha: ${new Date().toLocaleString('es-ES')}
         'Página Web': 0,
         'Tienda Online': 0,
         'App Móvil': 0,
+        'Diseño Web': 0,
+        'Posicionamiento SEO': 0,
+        'Mantenimiento Web': 0,
       };
       const planValue = planPrices[formData.plan] || 0;
       trackFormSubmit(formData.plan, planValue);
@@ -536,6 +539,93 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                   </div>
                   <p className='text-sm text-gray-600'>
                     Aplicaciones web y móviles a medida
+                  </p>
+                </button>
+
+                <button
+                  type='button'
+                  onClick={() =>
+                    handleInputChange(
+                      'plan',
+                      'Diseño Web'
+                    )
+                  }
+                  className={`p-5 text-left border-2 rounded-xl transition-all duration-200 ${
+                    formData.plan === 'Diseño Web'
+                      ? 'border-accent bg-gray-50'
+                      : errors.plan
+                      ? 'border-accent'
+                      : 'border-gray-300 hover:border-gray-400'
+                  }`}
+                >
+                  <div className='flex items-start justify-between mb-2'>
+                    <h4 className='font-bold text-gray-900'>
+                      Diseño Web
+                    </h4>
+                    {formData.plan === 'Diseño Web' && (
+                      <Check className='w-5 h-5 text-accent' />
+                    )}
+                  </div>
+                  <p className='text-sm text-gray-600'>
+                    Diseño web profesional y moderno que convierte
+                  </p>
+                </button>
+
+                <button
+                  type='button'
+                  onClick={() =>
+                    handleInputChange(
+                      'plan',
+                      'Posicionamiento SEO'
+                    )
+                  }
+                  className={`p-5 text-left border-2 rounded-xl transition-all duration-200 ${
+                    formData.plan === 'Posicionamiento SEO'
+                      ? 'border-accent bg-gray-50'
+                      : errors.plan
+                      ? 'border-accent'
+                      : 'border-gray-300 hover:border-gray-400'
+                  }`}
+                >
+                  <div className='flex items-start justify-between mb-2'>
+                    <h4 className='font-bold text-gray-900'>
+                      Posicionamiento SEO
+                    </h4>
+                    {formData.plan === 'Posicionamiento SEO' && (
+                      <Check className='w-5 h-5 text-accent' />
+                    )}
+                  </div>
+                  <p className='text-sm text-gray-600'>
+                    Mejora tu visibilidad en Google y atrae más clientes
+                  </p>
+                </button>
+
+                <button
+                  type='button'
+                  onClick={() =>
+                    handleInputChange(
+                      'plan',
+                      'Mantenimiento Web'
+                    )
+                  }
+                  className={`p-5 text-left border-2 rounded-xl transition-all duration-200 ${
+                    formData.plan === 'Mantenimiento Web'
+                      ? 'border-accent bg-gray-50'
+                      : errors.plan
+                      ? 'border-accent'
+                      : 'border-gray-300 hover:border-gray-400'
+                  }`}
+                >
+                  <div className='flex items-start justify-between mb-2'>
+                    <h4 className='font-bold text-gray-900'>
+                      Mantenimiento Web
+                    </h4>
+                    {formData.plan === 'Mantenimiento Web' && (
+                      <Check className='w-5 h-5 text-accent' />
+                    )}
+                  </div>
+                  <p className='text-sm text-gray-600'>
+                    Soporte, actualizaciones y seguridad continua
                   </p>
                 </button>
               </div>

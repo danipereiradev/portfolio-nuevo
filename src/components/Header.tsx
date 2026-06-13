@@ -4,7 +4,11 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import AboutMe from './AboutMe';
 
-const Header = () => {
+interface HeaderProps {
+  showNavMenu?: boolean;
+}
+
+const Header = ({ showNavMenu = true }: HeaderProps) => {
   const { t } = useLanguage();
   const location = useLocation();
   const navigate = useNavigate();
@@ -55,17 +59,29 @@ const Header = () => {
 
   const services = [
     {
-      name: 'Página Web',
-      path: '/web-autonomos-pymes',
+      name: 'Diseño Web',
+      path: '/diseno-web',
     },
     {
-      name: 'Tienda Online',
-      path: '/tienda-online',
+      name: 'Páginas Web Empresas',
+      path: '/paginas-web-empresas',
+    },
+    {
+      name: 'Tiendas Online',
+      path: '/tiendas-online',
       popular: true,
     },
     {
-      name: 'App Móvil',
-      path: '/aplicacion-web',
+      name: 'Aplicaciones Web',
+      path: '/aplicaciones-web',
+    },
+    {
+      name: 'Posicionamiento SEO',
+      path: '/seo',
+    },
+    {
+      name: 'Mantenimiento Web',
+      path: '/mantenimiento-web',
     },
   ];
 
@@ -82,85 +98,87 @@ const Header = () => {
               </span>
             </Link>
 
-            {/* Desktop Navigation - Center */}
-            <nav className='hidden md:flex items-center space-x-8'>
-              <Link
-                to='/'
-                className='font-bold text-md uppercase text-gray-700 transition-colors duration-200 hover:text-ink-dark'
-              >
-                Inicio
-              </Link>
+            {/* Desktop Navigation - Center (solo si showNavMenu es true) */}
+            {showNavMenu && (
+              <nav className='hidden md:flex items-center space-x-8'>
+                <Link
+                  to='/'
+                  className='font-bold text-md uppercase text-black transition-colors duration-200 hover:text-accent'
+                >
+                  Inicio
+                </Link>
 
-              <button
-                onClick={openAboutMe}
-                className='font-bold text-md uppercase text-gray-700 transition-colors duration-200 hover:text-ink-dark'
-              >
-                {t('nav.about')}
-              </button>
-
-              {/* Services Dropdown */}
-              <div
-                className='relative'
-                onMouseEnter={() => setIsServicesOpen(true)}
-                onMouseLeave={() => setIsServicesOpen(false)}
-              >
-                <button className='font-bold text-md uppercase text-gray-700 transition-colors duration-200 hover:text-ink-dark flex items-center gap-1'>
-                  Servicios
-                  <ChevronDown className='w-4 h-4' />
+                <button
+                  onClick={openAboutMe}
+                  className='font-bold text-md uppercase text-black transition-colors duration-200 hover:text-accent'
+                >
+                  {t('nav.about')}
                 </button>
 
-                {isServicesOpen && (
-                  <div className='absolute top-full left-0 pt-2 w-72 z-50'>
-                    <div className='bg-white rounded-lg shadow-xl py-2'>
-                      {services.map((service) => (
-                        <Link
-                          key={service.path}
-                          to={service.path}
-                          className='group block px-4 py-3 hover:bg-accent transition-colors'
-                          onClick={() => setIsServicesOpen(false)}
-                        >
-                          <div className='flex items-center justify-between'>
-                            <span className='text-gray-900 group-hover:text-white font-medium text-sm transition-colors'>
-                              {service.name}
-                            </span>
-                            {service.popular && (
-                              <span className='bg-ink-gray text-white text-xs px-2 py-1 rounded-full'>
-                                Popular
+                {/* Services Dropdown */}
+                <div
+                  className='relative'
+                  onMouseEnter={() => setIsServicesOpen(true)}
+                  onMouseLeave={() => setIsServicesOpen(false)}
+                >
+                  <button className='font-bold text-md uppercase text-black transition-colors duration-200 hover:text-accent flex items-center gap-1'>
+                    Servicios
+                    <ChevronDown className='w-4 h-4' />
+                  </button>
+
+                  {isServicesOpen && (
+                    <div className='absolute top-full left-0 pt-2 w-72 z-50'>
+                      <div className='bg-white rounded-lg shadow-xl py-2'>
+                        {services.map((service) => (
+                          <Link
+                            key={service.path}
+                            to={service.path}
+                            className='group block px-4 py-3 hover:bg-accent transition-colors'
+                            onClick={() => setIsServicesOpen(false)}
+                          >
+                            <div className='flex items-center justify-between'>
+                              <span className='text-gray-900 group-hover:text-white font-medium text-sm transition-colors'>
+                                {service.name}
                               </span>
-                            )}
-                          </div>
-                        </Link>
-                      ))}
-                      <div className='border-t border-gray-200 mt-2 pt-2'>
-                        <button
-                          onClick={() => {
-                            scrollToSection('pricing');
-                            setIsServicesOpen(false);
-                          }}
-                          className='block w-full text-left px-4 py-2 text-gray-600 hover:bg-accent hover:text-white text-sm font-medium transition-colors'
-                        >
-                          Ver todos los servicios →
-                        </button>
+                              {service.popular && (
+                                <span className='bg-ink-gray text-white text-xs px-2 py-1 rounded-full'>
+                                  Popular
+                                </span>
+                              )}
+                            </div>
+                          </Link>
+                        ))}
+                        <div className='border-t border-gray-200 mt-2 pt-2'>
+                          <button
+                            onClick={() => {
+                              scrollToSection('pricing');
+                              setIsServicesOpen(false);
+                            }}
+                            className='block w-full text-left px-4 py-2 text-gray-600 hover:bg-accent hover:text-white text-sm font-medium transition-colors'
+                          >
+                            Ver todos los servicios →
+                          </button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                )}
-              </div>
+                  )}
+                </div>
 
-              <button
-                onClick={() => scrollToSection('portfolio')}
-                className='font-bold text-md uppercase text-gray-700 transition-colors duration-200 hover:text-ink-dark'
-              >
-                {t('nav.portfolio')}
-              </button>
+                <button
+                  onClick={() => scrollToSection('portfolio')}
+                  className='font-bold text-md uppercase text-black transition-colors duration-200 hover:text-accent'
+                >
+                  {t('nav.portfolio')}
+                </button>
 
-              <button
-                onClick={() => scrollToSection('contact')}
-                className='font-bold text-md uppercase text-gray-700 transition-colors duration-200 hover:text-ink-dark'
-              >
-                {t('nav.contact')}
-              </button>
-            </nav>
+                <button
+                  onClick={() => scrollToSection('contact')}
+                  className='font-bold text-md uppercase text-black transition-colors duration-200 hover:text-accent'
+                >
+                  {t('nav.contact')}
+                </button>
+              </nav>
+            )}
 
             {/* Contact Icons - Right */}
             <div className='hidden md:flex items-center gap-4'>
@@ -182,33 +200,35 @@ const Header = () => {
               </a>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              className='md:hidden'
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? (
-                <X className='w-6 h-6 text-gray-700' />
-              ) : (
-                <Menu className='w-6 h-6 text-gray-700' />
-              )}
-            </button>
+            {/* Mobile Menu Button (solo si showNavMenu es true) */}
+            {showNavMenu && (
+              <button
+                className='md:hidden'
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
+                {isMenuOpen ? (
+                  <X className='w-6 h-6 text-black' />
+                ) : (
+                  <Menu className='w-6 h-6 text-black' />
+                )}
+              </button>
+            )}
           </div>
 
-          {/* Mobile Menu */}
-          {isMenuOpen && (
+          {/* Mobile Menu (solo si showNavMenu es true) */}
+          {showNavMenu && isMenuOpen && (
             <nav className='md:hidden mt-4 pb-4 bg-white rounded-lg shadow-lg'>
               <Link
                 to='/'
                 onClick={() => setIsMenuOpen(false)}
-                className='block w-full text-left px-4 py-2 font-bold text-md uppercase text-gray-700 hover:bg-gray-100 hover:text-ink-dark transition-colors duration-200'
+                className='block w-full text-left px-4 py-2 font-bold text-md uppercase text-black hover:bg-gray-100 hover:text-accent transition-colors duration-200'
               >
                 Inicio
               </Link>
 
               <button
                 onClick={openAboutMe}
-                className='block w-full text-left px-4 py-2 font-bold text-md uppercase text-gray-700 hover:bg-gray-100 hover:text-ink-dark transition-colors duration-200'
+                className='block w-full text-left px-4 py-2 font-bold text-md uppercase text-black hover:bg-gray-100 hover:text-accent transition-colors duration-200'
               >
                 {t('nav.about')}
               </button>
@@ -217,7 +237,7 @@ const Header = () => {
               <div>
                 <button
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
-                  className='flex items-center justify-between w-full px-4 py-2 font-bold text-md uppercase text-gray-700 hover:bg-gray-100 hover:text-ink-dark transition-colors duration-200'
+                  className='flex items-center justify-between w-full px-4 py-2 font-bold text-md uppercase text-black hover:bg-gray-100 hover:text-accent transition-colors duration-200'
                 >
                   <span>Servicios</span>
                   <ChevronDown
@@ -255,14 +275,14 @@ const Header = () => {
 
               <button
                 onClick={() => scrollToSection('portfolio')}
-                className='block w-full text-left px-4 py-2 font-bold text-md uppercase text-gray-700 hover:bg-gray-100 hover:text-ink-dark transition-colors duration-200'
+                className='block w-full text-left px-4 py-2 font-bold text-md uppercase text-black hover:bg-gray-100 hover:text-accent transition-colors duration-200'
               >
                 {t('nav.portfolio')}
               </button>
 
               <button
                 onClick={() => scrollToSection('contact')}
-                className='block w-full text-left px-4 py-2 font-bold text-md uppercase text-gray-700 hover:bg-gray-100 hover:text-ink-dark transition-colors duration-200'
+                className='block w-full text-left px-4 py-2 font-bold text-md uppercase text-black hover:bg-gray-100 hover:text-accent transition-colors duration-200'
               >
                 {t('nav.contact')}
               </button>
