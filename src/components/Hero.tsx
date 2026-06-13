@@ -30,7 +30,7 @@ const Hero = () => {
       </div>
 
       <div className='relative z-10 text-center max-w-4xl mx-auto px-6 py-4'>
-        <h1 className='text-3xl md:text-5xl lg:text-7xl font-bold text-white mb-4 leading-tight'>
+        <h1 className='text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight'>
           {t('hero.title')}
         </h1>
 

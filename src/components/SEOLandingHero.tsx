@@ -35,7 +35,7 @@ const SEOLandingHero = ({
       </div>
 
       <div className='relative z-10 text-center max-w-4xl mx-auto px-6 py-4'>
-        <h1 className='text-3xl md:text-5xl lg:text-7xl font-bold text-white mb-4 leading-tight'>
+        <h1 className='text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight'>
           {title}
         </h1>
 
@@ -48,12 +48,20 @@ const SEOLandingHero = ({
         </p>
 
         <div className='flex flex-col sm:flex-row gap-4 justify-center items-stretch mb-12'>
-          <Button onClick={onCTAClick} variant='primary' className='sm:min-w-[240px]'>
+          <Button
+            onClick={onCTAClick}
+            variant='primary'
+            className='sm:min-w-[240px]'
+          >
             {ctaText}
             <ArrowRight className='w-4 h-4 md:w-5 md:h-5' />
           </Button>
           {secondaryCTAText && secondaryCTAAction && (
-            <Button onClick={secondaryCTAAction} variant='secondary' className='sm:min-w-[240px]'>
+            <Button
+              onClick={secondaryCTAAction}
+              variant='secondary'
+              className='sm:min-w-[240px]'
+            >
               {secondaryCTAText}
               <Phone className='w-4 h-4 md:w-5 md:h-5' />
             </Button>
