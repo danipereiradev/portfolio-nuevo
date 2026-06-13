@@ -85,7 +85,7 @@ const Footer = () => {
                   href='https://github.com/danipereiradev'
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='bg-gray-700 hover:bg-gray-600 p-3 rounded-lg transition-colors duration-200'
+                  className='bg-accent hover:bg-accent-hover p-3 rounded-lg transition-colors duration-200'
                 >
                   <Github className='w-5 h-5' />
                 </a>
@@ -93,7 +93,7 @@ const Footer = () => {
                   href='https://www.instagram.com/danipereira.web/'
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 hover:from-purple-700 hover:via-pink-700 hover:to-orange-600 p-3 rounded-lg transition-colors duration-200'
+                  className='bg-accent hover:bg-accent-hover p-3 rounded-lg transition-colors duration-200'
                 >
                   <Instagram className='w-5 h-5' />
                 </a>
@@ -108,18 +108,10 @@ const Footer = () => {
               <ul className='space-y-3 text-gray-300'>
                 <li>
                   <Link
-                    to='/landing-express'
-                    className='hover:text-white transition-colors duration-200'
-                  >
-                    Página Web Sencilla
-                  </Link>
-                </li>
-                <li>
-                  <Link
                     to='/web-autonomos-pymes'
                     className='hover:text-white transition-colors duration-200'
                   >
-                    Autónomos y Pymes
+                    Página Web
                   </Link>
                 </li>
                 <li>
@@ -135,7 +127,7 @@ const Footer = () => {
                     to='/aplicacion-web'
                     className='hover:text-white transition-colors duration-200'
                   >
-                    Aplicación Web/Móvil
+                    App Móvil
                   </Link>
                 </li>
                 <li className='pt-2 border-t border-gray-700'>

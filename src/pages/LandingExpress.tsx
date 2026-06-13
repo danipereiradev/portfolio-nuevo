@@ -309,7 +309,7 @@ const LandingExpress = () => {
       {/* Testimonials Carousel Section */}
       <TestimonialsCarousel
         title='Lo que dicen mis clientes'
-        description='Testimonios reales de empresarios que confiaron en mi trabajo'
+        description='Testimonios reales de clientes que confiaron en mi trabajo'
       />
 
       {/* Final CTA Section */}

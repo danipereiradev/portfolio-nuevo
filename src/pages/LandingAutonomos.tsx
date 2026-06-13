@@ -19,7 +19,7 @@ const LandingAutonomos = () => {
     // Track landing page view
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', 'page_view', {
-        page_title: 'Página Web Autónomos y Pymes',
+        page_title: 'Página Web',
         page_location: window.location.href,
         page_path: '/web-autonomos-pymes',
       });
@@ -365,7 +365,7 @@ const LandingAutonomos = () => {
       </section>
 
       {/* Contact Form with preselected plan */}
-      <ContactForm preselectedPlan='Página Web Autónomos y Pymes' />
+      <ContactForm preselectedPlan='Página Web' />
     </>
   );
 };

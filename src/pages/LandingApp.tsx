@@ -20,7 +20,7 @@ const LandingApp = () => {
     // Track landing page view
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', 'page_view', {
-        page_title: 'Aplicación Web o Móvil',
+        page_title: 'App Móvil',
         page_location: window.location.href,
         page_path: '/aplicacion-web',
       });
@@ -65,7 +65,7 @@ const LandingApp = () => {
           </div>
 
           <h1 className='text-5xl md:text-7xl font-bold text-white mb-6 leading-tight'>
-            Aplicación Web o Móvil
+            App Móvil
             <span className='block text-3xl md:text-4xl mt-4 text-white/90'>
               Desarrollo 100% personalizado para tu idea
             </span>
@@ -480,7 +480,7 @@ const LandingApp = () => {
       </section>
 
       {/* Contact Form with preselected plan */}
-      <ContactForm preselectedPlan='Aplicación Web o Móvil (Precio a Consultar)' />
+      <ContactForm preselectedPlan='App Móvil' />
     </>
   );
 };

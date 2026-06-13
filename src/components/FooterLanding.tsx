@@ -87,18 +87,10 @@ const FooterLanding = () => {
               <ul className='space-y-2 text-gray-300 text-sm'>
                 <li>
                   <Link
-                    to='/landing-express'
-                    className='hover:text-white transition-colors'
-                  >
-                    Página Web Sencilla
-                  </Link>
-                </li>
-                <li>
-                  <Link
                     to='/web-autonomos-pymes'
                     className='hover:text-white transition-colors'
                   >
-                    Web Autónomos y Pymes
+                    Página Web
                   </Link>
                 </li>
                 <li>
@@ -114,7 +106,7 @@ const FooterLanding = () => {
                     to='/aplicacion-web'
                     className='hover:text-white transition-colors'
                   >
-                    Aplicación Web/Móvil
+                    App Móvil
                   </Link>
                 </li>
                 <li className='pt-2'>

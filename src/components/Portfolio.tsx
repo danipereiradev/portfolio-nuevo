@@ -145,35 +145,35 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
             onClick={closeModal}
           >
             <div
-              className='bg-white w-[75vw] h-screen overflow-y-auto relative'
+              className='bg-white w-full md:w-[85vw] lg:w-[75vw] h-screen overflow-y-auto relative'
               onClick={(e) => e.stopPropagation()}
             >
               {/* Botón cerrar */}
               <button
                 onClick={closeModal}
-                className='fixed top-8 right-8 bg-white rounded-full p-3 shadow-xl hover:bg-gray-100 transition-colors duration-200 z-20'
+                className='fixed top-4 right-4 md:top-8 md:right-8 bg-white rounded-full p-2 md:p-3 shadow-xl hover:bg-gray-100 transition-colors duration-200 z-20'
               >
-                <X className='w-6 h-6 text-gray-700' />
+                <X className='w-5 h-5 md:w-6 md:h-6 text-gray-700' />
               </button>
 
               {/* Contenido tipo blog */}
               <div className='bg-white'>
-                <div className='max-w-4xl mx-auto px-12 py-16'>
+                <div className='max-w-4xl mx-auto px-6 md:px-12 py-12 md:py-16'>
                   {/* Título */}
-                  <h3 className='text-5xl font-bold text-gray-900 mb-6'>
+                  <h3 className='text-3xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6'>
                     {projects[selectedProject].title}
                   </h3>
-                  <p className='text-xl text-gray-600 mb-12 leading-relaxed'>
+                  <p className='text-lg md:text-xl text-gray-600 mb-8 md:mb-12 leading-relaxed'>
                     {projects[selectedProject].description}
                   </p>
                   {/* Descripción larga */}
-                  <div className='prose prose-lg max-w-none mb-12'>
+                  <div className='prose prose-base md:prose-lg max-w-none mb-8 md:mb-12'>
                     {projects[selectedProject].longDescription
                       .split('\n\n')
                       .map((paragraph, idx) => (
                         <p
                           key={idx}
-                          className='text-gray-700 leading-relaxed mb-6'
+                          className='text-gray-700 leading-relaxed mb-4 md:mb-6'
                         >
                           {paragraph}
                         </p>
@@ -181,15 +181,15 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
                   </div>
 
                   {/* Tech Stack */}
-                  <div className='mb-12 pb-12 border-b border-gray-200'>
-                    <h4 className='text-2xl font-bold text-gray-900 mb-6'>
+                  <div className='mb-8 md:mb-12 pb-8 md:pb-12 border-b border-gray-200'>
+                    <h4 className='text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6'>
                       Tecnologías utilizadas
                     </h4>
-                    <div className='flex flex-wrap gap-3'>
+                    <div className='flex flex-wrap gap-2 md:gap-3'>
                       {projects[selectedProject].tech.map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className='bg-gray-100 text-gray-800 px-4 py-3 rounded-lg text-base font-medium'
+                          className='bg-gray-100 text-gray-800 px-3 md:px-4 py-2 md:py-3 rounded-lg text-sm md:text-base font-medium'
                         >
                           {tech}
                         </span>
@@ -203,9 +203,9 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
                       href={projects[selectedProject].url}
                       target='_blank'
                       rel='noopener noreferrer'
-                      className='inline-flex items-center justify-center gap-3 bg-accent text-white px-8 py-4 rounded-xl hover:bg-accent-hover transition-colors duration-200 text-lg font-semibold'
+                      className='inline-flex items-center justify-center gap-2 md:gap-3 bg-accent text-white px-6 md:px-8 py-3 md:py-4 rounded-xl hover:bg-accent-hover transition-colors duration-200 text-base md:text-lg font-semibold w-full sm:w-auto'
                     >
-                      <ExternalLink className='w-6 h-6' />
+                      <ExternalLink className='w-5 h-5 md:w-6 md:h-6' />
                       Visitar sitio web
                     </a>
                   </div>

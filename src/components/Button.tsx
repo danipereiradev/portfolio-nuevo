@@ -25,11 +25,11 @@ const Button: React.FC<ButtonProps> = ({
   isLoading = false,
 }) => {
   const baseStyles =
-    'px-8 py-4 rounded-xl font-semibold text-lg transform hover:scale-105 transition-all duration-200 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2';
+    'px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2';
 
   const variantStyles = {
     primary:
-      'bg-black text-white hover:bg-gray-900',
+      'bg-accent text-white',
     secondary:
       'border-2 border-white text-white hover:bg-white hover:text-black',
     ghost: 'bg-gray-200 text-gray-700 hover:bg-gray-300 shadow-none',

@@ -28,7 +28,7 @@ const Hero = () => {
         <div className='absolute inset-0 bg-black/60'></div>
       </div>
 
-      <div className='relative z-10 text-center max-w-4xl mx-auto'>
+      <div className='relative z-10 text-center max-w-4xl mx-auto p-4'>
         <h1 className='text-5xl md:text-7xl font-bold text-white mb-4 leading-tight'>
           {t('hero.title')}
         </h1>

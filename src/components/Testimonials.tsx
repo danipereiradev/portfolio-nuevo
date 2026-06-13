@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Testimonials = () => {
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const testimonials = [
     {
@@ -10,9 +10,9 @@ const Testimonials = () => {
       company: 'Mobile One2One, S.L.',
       website: 'https://www.o2ods.com/',
       date: '27/11/2025',
-      text: 'Durante el tiempo que ha durado la colaboración con Daniel, ha quedado en evidencia que es un desarrollador altamente competente, con un enfoque claro en la excelencia técnica y la experiencia de usuario. Durante nuestra colaboración ha demostrado un dominio sobresaliente de frameworks modernos, una gran sensibilidad por el diseño y un compromiso constante con la calidad y la optimización del producto. Ha mostrado tener capacidad para trabajar en equipo y atención meticulosa a los detalles, lo que lo convierte en un profesional excepcional y confiable.',
+      text: 'Durante el tiempo que ha durado la colaboración con Daniel, ha quedado en evidencia que es un desarrollador altamente competente, con un enfoque claro en la excelencia técnica y la experiencia de usuario.',
       highlight:
-        'Durante nuestra colaboración ha demostrado un dominio sobresaliente de frameworks modernos, una gran sensibilidad por el diseño y un compromiso constante con la calidad y la optimización del producto.',
+        'Ha demostrado un dominio sobresaliente de frameworks modernos, una gran sensibilidad por el diseño y un compromiso constante con la calidad.',
       rating: 5,
       avatar: 'A',
     },
@@ -21,7 +21,7 @@ const Testimonials = () => {
       company: 'O Alicornio - Casa Rural',
       website: 'oalicornio.com',
       date: '15/3/2024',
-      text: 'Dani me ayudó a crear la web de mi casa rural en O Courel cuando estaba empezando. Necesitaba algo sencillo pero profesional, y él lo consiguió. Lo mejor es el posicionamiento SEO que trabajó.',
+      text: 'Dani me ayudó a crear la web de mi casa rural en O Courel cuando estaba empezando. Necesitaba algo sencillo pero profesional, y él lo consiguió.',
       highlight:
         'Gracias a la web, la casa está llena todos los fines de semana de primavera y verano. No me lo esperaba tan rápido.',
       rating: 5,
@@ -32,11 +32,9 @@ const Testimonials = () => {
       company: 'Confusion Wear',
       website: 'confusionwear.com',
       date: '22/8/2023',
-      text: 'Teníamos web pero necesitábamos un cambio urgente. El diseño estaba anticuado y no nos posicionábamos en Google. Dani vino, hizo un rediseño completo, trabajó el SEO on page y cargó todo el catálogo de productos en Google Shopping.',
+      text: 'Teníamos web pero necesitábamos un cambio urgente. El diseño estaba anticuado y no nos posicionábamos en Google. Dani vino, hizo un rediseño completo.',
       highlight:
-        'Los resultados se notaron en semanas. Empezamos a aparecer en búsquedas y las visitas desde Google se multiplicaron. La web quedó brutal, justo el rollo que buscaba.',
-      extraText:
-        'Lo mejor es que me explicó todo el proceso de SEO en mi idioma, sin tecnicismos raros. Ahora sé por qué aparezco en Google y cómo mantenerlo. Totalmente recomendable.',
+        'Los resultados se notaron en semanas. Empezamos a aparecer en búsquedas y las visitas desde Google se multiplicaron.',
       rating: 5,
       avatar: 'A',
     },
@@ -45,11 +43,9 @@ const Testimonials = () => {
       company: 'Delish Vegan Madrid',
       website: 'delishvegann.com',
       date: '10/11/2023',
-      text: 'We needed a complete e-commerce solution for our vegan bakery and Dani delivered beyond our expectations. The shop is beautiful, easy to manage, and our customers love it.',
+      text: 'We needed a complete e-commerce solution for our vegan bakery and Dani delivered beyond our expectations. The shop is beautiful, easy to manage.',
       highlight:
-        'He integrated our delivery system perfectly and the national shipping works flawlessly. Our online orders have tripled since the launch!',
-      extraText:
-        'Dani is not just a developer, he understood our values and our community. He was patient with all our requests and always had great suggestions. Working with him felt like working with a friend who truly cares about your project.',
+        'He integrated our delivery system perfectly and the national shipping works flawlessly. Our online orders have tripled!',
       rating: 4,
       avatar: 'S',
     },
@@ -58,11 +54,9 @@ const Testimonials = () => {
       company: 'Chicxsdelacalle',
       website: 'chicxsdelacalle.com',
       date: '5/6/2022',
-      text: 'Tengo una tienda online de merchandising de bandas y Dani me hizo la web desde cero. Entendió perfectamente el rollo que buscaba y la web tiene mucha personalidad. Pero lo que más valoro es el mantenimiento.',
+      text: 'Tengo una tienda online de merchandising de bandas y Dani me hizo la web desde cero. Entendió perfectamente el rollo que buscaba.',
       highlight:
-        'Siempre que necesito algo, me atiende al momento. Nunca me he quedado tirada, y eso en este negocio es ORO. Cuando sacas merch nuevo de una banda, necesitas tenerlo online YA.',
-      extraText:
-        'Mis clientes siempre me dicen que la web es súper fácil de usar y que les encanta el diseño. Y yo duermo tranquila sabiendo que si algo falla, Dani está ahí. Es de las mejores decisiones que tomé para mi negocio.',
+        'Siempre que necesito algo, me atiende al momento. Nunca me he quedado tirada, y eso en este negocio es ORO.',
       rating: 5,
       avatar: 'I',
     },
@@ -71,11 +65,9 @@ const Testimonials = () => {
       company: 'Camisetas Ahora',
       website: 'camisetas-ahora.com',
       date: '18/9/2021',
-      text: 'Esta fue mi primera web con Dani y después repetí con otro proyecto. Para Camisetas Ahora necesitaba algo funcional y directo, un e-commerce que permitiera personalización de productos.',
+      text: 'Esta fue mi primera web con Dani y después repetí con otro proyecto. Para Camisetas Ahora necesitaba algo funcional y directo.',
       highlight:
         'La plataforma funciona perfecta, los clientes pueden personalizar sus camisetas sin problemas y el sistema de pedidos es muy fiable.',
-      extraText:
-        'Dani es de esas personas con las que trabajar es fácil. Responde rápido, entiende lo que necesitas y no te marea con cosas complicadas. Por eso cuando tuve otro proyecto, no dudé en volver a llamarle.',
       rating: 5,
       avatar: 'I',
     },
@@ -84,7 +76,7 @@ const Testimonials = () => {
       company: 'El Viaje de los Elefantes',
       website: 'elviajedeloselefantes.com',
       date: '17/5/2025',
-      text: 'Daniel es un gran profesional. Me ha hecho dos páginas webs para mis dos proyectos profesionales los cuales son de campos totalmente diferentes. Y en ambos he quedado muy satisfecho, pues entendió mi idea para plasmarla en cada página. Además también me dio ideas para que fueran más atractivas.',
+      text: 'Daniel es un gran profesional. Me ha hecho dos páginas webs para mis dos proyectos profesionales los cuales son de campos totalmente diferentes.',
       highlight:
         'Estoy muy contento con el resultado. Volvería a trabajar con él sin ninguna duda.',
       rating: 5,
@@ -95,36 +87,38 @@ const Testimonials = () => {
       company: 'Carper Sonido',
       website: 'carper-sonido.com',
       date: '17/5/2025',
-      text: 'Trabajar con Dani ha sido una de las mejores decisiones que hemos tomado para nuestra presencia online. Nos desarrolló una web 100% a medida, sin plantillas, con un diseño limpio y bien pensado, utilizando WordPress como backend pero construida con HTML, CSS y JavaScript.',
+      text: 'Trabajar con Dani ha sido una de las mejores decisiones que hemos tomado para nuestra presencia online. Nos desarrolló una web 100% a medida.',
       highlight:
-        "Además de eso, nos integró una tienda online sencilla con Shopify y se encargó del SEO on page. Gracias a ese trabajo, hoy aparecemos en las primeras posiciones de Google para búsquedas clave como 'alquiler sonido en Vigo', 'comprar sonido en Vigo' o 'servicio técnico sonido en Vigo'.",
-      extraText:
-        'Desde entonces, nuestro negocio ha crecido mucho: pasamos de ser una persona a formar un equipo de tres, y seguimos en expansión. Dani entiende lo que necesita cada proyecto y lo hace fácil, sin tecnicismos y sin hacerte sentir fuera, algo que es muy importante para los que no tenemos ni idea de informática.',
+        "Hoy aparecemos en las primeras posiciones de Google para búsquedas clave como 'alquiler sonido en Vigo' y 'comprar sonido en Vigo'.",
       rating: 5,
       avatar: 'CR',
     },
   ];
 
+  const itemsPerSlide = 3;
+  const totalSlides = Math.ceil(testimonials.length / itemsPerSlide);
+
   // Auto-scroll del carousel
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 10000); // Cambia cada 10 segundos para dar tiempo a leer
+      setCurrentSlide((prev) => (prev + 1) % totalSlides);
+    }, 8000);
 
     return () => clearInterval(timer);
-  }, [testimonials.length]);
+  }, [totalSlides]);
 
-  const nextTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % totalSlides);
   };
 
-  const prevTestimonial = () => {
-    setCurrentTestimonial(
-      (prev) => (prev - 1 + testimonials.length) % testimonials.length
-    );
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
   };
 
-  const currentTest = testimonials[currentTestimonial];
+  const getVisibleTestimonials = () => {
+    const startIndex = currentSlide * itemsPerSlide;
+    return testimonials.slice(startIndex, startIndex + itemsPerSlide);
+  };
 
   return (
     <section
@@ -142,7 +136,7 @@ const Testimonials = () => {
         <div className='absolute inset-0 bg-gradient-to-br from-blue-50/80 to-purple-50/80'></div>
       </div>
 
-      <div className='container mx-auto px-6'>
+      <div className='container mx-auto px-6 relative z-10'>
         <div className='text-center mb-16'>
           <h2 className='text-4xl md:text-5xl font-bold text-gray-900 mb-4'>
             Lo que Dicen Mis Clientes
@@ -168,14 +162,12 @@ const Testimonials = () => {
               <path fill='#4285F4' d='M35.29 41.41V32h31.77c.31 1.64.47 3.58.47 5.68 0 7.06-1.93 15.79-8.15 22.01-6.05 6.3-13.78 9.66-24.02 9.66C16.32 69.35.36 53.89.36 34.79.36 15.69 16.32.23 35.37.23c10.5 0 17.98 4.12 23.6 9.49l-6.64 6.64c-4.03-3.78-9.49-6.72-16.97-6.72-13.86 0-24.7 11.17-24.7 25.03 0 13.86 10.84 25.03 24.7 25.03 8.99 0 14.11-3.61 17.39-6.89 2.66-2.66 4.41-6.46 5.1-11.67l-22.56.07z'/>
             </svg>
             <div className='flex items-center gap-1'>
-              {/* 4 estrellas completas */}
               {[...Array(4)].map((_, i) => (
                 <Star
                   key={i}
                   className='w-6 h-6 fill-yellow-400 text-yellow-400'
                 />
               ))}
-              {/* Quinta estrella con 80% de relleno */}
               <div className='relative'>
                 <Star className='w-6 h-6 fill-yellow-200 text-yellow-200' />
                 <div
@@ -191,93 +183,81 @@ const Testimonials = () => {
           </div>
         </div>
 
-        <div className='max-w-4xl mx-auto relative'>
-          {/* Testimonial Card */}
-          <div className='bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-8 md:p-12 relative overflow-hidden border border-white/20'>
-            {/* Quote Icon */}
-            <div className='absolute top-6 right-6 opacity-10'>
-              <Quote className='w-20 h-20 text-accent' />
-            </div>
+        <div className='relative max-w-7xl mx-auto'>
+          {/* Carousel Container */}
+          <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
+            {getVisibleTestimonials().map((testimonial, index) => (
+              <div
+                key={`${currentSlide}-${index}`}
+                className='bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl p-6 relative overflow-hidden border border-white/20 flex flex-col'
+              >
+                {/* Quote Icon */}
+                <div className='absolute top-4 right-4 opacity-10'>
+                  <Quote className='w-12 h-12 text-accent' />
+                </div>
 
-            {/* Stars */}
-            <div className='flex justify-center items-center mb-6 gap-3'>
-              <div className='flex items-center gap-1'>
-                {[...Array(currentTest.rating)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className='w-6 h-6 text-yellow-400 fill-current'
-                  />
-                ))}
-                {currentTest.rating < 5 && (
-                  <Star className='w-6 h-6 text-yellow-200 fill-current' />
+                {/* Stars */}
+                <div className='flex items-center gap-1 mb-4'>
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className='w-5 h-5 text-yellow-400 fill-current'
+                    />
+                  ))}
+                  {testimonial.rating < 5 && (
+                    <Star className='w-5 h-5 text-yellow-200 fill-current' />
+                  )}
+                </div>
+
+                {/* Main Text */}
+                <blockquote className='text-sm text-gray-700 leading-relaxed mb-4 flex-grow'>
+                  "{testimonial.text}"
+                </blockquote>
+
+                {/* Highlight Text */}
+                {testimonial.highlight && (
+                  <div className='bg-gray-50 border-l-4 border-accent p-3 rounded-r-lg mb-4'>
+                    <p className='text-xs text-gray-800 font-medium italic'>
+                      "{testimonial.highlight}"
+                    </p>
+                  </div>
                 )}
-              </div>
-              <span className='text-xl font-bold text-gray-900'>
-                {currentTest.rating}/5
-              </span>
-            </div>
 
-            {/* Main Text */}
-            <blockquote className='text-lg md:text-xl text-gray-700 leading-relaxed mb-6 text-center'>
-              "{currentTest.text}"
-            </blockquote>
-
-            {/* Highlight Text */}
-            {currentTest.highlight && (
-              <div className='bg-gray-50 border-l-4 border-gray-300 p-4 rounded-r-lg mb-6'>
-                <p className='text-gray-800 font-medium italic'>
-                  "{currentTest.highlight}"
-                </p>
+                {/* Author Info */}
+                <div className='mt-auto'>
+                  <h4 className='font-bold text-gray-900 text-sm'>
+                    {testimonial.name}
+                  </h4>
+                  <p className='text-accent font-medium text-xs'>
+                    {testimonial.company}
+                  </p>
+                </div>
               </div>
-            )}
-
-            {/* Extra Text for Carlos */}
-            {currentTest.extraText && (
-              <p className='text-gray-600 leading-relaxed mb-6 text-center'>
-                {currentTest.extraText}
-              </p>
-            )}
-
-            {/* Author Info */}
-            <div className='flex items-center justify-center gap-4'>
-              <div className='w-16 h-16 bg-white border-2 border-black rounded-full flex items-center justify-center text-black font-bold text-xl'>
-                {currentTest.avatar}
-              </div>
-              <div className='text-center'>
-                <h4 className='font-bold text-gray-900 text-lg'>
-                  {currentTest.name}
-                </h4>
-                <p className='text-accent font-medium'>
-                  {currentTest.company}
-                </p>
-                <p className='text-gray-500 text-sm'>{currentTest.website}</p>
-                <p className='text-gray-400 text-xs'>{currentTest.date}</p>
-              </div>
-            </div>
+            ))}
           </div>
 
           {/* Navigation Arrows */}
           <button
-            onClick={prevTestimonial}
-            className='absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm p-3 rounded-full shadow-lg hover:bg-white transition-all duration-200 z-10'
+            onClick={prevSlide}
+            className='absolute -left-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm p-3 rounded-full shadow-lg hover:bg-white transition-all duration-200 z-10'
           >
             <ChevronLeft className='w-6 h-6 text-gray-700' />
           </button>
           <button
-            onClick={nextTestimonial}
-            className='absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm p-3 rounded-full shadow-lg hover:bg-white transition-all duration-200 z-10'
+            onClick={nextSlide}
+            className='absolute -right-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm p-3 rounded-full shadow-lg hover:bg-white transition-all duration-200 z-10'
           >
             <ChevronRight className='w-6 h-6 text-gray-700' />
           </button>
 
           {/* Indicators */}
           <div className='flex justify-center mt-8 gap-3'>
-            {testimonials.map((_, index) => (
+            {[...Array(totalSlides)].map((_, index) => (
               <button
                 key={index}
-                onClick={() => setCurrentTestimonial(index)}
+                onClick={() => setCurrentSlide(index)}
                 className={`w-4 h-4 rounded-full transition-all duration-200 ${
-                  index === currentTestimonial
+                  index === currentSlide
                     ? 'bg-accent scale-110'
                     : 'bg-gray-300 hover:bg-gray-400'
                 }`}

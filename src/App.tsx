@@ -7,7 +7,6 @@ import HeaderLanding from './components/HeaderLanding';
 import FooterLanding from './components/FooterLanding';
 import WhatsAppButton from './components/WhatsAppButton';
 import Home from './pages/Home';
-import LandingExpress from './pages/LandingExpress';
 import LandingAutonomos from './pages/LandingAutonomos';
 import LandingTienda from './pages/LandingTienda';
 import LandingApp from './pages/LandingApp';
@@ -28,7 +27,6 @@ function AppContent() {
 
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/landing-express' element={<LandingExpress />} />
         <Route path='/web-autonomos-pymes' element={<LandingAutonomos />} />
         <Route path='/tienda-online' element={<LandingTienda />} />
         <Route path='/aplicacion-web' element={<LandingApp />} />

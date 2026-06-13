@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Code2, ChevronDown } from 'lucide-react';
+import { Menu, X, Code2, ChevronDown, Mail, MessageCircle } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import AboutMe from './AboutMe';
@@ -54,9 +54,8 @@ const Header = () => {
   };
 
   const services = [
-    { name: 'Página Web Sencilla', path: '/landing-express' },
     {
-      name: 'Página Web Autónomos y Pymes',
+      name: 'Página Web',
       path: '/web-autonomos-pymes',
     },
     {
@@ -65,7 +64,7 @@ const Header = () => {
       popular: true,
     },
     {
-      name: 'Aplicación Web o Móvil',
+      name: 'App Móvil',
       path: '/aplicacion-web',
     },
   ];
@@ -75,6 +74,7 @@ const Header = () => {
       <header className='fixed w-full top-0 z-50 bg-white shadow-lg'>
         <div className='container mx-auto px-6 py-4'>
           <div className='flex items-center justify-between'>
+            {/* Logo */}
             <Link to='/' className='flex items-center space-x-2'>
               <Code2 className='w-8 h-8 text-ink-dark' />
               <span className='text-xl font-bold bg-gradient-to-r from-ink-dark to-ink-gray bg-clip-text'>
@@ -82,7 +82,7 @@ const Header = () => {
               </span>
             </Link>
 
-            {/* Desktop Navigation */}
+            {/* Desktop Navigation - Center */}
             <nav className='hidden md:flex items-center space-x-8'>
               <Link
                 to='/'
@@ -116,11 +116,11 @@ const Header = () => {
                         <Link
                           key={service.path}
                           to={service.path}
-                          className='block px-4 py-3 hover:bg-gray-50 transition-colors'
+                          className='group block px-4 py-3 hover:bg-accent transition-colors'
                           onClick={() => setIsServicesOpen(false)}
                         >
                           <div className='flex items-center justify-between'>
-                            <span className='text-gray-900 font-medium text-sm'>
+                            <span className='text-gray-900 group-hover:text-white font-medium text-sm transition-colors'>
                               {service.name}
                             </span>
                             {service.popular && (
@@ -137,7 +137,7 @@ const Header = () => {
                             scrollToSection('pricing');
                             setIsServicesOpen(false);
                           }}
-                          className='block w-full text-left px-4 py-2 text-gray-600 hover:text-ink-dark text-sm font-medium'
+                          className='block w-full text-left px-4 py-2 text-gray-600 hover:bg-accent hover:text-white text-sm font-medium transition-colors'
                         >
                           Ver todos los servicios →
                         </button>
@@ -161,6 +161,26 @@ const Header = () => {
                 {t('nav.contact')}
               </button>
             </nav>
+
+            {/* Contact Icons - Right */}
+            <div className='hidden md:flex items-center gap-4'>
+              <a
+                href='mailto:web.danipereira@gmail.com'
+                className='p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors duration-200'
+                aria-label='Email'
+              >
+                <Mail className='w-5 h-5 text-gray-700' />
+              </a>
+              <a
+                href='https://wa.me/34644669828'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='p-2 rounded-lg bg-accent hover:bg-accent-hover transition-colors duration-200'
+                aria-label='WhatsApp'
+              >
+                <MessageCircle className='w-5 h-5 text-white' />
+              </a>
+            </div>
 
             {/* Mobile Menu Button */}
             <button
@@ -217,10 +237,10 @@ const Header = () => {
                           setIsMenuOpen(false);
                           setIsServicesOpen(false);
                         }}
-                        className='block px-6 py-2 text-sm text-gray-600 hover:text-ink-dark'
+                        className='group block px-6 py-2 text-sm hover:bg-accent transition-colors'
                       >
                         <div className='flex items-center justify-between'>
-                          <span>{service.name}</span>
+                          <span className='text-gray-600 group-hover:text-white transition-colors'>{service.name}</span>
                           {service.popular && (
                             <span className='bg-ink-gray text-white text-xs px-2 py-0.5 rounded-full'>
                               ★
@@ -246,6 +266,28 @@ const Header = () => {
               >
                 {t('nav.contact')}
               </button>
+
+              {/* Contact Icons Mobile */}
+              <div className='flex items-center gap-4 px-4 py-4 mt-2 border-t border-gray-200'>
+                <a
+                  href='mailto:web.danipereira@gmail.com'
+                  className='flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors duration-200 flex-1 justify-center'
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <Mail className='w-5 h-5 text-gray-700' />
+                  <span className='text-sm font-medium text-gray-700'>Email</span>
+                </a>
+                <a
+                  href='https://wa.me/34644669828'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='flex items-center gap-2 px-4 py-2 rounded-lg bg-accent hover:bg-accent-hover transition-colors duration-200 flex-1 justify-center'
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <MessageCircle className='w-5 h-5 text-white' />
+                  <span className='text-sm font-medium text-white'>WhatsApp</span>
+                </a>
+              </div>
             </nav>
           )}
         </div>

@@ -255,10 +255,9 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
       // Track conversión exitosa
       const planPrices: { [key: string]: number } = {
-        'Página Web Sencilla': 0,
-        'Página Web Autónomos y Pymes': 0,
+        'Página Web': 0,
         'Tienda Online': 0,
-        'Aplicación Web o Móvil': 0,
+        'App Móvil': 0,
       };
       const planValue = planPrices[formData.plan] || 0;
       trackFormSubmit(formData.plan, planValue);
@@ -457,47 +456,17 @@ Fecha: ${new Date().toLocaleString('es-ES')}
               <label className='block text-sm font-medium text-gray-700 mb-3'>
                 Plan de Servicio *
               </label>
-              <div className='grid md:grid-cols-2 gap-4'>
+              <div className='grid gap-4'>
                 <button
                   type='button'
                   onClick={() =>
                     handleInputChange(
                       'plan',
-                      'Página Web Sencilla'
+                      'Página Web'
                     )
                   }
                   className={`p-5 text-left border-2 rounded-xl transition-all duration-200 ${
-                    formData.plan === 'Página Web Sencilla'
-                      ? 'border-orange-500 bg-orange-50'
-                      : errors.plan
-                      ? 'border-accent'
-                      : 'border-gray-300 hover:border-orange-300'
-                  }`}
-                >
-                  <div className='flex items-start justify-between mb-2'>
-                    <h4 className='font-bold text-gray-900'>
-                      Página Web Sencilla
-                    </h4>
-                    {formData.plan === 'Página Web Sencilla' && (
-                      <Check className='w-5 h-5 text-orange-600' />
-                    )}
-                  </div>
-                  <p className='text-sm text-gray-600'>
-                    Solución rápida y económica para emprendedores
-                  </p>
-                </button>
-
-                <button
-                  type='button'
-                  onClick={() =>
-                    handleInputChange(
-                      'plan',
-                      'Página Web Autónomos y Pymes'
-                    )
-                  }
-                  className={`p-5 text-left border-2 rounded-xl transition-all duration-200 ${
-                    formData.plan ===
-                    'Página Web Autónomos y Pymes'
+                    formData.plan === 'Página Web'
                       ? 'border-accent bg-gray-50'
                       : errors.plan
                       ? 'border-accent'
@@ -506,16 +475,14 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                 >
                   <div className='flex items-start justify-between mb-2'>
                     <h4 className='font-bold text-gray-900'>
-                      Página Web Autónomos y Pymes
+                      Página Web
                     </h4>
-                    {formData.plan ===
-                      'Página Web Autónomos y Pymes' && (
+                    {formData.plan === 'Página Web' && (
                       <Check className='w-5 h-5 text-accent' />
                     )}
                   </div>
                   <p className='text-sm text-gray-600'>
-                    Perfecta para empresas que buscan presencia digital
-                    profesional
+                    Sitio web profesional para empresas y autónomos
                   </p>
                 </button>
 
@@ -526,16 +493,16 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                   }
                   className={`p-5 text-left border-2 rounded-xl transition-all duration-200 ${
                     formData.plan === 'Tienda Online'
-                      ? 'border-green-500 bg-green-50'
+                      ? 'border-accent bg-gray-50'
                       : errors.plan
                       ? 'border-accent'
-                      : 'border-gray-300 hover:border-green-300'
+                      : 'border-gray-300 hover:border-gray-400'
                   }`}
                 >
                   <div className='flex items-start justify-between mb-2'>
                     <h4 className='font-bold text-gray-900'>Tienda Online</h4>
                     {formData.plan === 'Tienda Online' && (
-                      <Check className='w-5 h-5 text-green-600' />
+                      <Check className='w-5 h-5 text-accent' />
                     )}
                   </div>
                   <p className='text-sm text-gray-600'>
@@ -548,28 +515,27 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                   onClick={() =>
                     handleInputChange(
                       'plan',
-                      'Aplicación Web o Móvil'
+                      'App Móvil'
                     )
                   }
                   className={`p-5 text-left border-2 rounded-xl transition-all duration-200 ${
-                    formData.plan === 'Aplicación Web o Móvil'
-                      ? 'border-purple-500 bg-purple-50'
+                    formData.plan === 'App Móvil'
+                      ? 'border-accent bg-gray-50'
                       : errors.plan
                       ? 'border-accent'
-                      : 'border-gray-300 hover:border-purple-300'
+                      : 'border-gray-300 hover:border-gray-400'
                   }`}
                 >
                   <div className='flex items-start justify-between mb-2'>
                     <h4 className='font-bold text-gray-900'>
-                      Aplicación Web o Móvil
+                      App Móvil
                     </h4>
-                    {formData.plan ===
-                      'Aplicación Web o Móvil' && (
-                      <Check className='w-5 h-5 text-purple-600' />
+                    {formData.plan === 'App Móvil' && (
+                      <Check className='w-5 h-5 text-accent' />
                     )}
                   </div>
                   <p className='text-sm text-gray-600'>
-                    Desarrollo a medida para proyectos únicos
+                    Aplicaciones web y móviles a medida
                   </p>
                 </button>
               </div>
@@ -774,13 +740,13 @@ Fecha: ${new Date().toLocaleString('es-ES')}
               {renderStep()}
 
               {/* Navigation Buttons */}
-              <div className='flex justify-between mt-8 pt-6 border-t border-gray-200'>
+              <div className='flex flex-col sm:flex-row justify-between gap-4 mt-8 pt-6 border-t border-gray-200'>
                 <Button
                   type='button'
                   onClick={prevStep}
                   disabled={currentStep === 1}
                   variant='ghost'
-                  className='px-6 py-3 text-base'
+                  className='px-6 py-3 text-base w-full sm:w-auto'
                 >
                   <ArrowLeft className='w-4 h-4' />
                   Anterior
@@ -791,7 +757,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                     type='button'
                     onClick={nextStep}
                     variant='primary'
-                    className='px-6 py-3 text-base'
+                    className='px-6 py-3 text-base w-full sm:w-auto'
                   >
                     Siguiente
                     <ArrowRight className='w-4 h-4' />
@@ -802,7 +768,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                     disabled={isSubmitting}
                     isLoading={isSubmitting}
                     variant='primary'
-                    className='px-8 py-3 text-base'
+                    className='px-8 py-3 text-base w-full sm:w-auto'
                   >
                     {isSubmitting ? 'Enviando...' : 'Enviar Solicitud'}
                     {!isSubmitting && <Check className='w-4 h-4' />}
