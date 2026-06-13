@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X, Code2, ChevronDown, Mail, MessageCircle } from 'lucide-react';
+import { Menu, X, Code2, ChevronDown, MessageCircle } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useContactModal } from '../contexts/ContactModalContext';
@@ -187,13 +187,6 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
                 </button>
               )}
               
-              <a
-                href='mailto:web.danipereira@gmail.com'
-                className='p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors duration-200'
-                aria-label='Email'
-              >
-                <Mail className='w-5 h-5 text-gray-700' />
-              </a>
               <a
                 href='https://wa.me/34644669828'
                 target='_blank'
