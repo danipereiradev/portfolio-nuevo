@@ -56,7 +56,14 @@
 /* Smooth scrolling for anchor links */
 html {
   scroll-behavior: smooth;
-  font-size: 80%; /* Reduce el tamaño base de fuente en 20% */
+  font-size: 100%; /* Tamaño normal en móvil */
+}
+
+/* Reduce el tamaño de fuente solo en escritorio */
+@media (min-width: 768px) {
+  html {
+    font-size: 80%; /* Reduce 20% solo en tablets y escritorio */
+  }
 }
 
 /* Custom scrollbar */

@@ -1,8 +1,10 @@
-import { useState, useEffect } from 'react';
-import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState } from 'react';
+import { Star, Quote } from 'lucide-react';
 
 const Testimonials = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
 
   const testimonials = [
     {
@@ -98,21 +100,32 @@ const Testimonials = () => {
   const itemsPerSlide = 3;
   const totalSlides = Math.ceil(testimonials.length / itemsPerSlide);
 
-  // Auto-scroll del carousel
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % totalSlides);
-    }, 8000);
-
-    return () => clearInterval(timer);
-  }, [totalSlides]);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % totalSlides);
+  // Swipe handlers para móvil
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
   };
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe && currentSlide < totalSlides - 1) {
+      setCurrentSlide(currentSlide + 1);
+    }
+    if (isRightSwipe && currentSlide > 0) {
+      setCurrentSlide(currentSlide - 1);
+    }
+
+    // Reset
+    setTouchStart(0);
+    setTouchEnd(0);
   };
 
   const getVisibleTestimonials = () => {
@@ -185,7 +198,12 @@ const Testimonials = () => {
 
         <div className='relative max-w-7xl mx-auto'>
           {/* Carousel Container */}
-          <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
+          <div 
+            className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
             {getVisibleTestimonials().map((testimonial, index) => (
               <div
                 key={`${currentSlide}-${index}`}
@@ -235,20 +253,6 @@ const Testimonials = () => {
               </div>
             ))}
           </div>
-
-          {/* Navigation Arrows */}
-          <button
-            onClick={prevSlide}
-            className='absolute -left-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm p-3 rounded-full shadow-lg hover:bg-white transition-all duration-200 z-10'
-          >
-            <ChevronLeft className='w-6 h-6 text-gray-700' />
-          </button>
-          <button
-            onClick={nextSlide}
-            className='absolute -right-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm p-3 rounded-full shadow-lg hover:bg-white transition-all duration-200 z-10'
-          >
-            <ChevronRight className='w-6 h-6 text-gray-700' />
-          </button>
 
           {/* Indicators */}
           <div className='flex justify-center mt-8 gap-3'>
