@@ -57,11 +57,8 @@ const Footer = () => {
           <div className='grid lg:grid-cols-4 gap-8'>
             {/* Brand Section */}
             <div className='lg:col-span-1'>
-              <div className='flex items-center space-x-2 mb-6'>
-                <Code2 className='w-8 h-8 text-accent' />
-                <span className='text-2xl font-bold text-white'>
-                  Dani Pereira
-                </span>
+              <div className='flex items-center mb-6'>
+                <Code2 className='w-12 h-12 text-accent' />
               </div>
               <p className='text-gray-300 mb-6 leading-relaxed'>
                 {t('footer.description')}
@@ -107,60 +104,60 @@ const Footer = () => {
               </h3>
               <ul className='space-y-3 text-gray-300'>
                 <li>
-                  <Link
-                    to='/diseno-web'
+                  <a
+                    href='/diseno-web'
                     className='hover:text-white transition-colors duration-200'
                   >
                     Diseño Web
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link
-                    to='/paginas-web-empresas'
+                  <a
+                    href='/paginas-web-empresas'
                     className='hover:text-white transition-colors duration-200'
                   >
                     Páginas Web Empresas
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link
-                    to='/tiendas-online'
+                  <a
+                    href='/tiendas-online'
                     className='hover:text-white transition-colors duration-200'
                   >
                     Tiendas Online
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link
-                    to='/desarrollo-aplicaciones-web'
+                  <a
+                    href='/desarrollo-aplicaciones-web'
                     className='hover:text-white transition-colors duration-200'
                   >
                     Aplicaciones Web
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link
-                    to='/posicionamiento-web-seo'
+                  <a
+                    href='/posicionamiento-web-seo'
                     className='hover:text-white transition-colors duration-200'
                   >
                     Posicionamiento SEO
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link
-                    to='/mantenimiento-web'
+                  <a
+                    href='/mantenimiento-web'
                     className='hover:text-white transition-colors duration-200'
                   >
                     Mantenimiento Web
-                  </Link>
+                  </a>
                 </li>
                 <li className='pt-2 border-t border-gray-700'>
-                  <Link
-                    to='/'
+                  <a
+                    href='/'
                     className='hover:text-gray-400 transition-colors duration-200 text-sm'
                   >
                     Ver todos los servicios →
-                  </Link>
+                  </a>
                 </li>
               </ul>
             </div>
