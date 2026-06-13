@@ -23,7 +23,7 @@ const Clients = () => {
     },
     {
       icon: <Star className='w-8 h-8' />,
-      number: '4.8⭐',
+      number: '4.8',
       label: 'Valoración Media',
     },
     {
@@ -39,9 +39,20 @@ const Clients = () => {
   return (
     <section
       id='clients'
-      className='py-20 bg-gray-900 text-white overflow-hidden'
+      className='py-20 text-white overflow-hidden relative'
     >
-      <div className='container mx-auto px-6'>
+      {/* Background Image */}
+      <div
+        className='absolute inset-0 bg-cover bg-center bg-no-repeat'
+        style={{
+          backgroundImage: 'url(/mohammad-rahmani-8qEB0fTe9Vw-unsplash.jpg)',
+        }}
+      >
+        {/* Dark overlay */}
+        <div className='absolute inset-0 bg-black/75'></div>
+      </div>
+
+      <div className='container mx-auto px-6 relative z-10'>
         <div className='text-center mb-16'>
           <h2 className='text-4xl md:text-5xl font-bold mb-4 text-center'>
             Proyectos en los que he Participado
@@ -60,7 +71,7 @@ const Clients = () => {
             {clients.map((client, index) => (
               <div
                 key={index}
-                className='bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 transition-all duration-300 min-h-[140px] flex flex-col items-center justify-center'
+                className='bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center min-h-[140px] flex flex-col items-center justify-center'
               >
                 <h3 className='text-lg font-bold text-white mb-2'>
                   {client.name}
@@ -78,9 +89,9 @@ const Clients = () => {
               {duplicatedClients.map((client, index) => (
                 <div
                   key={index}
-                  className='flex-shrink-0 w-80 mx-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center group hover:bg-white/10 transition-all duration-300 hover:-translate-y-2'
+                  className='flex-shrink-0 w-80 mx-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center'
                 >
-                  <h3 className='text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors duration-200'>
+                  <h3 className='text-xl font-bold text-white mb-2'>
                     {client.name}
                   </h3>
                   <p className='text-gray-400 text-sm'>{client.sector}</p>
@@ -90,15 +101,15 @@ const Clients = () => {
           </div>
 
           {/* Gradient overlays para efecto fade */}
-          <div className='absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-gray-900 to-transparent pointer-events-none z-10'></div>
-          <div className='absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-gray-900 to-transparent pointer-events-none z-10'></div>
+          <div className='absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-black/75 to-transparent pointer-events-none z-10'></div>
+          <div className='absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-black/75 to-transparent pointer-events-none z-10'></div>
         </div>
 
         {/* Stats */}
         <div className='grid grid-cols-2 md:grid-cols-4 gap-8'>
           {stats.map((stat, index) => (
-            <div key={index} className='text-center group'>
-              <div className='bg-gradient-to-r from-blue-500 to-purple-500 w-16 h-16 rounded-2xl flex items-center justify-center text-white mx-auto mb-4 group-hover:scale-110 transition-transform duration-200'>
+            <div key={index} className='text-center'>
+              <div className='bg-accent w-16 h-16 rounded-2xl flex items-center justify-center text-white mx-auto mb-4'>
                 {stat.icon}
               </div>
               <div className='text-3xl md:text-4xl font-bold text-white mb-2'>

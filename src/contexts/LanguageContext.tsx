@@ -71,6 +71,9 @@ const translations = {
   'portfolio.carper.title': 'Carper Sonido',
   'portfolio.carper.desc':
     'Web corporativa para empresa de audio profesional con catálogo de productos y servicios.',
+  'portfolio.hoyviajamos.title': 'Hoy Viajamos',
+  'portfolio.hoyviajamos.desc':
+    'Blog de viajes con contenido optimizado, galerías fotográficas y monetización mediante afiliados.',
   'portfolio.elefantes.title': 'El Viaje de los Elefantes',
   'portfolio.elefantes.desc':
     'Blog de viajes con galería fotográfica, sistema de publicación y optimización SEO.',

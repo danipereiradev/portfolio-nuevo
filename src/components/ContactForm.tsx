@@ -11,6 +11,7 @@ import {
   CheckCircle,
 } from 'lucide-react';
 import { trackFormSubmit, trackFormStep } from '../utils/analytics';
+import Button from './Button';
 
 interface ContactFormProps {
   preselectedPlan?: string;
@@ -300,14 +301,14 @@ Fecha: ${new Date().toLocaleString('es-ES')}
               </p>
 
               {/* Información de contacto */}
-              <div className='bg-blue-50 border border-blue-200 rounded-xl p-6 mb-6'>
+              <div className='bg-gray-50 border border-gray-200 rounded-xl p-6 mb-6'>
                 <div className='flex items-center justify-center gap-2 mb-3'>
-                  <Mail className='w-5 h-5 text-blue-600' />
-                  <h3 className='text-xl font-semibold text-blue-900'>
+                  <Mail className='w-5 h-5 text-accent' />
+                  <h3 className='text-xl font-semibold text-gray-900'>
                     Te responderé pronto
                   </h3>
                 </div>
-                <p className='text-blue-800 font-medium'>
+                <p className='text-gray-800 font-medium'>
                   Me pondré en contacto contigo en un plazo máximo de{' '}
                   <span className='font-bold'>24 horas</span> para discutir los
                   detalles de tu proyecto.
@@ -327,12 +328,9 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
               {/* Botones de acción */}
               <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-                <button
-                  onClick={() => window.location.reload()}
-                  className='bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200'
-                >
+                <Button onClick={() => window.location.reload()} variant='primary'>
                   Volver al Inicio
-                </button>
+                </Button>
                 <a
                   href='https://wa.me/34644669828'
                   target='_blank'
@@ -352,7 +350,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
   // Componente para mostrar errores
   const ErrorMessage = ({ error }: { error: string }) => (
-    <div className='flex items-center gap-2 text-red-600 text-sm mt-1'>
+    <div className='flex items-center gap-2 text-accent text-sm mt-1'>
       <AlertCircle className='w-4 h-4' />
       {error}
     </div>
@@ -379,7 +377,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                     value={formData.name}
                     onChange={(e) => handleInputChange('name', e.target.value)}
                     className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                      errors.name ? 'border-red-500' : 'border-gray-300'
+                      errors.name ? 'border-accent' : 'border-gray-300'
                     }`}
                     placeholder='Tu nombre completo'
                     maxLength={50}
@@ -399,7 +397,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                     value={formData.email}
                     onChange={(e) => handleInputChange('email', e.target.value)}
                     className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                      errors.email ? 'border-red-500' : 'border-gray-300'
+                      errors.email ? 'border-accent' : 'border-gray-300'
                     }`}
                     placeholder='tu@email.com'
                   />
@@ -418,7 +416,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                     value={formData.phone}
                     onChange={(e) => handleInputChange('phone', e.target.value)}
                     className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                      errors.phone ? 'border-red-500' : 'border-gray-300'
+                      errors.phone ? 'border-accent' : 'border-gray-300'
                     }`}
                     placeholder='+34 600 000 000'
                   />
@@ -472,7 +470,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                     formData.plan === 'Página Web Sencilla'
                       ? 'border-orange-500 bg-orange-50'
                       : errors.plan
-                      ? 'border-red-500'
+                      ? 'border-accent'
                       : 'border-gray-300 hover:border-orange-300'
                   }`}
                 >
@@ -500,10 +498,10 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                   className={`p-5 text-left border-2 rounded-xl transition-all duration-200 ${
                     formData.plan ===
                     'Página Web Autónomos y Pymes'
-                      ? 'border-blue-500 bg-blue-50'
+                      ? 'border-accent bg-gray-50'
                       : errors.plan
-                      ? 'border-red-500'
-                      : 'border-gray-300 hover:border-blue-300'
+                      ? 'border-accent'
+                      : 'border-gray-300 hover:border-gray-400'
                   }`}
                 >
                   <div className='flex items-start justify-between mb-2'>
@@ -512,7 +510,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                     </h4>
                     {formData.plan ===
                       'Página Web Autónomos y Pymes' && (
-                      <Check className='w-5 h-5 text-blue-600' />
+                      <Check className='w-5 h-5 text-accent' />
                     )}
                   </div>
                   <p className='text-sm text-gray-600'>
@@ -530,7 +528,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                     formData.plan === 'Tienda Online'
                       ? 'border-green-500 bg-green-50'
                       : errors.plan
-                      ? 'border-red-500'
+                      ? 'border-accent'
                       : 'border-gray-300 hover:border-green-300'
                   }`}
                 >
@@ -557,7 +555,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                     formData.plan === 'Aplicación Web o Móvil'
                       ? 'border-purple-500 bg-purple-50'
                       : errors.plan
-                      ? 'border-red-500'
+                      ? 'border-accent'
                       : 'border-gray-300 hover:border-purple-300'
                   }`}
                 >
@@ -589,7 +587,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                 }
                 rows={4}
                 className={`w-full p-4 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                  errors.description ? 'border-red-500' : 'border-gray-300'
+                  errors.description ? 'border-accent' : 'border-gray-300'
                 }`}
                 placeholder='Describe tu proyecto, objetivos, funcionalidades específicas...'
                 maxLength={1000}
@@ -648,7 +646,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                         onChange={(e) =>
                           handleInputChange('preferredContact', e.target.value)
                         }
-                        className='mr-3 text-blue-600'
+                        className='mr-3 text-accent'
                       />
                       {method}
                     </label>
@@ -676,7 +674,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                         onChange={(e) =>
                           handleInputChange('urgency', e.target.value)
                         }
-                        className='mr-3 text-blue-600'
+                        className='mr-3 text-accent'
                       />
                       {urgency}
                     </label>
@@ -698,18 +696,18 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                 value={antiSpamAnswer}
                 onChange={(e) => setAntiSpamAnswer(e.target.value)}
                 className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                  errors.antiSpam ? 'border-red-500' : 'border-gray-300'
+                  errors.antiSpam ? 'border-accent' : 'border-gray-300'
                 }`}
                 placeholder='Tu respuesta...'
                 required
               />
               {errors.antiSpam && <ErrorMessage error={errors.antiSpam} />}
             </div>
-            <div className='bg-blue-50 p-6 rounded-lg border border-blue-200'>
-              <h4 className='font-semibold text-blue-900 mb-2'>
+            <div className='bg-gray-50 p-6 rounded-lg border border-gray-200'>
+              <h4 className='font-semibold text-gray-900 mb-2'>
                 Resumen de tu Solicitud
               </h4>
-              <div className='text-sm text-blue-800 space-y-1'>
+              <div className='text-sm text-gray-800 space-y-1'>
                 <p>
                   <strong>Nombre:</strong> {formData.name}
                 </p>
@@ -765,7 +763,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
               </div>
               <div className='w-full bg-gray-200 rounded-full h-2'>
                 <div
-                  className='bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full transition-all duration-500'
+                  className='bg-accent h-2 rounded-full transition-all duration-500'
                   style={{ width: `${(currentStep / 3) * 100}%` }}
                 ></div>
               </div>
@@ -777,61 +775,48 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
               {/* Navigation Buttons */}
               <div className='flex justify-between mt-8 pt-6 border-t border-gray-200'>
-                <button
+                <Button
                   type='button'
                   onClick={prevStep}
                   disabled={currentStep === 1}
-                  className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-200 ${
-                    currentStep === 1
-                      ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                      : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                  }`}
+                  variant='ghost'
+                  className='px-6 py-3 text-base'
                 >
                   <ArrowLeft className='w-4 h-4' />
                   Anterior
-                </button>
+                </Button>
 
                 {currentStep < 3 ? (
-                  <button
+                  <Button
                     type='button'
                     onClick={nextStep}
-                    className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-200 ${'bg-blue-600 text-white hover:bg-blue-700'}`}
+                    variant='primary'
+                    className='px-6 py-3 text-base'
                   >
                     Siguiente
                     <ArrowRight className='w-4 h-4' />
-                  </button>
+                  </Button>
                 ) : (
-                  <button
+                  <Button
                     type='submit'
                     disabled={isSubmitting}
-                    className={`flex items-center gap-2 px-8 py-3 rounded-lg font-medium transition-all duration-200 ${
-                      isSubmitting
-                        ? 'bg-gray-400 text-white cursor-not-allowed'
-                        : 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 shadow-lg'
-                    }`}
+                    isLoading={isSubmitting}
+                    variant='primary'
+                    className='px-8 py-3 text-base'
                   >
-                    {isSubmitting ? (
-                      <>
-                        <div className='animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent'></div>
-                        Enviando...
-                      </>
-                    ) : (
-                      <>
-                        Enviar Solicitud
-                        <Check className='w-4 h-4' />
-                      </>
-                    )}
-                  </button>
+                    {isSubmitting ? 'Enviando...' : 'Enviar Solicitud'}
+                    {!isSubmitting && <Check className='w-4 h-4' />}
+                  </Button>
                 )}
               </div>
 
               {submitStatus === 'error' && (
-                <div className='mt-6 p-4 bg-red-50 border border-red-200 rounded-lg'>
-                  <div className='flex items-center gap-2 text-red-800'>
+                <div className='mt-6 p-4 bg-gray-50 border border-gray-200 rounded-lg'>
+                  <div className='flex items-center gap-2 text-gray-800'>
                     <AlertCircle className='w-5 h-5' />
                     <p className='font-medium'>Error al enviar la solicitud</p>
                   </div>
-                  <p className='text-red-700 text-sm mt-1'>
+                  <p className='text-gray-700 text-sm mt-1'>
                     Por favor, inténtalo de nuevo o contacta directamente por
                     email: web.danipereira@gmail.com
                   </p>
@@ -849,7 +834,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
           <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
             <a
               href='mailto:web.danipereira@gmail.com'
-              className='flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium'
+              className='flex items-center gap-2 text-accent hover:text-accent-hover font-medium'
             >
               <Mail className='w-5 h-5' />
               web.danipereira@gmail.com

@@ -16,7 +16,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
         return (
           <div className='space-y-6'>
             <div className='flex items-center gap-3 mb-6'>
-              <Shield className='w-8 h-8 text-blue-600' />
+              <Shield className='w-8 h-8 text-accent' />
               <h1 className='text-3xl font-bold text-gray-900'>
                 Política de Privacidad
               </h1>
@@ -193,7 +193,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                   Para cualquier consulta sobre esta política de privacidad,
                   puedes contactarnos en:
                 </p>
-                <div className='bg-blue-50 p-4 rounded-lg mt-4'>
+                <div className='bg-gray-50 p-4 rounded-lg mt-4'>
                   <p>
                     <strong>Email:</strong> web.danipereira@gmail.com
                   </p>
@@ -213,7 +213,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
         return (
           <div className='space-y-6'>
             <div className='flex items-center gap-3 mb-6'>
-              <FileText className='w-8 h-8 text-blue-600' />
+              <FileText className='w-8 h-8 text-accent' />
               <h1 className='text-3xl font-bold text-gray-900'>
                 Términos y Condiciones
               </h1>
@@ -402,7 +402,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
         return (
           <div className='space-y-6'>
             <div className='flex items-center gap-3 mb-6'>
-              <Cookie className='w-8 h-8 text-blue-600' />
+              <Cookie className='w-8 h-8 text-accent' />
               <h1 className='text-3xl font-bold text-gray-900'>
                 Política de Cookies
               </h1>
@@ -446,7 +446,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                     </ul>
                   </div>
 
-                  <div className='border-l-4 border-blue-500 pl-4'>
+                  <div className='border-l-4 border-accent pl-4'>
                     <h3 className='text-xl font-semibold text-gray-900 mb-2'>
                       Cookies Analíticas
                     </h3>
@@ -485,11 +485,11 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                   Puedes gestionar las cookies de las siguientes maneras:
                 </p>
 
-                <div className='bg-blue-50 p-4 rounded-lg mb-4'>
-                  <h3 className='font-semibold text-blue-900 mb-2'>
+                <div className='bg-gray-50 p-4 rounded-lg mb-4'>
+                  <h3 className='font-semibold text-gray-900 mb-2'>
                     Configuración del navegador
                   </h3>
-                  <ul className='list-disc pl-6 space-y-1 text-sm text-blue-800'>
+                  <ul className='list-disc pl-6 space-y-1 text-sm text-gray-800'>
                     <li>
                       <strong>Chrome:</strong> Configuración → Privacidad y
                       seguridad → Cookies
@@ -580,7 +580,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
         return (
           <div className='space-y-6'>
             <div className='flex items-center gap-3 mb-6'>
-              <Scale className='w-8 h-8 text-blue-600' />
+              <Scale className='w-8 h-8 text-accent' />
               <h1 className='text-3xl font-bold text-gray-900'>Aviso Legal</h1>
             </div>
 
@@ -709,7 +709,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                 <p>
                   El tratamiento de datos personales se rige por lo dispuesto en
                   nuestra{' '}
-                  <button className='text-blue-600 hover:underline'>
+                  <button className='text-accent hover:underline'>
                     Política de Privacidad
                   </button>
                   , en cumplimiento del Reglamento General de Protección de
@@ -748,7 +748,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                   Para cualquier consulta relacionada con este aviso legal,
                   puedes contactar con nosotros:
                 </p>
-                <div className='bg-blue-50 p-4 rounded-lg mt-4'>
+                <div className='bg-gray-50 p-4 rounded-lg mt-4'>
                   <p>
                     <strong>Email:</strong> web.danipereira@gmail.com
                   </p>
@@ -774,10 +774,10 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
       <div className='bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden'>
         <div className='flex items-center justify-between p-6 border-b border-gray-200'>
           <div className='flex items-center gap-3'>
-            {page === 'privacy' && <Shield className='w-6 h-6 text-blue-600' />}
-            {page === 'terms' && <FileText className='w-6 h-6 text-blue-600' />}
-            {page === 'cookies' && <Cookie className='w-6 h-6 text-blue-600' />}
-            {page === 'legal' && <Scale className='w-6 h-6 text-blue-600' />}
+            {page === 'privacy' && <Shield className='w-6 h-6 text-accent' />}
+            {page === 'terms' && <FileText className='w-6 h-6 text-accent' />}
+            {page === 'cookies' && <Cookie className='w-6 h-6 text-accent' />}
+            {page === 'legal' && <Scale className='w-6 h-6 text-accent' />}
             <h2 className='text-xl font-bold text-gray-900'>
               {page === 'privacy' && 'Política de Privacidad'}
               {page === 'terms' && 'Términos y Condiciones'}

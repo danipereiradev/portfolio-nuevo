@@ -51,15 +51,15 @@ const Footer = () => {
 
   return (
     <>
-      <footer className='bg-gray-900 text-white'>
+      <footer className='bg-black text-white'>
         {/* Main Footer */}
         <div className='container mx-auto px-6 py-16'>
           <div className='grid lg:grid-cols-4 gap-8'>
             {/* Brand Section */}
             <div className='lg:col-span-1'>
               <div className='flex items-center space-x-2 mb-6'>
-                <Code2 className='w-8 h-8 text-blue-400' />
-                <span className='text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent'>
+                <Code2 className='w-8 h-8 text-accent' />
+                <span className='text-2xl font-bold text-white'>
                   Dani Pereira
                 </span>
               </div>
@@ -69,7 +69,7 @@ const Footer = () => {
               <div className='flex space-x-4'>
                 <a
                   href='mailto:web.danipereira@gmail.com'
-                  className='bg-blue-600 hover:bg-blue-700 p-3 rounded-lg transition-colors duration-200'
+                  className='bg-accent hover:bg-accent-hover p-3 rounded-lg transition-colors duration-200'
                 >
                   <Mail className='w-5 h-5' />
                 </a>
@@ -77,7 +77,7 @@ const Footer = () => {
                   href='https://www.linkedin.com/in/dani-pereira-396618226/'
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='bg-blue-600 hover:bg-blue-700 p-3 rounded-lg transition-colors duration-200'
+                  className='bg-accent hover:bg-accent-hover p-3 rounded-lg transition-colors duration-200'
                 >
                   <Linkedin className='w-5 h-5' />
                 </a>
@@ -102,7 +102,7 @@ const Footer = () => {
 
             {/* Services */}
             <div>
-              <h3 className='text-xl font-bold mb-6 text-blue-400'>
+              <h3 className='text-xl font-bold mb-6 text-gray-400'>
                 Servicios
               </h3>
               <ul className='space-y-3 text-gray-300'>
@@ -138,10 +138,10 @@ const Footer = () => {
                     Aplicación Web/Móvil
                   </Link>
                 </li>
-                <li className='pt-2 border-t border-gray-800'>
+                <li className='pt-2 border-t border-gray-700'>
                   <Link
                     to='/'
-                    className='hover:text-blue-400 transition-colors duration-200 text-sm'
+                    className='hover:text-gray-400 transition-colors duration-200 text-sm'
                   >
                     Ver todos los servicios →
                   </Link>
@@ -151,12 +151,12 @@ const Footer = () => {
 
             {/* Contact Info */}
             <div>
-              <h3 className='text-xl font-bold mb-6 text-blue-400'>
+              <h3 className='text-xl font-bold mb-6 text-gray-400'>
                 {t('footer.contact_title')}
               </h3>
               <ul className='space-y-4 text-gray-300'>
                 <li className='flex items-start gap-3'>
-                  <Mail className='w-5 h-5 text-blue-400 mt-0.5' />
+                  <Mail className='w-5 h-5 text-accent mt-0.5' />
                   <div>
                     <p className='font-medium'>Email</p>
                     <a
@@ -168,7 +168,7 @@ const Footer = () => {
                   </div>
                 </li>
                 <li className='flex items-start gap-3'>
-                  <Phone className='w-5 h-5 text-blue-400 mt-0.5' />
+                  <Phone className='w-5 h-5 text-accent mt-0.5' />
                   <div>
                     <p className='font-medium'>Teléfono</p>
                     <a
@@ -180,7 +180,7 @@ const Footer = () => {
                   </div>
                 </li>
                 <li className='flex items-start gap-3'>
-                  <MapPin className='w-5 h-5 text-blue-400 mt-0.5' />
+                  <MapPin className='w-5 h-5 text-accent mt-0.5' />
                   <div>
                     <p className='font-medium'>Ubicación</p>
                     <p>Madrid, España - Servicios en todas las CCAA</p>
@@ -191,7 +191,7 @@ const Footer = () => {
 
             {/* Service Areas */}
             <div>
-              <h3 className='text-xl font-bold mb-6 text-blue-400'>
+              <h3 className='text-xl font-bold mb-6 text-gray-400'>
                 {t('footer.areas_title')}
               </h3>
               <p className='text-gray-300 mb-4'>{t('footer.areas_desc')}</p>
@@ -210,7 +210,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className='border-t border-gray-800'>
+        <div className='border-t border-gray-700'>
           <div className='container mx-auto px-6 py-6'>
             <div className='flex flex-col md:flex-row justify-between items-center gap-4'>
               <p className='text-gray-400 text-sm'>

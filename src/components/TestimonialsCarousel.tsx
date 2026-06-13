@@ -193,7 +193,7 @@ const TestimonialsCarousel = ({
           <div className='bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl shadow-xl p-8 md:p-12 relative overflow-hidden'>
             {/* Quote Icon */}
             <div className='absolute top-6 right-6 opacity-10'>
-              <Quote className='w-20 h-20 text-blue-600' />
+              <Quote className='w-20 h-20 text-accent' />
             </div>
 
             {/* Stars */}
@@ -221,8 +221,8 @@ const TestimonialsCarousel = ({
 
             {/* Highlight Text */}
             {currentTest.highlight && (
-              <div className='bg-white/80 backdrop-blur-sm border-l-4 border-blue-500 p-4 rounded-r-lg mb-6'>
-                <p className='text-blue-800 font-medium italic'>
+              <div className='bg-white/80 backdrop-blur-sm border-l-4 border-accent p-4 rounded-r-lg mb-6'>
+                <p className='text-gray-800 font-medium italic'>
                   "{currentTest.highlight}"
                 </p>
               </div>
@@ -244,7 +244,7 @@ const TestimonialsCarousel = ({
                 <h4 className='font-bold text-gray-900 text-lg'>
                   {currentTest.name}
                 </h4>
-                <p className='text-blue-600 font-medium'>
+                <p className='text-accent font-medium'>
                   {currentTest.company}
                 </p>
                 <p className='text-gray-500 text-sm'>{currentTest.website}</p>
@@ -277,7 +277,7 @@ const TestimonialsCarousel = ({
                 onClick={() => setCurrentTestimonial(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-200 ${
                   index === currentTestimonial
-                    ? 'bg-blue-600 scale-110'
+                    ? 'bg-accent scale-110'
                     : 'bg-gray-300 hover:bg-gray-400'
                 }`}
                 aria-label={`Ir al testimonio ${index + 1}`}

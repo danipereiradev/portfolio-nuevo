@@ -74,7 +74,7 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
       <div className='bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden'>
         <div className='flex items-center justify-between p-6 border-b border-gray-200'>
           <div className='flex items-center gap-3'>
-            <User className='w-6 h-6 text-blue-600' />
+            <User className='w-6 h-6 text-accent' />
             <h2 className='text-xl font-bold text-gray-900'>
               {t('about.title')}
             </h2>
@@ -136,7 +136,7 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
             {/* Experience Section */}
             <div className='border-t border-gray-200 pt-6'>
               <div className='flex items-center gap-2 mb-6'>
-                <Briefcase className='w-6 h-6 text-blue-600' />
+                <Briefcase className='w-6 h-6 text-accent' />
                 <h3 className='text-2xl font-bold text-gray-900'>
                   Experiencia Profesional
                 </h3>
@@ -146,14 +146,14 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
                 {experience.map((job, index) => (
                   <div
                     key={index}
-                    className='bg-gradient-to-r from-blue-50 to-purple-50 p-5 rounded-xl border border-blue-200 hover:shadow-md transition-shadow duration-200'
+                    className='bg-gradient-to-r from-gray-50 to-gray-100 p-5 rounded-xl border border-gray-200 hover:shadow-md transition-shadow duration-200'
                   >
                     <div className='flex flex-col md:flex-row md:items-start md:justify-between mb-3'>
                       <div>
                         <h4 className='text-lg font-bold text-gray-900'>
                           {job.company}
                         </h4>
-                        <p className='text-blue-700 font-medium'>{job.role}</p>
+                        <p className='text-gray-700 font-medium'>{job.role}</p>
                       </div>
                       <div className='flex items-center gap-2 text-gray-600 text-sm mt-2 md:mt-0'>
                         <Calendar className='w-4 h-4' />
@@ -176,15 +176,15 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
             </div>
 
             {/* LinkedIn Section */}
-            <div className='bg-blue-50 p-6 rounded-lg border border-blue-200'>
-              <h3 className='font-semibold text-blue-900 mb-3'>
+            <div className='bg-gray-50 p-6 rounded-lg border border-gray-200'>
+              <h3 className='font-semibold text-gray-900 mb-3'>
                 Mi currículum completo lo encontrarás en mi LinkedIn:
               </h3>
               <a
                 href='https://www.linkedin.com/in/dani-pereira-396618226/'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium'
+                className='inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-lg hover:bg-accent-hover transition-colors duration-200 font-medium'
               >
                 <ExternalLink className='w-5 h-5' />
                 Ver LinkedIn

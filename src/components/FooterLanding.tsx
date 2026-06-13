@@ -26,10 +26,10 @@ const FooterLanding = () => {
           <div className='grid md:grid-cols-3 gap-8 mb-8'>
             {/* Contact Info */}
             <div>
-              <h3 className='text-lg font-bold mb-4 text-blue-400'>Contacto</h3>
+              <h3 className='text-lg font-bold mb-4 text-gray-400'>Contacto</h3>
               <ul className='space-y-3 text-gray-300 text-sm'>
                 <li className='flex items-center gap-2'>
-                  <Phone className='w-4 h-4 text-blue-400' />
+                  <Phone className='w-4 h-4 text-gray-400' />
                   <a
                     href='tel:+34644669828'
                     className='hover:text-white transition-colors duration-200'
@@ -38,7 +38,7 @@ const FooterLanding = () => {
                   </a>
                 </li>
                 <li className='flex items-center gap-2'>
-                  <Mail className='w-4 h-4 text-blue-400' />
+                  <Mail className='w-4 h-4 text-gray-400' />
                   <a
                     href='mailto:web.danipereira@gmail.com'
                     className='hover:text-white transition-colors duration-200'
@@ -47,7 +47,7 @@ const FooterLanding = () => {
                   </a>
                 </li>
                 <li className='flex items-center gap-2'>
-                  <MapPin className='w-4 h-4 text-blue-400' />
+                  <MapPin className='w-4 h-4 text-gray-400' />
                   <span>Madrid, España</span>
                 </li>
               </ul>
@@ -56,7 +56,7 @@ const FooterLanding = () => {
                   href='https://www.linkedin.com/in/dani-pereira-396618226/'
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='bg-blue-600 hover:bg-blue-700 p-2 rounded-lg transition-colors duration-200'
+                  className='bg-gray-800 hover:bg-gray-900 p-2 rounded-lg transition-colors duration-200'
                 >
                   <Linkedin className='w-4 h-4' />
                 </a>
@@ -81,7 +81,7 @@ const FooterLanding = () => {
 
             {/* Services */}
             <div>
-              <h3 className='text-lg font-bold mb-4 text-blue-400'>
+              <h3 className='text-lg font-bold mb-4 text-gray-400'>
                 Otros Servicios
               </h3>
               <ul className='space-y-2 text-gray-300 text-sm'>
@@ -120,7 +120,7 @@ const FooterLanding = () => {
                 <li className='pt-2'>
                   <Link
                     to='/'
-                    className='text-blue-400 hover:text-blue-300 transition-colors'
+                    className='text-gray-400 hover:text-gray-300 transition-colors'
                   >
                     Ver todos los servicios →
                   </Link>
@@ -130,7 +130,7 @@ const FooterLanding = () => {
 
             {/* Trust Signals */}
             <div>
-              <h3 className='text-lg font-bold mb-4 text-blue-400'>
+              <h3 className='text-lg font-bold mb-4 text-gray-400'>
                 Garantías
               </h3>
               <ul className='space-y-2 text-gray-300 text-sm'>

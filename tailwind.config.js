@@ -3,6 +3,27 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      colors: {
+        accent: {
+          DEFAULT: '#14b8a6', // teal-500 (verde turquesa)
+          hover: '#0d9488', // teal-600 (verde turquesa oscuro)
+        },
+        ink: {
+          dark: '#252525',
+          gray: '#545454',
+          medium: '#7D7D7D',
+          light: '#CFCFCF',
+        },
+        primary: {
+          DEFAULT: '#252525',
+          dark: '#1a1a1a',
+          light: '#545454',
+        },
+        secondary: {
+          DEFAULT: '#7D7D7D',
+          light: '#CFCFCF',
+        },
+      },
       animation: {
         'blob': 'blob 7s infinite',
         'bounce': 'bounce 2s infinite',

@@ -148,7 +148,7 @@ const LandingExpress = () => {
 
             {/* Benefit 3 */}
             <div className='bg-gradient-to-br from-blue-50 to-cyan-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300'>
-              <div className='bg-blue-500 w-14 h-14 rounded-xl flex items-center justify-center mb-4'>
+              <div className='bg-gray-800 w-14 h-14 rounded-xl flex items-center justify-center mb-4'>
                 <Zap className='w-8 h-8 text-white' />
               </div>
               <h3 className='text-2xl font-bold text-gray-900 mb-3'>
@@ -189,8 +189,8 @@ const LandingExpress = () => {
             </div>
 
             {/* Benefit 6 */}
-            <div className='bg-gradient-to-br from-red-50 to-orange-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300'>
-              <div className='bg-red-500 w-14 h-14 rounded-xl flex items-center justify-center mb-4'>
+            <div className='bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300'>
+              <div className='bg-gray-800 w-14 h-14 rounded-xl flex items-center justify-center mb-4'>
                 <Star className='w-8 h-8 text-white' />
               </div>
               <h3 className='text-2xl font-bold text-gray-900 mb-3'>

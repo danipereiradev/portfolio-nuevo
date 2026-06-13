@@ -196,7 +196,7 @@ const Testimonials = () => {
           <div className='bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-8 md:p-12 relative overflow-hidden border border-white/20'>
             {/* Quote Icon */}
             <div className='absolute top-6 right-6 opacity-10'>
-              <Quote className='w-20 h-20 text-blue-600' />
+              <Quote className='w-20 h-20 text-accent' />
             </div>
 
             {/* Stars */}
@@ -224,8 +224,8 @@ const Testimonials = () => {
 
             {/* Highlight Text */}
             {currentTest.highlight && (
-              <div className='bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg mb-6'>
-                <p className='text-blue-800 font-medium italic'>
+              <div className='bg-gray-50 border-l-4 border-gray-300 p-4 rounded-r-lg mb-6'>
+                <p className='text-gray-800 font-medium italic'>
                   "{currentTest.highlight}"
                 </p>
               </div>
@@ -240,14 +240,14 @@ const Testimonials = () => {
 
             {/* Author Info */}
             <div className='flex items-center justify-center gap-4'>
-              <div className='w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-xl'>
+              <div className='w-16 h-16 bg-white border-2 border-black rounded-full flex items-center justify-center text-black font-bold text-xl'>
                 {currentTest.avatar}
               </div>
               <div className='text-center'>
                 <h4 className='font-bold text-gray-900 text-lg'>
                   {currentTest.name}
                 </h4>
-                <p className='text-blue-600 font-medium'>
+                <p className='text-accent font-medium'>
                   {currentTest.company}
                 </p>
                 <p className='text-gray-500 text-sm'>{currentTest.website}</p>
@@ -278,7 +278,7 @@ const Testimonials = () => {
                 onClick={() => setCurrentTestimonial(index)}
                 className={`w-4 h-4 rounded-full transition-all duration-200 ${
                   index === currentTestimonial
-                    ? 'bg-blue-600 scale-110'
+                    ? 'bg-accent scale-110'
                     : 'bg-gray-300 hover:bg-gray-400'
                 }`}
               />

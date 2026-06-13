@@ -13,8 +13,8 @@ const HeaderLanding = () => {
           <div className='flex items-center justify-between'>
             {/* Logo */}
             <Link to='/' className='flex items-center space-x-2'>
-              <Code2 className='w-7 h-7 text-blue-600' />
-              <span className='text-lg font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent'>
+              <Code2 className='w-7 h-7 text-accent' />
+              <span className='text-lg font-bold bg-gradient-to-r from-accent to-accent-hover bg-clip-text text-transparent'>
                 Dani Pereira
               </span>
             </Link>
@@ -23,14 +23,14 @@ const HeaderLanding = () => {
             <div className='flex items-center gap-4'>
               <button
                 onClick={() => setAboutMeOpen(true)}
-                className='hidden md:block text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200'
+                className='hidden md:block text-sm font-medium text-gray-700 hover:text-accent transition-colors duration-200'
               >
                 Sobre mí
               </button>
 
               <a
                 href='tel:+34644669828'
-                className='flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-full font-medium text-sm hover:bg-blue-700 transition-all duration-200 shadow-md'
+                className='flex items-center gap-2 bg-accent text-white px-4 py-2 rounded-full font-medium text-sm hover:bg-accent-hover transition-all duration-200 shadow-md'
               >
                 <Phone className='w-4 h-4' />
                 <span className='hidden sm:inline'>+34 644 669 828</span>

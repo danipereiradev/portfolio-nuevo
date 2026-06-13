@@ -25,7 +25,7 @@ const SEOSection = () => {
   ];
 
   return (
-    <section className='py-16 bg-gradient-to-r from-blue-50 to-purple-50'>
+    <section className='py-16'>
       <div className='container mx-auto px-6'>
         <div className='max-w-4xl mx-auto text-center'>
           <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6'>
@@ -34,26 +34,76 @@ const SEOSection = () => {
 
           <div className='text-lg text-gray-700 leading-relaxed mb-8 max-w-3xl mx-auto'>
             <p>
-              En 2025, una <strong>página web profesional</strong> es esencial
-              para cualquier negocio. Un buen <strong>diseño web</strong> no
-              solo mejora tu presencia online, sino que atrae más clientes a
-              través de <strong>Google</strong> y genera oportunidades de
-              negocio reales.
+              En 2025, tener una{' '}
+              <strong className='font-semibold text-gray-900'>
+                página web profesional
+              </strong>{' '}
+              ya no es una opción: es una herramienta clave para cualquier
+              empresa, autónomo o negocio que quiera{' '}
+              <strong className='font-semibold text-gray-900'>
+                captar clientes online
+              </strong>
+              , generar confianza y vender más. Un{' '}
+              <strong className='font-semibold text-gray-900'>
+                diseño web profesional
+              </strong>{' '}
+              rápido, responsive y{' '}
+              <strong className='font-semibold text-gray-900'>
+                optimizado para SEO
+              </strong>{' '}
+              permite que tus clientes te encuentren en Google, entiendan lo que
+              ofreces y contacten contigo de forma sencilla.
             </p>
+
             <p className='mt-4'>
-              La transformación digital ya no es opcional. Un sitio web
-              responsive y optimizado mejora la experiencia de tus visitantes y
-              aumenta las conversiones. El <strong>posicionamiento SEO</strong>{' '}
-              es clave para que tu empresa sea encontrada por clientes en{' '}
-              <strong>Madrid</strong>,<strong> Barcelona</strong>,{' '}
-              <strong>Valencia</strong> y toda España.
+              Creamos{' '}
+              <strong className='font-semibold text-gray-900'>
+                páginas web a medida
+              </strong>{' '}
+              para empresas que necesitan una presencia digital sólida, moderna
+              y preparada para convertir visitas en oportunidades reales de
+              negocio. Desarrollamos{' '}
+              <strong className='font-semibold text-gray-900'>
+                webs corporativas
+              </strong>
+              ,{' '}
+              <strong className='font-semibold text-gray-900'>
+                tiendas online
+              </strong>
+              , landing pages y soluciones personalizadas pensadas para mejorar
+              la{' '}
+              <strong className='font-semibold text-gray-900'>
+                experiencia del usuario
+              </strong>
+              , la velocidad de carga, la estructura SEO y la conversión.
             </p>
+
             <p className='mt-4'>
-              Tanto si necesitas una <strong>tienda online</strong> para vender
-              24/7, una web corporativa para tu empresa, o una aplicación
-              personalizada, un desarrollo profesional marca la diferencia.
-              Invertir en tu presencia digital es invertir en el futuro de tu
-              negocio.
+              Cada proyecto se diseña con un objetivo claro: ayudarte a
+              conseguir más visibilidad, más contactos y más clientes. Por eso
+              trabajamos cada web desde una estrategia completa que combina{' '}
+              <strong className='font-semibold text-gray-900'>
+                diseño web
+              </strong>
+              ,{' '}
+              <strong className='font-semibold text-gray-900'>
+                posicionamiento SEO
+              </strong>
+              , usabilidad, rendimiento y una comunicación clara de tus
+              servicios.
+            </p>
+
+            <p className='mt-4'>
+              Una{' '}
+              <strong className='font-semibold text-gray-900'>
+                web profesional optimizada para SEO
+              </strong>{' '}
+              funciona como un comercial activo las 24 horas: muestra tu
+              negocio, transmite confianza, responde a las necesidades de tus
+              clientes y facilita que te soliciten información, presupuesto o
+              compra. Si quieres hacer crecer tu negocio en España, invertir en
+              una página web bien diseñada es invertir en una herramienta real
+              de captación y crecimiento.
             </p>
           </div>
 
@@ -63,7 +113,7 @@ const SEOSection = () => {
                 key={index}
                 className='bg-white place-items-center p-6 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 group'
               >
-                <div className='bg-gradient-to-r from-blue-500 to-purple-500 w-12 h-12 rounded-lg flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform duration-200'>
+                <div className='bg-white border-2 border-black w-12 h-12 rounded-lg flex items-center justify-center text-black mb-4 group-hover:scale-110 transition-transform duration-200'>
                   {benefit.icon}
                 </div>
                 <h3 className='font-bold text-gray-900 mb-2'>

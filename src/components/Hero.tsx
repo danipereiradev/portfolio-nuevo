@@ -1,7 +1,8 @@
 import React from 'react';
-import { ArrowDown, Code2, Zap } from 'lucide-react';
+import { ArrowDown, Zap } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { trackButtonClick } from '../utils/analytics';
+import Button from './Button';
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -14,7 +15,7 @@ const Hero = () => {
   return (
     <section
       id='hero'
-      className='relative min-h-screen flex items-center justify-center overflow-hidden'
+      className='relative min-h-screen flex items-center justify-center overflow-hidden pt-20'
     >
       {/* Background Image */}
       <div
@@ -45,12 +46,9 @@ const Hero = () => {
         </p>
 
         <div className='flex flex-col sm:flex-row gap-4 justify-center items-center mb-12'>
-          <button
-            onClick={scrollToContact}
-            className='bg-white text-ink-dark px-8 py-4 rounded-full font-semibold text-lg hover:bg-ink-light transform hover:scale-105 transition-all duration-200 shadow-lg'
-          >
+          <Button onClick={scrollToContact} variant='primary'>
             {t('hero.cta.quote')}
-          </button>
+          </Button>
         </div>
 
         <div className='animate-bounce'>

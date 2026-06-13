@@ -140,8 +140,8 @@ const LandingTienda = () => {
             </div>
 
             {/* Benefit 2 */}
-            <div className='bg-gradient-to-br from-blue-50 to-cyan-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300'>
-              <div className='bg-blue-500 w-14 h-14 rounded-xl flex items-center justify-center mb-4'>
+            <div className='bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300'>
+              <div className='bg-accent w-14 h-14 rounded-xl flex items-center justify-center mb-4'>
                 <Package className='w-8 h-8 text-white' />
               </div>
               <h3 className='text-2xl font-bold text-gray-900 mb-3'>
@@ -184,8 +184,8 @@ const LandingTienda = () => {
             </div>
 
             {/* Benefit 5 */}
-            <div className='bg-gradient-to-br from-red-50 to-orange-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300'>
-              <div className='bg-red-500 w-14 h-14 rounded-xl flex items-center justify-center mb-4'>
+            <div className='bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300'>
+              <div className='bg-gray-800 w-14 h-14 rounded-xl flex items-center justify-center mb-4'>
                 <TrendingUp className='w-8 h-8 text-white' />
               </div>
               <h3 className='text-2xl font-bold text-gray-900 mb-3'>
@@ -198,7 +198,7 @@ const LandingTienda = () => {
             </div>
 
             {/* Benefit 6 */}
-            <div className='bg-gradient-to-br from-indigo-50 to-blue-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300'>
+            <div className='bg-gradient-to-br from-indigo-50 to-red-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300'>
               <div className='bg-indigo-500 w-14 h-14 rounded-xl flex items-center justify-center mb-4'>
                 <BarChart2 className='w-8 h-8 text-white' />
               </div>
@@ -376,13 +376,13 @@ const LandingTienda = () => {
               </div>
 
               {/* Servicios Adicionales Opcionales */}
-              <div className='mt-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border-2 border-blue-200'>
+              <div className='mt-8 p-6 bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl border-2 border-gray-200'>
                 <h3 className='font-bold text-gray-900 mb-4 text-lg'>
                   ➕ Servicios adicionales opcionales
                 </h3>
                 <div className='space-y-3'>
                   <div className='flex items-start gap-2'>
-                    <span className='text-blue-600 font-bold text-sm mt-0.5'>
+                    <span className='text-accent font-bold text-sm mt-0.5'>
                       •
                     </span>
                     <p className='text-gray-700 text-sm'>
@@ -390,7 +390,7 @@ const LandingTienda = () => {
                     </p>
                   </div>
                   <div className='flex items-start gap-2'>
-                    <span className='text-blue-600 font-bold text-sm mt-0.5'>
+                    <span className='text-accent font-bold text-sm mt-0.5'>
                       •
                     </span>
                     <p className='text-gray-700 text-sm'>
@@ -398,7 +398,7 @@ const LandingTienda = () => {
                     </p>
                   </div>
                   <div className='flex items-start gap-2'>
-                    <span className='text-blue-600 font-bold text-sm mt-0.5'>
+                    <span className='text-accent font-bold text-sm mt-0.5'>
                       •
                     </span>
                     <p className='text-gray-700 text-sm'>
@@ -406,7 +406,7 @@ const LandingTienda = () => {
                     </p>
                   </div>
                   <div className='flex items-start gap-2'>
-                    <span className='text-blue-600 font-bold text-sm mt-0.5'>
+                    <span className='text-accent font-bold text-sm mt-0.5'>
                       •
                     </span>
                     <p className='text-gray-700 text-sm'>

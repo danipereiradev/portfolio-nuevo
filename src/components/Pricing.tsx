@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import {
   Check,
   Star,
@@ -8,8 +7,8 @@ import {
   ShoppingCart,
   Smartphone,
   ChevronDown,
-  Zap,
 } from 'lucide-react';
+import Button from './Button';
 
 const Pricing = () => {
   const [openAccordion, setOpenAccordion] = useState<{
@@ -29,16 +28,15 @@ const Pricing = () => {
 
   const getAdditionalInfo = (planId: string) => {
     let numRevisiones = 2;
-    if (planId === 'lowcost') numRevisiones = 0;
-    else if (planId === 'corporate') numRevisiones = 1;
+    if (planId === 'webpage') numRevisiones = 1;
     else if (planId === 'ecommerce') numRevisiones = 2;
-    else if (planId === 'webapp') numRevisiones = 0;
+    else if (planId === 'mobileapp') numRevisiones = 3;
 
     const infoItems = [];
 
     if (numRevisiones > 0) {
       infoItems.push({
-        icon: '🔄',
+        icon: '',
         title: `Hasta ${numRevisiones} ${
           numRevisiones === 1 ? 'revisión incluida' : 'revisiones incluidas'
         }`,
@@ -55,167 +53,112 @@ const Pricing = () => {
 
   const pricingPlans = [
     {
-      id: 'lowcost',
-      icon: <Zap className='w-8 h-8' />,
-      name: 'Página Web Sencilla',
-      description:
-        'Solución rápida ideal para emprendedores y lanzamientos',
-      price: 'consultar',
-      originalPrice: null,
-      popular: false,
-      color: 'from-orange-500 to-yellow-500',
-      path: '/landing-express',
-      features: [
-        'Hasta 4 secciones personalizadas',
-        'Diseño responsivo',
-        'Formulario de contacto básico',
-        'Certificado SSL incluido',
-        'Entrega ultra-rápida',
-      ],
-      deliveryTime: 'A consultar',
-      bestFor:
-        'Emprendedores, eventos, lanzamientos rápidos, presupuesto limitado',
-    },
-    {
-      id: 'corporate',
+      id: 'webpage',
       icon: <Globe className='w-8 h-8' />,
-      name: 'Página Web Autónomos y Pymes',
+      name: 'Página Web',
       description:
-        'Perfecta para empresas que buscan establecer su presencia digital profesional',
-      price: 'consultar',
+        'Presencia digital profesional para tu negocio o proyecto personal',
+      price: '800',
       originalPrice: null,
       popular: false,
-      color: 'from-blue-500 to-cyan-500',
+      color: 'from-ink-dark to-ink-gray',
       path: '/web-autonomos-pymes',
       features: [
-        'Diseño responsivo profesional',
-        'Hasta 8 secciones incluidas',
-        'Formulario de contacto avanzado',
-        'Optimización SEO ON PAGE',
-        'Integración con Google Analytics',
-        'Certificado SSL incluido',
-        'Entrega en formato responsive',
+        'Diseño responsive adaptado a móviles',
+        'Hasta 6 páginas o secciones',
+        'Formulario de contacto funcional',
+        'Optimización SEO básica',
+        'Integración Google Analytics',
+        'Certificado SSL (https seguro)',
+        'Hosting primer año incluido',
+        'Formación uso y gestión',
       ],
-      deliveryTime: 'A consultar',
-      bestFor:
-        'Empresas establecidas, profesionales independientes, consultorías',
+      deliveryTime: '2-3 semanas',
+      bestFor: 'Autónomos, pequeños negocios, profesionales, portfolios',
     },
     {
       id: 'ecommerce',
       icon: <ShoppingCart className='w-8 h-8' />,
       name: 'Tienda Online',
       description:
-        'Solución completa para vender productos online con todas las funcionalidades necesarias',
-      price: 'consultar',
+        'Solución e-commerce completa para vender tus productos online',
+      price: '1500',
       originalPrice: null,
       popular: true,
-      color: 'from-green-500 to-emerald-500',
+      color: 'from-ink-dark to-ink-gray',
       path: '/tienda-online',
       features: [
-        'Productos cargados incluidos',
-        'Pasarelas de pago seguras (Stripe/PayPal)',
-        'Gestión completa de pedidos e inventario',
-        'Carrito con cupones y descuentos',
-        'Configuración de envíos',
-        'Optimización SEO ON PAGE técnica',
-        'Integración con redes sociales',
-        'Panel de administración en español',
-        'Estadísticas básicas de ventas y tráfico',
-        'Soporte técnico postentrega',
+        'Hasta 50 productos cargados',
+        'Pasarela de pago (Stripe/Redsys)',
+        'Gestión de pedidos e inventario',
+        'Sistema de envíos y zonas',
+        'Carrito con cupones descuento',
+        'Diseño responsive profesional',
+        'Panel administración español',
+        'Optimización SEO e-commerce',
+        'Integración redes sociales',
+        'Formación completa incluida',
       ],
-      deliveryTime: 'A consultar',
-      bestFor: 'Tiendas físicas expandiéndose online, emprendedores, retailers',
+      deliveryTime: '4-6 semanas',
+      bestFor: 'Negocios que quieren vender online, emprendedores, retailers',
     },
     {
-      id: 'webapp',
+      id: 'mobileapp',
       icon: <Smartphone className='w-8 h-8' />,
-      name: 'Aplicación Web o Móvil',
-      description:
-        'Desarrollo a medida para proyectos únicos con funcionalidades específicas',
-      price: 'consultar',
+      name: 'App Móvil',
+      description: 'Aplicación móvil nativa o híbrida para iOS y Android',
+      price: '3000',
       originalPrice: null,
       popular: false,
-      color: 'from-purple-500 to-pink-500',
+      color: 'from-ink-dark to-ink-gray',
       path: '/aplicacion-web',
       features: [
-        'Desarrollo 100% personalizado',
-        'Base de datos avanzada',
-        'Panel de administración completo',
+        'Desarrollo iOS y Android',
+        'Diseño UI/UX personalizado',
+        'Base de datos en la nube',
+        'Sistema de notificaciones push',
+        'Panel de administración web',
         'Autenticación de usuarios',
-        'API REST personalizada',
-        'Integración con servicios externos',
-        'Optimización SEO ON PAGE',
-        'Funcionalidades específicas',
-        'Backup automático de datos',
+        'Integración con APIs',
+        'Publicación en App Store y Google Play',
+        'Mantenimiento 3 meses incluido',
+        'Soporte técnico continuo',
       ],
-      deliveryTime: 'A consultar según alcance',
-      bestFor:
-        'Startups, proyectos innovadores, empresas con necesidades específicas',
+      deliveryTime: '8-12 semanas',
+      bestFor: 'Startups, empresas innovadoras, proyectos con alta inversión',
     },
   ];
 
   return (
     <section
       id='pricing'
-      className='py-20 bg-gradient-to-br from-gray-50 to-blue-50'
+      className='py-20 bg-gradient-to-br from-gray-50 to-ink-light/20'
     >
       <div className='container mx-auto px-6'>
         <div className='text-center mb-16'>
           <h2 className='text-4xl md:text-5xl font-bold text-gray-900 mb-4'>
             Servicios de Desarrollo Web
-            <span className='block text-2xl text-blue-600 font-normal mt-2'>
+            <span className='block text-2xl text-ink-gray font-normal mt-2'>
               Elige el tipo de proyecto que necesitas
             </span>
           </h2>
           <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-            Cada proyecto es único. Consulta precios personalizados según tus necesidades y el alcance de tu idea.
+            Precios transparentes y adaptados al mercado español. Cada proyecto
+            es personalizable según tus necesidades.
           </p>
         </div>
 
-        {/* Common Benefits - All Plans Include */}
-        <div className='max-w-4xl mx-auto mb-12'>
-          <div className='bg-white rounded-2xl shadow-md p-6 border-2 border-blue-100'>
-            <h3 className='text-lg font-bold text-gray-900 mb-4 text-center'>
-              Todos los planes incluyen:
-            </h3>
-            <div className='grid md:grid-cols-2 gap-4'>
-              <div className='flex items-start gap-3 bg-gray-50 rounded-lg p-4'>
-                <div>
-                  <p className='font-semibold text-gray-900 text-sm mb-1'>
-                    Pago flexible disponible
-                  </p>
-                  <p className='text-xs text-gray-600'>
-                    Opciones de pago adaptadas a tu proyecto para facilitar tu inversión.
-                  </p>
-                </div>
-              </div>
-              <div className='flex items-start gap-3 bg-gray-50 rounded-lg p-4'>
-                <div>
-                  <p className='font-semibold text-gray-900 text-sm mb-1'>
-                    Garantía de satisfacción del 100%
-                  </p>
-                  <p className='text-xs text-gray-600'>
-                    Tu satisfacción es prioridad. Ajustamos hasta que estés
-                    completamente satisfecho.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className='grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto'>
+        <div className='grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto'>
           {pricingPlans.map((plan) => (
             <div
               key={plan.id}
               className={`relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 overflow-hidden ${
-                plan.popular ? 'ring-4 ring-green-200' : ''
+                plan.popular ? 'ring-4 ring-accent' : ''
               }`}
             >
               {/* Popular Badge */}
               {plan.popular && (
-                <div className='absolute top-0 right-0 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-2 rounded-bl-2xl font-semibold text-sm flex items-center gap-1'>
-                  <Star className='w-4 h-4 fill-current' />
+                <div className='absolute top-0 right-0 bg-accent text-white px-6 py-2 rounded-bl-2xl font-semibold text-sm flex items-center gap-1'>
                   Más Popular
                 </div>
               )}
@@ -223,9 +166,7 @@ const Pricing = () => {
               <div className='p-8'>
                 {/* Header */}
                 <div className='text-center mb-8'>
-                  <div
-                    className={`w-16 h-16 bg-gradient-to-r ${plan.color} rounded-xl flex items-center justify-center text-white mb-4 mx-auto group-hover:scale-110 transition-transform duration-200`}
-                  >
+                  <div className='w-16 h-16 bg-white border-2 border-black rounded-xl flex items-center justify-center text-black mb-4 mx-auto transition-transform duration-200'>
                     {plan.icon}
                   </div>
                   <h3 className='text-2xl font-bold text-gray-900 mb-2'>
@@ -238,57 +179,28 @@ const Pricing = () => {
 
                 {/* Pricing */}
                 <div className='text-center mb-8'>
-                  {plan.price === 'consultar' ? (
-                    <div className='mb-2'>
+                  <div className='flex flex-col items-center mb-2'>
+                    <span className='text-lg text-gray-600 font-medium mb-1'>
+                      Desde
+                    </span>
+                    <div className='flex items-center gap-2'>
                       <span className='text-4xl font-bold text-gray-900'>
-                        Precio a Consultar
+                        €{parseInt(plan.price).toLocaleString('es-ES')}
                       </span>
-                      <p className='text-sm text-gray-500 mt-2 mb-4'>
-                        Cada proyecto es único y personalizado
-                      </p>
                     </div>
-                  ) : (
-                    <>
-                      <div className='flex flex-col items-center mb-2'>
-                        <span className='text-lg text-gray-600 font-medium mb-1'>
-                          Desde
-                        </span>
-                        <div className='flex items-center gap-2'>
-                          <span className='text-4xl font-bold text-gray-900'>
-                            {parseInt(plan.price) > 999
-                              ? `€${plan.price.slice(0, 1)},${plan.price.slice(
-                                  1
-                                )}`
-                              : `€${plan.price}`}
-                          </span>
-                          {plan.originalPrice && (
-                            <div className='flex flex-col'>
-                              <span className='text-sm text-gray-500 line-through'>
-                                €{plan.originalPrice}
-                              </span>
-                              <span className='text-xs text-green-600 font-semibold'>
-                                Ahorras €
-                                {parseInt(plan.originalPrice) -
-                                  parseInt(plan.price)}
-                              </span>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                      <p className='text-sm text-gray-500 mb-4'>
-                        Precio final del proyecto completo
-                      </p>
-                    </>
-                  )}
+                  </div>
+                  <p className='text-sm text-gray-500 mb-4'>
+                    Precio orientativo del proyecto
+                  </p>
 
                   <div className='bg-gray-50 rounded-lg p-3 mb-4'>
                     <p className='text-sm font-semibold text-gray-700'>
-                      ⏱️ Tiempo de entrega: {plan.deliveryTime}
+                      Tiempo de entrega: {plan.deliveryTime}
                     </p>
                   </div>
 
-                  <div className='bg-blue-50 rounded-lg p-3'>
-                    <p className='text-xs text-blue-800'>
+                  <div className='bg-gray-50 rounded-lg p-3'>
+                    <p className='text-xs text-gray-800'>
                       <strong>Ideal para:</strong> {plan.bestFor}
                     </p>
                   </div>
@@ -310,13 +222,10 @@ const Pricing = () => {
                 </div>
 
                 {/* CTA Button */}
-                <Link
-                  to={plan.path}
-                  className={`w-full bg-gradient-to-r ${plan.color} text-white px-6 py-4 rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2 group`}
-                >
+                <Button to={plan.path} variant='primary' fullWidth>
                   Ver más información
                   <ArrowRight className='w-4 h-4 group-hover:translate-x-1 transition-transform duration-200' />
-                </Link>
+                </Button>
 
                 {/* Accordion - Revisions (only if applicable) */}
                 {getAdditionalInfo(plan.id).length > 0 && (
@@ -331,12 +240,9 @@ const Pricing = () => {
                             onClick={() => toggleAccordion(plan.id, index)}
                             className='w-full px-4 py-3 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors duration-200'
                           >
-                            <div className='flex items-center gap-2'>
-                              <span className='text-lg'>{item.icon}</span>
-                              <span className='text-xs font-medium text-gray-700 text-left'>
-                                {item.title}
-                              </span>
-                            </div>
+                            <span className='text-xs font-medium text-gray-700 text-left'>
+                              {item.title}
+                            </span>
                             <ChevronDown
                               className={`w-4 h-4 text-gray-500 transition-transform duration-200 ${
                                 openAccordion[plan.id] === index
@@ -370,38 +276,26 @@ const Pricing = () => {
 
         {/* Bottom Section */}
         <div className='text-center mt-24'>
-          <div className='bg-gradient-to-br from-orange-50 to-yellow-50 rounded-2xl shadow-lg p-8 max-w-4xl mx-auto border-2 border-orange-200'>
-            <h3 className='text-2xl md:text-3xl font-bold text-gray-900 mb-4'>
-              ¿Tienes un proyecto en mente?
+          <div className='bg-black rounded-2xl shadow-2xl p-8 max-w-4xl mx-auto transform hover:scale-105 transition-all duration-300'>
+            <h3 className='text-2xl md:text-3xl font-bold text-white mb-4'>
+              ¿Presupuesto más ajustado?
             </h3>
-            <p className='text-xl text-gray-700 mb-2 font-semibold'>
-              ¡Hablemos! 💬
+            <p className='text-xl text-white mb-2 font-semibold'>
+              Tengo soluciones desde <span className='text-[120%] font-bold text-accent'>300€</span>
             </p>
-            <p className='text-gray-600 mb-6'>
-              Cuéntame tu idea y encontraremos una solución que se ajuste a tu proyecto y presupuesto. Sin compromiso.
+            <p className='text-white/90 mb-6'>
+              Landing pages sencillas, páginas de presentación o webs básicas
+              ideales para empezar. Cuéntame qué necesitas y buscaremos la mejor
+              opción que se ajuste a tu presupuesto.
             </p>
             <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-              <button
-                onClick={scrollToContact}
-                className='bg-gradient-to-r from-orange-500 to-yellow-500 text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200'
+              <Button 
+                onClick={scrollToContact} 
+                variant='ghost'
+                className='!bg-white !text-black hover:!bg-accent hover:!text-white !shadow-lg'
               >
-                Cuéntame tu Proyecto
-              </button>
-              <a
-                href='https://wa.me/34644669828'
-                target='_blank'
-                rel='noopener noreferrer'
-                className='border-2 border-green-500 text-green-600 px-8 py-3 rounded-xl font-semibold hover:bg-green-50 transform hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2'
-              >
-                <svg
-                  className='w-5 h-5'
-                  fill='currentColor'
-                  viewBox='0 0 24 24'
-                >
-                  <path d='M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z' />
-                </svg>
-                WhatsApp Directo
-              </a>
+                Consultar Opciones
+              </Button>
             </div>
           </div>
         </div>

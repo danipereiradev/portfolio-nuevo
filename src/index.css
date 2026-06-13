@@ -7,6 +7,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Color variables */
+:root {
+  --color-accent: #14b8a6; /* Verde turquesa (teal-500) */
+  --color-accent-hover: #0d9488; /* Verde turquesa oscuro para hover (teal-600) */
+}
+
 .animation-delay-2000 {
   animation-delay: 2s;
 }
@@ -62,10 +68,10 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3b82f6;
+  background: var(--color-accent);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #2563eb;
+  background: var(--color-accent-hover);
 }

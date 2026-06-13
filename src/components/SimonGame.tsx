@@ -13,7 +13,7 @@ const SimonGame = () => {
 
   const colors = [
     { bg: 'bg-red-500', active: 'bg-red-300' },
-    { bg: 'bg-blue-500', active: 'bg-blue-300' },
+    { bg: 'bg-gray-500', active: 'bg-gray-300' },
     { bg: 'bg-green-500', active: 'bg-green-300' },
     { bg: 'bg-yellow-500', active: 'bg-yellow-300' }
   ];
@@ -107,9 +107,9 @@ const SimonGame = () => {
 
       {/* Puntuación */}
       <div className="flex justify-center items-center gap-4 mb-6">
-        <div className="flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-lg">
-          <Trophy className="w-5 h-5 text-blue-600" />
-          <span className="font-bold text-blue-900">Puntuación: {score}</span>
+        <div className="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-lg">
+          <Trophy className="w-5 h-5 text-accent" />
+          <span className="font-bold text-gray-900">Puntuación: {score}</span>
         </div>
         {isPlaying && (
           <div className="flex items-center gap-2 bg-green-50 px-4 py-2 rounded-lg">
@@ -164,14 +164,14 @@ const SimonGame = () => {
 
       {/* Game Over */}
       {gameOver && (
-        <div className="mt-6 p-4 bg-red-50 border border-red-200 rounded-lg text-center">
-          <h3 className="font-bold text-red-900 mb-2">¡Game Over!</h3>
-          <p className="text-red-700 text-sm mb-3">
+        <div className="mt-6 p-4 bg-gray-50 border border-gray-200 rounded-lg text-center">
+          <h3 className="font-bold text-gray-900 mb-2">¡Game Over!</h3>
+          <p className="text-gray-700 text-sm mb-3">
             Conseguiste {score} {score === 1 ? 'punto' : 'puntos'}. ¡No está mal!
           </p>
           <button
             onClick={startGame}
-            className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors duration-200 text-sm font-medium"
+            className="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-900 transition-colors duration-200 text-sm font-medium"
           >
             Jugar de Nuevo
           </button>
@@ -180,9 +180,9 @@ const SimonGame = () => {
 
       {/* Instrucciones */}
       {!isPlaying && (
-        <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-          <h4 className="font-semibold text-blue-900 mb-2">¿Cómo jugar?</h4>
-          <ul className="text-blue-800 text-sm space-y-1">
+        <div className="mt-6 p-4 bg-gray-50 border border-gray-200 rounded-lg">
+          <h4 className="font-semibold text-gray-900 mb-2">¿Cómo jugar?</h4>
+          <ul className="text-gray-800 text-sm space-y-1">
             <li>• Observa la secuencia de colores</li>
             <li>• Repite la secuencia haciendo clic</li>
             <li>• Cada ronda añade un color más</li>

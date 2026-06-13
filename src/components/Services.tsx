@@ -57,7 +57,7 @@ const Services = () => {
         <div className='text-center mb-16'>
           <h2 className='text-4xl md:text-5xl font-bold text-gray-900 mb-4'>
             {t('services.title')}
-            <span className='block text-2xl text-blue-600 font-normal mt-2'>
+            <span className='block text-2xl text-accent font-normal mt-2'>
               {t('services.subtitle')}
             </span>
           </h2>
