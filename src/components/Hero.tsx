@@ -37,14 +37,6 @@ const Hero = () => {
           {t('hero.subtitle')}
         </h2>
 
-        <p className='text-xl md:text-2xl text-white/90 mb-8 leading-relaxed'>
-          {t('hero.description')}
-          <span className='block mt-2'>
-            <Zap className='inline w-6 h-6 text-ink-light mr-2' />
-            {t('hero.features')}
-          </span>
-        </p>
-
         <div className='flex flex-col sm:flex-row gap-4 justify-center items-center mb-12'>
           <Button onClick={scrollToContact} variant='primary'>
             {t('hero.cta.quote')}

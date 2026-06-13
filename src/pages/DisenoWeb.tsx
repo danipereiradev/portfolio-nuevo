@@ -1,11 +1,20 @@
 import { useEffect } from 'react';
-import { Palette, Smartphone, Zap, TrendingUp, Users, Award, Clock, Target, HeadphonesIcon } from 'lucide-react';
+import {
+  Palette,
+  Smartphone,
+  Zap,
+  TrendingUp,
+  Users,
+  Award,
+  Clock,
+  Target,
+  HeadphonesIcon,
+} from 'lucide-react';
 import SEOLandingHero from '../components/SEOLandingHero';
 import SEOProblem from '../components/SEOProblem';
 import SEOBenefits from '../components/SEOBenefits';
 import SEOFeatures from '../components/SEOFeatures';
 import SEOProcess from '../components/SEOProcess';
-import SEOTechnologies from '../components/SEOTechnologies';
 import SEOWhyMe from '../components/SEOWhyMe';
 import SEOFAQ from '../components/SEOFAQ';
 import SEOCTAFinal from '../components/SEOCTAFinal';
@@ -15,12 +24,13 @@ import Portfolio from '../components/Portfolio';
 
 const DisenoWeb = () => {
   useEffect(() => {
-    document.title = 'Diseño Web Profesional Madrid | Páginas Web Modernas y Atractivas';
+    document.title =
+      'Diseño Web Profesional | Páginas Web Modernas | Dani Pereira';
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
         'content',
-        'Diseño web profesional en Madrid. Creamos páginas web modernas, atractivas y optimizadas que convierten visitantes en clientes. Presupuesto gratuito.'
+        'Diseño web profesional en Madrid. Creamos páginas web modernas, atractivas y optimizadas que convierten visitantes en clientes. Presupuesto gratuito.',
       );
     }
   }, []);
@@ -34,12 +44,20 @@ const DisenoWeb = () => {
   };
 
   const problems = [
-    { text: 'Tu web actual parece anticuada y no refleja la calidad de tu negocio' },
-    { text: 'No consigues captar la atención de los visitantes ni convertirlos en clientes' },
-    { text: 'Tu web no se ve bien en móviles y pierdes oportunidades de negocio' },
+    {
+      text: 'Tu web actual parece anticuada y no refleja la calidad de tu negocio',
+    },
+    {
+      text: 'No consigues captar la atención de los visitantes ni convertirlos en clientes',
+    },
+    {
+      text: 'Tu web no se ve bien en móviles y pierdes oportunidades de negocio',
+    },
     { text: 'La competencia tiene mejores webs y te están quitando clientes' },
     { text: 'Necesitas una web profesional pero no sabes por dónde empezar' },
-    { text: 'Inviertes en marketing pero tu web no convierte las visitas en ventas' },
+    {
+      text: 'Inviertes en marketing pero tu web no convierte las visitas en ventas',
+    },
   ];
 
   const benefits = [
@@ -150,79 +168,113 @@ const DisenoWeb = () => {
   const features = [
     {
       title: 'Diseño Responsive Profesional',
-      description: 'Tu web se verá perfecta en todos los dispositivos: móviles, tablets y ordenadores de escritorio, adaptándose automáticamente.',
+      description:
+        'Tu web se verá perfecta en todos los dispositivos: móviles, tablets y ordenadores de escritorio, adaptándose automáticamente.',
     },
     {
       title: 'Diseño UX/UI Optimizado',
-      description: 'Interfaces intuitivas y navegación fluida diseñada para que tus usuarios encuentren lo que buscan rápidamente.',
+      description:
+        'Interfaces intuitivas y navegación fluida diseñada para que tus usuarios encuentren lo que buscan rápidamente.',
     },
     {
       title: 'Optimización SEO Incluida',
-      description: 'Tu web estará optimizada para aparecer en Google desde el primer día con estructura SEO profesional.',
+      description:
+        'Tu web estará optimizada para aparecer en Google desde el primer día con estructura SEO profesional.',
     },
     {
       title: 'Velocidad de Carga Optimizada',
-      description: 'Webs ultrarrápidas con tiempos de carga inferiores a 3 segundos para mejorar la experiencia y el SEO.',
+      description:
+        'Webs ultrarrápidas con tiempos de carga inferiores a 3 segundos para mejorar la experiencia y el SEO.',
     },
     {
       title: 'Panel de Administración',
-      description: 'Gestiona tu contenido fácilmente con un panel intuitivo sin necesidad de conocimientos técnicos.',
+      description:
+        'Gestiona tu contenido fácilmente con un panel intuitivo sin necesidad de conocimientos técnicos.',
     },
     {
       title: 'Formularios de Contacto',
-      description: 'Formularios personalizados con protección anti-spam para que recibas consultas de calidad.',
+      description:
+        'Formularios personalizados con protección anti-spam para que recibas consultas de calidad.',
     },
     {
       title: 'Integración con RRSS',
-      description: 'Conexión con tus redes sociales y widgets para aumentar tu presencia online.',
+      description:
+        'Conexión con tus redes sociales y widgets para aumentar tu presencia online.',
     },
     {
       title: 'Hosting y Dominio Incluido',
-      description: 'Primer año de alojamiento web profesional y dominio incluido en el precio.',
+      description:
+        'Primer año de alojamiento web profesional y dominio incluido en el precio.',
     },
   ];
 
   const technologies = [
-    { name: 'React', icon: '⚛️', description: 'Framework moderno para interfaces dinámicas' },
-    { name: 'WordPress', icon: '🔧', description: 'CMS flexible y fácil de gestionar' },
-    { name: 'Tailwind CSS', icon: '🎨', description: 'Diseño moderno y personalizado' },
-    { name: 'Next.js', icon: '▲', description: 'Framework para webs ultrarrápidas' },
+    {
+      name: 'React',
+      icon: '⚛️',
+      description: 'Framework moderno para interfaces dinámicas',
+    },
+    {
+      name: 'WordPress',
+      icon: '🔧',
+      description: 'CMS flexible y fácil de gestionar',
+    },
+    {
+      name: 'Tailwind CSS',
+      icon: '🎨',
+      description: 'Diseño moderno y personalizado',
+    },
+    {
+      name: 'Next.js',
+      icon: '▲',
+      description: 'Framework para webs ultrarrápidas',
+    },
     { name: 'PHP', icon: '🐘', description: 'Desarrollo backend robusto' },
     { name: 'MySQL', icon: '🗄️', description: 'Base de datos confiable' },
-    { name: 'Figma', icon: '🎭', description: 'Diseño de prototipos profesionales' },
+    {
+      name: 'Figma',
+      icon: '🎭',
+      description: 'Diseño de prototipos profesionales',
+    },
     { name: 'Git', icon: '📚', description: 'Control de versiones' },
   ];
 
   const whyMeReasons = [
     {
       icon: Clock,
-      title: '+10 Años de Experiencia',
-      description: 'Más de una década diseñando webs exitosas para empresas de todos los tamaños y sectores.',
+      title: '+12 Años de Experiencia',
+      description:
+        'Más de una década diseñando webs exitosas para empresas de todos los tamaños y sectores.',
     },
     {
       icon: Target,
       title: 'Enfoque en Resultados',
-      description: 'No solo diseño webs bonitas, diseño webs que convierten visitantes en clientes y generan resultados reales.',
+      description:
+        'No solo diseño webs bonitas, diseño webs que convierten visitantes en clientes y generan resultados reales.',
     },
     {
       icon: Award,
       title: 'Atención Personalizada',
-      description: 'Trabajo directamente contigo sin intermediarios. Cada proyecto recibe mi atención personal y dedicada.',
+      description:
+        'Trabajo directamente contigo sin intermediarios. Cada proyecto recibe mi atención personal y dedicada.',
     },
     {
       icon: HeadphonesIcon,
       title: 'Soporte Continuo',
-      description: 'No te abandono después del lanzamiento. Te acompaño con soporte, formación y mejoras continuas.',
+      description:
+        'No te abandono después del lanzamiento. Te acompaño con soporte, formación y mejoras continuas.',
     },
     {
       icon: Palette,
       title: 'Diseños Únicos',
-      description: 'Cada web es única y personalizada. No uso plantillas genéricas, creo diseños adaptados a tu marca.',
+      description:
+        'Cada web es única y personalizada. No uso plantillas genéricas, creo diseños adaptados a tu marca.',
     },
     {
       icon: TrendingUp,
       title: 'Transparencia Total',
-      description: 'Sin costes ocultos ni sorpresas. Presupuesto claro desde el principio y comunicación constante.',
+      description:
+        'Sin costes ocultos ni sorpresas. Presupuesto claro desde el principio y comunicación constante.',
     },
   ];
 
@@ -258,12 +310,6 @@ const DisenoWeb = () => {
       <Portfolio />
 
       <SEOProcess title='Nuestro Proceso de Diseño Web' steps={process} />
-
-      <SEOTechnologies
-        title='Tecnologías y Herramientas que Utilizamos'
-        subtitle='Las mejores tecnologías para crear tu web perfecta'
-        technologies={technologies}
-      />
 
       <Testimonials />
 

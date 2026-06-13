@@ -132,7 +132,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    to='/aplicaciones-web'
+                    to='/desarrollo-aplicaciones-web'
                     className='hover:text-white transition-colors duration-200'
                   >
                     Aplicaciones Web
@@ -140,7 +140,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    to='/seo'
+                    to='/posicionamiento-web-seo'
                     className='hover:text-white transition-colors duration-200'
                   >
                     Posicionamiento SEO

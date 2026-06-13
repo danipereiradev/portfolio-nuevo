@@ -18,7 +18,6 @@ import SEOProblem from '../components/SEOProblem';
 import SEOBenefits from '../components/SEOBenefits';
 import SEOFeatures from '../components/SEOFeatures';
 import SEOProcess from '../components/SEOProcess';
-import SEOTechnologies from '../components/SEOTechnologies';
 import SEOWhyMe from '../components/SEOWhyMe';
 import SEOFAQ from '../components/SEOFAQ';
 import SEOCTAFinal from '../components/SEOCTAFinal';
@@ -29,12 +28,12 @@ import Portfolio from '../components/Portfolio';
 const TiendasOnline = () => {
   useEffect(() => {
     document.title =
-      'Crear Tienda Online | Desarrollo E-commerce Profesional en España';
+      'Crear Tienda Online Profesional | E-commerce a Medida | Dani Pereira';
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
         'content',
-        'Crea tu tienda online profesional. Desarrollo de e-commerce con pasarela de pago, gestión de productos y pedidos. Vende online con éxito.'
+        'Crea tu tienda online profesional. Desarrollo de e-commerce con pasarela de pago, gestión de productos y pedidos. Vende online con éxito.',
       );
     }
   }, []);
@@ -48,12 +47,20 @@ const TiendasOnline = () => {
   };
 
   const problems = [
-    { text: 'Quieres vender online pero no sabes cómo empezar ni qué necesitas' },
+    {
+      text: 'Quieres vender online pero no sabes cómo empezar ni qué necesitas',
+    },
     { text: 'Tu tienda actual tiene pocas ventas o conversiones muy bajas' },
-    { text: 'El proceso de compra es complicado y los clientes abandonan el carrito' },
-    { text: 'No tienes tiempo para gestionar la parte técnica de una tienda online' },
+    {
+      text: 'El proceso de compra es complicado y los clientes abandonan el carrito',
+    },
+    {
+      text: 'No tienes tiempo para gestionar la parte técnica de una tienda online',
+    },
     { text: 'Te preocupa la seguridad de los pagos y la protección de datos' },
-    { text: 'Necesitas una tienda profesional pero tu presupuesto es limitado' },
+    {
+      text: 'Necesitas una tienda profesional pero tu presupuesto es limitado',
+    },
   ];
 
   const benefits = [
@@ -98,45 +105,61 @@ const TiendasOnline = () => {
   const features = [
     {
       title: 'Hasta 50 Productos Cargados',
-      description: 'Cargamos tu catálogo inicial completo con descripciones, imágenes optimizadas, precios y variantes.',
+      description:
+        'Cargamos tu catálogo inicial completo con descripciones, imágenes optimizadas, precios y variantes.',
     },
     {
       title: 'Pasarela de Pago Integrada',
-      description: 'Configuramos Stripe, Redsys, PayPal o la pasarela que prefieras para cobros seguros online.',
+      description:
+        'Configuramos Stripe, Redsys, PayPal o la pasarela que prefieras para cobros seguros online.',
     },
     {
       title: 'Gestión de Stock Automática',
-      description: 'Sistema que actualiza automáticamente el inventario con cada venta para evitar sobreventa.',
+      description:
+        'Sistema que actualiza automáticamente el inventario con cada venta para evitar sobreventa.',
     },
     {
       title: 'Sistema de Cupones y Descuentos',
-      description: 'Crea promociones, códigos de descuento y ofertas especiales para impulsar las ventas.',
+      description:
+        'Crea promociones, códigos de descuento y ofertas especiales para impulsar las ventas.',
     },
     {
       title: 'Carrito de Compra Optimizado',
-      description: 'Checkout simplificado y rápido que reduce abandonos y aumenta las conversiones.',
+      description:
+        'Checkout simplificado y rápido que reduce abandonos y aumenta las conversiones.',
     },
     {
       title: 'Emails Transaccionales',
-      description: 'Confirmaciones de pedido, actualizaciones de envío y notificaciones automáticas profesionales.',
+      description:
+        'Confirmaciones de pedido, actualizaciones de envío y notificaciones automáticas profesionales.',
     },
     {
       title: 'Zona de Envíos Configurable',
-      description: 'Define zonas geográficas, tarifas por peso, valor o destino y métodos de entrega.',
+      description:
+        'Define zonas geográficas, tarifas por peso, valor o destino y métodos de entrega.',
     },
     {
       title: 'SEO para E-commerce',
-      description: 'Optimización específica para tiendas online: fichas de producto, categorías y estructura SEO.',
+      description:
+        'Optimización específica para tiendas online: fichas de producto, categorías y estructura SEO.',
     },
   ];
 
   const technologies = [
-    { name: 'WooCommerce', icon: '🛒', description: 'Plataforma e-commerce líder' },
+    {
+      name: 'WooCommerce',
+      icon: '🛒',
+      description: 'Plataforma e-commerce líder',
+    },
     { name: 'Shopify', icon: '🛍️', description: 'Solución todo en uno' },
     { name: 'Stripe', icon: '💳', description: 'Pasarela de pago moderna' },
     { name: 'Redsys', icon: '🏦', description: 'TPV bancario español' },
     { name: 'WP Rocket', icon: '🚀', description: 'Optimización velocidad' },
-    { name: 'Yoast WooCommerce SEO', icon: '📈', description: 'SEO para productos' },
+    {
+      name: 'Yoast WooCommerce SEO',
+      icon: '📈',
+      description: 'SEO para productos',
+    },
     { name: 'Cloudflare', icon: '☁️', description: 'CDN y seguridad' },
     { name: 'Google Analytics', icon: '📊', description: 'Análisis de ventas' },
   ];
@@ -144,33 +167,39 @@ const TiendasOnline = () => {
   const whyMeReasons = [
     {
       icon: Clock,
-      title: '+10 Años en E-commerce',
-      description: 'Experiencia creando tiendas online exitosas para diferentes sectores y modelos de negocio.',
+      title: '+12 Años en E-commerce',
+      description:
+        'Experiencia creando tiendas online exitosas para diferentes sectores y modelos de negocio.',
     },
     {
       icon: Target,
       title: 'Enfoque en Conversión',
-      description: 'Diseñamos cada elemento de la tienda pensando en maximizar ventas y reducir abandonos de carrito.',
+      description:
+        'Diseñamos cada elemento de la tienda pensando en maximizar ventas y reducir abandonos de carrito.',
     },
     {
       icon: Award,
       title: 'Formación Completa',
-      description: 'Te enseño a gestionar productos, procesar pedidos y usar todas las funcionalidades de tu tienda.',
+      description:
+        'Te enseño a gestionar productos, procesar pedidos y usar todas las funcionalidades de tu tienda.',
     },
     {
       icon: Headphones,
       title: 'Soporte Post-Venta',
-      description: 'No te dejo solo después del lanzamiento. Estoy aquí para resolver dudas y ayudarte a crecer.',
+      description:
+        'No te dejo solo después del lanzamiento. Estoy aquí para resolver dudas y ayudarte a crecer.',
     },
     {
       icon: Zap,
       title: 'Optimización Continua',
-      description: 'Analizo métricas y te ayudo a mejorar continuamente las conversiones de tu tienda.',
+      description:
+        'Analizo métricas y te ayudo a mejorar continuamente las conversiones de tu tienda.',
     },
     {
       icon: Shield,
       title: 'Seguridad y Cumplimiento',
-      description: 'Tu tienda cumple con RGPD, tiene SSL, backups y todas las medidas de seguridad necesarias.',
+      description:
+        'Tu tienda cumple con RGPD, tiene SSL, backups y todas las medidas de seguridad necesarias.',
     },
   ];
 
@@ -258,10 +287,7 @@ const TiendasOnline = () => {
         problems={problems}
       />
 
-      <SEOBenefits
-        title='¿Qué Incluye tu Tienda Online?'
-        benefits={benefits}
-      />
+      <SEOBenefits title='¿Qué Incluye tu Tienda Online?' benefits={benefits} />
 
       <SEOFeatures
         title='Todo lo que Necesitas para Vender Online'
@@ -276,12 +302,6 @@ const TiendasOnline = () => {
         steps={process}
       />
 
-      <SEOTechnologies
-        title='Tecnologías E-commerce que Utilizamos'
-        subtitle='Las mejores plataformas y herramientas para tu tienda online'
-        technologies={technologies}
-      />
-
       <Testimonials />
 
       <SEOWhyMe
@@ -290,10 +310,7 @@ const TiendasOnline = () => {
         reasons={whyMeReasons}
       />
 
-      <SEOFAQ
-        title='Preguntas Frecuentes sobre Tiendas Online'
-        faqs={faqs}
-      />
+      <SEOFAQ title='Preguntas Frecuentes sobre Tiendas Online' faqs={faqs} />
 
       <SEOCTAFinal
         title='¿Listo para Empezar a Vender Online?'

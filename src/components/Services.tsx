@@ -40,14 +40,14 @@ const Services = () => {
       title: t('services.webapp.title'),
       description:
         'Desarrollo de aplicaciones web y móviles a medida para proyectos únicos y startups.',
-      link: '/aplicaciones-web',
+      link: '/desarrollo-aplicaciones-web',
     },
     {
       icon: <Rocket className='w-8 h-8' />,
       title: 'Posicionamiento SEO',
       description:
         'Optimización SEO para mejorar tu visibilidad en Google y atraer más clientes a tu negocio.',
-      link: '/seo',
+      link: '/posicionamiento-web-seo',
     },
     {
       icon: <Code className='w-8 h-8' />,

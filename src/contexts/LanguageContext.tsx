@@ -22,7 +22,7 @@ const translations = {
   'hero.title': 'Diseño y Desarrollo Web',
   'hero.subtitle': 'Páginas Web y Tiendas Online Profesionales',
   'hero.description':
-    '+10 años creando experiencias web que transforman negocios.',
+    '+12 años creando experiencias web que transforman negocios.',
   'hero.features': 'Código Limpio • Diseño Moderno • Resultados Reales',
   'hero.cta.quote': 'Solicitar Presupuesto',
   'hero.cta.portfolio': 'Ver Portfolio',
@@ -30,7 +30,7 @@ const translations = {
   // Services
   'services.title': 'Servicios Profesionales',
   'services.subtitle':
-    '+10 años creando experiencias web que transforman negocios.',
+    '+12 años creando experiencias web que transforman negocios.',
   'services.description':
     'Soluciones web completas adaptadas a las necesidades de tu negocio en todas las comunidades autónomas de España',
   'services.corporate.title': 'Páginas Web Corporativas',

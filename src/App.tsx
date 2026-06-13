@@ -32,8 +32,8 @@ function AppContent() {
         <Route path='/diseno-web' element={<DisenoWeb />} />
         <Route path='/paginas-web-empresas' element={<PaginasWebEmpresas />} />
         <Route path='/tiendas-online' element={<TiendasOnline />} />
-        <Route path='/aplicaciones-web' element={<AplicacionesWeb />} />
-        <Route path='/seo' element={<ServicioSEO />} />
+        <Route path='/desarrollo-aplicaciones-web' element={<AplicacionesWeb />} />
+        <Route path='/posicionamiento-web-seo' element={<ServicioSEO />} />
         <Route path='/mantenimiento-web' element={<MantenimientoWeb />} />
         <Route path='/contacto' element={<Contacto />} />
       </Routes>

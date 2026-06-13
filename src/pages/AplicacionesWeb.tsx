@@ -18,7 +18,6 @@ import SEOProblem from '../components/SEOProblem';
 import SEOBenefits from '../components/SEOBenefits';
 import SEOFeatures from '../components/SEOFeatures';
 import SEOProcess from '../components/SEOProcess';
-import SEOTechnologies from '../components/SEOTechnologies';
 import SEOWhyMe from '../components/SEOWhyMe';
 import SEOFAQ from '../components/SEOFAQ';
 import SEOCTAFinal from '../components/SEOCTAFinal';
@@ -28,13 +27,12 @@ import Portfolio from '../components/Portfolio';
 
 const AplicacionesWeb = () => {
   useEffect(() => {
-    document.title =
-      'Desarrollo de Aplicaciones Web | Apps Web Personalizadas en España';
+    document.title = 'Desarrollo de Aplicaciones Web a Medida | Dani Pereira';
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
         'content',
-        'Desarrollo de aplicaciones web personalizadas para empresas. Soluciones a medida con las últimas tecnologías. Transforma tu idea en realidad.'
+        'Desarrollo de aplicaciones web personalizadas para empresas. Soluciones a medida con las últimas tecnologías. Transforma tu idea en realidad.',
       );
     }
   }, []);
@@ -48,12 +46,24 @@ const AplicacionesWeb = () => {
   };
 
   const problems = [
-    { text: 'Necesitas una solución web personalizada que no existe en el mercado' },
-    { text: 'Los procesos de tu empresa son complejos y necesitan automatización' },
-    { text: 'Quieres digitalizar y modernizar tu negocio pero no sabes por dónde empezar' },
-    { text: 'Las soluciones estándar no se adaptan a tus necesidades específicas' },
-    { text: 'Necesitas integrar diferentes sistemas y herramientas en una sola plataforma' },
-    { text: 'Tu competencia ya tiene apps web y te está superando en eficiencia' },
+    {
+      text: 'Necesitas una solución web personalizada que no existe en el mercado',
+    },
+    {
+      text: 'Los procesos de tu empresa son complejos y necesitan automatización',
+    },
+    {
+      text: 'Quieres digitalizar y modernizar tu negocio pero no sabes por dónde empezar',
+    },
+    {
+      text: 'Las soluciones estándar no se adaptan a tus necesidades específicas',
+    },
+    {
+      text: 'Necesitas integrar diferentes sistemas y herramientas en una sola plataforma',
+    },
+    {
+      text: 'Tu competencia ya tiene apps web y te está superando en eficiencia',
+    },
   ];
 
   const benefits = [
@@ -98,41 +108,53 @@ const AplicacionesWeb = () => {
   const features = [
     {
       title: 'Diseño UX/UI Personalizado',
-      description: 'Interfaces intuitivas y atractivas diseñadas específicamente para tu caso de uso y usuarios.',
+      description:
+        'Interfaces intuitivas y atractivas diseñadas específicamente para tu caso de uso y usuarios.',
     },
     {
       title: 'Desarrollo Frontend Avanzado',
-      description: 'Aplicaciones con React, Vue o Angular para experiencias de usuario fluidas y modernas.',
+      description:
+        'Aplicaciones con React, Vue o Angular para experiencias de usuario fluidas y modernas.',
     },
     {
       title: 'Backend Robusto y Escalable',
-      description: 'API y lógica de negocio con Node.js, Python o PHP preparadas para alto rendimiento.',
+      description:
+        'API y lógica de negocio con Node.js, Python o PHP preparadas para alto rendimiento.',
     },
     {
       title: 'Base de Datos Optimizada',
-      description: 'Diseño e implementación de bases de datos SQL o NoSQL según tus necesidades.',
+      description:
+        'Diseño e implementación de bases de datos SQL o NoSQL según tus necesidades.',
     },
     {
       title: 'Sistema de Autenticación',
-      description: 'Login seguro, gestión de usuarios, roles y permisos adaptados a tu organización.',
+      description:
+        'Login seguro, gestión de usuarios, roles y permisos adaptados a tu organización.',
     },
     {
       title: 'Panel de Administración',
-      description: 'Dashboard completo para gestionar usuarios, contenido y funcionalidades de tu app.',
+      description:
+        'Dashboard completo para gestionar usuarios, contenido y funcionalidades de tu app.',
     },
     {
       title: 'Integraciones y APIs',
-      description: 'Conectamos tu app con servicios de terceros, CRMs, ERPs y otras herramientas.',
+      description:
+        'Conectamos tu app con servicios de terceros, CRMs, ERPs y otras herramientas.',
     },
     {
       title: 'Despliegue en Cloud',
-      description: 'Alojamiento en AWS, Google Cloud o Azure con alta disponibilidad y escalabilidad.',
+      description:
+        'Alojamiento en AWS, Google Cloud o Azure con alta disponibilidad y escalabilidad.',
     },
   ];
 
   const technologies = [
     { name: 'React', icon: '⚛️', description: 'Framework frontend moderno' },
-    { name: 'Node.js', icon: '🟢', description: 'Backend JavaScript escalable' },
+    {
+      name: 'Node.js',
+      icon: '🟢',
+      description: 'Backend JavaScript escalable',
+    },
     { name: 'Python', icon: '🐍', description: 'Backend potente y flexible' },
     { name: 'PostgreSQL', icon: '🐘', description: 'Base de datos relacional' },
     { name: 'MongoDB', icon: '🍃', description: 'Base de datos NoSQL' },
@@ -144,33 +166,39 @@ const AplicacionesWeb = () => {
   const whyMeReasons = [
     {
       icon: Clock,
-      title: '+10 Años Desarrollando Apps',
-      description: 'Experiencia creando aplicaciones web de diferentes complejidades y para diversos sectores.',
+      title: '+12 Años Desarrollando Apps',
+      description:
+        'Experiencia creando aplicaciones web de diferentes complejidades y para diversos sectores.',
     },
     {
       icon: Target,
       title: 'Enfoque en Soluciones',
-      description: 'No solo programo, entiendo tu negocio y creo soluciones que resuelven problemas reales.',
+      description:
+        'No solo programo, entiendo tu negocio y creo soluciones que resuelven problemas reales.',
     },
     {
       icon: Award,
       title: 'Código de Calidad',
-      description: 'Desarrollo con mejores prácticas, código limpio, documentado y fácil de mantener.',
+      description:
+        'Desarrollo con mejores prácticas, código limpio, documentado y fácil de mantener.',
     },
     {
       icon: Headphones,
       title: 'Comunicación Directa',
-      description: 'Trabajo directamente contigo sin intermediarios, entendiendo cada requisito a fondo.',
+      description:
+        'Trabajo directamente contigo sin intermediarios, entendiendo cada requisito a fondo.',
     },
     {
       icon: TrendingUp,
       title: 'Escalabilidad Garantizada',
-      description: 'Arquitecturas preparadas para crecer con tu negocio sin necesidad de rehacer el proyecto.',
+      description:
+        'Arquitecturas preparadas para crecer con tu negocio sin necesidad de rehacer el proyecto.',
     },
     {
       icon: Users,
       title: 'Formación y Soporte',
-      description: 'Te formo en el uso de la aplicación y ofrezco soporte continuo para cualquier necesidad.',
+      description:
+        'Te formo en el uso de la aplicación y ofrezco soporte continuo para cualquier necesidad.',
     },
   ];
 
@@ -209,7 +237,8 @@ const AplicacionesWeb = () => {
 
   const faqs = [
     {
-      question: '¿Qué es una aplicación web y en qué se diferencia de una web normal?',
+      question:
+        '¿Qué es una aplicación web y en qué se diferencia de una web normal?',
       answer:
         'Una aplicación web es una solución interactiva que permite a los usuarios realizar acciones complejas, gestionar datos y procesos. A diferencia de una web informativa, las apps web incluyen funcionalidades avanzadas como sistemas de login, paneles de usuario, procesamiento de datos en tiempo real y flujos de trabajo personalizados.',
     },
@@ -276,12 +305,6 @@ const AplicacionesWeb = () => {
         steps={process}
       />
 
-      <SEOTechnologies
-        title='Stack Tecnológico que Utilizamos'
-        subtitle='Las mejores tecnologías para aplicaciones web modernas'
-        technologies={technologies}
-      />
-
       <Testimonials />
 
       <SEOWhyMe
@@ -290,10 +313,7 @@ const AplicacionesWeb = () => {
         reasons={whyMeReasons}
       />
 
-      <SEOFAQ
-        title='Preguntas Frecuentes sobre Aplicaciones Web'
-        faqs={faqs}
-      />
+      <SEOFAQ title='Preguntas Frecuentes sobre Aplicaciones Web' faqs={faqs} />
 
       <SEOCTAFinal
         title='¿Listo para Transformar tu Idea en una App Web?'

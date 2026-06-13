@@ -73,11 +73,11 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
     },
     {
       name: 'Aplicaciones Web',
-      path: '/aplicaciones-web',
+      path: '/desarrollo-aplicaciones-web',
     },
     {
       name: 'Posicionamiento SEO',
-      path: '/seo',
+      path: '/posicionamiento-web-seo',
     },
     {
       name: 'Mantenimiento Web',

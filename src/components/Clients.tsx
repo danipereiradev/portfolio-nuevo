@@ -28,7 +28,7 @@ const Clients = () => {
     },
     {
       icon: <TrendingUp className='w-8 h-8' />,
-      number: '+10',
+      number: '+12',
       label: 'Años de Experiencia',
     },
   ];
@@ -37,10 +37,7 @@ const Clients = () => {
   const duplicatedClients = [...clients, ...clients];
 
   return (
-    <section
-      id='clients'
-      className='py-20 text-white overflow-hidden relative'
-    >
+    <section id='clients' className='py-20 text-white overflow-hidden relative'>
       {/* Background Image */}
       <div
         className='absolute inset-0 bg-cover bg-center bg-no-repeat'

@@ -15,7 +15,6 @@ import SEOProblem from '../components/SEOProblem';
 import SEOBenefits from '../components/SEOBenefits';
 import SEOFeatures from '../components/SEOFeatures';
 import SEOProcess from '../components/SEOProcess';
-import SEOTechnologies from '../components/SEOTechnologies';
 import SEOWhyMe from '../components/SEOWhyMe';
 import SEOFAQ from '../components/SEOFAQ';
 import SEOCTAFinal from '../components/SEOCTAFinal';
@@ -25,7 +24,7 @@ import ContactForm from '../components/ContactForm';
 const MantenimientoWeb = () => {
   useEffect(() => {
     document.title =
-      'Mantenimiento Web Profesional | Soporte y Actualizaciones Continuas';
+      'Mantenimiento Web Profesional | Soporte y Actualizaciones | Dani Pereira';
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
@@ -217,7 +216,7 @@ const MantenimientoWeb = () => {
   const whyMeReasons = [
     {
       icon: Clock,
-      title: '+10 Años de Experiencia',
+      title: '+12 Años de Experiencia',
       description:
         'Más de una década manteniendo webs de todo tipo, desde blogs hasta grandes tiendas online.',
     },
@@ -326,12 +325,6 @@ const MantenimientoWeb = () => {
       />
 
       <SEOProcess title='Cómo Funciona Nuestro Servicio' steps={process} />
-
-      <SEOTechnologies
-        title='Tecnologías y Herramientas que Utilizamos'
-        subtitle='Las mejores herramientas del mercado para mantener tu web en perfecto estado'
-        technologies={technologies}
-      />
 
       <Testimonials />
 

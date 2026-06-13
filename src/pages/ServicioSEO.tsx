@@ -17,7 +17,6 @@ import SEOProblem from '../components/SEOProblem';
 import SEOBenefits from '../components/SEOBenefits';
 import SEOFeatures from '../components/SEOFeatures';
 import SEOProcess from '../components/SEOProcess';
-import SEOTechnologies from '../components/SEOTechnologies';
 import SEOWhyMe from '../components/SEOWhyMe';
 import SEOFAQ from '../components/SEOFAQ';
 import SEOCTAFinal from '../components/SEOCTAFinal';
@@ -28,12 +27,12 @@ import Portfolio from '../components/Portfolio';
 const ServicioSEO = () => {
   useEffect(() => {
     document.title =
-      'Posicionamiento SEO en Google | Consultoría SEO Profesional España';
+      'Posicionamiento SEO | Optimización Web para Google | Dani Pereira';
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
         'content',
-        'Servicios de posicionamiento SEO en España. Mejora tu ranking en Google, aumenta el tráfico orgánico y consigue más clientes. Consultoría SEO profesional.'
+        'Servicios de posicionamiento SEO en España. Mejora tu ranking en Google, aumenta el tráfico orgánico y consigue más clientes. Consultoría SEO profesional.',
       );
     }
   }, []);
@@ -47,11 +46,17 @@ const ServicioSEO = () => {
   };
 
   const problems = [
-    { text: 'Tu web no aparece en Google cuando buscan tus servicios o productos' },
-    { text: 'Tu competencia está por encima de ti en los resultados de búsqueda' },
+    {
+      text: 'Tu web no aparece en Google cuando buscan tus servicios o productos',
+    },
+    {
+      text: 'Tu competencia está por encima de ti en los resultados de búsqueda',
+    },
     { text: 'Recibes poco tráfico orgánico y dependes de publicidad de pago' },
     { text: 'No sabes qué palabras clave te interesan ni cómo posicionarte' },
-    { text: 'Tu web tiene problemas técnicos que perjudican el posicionamiento' },
+    {
+      text: 'Tu web tiene problemas técnicos que perjudican el posicionamiento',
+    },
     { text: 'Inviertes en SEO pero no ves resultados claros ni mejoras' },
   ];
 
@@ -97,45 +102,69 @@ const ServicioSEO = () => {
   const features = [
     {
       title: 'Auditoría SEO Completa',
-      description: 'Análisis exhaustivo de tu web, competencia y oportunidades de posicionamiento con informe detallado.',
+      description:
+        'Análisis exhaustivo de tu web, competencia y oportunidades de posicionamiento con informe detallado.',
     },
     {
       title: 'Investigación de Palabras Clave',
-      description: 'Estudio de keywords relevantes con volumen de búsqueda y baja competencia para tu sector.',
+      description:
+        'Estudio de keywords relevantes con volumen de búsqueda y baja competencia para tu sector.',
     },
     {
       title: 'Optimización On-Page',
-      description: 'Mejora de títulos, meta descriptions, encabezados, contenido y estructura interna.',
+      description:
+        'Mejora de títulos, meta descriptions, encabezados, contenido y estructura interna.',
     },
     {
       title: 'SEO Técnico',
-      description: 'Optimización de velocidad, mobile-first, Core Web Vitals, schema markup y aspectos técnicos.',
+      description:
+        'Optimización de velocidad, mobile-first, Core Web Vitals, schema markup y aspectos técnicos.',
     },
     {
       title: 'Creación de Contenido SEO',
-      description: 'Redacción y optimización de contenidos que atraen tráfico cualificado y convierten.',
+      description:
+        'Redacción y optimización de contenidos que atraen tráfico cualificado y convierten.',
     },
     {
       title: 'Link Building Ético',
-      description: 'Estrategia de enlaces de calidad desde sitios relevantes y autorizados de tu sector.',
+      description:
+        'Estrategia de enlaces de calidad desde sitios relevantes y autorizados de tu sector.',
     },
     {
       title: 'SEO Local',
-      description: 'Optimización para búsquedas locales, Google My Business y posicionamiento geográfico.',
+      description:
+        'Optimización para búsquedas locales, Google My Business y posicionamiento geográfico.',
     },
     {
       title: 'Informes Mensuales',
-      description: 'Reportes con evolución de posiciones, tráfico, conversiones y acciones realizadas.',
+      description:
+        'Reportes con evolución de posiciones, tráfico, conversiones y acciones realizadas.',
     },
   ];
 
   const technologies = [
-    { name: 'Google Search Console', icon: '🔍', description: 'Monitorización en Google' },
-    { name: 'Google Analytics', icon: '📊', description: 'Análisis de tráfico' },
+    {
+      name: 'Google Search Console',
+      icon: '🔍',
+      description: 'Monitorización en Google',
+    },
+    {
+      name: 'Google Analytics',
+      icon: '📊',
+      description: 'Análisis de tráfico',
+    },
     { name: 'Ahrefs', icon: '🔗', description: 'Análisis de enlaces' },
     { name: 'SEMrush', icon: '📈', description: 'Investigación keywords' },
-    { name: 'Screaming Frog', icon: '🕷️', description: 'Auditoría técnica SEO' },
-    { name: 'PageSpeed Insights', icon: '⚡', description: 'Optimización velocidad' },
+    {
+      name: 'Screaming Frog',
+      icon: '🕷️',
+      description: 'Auditoría técnica SEO',
+    },
+    {
+      name: 'PageSpeed Insights',
+      icon: '⚡',
+      description: 'Optimización velocidad',
+    },
     { name: 'Yoast SEO', icon: '🎯', description: 'Optimización WordPress' },
     { name: 'Schema.org', icon: '📋', description: 'Datos estructurados' },
   ];
@@ -143,33 +172,39 @@ const ServicioSEO = () => {
   const whyMeReasons = [
     {
       icon: Clock,
-      title: '+10 Años en SEO',
-      description: 'Experiencia posicionando webs de diferentes sectores con resultados medibles y duraderos.',
+      title: '+12 Años en SEO',
+      description:
+        'Experiencia posicionando webs de diferentes sectores con resultados medibles y duraderos.',
     },
     {
       icon: Target,
       title: 'Enfoque en ROI',
-      description: 'Me centro en keywords que generan negocio real, no solo tráfico. Busco conversiones, no visitas.',
+      description:
+        'Me centro en keywords que generan negocio real, no solo tráfico. Busco conversiones, no visitas.',
     },
     {
       icon: Shield,
       title: 'SEO White Hat',
-      description: 'Solo técnicas éticas y seguras. Sin atajos ni trucos que puedan penalizar tu web.',
+      description:
+        'Solo técnicas éticas y seguras. Sin atajos ni trucos que puedan penalizar tu web.',
     },
     {
       icon: Headphones,
       title: 'Comunicación Transparente',
-      description: 'Informes claros mensuales. Siempre sabrás qué estoy haciendo y qué resultados estamos consiguiendo.',
+      description:
+        'Informes claros mensuales. Siempre sabrás qué estoy haciendo y qué resultados estamos consiguiendo.',
     },
     {
       icon: Zap,
       title: 'Resultados Medibles',
-      description: 'Implemento seguimiento detallado de posiciones, tráfico, leads y ventas generadas por SEO.',
+      description:
+        'Implemento seguimiento detallado de posiciones, tráfico, leads y ventas generadas por SEO.',
     },
     {
       icon: Users,
       title: 'Atención Personalizada',
-      description: 'Trabajo directamente contigo sin intermediarios. Adapto la estrategia a tu negocio específico.',
+      description:
+        'Trabajo directamente contigo sin intermediarios. Adapto la estrategia a tu negocio específico.',
     },
   ];
 
@@ -271,12 +306,6 @@ const ServicioSEO = () => {
       <Portfolio />
 
       <SEOProcess title='Nuestra Metodología de Trabajo SEO' steps={process} />
-
-      <SEOTechnologies
-        title='Herramientas SEO Profesionales'
-        subtitle='Las mejores herramientas del mercado para análisis y optimización'
-        technologies={technologies}
-      />
 
       <Testimonials />
 

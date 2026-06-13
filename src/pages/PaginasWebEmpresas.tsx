@@ -15,7 +15,6 @@ import SEOProblem from '../components/SEOProblem';
 import SEOBenefits from '../components/SEOBenefits';
 import SEOFeatures from '../components/SEOFeatures';
 import SEOProcess from '../components/SEOProcess';
-import SEOTechnologies from '../components/SEOTechnologies';
 import SEOWhyMe from '../components/SEOWhyMe';
 import SEOFAQ from '../components/SEOFAQ';
 import SEOCTAFinal from '../components/SEOCTAFinal';
@@ -26,12 +25,12 @@ import Portfolio from '../components/Portfolio';
 const PaginasWebEmpresas = () => {
   useEffect(() => {
     document.title =
-      'Páginas Web para Empresas | Desarrollo Web Corporativo Profesional';
+      'Páginas Web para Empresas | Desarrollo Web Corporativo | Dani Pereira';
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
         'content',
-        'Desarrollo de páginas web corporativas para empresas en España. Soluciones profesionales que impulsan tu presencia digital y generan más oportunidades de negocio.'
+        'Desarrollo de páginas web corporativas para empresas en España. Soluciones profesionales que impulsan tu presencia digital y generan más oportunidades de negocio.',
       );
     }
   }, []);
@@ -45,12 +44,22 @@ const PaginasWebEmpresas = () => {
   };
 
   const problems = [
-    { text: 'Tu empresa no tiene presencia online o tu web actual parece poco profesional' },
-    { text: 'No generas suficientes leads cualificados desde tu web corporativa' },
+    {
+      text: 'Tu empresa no tiene presencia online o tu web actual parece poco profesional',
+    },
+    {
+      text: 'No generas suficientes leads cualificados desde tu web corporativa',
+    },
     { text: 'Tu competencia te supera con webs más modernas y efectivas' },
-    { text: 'Necesitas transmitir confianza y credibilidad a clientes potenciales' },
-    { text: 'Tu web no está preparada para negocio B2B ni captación comercial' },
-    { text: 'Quieres diferenciarte como líder en tu sector pero tu web no lo refleja' },
+    {
+      text: 'Necesitas transmitir confianza y credibilidad a clientes potenciales',
+    },
+    {
+      text: 'Tu web no está preparada para negocio B2B ni captación comercial',
+    },
+    {
+      text: 'Quieres diferenciarte como líder en tu sector pero tu web no lo refleja',
+    },
   ];
 
   const benefits = [
@@ -128,79 +137,105 @@ const PaginasWebEmpresas = () => {
   const features = [
     {
       title: 'Diseño Corporativo Profesional',
-      description: 'Diseño personalizado que refleja la identidad de tu empresa y transmite profesionalidad a clientes potenciales.',
+      description:
+        'Diseño personalizado que refleja la identidad de tu empresa y transmite profesionalidad a clientes potenciales.',
     },
     {
       title: 'Secciones Corporativas Completas',
-      description: 'Páginas de servicios, sobre nosotros, equipo, casos de éxito, certificaciones y todas las secciones necesarias.',
+      description:
+        'Páginas de servicios, sobre nosotros, equipo, casos de éxito, certificaciones y todas las secciones necesarias.',
     },
     {
       title: 'Formularios de Captación B2B',
-      description: 'Formularios estratégicos diseñados para captar leads cualificados y facilitar el contacto comercial.',
+      description:
+        'Formularios estratégicos diseñados para captar leads cualificados y facilitar el contacto comercial.',
     },
     {
       title: 'Integración con CRM',
-      description: 'Conectamos tu web con tu CRM para automatizar la gestión de leads y centralizar información de clientes.',
+      description:
+        'Conectamos tu web con tu CRM para automatizar la gestión de leads y centralizar información de clientes.',
     },
     {
       title: 'Blog Corporativo',
-      description: 'Blog integrado para compartir noticias, artículos y posicionar tu empresa como referente del sector.',
+      description:
+        'Blog integrado para compartir noticias, artículos y posicionar tu empresa como referente del sector.',
     },
     {
       title: 'Área de Recursos',
-      description: 'Zona de descargas para catálogos, fichas técnicas, whitepapers y otros recursos corporativos.',
+      description:
+        'Zona de descargas para catálogos, fichas técnicas, whitepapers y otros recursos corporativos.',
     },
     {
       title: 'Multi-idioma',
-      description: 'Web preparada para internacionalización con soporte multi-idioma si lo necesitas.',
+      description:
+        'Web preparada para internacionalización con soporte multi-idioma si lo necesitas.',
     },
     {
       title: 'SEO y Analytics Empresarial',
-      description: 'Optimización SEO avanzada e integración con Google Analytics y herramientas de seguimiento.',
+      description:
+        'Optimización SEO avanzada e integración con Google Analytics y herramientas de seguimiento.',
     },
   ];
 
   const technologies = [
     { name: 'WordPress', icon: '🔧', description: 'CMS empresarial flexible' },
-    { name: 'React', icon: '⚛️', description: 'Interfaces corporativas dinámicas' },
+    {
+      name: 'React',
+      icon: '⚛️',
+      description: 'Interfaces corporativas dinámicas',
+    },
     { name: 'HubSpot', icon: '🎯', description: 'Integración CRM' },
-    { name: 'Elementor Pro', icon: '🎨', description: 'Constructor visual avanzado' },
+    {
+      name: 'Elementor Pro',
+      icon: '🎨',
+      description: 'Constructor visual avanzado',
+    },
     { name: 'PHP', icon: '🐘', description: 'Desarrollo backend robusto' },
     { name: 'MySQL', icon: '🗄️', description: 'Base de datos empresarial' },
-    { name: 'Yoast SEO', icon: '📈', description: 'Optimización SEO corporativa' },
+    {
+      name: 'Yoast SEO',
+      icon: '📈',
+      description: 'Optimización SEO corporativa',
+    },
     { name: 'SSL', icon: '🔒', description: 'Certificados de seguridad' },
   ];
 
   const whyMeReasons = [
     {
       icon: Clock,
-      title: '+10 Años con Empresas',
-      description: 'Experiencia trabajando con empresas de diferentes sectores y tamaños, entendiendo las necesidades corporativas.',
+      title: '+12 Años con Empresas',
+      description:
+        'Experiencia trabajando con empresas de diferentes sectores y tamaños, entendiendo las necesidades corporativas.',
     },
     {
       icon: Target,
       title: 'Enfoque B2B',
-      description: 'Especializado en webs corporativas enfocadas en captación de leads cualificados y apoyo comercial.',
+      description:
+        'Especializado en webs corporativas enfocadas en captación de leads cualificados y apoyo comercial.',
     },
     {
       icon: Award,
       title: 'Resultados Medibles',
-      description: 'Implementamos sistemas de seguimiento para medir leads, conversiones y ROI de tu inversión web.',
+      description:
+        'Implementamos sistemas de seguimiento para medir leads, conversiones y ROI de tu inversión web.',
     },
     {
       icon: Shield,
       title: 'Confidencialidad Garantizada',
-      description: 'Firmamos acuerdos de confidencialidad y protegemos la información sensible de tu empresa.',
+      description:
+        'Firmamos acuerdos de confidencialidad y protegemos la información sensible de tu empresa.',
     },
     {
       icon: Headphones,
       title: 'Soporte Empresarial',
-      description: 'Atención prioritaria para empresas con respuesta rápida y canal directo de comunicación.',
+      description:
+        'Atención prioritaria para empresas con respuesta rápida y canal directo de comunicación.',
     },
     {
       icon: TrendingUp,
       title: 'Escalabilidad',
-      description: 'Webs preparadas para crecer con tu empresa, facilitando la incorporación de nuevas funcionalidades.',
+      description:
+        'Webs preparadas para crecer con tu empresa, facilitando la incorporación de nuevas funcionalidades.',
     },
   ];
 
@@ -272,12 +307,6 @@ const PaginasWebEmpresas = () => {
       <SEOProcess
         title='Cómo Desarrollamos tu Web Corporativa'
         steps={process}
-      />
-
-      <SEOTechnologies
-        title='Tecnologías Empresariales que Utilizamos'
-        subtitle='Soluciones profesionales y probadas para empresas'
-        technologies={technologies}
       />
 
       <Testimonials />

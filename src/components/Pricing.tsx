@@ -112,7 +112,7 @@ const Pricing = () => {
       originalPrice: null,
       popular: false,
       color: 'from-ink-dark to-ink-gray',
-      path: '/aplicaciones-web',
+      path: '/desarrollo-aplicaciones-web',
       features: [
         'Desarrollo iOS y Android',
         'Diseño UI/UX personalizado',
@@ -258,7 +258,7 @@ const Pricing = () => {
                 <div className='mt-auto'>
                   {/* CTA Button */}
                   <Button to={plan.path} variant='primary' fullWidth>
-                    Ver más información
+                    Más información
                     <ArrowRight className='w-4 h-4 group-hover:translate-x-1 transition-transform duration-200' />
                   </Button>
 
