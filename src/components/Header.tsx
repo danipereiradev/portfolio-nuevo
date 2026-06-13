@@ -92,7 +92,7 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
           <div className='flex items-center justify-between'>
             {/* Logo */}
             <Link to='/' className='flex items-center space-x-2'>
-              <Code2 className='w-8 h-8 text-ink-dark' />
+              <Code2 className='w-8 h-8 text-accent' />
               <span className='text-xl font-bold bg-gradient-to-r from-ink-dark to-ink-gray bg-clip-text'>
                 Dani Pereira
               </span>

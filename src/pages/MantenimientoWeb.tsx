@@ -30,7 +30,7 @@ const MantenimientoWeb = () => {
     if (metaDescription) {
       metaDescription.setAttribute(
         'content',
-        'Servicio de mantenimiento web profesional. Actualizaciones, copias de seguridad, optimización y soporte técnico continuo para tu página web.'
+        'Servicio de mantenimiento web profesional. Actualizaciones, copias de seguridad, optimización y soporte técnico continuo para tu página web.',
       );
     }
   }, []);
@@ -262,7 +262,7 @@ const MantenimientoWeb = () => {
     {
       question: '¿Cuánto cuesta el mantenimiento web mensual?',
       answer:
-        'Los planes de mantenimiento comienzan desde 50€/mes para webs básicas. El precio varía según el tamaño de tu web, tecnologías utilizadas y nivel de soporte requerido. Te ofrecemos un presupuesto personalizado sin compromiso.',
+        'Los planes de mantenimiento comienzan desde 60€/mes para webs básicas. El precio varía según el tamaño de tu web, tecnologías utilizadas y nivel de soporte requerido. Te ofrecemos un presupuesto personalizado sin compromiso.',
     },
     {
       question: '¿Qué pasa si mi web tiene un problema urgente?',
@@ -325,10 +325,7 @@ const MantenimientoWeb = () => {
         features={features}
       />
 
-      <SEOProcess
-        title='Cómo Funciona Nuestro Servicio'
-        steps={process}
-      />
+      <SEOProcess title='Cómo Funciona Nuestro Servicio' steps={process} />
 
       <SEOTechnologies
         title='Tecnologías y Herramientas que Utilizamos'

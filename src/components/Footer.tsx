@@ -90,7 +90,7 @@ const Footer = () => {
                   <Github className='w-5 h-5' />
                 </a>
                 <a
-                  href='https://www.instagram.com/danipereira.web/'
+                  href='https://www.instagram.com/disenowebdp/'
                   target='_blank'
                   rel='noopener noreferrer'
                   className='bg-accent hover:bg-accent-hover p-3 rounded-lg transition-colors duration-200'

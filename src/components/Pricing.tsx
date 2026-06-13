@@ -7,6 +7,7 @@ import {
   ShoppingCart,
   Smartphone,
   ChevronDown,
+  Settings,
 } from 'lucide-react';
 import Button from './Button';
 
@@ -28,7 +29,7 @@ const Pricing = () => {
 
   const getAdditionalInfo = (planId: string) => {
     let numRevisiones = 2;
-    if (planId === 'webpage') numRevisiones = 1;
+    if (planId === 'webpage') numRevisiones = 2;
     else if (planId === 'ecommerce') numRevisiones = 2;
     else if (planId === 'mobileapp') numRevisiones = 3;
 
@@ -84,7 +85,7 @@ const Pricing = () => {
         'Solución e-commerce completa para vender tus productos online',
       price: '1500',
       originalPrice: null,
-      popular: true,
+      popular: false,
       color: 'from-ink-dark to-ink-gray',
       path: '/tiendas-online',
       features: [
@@ -127,6 +128,33 @@ const Pricing = () => {
       deliveryTime: '8-12 semanas',
       bestFor: 'Startups, empresas innovadoras, proyectos con alta inversión',
     },
+    {
+      id: 'maintenance',
+      icon: <Settings className='w-8 h-8' />,
+      name: 'Mantenimiento Web',
+      description:
+        'Mantén tu web segura, actualizada y funcionando perfectamente',
+      price: '60',
+      priceType: '/mes',
+      originalPrice: null,
+      popular: false,
+      color: 'from-ink-dark to-ink-gray',
+      path: '/mantenimiento-web',
+      features: [
+        '2 horas de modificaciones incluidas',
+        'Actualizaciones de seguridad mensuales',
+        'Backups automáticos semanales',
+        'Monitoreo uptime 24/7',
+        'Soporte técnico prioritario',
+        'Optimización de rendimiento',
+        'Protección contra malware',
+        'Renovación certificado SSL',
+        'Informes mensuales de actividad',
+        'Gestión de dominio y hosting',
+      ],
+      deliveryTime: 'Servicio mensual',
+      bestFor: 'Negocios que ya tienen web y necesitan tranquilidad',
+    },
   ];
 
   return (
@@ -148,22 +176,20 @@ const Pricing = () => {
           </p>
         </div>
 
-        <div className='grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto'>
+        <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-[1600px] mx-auto'>
           {pricingPlans.map((plan) => (
             <div
               key={plan.id}
-              className={`relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 overflow-hidden ${
-                plan.popular ? 'ring-4 ring-accent' : ''
-              }`}
+              className='relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 overflow-hidden flex flex-col'
             >
-              {/* Popular Badge */}
-              {plan.popular && (
-                <div className='absolute top-0 right-0 bg-accent text-white px-6 py-2 rounded-bl-2xl font-semibold text-sm flex items-center gap-1'>
-                  Más Popular
+              {/* Ribbon Pago Flexible - solo para planes que no sean mantenimiento */}
+              {plan.id !== 'maintenance' && (
+                <div className='absolute top-8 -left-10 bg-accent text-white px-12 py-1 transform -rotate-45 text-xs font-bold shadow-md z-10'>
+                  Pago flexible
                 </div>
               )}
 
-              <div className='p-8'>
+              <div className='p-8 flex flex-col flex-1'>
                 {/* Header */}
                 <div className='text-center mb-8'>
                   <div className='w-16 h-16 bg-white border-2 border-black rounded-xl flex items-center justify-center text-black mb-4 mx-auto transition-transform duration-200'>
@@ -187,10 +213,17 @@ const Pricing = () => {
                       <span className='text-4xl font-bold text-gray-900'>
                         €{parseInt(plan.price).toLocaleString('es-ES')}
                       </span>
+                      {plan.priceType && (
+                        <span className='text-xl text-gray-600 font-medium'>
+                          {plan.priceType}
+                        </span>
+                      )}
                     </div>
                   </div>
                   <p className='text-sm text-gray-500 mb-4'>
-                    Precio orientativo del proyecto
+                    {plan.priceType
+                      ? 'Suscripción mensual'
+                      : 'Precio orientativo del proyecto'}
                   </p>
 
                   <div className='bg-gray-50 rounded-lg p-3 mb-4'>
@@ -221,54 +254,57 @@ const Pricing = () => {
                   </ul>
                 </div>
 
-                {/* CTA Button */}
-                <Button to={plan.path} variant='primary' fullWidth>
-                  Ver más información
-                  <ArrowRight className='w-4 h-4 group-hover:translate-x-1 transition-transform duration-200' />
-                </Button>
+                {/* CTA Button + Accordion - pushed to bottom */}
+                <div className='mt-auto'>
+                  {/* CTA Button */}
+                  <Button to={plan.path} variant='primary' fullWidth>
+                    Ver más información
+                    <ArrowRight className='w-4 h-4 group-hover:translate-x-1 transition-transform duration-200' />
+                  </Button>
 
-                {/* Accordion - Revisions (only if applicable) */}
-                {getAdditionalInfo(plan.id).length > 0 && (
-                  <div className='mt-6'>
-                    <div className='space-y-2'>
-                      {getAdditionalInfo(plan.id).map((item, index) => (
-                        <div
-                          key={index}
-                          className='border border-gray-200 rounded-lg overflow-hidden'
-                        >
-                          <button
-                            onClick={() => toggleAccordion(plan.id, index)}
-                            className='w-full px-4 py-3 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors duration-200'
-                          >
-                            <span className='text-xs font-medium text-gray-700 text-left'>
-                              {item.title}
-                            </span>
-                            <ChevronDown
-                              className={`w-4 h-4 text-gray-500 transition-transform duration-200 ${
-                                openAccordion[plan.id] === index
-                                  ? 'rotate-180'
-                                  : ''
-                              }`}
-                            />
-                          </button>
+                  {/* Accordion - Revisions (only if applicable) */}
+                  {getAdditionalInfo(plan.id).length > 0 && (
+                    <div className='mt-6'>
+                      <div className='space-y-2'>
+                        {getAdditionalInfo(plan.id).map((item, index) => (
                           <div
-                            className={`overflow-hidden transition-all duration-300 ${
-                              openAccordion[plan.id] === index
-                                ? 'max-h-96'
-                                : 'max-h-0'
-                            }`}
+                            key={index}
+                            className='border border-gray-200 rounded-lg overflow-hidden'
                           >
-                            <div className='px-4 py-3 bg-white'>
-                              <p className='text-xs text-gray-600 leading-relaxed'>
-                                {item.description}
-                              </p>
+                            <button
+                              onClick={() => toggleAccordion(plan.id, index)}
+                              className='w-full px-4 py-3 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors duration-200'
+                            >
+                              <span className='text-xs font-medium text-gray-700 text-left'>
+                                {item.title}
+                              </span>
+                              <ChevronDown
+                                className={`w-4 h-4 text-gray-500 transition-transform duration-200 ${
+                                  openAccordion[plan.id] === index
+                                    ? 'rotate-180'
+                                    : ''
+                                }`}
+                              />
+                            </button>
+                            <div
+                              className={`overflow-hidden transition-all duration-300 ${
+                                openAccordion[plan.id] === index
+                                  ? 'max-h-96'
+                                  : 'max-h-0'
+                              }`}
+                            >
+                              <div className='px-4 py-3 bg-white'>
+                                <p className='text-xs text-gray-600 leading-relaxed'>
+                                  {item.description}
+                                </p>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      ))}
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
             </div>
           ))}
@@ -276,23 +312,24 @@ const Pricing = () => {
 
         {/* Bottom Section */}
         <div className='text-center mt-24'>
-          <div className='bg-black rounded-2xl shadow-2xl p-8 max-w-4xl mx-auto transform hover:scale-105 transition-all duration-300'>
-            <h3 className='text-2xl md:text-3xl font-bold text-white mb-4'>
+          <div className='bg-white border-2 border-gray-200 rounded-2xl shadow-2xl p-8 max-w-4xl mx-auto transform hover:scale-105 transition-all duration-300'>
+            <h3 className='text-2xl md:text-3xl font-bold text-black mb-4'>
               ¿Presupuesto más ajustado?
             </h3>
-            <p className='text-xl text-white mb-2 font-semibold'>
-              Tengo soluciones desde <span className='text-[120%] font-bold text-accent'>300€</span>
+            <p className='text-xl text-black mb-2 font-semibold'>
+              Tengo soluciones desde{' '}
+              <span className='text-[120%] font-bold text-accent'>300€</span>
             </p>
-            <p className='text-white/90 mb-6'>
+            <p className='text-gray-700 mb-6'>
               Landing pages sencillas, páginas de presentación o webs básicas
               ideales para empezar. Cuéntame qué necesitas y buscaremos la mejor
               opción que se ajuste a tu presupuesto.
             </p>
             <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-              <Button 
-                onClick={scrollToContact} 
+              <Button
+                onClick={scrollToContact}
                 variant='ghost'
-                className='!bg-white !text-black hover:!bg-accent hover:!text-white !shadow-lg'
+                className='!bg-black !text-white hover:!bg-accent hover:!text-white !shadow-lg'
               >
                 Consultar Opciones
               </Button>
