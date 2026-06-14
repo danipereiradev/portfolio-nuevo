@@ -5,6 +5,7 @@ import { ContactModalProvider } from './contexts/ContactModalContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
+import BackToTopButton from './components/BackToTopButton';
 import ContactFormModal from './components/ContactFormModal';
 import Home from './pages/Home';
 import DisenoWeb from './pages/DisenoWeb';
@@ -41,6 +42,8 @@ function AppContent() {
       <Footer />
 
       {isLandingPage && <WhatsAppButton />}
+
+      <BackToTopButton />
 
       <ContactFormModal />
     </div>
