@@ -4,7 +4,7 @@ import {
   Smartphone,
   ShoppingCart,
   Palette,
-  Code,
+  Settings,
   Rocket,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -50,10 +50,10 @@ const Services = () => {
       link: '/posicionamiento-web-seo',
     },
     {
-      icon: <Code className='w-8 h-8' />,
-      title: t('services.frontend.title'),
-      description: t('services.frontend.desc'),
-      link: '/contacto',
+      icon: <Settings className='w-8 h-8' />,
+      title: t('services.maintenance.title'),
+      description: t('services.maintenance.desc'),
+      link: '/mantenimiento-web',
     },
   ];
 

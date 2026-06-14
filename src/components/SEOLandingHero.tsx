@@ -20,7 +20,7 @@ const SEOLandingHero = ({
   onCTAClick,
   secondaryCTAText,
   secondaryCTAAction,
-  backgroundImage = '/boitumelo-qniDxn6-qvY-unsplash.jpg',
+  backgroundImage = '/img/hero-home.webp',
 }: SEOLandingHeroProps) => {
   return (
     <section className='relative h-[75vh] flex items-center justify-center overflow-hidden pt-20'>

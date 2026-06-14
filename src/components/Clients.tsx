@@ -33,19 +33,14 @@ const Clients = () => {
     },
   ];
 
-  // Duplico los clientes para el efecto infinito
-  const duplicatedClients = [...clients, ...clients];
-
   return (
     <section id='clients' className='py-20 text-white overflow-hidden relative'>
-      {/* Background Image */}
       <div
         className='absolute inset-0 bg-cover bg-center bg-no-repeat'
         style={{
-          backgroundImage: 'url(/mohammad-rahmani-8qEB0fTe9Vw-unsplash.jpg)',
+          backgroundImage: 'url(/img/cta-background.webp)',
         }}
       >
-        {/* Dark overlay */}
         <div className='absolute inset-0 bg-black/75'></div>
       </div>
 
@@ -62,15 +57,14 @@ const Clients = () => {
           </p>
         </div>
 
-        {/* Grid estático para móvil y tablet */}
-        <div className='lg:hidden mb-20'>
-          <div className='grid grid-cols-2 gap-4'>
+        <div className='mb-20'>
+          <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-7xl mx-auto'>
             {clients.map((client, index) => (
               <div
                 key={index}
-                className='bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center min-h-[140px] flex flex-col items-center justify-center'
+                className='bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 lg:p-6 text-center min-h-[120px] lg:min-h-[140px] flex flex-col items-center justify-center'
               >
-                <h3 className='text-lg font-bold text-white mb-2'>
+                <h3 className='text-base lg:text-lg font-bold text-white mb-2'>
                   {client.name}
                 </h3>
                 <p className='text-gray-400 text-xs'>{client.sector}</p>
@@ -79,30 +73,6 @@ const Clients = () => {
           </div>
         </div>
 
-        {/* Infinite Horizontal Scroll - Solo para laptop/desktop */}
-        <div className='hidden lg:block relative mb-20'>
-          <div className='overflow-hidden'>
-            <div className='flex animate-scroll-infinite'>
-              {duplicatedClients.map((client, index) => (
-                <div
-                  key={index}
-                  className='flex-shrink-0 w-80 mx-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center'
-                >
-                  <h3 className='text-xl font-bold text-white mb-2'>
-                    {client.name}
-                  </h3>
-                  <p className='text-gray-400 text-sm'>{client.sector}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Gradient overlays para efecto fade */}
-          <div className='absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-black/75 to-transparent pointer-events-none z-10'></div>
-          <div className='absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-black/75 to-transparent pointer-events-none z-10'></div>
-        </div>
-
-        {/* Stats */}
         <div className='grid grid-cols-2 md:grid-cols-4 gap-8'>
           {stats.map((stat, index) => (
             <div key={index} className='text-center'>

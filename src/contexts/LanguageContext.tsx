@@ -45,9 +45,9 @@ const translations = {
   'services.design.title': 'Diseño UX/UI',
   'services.design.desc':
     'Interfaces intuitivas y experiencias de usuario que convierten visitantes en clientes.',
-  'services.frontend.title': 'Desarrollo Frontend',
-  'services.frontend.desc':
-    'Código limpio, optimizado y siguiendo las mejores prácticas de desarrollo moderno.',
+  'services.maintenance.title': 'Mantenimiento Web',
+  'services.maintenance.desc':
+    'Mantén tu web segura, actualizada y funcionando perfectamente con soporte técnico continuo.',
   'services.seo.title': 'Optimización SEO',
   'services.seo.desc':
     'Posicionamiento web en buscadores para aumentar tu visibilidad y captar más clientes.',
