@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { ExternalLink, X, Github } from 'lucide-react';
+import { ExternalLink, X, Github, Loader2 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const Portfolio = () => {
   const { t } = useLanguage();
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
+  const [imageLoading, setImageLoading] = useState(true);
 
   const projects = [
     {
@@ -99,10 +100,16 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
 
   const openModal = (index: number) => {
     setSelectedProject(index);
+    setImageLoading(true);
   };
 
   const closeModal = () => {
     setSelectedProject(null);
+  };
+
+  const preloadImage = (imageUrl: string) => {
+    const img = new Image();
+    img.src = imageUrl;
   };
 
   return (
@@ -122,6 +129,7 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
             <div
               key={index}
               onClick={() => openModal(index)}
+              onMouseEnter={() => project.headerImage && preloadImage(project.headerImage)}
               className='cursor-pointer transform hover:-translate-y-2 transition-all duration-300'
             >
               <div className='relative overflow-hidden rounded-lg mb-4'>
@@ -129,6 +137,7 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
                   src={project.image}
                   alt={project.title}
                   className='w-full h-auto object-contain'
+                  loading='lazy'
                 />
                 <div className='absolute inset-0 bg-black/0 hover:bg-black/10 transition-all duration-300'></div>
               </div>
@@ -187,11 +196,19 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
 
               <div className='bg-white'>
                 {projects[selectedProject].headerImage && (
-                  <div className='w-full'>
+                  <div className='w-full relative'>
+                    {imageLoading && (
+                      <div className='absolute inset-0 flex items-center justify-center bg-gray-100'>
+                        <Loader2 className='w-12 h-12 text-accent animate-spin' />
+                      </div>
+                    )}
                     <img
                       src={projects[selectedProject].headerImage}
                       alt={projects[selectedProject].title}
                       className='w-full h-auto object-cover'
+                      loading='eager'
+                      onLoad={() => setImageLoading(false)}
+                      style={{ display: imageLoading ? 'none' : 'block' }}
                     />
                   </div>
                 )}
