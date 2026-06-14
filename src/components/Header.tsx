@@ -25,7 +25,6 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
 
   const scrollToSection = (sectionId: string) => {
     if (!isHomePage) {
-      // Si no estoy en home, navegar primero
       navigate('/');
       setTimeout(() => {
         document
@@ -80,12 +79,12 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
 
   return (
     <>
-      <header className='fixed w-full top-0 z-50 bg-white shadow-lg'>
-        <div className='container mx-auto px-6 py-4'>
+      <header className='fixed w-full max-w-full top-0 z-50 bg-white shadow-lg overflow-x-hidden'>
+        <div className='container mx-auto px-4 md:px-6 py-4 max-w-full'>
           <div className='flex items-center justify-between'>
-            <Link to='/' className='flex items-center space-x-2'>
-              <Code2 className='w-8 h-8 text-accent' />
-              <span className='text-xl font-bold bg-gradient-to-r from-ink-dark to-ink-gray bg-clip-text'>
+            <Link to='/' className='flex items-center gap-1.5 md:gap-2 flex-shrink-0'>
+              <Code2 className='w-7 h-7 md:w-8 md:h-8 text-accent' />
+              <span className='text-lg md:text-xl font-bold bg-gradient-to-r from-ink-dark to-ink-gray bg-clip-text whitespace-nowrap'>
                 Dani Pereira
               </span>
             </Link>
@@ -173,10 +172,10 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
               </nav>
             )}
 
-            <div className='flex items-center gap-4 md:gap-4'>
+            <div className='flex items-center gap-2 md:gap-4'>
               {showNavMenu && (
                 <button
-                  className='md:hidden'
+                  className='md:hidden p-2'
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
                 >
                   {isMenuOpen ? (

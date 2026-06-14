@@ -180,7 +180,6 @@ const Pricing = () => {
               key={plan.id}
               className='relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 overflow-hidden flex flex-col'
             >
-              {/* Ribbon Pago Flexible - solo para planes que no sean mantenimiento */}
               {plan.id !== 'maintenance' && (
                 <div className='absolute top-8 -left-10 bg-accent text-white px-12 py-1 transform -rotate-45 text-xs font-bold shadow-md z-10'>
                   Pago flexible
@@ -188,7 +187,6 @@ const Pricing = () => {
               )}
 
               <div className='p-8 flex flex-col flex-1'>
-                {/* Header */}
                 <div className='text-center mb-8'>
                   <div className='w-16 h-16 bg-white border-2 border-black rounded-xl flex items-center justify-center text-black mb-4 mx-auto transition-transform duration-200'>
                     {plan.icon}
@@ -201,7 +199,6 @@ const Pricing = () => {
                   </p>
                 </div>
 
-                {/* Pricing */}
                 <div className='text-center mb-8'>
                   <div className='flex flex-col items-center mb-2'>
                     <span className='text-lg text-gray-600 font-medium mb-1'>
@@ -237,7 +234,6 @@ const Pricing = () => {
                   </div>
                 </div>
 
-                {/* Features */}
                 <div className='mb-8'>
                   <h4 className='font-semibold text-gray-900 mb-4 text-center'>
                     Todo incluido:
@@ -252,7 +248,6 @@ const Pricing = () => {
                   </ul>
                 </div>
 
-                {/* CTA Button + Accordion - pushed to bottom */}
                 <div className='mt-auto'>
                   {getAdditionalInfo(plan.id).length > 0 && (
                     <div className='mb-6'>

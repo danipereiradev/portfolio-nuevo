@@ -117,7 +117,6 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
           </p>
         </div>
 
-        {/* Grid de 3 columnas - Cards simplificadas */}
         <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto'>
           {projects.map((project, index) => (
             <div
@@ -125,7 +124,6 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
               onClick={() => openModal(index)}
               className='cursor-pointer transform hover:-translate-y-2 transition-all duration-300'
             >
-              {/* Project Image - Imagen completa */}
               <div className='relative overflow-hidden rounded-lg mb-4'>
                 <img
                   src={project.image}
@@ -135,7 +133,6 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
                 <div className='absolute inset-0 bg-black/0 hover:bg-black/10 transition-all duration-300'></div>
               </div>
 
-              {/* Solo Título */}
               <h3 className='text-xl font-bold text-gray-900 text-center'>
                 {project.title}
               </h3>
@@ -143,7 +140,6 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
           ))}
         </div>
 
-        {/* GitHub Banner */}
         <div className='mt-16 max-w-5xl mx-auto'>
           <a
             href='https://github.com/danipereiradev'
@@ -173,7 +169,6 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
           </a>
         </div>
 
-        {/* Modal */}
         {selectedProject !== null && (
           <div
             className='fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-0'
@@ -183,7 +178,6 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
               className='bg-white w-full md:w-[85vw] lg:w-[75vw] h-screen overflow-y-auto relative'
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Botón cerrar */}
               <button
                 onClick={closeModal}
                 className='fixed top-4 right-4 md:top-8 md:right-8 bg-white rounded-full p-2 md:p-3 shadow-xl hover:bg-gray-100 transition-colors duration-200 z-20'
@@ -191,9 +185,7 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
                 <X className='w-5 h-5 md:w-6 md:h-6 text-gray-700' />
               </button>
 
-              {/* Contenido tipo blog */}
               <div className='bg-white'>
-                {/* Imagen de cabecera (si existe) */}
                 {projects[selectedProject].headerImage && (
                   <div className='w-full'>
                     <img
@@ -203,16 +195,14 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
                     />
                   </div>
                 )}
-
+                
                 <div className='max-w-4xl mx-auto px-6 md:px-12 py-12 md:py-16'>
-                  {/* Título */}
                   <h3 className='text-3xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6'>
                     {projects[selectedProject].title}
                   </h3>
                   <p className='text-lg md:text-xl text-gray-600 mb-8 md:mb-12 leading-relaxed'>
                     {projects[selectedProject].description}
                   </p>
-                  {/* Descripción larga */}
                   <div className='prose prose-base md:prose-lg max-w-none mb-8 md:mb-12'>
                     {projects[selectedProject].longDescription
                       .split('\n\n')
@@ -226,7 +216,6 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
                       ))}
                   </div>
 
-                  {/* Tech Stack */}
                   <div className='mb-8 md:mb-12 pb-8 md:pb-12 border-b border-gray-200'>
                     <h4 className='text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6'>
                       Tecnologías utilizadas
@@ -243,7 +232,6 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
                     </div>
                   </div>
 
-                  {/* CTA */}
                   <div className='text-center'>
                     <a
                       href={projects[selectedProject].url}

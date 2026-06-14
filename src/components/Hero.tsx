@@ -18,14 +18,12 @@ const Hero = () => {
       id='hero'
       className='relative h-[75vh] flex items-center justify-center overflow-hidden pt-20'
     >
-      {/* Background Image */}
       <div
         className='absolute inset-0 bg-cover bg-center bg-no-repeat'
         style={{
           backgroundImage: 'url(/boitumelo-qniDxn6-qvY-unsplash.jpg)',
         }}
       >
-        {/* Dark overlay for better text readability */}
         <div className='absolute inset-0 bg-black/60'></div>
       </div>
 

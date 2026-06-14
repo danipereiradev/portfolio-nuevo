@@ -7,10 +7,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Color variables */
 :root {
-  --color-accent: #14b8a6; /* Verde turquesa (teal-500) */
-  --color-accent-hover: #0d9488; /* Verde turquesa oscuro para hover (teal-600) */
+  --color-accent: #14b8a6;
+  --color-accent-hover: #0d9488;
 }
 
 .animation-delay-2000 {
@@ -53,16 +52,19 @@
   animation-play-state: paused;
 }
 
-/* Smooth scrolling for anchor links */
 html {
   scroll-behavior: smooth;
-  font-size: 100%; /* Tamaño normal en móvil */
+  font-size: 100%;
+  overflow-x: hidden;
 }
 
-/* Reduce el tamaño de fuente solo en escritorio */
+body {
+  overflow-x: hidden;
+}
+
 @media (min-width: 768px) {
   html {
-    font-size: 80%; /* Reduce 20% solo en tablets y escritorio */
+    font-size: 80%;
   }
 }
 

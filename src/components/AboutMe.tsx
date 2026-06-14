@@ -123,7 +123,6 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
 
         <div className='p-6 overflow-y-auto max-h-[calc(90vh-80px)]'>
           <div className='space-y-8'>
-            {/* Profile Image */}
             <div className='flex justify-center mb-8'>
               <div className='w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden shadow-lg border-4 border-white'>
                 <img
@@ -134,7 +133,6 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
               </div>
             </div>
 
-            {/* Personal Story */}
             <div className='prose max-w-none'>
               <h3 className='text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center'>
                 ¡Hola! Soy Dani Pereira
@@ -167,7 +165,6 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
               </div>
             </div>
 
-            {/* Technologies Section */}
             <div className='border-t border-gray-200 pt-6'>
               <div className='flex items-center gap-2 mb-6'>
                 <Code className='w-6 h-6 text-accent' />
@@ -177,7 +174,6 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
               </div>
 
               <div className='space-y-6'>
-                {/* Lenguajes & Frameworks */}
                 <div>
                   <div className='flex items-center gap-2 mb-3'>
                     <Code className='w-5 h-5 text-gray-700' />
@@ -219,7 +215,6 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
                   </div>
                 </div>
 
-                {/* Estilos */}
                 <div>
                   <div className='flex items-center gap-2 mb-3'>
                     <Palette className='w-5 h-5 text-gray-700' />
@@ -257,7 +252,6 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
                   </div>
                 </div>
 
-                {/* Otros */}
                 <div>
                   <div className='flex items-center gap-2 mb-3'>
                     <Wrench className='w-5 h-5 text-gray-700' />
@@ -294,7 +288,6 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
               </div>
             </div>
 
-            {/* Experience Section */}
             <div className='border-t border-gray-200 pt-6'>
               <div className='flex items-center gap-2 mb-6'>
                 <Briefcase className='w-6 h-6 text-accent' />
@@ -336,7 +329,6 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
               </div>
             </div>
 
-            {/* LinkedIn Section */}
             <div className='bg-gray-50 p-6 rounded-lg border border-gray-200'>
               <h3 className='font-semibold text-gray-900 mb-3'>
                 Mi currículum completo lo encontrarás en mi LinkedIn:
