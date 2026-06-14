@@ -41,7 +41,7 @@ function AppContent() {
 
       <Footer />
 
-      {isLandingPage && <WhatsAppButton />}
+      <WhatsAppButton />
 
       <BackToTopButton />
 
