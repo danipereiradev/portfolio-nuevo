@@ -16,12 +16,12 @@ const Contacto = () => {
 
   return (
     <>
-      <section className='relative min-h-[50vh] flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-br from-gray-900 to-black'>
-        <div className='relative z-10 text-center max-w-4xl mx-auto p-4'>
-          <h1 className='text-5xl md:text-7xl font-bold text-white mb-4 leading-tight'>
+      <section className='relative h-[75vh] flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-br from-gray-900 to-black'>
+        <div className='relative z-10 text-center max-w-4xl mx-auto px-6 py-4'>
+          <h1 className='text-3xl md:text-5xl lg:text-7xl font-bold text-white mb-4 leading-tight'>
             Cuéntame sobre tu Proyecto
           </h1>
-          <p className='text-xl md:text-2xl text-white/90 mb-8 leading-relaxed'>
+          <p className='text-base md:text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed'>
             Cuéntame tu idea y te ayudaré a convertirla en realidad
           </p>
         </div>

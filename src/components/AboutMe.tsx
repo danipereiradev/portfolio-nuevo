@@ -1,5 +1,36 @@
 import React from 'react';
-import { X, User, ExternalLink, Briefcase, Calendar } from 'lucide-react';
+import {
+  X,
+  User,
+  ExternalLink,
+  Briefcase,
+  Calendar,
+  Code,
+  Palette,
+  Wrench,
+} from 'lucide-react';
+import {
+  SiJavascript,
+  SiTypescript,
+  SiHtml5,
+  SiReact,
+  SiVite,
+  SiJquery,
+  SiNextdotjs,
+  SiRedux,
+  SiSass,
+  SiTailwindcss,
+  SiChakraui,
+  SiBootstrap,
+  SiMui,
+  SiWebpack,
+  SiMongodb,
+  SiPostgresql,
+  SiFirebase,
+  SiSupabase,
+  SiDocker,
+} from 'react-icons/si';
+import { FaCss3Alt } from 'react-icons/fa';
 import { useLanguage } from '../contexts/LanguageContext';
 
 interface AboutMeProps {
@@ -94,9 +125,9 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
           <div className='space-y-8'>
             {/* Profile Image */}
             <div className='flex justify-center mb-8'>
-              <div className='w-32 h-32 rounded-full overflow-hidden shadow-lg border-4 border-white'>
+              <div className='w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden shadow-lg border-4 border-white'>
                 <img
-                  src='/dpg.webp'
+                  src='/img/portfolio/dani-pensando.png'
                   alt='Dani Pereira - Desarrollador Web'
                   className='w-full h-full object-cover'
                 />
@@ -105,6 +136,9 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
 
             {/* Personal Story */}
             <div className='prose max-w-none'>
+              <h3 className='text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center'>
+                ¡Hola! Soy Dani Pereira
+              </h3>
               <div className='text-gray-700 leading-relaxed space-y-4'>
                 <p>
                   Soy un desarrollador web autodidacta y naturalmente curioso
@@ -130,6 +164,133 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
                   mueve la misma energía que me trajo hasta aquí: aprender,
                   crear y conectar con personas a través de proyectos con alma.
                 </p>
+              </div>
+            </div>
+
+            {/* Technologies Section */}
+            <div className='border-t border-gray-200 pt-6'>
+              <div className='flex items-center gap-2 mb-6'>
+                <Code className='w-6 h-6 text-accent' />
+                <h3 className='text-2xl font-bold text-gray-900'>
+                  Tecnologías
+                </h3>
+              </div>
+
+              <div className='space-y-6'>
+                {/* Lenguajes & Frameworks */}
+                <div>
+                  <div className='flex items-center gap-2 mb-3'>
+                    <Code className='w-5 h-5 text-gray-700' />
+                    <h4 className='text-lg font-semibold text-gray-800'>
+                      Lenguajes y librerías
+                    </h4>
+                  </div>
+                  <div className='flex flex-wrap gap-3'>
+                    {[
+                      {
+                        name: 'JavaScript',
+                        icon: SiJavascript,
+                        color: '#F7DF1E',
+                      },
+                      {
+                        name: 'TypeScript',
+                        icon: SiTypescript,
+                        color: '#3178C6',
+                      },
+                      { name: 'HTML5', icon: SiHtml5, color: '#E34F26' },
+                      { name: 'CSS3', icon: FaCss3Alt, color: '#1572B6' },
+                      { name: 'React', icon: SiReact, color: '#61DAFB' },
+                      { name: 'Vite', icon: SiVite, color: '#646CFF' },
+                      { name: 'jQuery', icon: SiJquery, color: '#0769AD' },
+                      { name: 'Next.js', icon: SiNextdotjs, color: '#000000' },
+                      { name: 'Redux', icon: SiRedux, color: '#764ABC' },
+                    ].map((tech) => (
+                      <div
+                        key={tech.name}
+                        className='flex items-center gap-2 bg-white px-4 py-2 rounded-lg text-sm font-medium border border-gray-200 hover:border-accent hover:shadow-md transition-all duration-200'
+                      >
+                        <tech.icon
+                          style={{ color: tech.color }}
+                          className='w-5 h-5'
+                        />
+                        <span className='text-gray-800'>{tech.name}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Estilos */}
+                <div>
+                  <div className='flex items-center gap-2 mb-3'>
+                    <Palette className='w-5 h-5 text-gray-700' />
+                    <h4 className='text-lg font-semibold text-gray-800'>
+                      Estilos
+                    </h4>
+                  </div>
+                  <div className='flex flex-wrap gap-3'>
+                    {[
+                      { name: 'Sass', icon: SiSass, color: '#CC6699' },
+                      {
+                        name: 'Tailwind CSS',
+                        icon: SiTailwindcss,
+                        color: '#06B6D4',
+                      },
+                      { name: 'Chakra UI', icon: SiChakraui, color: '#319795' },
+                      {
+                        name: 'Bootstrap',
+                        icon: SiBootstrap,
+                        color: '#7952B3',
+                      },
+                      { name: 'Material UI', icon: SiMui, color: '#007FFF' },
+                    ].map((tech) => (
+                      <div
+                        key={tech.name}
+                        className='flex items-center gap-2 bg-white px-4 py-2 rounded-lg text-sm font-medium border border-gray-200 hover:border-accent hover:shadow-md transition-all duration-200'
+                      >
+                        <tech.icon
+                          style={{ color: tech.color }}
+                          className='w-5 h-5'
+                        />
+                        <span className='text-gray-800'>{tech.name}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Otros */}
+                <div>
+                  <div className='flex items-center gap-2 mb-3'>
+                    <Wrench className='w-5 h-5 text-gray-700' />
+                    <h4 className='text-lg font-semibold text-gray-800'>
+                      Otros
+                    </h4>
+                  </div>
+                  <div className='flex flex-wrap gap-3'>
+                    {[
+                      { name: 'Webpack', icon: SiWebpack, color: '#8DD6F9' },
+                      { name: 'MongoDB', icon: SiMongodb, color: '#47A248' },
+                      {
+                        name: 'PostgreSQL',
+                        icon: SiPostgresql,
+                        color: '#4169E1',
+                      },
+                      { name: 'Firebase', icon: SiFirebase, color: '#FFCA28' },
+                      { name: 'Supabase', icon: SiSupabase, color: '#3ECF8E' },
+                      { name: 'Docker', icon: SiDocker, color: '#2496ED' },
+                    ].map((tech) => (
+                      <div
+                        key={tech.name}
+                        className='flex items-center gap-2 bg-white px-4 py-2 rounded-lg text-sm font-medium border border-gray-200 hover:border-accent hover:shadow-md transition-all duration-200'
+                      >
+                        <tech.icon
+                          style={{ color: tech.color }}
+                          className='w-5 h-5'
+                        />
+                        <span className='text-gray-800'>{tech.name}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
 

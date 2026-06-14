@@ -23,7 +23,7 @@ const SEOLandingHero = ({
   backgroundImage = '/boitumelo-qniDxn6-qvY-unsplash.jpg',
 }: SEOLandingHeroProps) => {
   return (
-    <section className='relative min-h-screen flex items-center justify-center overflow-hidden pt-20'>
+    <section className='relative h-[75vh] flex items-center justify-center overflow-hidden pt-20'>
       {/* Background Image */}
       <div
         className='absolute inset-0 bg-cover bg-center bg-no-repeat'

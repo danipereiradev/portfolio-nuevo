@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ExternalLink, X } from 'lucide-react';
+import { ExternalLink, X, Github } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const Portfolio = () => {
@@ -141,6 +141,36 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
               </h3>
             </div>
           ))}
+        </div>
+
+        {/* GitHub Banner */}
+        <div className='mt-16 max-w-5xl mx-auto'>
+          <a
+            href='https://github.com/danipereiradev'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='block bg-gradient-to-r from-gray-900 to-black text-white rounded-2xl p-8 md:p-12 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1'
+          >
+            <div className='flex flex-col md:flex-row items-center justify-between gap-6'>
+              <div className='flex items-center gap-4'>
+                <div className='bg-white/10 p-4 rounded-xl'>
+                  <Github className='w-10 h-10 md:w-12 md:h-12' />
+                </div>
+                <div className='text-center md:text-left'>
+                  <h3 className='text-2xl md:text-3xl font-bold mb-2'>
+                    Explora mis repositorios
+                  </h3>
+                  <p className='text-white/80 text-base md:text-lg'>
+                    Proyectos desarrollados en React, Angular y JavaScript Vanilla
+                  </p>
+                </div>
+              </div>
+              <div className='flex items-center gap-2 bg-white/10 hover:bg-white/20 px-6 py-3 rounded-xl transition-colors duration-200'>
+                <span className='font-semibold text-lg'>Ver en GitHub</span>
+                <ExternalLink className='w-5 h-5' />
+              </div>
+            </div>
+          </a>
         </div>
 
         {/* Modal */}
