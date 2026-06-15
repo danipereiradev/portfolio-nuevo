@@ -93,6 +93,10 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
       path: '/posicionamiento-web-seo',
     },
     {
+      name: 'Auditoría Ecommerce',
+      path: '/auditoria-ecommerce',
+    },
+    {
       name: 'Mantenimiento Web',
       path: '/mantenimiento-web',
     },

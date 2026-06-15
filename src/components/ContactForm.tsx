@@ -237,6 +237,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
         'App Móvil': 0,
         'Diseño Web': 0,
         'Posicionamiento SEO': 0,
+        'Auditoría Ecommerce': 0,
         'Mantenimiento Web': 0,
       };
       const planValue = planPrices[formData.plan] || 0;
@@ -485,6 +486,35 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                   </div>
                   <p className='text-sm text-gray-600'>
                     Solución completa para vender productos online
+                  </p>
+                </button>
+
+                <button
+                  type='button'
+                  onClick={() =>
+                    handleInputChange(
+                      'plan',
+                      'Auditoría Ecommerce'
+                    )
+                  }
+                  className={`p-5 text-left border-2 rounded-xl transition-all duration-200 ${
+                    formData.plan === 'Auditoría Ecommerce'
+                      ? 'border-accent bg-gray-50'
+                      : errors.plan
+                      ? 'border-accent'
+                      : 'border-gray-300 hover:border-gray-400'
+                  }`}
+                >
+                  <div className='flex items-start justify-between mb-2'>
+                    <h4 className='font-bold text-gray-900'>
+                      Auditoría Ecommerce
+                    </h4>
+                    {formData.plan === 'Auditoría Ecommerce' && (
+                      <Check className='w-5 h-5 text-accent' />
+                    )}
+                  </div>
+                  <p className='text-sm text-gray-600'>
+                    Revisión de tu tienda online para mejorar conversión
                   </p>
                 </button>
 

@@ -124,6 +124,14 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
+                    href='/auditoria-ecommerce'
+                    className='hover:text-white transition-colors duration-200'
+                  >
+                    Auditoría Ecommerce
+                  </a>
+                </li>
+                <li>
+                  <a
                     href='/mantenimiento-web'
                     className='hover:text-white transition-colors duration-200'
                   >
