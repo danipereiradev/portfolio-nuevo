@@ -14,6 +14,7 @@ import TiendasOnline from './pages/TiendasOnline';
 import AplicacionesWeb from './pages/AplicacionesWeb';
 import ServicioSEO from './pages/ServicioSEO';
 import MantenimientoWeb from './pages/MantenimientoWeb';
+import AuditoriaEcommerce from './pages/AuditoriaEcommerce';
 import Contacto from './pages/Contacto';
 
 function AppContent() {
@@ -36,6 +37,7 @@ function AppContent() {
         <Route path='/desarrollo-aplicaciones-web' element={<AplicacionesWeb />} />
         <Route path='/posicionamiento-web-seo' element={<ServicioSEO />} />
         <Route path='/mantenimiento-web' element={<MantenimientoWeb />} />
+        <Route path='/auditoria-ecommerce' element={<AuditoriaEcommerce />} />
         <Route path='/contacto' element={<Contacto />} />
       </Routes>
 

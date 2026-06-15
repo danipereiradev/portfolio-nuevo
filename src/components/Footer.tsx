@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import {
-  Code2,
   Mail,
   Linkedin,
   Github,
@@ -34,7 +33,12 @@ const Footer = () => {
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
             <div className='lg:col-span-1 text-center md:text-left'>
               <div className='flex items-center mb-6 justify-center md:justify-start'>
-                <Code2 className='w-12 h-12 text-accent' />
+                <span className='text-sm md:text-base whitespace-nowrap font-extrabold flex items-center gap-1' style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                  <span className='text-white font-mono text-base md:text-lg'>&gt;</span>
+                  <span className='text-white font-mono tracking-tight'>danipereiraweb</span>
+                  <span className='text-white font-mono font-normal'> .es</span>
+                  <span className='text-white font-mono text-sm md:text-base animate-pulse'>_</span>
+                </span>
               </div>
               <p className='text-gray-300 mb-6 leading-relaxed'>
                 {t('footer.description')}

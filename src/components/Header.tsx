@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X, Code2, ChevronDown, MessageCircle } from 'lucide-react';
+import { Menu, X, ChevronDown, MessageCircle } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useContactModal } from '../contexts/ContactModalContext';
@@ -82,10 +82,24 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
       <header className='fixed w-full max-w-full top-0 z-50 bg-white shadow-lg'>
         <div className='container mx-auto px-4 md:px-6 py-4 max-w-full'>
           <div className='flex items-center justify-between'>
-            <Link to='/' className='flex items-center gap-1.5 md:gap-2 flex-shrink-0'>
-              <Code2 className='w-7 h-7 md:w-8 md:h-8 text-accent' />
-              <span className='text-lg md:text-xl font-bold bg-gradient-to-r from-ink-dark to-ink-gray bg-clip-text whitespace-nowrap'>
-                Dani Pereira
+            <Link
+              to='/'
+              className='flex items-center gap-1.5 md:gap-2 flex-shrink-0'
+            >
+              <span
+                className='text-xl md:text-2xl whitespace-nowrap font-extrabold flex items-center gap-1'
+                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              >
+                <span className='text-accent font-mono text-2xl md:text-3xl'>
+                  &gt;
+                </span>
+                <span className='text-black font-mono tracking-tight'>
+                  danipereiraweb
+                </span>
+                <span className='text-accent font-mono font-normal'> .es</span>
+                <span className='text-accent font-mono text-xl md:text-2xl animate-pulse'>
+                  _
+                </span>
               </span>
             </Link>
 
@@ -185,7 +199,7 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
                   )}
                 </button>
               )}
-              
+
               <a
                 href='https://wa.me/34644669828'
                 target='_blank'
@@ -241,7 +255,9 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
                         className='group block px-6 py-2 text-sm hover:bg-accent transition-colors'
                       >
                         <div className='flex items-center justify-between'>
-                          <span className='text-gray-600 group-hover:text-white transition-colors'>{service.name}</span>
+                          <span className='text-gray-600 group-hover:text-white transition-colors'>
+                            {service.name}
+                          </span>
                           {service.popular && (
                             <span className='bg-ink-gray text-white text-xs px-2 py-0.5 rounded-full'>
                               ★
