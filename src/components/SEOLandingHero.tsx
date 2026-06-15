@@ -1,4 +1,4 @@
-import { ArrowRight, Phone } from 'lucide-react';
+import { ArrowRight, ChevronDown, Phone } from 'lucide-react';
 import Button from './Button';
 
 interface SEOLandingHeroProps {
@@ -9,6 +9,7 @@ interface SEOLandingHeroProps {
   onCTAClick: () => void;
   secondaryCTAText?: string;
   secondaryCTAAction?: () => void;
+  secondaryCTAIcon?: 'phone' | 'chevron-down';
   backgroundImage?: string;
 }
 
@@ -20,8 +21,11 @@ const SEOLandingHero = ({
   onCTAClick,
   secondaryCTAText,
   secondaryCTAAction,
+  secondaryCTAIcon = 'phone',
   backgroundImage = '/img/hero-home.webp',
 }: SEOLandingHeroProps) => {
+  const SecondaryIcon =
+    secondaryCTAIcon === 'chevron-down' ? ChevronDown : Phone;
   return (
     <section className='relative h-[75vh] flex items-center justify-center overflow-hidden pt-20'>
       <div
@@ -62,7 +66,7 @@ const SEOLandingHero = ({
               className='sm:min-w-[240px]'
             >
               {secondaryCTAText}
-              <Phone className='w-4 h-4 md:w-5 md:h-5' />
+              <SecondaryIcon className='w-4 h-4 md:w-5 md:h-5' />
             </Button>
           )}
         </div>

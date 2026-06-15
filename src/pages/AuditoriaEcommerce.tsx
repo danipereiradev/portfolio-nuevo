@@ -281,6 +281,7 @@ const AuditoriaEcommerce = () => {
         ctaText='Solicitar auditoría'
         onCTAClick={openModal}
         secondaryCTAText='Ver planes'
+        secondaryCTAIcon='chevron-down'
         secondaryCTAAction={() => {
           const element = document.getElementById('planes');
           if (element) {
