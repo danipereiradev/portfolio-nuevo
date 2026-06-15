@@ -1,12 +1,5 @@
 import { useState } from 'react';
-import {
-  Mail,
-  Linkedin,
-  Github,
-  MapPin,
-  Phone,
-  Instagram,
-} from 'lucide-react';
+import { Mail, Linkedin, Github, MapPin, Phone, Instagram } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import LegalPages from './LegalPages';
 
@@ -33,11 +26,20 @@ const Footer = () => {
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
             <div className='lg:col-span-1 text-center md:text-left'>
               <div className='flex items-center mb-6 justify-center md:justify-start'>
-                <span className='text-sm md:text-base whitespace-nowrap font-extrabold flex items-center gap-1' style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-                  <span className='text-white font-mono text-base md:text-lg'>&gt;</span>
-                  <span className='text-white font-mono tracking-tight'>danipereiraweb</span>
+                <span
+                  className='text-sm md:text-base whitespace-nowrap font-extrabold flex items-center gap-1'
+                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                >
+                  <span className='text-white font-mono text-base md:text-lg'>
+                    &gt;
+                  </span>
+                  <span className='text-white font-mono tracking-tight'>
+                    danipereiraweb
+                  </span>
                   <span className='text-white font-mono font-normal'> .es</span>
-                  <span className='text-white font-mono text-sm md:text-base animate-pulse'>_</span>
+                  <span className='text-white font-mono text-sm md:text-base animate-pulse'>
+                    _
+                  </span>
                 </span>
               </div>
               <p className='text-gray-300 mb-6 leading-relaxed'>
@@ -67,7 +69,7 @@ const Footer = () => {
                   <Github className='w-5 h-5' />
                 </a>
                 <a
-                  href='https://www.instagram.com/disenowebdp/'
+                  href='https://www.instagram.com/danipereiraweb.es/'
                   target='_blank'
                   rel='noopener noreferrer'
                   className='bg-accent hover:bg-accent-hover p-3 rounded-lg transition-colors duration-200'
