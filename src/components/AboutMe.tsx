@@ -7,28 +7,29 @@ import {
   Calendar,
   Code,
   Palette,
-  Wrench,
+  Server,
+  ShoppingCart,
 } from 'lucide-react';
 import {
   SiJavascript,
   SiTypescript,
   SiHtml5,
   SiReact,
+  SiAstro,
   SiVite,
   SiJquery,
   SiNextdotjs,
   SiRedux,
   SiSass,
   SiTailwindcss,
-  SiChakraui,
   SiBootstrap,
-  SiMui,
   SiWebpack,
-  SiMongodb,
-  SiPostgresql,
-  SiFirebase,
-  SiSupabase,
-  SiDocker,
+  SiNodedotjs,
+  SiExpress,
+  SiWordpress,
+  SiWoocommerce,
+  SiPrestashop,
+  SiShopify,
 } from 'react-icons/si';
 import { FaCss3Alt } from 'react-icons/fa';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -178,7 +179,7 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
                   <div className='flex items-center gap-2 mb-3'>
                     <Code className='w-5 h-5 text-gray-700' />
                     <h4 className='text-lg font-semibold text-gray-800'>
-                      Lenguajes y librerías
+                      Frontend
                     </h4>
                   </div>
                   <div className='flex flex-wrap gap-3'>
@@ -196,10 +197,12 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
                       { name: 'HTML5', icon: SiHtml5, color: '#E34F26' },
                       { name: 'CSS3', icon: FaCss3Alt, color: '#1572B6' },
                       { name: 'React', icon: SiReact, color: '#61DAFB' },
-                      { name: 'Vite', icon: SiVite, color: '#646CFF' },
-                      { name: 'jQuery', icon: SiJquery, color: '#0769AD' },
+                      { name: 'Astro', icon: SiAstro, color: '#FF5D01' },
                       { name: 'Next.js', icon: SiNextdotjs, color: '#000000' },
                       { name: 'Redux', icon: SiRedux, color: '#764ABC' },
+                      { name: 'Vite', icon: SiVite, color: '#646CFF' },
+                      { name: 'Webpack', icon: SiWebpack, color: '#8DD6F9' },
+                      { name: 'jQuery', icon: SiJquery, color: '#0769AD' },
                     ].map((tech) => (
                       <div
                         key={tech.name}
@@ -230,13 +233,11 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
                         icon: SiTailwindcss,
                         color: '#06B6D4',
                       },
-                      { name: 'Chakra UI', icon: SiChakraui, color: '#319795' },
                       {
                         name: 'Bootstrap',
                         icon: SiBootstrap,
                         color: '#7952B3',
                       },
-                      { name: 'Material UI', icon: SiMui, color: '#007FFF' },
                     ].map((tech) => (
                       <div
                         key={tech.name}
@@ -254,23 +255,67 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
 
                 <div>
                   <div className='flex items-center gap-2 mb-3'>
-                    <Wrench className='w-5 h-5 text-gray-700' />
+                    <Server className='w-5 h-5 text-gray-700' />
                     <h4 className='text-lg font-semibold text-gray-800'>
-                      Otros
+                      Backend
                     </h4>
                   </div>
                   <div className='flex flex-wrap gap-3'>
                     {[
-                      { name: 'Webpack', icon: SiWebpack, color: '#8DD6F9' },
-                      { name: 'MongoDB', icon: SiMongodb, color: '#47A248' },
                       {
-                        name: 'PostgreSQL',
-                        icon: SiPostgresql,
-                        color: '#4169E1',
+                        name: 'Node.js',
+                        icon: SiNodedotjs,
+                        color: '#339933',
                       },
-                      { name: 'Firebase', icon: SiFirebase, color: '#FFCA28' },
-                      { name: 'Supabase', icon: SiSupabase, color: '#3ECF8E' },
-                      { name: 'Docker', icon: SiDocker, color: '#2496ED' },
+                      {
+                        name: 'Express.js',
+                        icon: SiExpress,
+                        color: '#000000',
+                      },
+                    ].map((tech) => (
+                      <div
+                        key={tech.name}
+                        className='flex items-center gap-2 bg-white px-4 py-2 rounded-lg text-sm font-medium border border-gray-200 hover:border-accent hover:shadow-md transition-all duration-200'
+                      >
+                        <tech.icon
+                          style={{ color: tech.color }}
+                          className='w-5 h-5'
+                        />
+                        <span className='text-gray-800'>{tech.name}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <div className='flex items-center gap-2 mb-3'>
+                    <ShoppingCart className='w-5 h-5 text-gray-700' />
+                    <h4 className='text-lg font-semibold text-gray-800'>
+                      E-commerce y CMS
+                    </h4>
+                  </div>
+                  <div className='flex flex-wrap gap-3'>
+                    {[
+                      {
+                        name: 'WordPress',
+                        icon: SiWordpress,
+                        color: '#21759B',
+                      },
+                      {
+                        name: 'WooCommerce',
+                        icon: SiWoocommerce,
+                        color: '#96588A',
+                      },
+                      {
+                        name: 'PrestaShop',
+                        icon: SiPrestashop,
+                        color: '#DF0067',
+                      },
+                      {
+                        name: 'Shopify',
+                        icon: SiShopify,
+                        color: '#7AB55C',
+                      },
                     ].map((tech) => (
                       <div
                         key={tech.name}
