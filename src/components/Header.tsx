@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown, MessageCircle } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -20,6 +20,27 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
     isOpen: boolean;
     language: 'es' | 'en';
   }>({ isOpen: false, language: 'es' });
+  const [typedText, setTypedText] = useState('');
+  const [hasTyped, setHasTyped] = useState(false);
+
+  const fullText = 'danipereiraweb .es';
+
+  useEffect(() => {
+    if (!hasTyped) {
+      let index = 0;
+      const typingInterval = setInterval(() => {
+        if (index <= fullText.length) {
+          setTypedText(fullText.slice(0, index));
+          index++;
+        } else {
+          clearInterval(typingInterval);
+          setHasTyped(true);
+        }
+      }, 80);
+
+      return () => clearInterval(typingInterval);
+    }
+  }, [hasTyped]);
 
   const isHomePage = location.pathname === '/';
 
@@ -81,30 +102,33 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
     <>
       <header className='fixed w-full max-w-full top-0 z-50 bg-white shadow-lg'>
         <div className='container mx-auto px-4 md:px-6 py-4 max-w-full'>
-          <div className='flex items-center justify-between'>
+          <div className='flex items-center justify-between relative'>
             <Link
               to='/'
               className='flex items-center gap-1.5 md:gap-2 flex-shrink-0'
+              style={{ minWidth: '280px', width: '280px' }}
             >
               <span
-                className='text-xl md:text-2xl whitespace-nowrap font-extrabold flex items-center gap-1'
+                className='text-xl md:text-2xl whitespace-nowrap font-extrabold flex items-center'
                 style={{ fontFamily: "'Space Grotesk', sans-serif" }}
               >
                 <span className='text-accent font-mono text-2xl md:text-3xl'>
                   &gt;
                 </span>
-                <span className='text-black font-mono tracking-tight'>
-                  danipereiraweb
+                <span className='text-black font-mono tracking-tight ml-1'>
+                  {hasTyped ? 'danipereiraweb' : typedText.split(' ')[0]}
                 </span>
-                <span className='text-accent font-mono font-normal'> .es</span>
-                <span className='text-accent font-mono text-xl md:text-2xl animate-pulse'>
+                <span className='text-accent font-mono font-normal'>
+                  {hasTyped ? ' .es' : (typedText.includes(' .') ? ' ' + typedText.split(' ')[1] : '')}
+                </span>
+                <span className='text-accent font-mono text-xl md:text-2xl animate-pulse ml-0'>
                   _
                 </span>
               </span>
             </Link>
 
             {showNavMenu && (
-              <nav className='hidden md:flex items-center space-x-8'>
+              <nav className='hidden md:flex items-center space-x-8 absolute left-1/2 -translate-x-1/2'>
                 <Link
                   to='/'
                   className='font-bold text-md uppercase text-black transition-colors duration-200 hover:text-accent'

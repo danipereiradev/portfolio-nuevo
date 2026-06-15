@@ -1,5 +1,6 @@
-import { Check, Star } from 'lucide-react';
+import { Check, ArrowRight } from 'lucide-react';
 import { useContactModal } from '../contexts/ContactModalContext';
+import Button from './Button';
 
 const AuditoriaPlans = () => {
   const { openModal } = useContactModal();
@@ -38,7 +39,8 @@ const AuditoriaPlans = () => {
     },
     {
       name: 'Auditoría + implementación',
-      price: 'Desde 390',
+      price: '390',
+      pricePrefix: 'Desde ',
       description:
         'Para tiendas WordPress/WooCommerce que quieren detectar problemas y aplicar mejoras.',
       features: [
@@ -54,7 +56,7 @@ const AuditoriaPlans = () => {
   ];
 
   return (
-    <section className='py-20 bg-gray-50'>
+    <section id='planes' className='py-20 bg-gray-50'>
       <div className='container mx-auto px-6'>
         <div className='text-center mb-16'>
           <h2 className='text-4xl md:text-5xl font-bold text-gray-900 mb-6'>
@@ -66,52 +68,47 @@ const AuditoriaPlans = () => {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 relative ${
-                plan.recommended
-                  ? 'ring-2 ring-accent transform md:-translate-y-4'
-                  : ''
+              className={`bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col relative ${
+                plan.recommended ? 'ring-2 ring-accent' : ''
               }`}
             >
               {plan.recommended && (
-                <div className='absolute -top-4 left-1/2 -translate-x-1/2 bg-accent text-white px-6 py-2 rounded-full text-sm font-semibold flex items-center gap-2'>
-                  <Star className='w-4 h-4 fill-current' />
-                  Recomendado
+                <div className='absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-accent to-accent-hover text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg'>
+                  DESTACADO
                 </div>
               )}
 
-              <div className='text-center mb-6'>
+              <div className='mb-6'>
                 <h3 className='text-2xl font-bold text-gray-900 mb-4'>
                   {plan.name}
                 </h3>
-                <div className='mb-4'>
+                <p className='text-gray-600 mb-6'>{plan.description}</p>
+                <div className='flex items-baseline gap-2'>
+                  {plan.pricePrefix && (
+                    <span className='text-xl text-gray-600'>{plan.pricePrefix}</span>
+                  )}
                   <span className='text-5xl font-bold text-accent'>
                     {plan.price}
                   </span>
-                  {plan.price !== 'Desde 390' && (
-                    <span className='text-xl text-gray-600'> €</span>
-                  )}
-                  {plan.price === 'Desde 390' && (
-                    <span className='text-xl text-gray-600'> €</span>
-                  )}
+                  <span className='text-xl text-gray-600'>€</span>
                 </div>
-                <p className='text-gray-600'>{plan.description}</p>
               </div>
 
-              <ul className='space-y-4 mb-8'>
+              <ul className='space-y-3 mb-8 flex-grow'>
                 {plan.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className='flex items-start gap-3'>
                     <Check className='w-5 h-5 text-accent flex-shrink-0 mt-0.5' />
-                    <span className='text-gray-700'>{feature}</span>
+                    <span className='text-gray-700 text-sm'>{feature}</span>
                   </li>
                 ))}
               </ul>
 
-              <button
-                onClick={openModal}
-                className='w-full bg-accent hover:bg-accent-hover text-white py-4 rounded-xl font-semibold transition-colors duration-200'
-              >
-                {plan.cta}
-              </button>
+              <div className='mt-auto'>
+                <Button onClick={openModal} variant='primary' fullWidth>
+                  {plan.cta}
+                  <ArrowRight className='w-4 h-4 group-hover:translate-x-1 transition-transform duration-200' />
+                </Button>
+              </div>
             </div>
           ))}
         </div>
