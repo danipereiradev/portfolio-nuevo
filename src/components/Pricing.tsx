@@ -57,7 +57,7 @@ const Pricing = () => {
       name: 'Página Web',
       description:
         'Presencia digital profesional para tu negocio o proyecto personal',
-      price: '800',
+      price: '969',
       originalPrice: null,
       popular: false,
       color: 'from-ink-dark to-ink-gray',
@@ -81,7 +81,7 @@ const Pricing = () => {
       name: 'Tienda Online',
       description:
         'Solución e-commerce completa para vender tus productos online',
-      price: '1500',
+      price: '1799',
       originalPrice: null,
       popular: false,
       color: 'from-ink-dark to-ink-gray',
@@ -106,7 +106,7 @@ const Pricing = () => {
       icon: <Smartphone className='w-8 h-8' />,
       name: 'App Móvil',
       description: 'Aplicación móvil nativa o híbrida para iOS y Android',
-      price: '3000',
+      price: '3599',
       originalPrice: null,
       popular: false,
       color: 'from-ink-dark to-ink-gray',
@@ -132,7 +132,7 @@ const Pricing = () => {
       name: 'Mantenimiento Web',
       description:
         'Mantén tu web segura, actualizada y funcionando perfectamente',
-      price: '60',
+      price: '69',
       priceType: '/mes',
       originalPrice: null,
       popular: false,
@@ -214,6 +214,7 @@ const Pricing = () => {
                         </span>
                       )}
                     </div>
+                    <span className='text-xs text-gray-400 mt-1'>IVA incluido</span>
                   </div>
                   <p className='text-sm text-gray-500 mb-4'>
                     {plan.priceType
@@ -308,7 +309,7 @@ const Pricing = () => {
             </h3>
             <p className='text-xl text-black mb-2 font-semibold'>
               Tengo soluciones desde{' '}
-              <span className='text-[120%] font-bold text-accent'>300€</span>
+              <span className='text-[120%] font-bold text-accent'>359€</span>
             </p>
             <p className='text-gray-700 mb-6'>
               Landing pages sencillas, páginas de presentación o webs básicas

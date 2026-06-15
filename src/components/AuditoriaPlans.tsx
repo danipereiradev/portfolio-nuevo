@@ -8,7 +8,7 @@ const AuditoriaPlans = () => {
   const plans = [
     {
       name: 'Mini auditoría',
-      price: '49',
+      price: '59',
       description:
         'Para detectar errores rápidos antes de lanzar campañas o invertir más en tráfico.',
       features: [
@@ -23,7 +23,7 @@ const AuditoriaPlans = () => {
     },
     {
       name: 'Auditoría ecommerce',
-      price: '149',
+      price: '179',
       description:
         'La opción recomendada para tiendas que reciben visitas pero no consiguen suficientes ventas.',
       features: [
@@ -39,14 +39,14 @@ const AuditoriaPlans = () => {
     },
     {
       name: 'Auditoría + implementación',
-      price: '390',
+      price: '469',
       pricePrefix: 'Desde ',
       description:
-        'Para tiendas WordPress/WooCommerce que quieren detectar problemas y aplicar mejoras.',
+        'Para tiendas WooCommerce, Shopify o PrestaShop que quieren detectar problemas y aplicar mejoras.',
       features: [
         'Todo lo incluido en la auditoría ecommerce',
         'Propuesta de mejoras técnicas/visuales',
-        'Ajustes básicos en WordPress/WooCommerce',
+        'Ajustes básicos en WooCommerce, Shopify o PrestaShop',
         'Revisión responsive',
         'Correcciones según alcance acordado',
       ],
@@ -83,14 +83,17 @@ const AuditoriaPlans = () => {
                   {plan.name}
                 </h3>
                 <p className='text-gray-600 mb-6'>{plan.description}</p>
-                <div className='flex items-baseline gap-2'>
-                  {plan.pricePrefix && (
-                    <span className='text-xl text-gray-600'>{plan.pricePrefix}</span>
-                  )}
-                  <span className='text-5xl font-bold text-accent'>
-                    {plan.price}
-                  </span>
-                  <span className='text-xl text-gray-600'>€</span>
+                <div className='flex flex-col items-start gap-1'>
+                  <div className='flex items-baseline gap-2'>
+                    {plan.pricePrefix && (
+                      <span className='text-xl text-gray-600'>{plan.pricePrefix}</span>
+                    )}
+                    <span className='text-5xl font-bold text-accent'>
+                      {plan.price}
+                    </span>
+                    <span className='text-xl text-gray-600'>€</span>
+                  </div>
+                  <span className='text-xs text-gray-400'>IVA incluido</span>
                 </div>
               </div>
 
