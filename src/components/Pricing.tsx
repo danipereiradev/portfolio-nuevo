@@ -1,67 +1,20 @@
-import { useState } from 'react';
-import {
-  Check,
-  ArrowRight,
-  Globe,
-  ShoppingCart,
-  Smartphone,
-  ChevronDown,
-  Settings,
-} from 'lucide-react';
+import { Check, ArrowRight } from 'lucide-react';
 import { useContactModal } from '../contexts/ContactModalContext';
 import Button from './Button';
 
 const Pricing = () => {
   const { openModal } = useContactModal();
-  const [openAccordion, setOpenAccordion] = useState<{
-    [key: string]: number | null;
-  }>({});
-
-  const toggleAccordion = (planId: string, index: number) => {
-    setOpenAccordion((prev) => ({
-      ...prev,
-      [planId]: prev[planId] === index ? null : index,
-    }));
-  };
-
-  const getAdditionalInfo = (planId: string) => {
-    let numRevisiones = 2;
-    if (planId === 'webpage') numRevisiones = 2;
-    else if (planId === 'ecommerce') numRevisiones = 2;
-    else if (planId === 'mobileapp') numRevisiones = 3;
-    else if (planId === 'maintenance') numRevisiones = 0;
-
-    const infoItems = [];
-
-    if (numRevisiones > 0) {
-      infoItems.push({
-        icon: '',
-        title: `Hasta ${numRevisiones} ${
-          numRevisiones === 1 ? 'revisión incluida' : 'revisiones incluidas'
-        }`,
-        description: `Entiendo que durante el desarrollo pueden surgir ajustes o cambios de perspectiva. Por eso, incluyo hasta ${numRevisiones} ${
-          numRevisiones === 1
-            ? 'ronda de revisión completa'
-            : 'rondas de revisiones completas'
-        } sin coste adicional. Esto te permite refinar el diseño, modificar contenidos o ajustar funcionalidades para lograr el resultado perfecto. Las revisiones adicionales se cotizarán por separado según la complejidad.`,
-      });
-    }
-
-    return infoItems;
-  };
 
   const pricingPlans = [
     {
       id: 'webpage',
-      icon: <Globe className='w-8 h-8' />,
       name: 'Página Web',
       description:
         'Presencia digital profesional para tu negocio o proyecto personal',
       price: '969',
-      originalPrice: null,
-      popular: false,
-      color: 'from-ink-dark to-ink-gray',
+      pricePrefix: 'Desde ',
       path: '/paginas-web-empresas',
+      deliveryTime: '2-3 semanas',
       features: [
         'Diseño responsive adaptado a móviles',
         'Hasta 6 páginas o secciones',
@@ -71,21 +24,19 @@ const Pricing = () => {
         'Certificado SSL (https seguro)',
         'Hosting primer año incluido',
         'Formación uso y gestión',
+        'Hasta 2 revisiones incluidas',
       ],
-      deliveryTime: '2-3 semanas',
-      bestFor: 'Autónomos, pequeños negocios, profesionales, portfolios',
+      recommended: false,
     },
     {
       id: 'ecommerce',
-      icon: <ShoppingCart className='w-8 h-8' />,
       name: 'Tienda Online',
       description:
         'Solución e-commerce completa para vender tus productos online',
-      price: '1799',
-      originalPrice: null,
-      popular: false,
-      color: 'from-ink-dark to-ink-gray',
+      price: '1.799',
+      pricePrefix: 'Desde ',
       path: '/tiendas-online',
+      deliveryTime: '4-6 semanas',
       features: [
         'Hasta 50 productos cargados',
         'Pasarela de pago (Stripe/Redsys)',
@@ -97,20 +48,18 @@ const Pricing = () => {
         'Optimización SEO e-commerce',
         'Integración redes sociales',
         'Formación completa incluida',
+        'Hasta 2 revisiones incluidas',
       ],
-      deliveryTime: '4-6 semanas',
-      bestFor: 'Negocios que quieren vender online, emprendedores, retailers',
+      recommended: true,
     },
     {
       id: 'mobileapp',
-      icon: <Smartphone className='w-8 h-8' />,
       name: 'App Móvil',
       description: 'Aplicación móvil nativa o híbrida para iOS y Android',
-      price: '3599',
-      originalPrice: null,
-      popular: false,
-      color: 'from-ink-dark to-ink-gray',
+      price: '3.599',
+      pricePrefix: 'Desde ',
       path: '/desarrollo-aplicaciones-web',
+      deliveryTime: '8-12 semanas',
       features: [
         'Desarrollo iOS y Android',
         'Diseño UI/UX personalizado',
@@ -122,22 +71,19 @@ const Pricing = () => {
         'Publicación en App Store y Google Play',
         'Mantenimiento 3 meses incluido',
         'Soporte técnico continuo',
+        'Hasta 3 revisiones incluidas',
       ],
-      deliveryTime: '8-12 semanas',
-      bestFor: 'Startups, empresas innovadoras, proyectos con alta inversión',
+      recommended: false,
     },
     {
       id: 'maintenance',
-      icon: <Settings className='w-8 h-8' />,
       name: 'Mantenimiento Web',
       description:
         'Mantén tu web segura, actualizada y funcionando perfectamente',
       price: '69',
-      priceType: '/mes',
-      originalPrice: null,
-      popular: false,
-      color: 'from-ink-dark to-ink-gray',
+      priceSuffix: '/mes',
       path: '/mantenimiento-web',
+      deliveryTime: 'Servicio mensual',
       features: [
         '2 horas de modificaciones incluidas',
         'Actualizaciones de seguridad mensuales',
@@ -150,23 +96,16 @@ const Pricing = () => {
         'Informes mensuales de actividad',
         'Gestión de dominio y hosting',
       ],
-      deliveryTime: 'Servicio mensual',
-      bestFor: 'Negocios que ya tienen web y necesitan tranquilidad',
+      recommended: false,
     },
   ];
 
   return (
-    <section
-      id='pricing'
-      className='py-20 bg-gradient-to-br from-gray-50 to-ink-light/20'
-    >
-      <div className='container mx-auto px-6'>
+    <section id='pricing' className='py-20 bg-gray-50'>
+      <div className='mx-auto w-full max-w-screen-2xl px-6'>
         <div className='text-center mb-16'>
-          <h2 className='text-4xl md:text-5xl font-bold text-gray-900 mb-4'>
+          <h2 className='text-4xl md:text-5xl font-bold text-gray-900 mb-6'>
             Servicios de Desarrollo Web
-            <span className='block text-2xl text-ink-gray font-normal mt-2'>
-              Elige el tipo de proyecto que necesitas
-            </span>
           </h2>
           <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
             Precios transparentes y adaptados al mercado español. Cada proyecto
@@ -174,129 +113,63 @@ const Pricing = () => {
           </p>
         </div>
 
-        <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-[1600px] mx-auto'>
+        <div className='grid md:grid-cols-2 xl:grid-cols-4 gap-8'>
           {pricingPlans.map((plan) => (
             <div
               key={plan.id}
-              className='relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 overflow-hidden flex flex-col'
+              className={`bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col relative ${
+                plan.recommended ? 'ring-2 ring-accent' : ''
+              }`}
             >
-              {plan.id !== 'maintenance' && (
-                <div className='absolute top-8 -left-10 bg-accent text-white px-12 py-1 transform -rotate-45 text-xs font-bold shadow-md z-10'>
-                  Pago flexible
+              {plan.recommended && (
+                <div className='absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-accent to-accent-hover text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg'>
+                  DESTACADO
                 </div>
               )}
 
-              <div className='p-8 flex flex-col flex-1'>
-                <div className='text-center mb-8'>
-                  <div className='w-16 h-16 bg-white border-2 border-black rounded-xl flex items-center justify-center text-black mb-4 mx-auto transition-transform duration-200'>
-                    {plan.icon}
-                  </div>
-                  <h3 className='text-2xl font-bold text-gray-900 mb-2'>
-                    {plan.name}
-                  </h3>
-                  <p className='text-gray-600 text-sm leading-relaxed'>
-                    {plan.description}
-                  </p>
-                </div>
-
-                <div className='text-center mb-8'>
-                  <div className='flex flex-col items-center mb-2'>
-                    <span className='text-lg text-gray-600 font-medium mb-1'>
-                      Desde
-                    </span>
-                    <div className='flex items-center gap-2'>
-                      <span className='text-4xl font-bold text-gray-900'>
-                        €{parseInt(plan.price).toLocaleString('es-ES')}
+              <div className='mb-6'>
+                <h3 className='text-2xl font-bold text-gray-900 mb-4'>
+                  {plan.name}
+                </h3>
+                <p className='text-gray-600 mb-6'>{plan.description}</p>
+                <div className='flex flex-col items-start gap-1'>
+                  <div className='flex items-baseline gap-2 flex-wrap'>
+                    {plan.pricePrefix && (
+                      <span className='text-xl text-gray-600'>
+                        {plan.pricePrefix}
                       </span>
-                      {plan.priceType && (
-                        <span className='text-xl text-gray-600 font-medium'>
-                          {plan.priceType}
-                        </span>
-                      )}
-                    </div>
-                    <span className='text-xs text-gray-400 mt-1'>IVA incluido</span>
+                    )}
+                    <span className='text-5xl font-bold text-accent'>
+                      {plan.price}
+                    </span>
+                    <span className='text-xl text-gray-600'>€</span>
+                    {plan.priceSuffix && (
+                      <span className='text-xl text-gray-600'>
+                        {plan.priceSuffix}
+                      </span>
+                    )}
                   </div>
-                  <p className='text-sm text-gray-500 mb-4'>
-                    {plan.priceType
-                      ? 'Suscripción mensual'
-                      : 'Precio orientativo del proyecto'}
-                  </p>
-
-                  <div className='bg-gray-50 rounded-lg p-3 mb-4'>
-                    <p className='text-sm font-semibold text-gray-700'>
-                      Tiempo de entrega: {plan.deliveryTime}
-                    </p>
-                  </div>
-
-                  <div className='bg-gray-50 rounded-lg p-3'>
-                    <p className='text-xs text-gray-800'>
-                      <strong>Ideal para:</strong> {plan.bestFor}
-                    </p>
-                  </div>
+                  <span className='text-xs text-gray-400'>IVA incluido</span>
+                  <span className='text-sm text-gray-500 mt-2'>
+                    Entrega: {plan.deliveryTime}
+                  </span>
                 </div>
+              </div>
 
-                <div className='mb-8'>
-                  <h4 className='font-semibold text-gray-900 mb-4 text-center'>
-                    Todo incluido:
-                  </h4>
-                  <ul className='space-y-3'>
-                    {plan.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className='flex items-start gap-3'>
-                        <Check className='w-5 h-5 text-green-500 mt-0.5 flex-shrink-0' />
-                        <span className='text-gray-600 text-sm'>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              <ul className='space-y-3 mb-8 flex-grow'>
+                {plan.features.map((feature, featureIndex) => (
+                  <li key={featureIndex} className='flex items-start gap-3'>
+                    <Check className='w-5 h-5 text-accent flex-shrink-0 mt-0.5' />
+                    <span className='text-gray-700 text-sm'>{feature}</span>
+                  </li>
+                ))}
+              </ul>
 
-                <div className='mt-auto'>
-                  {getAdditionalInfo(plan.id).length > 0 && (
-                    <div className='mb-6'>
-                      <div className='space-y-2'>
-                        {getAdditionalInfo(plan.id).map((item, index) => (
-                          <div
-                            key={index}
-                            className='border border-gray-200 rounded-lg overflow-hidden'
-                          >
-                            <button
-                              onClick={() => toggleAccordion(plan.id, index)}
-                              className='w-full px-4 py-3 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors duration-200'
-                            >
-                              <span className='text-xs font-medium text-gray-700 text-left'>
-                                {item.title}
-                              </span>
-                              <ChevronDown
-                                className={`w-4 h-4 text-gray-500 transition-transform duration-200 ${
-                                  openAccordion[plan.id] === index
-                                    ? 'rotate-180'
-                                    : ''
-                                }`}
-                              />
-                            </button>
-                            <div
-                              className={`overflow-hidden transition-all duration-300 ${
-                                openAccordion[plan.id] === index
-                                  ? 'max-h-96'
-                                  : 'max-h-0'
-                              }`}
-                            >
-                              <div className='px-4 py-3 bg-white'>
-                                <p className='text-xs text-gray-600 leading-relaxed'>
-                                  {item.description}
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  <Button href={plan.path} variant='primary' fullWidth>
-                    Más información
-                    <ArrowRight className='w-4 h-4 group-hover:translate-x-1 transition-transform duration-200' />
-                  </Button>
-                </div>
+              <div className='mt-auto'>
+                <Button href={plan.path} variant='primary' fullWidth>
+                  Más información
+                  <ArrowRight className='w-4 h-4 group-hover:translate-x-1 transition-transform duration-200' />
+                </Button>
               </div>
             </div>
           ))}
