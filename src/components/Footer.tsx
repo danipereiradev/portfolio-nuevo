@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Mail, Linkedin, Github, MapPin, Phone, Instagram } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import LegalPages from './LegalPages';
-import VisitCounter from './VisitCounter';
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -188,12 +187,9 @@ const Footer = () => {
         <div className='border-t border-gray-700'>
           <div className='container mx-auto px-6 py-6'>
             <div className='flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left'>
-              <div className='flex flex-col items-center md:items-start gap-1'>
-                <p className='text-gray-400 text-sm'>
-                  © {currentYear} {t('footer.copyright')}
-                </p>
-                <VisitCounter />
-              </div>
+              <p className='text-gray-400 text-sm'>
+                © {currentYear} {t('footer.copyright')}
+              </p>
               <div className='flex flex-wrap justify-center gap-4 md:gap-6 text-sm text-gray-400'>
                 <button
                   onClick={() => openLegalPage('privacy')}
