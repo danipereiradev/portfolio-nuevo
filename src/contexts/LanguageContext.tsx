@@ -59,6 +59,9 @@ const translations = {
   'portfolio.view': 'Ver Proyecto',
 
   // Proyectos específicos
+  'portfolio.core.title': 'Core Generator',
+  'portfolio.core.desc':
+    'App web para generar vídeos CORE en formato vertical, listos para TikTok, Reels y Shorts.',
   'portfolio.chicxs.title': 'Chicxsdelacalle',
   'portfolio.chicxs.desc':
     'Tienda online de moda urbana con diseño moderno y sistema de gestión de inventario completo.',

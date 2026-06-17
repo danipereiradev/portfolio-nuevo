@@ -9,6 +9,39 @@ const Portfolio = () => {
 
   const projects = [
     {
+      title: t('portfolio.core.title'),
+      description: t('portfolio.core.desc'),
+      longDescription: `CoreGenerator es una aplicación web creada como experimento de producto alrededor del trend de los vídeos "CORE" en redes sociales.
+
+La herramienta permite al usuario subir varios clips de vídeo, ordenarlos y generar automáticamente una versión final en formato vertical, lista para compartir en TikTok, Instagram Reels o YouTube Shorts. Durante el procesamiento, la app une los clips, añade una transición sonora entre cortes y superpone el texto "CORE" en el vídeo final.
+
+El objetivo del proyecto fue construir un MVP funcional en poco tiempo, validando una idea ligada a un trend real y explorando una parte más técnica del desarrollo web: el procesamiento de vídeo desde backend.
+
+Además del desarrollo de la interfaz, el proyecto incluye una API propia para gestionar la subida de archivos, procesar los vídeos con FFmpeg, generar el resultado final y eliminar los archivos temporales después del procesamiento.
+
+Este proyecto me permitió trabajar el flujo completo de una aplicación real: frontend, backend, despliegue, gestión de archivos, procesamiento multimedia, analítica y validación inicial de producto.
+
+Características técnicas: subida múltiple de vídeos, validación de archivos, procesamiento de vídeo en backend, conversión a formato vertical, unión de clips, inserción de audio de transición, inserción de texto sobre vídeo, descarga del vídeo final en MP4, limpieza de archivos temporales, API REST y control básico de errores.`,
+      image: '/img/portfolio/core.png',
+      headerImage: '/img/portfolio/mock-core.png',
+      tech: [
+        'React',
+        'Vite',
+        'TypeScript',
+        'CSS',
+        'Node.js',
+        'Express',
+        'Multer',
+        'FFmpeg',
+        'Vercel',
+        'Railway',
+        'GitHub',
+        'Google Analytics 4',
+      ],
+      category: 'Aplicación Web',
+      url: 'https://coregeneratorapp.vercel.app/',
+    },
+    {
       title: t('portfolio.camisetas.title'),
       description: t('portfolio.camisetas.desc'),
       longDescription: `Camisetas Ahora es un proyecto de e-commerce especializado en camisetas personalizadas y diseños exclusivos. El cliente necesitaba una plataforma que permitiera gestionar un catálogo amplio y cambiante de diseños.
