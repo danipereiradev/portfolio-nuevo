@@ -2,113 +2,103 @@
 
 declare global {
   interface Window {
-    trackEvent?: (eventName: string, eventParams?: Record<string, any>) => void;
+    trackEvent?: (eventName: string, eventParams?: Record<string, unknown>) => void;
   }
 }
 
-// Eventos de conversión principales
-export const trackFormSubmit = (planName: string, value?: number) => {
+const pushEvent = (
+  eventName: string,
+  eventParams: Record<string, unknown> = {},
+) => {
   if (window.trackEvent) {
-    window.trackEvent('form_submit', {
-      event_category: 'engagement',
-      event_label: 'contact_form',
-      plan_selected: planName,
-      value: value || 0,
-      currency: 'EUR',
-    });
+    window.trackEvent(eventName, eventParams);
   }
+};
+
+export const trackFormSubmit = (planName: string, value?: number) => {
+  pushEvent('form_submit', {
+    event_category: 'engagement',
+    event_label: 'contact_form',
+    plan_selected: planName,
+    value: value || 0,
+    currency: 'EUR',
+  });
 };
 
 export const trackButtonClick = (buttonName: string, location: string) => {
-  if (window.trackEvent) {
-    window.trackEvent('button_click', {
-      event_category: 'engagement',
-      event_label: buttonName,
-      location: location,
-    });
-  }
+  pushEvent('button_click', {
+    event_category: 'engagement',
+    event_label: buttonName,
+    location: location,
+  });
 };
 
 export const trackPlanView = (planName: string, planPrice: string) => {
-  if (window.trackEvent) {
-    window.trackEvent('view_item', {
-      event_category: 'ecommerce',
-      event_label: planName,
-      currency: 'EUR',
-      value: parseFloat(planPrice),
-      items: [
-        {
-          item_name: planName,
-          item_category: 'web_development',
-          price: parseFloat(planPrice),
-        },
-      ],
-    });
-  }
+  pushEvent('view_item', {
+    event_category: 'ecommerce',
+    event_label: planName,
+    currency: 'EUR',
+    value: parseFloat(planPrice),
+    items: [
+      {
+        item_name: planName,
+        item_category: 'web_development',
+        price: parseFloat(planPrice),
+      },
+    ],
+  });
 };
 
 export const trackPlanSelect = (planName: string, planPrice: string) => {
-  if (window.trackEvent) {
-    window.trackEvent('select_item', {
-      event_category: 'ecommerce',
-      event_label: planName,
-      currency: 'EUR',
-      value: parseFloat(planPrice),
-      items: [
-        {
-          item_name: planName,
-          item_category: 'web_development',
-          price: parseFloat(planPrice),
-        },
-      ],
-    });
-  }
+  pushEvent('select_item', {
+    event_category: 'ecommerce',
+    event_label: planName,
+    currency: 'EUR',
+    value: parseFloat(planPrice),
+    items: [
+      {
+        item_name: planName,
+        item_category: 'web_development',
+        price: parseFloat(planPrice),
+      },
+    ],
+  });
 };
 
 export const trackPortfolioView = (projectName: string) => {
-  if (window.trackEvent) {
-    window.trackEvent('portfolio_view', {
-      event_category: 'engagement',
-      event_label: projectName,
-    });
-  }
+  pushEvent('portfolio_view', {
+    event_category: 'engagement',
+    event_label: projectName,
+  });
 };
 
 export const trackExternalLink = (url: string, linkText: string) => {
-  if (window.trackEvent) {
-    window.trackEvent('external_link_click', {
-      event_category: 'engagement',
-      event_label: linkText,
-      url: url,
-    });
-  }
+  pushEvent('external_link_click', {
+    event_category: 'engagement',
+    event_label: linkText,
+    url: url,
+  });
 };
 
 export const trackScrollDepth = (depth: number) => {
-  if (window.trackEvent) {
-    window.trackEvent('scroll_depth', {
-      event_category: 'engagement',
-      event_label: `${depth}%`,
-      value: depth,
-    });
-  }
+  pushEvent('scroll_depth', {
+    event_category: 'engagement',
+    event_label: `${depth}%`,
+    value: depth,
+  });
 };
 
 export const trackFormStep = (stepNumber: number, stepName: string) => {
-  if (window.trackEvent) {
-    window.trackEvent('form_step', {
-      event_category: 'engagement',
-      event_label: stepName,
-      step_number: stepNumber,
-    });
-  }
+  pushEvent('form_step', {
+    event_category: 'engagement',
+    event_label: stepName,
+    step_number: stepNumber,
+  });
 };
 
 export const trackTestimonialView = (testimonialName: string) => {
-  if (window.trackEvent) {
-    window.trackEvent('testimonial_view', {
-      event_category: 'engagement',
-      event_label: testimonialName,
-    });
-  }
+  pushEvent('testimonial_view', {
+    event_category: 'engagement',
+    event_label: testimonialName,
+  });
 };
