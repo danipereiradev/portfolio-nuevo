@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import {
   Palette,
   Smartphone,
@@ -11,6 +10,7 @@ import {
   HeadphonesIcon,
 } from 'lucide-react';
 import { useContactModal } from '../contexts/ContactModalContext';
+import { usePageMeta } from '../hooks/usePageMeta';
 import { trackPhoneClick } from '../utils/analytics';
 import SEOLandingHero from '../components/SEOLandingHero';
 import SEOProblem from '../components/SEOProblem';
@@ -27,17 +27,12 @@ import Portfolio from '../components/Portfolio';
 const DisenoWeb = () => {
   const { openModal } = useContactModal();
 
-  useEffect(() => {
-    document.title =
-      'Diseño Web Profesional desde 969€ | Dani Pereira';
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        'content',
-        'Diseño web profesional desde 969€ IVA incluido. Páginas web modernas, atractivas y optimizadas que convierten visitantes en clientes. Presupuesto en menos de 24h.',
-      );
-    }
-  }, []);
+  usePageMeta({
+    title: 'Diseño Web Profesional desde 969€ | Dani Pereira',
+    description:
+      'Diseño web profesional desde 969€ IVA incluido. Páginas web modernas, atractivas y optimizadas que convierten visitantes en clientes. Presupuesto en menos de 24h.',
+    path: '/diseno-web',
+  });
 
   const callPhone = () => {
     trackPhoneClick('DisenoWebHero');
@@ -137,7 +132,7 @@ const DisenoWeb = () => {
     {
       question: '¿Cuánto cuesta el diseño de una página web profesional?',
       answer:
-        'El precio del diseño web depende de las funcionalidades que necesites. Una web corporativa básica desde 800 euros, mientras que proyectos más complejos pueden costar más. Te ofrezco un presupuesto personalizado sin compromiso adaptado a tu presupuesto.',
+        'El precio del diseño web depende de las funcionalidades que necesites. Una web profesional desde 969€ IVA incluido en pago único, con opción de pago dividido (50% al empezar y 50% al publicar) o un plan mensual desde 129€/mes durante 12 meses que incluye soporte y mantenimiento básico. Te ofrezco un presupuesto personalizado sin compromiso adaptado a tu presupuesto.',
     },
     {
       question: '¿Cuánto tiempo se tarda en diseñar y desarrollar una web?',

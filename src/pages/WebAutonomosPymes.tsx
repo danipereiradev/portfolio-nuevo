@@ -1,17 +1,19 @@
-import { useEffect } from 'react';
 import {
   Briefcase,
   Building2,
   Store,
   UserCircle,
   Check,
-  ArrowRight,
   MessageCircle,
 } from 'lucide-react';
 import { useContactModal } from '../contexts/ContactModalContext';
+import { usePageMeta } from '../hooks/usePageMeta';
 import {
   trackWhatsAppClick,
   trackPricingCtaClick,
+  trackPricingSinglePayment,
+  trackPricingSplitPayment,
+  trackPricingMonthlyPlan,
 } from '../utils/analytics';
 import SEOLandingHero from '../components/SEOLandingHero';
 import TrustBar from '../components/TrustBar';
@@ -30,17 +32,13 @@ const WHATSAPP_URL =
 const WebAutonomosPymes = () => {
   const { openModal } = useContactModal();
 
-  useEffect(() => {
-    document.title =
-      'Páginas Web para Autónomos y Pymes desde 969€ IVA incluido | Dani Pereira';
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        'content',
-        'Páginas web para autónomos y pymes desde 969€ IVA incluido. Diseño, desarrollo y publicación en 2-3 semanas, trato directo sin agencias y pago fraccionado disponible.',
-      );
-    }
-  }, []);
+  usePageMeta({
+    title:
+      'Páginas Web para Autónomos y Pymes desde 969€ IVA incluido | Dani Pereira',
+    description:
+      'Páginas web para autónomos y pymes desde 969€ IVA incluido. Diseño, desarrollo y publicación en 2-3 semanas, trato directo sin agencias y plan mensual disponible desde 129€/mes.',
+    path: '/web-autonomos-pymes',
+  });
 
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -53,6 +51,14 @@ const WebAutonomosPymes = () => {
 
   const handleQuoteRequest = () => {
     trackPricingCtaClick('Web autónomos y pymes');
+    openModal('Página Web');
+  };
+
+  const handlePaymentOptionClick = (type: 'single' | 'split' | 'monthly') => {
+    if (type === 'single') trackPricingSinglePayment('Web autónomos y pymes');
+    if (type === 'split') trackPricingSplitPayment('Web autónomos y pymes');
+    if (type === 'monthly')
+      trackPricingMonthlyPlan('Web autónomos y pymes');
     openModal('Página Web');
   };
 
@@ -171,7 +177,7 @@ const WebAutonomosPymes = () => {
     {
       question: '¿Puedo pagar en varias cuotas?',
       answer:
-        'Sí, hay opción de pago fraccionado durante 12 meses en algunos proyectos.',
+        'Sí. Además del pago único, puedes elegir un pago dividido (50% al empezar y 50% al publicar la web) o un plan mensual desde 129€/mes durante 12 meses, que incluye soporte y mantenimiento básico durante ese periodo.',
     },
     {
       question: '¿El precio incluye IVA?',
@@ -189,7 +195,7 @@ const WebAutonomosPymes = () => {
     {
       question: '¿Incluyes mantenimiento?',
       answer:
-        'El mantenimiento se puede contratar aparte desde 60€/mes o incluirse en algunos planes fraccionados.',
+        'El mantenimiento se puede contratar aparte desde 60€/mes, o venir ya incluido si eliges el plan mensual de la web (129€/mes durante 12 meses).',
     },
     {
       question: '¿Puedo pedir una tienda online?',
@@ -203,7 +209,7 @@ const WebAutonomosPymes = () => {
       <SEOLandingHero
         title='Páginas web para autónomos y pymes desde 969€ IVA incluido'
         subtitle='Diseño, desarrollo y publicación en 2-3 semanas'
-        description='Trato directo conmigo, sin agencias ni intermediarios. Pago fraccionado disponible y propuesta en menos de 24h.'
+        description='Trato directo conmigo, sin agencias ni intermediarios. Plan mensual disponible desde 129€/mes y propuesta en menos de 24h.'
         ctaText='Pedir presupuesto por WhatsApp'
         onCTAClick={() => handleWhatsApp('LandingAutonomosHero')}
         secondaryCTAText='Ver trabajos reales'
@@ -220,7 +226,7 @@ const WebAutonomosPymes = () => {
         benefits={targetAudience}
       />
 
-      {/* 4. Precio y pago fraccionado */}
+      {/* 4. Precio y formas de pago */}
       <section id='precio' className='scroll-mt-24 py-20 bg-gray-50'>
         <div className='content-container'>
           <div className='text-center mb-12'>
@@ -233,7 +239,7 @@ const WebAutonomosPymes = () => {
             </p>
           </div>
 
-          <div className='max-w-2xl mx-auto bg-white rounded-2xl shadow-2xl p-8 md:p-10 ring-2 ring-accent relative'>
+          <div className='max-w-3xl mx-auto bg-white rounded-2xl shadow-2xl p-8 md:p-10 ring-2 ring-accent relative'>
             <div className='absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-accent to-accent-hover text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg'>
               Web Profesional
             </div>
@@ -251,13 +257,10 @@ const WebAutonomosPymes = () => {
                 <span className='text-xl text-gray-600'>€</span>
               </div>
               <span className='text-xs text-gray-400'>IVA incluido</span>
-              <p className='text-sm text-gray-700 mt-2'>
-                <span className='font-semibold text-gray-900'>
-                  O desde 129€/mes
-                </span>{' '}
-                durante 12 meses
-              </p>
               <span className='text-sm text-gray-500 mt-1'>
+                Para proyectos estándar en pago único.
+              </span>
+              <span className='text-sm text-gray-500'>
                 Entrega: 2-3 semanas
               </span>
             </div>
@@ -271,27 +274,93 @@ const WebAutonomosPymes = () => {
               ))}
             </ul>
 
-            <div className='flex flex-col sm:flex-row gap-3'>
-              <Button onClick={handleQuoteRequest} variant='primary' fullWidth>
-                Quiero mi web
-                <ArrowRight className='w-4 h-4' />
-              </Button>
-              <Button
-                onClick={() => handleWhatsApp('LandingAutonomosPrecio')}
-                variant='ghost'
-                fullWidth
-                className='!bg-green-500 !text-white hover:!bg-green-600'
-              >
-                <MessageCircle className='w-4 h-4' />
-                WhatsApp
-              </Button>
+            {/* Formas de pago: pago único, dividido y plan mensual */}
+            <div className='border-t border-gray-100 pt-8'>
+              <h3 className='text-center text-sm font-bold uppercase tracking-wide text-gray-500 mb-5'>
+                Elige Cómo Pagar
+              </h3>
+              <div className='grid sm:grid-cols-3 gap-4'>
+                <div className='border border-gray-200 rounded-xl p-4 flex flex-col'>
+                  <p className='font-bold text-gray-900 mb-1'>Pago único</p>
+                  <p className='text-2xl font-bold text-accent mb-1'>969€</p>
+                  <p className='text-xs text-gray-500 mb-4 flex-grow'>
+                    IVA incluido. Pago completo al contratar el proyecto.
+                  </p>
+                  <Button
+                    onClick={() => handlePaymentOptionClick('single')}
+                    variant='ghost'
+                    fullWidth
+                    className='!text-sm'
+                  >
+                    Pedir presupuesto
+                  </Button>
+                </div>
+
+                <div className='border border-gray-200 rounded-xl p-4 flex flex-col'>
+                  <p className='font-bold text-gray-900 mb-1'>
+                    Pago dividido
+                  </p>
+                  <p className='text-2xl font-bold text-accent mb-1'>
+                    50% + 50%
+                  </p>
+                  <p className='text-xs text-gray-500 mb-4 flex-grow'>
+                    50% al empezar el proyecto y 50% al publicar la web.
+                  </p>
+                  <Button
+                    onClick={() => handlePaymentOptionClick('split')}
+                    variant='ghost'
+                    fullWidth
+                    className='!text-sm'
+                  >
+                    Pedir presupuesto
+                  </Button>
+                </div>
+
+                <div className='border-2 border-accent bg-accent/5 rounded-xl p-4 flex flex-col relative'>
+                  <span className='absolute -top-2.5 left-1/2 -translate-x-1/2 bg-accent text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full whitespace-nowrap'>
+                    OPCIÓN CÓMODA
+                  </span>
+                  <p className='font-bold text-gray-900 mb-1 mt-1'>
+                    Plan mensual
+                  </p>
+                  <p className='text-2xl font-bold text-accent mb-1'>
+                    129€/mes
+                  </p>
+                  <p className='text-xs text-gray-500 mb-4 flex-grow'>
+                    Durante 12 meses. Incluye soporte y mantenimiento básico.
+                  </p>
+                  <Button
+                    onClick={() => handlePaymentOptionClick('monthly')}
+                    variant='primary'
+                    fullWidth
+                    className='!text-sm'
+                  >
+                    Consultar plan mensual
+                  </Button>
+                </div>
+              </div>
+
+              <p className='text-center text-xs text-gray-400 mt-5'>
+                El plan mensual incluye la creación de la web, soporte y
+                mantenimiento básico durante los 12 meses. Condiciones
+                finales según alcance del proyecto.
+              </p>
             </div>
 
             <p className='text-center text-xs text-gray-400 mt-4'>
-              El pago fraccionado puede incluir soporte y mantenimiento básico
-              durante el periodo contratado. Condiciones finales según
-              proyecto.
+              Todos los precios incluyen IVA salvo que se indique lo
+              contrario.
             </p>
+
+            <div className='mt-6 text-center'>
+              <button
+                onClick={() => handleWhatsApp('LandingAutonomosPrecio')}
+                className='inline-flex items-center gap-1.5 text-sm text-green-600 font-semibold hover:underline'
+              >
+                <MessageCircle className='w-4 h-4' />O escríbeme directo por
+                WhatsApp
+              </button>
+            </div>
           </div>
         </div>
       </section>

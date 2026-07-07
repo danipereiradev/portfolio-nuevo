@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import {
   ShoppingCart,
   CreditCard,
@@ -14,6 +13,7 @@ import {
   Shield,
 } from 'lucide-react';
 import { useContactModal } from '../contexts/ContactModalContext';
+import { usePageMeta } from '../hooks/usePageMeta';
 import { trackPhoneClick } from '../utils/analytics';
 import SEOLandingHero from '../components/SEOLandingHero';
 import SEOProblem from '../components/SEOProblem';
@@ -30,17 +30,12 @@ import Portfolio from '../components/Portfolio';
 const TiendasOnline = () => {
   const { openModal } = useContactModal();
 
-  useEffect(() => {
-    document.title =
-      'Tienda Online desde 1.799€ IVA incluido | Dani Pereira';
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        'content',
-        'Crea tu tienda online profesional desde 1.799€ IVA incluido. Pasarela de pago, gestión de productos y pedidos, entrega en 4-6 semanas y pago fraccionado disponible.',
-      );
-    }
-  }, []);
+  usePageMeta({
+    title: 'Tienda Online desde 1.799€ IVA incluido | Dani Pereira',
+    description:
+      'Crea tu tienda online profesional desde 1.799€ IVA incluido. Pasarela de pago, gestión de productos y pedidos, entrega en 4-6 semanas y plan mensual disponible desde 249€/mes.',
+    path: '/tiendas-online',
+  });
 
   const callPhone = () => {
     trackPhoneClick('TiendasOnlineHero');
@@ -241,7 +236,7 @@ const TiendasOnline = () => {
     {
       question: '¿Cuánto cuesta crear una tienda online?',
       answer:
-        'Una tienda online profesional desde 1.799€ IVA incluido, con diseño personalizado, hasta 50 productos cargados, pasarela de pago, sistema de envíos y formación completa. El precio varía según funcionalidades específicas que necesites.',
+        'Una tienda online profesional desde 1.799€ IVA incluido en pago único, con diseño personalizado, hasta 50 productos cargados, pasarela de pago, sistema de envíos y formación completa. También puedes optar por un pago dividido (50% al empezar y 50% al publicar) o un plan mensual desde 249€/mes durante 12 meses que incluye soporte y mantenimiento básico. El precio varía según funcionalidades específicas que necesites.',
     },
     {
       question: '¿Qué plataforma recomiendan para crear una tienda online?',
@@ -276,7 +271,7 @@ const TiendasOnline = () => {
         title='Crear Tienda Online Profesional'
         subtitle='Vende Online con una Tienda que Convierte'
         description='Desarrollo tu tienda online completa con todo lo necesario para vender con éxito: diseño atractivo, pasarelas de pago y gestión sencilla.'
-        ctaText='Solicita presupuesto'
+        ctaText='Quiero mi tienda online'
         onCTAClick={openModal}
         secondaryCTAText='Llamar Ahora'
         secondaryCTAAction={callPhone}
@@ -316,7 +311,7 @@ const TiendasOnline = () => {
       <SEOCTAFinal
         title='¿Listo para Empezar a Vender Online?'
         subtitle='No esperes más para lanzar tu tienda online. Solicita tu presupuesto personalizado y comienza a vender en internet con éxito.'
-        buttonText='Solicita presupuesto'
+        buttonText='Recibir propuesta en 24h'
         onButtonClick={openModal}
       />
 

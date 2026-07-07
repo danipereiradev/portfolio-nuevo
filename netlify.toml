@@ -1,5 +1,16 @@
 [[redirects]]
+  from = "/landing-express"
+  to = "/web-autonomos-pymes"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/tienda-online"
+  to = "/tiendas-online"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-

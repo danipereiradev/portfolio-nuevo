@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import {
   Building2,
   Users,
@@ -11,6 +10,7 @@ import {
   Award,
 } from 'lucide-react';
 import { useContactModal } from '../contexts/ContactModalContext';
+import { usePageMeta } from '../hooks/usePageMeta';
 import { trackPhoneClick } from '../utils/analytics';
 import SEOLandingHero from '../components/SEOLandingHero';
 import SEOProblem from '../components/SEOProblem';
@@ -27,17 +27,12 @@ import Portfolio from '../components/Portfolio';
 const PaginasWebEmpresas = () => {
   const { openModal } = useContactModal();
 
-  useEffect(() => {
-    document.title =
-      'Páginas Web para Empresas desde 969€ | Dani Pereira';
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        'content',
-        'Desarrollo de páginas web corporativas desde 969€ IVA incluido. Entrega en 2-3 semanas, trato directo sin agencias y pago fraccionado disponible.',
-      );
-    }
-  }, []);
+  usePageMeta({
+    title: 'Páginas Web para Empresas desde 969€ | Dani Pereira',
+    description:
+      'Desarrollo de páginas web corporativas desde 969€ IVA incluido. Entrega en 2-3 semanas, trato directo sin agencias y plan mensual disponible desde 129€/mes.',
+    path: '/paginas-web-empresas',
+  });
 
   const callPhone = () => {
     trackPhoneClick('PaginasWebEmpresasHero');
@@ -265,7 +260,7 @@ const PaginasWebEmpresas = () => {
     {
       question: '¿Cuánto cuesta una página web para empresa?',
       answer:
-        'El precio de una web corporativa depende del alcance del proyecto. Páginas web corporativas desde 800 euros para proyectos estándar. Te proporciono un presupuesto detallado y transparente adaptado a las necesidades de tu empresa.',
+        'El precio de una web corporativa depende del alcance del proyecto. Páginas web corporativas desde 969€ IVA incluido en pago único para proyectos estándar. También puedes optar por un pago dividido (50% al empezar y 50% al publicar) o un plan mensual desde 129€/mes durante 12 meses que incluye soporte y mantenimiento básico. Te proporciono un presupuesto detallado y transparente adaptado a las necesidades de tu empresa.',
     },
     {
       question: '¿Qué diferencia hay entre una web corporativa y una básica?',

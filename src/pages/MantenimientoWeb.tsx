@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import {
   Shield,
   RefreshCw,
@@ -11,6 +10,7 @@ import {
   Award,
 } from 'lucide-react';
 import { useContactModal } from '../contexts/ContactModalContext';
+import { usePageMeta } from '../hooks/usePageMeta';
 import { trackPhoneClick } from '../utils/analytics';
 import SEOLandingHero from '../components/SEOLandingHero';
 import SEOProblem from '../components/SEOProblem';
@@ -26,17 +26,13 @@ import ContactForm from '../components/ContactForm';
 const MantenimientoWeb = () => {
   const { openModal } = useContactModal();
 
-  useEffect(() => {
-    document.title =
-      'Mantenimiento Web desde 60€/mes | Soporte y Actualizaciones | Dani Pereira';
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        'content',
-        'Mantenimiento web profesional desde 60€/mes. Actualizaciones de seguridad, copias de seguridad, optimización y soporte técnico prioritario para tu página web.',
-      );
-    }
-  }, []);
+  usePageMeta({
+    title:
+      'Mantenimiento Web desde 60€/mes | Soporte y Actualizaciones | Dani Pereira',
+    description:
+      'Mantenimiento web profesional desde 60€/mes. Actualizaciones de seguridad, copias de seguridad, optimización y soporte técnico prioritario para tu página web.',
+    path: '/mantenimiento-web',
+  });
 
   const callPhone = () => {
     trackPhoneClick('MantenimientoWebHero');
@@ -302,7 +298,7 @@ const MantenimientoWeb = () => {
         title='Mantenimiento Web Profesional'
         subtitle='Protege, Actualiza y Optimiza tu Sitio Web'
         description='Servicio completo de mantenimiento web: seguridad, actualizaciones, copias de seguridad y soporte técnico para que tu web funcione perfectamente 24/7.'
-        ctaText='Solicita presupuesto'
+        ctaText='Revisar mi web'
         onCTAClick={openModal}
         secondaryCTAText='Llamar Ahora'
         secondaryCTAAction={callPhone}
@@ -343,7 +339,7 @@ const MantenimientoWeb = () => {
       <SEOCTAFinal
         title='¿Listo para Olvidarte de los Problemas Técnicos?'
         subtitle='Déjame encargarme del mantenimiento de tu web mientras tú te centras en hacer crecer tu negocio. Sin permanencia, sin sorpresas.'
-        buttonText='Solicita presupuesto'
+        buttonText='Pedir presupuesto'
         onButtonClick={openModal}
       />
 

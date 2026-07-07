@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import {
   ShoppingCart,
   TrendingDown,
@@ -31,6 +30,7 @@ import {
   Send,
 } from 'lucide-react';
 import { useContactModal } from '../contexts/ContactModalContext';
+import { usePageMeta } from '../hooks/usePageMeta';
 import SEOLandingHero from '../components/SEOLandingHero';
 import SEOProblem from '../components/SEOProblem';
 import SEOFeatures from '../components/SEOFeatures';
@@ -45,17 +45,12 @@ import Testimonials from '../components/Testimonials';
 const AuditoriaEcommerce = () => {
   const { openModal } = useContactModal();
 
-  useEffect(() => {
-    document.title =
-      'Auditoría ecommerce antes de invertir en publicidad | Dani Pereira';
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        'content',
-        'Revisión de tiendas online para detectar problemas de confianza, móvil, producto, carrito y checkout antes de invertir más en Google Ads o Meta Ads.',
-      );
-    }
-  }, []);
+  usePageMeta({
+    title: 'Auditoría ecommerce antes de invertir en publicidad | Dani Pereira',
+    description:
+      'Revisión de tiendas online para detectar problemas de confianza, móvil, producto, carrito y checkout antes de invertir más en Google Ads o Meta Ads.',
+    path: '/auditoria-ecommerce',
+  });
 
   const problems = [
     {

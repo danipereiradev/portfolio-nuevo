@@ -4,7 +4,7 @@ const trustPoints = [
   { icon: Award, text: '+12 años de experiencia' },
   { icon: Tag, text: 'Web desde 969€ IVA incluido' },
   { icon: ShoppingCart, text: 'Tienda online desde 1.799€ IVA incluido' },
-  { icon: Wallet, text: 'Pago fraccionado disponible' },
+  { icon: Wallet, text: 'Plan mensual disponible' },
   { icon: Clock, text: 'Entrega en 2-3 semanas' },
   { icon: Send, text: 'Propuesta en menos de 24h' },
   { icon: MapPin, text: 'Clientes en toda España' },

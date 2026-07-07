@@ -70,9 +70,19 @@ const LandingHeader = () => {
             )}
           </button>
 
+          {/* CTA destacado del header: visible con texto en escritorio */}
           <button
             onClick={handleWhatsApp}
-            className='p-2 rounded-lg bg-green-500 hover:bg-green-600 transition-colors duration-200'
+            className='hidden md:flex items-center gap-2 px-5 py-2.5 rounded-lg bg-green-500 hover:bg-green-600 transition-colors duration-200 text-white font-bold text-sm'
+          >
+            <MessageCircle className='w-4 h-4' />
+            Pedir presupuesto
+          </button>
+
+          {/* Versión compacta solo icono para móvil */}
+          <button
+            onClick={handleWhatsApp}
+            className='md:hidden p-2 rounded-lg bg-green-500 hover:bg-green-600 transition-colors duration-200'
             aria-label='Pedir presupuesto por WhatsApp'
           >
             <MessageCircle className='w-5 h-5 text-white' />

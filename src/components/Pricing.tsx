@@ -1,12 +1,27 @@
 import { Check, ArrowRight } from 'lucide-react';
 import { useContactModal } from '../contexts/ContactModalContext';
 import { useSectionView } from '../hooks/useSectionView';
-import { trackPricingCtaClick, trackViewPricing } from '../utils/analytics';
+import {
+  trackPricingCtaClick,
+  trackViewPricing,
+  trackPricingSinglePayment,
+  trackPricingSplitPayment,
+  trackPricingMonthlyPlan,
+} from '../utils/analytics';
 import Button from './Button';
+
+type PaymentType = 'single' | 'split' | 'monthly';
 
 const Pricing = () => {
   const { openModal } = useContactModal();
   const sectionRef = useSectionView<HTMLElement>(trackViewPricing);
+
+  const handlePaymentOptionClick = (planName: string, type: PaymentType) => {
+    if (type === 'single') trackPricingSinglePayment(planName);
+    if (type === 'split') trackPricingSplitPayment(planName);
+    if (type === 'monthly') trackPricingMonthlyPlan(planName);
+    openModal(planName);
+  };
 
   const pricingPlans = [
     {
@@ -167,12 +182,9 @@ const Pricing = () => {
                   </div>
                   <span className='text-xs text-gray-400'>IVA incluido</span>
                   {plan.monthlyPrice && (
-                    <p className='text-sm text-gray-700 mt-2'>
-                      <span className='font-semibold text-gray-900'>
-                        O desde {plan.monthlyPrice}€/mes
-                      </span>{' '}
-                      durante 12 meses
-                    </p>
+                    <span className='text-xs text-gray-500 mt-1'>
+                      Para proyectos estándar en pago único.
+                    </span>
                   )}
                   <span className='text-sm text-gray-500 mt-2'>
                     Entrega: {plan.deliveryTime}
@@ -189,24 +201,80 @@ const Pricing = () => {
                 ))}
               </ul>
 
-              <div className='mt-auto'>
-                <Button
-                  href={plan.path}
-                  onClick={() => trackPricingCtaClick(plan.name)}
-                  variant='primary'
-                  fullWidth
-                >
-                  {plan.cta}
-                  <ArrowRight className='w-4 h-4 group-hover:translate-x-1 transition-transform duration-200' />
-                </Button>
-              </div>
+              {plan.monthlyPrice ? (
+                <div className='mt-auto'>
+                  <p className='text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2'>
+                    Formas de pago
+                  </p>
+                  <div className='space-y-2'>
+                    <button
+                      onClick={() =>
+                        handlePaymentOptionClick(plan.name, 'single')
+                      }
+                      className='w-full text-left rounded-lg border border-gray-200 px-4 py-2.5 hover:border-accent hover:bg-accent/5 transition-colors'
+                    >
+                      <span className='block text-sm font-semibold text-gray-900'>
+                        Pago único
+                      </span>
+                      <span className='block text-xs text-gray-500'>
+                        Desde {plan.price}€ IVA incluido
+                      </span>
+                    </button>
+                    <button
+                      onClick={() =>
+                        handlePaymentOptionClick(plan.name, 'split')
+                      }
+                      className='w-full text-left rounded-lg border border-gray-200 px-4 py-2.5 hover:border-accent hover:bg-accent/5 transition-colors'
+                    >
+                      <span className='block text-sm font-semibold text-gray-900'>
+                        Pago dividido
+                      </span>
+                      <span className='block text-xs text-gray-500'>
+                        50% al empezar y 50% al publicar
+                      </span>
+                    </button>
+                    <button
+                      onClick={() =>
+                        handlePaymentOptionClick(plan.name, 'monthly')
+                      }
+                      className='w-full text-left rounded-lg border-2 border-accent bg-accent/5 px-4 py-2.5 hover:bg-accent/10 transition-colors'
+                    >
+                      <span className='block text-sm font-semibold text-gray-900'>
+                        Plan mensual
+                      </span>
+                      <span className='block text-xs text-gray-500'>
+                        Desde {plan.monthlyPrice}€/mes durante 12 meses
+                      </span>
+                    </button>
+                  </div>
+                  <p className='text-[11px] text-gray-400 leading-snug mt-3'>
+                    El plan mensual incluye soporte y mantenimiento básico
+                    durante los 12 meses. Condiciones finales según alcance
+                    del proyecto.
+                  </p>
+                </div>
+              ) : (
+                <div className='mt-auto'>
+                  <Button
+                    href={plan.path}
+                    onClick={() => trackPricingCtaClick(plan.name)}
+                    variant='primary'
+                    fullWidth
+                  >
+                    {plan.cta}
+                    <ArrowRight className='w-4 h-4 group-hover:translate-x-1 transition-transform duration-200' />
+                  </Button>
+                </div>
+              )}
             </div>
           ))}
         </div>
 
         <p className='text-center text-xs text-gray-500 max-w-2xl mx-auto mt-6'>
-          El pago fraccionado puede incluir soporte y mantenimiento básico
-          durante el periodo contratado. Condiciones finales según proyecto.
+          Todos los precios incluyen IVA salvo que se indique lo contrario.
+          El plan mensual incluye soporte y mantenimiento básico durante el
+          periodo contratado; condiciones finales según el alcance del
+          proyecto.
         </p>
 
         <div className='text-center mt-24'>

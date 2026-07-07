@@ -1,19 +1,15 @@
-import { useEffect } from 'react';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 import { trackEmailClick, trackPhoneClick } from '../utils/analytics';
+import { usePageMeta } from '../hooks/usePageMeta';
 import ContactForm from '../components/ContactForm';
 
 const Contacto = () => {
-  useEffect(() => {
-    document.title = 'Contacto | Desarrollo Web Profesional - Dani Pereira';
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        'content',
-        'Contacta conmigo para tu proyecto web. Solicita presupuesto sin compromiso para diseño web, tienda online o aplicación web personalizada.',
-      );
-    }
-  }, []);
+  usePageMeta({
+    title: 'Contacto | Desarrollo Web Profesional - Dani Pereira',
+    description:
+      'Contacta conmigo para tu proyecto web. Solicita presupuesto sin compromiso para diseño web, tienda online o aplicación web personalizada.',
+    path: '/contacto',
+  });
 
   return (
     <>

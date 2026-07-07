@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import {
   Search,
   TrendingUp,
@@ -13,6 +12,7 @@ import {
   Users,
 } from 'lucide-react';
 import { useContactModal } from '../contexts/ContactModalContext';
+import { usePageMeta } from '../hooks/usePageMeta';
 import { trackPhoneClick } from '../utils/analytics';
 import SEOLandingHero from '../components/SEOLandingHero';
 import SEOProblem from '../components/SEOProblem';
@@ -29,17 +29,12 @@ import Portfolio from '../components/Portfolio';
 const ServicioSEO = () => {
   const { openModal } = useContactModal();
 
-  useEffect(() => {
-    document.title =
-      'Posicionamiento SEO | Optimización Web para Google | Dani Pereira';
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        'content',
-        'Servicios de posicionamiento SEO en España. Mejora tu ranking en Google, aumenta el tráfico orgánico y consigue más clientes. Consultoría SEO profesional.',
-      );
-    }
-  }, []);
+  usePageMeta({
+    title: 'Posicionamiento SEO | Optimización Web para Google | Dani Pereira',
+    description:
+      'Servicios de posicionamiento SEO en España. Mejora tu ranking en Google, aumenta el tráfico orgánico y consigue más clientes. Consultoría SEO profesional.',
+    path: '/posicionamiento-web-seo',
+  });
 
   const callPhone = () => {
     trackPhoneClick('ServicioSEOHero');
@@ -251,7 +246,7 @@ const ServicioSEO = () => {
     {
       question: '¿Cuánto cuesta un servicio de posicionamiento SEO?',
       answer:
-        'Los servicios SEO suelen ofrecerse con tarifas mensuales que varían según el alcance del proyecto. Desde consultoría puntual por proyecto hasta planes mensuales desde 500 euros. El precio depende de la competitividad del sector y objetivos.',
+        'Los servicios SEO suelen ofrecerse con tarifas mensuales que varían según el alcance del proyecto. Desde consultoría puntual por proyecto hasta planes mensuales desde 500€ IVA incluido. El precio depende de la competitividad del sector y objetivos.',
     },
     {
       question: '¿Qué diferencia hay entre SEO y SEM/Google Ads?',

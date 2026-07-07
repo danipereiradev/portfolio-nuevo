@@ -144,3 +144,26 @@ export const trackViewPortfolioSection = () => {
     event_category: 'engagement',
   });
 };
+
+// Eventos diferenciados por forma de pago en los bloques de pricing
+
+export const trackPricingSinglePayment = (planName: string) => {
+  pushEvent('click_pricing_single_payment', {
+    event_category: 'engagement',
+    event_label: planName,
+  });
+};
+
+export const trackPricingSplitPayment = (planName: string) => {
+  pushEvent('click_pricing_split_payment', {
+    event_category: 'engagement',
+    event_label: planName,
+  });
+};
+
+export const trackPricingMonthlyPlan = (planName: string) => {
+  pushEvent('click_pricing_monthly_plan', {
+    event_category: 'engagement',
+    event_label: planName,
+  });
+};

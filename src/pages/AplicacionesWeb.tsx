@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import {
   Smartphone,
   Code,
@@ -14,6 +13,7 @@ import {
   Users,
 } from 'lucide-react';
 import { useContactModal } from '../contexts/ContactModalContext';
+import { usePageMeta } from '../hooks/usePageMeta';
 import { trackPhoneClick } from '../utils/analytics';
 import SEOLandingHero from '../components/SEOLandingHero';
 import SEOProblem from '../components/SEOProblem';
@@ -30,16 +30,12 @@ import Portfolio from '../components/Portfolio';
 const AplicacionesWeb = () => {
   const { openModal } = useContactModal();
 
-  useEffect(() => {
-    document.title = 'Desarrollo de Aplicaciones Web a Medida | Dani Pereira';
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        'content',
-        'Desarrollo de aplicaciones web personalizadas para empresas. +12 años de experiencia creando soluciones a medida con las últimas tecnologías. Propuesta en menos de 24h.',
-      );
-    }
-  }, []);
+  usePageMeta({
+    title: 'Desarrollo de Aplicaciones Web a Medida | Dani Pereira',
+    description:
+      'Desarrollo de aplicaciones web personalizadas para empresas. +12 años de experiencia creando soluciones a medida con las últimas tecnologías. Propuesta en menos de 24h.',
+    path: '/desarrollo-aplicaciones-web',
+  });
 
   const callPhone = () => {
     trackPhoneClick('AplicacionesWebHero');
@@ -246,7 +242,7 @@ const AplicacionesWeb = () => {
     {
       question: '¿Cuánto cuesta desarrollar una aplicación web a medida?',
       answer:
-        'El coste de una aplicación web depende de su complejidad y funcionalidades. Proyectos sencillos desde 3000 euros, mientras que aplicaciones más complejas pueden costar más. Te proporciono un presupuesto detallado tras analizar tus necesidades específicas.',
+        'El coste de una aplicación web depende de su complejidad y funcionalidades. Proyectos desde 3.599€ IVA incluido, mientras que aplicaciones más complejas pueden costar más. Te proporciono un presupuesto detallado tras analizar tus necesidades específicas.',
     },
     {
       question: '¿Qué tecnologías utilizan para desarrollar aplicaciones web?',

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { ContactModalProvider } from './contexts/ContactModalContext';
 import Header from './components/Header';
@@ -19,6 +19,7 @@ import MantenimientoWeb from './pages/MantenimientoWeb';
 import AuditoriaEcommerce from './pages/AuditoriaEcommerce';
 import WebAutonomosPymes from './pages/WebAutonomosPymes';
 import Contacto from './pages/Contacto';
+import NotFound from './pages/NotFound';
 
 const MINIMAL_NAV_ROUTES = ['/web-autonomos-pymes'];
 
@@ -45,6 +46,19 @@ function AppContent() {
         <Route path='/auditoria-ecommerce' element={<AuditoriaEcommerce />} />
         <Route path='/web-autonomos-pymes' element={<WebAutonomosPymes />} />
         <Route path='/contacto' element={<Contacto />} />
+
+        {/* Redirecciones de URLs antiguas/duplicadas a la ruta canónica */}
+        <Route
+          path='/landing-express'
+          element={<Navigate to='/web-autonomos-pymes' replace />}
+        />
+        <Route
+          path='/tienda-online'
+          element={<Navigate to='/tiendas-online' replace />}
+        />
+
+        {/* Cualquier otra ruta no existente devuelve una 404 real */}
+        <Route path='*' element={<NotFound />} />
       </Routes>
 
       <Footer />
