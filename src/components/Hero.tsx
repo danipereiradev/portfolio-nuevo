@@ -1,22 +1,37 @@
-import { ArrowDown } from 'lucide-react';
+import { MessageCircle, Tag, Briefcase } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { useContactModal } from '../contexts/ContactModalContext';
-import { trackButtonClick } from '../utils/analytics';
+import { trackButtonClick, trackWhatsAppClick } from '../utils/analytics';
 import Button from './Button';
+
+const WHATSAPP_URL =
+  'https://wa.me/34644669828?text=Hola,%20quiero%20pedir%20presupuesto%20para%20mi%20web';
 
 const Hero = () => {
   const { t } = useLanguage();
-  const { openModal } = useContactModal();
 
-  const handleRequestQuote = () => {
-    trackButtonClick('Solicita presupuesto', 'Hero');
-    openModal();
+  const scrollToSection = (sectionId: string) => {
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleWhatsAppClick = () => {
+    trackWhatsAppClick('Hero');
+    window.open(WHATSAPP_URL, '_blank', 'noopener,noreferrer');
+  };
+
+  const handleViewPricing = () => {
+    trackButtonClick('Ver precios', 'Hero');
+    scrollToSection('pricing');
+  };
+
+  const handleViewPortfolio = () => {
+    trackButtonClick('Ver trabajos reales', 'Hero');
+    scrollToSection('portfolio');
   };
 
   return (
     <section
       id='hero'
-      className='relative h-[75vh] flex items-center justify-center overflow-hidden pt-20'
+      className='relative min-h-[75vh] flex items-center justify-center overflow-hidden pt-20 pb-10'
     >
       <div
         className='absolute inset-0 bg-cover bg-center bg-no-repeat'
@@ -32,18 +47,37 @@ const Hero = () => {
           {t('hero.title')}
         </h1>
 
-        <h2 className='text-lg md:text-2xl lg:text-3xl font-semibold text-white/90 mb-8'>
+        <p className='text-base md:text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto'>
           {t('hero.subtitle')}
-        </h2>
+        </p>
 
-        <div className='flex flex-col sm:flex-row gap-4 justify-center items-center mb-12'>
-          <Button onClick={handleRequestQuote} variant='primary'>
-            {t('hero.cta.quote')}
+        <div className='flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 justify-center items-stretch'>
+          <Button
+            onClick={handleWhatsAppClick}
+            variant='primary'
+            className='sm:min-w-[240px] !bg-green-500 hover:!bg-green-600'
+          >
+            <MessageCircle className='w-4 h-4 md:w-5 md:h-5' />
+            {t('hero.cta.whatsapp')}
           </Button>
-        </div>
 
-        <div className='animate-bounce'>
-          <ArrowDown className='w-8 h-8 text-white mx-auto' />
+          <Button
+            onClick={handleViewPricing}
+            variant='secondary'
+            className='sm:min-w-[180px]'
+          >
+            <Tag className='w-4 h-4 md:w-5 md:h-5' />
+            {t('hero.cta.pricing')}
+          </Button>
+
+          <Button
+            onClick={handleViewPortfolio}
+            variant='ghost'
+            className='sm:min-w-[180px] !bg-white/10 !text-white hover:!bg-white/20 backdrop-blur-sm'
+          >
+            <Briefcase className='w-4 h-4 md:w-5 md:h-5' />
+            {t('hero.cta.portfolio')}
+          </Button>
         </div>
       </div>
     </section>

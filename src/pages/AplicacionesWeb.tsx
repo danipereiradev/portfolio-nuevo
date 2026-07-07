@@ -14,6 +14,7 @@ import {
   Users,
 } from 'lucide-react';
 import { useContactModal } from '../contexts/ContactModalContext';
+import { trackPhoneClick } from '../utils/analytics';
 import SEOLandingHero from '../components/SEOLandingHero';
 import SEOProblem from '../components/SEOProblem';
 import SEOBenefits from '../components/SEOBenefits';
@@ -35,12 +36,13 @@ const AplicacionesWeb = () => {
     if (metaDescription) {
       metaDescription.setAttribute(
         'content',
-        'Desarrollo de aplicaciones web personalizadas para empresas. Soluciones a medida con las últimas tecnologías. Transforma tu idea en realidad.',
+        'Desarrollo de aplicaciones web personalizadas para empresas. +12 años de experiencia creando soluciones a medida con las últimas tecnologías. Propuesta en menos de 24h.',
       );
     }
   }, []);
 
   const callPhone = () => {
+    trackPhoneClick('AplicacionesWebHero');
     window.location.href = 'tel:+34644669828';
   };
 

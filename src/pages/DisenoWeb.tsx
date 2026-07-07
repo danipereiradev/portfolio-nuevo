@@ -11,6 +11,7 @@ import {
   HeadphonesIcon,
 } from 'lucide-react';
 import { useContactModal } from '../contexts/ContactModalContext';
+import { trackPhoneClick } from '../utils/analytics';
 import SEOLandingHero from '../components/SEOLandingHero';
 import SEOProblem from '../components/SEOProblem';
 import SEOBenefits from '../components/SEOBenefits';
@@ -28,17 +29,18 @@ const DisenoWeb = () => {
 
   useEffect(() => {
     document.title =
-      'Diseño Web Profesional | Páginas Web Modernas | Dani Pereira';
+      'Diseño Web Profesional desde 969€ | Dani Pereira';
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
         'content',
-        'Diseño web profesional en Madrid. Creo páginas web modernas, atractivas y optimizadas que convierten visitantes en clientes. Presupuesto gratuito.',
+        'Diseño web profesional desde 969€ IVA incluido. Páginas web modernas, atractivas y optimizadas que convierten visitantes en clientes. Presupuesto en menos de 24h.',
       );
     }
   }, []);
 
   const callPhone = () => {
+    trackPhoneClick('DisenoWebHero');
     window.location.href = 'tel:+34644669828';
   };
 
@@ -314,7 +316,7 @@ const DisenoWeb = () => {
 
       <SEOWhyMe
         title='Por Qué Trabajar Conmigo'
-        subtitle='Más de 12 años creando webs que generan resultados'
+        subtitle='+12 años de experiencia creando webs que generan resultados'
         reasons={whyMeReasons}
       />
 

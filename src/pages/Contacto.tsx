@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
+import { trackEmailClick, trackPhoneClick } from '../utils/analytics';
 import ContactForm from '../components/ContactForm';
 
 const Contacto = () => {
@@ -48,6 +49,7 @@ const Contacto = () => {
                     <h3 className='font-bold text-gray-900 mb-1'>Email</h3>
                     <a
                       href='mailto:web.danipereira@gmail.com'
+                      onClick={() => trackEmailClick('ContactoPage')}
                       className='text-gray-600 hover:text-accent transition-colors'
                     >
                       web.danipereira@gmail.com
@@ -65,6 +67,7 @@ const Contacto = () => {
                     </h3>
                     <a
                       href='tel:+34644669828'
+                      onClick={() => trackPhoneClick('ContactoPage')}
                       className='text-gray-600 hover:text-accent transition-colors'
                     >
                       +34 644 669 828
@@ -116,7 +119,7 @@ const Contacto = () => {
                     <span className='text-white text-sm font-bold'>✓</span>
                   </div>
                   <p className='text-gray-600'>
-                    Más de 12 años de experiencia en desarrollo web
+                    +12 años de experiencia en desarrollo web
                   </p>
                 </li>
                 <li className='flex items-start gap-3'>

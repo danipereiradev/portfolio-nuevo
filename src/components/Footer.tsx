@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Mail, Linkedin, Github, MapPin, Phone, Instagram } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { trackEmailClick, trackPhoneClick } from '../utils/analytics';
 import LegalPages from './LegalPages';
 
 const Footer = () => {
@@ -48,6 +49,7 @@ const Footer = () => {
               <div className='flex space-x-4 justify-center md:justify-start'>
                 <a
                   href='mailto:web.danipereira@gmail.com'
+                  onClick={() => trackEmailClick('FooterIcon')}
                   className='bg-accent hover:bg-accent-hover p-3 rounded-lg transition-colors duration-200'
                 >
                   <Mail className='w-5 h-5' />
@@ -154,6 +156,7 @@ const Footer = () => {
                     <p className='font-medium'>Email</p>
                     <a
                       href='mailto:web.danipereira@gmail.com'
+                      onClick={() => trackEmailClick('FooterList')}
                       className='hover:text-white transition-colors duration-200 break-all'
                     >
                       web.danipereira@gmail.com
@@ -166,6 +169,7 @@ const Footer = () => {
                     <p className='font-medium'>Teléfono</p>
                     <a
                       href='tel:+34644669828'
+                      onClick={() => trackPhoneClick('FooterList')}
                       className='hover:text-white transition-colors duration-200'
                     >
                       +34 644 669 828

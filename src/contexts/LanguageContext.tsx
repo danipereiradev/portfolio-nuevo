@@ -19,13 +19,16 @@ const translations = {
   'nav.contact': 'Contacto',
 
   // Hero
-  'hero.title': 'Diseño y Desarrollo Web',
-  'hero.subtitle': 'Páginas Web y Tiendas Online Profesionales',
+  'hero.title':
+    'Páginas web profesionales para autónomos y pymes desde 969€ IVA incluido',
+  'hero.subtitle':
+    'Diseño, desarrollo y puesta en marcha en 2-3 semanas. Trato directo conmigo, sin agencias ni intermediarios. Pago fraccionado disponible y propuesta en menos de 24h.',
   'hero.description':
-    '+12 años creando experiencias web que transforman negocios.',
+    '+12 años de experiencia creando experiencias web que transforman negocios.',
   'hero.features': 'Código Limpio • Diseño Moderno • Resultados Reales',
-  'hero.cta.quote': 'Solicita presupuesto',
-  'hero.cta.portfolio': 'Ver Portfolio',
+  'hero.cta.whatsapp': 'Pedir presupuesto por WhatsApp',
+  'hero.cta.pricing': 'Ver precios',
+  'hero.cta.portfolio': 'Ver trabajos reales',
 
   // Services
   'services.title': 'Servicios Profesionales',

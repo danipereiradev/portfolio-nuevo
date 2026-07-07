@@ -1,4 +1,5 @@
 import Hero from '../components/Hero';
+import TrustBar from '../components/TrustBar';
 import Services from '../components/Services';
 import Portfolio from '../components/Portfolio';
 import Clients from '../components/Clients';
@@ -11,6 +12,7 @@ const Home = () => {
   return (
     <>
       <Hero />
+      <TrustBar />
       <Services />
       <Pricing />
       <Portfolio />

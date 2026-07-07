@@ -1,20 +1,26 @@
 import { Check, ArrowRight } from 'lucide-react';
 import { useContactModal } from '../contexts/ContactModalContext';
+import { useSectionView } from '../hooks/useSectionView';
+import { trackPricingCtaClick, trackViewPricing } from '../utils/analytics';
 import Button from './Button';
 
 const Pricing = () => {
   const { openModal } = useContactModal();
+  const sectionRef = useSectionView<HTMLElement>(trackViewPricing);
 
   const pricingPlans = [
     {
       id: 'webpage',
       name: 'Página Web',
+      idealFor: 'Autónomos, marcas personales y pequeños negocios',
       description:
         'Presencia digital profesional para tu negocio o proyecto personal',
       price: '969',
       pricePrefix: 'Desde ',
+      monthlyPrice: '129',
       path: '/paginas-web-empresas',
       deliveryTime: '2-3 semanas',
+      cta: 'Quiero mi web',
       features: [
         'Diseño responsive adaptado a móviles',
         'Hasta 6 páginas o secciones',
@@ -31,12 +37,15 @@ const Pricing = () => {
     {
       id: 'ecommerce',
       name: 'Tienda Online',
+      idealFor: 'Negocios que quieren vender online y emprendedores',
       description:
         'Solución e-commerce completa para vender tus productos online',
       price: '1.799',
       pricePrefix: 'Desde ',
+      monthlyPrice: '249',
       path: '/tiendas-online',
       deliveryTime: '4-6 semanas',
+      cta: 'Quiero mi tienda online',
       features: [
         'Hasta 50 productos cargados',
         'Pasarela de pago (Stripe/Redsys)',
@@ -55,11 +64,13 @@ const Pricing = () => {
     {
       id: 'mobileapp',
       name: 'App Móvil',
+      idealFor: 'Startups y empresas que necesitan una app a medida',
       description: 'Aplicación móvil nativa o híbrida para iOS y Android',
       price: '3.599',
       pricePrefix: 'Desde ',
       path: '/desarrollo-aplicaciones-web',
       deliveryTime: '8-12 semanas',
+      cta: 'Quiero mi app',
       features: [
         'Desarrollo iOS y Android',
         'Diseño UI/UX personalizado',
@@ -78,12 +89,14 @@ const Pricing = () => {
     {
       id: 'maintenance',
       name: 'Mantenimiento Web',
+      idealFor: 'Webs ya publicadas que necesitan soporte continuo',
       description:
         'Mantén tu web segura, actualizada y funcionando perfectamente',
-      price: '69',
+      price: '60',
       priceSuffix: '/mes',
       path: '/mantenimiento-web',
       deliveryTime: 'Servicio mensual',
+      cta: 'Contratar mantenimiento',
       features: [
         '2 horas de modificaciones incluidas',
         'Actualizaciones de seguridad mensuales',
@@ -101,7 +114,7 @@ const Pricing = () => {
   ];
 
   return (
-    <section id='pricing' className='py-20 bg-gray-50'>
+    <section id='pricing' ref={sectionRef} className='py-20 bg-gray-50'>
       <div className='mx-auto w-full max-w-screen-2xl px-6'>
         <div className='text-center mb-16'>
           <h2 className='text-4xl md:text-5xl font-bold text-gray-900 mb-6'>
@@ -128,9 +141,12 @@ const Pricing = () => {
               )}
 
               <div className='mb-6'>
-                <h3 className='text-2xl font-bold text-gray-900 mb-4'>
+                <h3 className='text-2xl font-bold text-gray-900 mb-2'>
                   {plan.name}
                 </h3>
+                <p className='text-xs font-semibold text-accent uppercase tracking-wide mb-3'>
+                  Ideal para: {plan.idealFor}
+                </p>
                 <p className='text-gray-600 mb-6'>{plan.description}</p>
                 <div className='flex flex-col items-start gap-1'>
                   <div className='flex items-baseline gap-2 flex-wrap'>
@@ -150,6 +166,14 @@ const Pricing = () => {
                     )}
                   </div>
                   <span className='text-xs text-gray-400'>IVA incluido</span>
+                  {plan.monthlyPrice && (
+                    <p className='text-sm text-gray-700 mt-2'>
+                      <span className='font-semibold text-gray-900'>
+                        O desde {plan.monthlyPrice}€/mes
+                      </span>{' '}
+                      durante 12 meses
+                    </p>
+                  )}
                   <span className='text-sm text-gray-500 mt-2'>
                     Entrega: {plan.deliveryTime}
                   </span>
@@ -166,14 +190,24 @@ const Pricing = () => {
               </ul>
 
               <div className='mt-auto'>
-                <Button href={plan.path} variant='primary' fullWidth>
-                  Más información
+                <Button
+                  href={plan.path}
+                  onClick={() => trackPricingCtaClick(plan.name)}
+                  variant='primary'
+                  fullWidth
+                >
+                  {plan.cta}
                   <ArrowRight className='w-4 h-4 group-hover:translate-x-1 transition-transform duration-200' />
                 </Button>
               </div>
             </div>
           ))}
         </div>
+
+        <p className='text-center text-xs text-gray-500 max-w-2xl mx-auto mt-6'>
+          El pago fraccionado puede incluir soporte y mantenimiento básico
+          durante el periodo contratado. Condiciones finales según proyecto.
+        </p>
 
         <div className='text-center mt-24'>
           <div className='bg-white border-2 border-gray-200 rounded-2xl shadow-2xl p-8 max-w-4xl mx-auto transform hover:scale-105 transition-all duration-300'>
@@ -191,11 +225,14 @@ const Pricing = () => {
             </p>
             <div className='flex flex-col sm:flex-row gap-4 justify-center'>
               <Button
-                onClick={() => openModal()}
+                onClick={() => {
+                  trackPricingCtaClick('Presupuesto ajustado');
+                  openModal();
+                }}
                 variant='ghost'
                 className='!bg-black !text-white hover:!bg-accent hover:!text-white !shadow-lg'
               >
-                Consultar Opciones
+                Recibir propuesta en 24h
               </Button>
             </div>
           </div>

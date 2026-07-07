@@ -13,6 +13,7 @@ import {
   Users,
 } from 'lucide-react';
 import { useContactModal } from '../contexts/ContactModalContext';
+import { trackPhoneClick } from '../utils/analytics';
 import SEOLandingHero from '../components/SEOLandingHero';
 import SEOProblem from '../components/SEOProblem';
 import SEOBenefits from '../components/SEOBenefits';
@@ -41,6 +42,7 @@ const ServicioSEO = () => {
   }, []);
 
   const callPhone = () => {
+    trackPhoneClick('ServicioSEOHero');
     window.location.href = 'tel:+34644669828';
   };
 

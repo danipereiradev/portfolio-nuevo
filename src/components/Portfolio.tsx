@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import { ExternalLink, X, Github, Loader2 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useSectionView } from '../hooks/useSectionView';
+import { trackViewPortfolioSection } from '../utils/analytics';
 
 const Portfolio = () => {
   const { t } = useLanguage();
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
   const [imageLoading, setImageLoading] = useState(true);
+  const sectionRef = useSectionView<HTMLElement>(trackViewPortfolioSection);
 
   const projects = [
     {
@@ -146,7 +149,7 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
   };
 
   return (
-    <section id='portfolio' className='py-20 bg-white'>
+    <section id='portfolio' ref={sectionRef} className='py-20 bg-white'>
       <div className='container mx-auto px-6'>
         <div className='text-center mb-16'>
           <h2 className='text-4xl md:text-5xl font-bold text-gray-900 mb-4'>

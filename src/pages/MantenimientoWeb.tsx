@@ -11,6 +11,7 @@ import {
   Award,
 } from 'lucide-react';
 import { useContactModal } from '../contexts/ContactModalContext';
+import { trackPhoneClick } from '../utils/analytics';
 import SEOLandingHero from '../components/SEOLandingHero';
 import SEOProblem from '../components/SEOProblem';
 import SEOBenefits from '../components/SEOBenefits';
@@ -27,17 +28,18 @@ const MantenimientoWeb = () => {
 
   useEffect(() => {
     document.title =
-      'Mantenimiento Web Profesional | Soporte y Actualizaciones | Dani Pereira';
+      'Mantenimiento Web desde 60€/mes | Soporte y Actualizaciones | Dani Pereira';
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
         'content',
-        'Servicio de mantenimiento web profesional. Actualizaciones, copias de seguridad, optimización y soporte técnico continuo para tu página web.',
+        'Mantenimiento web profesional desde 60€/mes. Actualizaciones de seguridad, copias de seguridad, optimización y soporte técnico prioritario para tu página web.',
       );
     }
   }, []);
 
   const callPhone = () => {
+    trackPhoneClick('MantenimientoWebHero');
     window.location.href = 'tel:+34644669828';
   };
 
@@ -329,7 +331,7 @@ const MantenimientoWeb = () => {
 
       <SEOWhyMe
         title='Por Qué Elegir Mi Servicio de Mantenimiento'
-        subtitle='Más de 12 años cuidando webs como la tuya'
+        subtitle='+12 años de experiencia cuidando webs como la tuya'
         reasons={whyMeReasons}
       />
 

@@ -27,7 +27,7 @@ const SEOLandingHero = ({
   const SecondaryIcon =
     secondaryCTAIcon === 'chevron-down' ? ChevronDown : Phone;
   return (
-    <section className='relative h-[75vh] flex items-center justify-center overflow-hidden pt-20'>
+    <section className='relative min-h-[75vh] flex items-center justify-center overflow-hidden pt-20 pb-10'>
       <div
         className='absolute inset-0 bg-cover bg-center bg-no-repeat'
         style={{

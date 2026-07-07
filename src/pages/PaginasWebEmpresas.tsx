@@ -11,6 +11,7 @@ import {
   Award,
 } from 'lucide-react';
 import { useContactModal } from '../contexts/ContactModalContext';
+import { trackPhoneClick } from '../utils/analytics';
 import SEOLandingHero from '../components/SEOLandingHero';
 import SEOProblem from '../components/SEOProblem';
 import SEOBenefits from '../components/SEOBenefits';
@@ -28,17 +29,18 @@ const PaginasWebEmpresas = () => {
 
   useEffect(() => {
     document.title =
-      'Páginas Web para Empresas | Desarrollo Web Corporativo | Dani Pereira';
+      'Páginas Web para Empresas desde 969€ | Dani Pereira';
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
         'content',
-        'Desarrollo de páginas web corporativas para empresas en España. Soluciones profesionales que impulsan tu presencia digital y generan más oportunidades de negocio.',
+        'Desarrollo de páginas web corporativas desde 969€ IVA incluido. Entrega en 2-3 semanas, trato directo sin agencias y pago fraccionado disponible.',
       );
     }
   }, []);
 
   const callPhone = () => {
+    trackPhoneClick('PaginasWebEmpresasHero');
     window.location.href = 'tel:+34644669828';
   };
 

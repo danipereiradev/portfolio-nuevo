@@ -3,9 +3,11 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { ContactModalProvider } from './contexts/ContactModalContext';
 import Header from './components/Header';
+import LandingHeader from './components/LandingHeader';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
 import BackToTopButton from './components/BackToTopButton';
+import MobileStickyCTA from './components/MobileStickyCTA';
 import ContactFormModal from './components/ContactFormModal';
 import Home from './pages/Home';
 import DisenoWeb from './pages/DisenoWeb';
@@ -15,19 +17,22 @@ import AplicacionesWeb from './pages/AplicacionesWeb';
 import ServicioSEO from './pages/ServicioSEO';
 import MantenimientoWeb from './pages/MantenimientoWeb';
 import AuditoriaEcommerce from './pages/AuditoriaEcommerce';
+import WebAutonomosPymes from './pages/WebAutonomosPymes';
 import Contacto from './pages/Contacto';
+
+const MINIMAL_NAV_ROUTES = ['/web-autonomos-pymes'];
 
 function AppContent() {
   const location = useLocation();
-  const isLandingPage = location.pathname !== '/';
+  const isAdsLanding = MINIMAL_NAV_ROUTES.includes(location.pathname);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
   return (
-    <div className='min-h-screen bg-white overflow-x-hidden'>
-      <Header />
+    <div className='min-h-screen bg-white overflow-x-hidden pb-16 md:pb-0'>
+      {isAdsLanding ? <LandingHeader /> : <Header />}
 
       <Routes>
         <Route path='/' element={<Home />} />
@@ -38,6 +43,7 @@ function AppContent() {
         <Route path='/posicionamiento-web-seo' element={<ServicioSEO />} />
         <Route path='/mantenimiento-web' element={<MantenimientoWeb />} />
         <Route path='/auditoria-ecommerce' element={<AuditoriaEcommerce />} />
+        <Route path='/web-autonomos-pymes' element={<WebAutonomosPymes />} />
         <Route path='/contacto' element={<Contacto />} />
       </Routes>
 
@@ -46,6 +52,8 @@ function AppContent() {
       <WhatsAppButton />
 
       <BackToTopButton />
+
+      <MobileStickyCTA />
 
       <ContactFormModal />
     </div>

@@ -3,6 +3,7 @@ import { Menu, X, ChevronDown, MessageCircle } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useContactModal } from '../contexts/ContactModalContext';
+import { trackWhatsAppClick } from '../utils/analytics';
 import AboutMe from './AboutMe';
 
 interface HeaderProps {
@@ -232,6 +233,7 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
                 href='https://wa.me/34644669828'
                 target='_blank'
                 rel='noopener noreferrer'
+                onClick={() => trackWhatsAppClick('Header')}
                 className='p-2 rounded-lg bg-accent hover:bg-accent-hover transition-colors duration-200'
                 aria-label='WhatsApp'
               >

@@ -14,6 +14,7 @@ import {
   Shield,
 } from 'lucide-react';
 import { useContactModal } from '../contexts/ContactModalContext';
+import { trackPhoneClick } from '../utils/analytics';
 import SEOLandingHero from '../components/SEOLandingHero';
 import SEOProblem from '../components/SEOProblem';
 import SEOBenefits from '../components/SEOBenefits';
@@ -31,17 +32,18 @@ const TiendasOnline = () => {
 
   useEffect(() => {
     document.title =
-      'Crear Tienda Online Profesional | E-commerce a Medida | Dani Pereira';
+      'Tienda Online desde 1.799€ IVA incluido | Dani Pereira';
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
         'content',
-        'Crea tu tienda online profesional. Desarrollo de e-commerce con pasarela de pago, gestión de productos y pedidos. Vende online con éxito.',
+        'Crea tu tienda online profesional desde 1.799€ IVA incluido. Pasarela de pago, gestión de productos y pedidos, entrega en 4-6 semanas y pago fraccionado disponible.',
       );
     }
   }, []);
 
   const callPhone = () => {
+    trackPhoneClick('TiendasOnlineHero');
     window.location.href = 'tel:+34644669828';
   };
 
@@ -239,7 +241,7 @@ const TiendasOnline = () => {
     {
       question: '¿Cuánto cuesta crear una tienda online?',
       answer:
-        'Una tienda online profesional desde 1500 euros, incluyendo diseño personalizado, hasta 50 productos cargados, pasarela de pago, sistema de envíos y formación completa. El precio varía según funcionalidades específicas que necesites.',
+        'Una tienda online profesional desde 1.799€ IVA incluido, con diseño personalizado, hasta 50 productos cargados, pasarela de pago, sistema de envíos y formación completa. El precio varía según funcionalidades específicas que necesites.',
     },
     {
       question: '¿Qué plataforma recomiendan para crear una tienda online?',

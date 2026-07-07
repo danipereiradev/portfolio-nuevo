@@ -10,7 +10,12 @@ import {
   AlertCircle,
   CheckCircle,
 } from 'lucide-react';
-import { trackFormSubmit, trackFormStep } from '../utils/analytics';
+import {
+  trackFormSubmit,
+  trackFormStep,
+  trackWhatsAppClick,
+  trackEmailClick,
+} from '../utils/analytics';
 import Button from './Button';
 
 interface ContactFormProps {
@@ -301,6 +306,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                   href='https://wa.me/34644669828'
                   target='_blank'
                   rel='noopener noreferrer'
+                  onClick={() => trackWhatsAppClick('ContactFormSuccess')}
                   className='border-2 border-green-500 text-green-600 px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transform hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2'
                 >
                   <Phone className='w-4 h-4' />
@@ -887,6 +893,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
         <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
           <a
             href='mailto:web.danipereira@gmail.com'
+            onClick={() => trackEmailClick('ContactFormBottom')}
             className='flex items-center gap-2 text-accent hover:text-accent-hover font-medium'
           >
             <Mail className='w-5 h-5' />
@@ -895,6 +902,9 @@ Fecha: ${new Date().toLocaleString('es-ES')}
           <span className='hidden sm:block text-gray-300'>|</span>
           <a
             href='https://wa.me/34644669828'
+            target='_blank'
+            rel='noopener noreferrer'
+            onClick={() => trackWhatsAppClick('ContactFormBottom')}
             className='flex items-center gap-2 text-green-600 hover:text-green-700 font-medium'
           >
             <Phone className='w-5 h-5' />

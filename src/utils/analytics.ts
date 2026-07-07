@@ -16,7 +16,7 @@ const pushEvent = (
 };
 
 export const trackFormSubmit = (planName: string, value?: number) => {
-  pushEvent('form_submit', {
+  pushEvent('submit_contact_form', {
     event_category: 'engagement',
     event_label: 'contact_form',
     plan_selected: planName,
@@ -100,5 +100,47 @@ export const trackTestimonialView = (testimonialName: string) => {
   pushEvent('testimonial_view', {
     event_category: 'engagement',
     event_label: testimonialName,
+  });
+};
+
+// Eventos preparados para campañas de Google Ads / Analytics
+
+export const trackWhatsAppClick = (location: string) => {
+  pushEvent('click_whatsapp', {
+    event_category: 'contact',
+    event_label: location,
+  });
+};
+
+export const trackEmailClick = (location: string) => {
+  pushEvent('click_email', {
+    event_category: 'contact',
+    event_label: location,
+  });
+};
+
+export const trackPhoneClick = (location: string) => {
+  pushEvent('click_phone', {
+    event_category: 'contact',
+    event_label: location,
+  });
+};
+
+export const trackPricingCtaClick = (planName: string) => {
+  pushEvent('click_pricing_cta', {
+    event_category: 'engagement',
+    event_label: planName,
+  });
+};
+
+export const trackViewPricing = () => {
+  pushEvent('view_pricing', {
+    event_category: 'engagement',
+  });
+};
+
+export const trackViewPortfolioSection = () => {
+  pushEvent('view_portfolio', {
+    event_category: 'engagement',
   });
 };
