@@ -28,9 +28,9 @@ const PaginasWebEmpresas = () => {
   const { openModal } = useContactModal();
 
   usePageMeta({
-    title: 'Páginas Web para Empresas desde 969€ | Dani Pereira',
+    title: 'Páginas Web para Empresas | Dani Pereira',
     description:
-      'Desarrollo de páginas web corporativas desde 969€ IVA incluido. Entrega en 2-3 semanas, trato directo sin agencias y plan mensual disponible desde 129€/mes.',
+      'Desarrollo páginas web profesionales para empresas que necesitan una presencia digital clara, rápida y preparada para captar clientes.',
     path: '/paginas-web-empresas',
   });
 
@@ -171,29 +171,6 @@ const PaginasWebEmpresas = () => {
       description:
         'Optimización SEO avanzada e integración con Google Analytics y herramientas de seguimiento.',
     },
-  ];
-
-  const technologies = [
-    { name: 'WordPress', icon: '🔧', description: 'CMS empresarial flexible' },
-    {
-      name: 'React',
-      icon: '⚛️',
-      description: 'Interfaces corporativas dinámicas',
-    },
-    { name: 'HubSpot', icon: '🎯', description: 'Integración CRM' },
-    {
-      name: 'Elementor Pro',
-      icon: '🎨',
-      description: 'Constructor visual avanzado',
-    },
-    { name: 'PHP', icon: '🐘', description: 'Desarrollo backend robusto' },
-    { name: 'MySQL', icon: '🗄️', description: 'Base de datos empresarial' },
-    {
-      name: 'Yoast SEO',
-      icon: '📈',
-      description: 'Optimización SEO corporativa',
-    },
-    { name: 'SSL', icon: '🔒', description: 'Certificados de seguridad' },
   ];
 
   const whyMeReasons = [

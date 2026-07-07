@@ -204,37 +204,6 @@ const DisenoWeb = () => {
     },
   ];
 
-  const technologies = [
-    {
-      name: 'React',
-      icon: '⚛️',
-      description: 'Framework moderno para interfaces dinámicas',
-    },
-    {
-      name: 'WordPress',
-      icon: '🔧',
-      description: 'CMS flexible y fácil de gestionar',
-    },
-    {
-      name: 'Tailwind CSS',
-      icon: '🎨',
-      description: 'Diseño moderno y personalizado',
-    },
-    {
-      name: 'Next.js',
-      icon: '▲',
-      description: 'Framework para webs ultrarrápidas',
-    },
-    { name: 'PHP', icon: '🐘', description: 'Desarrollo backend robusto' },
-    { name: 'MySQL', icon: '🗄️', description: 'Base de datos confiable' },
-    {
-      name: 'Figma',
-      icon: '🎭',
-      description: 'Diseño de prototipos profesionales',
-    },
-    { name: 'Git', icon: '📚', description: 'Control de versiones' },
-  ];
-
   const whyMeReasons = [
     {
       icon: Clock,

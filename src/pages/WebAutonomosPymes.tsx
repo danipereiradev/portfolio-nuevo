@@ -8,12 +8,14 @@ import {
 } from 'lucide-react';
 import { useContactModal } from '../contexts/ContactModalContext';
 import { usePageMeta } from '../hooks/usePageMeta';
+import { useSectionView } from '../hooks/useSectionView';
 import {
   trackWhatsAppClick,
   trackPricingCtaClick,
   trackPricingSinglePayment,
   trackPricingSplitPayment,
   trackPricingMonthlyPlan,
+  trackViewPricing,
 } from '../utils/analytics';
 import SEOLandingHero from '../components/SEOLandingHero';
 import TrustBar from '../components/TrustBar';
@@ -33,16 +35,17 @@ const WebAutonomosPymes = () => {
   const { openModal } = useContactModal();
 
   usePageMeta({
-    title:
-      'Páginas Web para Autónomos y Pymes desde 969€ IVA incluido | Dani Pereira',
+    title: 'Desarrollo Web para Autónomos y Pymes desde 969€ | Dani Pereira',
     description:
-      'Páginas web para autónomos y pymes desde 969€ IVA incluido. Diseño, desarrollo y publicación en 2-3 semanas, trato directo sin agencias y plan mensual disponible desde 129€/mes.',
+      'Diseño y desarrollo páginas web profesionales para autónomos, pymes y pequeños negocios. Web desde 969€ IVA incluido, entrega en 2-3 semanas y plan mensual disponible.',
     path: '/web-autonomos-pymes',
   });
 
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  const pricingSectionRef = useSectionView<HTMLElement>(trackViewPricing);
 
   const handleWhatsApp = (location: string) => {
     trackWhatsAppClick(location);
@@ -227,7 +230,11 @@ const WebAutonomosPymes = () => {
       />
 
       {/* 4. Precio y formas de pago */}
-      <section id='precio' className='scroll-mt-24 py-20 bg-gray-50'>
+      <section
+        id='precio'
+        ref={pricingSectionRef}
+        className='scroll-mt-24 py-20 bg-gray-50'
+      >
         <div className='content-container'>
           <div className='text-center mb-12'>
             <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4'>

@@ -138,33 +138,6 @@ const ServicioSEO = () => {
     },
   ];
 
-  const technologies = [
-    {
-      name: 'Google Search Console',
-      icon: '🔍',
-      description: 'Monitorización en Google',
-    },
-    {
-      name: 'Google Analytics',
-      icon: '📊',
-      description: 'Análisis de tráfico',
-    },
-    { name: 'Ahrefs', icon: '🔗', description: 'Análisis de enlaces' },
-    { name: 'SEMrush', icon: '📈', description: 'Investigación keywords' },
-    {
-      name: 'Screaming Frog',
-      icon: '🕷️',
-      description: 'Auditoría técnica SEO',
-    },
-    {
-      name: 'PageSpeed Insights',
-      icon: '⚡',
-      description: 'Optimización velocidad',
-    },
-    { name: 'Yoast SEO', icon: '🎯', description: 'Optimización WordPress' },
-    { name: 'Schema.org', icon: '📋', description: 'Datos estructurados' },
-  ];
-
   const whyMeReasons = [
     {
       icon: Clock,

@@ -4,14 +4,15 @@ import Button from '../components/Button';
 
 const NotFound = () => {
   useEffect(() => {
-    document.title = 'Página no encontrada (404) | Dani Pereira';
+    const title = 'Página no encontrada (404) | Dani Pereira';
+    const description =
+      'La página que buscas no existe o se ha movido. Vuelve al inicio o revisa nuestros servicios de desarrollo web.';
+
+    document.title = title;
 
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute(
-        'content',
-        'La página que buscas no existe o se ha movido. Vuelve al inicio o revisa nuestros servicios de desarrollo web.',
-      );
+      metaDescription.setAttribute('content', description);
     }
 
     let robotsMeta = document.querySelector<HTMLMetaElement>(
@@ -26,6 +27,21 @@ const NotFound = () => {
 
     // Una 404 no debe llevar canonical: no es una URL final indexable.
     document.querySelector('link[rel="canonical"]')?.remove();
+
+    // Evita dejar metadata social de la página anterior en una 404.
+    document
+      .querySelector('meta[property="og:title"]')
+      ?.setAttribute('content', title);
+    document
+      .querySelector('meta[property="og:description"]')
+      ?.setAttribute('content', description);
+    document.querySelector('meta[property="og:url"]')?.remove();
+    document
+      .querySelector('meta[name="twitter:title"]')
+      ?.setAttribute('content', title);
+    document
+      .querySelector('meta[name="twitter:description"]')
+      ?.setAttribute('content', description);
 
     return () => {
       robotsMeta?.remove();

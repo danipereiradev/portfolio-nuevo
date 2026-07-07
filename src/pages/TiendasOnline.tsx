@@ -31,9 +31,9 @@ const TiendasOnline = () => {
   const { openModal } = useContactModal();
 
   usePageMeta({
-    title: 'Tienda Online desde 1.799€ IVA incluido | Dani Pereira',
+    title: 'Crear Tienda Online Profesional desde 1.799€ | Dani Pereira',
     description:
-      'Crea tu tienda online profesional desde 1.799€ IVA incluido. Pasarela de pago, gestión de productos y pedidos, entrega en 4-6 semanas y plan mensual disponible desde 249€/mes.',
+      'Desarrollo tiendas online profesionales para vender por internet. Ecommerce desde 1.799€ IVA incluido, pasarela de pago, gestión de productos y soporte.',
     path: '/tiendas-online',
   });
 
@@ -139,25 +139,6 @@ const TiendasOnline = () => {
       description:
         'Optimización específica para tiendas online: fichas de producto, categorías y estructura SEO.',
     },
-  ];
-
-  const technologies = [
-    {
-      name: 'WooCommerce',
-      icon: '🛒',
-      description: 'Plataforma e-commerce líder',
-    },
-    { name: 'Shopify', icon: '🛍️', description: 'Solución todo en uno' },
-    { name: 'Stripe', icon: '💳', description: 'Pasarela de pago moderna' },
-    { name: 'Redsys', icon: '🏦', description: 'TPV bancario español' },
-    { name: 'WP Rocket', icon: '🚀', description: 'Optimización velocidad' },
-    {
-      name: 'Yoast WooCommerce SEO',
-      icon: '📈',
-      description: 'SEO para productos',
-    },
-    { name: 'Cloudflare', icon: '☁️', description: 'CDN y seguridad' },
-    { name: 'Google Analytics', icon: '📊', description: 'Análisis de ventas' },
   ];
 
   const whyMeReasons = [

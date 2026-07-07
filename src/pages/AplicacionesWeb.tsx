@@ -33,7 +33,7 @@ const AplicacionesWeb = () => {
   usePageMeta({
     title: 'Desarrollo de Aplicaciones Web a Medida | Dani Pereira',
     description:
-      'Desarrollo de aplicaciones web personalizadas para empresas. +12 años de experiencia creando soluciones a medida con las últimas tecnologías. Propuesta en menos de 24h.',
+      'Desarrollo aplicaciones web, paneles internos, dashboards y herramientas digitales a medida para empresas y proyectos que necesitan software personalizado.',
     path: '/desarrollo-aplicaciones-web',
   });
 
@@ -143,21 +143,6 @@ const AplicacionesWeb = () => {
       description:
         'Alojamiento en AWS, Google Cloud o Azure con alta disponibilidad y escalabilidad.',
     },
-  ];
-
-  const technologies = [
-    { name: 'React', icon: '⚛️', description: 'Framework frontend moderno' },
-    {
-      name: 'Node.js',
-      icon: '🟢',
-      description: 'Backend JavaScript escalable',
-    },
-    { name: 'Python', icon: '🐍', description: 'Backend potente y flexible' },
-    { name: 'PostgreSQL', icon: '🐘', description: 'Base de datos relacional' },
-    { name: 'MongoDB', icon: '🍃', description: 'Base de datos NoSQL' },
-    { name: 'Docker', icon: '🐳', description: 'Contenedores para deploy' },
-    { name: 'AWS', icon: '☁️', description: 'Cloud computing líder' },
-    { name: 'Git', icon: '📚', description: 'Control de versiones' },
   ];
 
   const whyMeReasons = [

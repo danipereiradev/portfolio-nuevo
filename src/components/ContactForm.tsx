@@ -13,6 +13,7 @@ import {
 import {
   trackFormSubmit,
   trackFormStep,
+  trackFormError,
   trackWhatsAppClick,
   trackEmailClick,
 } from '../utils/analytics';
@@ -151,7 +152,12 @@ const ContactForm = ({ preselectedPlan, isInModal = false }: ContactFormProps = 
   };
 
   const nextStep = () => {
-    if (validateCurrentStep() && currentStep < 3) {
+    if (!validateCurrentStep()) {
+      trackFormError(`validation_step_${currentStep}`, formData.plan);
+      return;
+    }
+
+    if (currentStep < 3) {
       const nextStepNumber = currentStep + 1;
       setCurrentStep(nextStepNumber);
 
@@ -176,6 +182,7 @@ const ContactForm = ({ preselectedPlan, isInModal = false }: ContactFormProps = 
     e.preventDefault();
 
     if (!validateCurrentStep()) {
+      trackFormError(`validation_step_${currentStep}`, formData.plan);
       return;
     }
 
@@ -233,7 +240,6 @@ Fecha: ${new Date().toLocaleString('es-ES')}
         );
       }
 
-      console.log('Formulario enviado exitosamente');
       setSubmitStatus('success');
 
       const planPrices: { [key: string]: number } = {
@@ -249,6 +255,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       trackFormSubmit(formData.plan, planValue);
     } catch (error) {
       console.error('Error al enviar formulario:', error);
+      trackFormError('submit_failed', formData.plan);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);

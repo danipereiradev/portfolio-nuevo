@@ -11,9 +11,9 @@ import { usePageMeta } from '../hooks/usePageMeta';
 
 const Home = () => {
   usePageMeta({
-    title: 'Desarrollo Web para Autónomos y Pymes desde 969€ | Dani Pereira',
+    title: 'Diseño y Desarrollo Web Freelance | Dani Pereira',
     description:
-      'Diseño y desarrollo de páginas web profesionales para autónomos y pequeños negocios. Web desde 969€ IVA incluido, entrega en 2-3 semanas y plan mensual disponible desde 129€/mes. +12 años de experiencia.',
+      'Desarrollo páginas web, tiendas online y aplicaciones web para autónomos, pymes y marcas. Webs profesionales desde 969€ IVA incluido y mantenimiento desde 60€/mes.',
     path: '/',
   });
 

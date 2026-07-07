@@ -23,7 +23,7 @@ const LandingHeader = () => {
   };
 
   const handleWhatsApp = () => {
-    trackWhatsAppClick('LandingHeader');
+    trackWhatsAppClick('LandingHeader', 'Pedir presupuesto');
     window.open(WHATSAPP_URL, '_blank', 'noopener,noreferrer');
   };
 

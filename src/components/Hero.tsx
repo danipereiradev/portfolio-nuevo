@@ -14,7 +14,7 @@ const Hero = () => {
   };
 
   const handleWhatsAppClick = () => {
-    trackWhatsAppClick('Hero');
+    trackWhatsAppClick('Hero', t('hero.cta.whatsapp'));
     window.open(WHATSAPP_URL, '_blank', 'noopener,noreferrer');
   };
 
@@ -42,7 +42,7 @@ const Hero = () => {
         <div className='absolute inset-0 bg-black/60'></div>
       </div>
 
-      <div className='relative z-10 text-center max-w-4xl mx-auto px-6 py-4'>
+      <div className='relative z-10 text-center max-w-4xl mx-auto px-6 py-12'>
         <h1 className='text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight'>
           {t('hero.title')}
         </h1>

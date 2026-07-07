@@ -5,7 +5,6 @@ import {
   Smartphone,
   AlertCircle,
   CreditCard,
-  Users,
   Eye,
   CheckCircle2,
   ListChecks,
@@ -27,13 +26,11 @@ import {
   FileCheck,
   ArrowUpCircle,
   Settings,
-  Send,
 } from 'lucide-react';
 import { useContactModal } from '../contexts/ContactModalContext';
 import { usePageMeta } from '../hooks/usePageMeta';
 import SEOLandingHero from '../components/SEOLandingHero';
 import SEOProblem from '../components/SEOProblem';
-import SEOFeatures from '../components/SEOFeatures';
 import SEOProcess from '../components/SEOProcess';
 import SEOWhyMe from '../components/SEOWhyMe';
 import SEOFAQ from '../components/SEOFAQ';

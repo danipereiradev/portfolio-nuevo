@@ -27,10 +27,9 @@ const MantenimientoWeb = () => {
   const { openModal } = useContactModal();
 
   usePageMeta({
-    title:
-      'Mantenimiento Web desde 60€/mes | Soporte y Actualizaciones | Dani Pereira',
+    title: 'Mantenimiento Web desde 60€/mes | Dani Pereira',
     description:
-      'Mantenimiento web profesional desde 60€/mes. Actualizaciones de seguridad, copias de seguridad, optimización y soporte técnico prioritario para tu página web.',
+      'Mantenimiento web profesional para WordPress, WooCommerce y webs de negocio. Actualizaciones, copias de seguridad, seguridad, soporte y optimización desde 60€/mes.',
     path: '/mantenimiento-web',
   });
 
@@ -164,49 +163,6 @@ const MantenimientoWeb = () => {
       title: 'Reporting Mensual',
       description:
         'Te envío un informe cada mes con todas las acciones realizadas, métricas de rendimiento y recomendaciones de mejora.',
-    },
-  ];
-
-  const technologies = [
-    {
-      name: 'WordPress',
-      icon: '🔧',
-      description: 'Especialistas en mantenimiento WordPress',
-    },
-    {
-      name: 'WooCommerce',
-      icon: '🛒',
-      description: 'Expertos en tiendas online',
-    },
-    {
-      name: 'Cloudflare',
-      icon: '☁️',
-      description: 'CDN y protección DDoS',
-    },
-    {
-      name: 'UpdraftPlus',
-      icon: '💾',
-      description: 'Backups automáticos en la nube',
-    },
-    {
-      name: 'Wordfence',
-      icon: '🛡️',
-      description: 'Firewall y seguridad avanzada',
-    },
-    {
-      name: 'WP Rocket',
-      icon: '🚀',
-      description: 'Caché y optimización',
-    },
-    {
-      name: 'GTmetrix',
-      icon: '📊',
-      description: 'Monitorización de rendimiento',
-    },
-    {
-      name: 'SSL',
-      icon: '🔒',
-      description: 'Certificados de seguridad',
     },
   ];
 
