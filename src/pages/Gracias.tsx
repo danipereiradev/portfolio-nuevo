@@ -2,9 +2,11 @@ import { useEffect } from 'react';
 import { CheckCircle2, Home as HomeIcon, MessageCircle } from 'lucide-react';
 import Button from '../components/Button';
 import { trackWhatsAppClick } from '../utils/analytics';
+import { buildWhatsAppUrl } from '../config/contact';
 
-const WHATSAPP_URL =
-  'https://wa.me/34644669828?text=Hola,%20acabo%20de%20enviar%20el%20formulario%20de%20presupuesto';
+const WHATSAPP_URL = buildWhatsAppUrl(
+  'Hola, acabo de enviar el formulario de presupuesto',
+);
 
 /**
  * Página de confirmación tras enviar el formulario de contacto.

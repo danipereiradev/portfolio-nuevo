@@ -12,6 +12,7 @@ import {
 import { useContactModal } from '../contexts/ContactModalContext';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { trackPhoneClick } from '../utils/analytics';
+import { PHONE_TEL_LINK } from '../config/contact';
 import SEOLandingHero from '../components/SEOLandingHero';
 import SEOProblem from '../components/SEOProblem';
 import SEOBenefits from '../components/SEOBenefits';
@@ -30,7 +31,7 @@ const MantenimientoWeb = () => {
 
   const callPhone = () => {
     trackPhoneClick('MantenimientoWebHero');
-    window.location.href = 'tel:+34644669828';
+    window.location.href = PHONE_TEL_LINK;
   };
 
   const problems = [

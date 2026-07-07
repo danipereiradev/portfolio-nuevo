@@ -1,9 +1,20 @@
+import { useLocation } from 'react-router-dom';
 import { trackWhatsAppClick } from '../utils/analytics';
+import { ADS_WHATSAPP_MESSAGE, buildWhatsAppUrl } from '../config/contact';
+
+const DEFAULT_MESSAGE =
+  'Hola, estoy interesado en tus servicios de desarrollo web';
 
 const WhatsAppButton = () => {
+  const { pathname } = useLocation();
+  const isAdsLanding = pathname === '/web-autonomos-pymes';
+  const whatsappUrl = buildWhatsAppUrl(
+    isAdsLanding ? ADS_WHATSAPP_MESSAGE : DEFAULT_MESSAGE,
+  );
+
   return (
     <a
-      href='https://wa.me/34644669828?text=Hola,%20estoy%20interesado%20en%20tus%20servicios%20de%20desarrollo%20web'
+      href={whatsappUrl}
       target='_blank'
       rel='noopener noreferrer'
       onClick={() => trackWhatsAppClick('FloatingButton')}

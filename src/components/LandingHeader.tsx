@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { Menu, X, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { trackWhatsAppClick } from '../utils/analytics';
+import { ADS_WHATSAPP_MESSAGE, buildWhatsAppUrl } from '../config/contact';
 
-const WHATSAPP_URL =
-  'https://wa.me/34644669828?text=Hola,%20quiero%20pedir%20presupuesto%20para%20mi%20web';
+const WHATSAPP_URL = buildWhatsAppUrl(ADS_WHATSAPP_MESSAGE);
 
 const navLinks = [
   { label: 'Precio', id: 'precios' },

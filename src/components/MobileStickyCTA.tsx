@@ -1,13 +1,22 @@
 import { MessageCircle } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
 import { trackWhatsAppClick } from '../utils/analytics';
-
-const WHATSAPP_URL =
-  'https://wa.me/34644669828?text=Hola,%20quiero%20pedir%20presupuesto%20para%20mi%20web';
+import {
+  ADS_WHATSAPP_MESSAGE,
+  DEFAULT_WHATSAPP_MESSAGE,
+  buildWhatsAppUrl,
+} from '../config/contact';
 
 const MobileStickyCTA = () => {
+  const { pathname } = useLocation();
+  const isAdsLanding = pathname === '/web-autonomos-pymes';
+  const whatsappUrl = buildWhatsAppUrl(
+    isAdsLanding ? ADS_WHATSAPP_MESSAGE : DEFAULT_WHATSAPP_MESSAGE,
+  );
+
   return (
     <a
-      href={WHATSAPP_URL}
+      href={whatsappUrl}
       target='_blank'
       rel='noopener noreferrer'
       onClick={() => trackWhatsAppClick('MobileStickyBar')}

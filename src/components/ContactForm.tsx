@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import {
   Mail,
   Phone,
@@ -18,6 +18,11 @@ import {
   trackEmailClick,
 } from '../utils/analytics';
 import { useContactModal } from '../contexts/ContactModalContext';
+import {
+  ADS_WHATSAPP_MESSAGE,
+  PHONE_NUMBER,
+  buildWhatsAppUrl,
+} from '../config/contact';
 import Button from './Button';
 
 interface ContactFormProps {
@@ -27,6 +32,14 @@ interface ContactFormProps {
 
 const ContactForm = ({ preselectedPlan, isInModal = false }: ContactFormProps = {}) => {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+  // En el resto del sitio este enlace se mantiene "en blanco" (sin mensaje
+  // predefinido), tal y como estaba; solo en la landing de Ads se precarga
+  // el mensaje pensado para ese tráfico.
+  const isAdsLanding = pathname === '/web-autonomos-pymes';
+  const bottomWhatsAppUrl = isAdsLanding
+    ? buildWhatsAppUrl(ADS_WHATSAPP_MESSAGE)
+    : `https://wa.me/${PHONE_NUMBER}`;
   const { closeModal } = useContactModal();
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -834,7 +847,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
           </a>
           <span className='hidden sm:block text-gray-300'>|</span>
           <a
-            href='https://wa.me/34644669828'
+            href={bottomWhatsAppUrl}
             target='_blank'
             rel='noopener noreferrer'
             onClick={() => trackWhatsAppClick('ContactFormBottom')}

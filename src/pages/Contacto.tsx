@@ -1,5 +1,6 @@
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 import { trackEmailClick, trackPhoneClick } from '../utils/analytics';
+import { PHONE_DISPLAY, PHONE_TEL_LINK } from '../config/contact';
 import { usePageMeta } from '../hooks/usePageMeta';
 import ContactForm from '../components/ContactForm';
 
@@ -57,11 +58,11 @@ const Contacto = () => {
                       Teléfono / WhatsApp
                     </h3>
                     <a
-                      href='tel:+34644669828'
+                      href={PHONE_TEL_LINK}
                       onClick={() => trackPhoneClick('ContactoPage')}
                       className='text-gray-600 hover:text-accent transition-colors'
                     >
-                      +34 644 669 828
+                      {PHONE_DISPLAY}
                     </a>
                   </div>
                 </div>

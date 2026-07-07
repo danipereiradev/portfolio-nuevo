@@ -18,6 +18,7 @@ import {
   trackPricingMonthlyPlan,
   trackViewPricing,
 } from '../utils/analytics';
+import { ADS_WHATSAPP_MESSAGE, buildWhatsAppUrl } from '../config/contact';
 import SEOLandingHero from '../components/SEOLandingHero';
 import TrustBar from '../components/TrustBar';
 import SEOBenefits from '../components/SEOBenefits';
@@ -29,8 +30,7 @@ import Portfolio from '../components/Portfolio';
 import ContactForm from '../components/ContactForm';
 import Button from '../components/Button';
 
-const WHATSAPP_URL =
-  'https://wa.me/34644669828?text=Hola,%20quiero%20pedir%20presupuesto%20para%20mi%20web';
+const WHATSAPP_URL = buildWhatsAppUrl(ADS_WHATSAPP_MESSAGE);
 
 const WebAutonomosPymes = () => {
   const { openModal } = useContactModal();

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Mail, Linkedin, Github, MapPin, Phone, Instagram } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { trackEmailClick, trackPhoneClick } from '../utils/analytics';
+import { PHONE_DISPLAY, PHONE_TEL_LINK } from '../config/contact';
 import LegalPages from './LegalPages';
 
 const Footer = () => {
@@ -168,11 +169,11 @@ const Footer = () => {
                   <div className='text-center md:text-left'>
                     <p className='font-medium'>Teléfono</p>
                     <a
-                      href='tel:+34644669828'
+                      href={PHONE_TEL_LINK}
                       onClick={() => trackPhoneClick('FooterList')}
                       className='hover:text-white transition-colors duration-200'
                     >
-                      +34 644 669 828
+                      {PHONE_DISPLAY}
                     </a>
                   </div>
                 </li>

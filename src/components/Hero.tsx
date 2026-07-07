@@ -1,10 +1,10 @@
 import { MessageCircle, Tag, Briefcase } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { trackButtonClick, trackWhatsAppClick } from '../utils/analytics';
+import { DEFAULT_WHATSAPP_MESSAGE, buildWhatsAppUrl } from '../config/contact';
 import Button from './Button';
 
-const WHATSAPP_URL =
-  'https://wa.me/34644669828?text=Hola,%20quiero%20pedir%20presupuesto%20para%20mi%20web';
+const WHATSAPP_URL = buildWhatsAppUrl(DEFAULT_WHATSAPP_MESSAGE);
 
 const Hero = () => {
   const { t } = useLanguage();

@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useContactModal } from '../contexts/ContactModalContext';
 import { trackWhatsAppClick } from '../utils/analytics';
+import { PHONE_NUMBER } from '../config/contact';
 import AboutMe from './AboutMe';
 
 interface HeaderProps {
@@ -230,7 +231,7 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
               )}
 
               <a
-                href='https://wa.me/34644669828'
+                href={`https://wa.me/${PHONE_NUMBER}`}
                 target='_blank'
                 rel='noopener noreferrer'
                 onClick={() => trackWhatsAppClick('Header')}

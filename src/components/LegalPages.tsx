@@ -1,5 +1,6 @@
 import React from 'react';
 import { X, FileText, Shield, Cookie, Scale } from 'lucide-react';
+import { PHONE_DISPLAY } from '../config/contact';
 
 interface LegalPagesProps {
   isOpen: boolean;
@@ -46,7 +47,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                     <strong>Email:</strong> web.danipereira@gmail.com
                   </p>
                   <p>
-                    <strong>Teléfono:</strong> +34 644 669 828
+                    <strong>Teléfono:</strong> {PHONE_DISPLAY}
                   </p>
                 </div>
               </section>
@@ -198,7 +199,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                     <strong>Email:</strong> web.danipereira@gmail.com
                   </p>
                   <p>
-                    <strong>Teléfono:</strong> +34 644 669 828
+                    <strong>Teléfono:</strong> {PHONE_DISPLAY}
                   </p>
                   <p>
                     <strong>Dirección:</strong> Calle Condega 1, Madrid
@@ -243,7 +244,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                     <strong>Email:</strong> web.danipereira@gmail.com
                   </p>
                   <p>
-                    <strong>Teléfono:</strong> +34 644 669 828
+                    <strong>Teléfono:</strong> {PHONE_DISPLAY}
                   </p>
                   <p>
                     <strong>Actividad:</strong> Servicios de desarrollo y diseño
@@ -568,7 +569,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                     <strong>Email:</strong> web.danipereira@gmail.com
                   </p>
                   <p>
-                    <strong>Teléfono:</strong> +34 644 669 828
+                    <strong>Teléfono:</strong> {PHONE_DISPLAY}
                   </p>
                 </div>
               </section>
@@ -607,7 +608,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                         <strong>Email:</strong> web.danipereira@gmail.com
                       </p>
                       <p>
-                        <strong>Teléfono:</strong> +34 644 669 828
+                        <strong>Teléfono:</strong> {PHONE_DISPLAY}
                       </p>
                       <p>
                         <strong>Sitio web:</strong> danipereiraweb.es
@@ -753,7 +754,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                     <strong>Email:</strong> web.danipereira@gmail.com
                   </p>
                   <p>
-                    <strong>Teléfono:</strong> +34 644 669 828
+                    <strong>Teléfono:</strong> {PHONE_DISPLAY}
                   </p>
                   <p>
                     <strong>Dirección:</strong> Calle Condega 1, Madrid
