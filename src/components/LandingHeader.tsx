@@ -7,9 +7,9 @@ const WHATSAPP_URL =
   'https://wa.me/34644669828?text=Hola,%20quiero%20pedir%20presupuesto%20para%20mi%20web';
 
 const navLinks = [
-  { label: 'Precio', id: 'precio' },
+  { label: 'Precio', id: 'precios' },
   { label: 'Qué incluye', id: 'incluye' },
-  { label: 'Trabajos', id: 'trabajos' },
+  { label: 'Trabajos', id: 'portfolio' },
   { label: 'FAQ', id: 'faq' },
   { label: 'Contacto', id: 'contacto' },
 ];

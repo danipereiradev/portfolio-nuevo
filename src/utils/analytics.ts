@@ -45,6 +45,34 @@ export const trackEvent = (
   }
 };
 
+// Conversión de Google Ads: "Contacto" (ads_conversion_Contacto_1)
+//
+// Debe dispararse ÚNICAMENTE cuando hay una acción real de contacto
+// (WhatsApp, formulario, email o teléfono). Nunca al cargar la página, en
+// scroll, o en eventos de solo visualización (view_pricing, view_portfolio,
+// click_pricing_cta, etc). Por eso vive aislada de `trackEvent` y se invoca
+// solo desde las 4 funciones de contacto de abajo.
+const ADS_CONVERSION_CONTACTO = 'ads_conversion_Contacto_1';
+
+type ContactConversionType = 'whatsapp' | 'contact_form' | 'email' | 'phone';
+
+const trackAdsContactConversion = (contactType: ContactConversionType) => {
+  if (typeof window === 'undefined') return;
+
+  try {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', ADS_CONVERSION_CONTACTO, {
+        page_path: window.location.pathname,
+        page_title: document.title,
+        event_category: 'lead',
+        event_label: contactType,
+      });
+    }
+  } catch {
+    // La analítica nunca debe romper la experiencia del usuario.
+  }
+};
+
 // Contacto directo
 
 export const trackWhatsAppClick = (
@@ -57,6 +85,7 @@ export const trackWhatsAppClick = (
     location_section: locationSection,
     cta_text: ctaText,
   });
+  trackAdsContactConversion('whatsapp');
 };
 
 export const trackEmailClick = (locationSection: string) => {
@@ -65,6 +94,7 @@ export const trackEmailClick = (locationSection: string) => {
     event_label: locationSection,
     location_section: locationSection,
   });
+  trackAdsContactConversion('email');
 };
 
 export const trackPhoneClick = (locationSection: string) => {
@@ -73,6 +103,7 @@ export const trackPhoneClick = (locationSection: string) => {
     event_label: locationSection,
     location_section: locationSection,
   });
+  trackAdsContactConversion('phone');
 };
 
 // Formulario de contacto
@@ -85,6 +116,7 @@ export const trackFormSubmit = (serviceType: string, value?: number) => {
     value: value || 0,
     currency: 'EUR',
   });
+  trackAdsContactConversion('contact_form');
 };
 
 export const trackFormError = (errorReason: string, serviceType?: string) => {

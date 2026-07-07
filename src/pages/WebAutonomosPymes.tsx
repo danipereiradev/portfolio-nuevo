@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import {
   Briefcase,
   Building2,
@@ -39,6 +40,21 @@ const WebAutonomosPymes = () => {
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  // Permite llegar directamente a una sección vía ancla en la URL
+  // (ej. /web-autonomos-pymes#precios desde un sitelink de Google Ads).
+  // El scroll nativo del navegador no funciona de forma fiable en esta SPA
+  // porque el elemento con ese id todavía no existe cuando la página carga.
+  useEffect(() => {
+    const hash = window.location.hash.replace('#', '');
+    if (!hash) return;
+
+    const timeoutId = setTimeout(() => {
+      document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+
+    return () => clearTimeout(timeoutId);
+  }, []);
 
   const pricingSectionRef = useSectionView<HTMLElement>(trackViewPricing);
 
@@ -211,7 +227,7 @@ const WebAutonomosPymes = () => {
         ctaText='Pedir presupuesto por WhatsApp'
         onCTAClick={() => handleWhatsApp('LandingAutonomosHero')}
         secondaryCTAText='Ver trabajos reales'
-        secondaryCTAAction={() => scrollToSection('trabajos')}
+        secondaryCTAAction={() => scrollToSection('portfolio')}
         secondaryCTAIcon='chevron-down'
       />
 
@@ -226,7 +242,7 @@ const WebAutonomosPymes = () => {
 
       {/* 4. Precio y formas de pago */}
       <section
-        id='precio'
+        id='precios'
         ref={pricingSectionRef}
         className='scroll-mt-24 py-20 bg-gray-50'
       >
@@ -377,7 +393,7 @@ const WebAutonomosPymes = () => {
       </div>
 
       {/* 6. Portfolio o trabajos reales */}
-      <div id='trabajos' className='scroll-mt-24'>
+      <div id='portfolio' className='scroll-mt-24'>
         <Portfolio />
       </div>
 
