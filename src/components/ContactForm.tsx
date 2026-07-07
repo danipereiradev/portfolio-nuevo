@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Mail,
   Phone,
@@ -8,7 +9,6 @@ import {
   ArrowRight,
   ArrowLeft,
   AlertCircle,
-  CheckCircle,
 } from 'lucide-react';
 import {
   trackFormSubmit,
@@ -17,6 +17,7 @@ import {
   trackWhatsAppClick,
   trackEmailClick,
 } from '../utils/analytics';
+import { useContactModal } from '../contexts/ContactModalContext';
 import Button from './Button';
 
 interface ContactFormProps {
@@ -25,11 +26,11 @@ interface ContactFormProps {
 }
 
 const ContactForm = ({ preselectedPlan, isInModal = false }: ContactFormProps = {}) => {
+  const navigate = useNavigate();
+  const { closeModal } = useContactModal();
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<
-    'idle' | 'success' | 'error'
-  >('idle');
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'error'>('idle');
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [antiSpamAnswer, setAntiSpamAnswer] = useState('');
   const [antiSpamQuestion] = useState(() => {
@@ -240,8 +241,6 @@ Fecha: ${new Date().toLocaleString('es-ES')}
         );
       }
 
-      setSubmitStatus('success');
-
       const planPrices: { [key: string]: number } = {
         'Página Web': 0,
         'Tienda Online': 0,
@@ -253,6 +252,11 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       };
       const planValue = planPrices[formData.plan] || 0;
       trackFormSubmit(formData.plan, planValue);
+
+      if (isInModal) {
+        closeModal();
+      }
+      navigate('/gracias');
     } catch (error) {
       console.error('Error al enviar formulario:', error);
       trackFormError('submit_failed', formData.plan);
@@ -261,84 +265,6 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       setIsSubmitting(false);
     }
   };
-
-  if (submitStatus === 'success') {
-    const successContent = (
-      <div className='max-w-2xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-2xl p-8 md:p-12 text-center'>
-              <div className='flex justify-center mb-6'>
-                <div className='bg-green-100 rounded-full p-4'>
-                  <CheckCircle className='w-16 h-16 text-green-600' />
-                </div>
-              </div>
-
-              <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>
-                ¡Solicitud Enviada con Éxito!
-              </h2>
-
-              <p className='text-lg text-gray-700 mb-6 leading-relaxed'>
-                Gracias por confiar en mí para tu proyecto. He recibido tu
-                solicitud correctamente.
-              </p>
-
-              <div className='bg-gray-50 border border-gray-200 rounded-xl p-6 mb-6'>
-                <div className='flex items-center justify-center gap-2 mb-3'>
-                  <Mail className='w-5 h-5 text-accent' />
-                  <h3 className='text-xl font-semibold text-gray-900'>
-                    Te responderé pronto
-                  </h3>
-                </div>
-                <p className='text-gray-800 font-medium'>
-                  Me pondré en contacto contigo en un plazo máximo de{' '}
-                  <span className='font-bold'>24 horas</span> para discutir los
-                  detalles de tu proyecto.
-                </p>
-              </div>
-
-              <div className='text-sm text-gray-600 mb-6'>
-                <p className='mb-2'>
-                  📧 Revisa tu bandeja de entrada (y spam) por si acaso
-                </p>
-                <p>
-                  💬 También puedes contactarme directamente por WhatsApp si lo
-                  prefieres
-                </p>
-              </div>
-
-              <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-                <Button onClick={() => window.location.reload()} variant='primary'>
-                  Volver al Inicio
-                </Button>
-                <a
-                  href='https://wa.me/34644669828'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  onClick={() => trackWhatsAppClick('ContactFormSuccess')}
-                  className='border-2 border-green-500 text-green-600 px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transform hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2'
-                >
-                  <Phone className='w-4 h-4' />
-                  WhatsApp
-                </a>
-              </div>
-            </div>
-          </div>
-    );
-
-    if (isInModal) {
-      return successContent;
-    }
-
-    return (
-      <section
-        id='contact'
-        className='py-20 bg-gradient-to-br from-gray-50 to-blue-50'
-      >
-        <div className='container mx-auto px-6'>
-          {successContent}
-        </div>
-      </section>
-    );
-  }
 
   const ErrorMessage = ({ error }: { error: string }) => (
     <div className='flex items-center gap-2 text-accent text-sm mt-1'>

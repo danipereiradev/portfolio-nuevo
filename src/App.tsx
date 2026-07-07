@@ -19,6 +19,7 @@ import MantenimientoWeb from './pages/MantenimientoWeb';
 import AuditoriaEcommerce from './pages/AuditoriaEcommerce';
 import WebAutonomosPymes from './pages/WebAutonomosPymes';
 import Contacto from './pages/Contacto';
+import Gracias from './pages/Gracias';
 import NotFound from './pages/NotFound';
 
 const MINIMAL_NAV_ROUTES = ['/web-autonomos-pymes'];
@@ -46,6 +47,7 @@ function AppContent() {
         <Route path='/auditoria-ecommerce' element={<AuditoriaEcommerce />} />
         <Route path='/web-autonomos-pymes' element={<WebAutonomosPymes />} />
         <Route path='/contacto' element={<Contacto />} />
+        <Route path='/gracias' element={<Gracias />} />
 
         {/* Redirecciones de URLs antiguas/duplicadas a la ruta canónica */}
         <Route
