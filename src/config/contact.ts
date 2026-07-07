@@ -1,7 +1,7 @@
 // Datos de contacto centralizados. Cambiar el número aquí actualiza toda la
 // web (enlaces de WhatsApp, tel: y texto visible) desde un único sitio.
-export const PHONE_NUMBER = '34613444700';
-export const PHONE_DISPLAY = '+34 613 444 700';
+export const PHONE_NUMBER = '34644669828';
+export const PHONE_DISPLAY = '+34 644 669 828';
 export const PHONE_TEL_LINK = `tel:+${PHONE_NUMBER}`;
 
 export const DEFAULT_WHATSAPP_MESSAGE =
