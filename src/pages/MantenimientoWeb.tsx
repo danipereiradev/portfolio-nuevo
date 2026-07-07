@@ -26,12 +26,7 @@ import ContactForm from '../components/ContactForm';
 const MantenimientoWeb = () => {
   const { openModal } = useContactModal();
 
-  usePageMeta({
-    title: 'Mantenimiento Web desde 60€/mes | Dani Pereira',
-    description:
-      'Mantenimiento web profesional para WordPress, WooCommerce y webs de negocio. Actualizaciones, copias de seguridad, seguridad, soporte y optimización desde 60€/mes.',
-    path: '/mantenimiento-web',
-  });
+  usePageMeta('/mantenimiento-web');
 
   const callPhone = () => {
     trackPhoneClick('MantenimientoWebHero');

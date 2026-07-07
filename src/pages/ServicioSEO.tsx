@@ -29,12 +29,7 @@ import Portfolio from '../components/Portfolio';
 const ServicioSEO = () => {
   const { openModal } = useContactModal();
 
-  usePageMeta({
-    title: 'Posicionamiento SEO | Optimización Web para Google | Dani Pereira',
-    description:
-      'Servicios de posicionamiento SEO en España. Mejora tu ranking en Google, aumenta el tráfico orgánico y consigue más clientes. Consultoría SEO profesional.',
-    path: '/posicionamiento-web-seo',
-  });
+  usePageMeta('/posicionamiento-web-seo');
 
   const callPhone = () => {
     trackPhoneClick('ServicioSEOHero');

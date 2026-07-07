@@ -27,12 +27,7 @@ import Portfolio from '../components/Portfolio';
 const DisenoWeb = () => {
   const { openModal } = useContactModal();
 
-  usePageMeta({
-    title: 'Diseño Web Profesional desde 969€ | Dani Pereira',
-    description:
-      'Diseño web profesional desde 969€ IVA incluido. Páginas web modernas, atractivas y optimizadas que convierten visitantes en clientes. Presupuesto en menos de 24h.',
-    path: '/diseno-web',
-  });
+  usePageMeta('/diseno-web');
 
   const callPhone = () => {
     trackPhoneClick('DisenoWebHero');

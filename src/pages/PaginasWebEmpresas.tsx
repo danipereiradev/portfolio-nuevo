@@ -27,12 +27,7 @@ import Portfolio from '../components/Portfolio';
 const PaginasWebEmpresas = () => {
   const { openModal } = useContactModal();
 
-  usePageMeta({
-    title: 'Páginas Web para Empresas | Dani Pereira',
-    description:
-      'Desarrollo páginas web profesionales para empresas que necesitan una presencia digital clara, rápida y preparada para captar clientes.',
-    path: '/paginas-web-empresas',
-  });
+  usePageMeta('/paginas-web-empresas');
 
   const callPhone = () => {
     trackPhoneClick('PaginasWebEmpresasHero');

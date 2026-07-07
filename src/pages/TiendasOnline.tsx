@@ -30,12 +30,7 @@ import Portfolio from '../components/Portfolio';
 const TiendasOnline = () => {
   const { openModal } = useContactModal();
 
-  usePageMeta({
-    title: 'Crear Tienda Online Profesional desde 1.799€ | Dani Pereira',
-    description:
-      'Desarrollo tiendas online profesionales para vender por internet. Ecommerce desde 1.799€ IVA incluido, pasarela de pago, gestión de productos y soporte.',
-    path: '/tiendas-online',
-  });
+  usePageMeta('/tiendas-online');
 
   const callPhone = () => {
     trackPhoneClick('TiendasOnlineHero');

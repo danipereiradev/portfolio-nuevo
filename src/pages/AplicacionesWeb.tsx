@@ -30,12 +30,7 @@ import Portfolio from '../components/Portfolio';
 const AplicacionesWeb = () => {
   const { openModal } = useContactModal();
 
-  usePageMeta({
-    title: 'Desarrollo de Aplicaciones Web a Medida | Dani Pereira',
-    description:
-      'Desarrollo aplicaciones web, paneles internos, dashboards y herramientas digitales a medida para empresas y proyectos que necesitan software personalizado.',
-    path: '/desarrollo-aplicaciones-web',
-  });
+  usePageMeta('/desarrollo-aplicaciones-web');
 
   const callPhone = () => {
     trackPhoneClick('AplicacionesWebHero');

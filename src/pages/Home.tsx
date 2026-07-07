@@ -10,12 +10,7 @@ import Pricing from '../components/Pricing';
 import { usePageMeta } from '../hooks/usePageMeta';
 
 const Home = () => {
-  usePageMeta({
-    title: 'Diseño y Desarrollo Web Freelance | Dani Pereira',
-    description:
-      'Desarrollo páginas web, tiendas online y aplicaciones web para autónomos, pymes y marcas. Webs profesionales desde 969€ IVA incluido y mantenimiento desde 60€/mes.',
-    path: '/',
-  });
+  usePageMeta('/');
 
   return (
     <>

@@ -4,12 +4,7 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import ContactForm from '../components/ContactForm';
 
 const Contacto = () => {
-  usePageMeta({
-    title: 'Contacto | Desarrollo Web Profesional - Dani Pereira',
-    description:
-      'Contacta conmigo para tu proyecto web. Solicita presupuesto sin compromiso para diseño web, tienda online o aplicación web personalizada.',
-    path: '/contacto',
-  });
+  usePageMeta('/contacto');
 
   return (
     <>

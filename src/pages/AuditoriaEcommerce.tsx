@@ -42,12 +42,7 @@ import Testimonials from '../components/Testimonials';
 const AuditoriaEcommerce = () => {
   const { openModal } = useContactModal();
 
-  usePageMeta({
-    title: 'Auditoría ecommerce antes de invertir en publicidad | Dani Pereira',
-    description:
-      'Revisión de tiendas online para detectar problemas de confianza, móvil, producto, carrito y checkout antes de invertir más en Google Ads o Meta Ads.',
-    path: '/auditoria-ecommerce',
-  });
+  usePageMeta('/auditoria-ecommerce');
 
   const problems = [
     {

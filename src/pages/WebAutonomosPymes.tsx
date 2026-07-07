@@ -34,12 +34,7 @@ const WHATSAPP_URL =
 const WebAutonomosPymes = () => {
   const { openModal } = useContactModal();
 
-  usePageMeta({
-    title: 'Desarrollo Web para Autónomos y Pymes desde 969€ | Dani Pereira',
-    description:
-      'Diseño y desarrollo páginas web profesionales para autónomos, pymes y pequeños negocios. Web desde 969€ IVA incluido, entrega en 2-3 semanas y plan mensual disponible.',
-    path: '/web-autonomos-pymes',
-  });
+  usePageMeta('/web-autonomos-pymes');
 
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });

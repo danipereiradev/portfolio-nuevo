@@ -1,3 +1,18 @@
 /landing-express   /web-autonomos-pymes   301!
 /tienda-online     /tiendas-online        301!
+
+# Cada ruta comercial sirve su propio index.html pre-renderizado (con
+# title/description/canonical/OG/Twitter propios) generado por
+# scripts/prerender-meta.mjs tras el build, en vez de caer todas en el
+# index.html genérico de la home.
+/web-autonomos-pymes            /web-autonomos-pymes/index.html            200
+/paginas-web-empresas           /paginas-web-empresas/index.html           200
+/tiendas-online                 /tiendas-online/index.html                 200
+/mantenimiento-web              /mantenimiento-web/index.html              200
+/desarrollo-aplicaciones-web    /desarrollo-aplicaciones-web/index.html    200
+/diseno-web                     /diseno-web/index.html                     200
+/posicionamiento-web-seo        /posicionamiento-web-seo/index.html        200
+/auditoria-ecommerce            /auditoria-ecommerce/index.html            200
+/contacto                       /contacto/index.html                       200
+
 /*    /index.html   200

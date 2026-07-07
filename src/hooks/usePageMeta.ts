@@ -1,13 +1,9 @@
 import { useEffect } from 'react';
+import pagesMeta from '../seo/pagesMeta.json';
 
 const SITE_URL = 'https://danipereiraweb.es';
 
-interface PageMetaOptions {
-  title: string;
-  description: string;
-  /** Ruta del sitio, ej. '/', '/tiendas-online' */
-  path: string;
-}
+type PagesMeta = Record<string, { title: string; description: string }>;
 
 const setMetaByAttr = (
   attr: 'name' | 'property',
@@ -27,11 +23,19 @@ const setMetaByAttr = (
 
 /**
  * Sincroniza title, meta description, canonical y metadata social
- * (Open Graph + Twitter Card) de la página actual. Reutiliza las mismas
- * etiquetas del <head> en lugar de crear duplicados en cada navegación.
+ * (Open Graph + Twitter Card) de la página actual.
+ *
+ * Toma el título y la descripción desde `src/seo/pagesMeta.json`, la misma
+ * fuente única que usa el script de pre-renderizado (`scripts/prerender-meta.mjs`)
+ * para generar el HTML estático por ruta. Así evitamos que el texto mostrado
+ * en el navegador (tras hidratar React) y el texto que ven los bots/curl
+ * (HTML estático servido antes de ejecutar JS) puedan desincronizarse.
  */
-export const usePageMeta = ({ title, description, path }: PageMetaOptions) => {
+export const usePageMeta = (path: string) => {
   useEffect(() => {
+    const meta = (pagesMeta as PagesMeta)[path] ?? (pagesMeta as PagesMeta)['/'];
+    const { title, description } = meta;
+
     document.title = title;
     setMetaByAttr('name', 'description', description);
 
@@ -55,5 +59,5 @@ export const usePageMeta = ({ title, description, path }: PageMetaOptions) => {
     // Twitter Card
     setMetaByAttr('name', 'twitter:title', title);
     setMetaByAttr('name', 'twitter:description', description);
-  }, [title, description, path]);
+  }, [path]);
 };
