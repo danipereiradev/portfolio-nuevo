@@ -9,6 +9,7 @@ import {
   Palette,
   Server,
   ShoppingCart,
+  MessageCircle,
 } from 'lucide-react';
 import {
   SiJavascript,
@@ -33,6 +34,11 @@ import {
 } from 'react-icons/si';
 import { FaCss3Alt } from 'react-icons/fa';
 import { useLanguage } from '../contexts/LanguageContext';
+import { trackWhatsAppClick } from '../utils/analytics';
+import { buildWhatsAppUrl } from '../config/contact';
+
+const ABOUT_ME_WHATSAPP_MESSAGE =
+  'Hola Dani, he leído tu sección "Sobre mí" y quiero contarte mi proyecto.';
 
 interface AboutMeProps {
   isOpen: boolean;
@@ -43,6 +49,15 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
   const { t } = useLanguage();
 
   if (!isOpen) return null;
+
+  const handleWhatsAppClick = () => {
+    trackWhatsAppClick('AboutMeModal', 'Cuéntame tu proyecto');
+    window.open(
+      buildWhatsAppUrl(ABOUT_ME_WHATSAPP_MESSAGE),
+      '_blank',
+      'noopener,noreferrer',
+    );
+  };
 
   const experience = [
     {
@@ -135,34 +150,89 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
             </div>
 
             <div className='prose max-w-none'>
-              <h3 className='text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center'>
+              <h3 className='text-2xl md:text-3xl font-bold text-gray-900 mb-4 text-center'>
                 ¡Hola! Soy Dani Pereira
               </h3>
+
+              <p className='text-center text-accent font-semibold text-base md:text-lg mb-6 max-w-2xl mx-auto'>
+                Desarrollador web senior freelance con experiencia en proyectos
+                para autónomos, pymes y empresas del sector retail.
+              </p>
+
               <div className='text-gray-700 leading-relaxed space-y-4'>
                 <p>
-                  Soy un desarrollador web autodidacta y naturalmente curioso
-                  (sí, un clásico caso de TDAH). Empecé por necesidad, rompiendo
-                  y reconstruyendo la tienda online del negocio familiar… y ahí,
-                  tras noches en foros y tutoriales descubrí que el código me
-                  apasionaba.
+                  Soy Dani Pereira,{' '}
+                  <strong className='text-gray-900'>
+                    desarrollador web senior freelance
+                  </strong>
+                  , especializado en crear{' '}
+                  <strong className='text-gray-900'>páginas web</strong>,{' '}
+                  <strong className='text-gray-900'>tiendas online</strong> y{' '}
+                  <strong className='text-gray-900'>soluciones digitales</strong>{' '}
+                  para{' '}
+                  <strong className='text-gray-900'>
+                    autónomos, pymes y empresas
+                  </strong>{' '}
+                  que necesitan una presencia online sólida, cuidada y
+                  funcional.
                 </p>
                 <p>
-                  Aunque hoy mi día a día está lleno de líneas de código, la
-                  música sigue ocupando gran parte de mi vida: la mitad de mi
-                  tiempo la dedico a trabajar como batería en giras y en
-                  estudio. Me considero una persona cercana, alegre y con buen
-                  sentido del humor, pero también comprometida. Durante cuatro
-                  años fui voluntario en Red Acoge La Rioja, colaborando en
-                  proyectos de apoyo a personas migrantes en situación de
-                  vulnerabilidad. Creo firmemente en usar la tecnología y la
-                  creatividad con propósito.
+                  A lo largo de mi carrera he trabajado con clientes de
+                  distintos tamaños: desde pequeños negocios que necesitaban
+                  lanzar su primera web profesional, hasta colaboraciones en
+                  proyectos para empresas de mayor escala dentro del{' '}
+                  <strong className='text-gray-900'>sector retail</strong>.
+                  Esa variedad me ha dado una visión muy práctica del
+                  desarrollo web: entender bien el objetivo del proyecto,
+                  cuidar la experiencia de usuario, mantener una base técnica
+                  sólida y entregar soluciones que funcionen de verdad en el
+                  día a día.
                 </p>
                 <p>
-                  Me inspiran la música, los viajes, los festivales y el deporte
-                  (cuando logro vencer la procrastinación). En el fondo, me
-                  mueve la misma energía que me trajo hasta aquí: aprender,
-                  crear y conectar con personas a través de proyectos con alma.
+                  Mi forma de trabajar combina diseño, desarrollo y criterio
+                  técnico. No me limito a montar una web "bonita": me
+                  interesa que cada proyecto tenga una estructura clara,
+                  cargue rápido, se adapte bien a móvil, sea fácil de
+                  mantener y esté pensado para transmitir confianza desde el
+                  primer momento.
                 </p>
+                <p>
+                  Empecé en el desarrollo web construyendo y mejorando la
+                  tienda online del negocio familiar. Aquella experiencia me
+                  enseñó algo que sigo aplicando hoy: una web no es solo
+                  código, diseño o tecnología; es una herramienta real para
+                  vender, comunicar mejor y hacer crecer un proyecto.
+                </p>
+                <p>
+                  Trabajo de forma directa con cada cliente, sin
+                  intermediarios ni procesos innecesariamente complicados. Me
+                  gusta explicar las cosas con claridad, proponer soluciones
+                  realistas y acompañar el proyecto desde la idea inicial
+                  hasta la publicación final.
+                </p>
+                <p>
+                  Además del desarrollo web, la música forma parte importante
+                  de mi vida. Soy batería profesional y he trabajado en giras
+                  y estudio, algo que también influye en mi manera de
+                  afrontar los proyectos: escucha, ritmo, constancia,
+                  adaptación y compromiso con el resultado.
+                </p>
+                <p>
+                  Me gusta colaborar con personas y negocios que buscan algo
+                  honesto, bien hecho y con personalidad. Proyectos con una
+                  base sólida, una comunicación cercana y una web que no solo
+                  esté online, sino que represente bien lo que hay detrás.
+                </p>
+              </div>
+
+              <div className='flex justify-center mt-6'>
+                <button
+                  onClick={handleWhatsAppClick}
+                  className='inline-flex items-center gap-2 bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors duration-200 font-medium'
+                >
+                  <MessageCircle className='w-5 h-5' />
+                  Cuéntame tu proyecto
+                </button>
               </div>
             </div>
 
