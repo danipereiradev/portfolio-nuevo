@@ -10,6 +10,10 @@
       gtag('js', new Date());
 
       gtag('config', 'G-V288FHTPLQ');
+
+      // Google Ads: mismo tag de Google, se añade el destino de conversiones
+      // de Ads sin cargar un segundo script (ya tenemos gtag.js arriba).
+      gtag('config', 'AW-18305239496');
     </script>
     <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
@@ -60,12 +64,6 @@
       name="twitter:description"
       content="Desarrollo páginas web, tiendas online y aplicaciones web para autónomos, pymes y marcas. Webs profesionales desde 969€ IVA incluido y mantenimiento desde 60€/mes."
     />
-
-    <!--
-      Google Ads: cuando tengas tu ID de conversión (AW-XXXXXXXXX), añade aquí
-      el snippet de conversión de Google Ads junto al gtag existente, o
-      configúralo como variable de entorno si prefieres inyectarlo en el build.
-    -->
 
     <!-- Schema.org -->
     <script type="application/ld+json">

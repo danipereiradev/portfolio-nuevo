@@ -73,6 +73,64 @@ const trackAdsContactConversion = (contactType: ContactConversionType) => {
   }
 };
 
+// Conversión de Google Ads (cuenta de Ads, no GA4): "Contacto - Click
+// WhatsApp". Usa directamente el destino (send_to) que da Google Ads para
+// esta conversión concreta, independiente del evento GA4 de arriba.
+//
+// Debe dispararse ÚNICAMENTE con un clic real en un botón/enlace de
+// WhatsApp. Nunca en carga de página, scroll, view_pricing, ni en el envío
+// del formulario (ese flujo ya redirige a /gracias y no pasa por aquí).
+const GOOGLE_ADS_WHATSAPP_CONVERSION_SEND_TO =
+  'AW-18305239496/uNL7CKX5j84cEMiTz5hE';
+
+/**
+ * Dispara la conversión de Google Ads "Contacto - Click WhatsApp" y a
+ * continuación abre WhatsApp con la URL indicada.
+ *
+ * - Si `window.gtag` no existe (bloqueador de anuncios, fallo de carga del
+ *   tag, etc.), abre WhatsApp igualmente: la conversión nunca debe bloquear
+ *   ni retrasar la acción del usuario.
+ * - Si `window.gtag` existe, se dispara el evento de conversión y WhatsApp se
+ *   abre desde `event_callback`. Como red de seguridad (por si el callback
+ *   no llega a tiempo) se abre también tras 800ms si aún no se ha abierto.
+ * - WhatsApp se abre siempre en una pestaña nueva (`window.open`), igual que
+ *   hacía cada botón antes de esta función, para no perder la página actual.
+ */
+export const trackGoogleAdsWhatsAppConversion = (url: string): boolean => {
+  if (typeof window === 'undefined') return false;
+
+  let opened = false;
+  const openWhatsAppOnce = () => {
+    if (opened) return;
+    opened = true;
+    if (url) {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+  };
+
+  if (typeof window.gtag !== 'function') {
+    openWhatsAppOnce();
+    return false;
+  }
+
+  try {
+    window.gtag('event', 'conversion', {
+      send_to: GOOGLE_ADS_WHATSAPP_CONVERSION_SEND_TO,
+      value: 1.0,
+      currency: 'EUR',
+      event_callback: openWhatsAppOnce,
+    });
+  } catch {
+    // La analítica nunca debe romper la experiencia del usuario.
+    openWhatsAppOnce();
+    return false;
+  }
+
+  setTimeout(openWhatsAppOnce, 800);
+
+  return false;
+};
+
 // Contacto directo
 
 export const trackWhatsAppClick = (

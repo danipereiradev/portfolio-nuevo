@@ -3,8 +3,13 @@ import { Menu, X, ChevronDown, MessageCircle } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useContactModal } from '../contexts/ContactModalContext';
-import { trackWhatsAppClick } from '../utils/analytics';
+import {
+  trackWhatsAppClick,
+  trackGoogleAdsWhatsAppConversion,
+} from '../utils/analytics';
 import { PHONE_NUMBER } from '../config/contact';
+
+const HEADER_WHATSAPP_URL = `https://wa.me/${PHONE_NUMBER}`;
 import AboutMe from './AboutMe';
 
 interface HeaderProps {
@@ -231,10 +236,14 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
               )}
 
               <a
-                href={`https://wa.me/${PHONE_NUMBER}`}
+                href={HEADER_WHATSAPP_URL}
                 target='_blank'
                 rel='noopener noreferrer'
-                onClick={() => trackWhatsAppClick('Header')}
+                onClick={(e) => {
+                  e.preventDefault();
+                  trackWhatsAppClick('Header');
+                  trackGoogleAdsWhatsAppConversion(HEADER_WHATSAPP_URL);
+                }}
                 className='p-2 rounded-lg bg-accent hover:bg-accent-hover transition-colors duration-200'
                 aria-label='WhatsApp'
               >

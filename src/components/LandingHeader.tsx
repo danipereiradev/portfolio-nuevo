@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { Menu, X, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { trackWhatsAppClick } from '../utils/analytics';
+import {
+  trackWhatsAppClick,
+  trackGoogleAdsWhatsAppConversion,
+} from '../utils/analytics';
 import { ADS_WHATSAPP_MESSAGE, buildWhatsAppUrl } from '../config/contact';
 
 const WHATSAPP_URL = buildWhatsAppUrl(ADS_WHATSAPP_MESSAGE);
@@ -25,7 +28,7 @@ const LandingHeader = () => {
 
   const handleWhatsApp = () => {
     trackWhatsAppClick('LandingHeader', 'Pedir presupuesto');
-    window.open(WHATSAPP_URL, '_blank', 'noopener,noreferrer');
+    trackGoogleAdsWhatsAppConversion(WHATSAPP_URL);
   };
 
   return (

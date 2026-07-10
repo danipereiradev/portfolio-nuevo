@@ -34,7 +34,10 @@ import {
 } from 'react-icons/si';
 import { FaCss3Alt } from 'react-icons/fa';
 import { useLanguage } from '../contexts/LanguageContext';
-import { trackWhatsAppClick } from '../utils/analytics';
+import {
+  trackWhatsAppClick,
+  trackGoogleAdsWhatsAppConversion,
+} from '../utils/analytics';
 import { buildWhatsAppUrl } from '../config/contact';
 
 const ABOUT_ME_WHATSAPP_MESSAGE =
@@ -52,11 +55,7 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
 
   const handleWhatsAppClick = () => {
     trackWhatsAppClick('AboutMeModal', 'Cuéntame tu proyecto');
-    window.open(
-      buildWhatsAppUrl(ABOUT_ME_WHATSAPP_MESSAGE),
-      '_blank',
-      'noopener,noreferrer',
-    );
+    trackGoogleAdsWhatsAppConversion(buildWhatsAppUrl(ABOUT_ME_WHATSAPP_MESSAGE));
   };
 
   const experience = [

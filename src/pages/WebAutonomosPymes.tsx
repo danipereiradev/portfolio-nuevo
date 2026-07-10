@@ -12,6 +12,7 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import { useSectionView } from '../hooks/useSectionView';
 import {
   trackWhatsAppClick,
+  trackGoogleAdsWhatsAppConversion,
   trackPricingCtaClick,
   trackPricingSinglePayment,
   trackPricingSplitPayment,
@@ -61,7 +62,7 @@ const WebAutonomosPymes = () => {
 
   const handleWhatsApp = (location: string) => {
     trackWhatsAppClick(location);
-    window.open(WHATSAPP_URL, '_blank', 'noopener,noreferrer');
+    trackGoogleAdsWhatsAppConversion(WHATSAPP_URL);
   };
 
   const handleQuoteRequest = () => {

@@ -1,6 +1,10 @@
 import { MessageCircle, Tag, Briefcase } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { trackButtonClick, trackWhatsAppClick } from '../utils/analytics';
+import {
+  trackButtonClick,
+  trackWhatsAppClick,
+  trackGoogleAdsWhatsAppConversion,
+} from '../utils/analytics';
 import { DEFAULT_WHATSAPP_MESSAGE, buildWhatsAppUrl } from '../config/contact';
 import Button from './Button';
 
@@ -15,7 +19,7 @@ const Hero = () => {
 
   const handleWhatsAppClick = () => {
     trackWhatsAppClick('Hero', t('hero.cta.whatsapp'));
-    window.open(WHATSAPP_URL, '_blank', 'noopener,noreferrer');
+    trackGoogleAdsWhatsAppConversion(WHATSAPP_URL);
   };
 
   const handleViewPricing = () => {

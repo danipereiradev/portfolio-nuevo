@@ -15,6 +15,7 @@ import {
   trackFormStep,
   trackFormError,
   trackWhatsAppClick,
+  trackGoogleAdsWhatsAppConversion,
   trackEmailClick,
 } from '../utils/analytics';
 import { useContactModal } from '../contexts/ContactModalContext';
@@ -817,7 +818,11 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             href={bottomWhatsAppUrl}
             target='_blank'
             rel='noopener noreferrer'
-            onClick={() => trackWhatsAppClick('ContactFormBottom')}
+            onClick={(e) => {
+              e.preventDefault();
+              trackWhatsAppClick('ContactFormBottom');
+              trackGoogleAdsWhatsAppConversion(bottomWhatsAppUrl);
+            }}
             className='flex items-center gap-2 text-green-600 hover:text-green-700 font-medium'
           >
             <Phone className='w-5 h-5' />
