@@ -51,6 +51,9 @@ const ContactForm = ({
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [antiSpamAnswer, setAntiSpamAnswer] = useState('');
   const [antiSpamQuestion] = useState(() => {
+    // El año se calcula en tiempo real (nunca hardcodeado) para que la
+    // pregunta siga siendo correcta automáticamente en años futuros.
+    const currentYear = new Date().getFullYear().toString();
     const questions = [
       { question: '¿Cuánto es 5 + 3?', answer: '8' },
       {
@@ -58,7 +61,10 @@ const ContactForm = ({
         answer: 'azul',
       },
       { question: '¿Cuántas patas tiene un gato?', answer: '4' },
-      { question: '¿Cuál es el año actual? (4 dígitos)', answer: '2025' },
+      {
+        question: '¿Cuál es el año actual? (4 dígitos)',
+        answer: currentYear,
+      },
       { question: '¿Cuál es la capital de España?', answer: 'madrid' },
     ];
     return questions[Math.floor(Math.random() * questions.length)];

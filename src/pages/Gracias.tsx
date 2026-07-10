@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { CheckCircle2, Home as HomeIcon, MessageCircle } from 'lucide-react';
 import Button from '../components/Button';
+import ThankYouPlaySection from '../components/ThankYouPlaySection';
 import { trackWhatsAppClick } from '../utils/analytics';
 import { buildWhatsAppUrl } from '../config/contact';
 
@@ -81,7 +82,7 @@ const Gracias = () => {
         <p className='text-gray-600 mb-2'>
           He recibido tu solicitud correctamente. Te responderé en un plazo
           máximo de{' '}
-          <span className='font-semibold text-gray-900'>24 horas</span> con tu
+          <span className='font-semibold text-gray-900'>2 horas</span> con tu
           propuesta.
         </p>
 
@@ -101,6 +102,8 @@ const Gracias = () => {
             Volver al inicio
           </Button>
         </div>
+
+        <ThankYouPlaySection />
       </div>
     </section>
   );
