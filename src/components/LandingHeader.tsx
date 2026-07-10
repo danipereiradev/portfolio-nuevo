@@ -10,6 +10,7 @@ const navLinks = [
   { label: 'Precio', id: 'precios' },
   { label: 'Qué incluye', id: 'incluye' },
   { label: 'Trabajos', id: 'portfolio' },
+  { label: 'Valoraciones', id: 'valoraciones' },
   { label: 'FAQ', id: 'faq' },
   { label: 'Contacto', id: 'contacto' },
 ];

@@ -1,7 +1,11 @@
 import { useState } from 'react';
 import { Star, Quote } from 'lucide-react';
 
-const Testimonials = () => {
+interface TestimonialsProps {
+  id?: string;
+}
+
+const Testimonials = ({ id = 'testimonials' }: TestimonialsProps = {}) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
@@ -135,8 +139,8 @@ const Testimonials = () => {
 
   return (
     <section
-      id='testimonials'
-      className='py-20 bg-gradient-to-br from-blue-50 to-purple-50 relative overflow-hidden'
+      id={id}
+      className='scroll-mt-24 py-20 bg-gradient-to-br from-blue-50 to-purple-50 relative overflow-hidden'
     >
       {/* Background Image */}
       <div

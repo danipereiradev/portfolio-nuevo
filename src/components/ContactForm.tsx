@@ -30,7 +30,10 @@ interface ContactFormProps {
   isInModal?: boolean;
 }
 
-const ContactForm = ({ preselectedPlan, isInModal = false }: ContactFormProps = {}) => {
+const ContactForm = ({
+  preselectedPlan,
+  isInModal = false,
+}: ContactFormProps = {}) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   // En el resto del sitio este enlace se mantiene "en blanco" (sin mensaje
@@ -250,7 +253,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       if (!response.ok) {
         const result = await response.json();
         throw new Error(
-          result.error || `Error ${response.status}: ${response.statusText}`
+          result.error || `Error ${response.status}: ${response.statusText}`,
         );
       }
 
@@ -390,24 +393,17 @@ Fecha: ${new Date().toLocaleString('es-ES')}
               <div className='grid gap-4'>
                 <button
                   type='button'
-                  onClick={() =>
-                    handleInputChange(
-                      'plan',
-                      'Página Web'
-                    )
-                  }
+                  onClick={() => handleInputChange('plan', 'Página Web')}
                   className={`p-5 text-left border-2 rounded-xl transition-all duration-200 ${
                     formData.plan === 'Página Web'
                       ? 'border-accent bg-gray-50'
                       : errors.plan
-                      ? 'border-accent'
-                      : 'border-gray-300 hover:border-gray-400'
+                        ? 'border-accent'
+                        : 'border-gray-300 hover:border-gray-400'
                   }`}
                 >
                   <div className='flex items-start justify-between mb-2'>
-                    <h4 className='font-bold text-gray-900'>
-                      Página Web
-                    </h4>
+                    <h4 className='font-bold text-gray-900'>Página Web</h4>
                     {formData.plan === 'Página Web' && (
                       <Check className='w-5 h-5 text-accent' />
                     )}
@@ -419,15 +415,13 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
                 <button
                   type='button'
-                  onClick={() =>
-                    handleInputChange('plan', 'Tienda Online')
-                  }
+                  onClick={() => handleInputChange('plan', 'Tienda Online')}
                   className={`p-5 text-left border-2 rounded-xl transition-all duration-200 ${
                     formData.plan === 'Tienda Online'
                       ? 'border-accent bg-gray-50'
                       : errors.plan
-                      ? 'border-accent'
-                      : 'border-gray-300 hover:border-gray-400'
+                        ? 'border-accent'
+                        : 'border-gray-300 hover:border-gray-400'
                   }`}
                 >
                   <div className='flex items-start justify-between mb-2'>
@@ -444,17 +438,14 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                 <button
                   type='button'
                   onClick={() =>
-                    handleInputChange(
-                      'plan',
-                      'Auditoría Ecommerce'
-                    )
+                    handleInputChange('plan', 'Auditoría Ecommerce')
                   }
                   className={`p-5 text-left border-2 rounded-xl transition-all duration-200 ${
                     formData.plan === 'Auditoría Ecommerce'
                       ? 'border-accent bg-gray-50'
                       : errors.plan
-                      ? 'border-accent'
-                      : 'border-gray-300 hover:border-gray-400'
+                        ? 'border-accent'
+                        : 'border-gray-300 hover:border-gray-400'
                   }`}
                 >
                   <div className='flex items-start justify-between mb-2'>
@@ -472,24 +463,17 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
                 <button
                   type='button'
-                  onClick={() =>
-                    handleInputChange(
-                      'plan',
-                      'App Móvil'
-                    )
-                  }
+                  onClick={() => handleInputChange('plan', 'App Móvil')}
                   className={`p-5 text-left border-2 rounded-xl transition-all duration-200 ${
                     formData.plan === 'App Móvil'
                       ? 'border-accent bg-gray-50'
                       : errors.plan
-                      ? 'border-accent'
-                      : 'border-gray-300 hover:border-gray-400'
+                        ? 'border-accent'
+                        : 'border-gray-300 hover:border-gray-400'
                   }`}
                 >
                   <div className='flex items-start justify-between mb-2'>
-                    <h4 className='font-bold text-gray-900'>
-                      App Móvil
-                    </h4>
+                    <h4 className='font-bold text-gray-900'>App Móvil</h4>
                     {formData.plan === 'App Móvil' && (
                       <Check className='w-5 h-5 text-accent' />
                     )}
@@ -501,24 +485,17 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
                 <button
                   type='button'
-                  onClick={() =>
-                    handleInputChange(
-                      'plan',
-                      'Diseño Web'
-                    )
-                  }
+                  onClick={() => handleInputChange('plan', 'Diseño Web')}
                   className={`p-5 text-left border-2 rounded-xl transition-all duration-200 ${
                     formData.plan === 'Diseño Web'
                       ? 'border-accent bg-gray-50'
                       : errors.plan
-                      ? 'border-accent'
-                      : 'border-gray-300 hover:border-gray-400'
+                        ? 'border-accent'
+                        : 'border-gray-300 hover:border-gray-400'
                   }`}
                 >
                   <div className='flex items-start justify-between mb-2'>
-                    <h4 className='font-bold text-gray-900'>
-                      Diseño Web
-                    </h4>
+                    <h4 className='font-bold text-gray-900'>Diseño Web</h4>
                     {formData.plan === 'Diseño Web' && (
                       <Check className='w-5 h-5 text-accent' />
                     )}
@@ -531,17 +508,14 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                 <button
                   type='button'
                   onClick={() =>
-                    handleInputChange(
-                      'plan',
-                      'Posicionamiento SEO'
-                    )
+                    handleInputChange('plan', 'Posicionamiento SEO')
                   }
                   className={`p-5 text-left border-2 rounded-xl transition-all duration-200 ${
                     formData.plan === 'Posicionamiento SEO'
                       ? 'border-accent bg-gray-50'
                       : errors.plan
-                      ? 'border-accent'
-                      : 'border-gray-300 hover:border-gray-400'
+                        ? 'border-accent'
+                        : 'border-gray-300 hover:border-gray-400'
                   }`}
                 >
                   <div className='flex items-start justify-between mb-2'>
@@ -559,18 +533,13 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
                 <button
                   type='button'
-                  onClick={() =>
-                    handleInputChange(
-                      'plan',
-                      'Mantenimiento Web'
-                    )
-                  }
+                  onClick={() => handleInputChange('plan', 'Mantenimiento Web')}
                   className={`p-5 text-left border-2 rounded-xl transition-all duration-200 ${
                     formData.plan === 'Mantenimiento Web'
                       ? 'border-accent bg-gray-50'
                       : errors.plan
-                      ? 'border-accent'
-                      : 'border-gray-300 hover:border-gray-400'
+                        ? 'border-accent'
+                        : 'border-gray-300 hover:border-gray-400'
                   }`}
                 >
                   <div className='flex items-start justify-between mb-2'>
@@ -663,7 +632,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                       />
                       {method}
                     </label>
-                  )
+                  ),
                 )}
               </div>
               {errors.preferredContact && (
@@ -691,7 +660,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                       />
                       {urgency}
                     </label>
-                  )
+                  ),
                 )}
               </div>
             </div>
@@ -753,8 +722,8 @@ Fecha: ${new Date().toLocaleString('es-ES')}
           Contacta conmigo o solicita un presupuesto
         </h2>
         <p className='text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto'>
-          Cuéntame sobre tu proyecto y te enviaré una propuesta personalizada
-          en menos de 24 horas
+          Cuéntame sobre tu proyecto y te enviaré una propuesta personalizada en
+          de 24 horas
         </p>
       </div>
 
@@ -833,9 +802,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       </div>
 
       <div className='text-center mt-12'>
-        <p className='text-gray-600 mb-4'>
-          ¿Prefieres contactar directamente?
-        </p>
+        <p className='text-gray-600 mb-4'>¿Prefieres contactar directamente?</p>
         <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
           <a
             href='mailto:web.danipereira@gmail.com'
@@ -870,9 +837,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       id='contact'
       className='py-20 bg-gradient-to-br from-gray-50 to-blue-50'
     >
-      <div className='container mx-auto px-6'>
-        {formContent}
-      </div>
+      <div className='container mx-auto px-6'>{formContent}</div>
     </section>
   );
 };

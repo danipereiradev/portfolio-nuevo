@@ -27,6 +27,7 @@ import SEOProcess from '../components/SEOProcess';
 import SEOFAQ from '../components/SEOFAQ';
 import SEOCTAFinal from '../components/SEOCTAFinal';
 import Portfolio from '../components/Portfolio';
+import Testimonials from '../components/Testimonials';
 import ContactForm from '../components/ContactForm';
 import Button from '../components/Button';
 
@@ -71,8 +72,7 @@ const WebAutonomosPymes = () => {
   const handlePaymentOptionClick = (type: 'single' | 'split' | 'monthly') => {
     if (type === 'single') trackPricingSinglePayment('Web autónomos y pymes');
     if (type === 'split') trackPricingSplitPayment('Web autónomos y pymes');
-    if (type === 'monthly')
-      trackPricingMonthlyPlan('Web autónomos y pymes');
+    if (type === 'monthly') trackPricingMonthlyPlan('Web autónomos y pymes');
     openModal('Página Web');
   };
 
@@ -221,9 +221,9 @@ const WebAutonomosPymes = () => {
     <>
       {/* 1. Hero con precio y CTA */}
       <SEOLandingHero
-        title='Páginas web para autónomos y pymes desde 969€ IVA incluido'
+        title='Páginas web para autónomos y pymes desde 129€/mes'
         subtitle='Diseño, desarrollo y publicación en 2-3 semanas'
-        description='Trato directo conmigo, sin agencias ni intermediarios. Plan mensual disponible desde 129€/mes y propuesta en menos de 24h.'
+        description='Trato directo conmigo, sin agencias ni intermediarios. También disponible en pago único desde 969€ IVA incluido. Propuesta en máximo 2h.'
         ctaText='Pedir presupuesto por WhatsApp'
         onCTAClick={() => handleWhatsApp('LandingAutonomosHero')}
         secondaryCTAText='Ver trabajos reales'
@@ -315,9 +315,7 @@ const WebAutonomosPymes = () => {
                 </div>
 
                 <div className='border border-gray-200 rounded-xl p-4 flex flex-col'>
-                  <p className='font-bold text-gray-900 mb-1'>
-                    Pago dividido
-                  </p>
+                  <p className='font-bold text-gray-900 mb-1'>Pago dividido</p>
                   <p className='text-2xl font-bold text-accent mb-1'>
                     50% + 50%
                   </p>
@@ -360,14 +358,13 @@ const WebAutonomosPymes = () => {
 
               <p className='text-center text-xs text-gray-400 mt-5'>
                 El plan mensual incluye la creación de la web, soporte y
-                mantenimiento básico durante los 12 meses. Condiciones
-                finales según alcance del proyecto.
+                mantenimiento básico durante los 12 meses. Condiciones finales
+                según alcance del proyecto.
               </p>
             </div>
 
             <p className='text-center text-xs text-gray-400 mt-4'>
-              Todos los precios incluyen IVA salvo que se indique lo
-              contrario.
+              Todos los precios incluyen IVA salvo que se indique lo contrario.
             </p>
 
             <div className='mt-6 text-center'>
@@ -397,6 +394,9 @@ const WebAutonomosPymes = () => {
         <Portfolio />
       </div>
 
+      {/* 6.1 Valoraciones de clientes (idéntica a la de la home) */}
+      <Testimonials id='valoraciones' />
+
       {/* 7. Proceso de trabajo */}
       <SEOProcess title='Cómo Trabajaremos' steps={process} />
 
@@ -407,9 +407,9 @@ const WebAutonomosPymes = () => {
 
       {/* 9. Formulario / contacto final */}
       <SEOCTAFinal
-        title='Páginas web para autónomos y pymes desde 969€ IVA incluido'
-        subtitle='Trato directo conmigo, sin agencias ni intermediarios. Solicita tu propuesta y recíbela en menos de 24h.'
-        buttonText='Recibir propuesta en 24h'
+        title='Páginas web para autónomos y pymes desde 129€/mes'
+        subtitle='Trato directo conmigo, sin agencias ni intermediarios. Solicita tu propuesta y recíbela en de 2h.'
+        buttonText='Recibir propuesta en 2h'
         onButtonClick={handleQuoteRequest}
       />
 

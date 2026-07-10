@@ -1,4 +1,12 @@
-import { Award, Tag, ShoppingCart, Wallet, Clock, Send, MapPin } from 'lucide-react';
+import {
+  Award,
+  Tag,
+  ShoppingCart,
+  Wallet,
+  Clock,
+  Send,
+  MapPin,
+} from 'lucide-react';
 
 const trustPoints = [
   { icon: Award, text: '+12 años de experiencia' },
@@ -6,7 +14,7 @@ const trustPoints = [
   { icon: ShoppingCart, text: 'Tienda online desde 1.799€ IVA incluido' },
   { icon: Wallet, text: 'Plan mensual disponible' },
   { icon: Clock, text: 'Entrega en 2-3 semanas' },
-  { icon: Send, text: 'Propuesta en menos de 24h' },
+  { icon: Send, text: 'Propuesta en 2h' },
   { icon: MapPin, text: 'Clientes en toda España' },
 ];
 

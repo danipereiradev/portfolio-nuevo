@@ -131,7 +131,7 @@ const MantenimientoWeb = () => {
     {
       title: 'Soporte Técnico Ilimitado',
       description:
-        'Asistencia técnica por email o WhatsApp con respuesta en menos de 24 horas.',
+        'Asistencia técnica por email o WhatsApp con respuesta en máximo 2 horas.',
     },
   ];
 
@@ -215,7 +215,7 @@ const MantenimientoWeb = () => {
     {
       question: '¿Qué pasa si mi web tiene un problema urgente?',
       answer:
-        'Respondo a incidencias urgentes en menos de 2 horas durante horario laboral. Para emergencias críticas fuera de horario, ofrezco soporte prioritario 24/7 en planes premium.',
+        'Respondo a incidencias urgentes en máximo de 2 horas durante horario laboral. Para emergencias críticas fuera de horario, ofrezco soporte prioritario 24/7 en planes premium.',
     },
     {
       question: '¿Hacéis copias de seguridad de mi web?',

@@ -249,8 +249,8 @@ const Pricing = () => {
                   </div>
                   <p className='text-[11px] text-gray-400 leading-snug mt-3'>
                     El plan mensual incluye soporte y mantenimiento básico
-                    durante los 12 meses. Condiciones finales según alcance
-                    del proyecto.
+                    durante los 12 meses. Condiciones finales según alcance del
+                    proyecto.
                   </p>
                 </div>
               ) : (
@@ -271,10 +271,9 @@ const Pricing = () => {
         </div>
 
         <p className='text-center text-xs text-gray-500 max-w-2xl mx-auto mt-6'>
-          Todos los precios incluyen IVA salvo que se indique lo contrario.
-          El plan mensual incluye soporte y mantenimiento básico durante el
-          periodo contratado; condiciones finales según el alcance del
-          proyecto.
+          Todos los precios incluyen IVA salvo que se indique lo contrario. El
+          plan mensual incluye soporte y mantenimiento básico durante el periodo
+          contratado; condiciones finales según el alcance del proyecto.
         </p>
 
         <div className='text-center mt-24'>
@@ -300,7 +299,7 @@ const Pricing = () => {
                 variant='ghost'
                 className='!bg-black !text-white hover:!bg-accent hover:!text-white !shadow-lg'
               >
-                Recibir propuesta en 24h
+                Recibir propuesta en 2h
               </Button>
             </div>
           </div>

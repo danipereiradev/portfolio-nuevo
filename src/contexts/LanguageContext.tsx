@@ -22,7 +22,7 @@ const translations = {
   'hero.title':
     'Páginas web profesionales para autónomos y pymes desde 969€ IVA incluido',
   'hero.subtitle':
-    'Diseño, desarrollo y puesta en marcha en 2-3 semanas. Trato directo conmigo, sin agencias ni intermediarios. Plan mensual disponible desde 129€/mes y propuesta en menos de 24h.',
+    'Diseño, desarrollo y puesta en marcha en 2-3 semanas. Trato directo conmigo, sin agencias ni intermediarios. Plan mensual disponible desde 129€/mes y propuesta en 2h.',
   'hero.description':
     '+12 años de experiencia creando experiencias web que transforman negocios.',
   'hero.features': 'Código Limpio • Diseño Moderno • Resultados Reales',

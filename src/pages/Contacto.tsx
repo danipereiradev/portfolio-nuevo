@@ -29,7 +29,7 @@ const Contacto = () => {
               </h2>
               <p className='text-gray-600 mb-8 leading-relaxed'>
                 Estoy disponible para ayudarte con tu proyecto web. Respondo a
-                todas las consultas en menos de 24 horas.
+                todas las consultas en 2h.
               </p>
 
               <div className='space-y-6'>
@@ -93,7 +93,7 @@ const Contacto = () => {
                     <p className='text-gray-600'>
                       Lunes a Viernes: 9:00 - 19:00
                       <span className='block text-sm mt-1'>
-                        Respuesta en 24h máximo
+                        Respuesta en 2h máximo
                       </span>
                     </p>
                   </div>

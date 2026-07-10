@@ -288,7 +288,7 @@ const TiendasOnline = () => {
       <SEOCTAFinal
         title='¿Listo para Empezar a Vender Online?'
         subtitle='No esperes más para lanzar tu tienda online. Solicita tu presupuesto personalizado y comienza a vender en internet con éxito.'
-        buttonText='Recibir propuesta en 24h'
+        buttonText='Recibir propuesta en 2h'
         onButtonClick={openModal}
       />
 

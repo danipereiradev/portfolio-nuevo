@@ -20,7 +20,7 @@ const Gracias = () => {
   useEffect(() => {
     const title = 'Gracias por tu solicitud | Dani Pereira';
     const description =
-      'Hemos recibido tu solicitud de presupuesto. Te responderemos en menos de 24 horas.';
+      'Hemos recibido tu solicitud de presupuesto. Te responderemos en máximo 2 horas.';
 
     document.title = title;
 
@@ -80,8 +80,9 @@ const Gracias = () => {
 
         <p className='text-gray-600 mb-2'>
           He recibido tu solicitud correctamente. Te responderé en un plazo
-          máximo de <span className='font-semibold text-gray-900'>24 horas</span>{' '}
-          con tu propuesta.
+          máximo de{' '}
+          <span className='font-semibold text-gray-900'>24 horas</span> con tu
+          propuesta.
         </p>
 
         <p className='text-gray-600 mb-8'>
