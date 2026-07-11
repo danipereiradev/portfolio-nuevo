@@ -1,4 +1,4 @@
-import { Star, Award, TrendingUp, Users } from 'lucide-react';
+import { Star, Award, Calendar, Users } from 'lucide-react';
 
 const Clients = () => {
   const clients = [
@@ -27,7 +27,7 @@ const Clients = () => {
       label: 'Valoración Media',
     },
     {
-      icon: <TrendingUp className='w-8 h-8' />,
+      icon: <Calendar className='w-8 h-8' />,
       number: '+12',
       label: 'Años de Experiencia',
     },
@@ -47,13 +47,13 @@ const Clients = () => {
       <div className='container mx-auto px-6 relative z-10'>
         <div className='text-center mb-16'>
           <h2 className='text-4xl md:text-5xl font-bold mb-4 text-center'>
-            Proyectos en los que he Participado
+            Proyectos en los que Hemos Participado
           </h2>
           <p className='text-xl text-gray-300 max-w-3xl mx-auto text-center'>
-            He colaborado en proyectos diversos, desde startups hasta grandes
-            corporaciones, aportando mi experiencia en desarrollo web y
-            soluciones digitales a través de varias consultoras tecnológicas
-            tanto nacionales como internacionales
+            Hemos colaborado en proyectos diversos, desde startups hasta
+            grandes corporaciones, aportando nuestra experiencia en
+            desarrollo web y soluciones digitales a través de varias
+            consultoras tecnológicas tanto nacionales como internacionales
           </p>
         </div>
 
@@ -62,7 +62,7 @@ const Clients = () => {
             {clients.map((client, index) => (
               <div
                 key={index}
-                className='bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 lg:p-6 text-center min-h-[120px] lg:min-h-[140px] flex flex-col items-center justify-center'
+                className='border border-white/15 rounded-lg p-4 lg:p-6 text-center min-h-[120px] lg:min-h-[140px] flex flex-col items-center justify-center'
               >
                 <h3 className='text-base lg:text-lg font-bold text-white mb-2'>
                   {client.name}
@@ -76,7 +76,7 @@ const Clients = () => {
         <div className='grid grid-cols-2 md:grid-cols-4 gap-8'>
           {stats.map((stat, index) => (
             <div key={index} className='text-center'>
-              <div className='bg-accent w-16 h-16 rounded-2xl flex items-center justify-center text-white mx-auto mb-4'>
+              <div className='text-accent mx-auto mb-3 flex justify-center'>
                 {stat.icon}
               </div>
               <div className='text-3xl md:text-4xl font-bold text-white mb-2'>

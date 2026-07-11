@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Star, Quote } from 'lucide-react';
+import { Star } from 'lucide-react';
 
 interface TestimonialsProps {
   id?: string;
@@ -138,29 +138,15 @@ const Testimonials = ({ id = 'testimonials' }: TestimonialsProps = {}) => {
   };
 
   return (
-    <section
-      id={id}
-      className='scroll-mt-24 py-20 bg-gradient-to-br from-blue-50 to-purple-50 relative overflow-hidden'
-    >
-      {/* Background Image */}
-      <div
-        className='absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10'
-        style={{
-          backgroundImage:
-            'url(https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1920)',
-        }}
-      >
-        <div className='absolute inset-0 bg-gradient-to-br from-blue-50/80 to-purple-50/80'></div>
-      </div>
-
-      <div className='container mx-auto px-6 relative z-10'>
+    <section id={id} className='scroll-mt-24 py-20 bg-gray-50'>
+      <div className='container mx-auto px-6'>
         <div className='text-center mb-16'>
           <h2 className='text-4xl md:text-5xl font-bold text-gray-900 mb-4'>
-            Lo que Dicen Mis Clientes
+            Lo que Dicen Nuestros Clientes
           </h2>
           <p className='text-xl text-gray-600 max-w-3xl mx-auto mb-6'>
-            Testimonios reales de empresarios que han confiado en mi trabajo
-            para transformar su presencia digital
+            Testimonios reales de empresarios que han confiado en nuestro
+            trabajo para su web o tienda online
           </p>
 
           {/* Rating */}
@@ -211,13 +197,8 @@ const Testimonials = ({ id = 'testimonials' }: TestimonialsProps = {}) => {
             {getVisibleTestimonials().map((testimonial, index) => (
               <div
                 key={`${currentSlide}-${index}`}
-                className='bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl p-6 relative overflow-hidden border border-white/20 flex flex-col'
+                className='bg-white rounded-lg p-6 border border-gray-200 flex flex-col'
               >
-                {/* Quote Icon */}
-                <div className='absolute top-4 right-4 opacity-10'>
-                  <Quote className='w-12 h-12 text-accent' />
-                </div>
-
                 {/* Stars */}
                 <div className='flex items-center gap-1 mb-4'>
                   {[...Array(testimonial.rating)].map((_, i) => (

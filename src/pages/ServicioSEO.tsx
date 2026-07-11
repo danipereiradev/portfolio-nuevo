@@ -57,37 +57,37 @@ const ServicioSEO = () => {
       icon: Search,
       title: 'Más Visibilidad en Google',
       description:
-        'Mejoro tu posición en los resultados de búsqueda de Google para que tus clientes potenciales te encuentren fácilmente.',
+        'Mejoramos tu posición en los resultados de búsqueda de Google para que tus clientes potenciales te encuentren fácilmente.',
     },
     {
       icon: TrendingUp,
       title: 'Aumento de Tráfico Orgánico',
       description:
-        'Incremento las visitas cualificadas a tu web desde buscadores, atrayendo usuarios realmente interesados en tus productos o servicios.',
+        'Incrementamos las visitas cualificadas a tu web desde buscadores, atrayendo usuarios realmente interesados en tus productos o servicios.',
     },
     {
       icon: Target,
       title: 'Captación de Clientes Cualificados',
       description:
-        'Optimizo para keywords comerciales que atraen visitantes con intención de compra, generando más oportunidades de negocio.',
+        'Optimizamos para keywords comerciales que atraen visitantes con intención de compra, generando más oportunidades de negocio.',
     },
     {
       icon: FileText,
       title: 'Contenido Optimizado',
       description:
-        'Creo y optimizo contenidos que responden a las búsquedas de tu audiencia y posicionan tu web como referente del sector.',
+        'Creamos y optimizamos contenidos que responden a las búsquedas de tu audiencia y posicionan tu web como referente del sector.',
     },
     {
       icon: BarChart,
       title: 'Informes y Seguimiento',
       description:
-        'Te proporciono informes detallados con métricas de posicionamiento, tráfico y conversiones para medir resultados reales.',
+        'Te proporcionamos informes detallados con métricas de posicionamiento, tráfico y conversiones para medir resultados reales.',
     },
     {
       icon: Award,
       title: 'SEO Ético y Duradero',
       description:
-        'Aplico técnicas white hat SEO que aseguran resultados sostenibles a largo plazo sin riesgo de penalizaciones.',
+        'Aplicamos técnicas white hat SEO que aseguran resultados sostenibles a largo plazo sin riesgo de penalizaciones.',
     },
   ];
 
@@ -145,7 +145,7 @@ const ServicioSEO = () => {
       icon: Target,
       title: 'Enfoque en ROI',
       description:
-        'Me centro en keywords que generan negocio real, no solo tráfico. Busco conversiones, no visitas.',
+        'Nos centramos en keywords que generan negocio real, no solo tráfico. Buscamos conversiones, no visitas.',
     },
     {
       icon: Shield,
@@ -157,19 +157,19 @@ const ServicioSEO = () => {
       icon: Headphones,
       title: 'Comunicación Transparente',
       description:
-        'Informes claros mensuales. Siempre sabrás qué estoy haciendo y qué resultados estoy consiguiendo.',
+        'Informes claros mensuales. Siempre sabrás qué estamos haciendo y qué resultados estamos consiguiendo.',
     },
     {
       icon: Zap,
       title: 'Resultados Medibles',
       description:
-        'Implemento seguimiento detallado de posiciones, tráfico, leads y ventas generadas por SEO.',
+        'Implementamos seguimiento detallado de posiciones, tráfico, leads y ventas generadas por SEO.',
     },
     {
       icon: Users,
       title: 'Atención Personalizada',
       description:
-        'Trabajo directamente contigo sin intermediarios. Adapto la estrategia a tu negocio específico.',
+        'Trabajamos directamente contigo sin intermediarios. Adaptamos la estrategia a tu negocio específico.',
     },
   ];
 
@@ -178,31 +178,31 @@ const ServicioSEO = () => {
       number: '1',
       title: 'Auditoría SEO Completa',
       description:
-        'Analizo tu web actual, estudios de competencia y palabras clave para identificar oportunidades de mejora y definir una estrategia SEO efectiva.',
+        'Analizamos tu web actual, estudios de competencia y palabras clave para identificar oportunidades de mejora y definir una estrategia SEO efectiva.',
     },
     {
       number: '2',
       title: 'Optimización On-Page',
       description:
-        'Optimizo títulos, descripciones, encabezados, contenidos, imágenes y estructura interna de tu web para mejorar el posicionamiento.',
+        'Optimizamos títulos, descripciones, encabezados, contenidos, imágenes y estructura interna de tu web para mejorar el posicionamiento.',
     },
     {
       number: '3',
       title: 'Optimización Técnica',
       description:
-        'Mejoro velocidad de carga, adaptabilidad móvil, estructura de URLs, robots.txt, sitemap y otros aspectos técnicos clave para el SEO.',
+        'Mejoramos velocidad de carga, adaptabilidad móvil, estructura de URLs, robots.txt, sitemap y otros aspectos técnicos clave para el SEO.',
     },
     {
       number: '4',
       title: 'Creación de Contenido SEO',
       description:
-        'Desarrollo contenidos optimizados para keywords estratégicas que atraen tráfico cualificado y responden a las búsquedas de tu audiencia.',
+        'Desarrollamos contenidos optimizados para keywords estratégicas que atraen tráfico cualificado y responden a las búsquedas de tu audiencia.',
     },
     {
       number: '5',
       title: 'Seguimiento y Mejora Continua',
       description:
-        'Monitorizo posiciones, tráfico y conversiones, ajustando la estrategia para mantener y mejorar resultados mes a mes.',
+        'Monitorizamos posiciones, tráfico y conversiones, ajustando la estrategia para mantener y mejorar resultados mes a mes.',
     },
   ];
 
@@ -215,7 +215,7 @@ const ServicioSEO = () => {
     {
       question: '¿Cuánto cuesta un servicio de posicionamiento SEO?',
       answer:
-        'Los servicios SEO suelen ofrecerse con tarifas mensuales que varían según el alcance del proyecto. Desde consultoría puntual por proyecto hasta planes mensuales desde 500€ IVA incluido. El precio depende de la competitividad del sector y objetivos.',
+        'Los servicios SEO suelen ofrecerse con tarifas mensuales que varían según el alcance del proyecto: desde consultoría puntual hasta planes mensuales continuados. El precio depende de la competitividad del sector y los objetivos, y lo detallamos en una propuesta a medida.',
     },
     {
       question: '¿Qué diferencia hay entre SEO y SEM/Google Ads?',
@@ -223,14 +223,14 @@ const ServicioSEO = () => {
         'El SEO es posicionamiento orgánico gratuito que se mantiene en el tiempo, mientras que SEM/Google Ads son anuncios de pago que desaparecen al dejar de invertir. El SEO requiere más tiempo pero ofrece resultados duraderos y rentabilidad a largo plazo.',
     },
     {
-      question: '¿Garantizan la primera posición en Google?',
+      question: '¿Garantizáis la primera posición en Google?',
       answer:
-        'Ningún profesional SEO serio puede garantizar la primera posición, ya que depende del algoritmo de Google. Lo que sí garantizo es aplicar las mejores prácticas SEO, trabajo constante y mejoras medibles en posiciones y tráfico orgánico.',
+        'Ningún profesional SEO serio puede garantizar la primera posición, ya que depende del algoritmo de Google. Lo que sí garantizamos es aplicar las mejores prácticas SEO, trabajo constante y mejoras medibles en posiciones y tráfico orgánico.',
     },
     {
       question: '¿El SEO funciona para cualquier tipo de negocio?',
       answer:
-        'Sí, el SEO beneficia a cualquier negocio con presencia online: tiendas online, empresas locales, servicios profesionales, blogs, marketplaces, etc. Adapto la estrategia SEO a las características y objetivos específicos de cada negocio.',
+        'Sí, el SEO beneficia a cualquier negocio con presencia online: tiendas online, empresas locales, servicios profesionales, blogs, marketplaces, etc. Adaptamos la estrategia SEO a las características y objetivos específicos de cada negocio.',
     },
     {
       question: '¿Qué incluye un servicio de SEO?',
@@ -244,8 +244,8 @@ const ServicioSEO = () => {
       <SEOLandingHero
         title='Posicionamiento SEO en Google'
         subtitle='Mejora tu Visibilidad y Atrae Más Clientes'
-        description='Optimizo tu web para que aparezca en las primeras posiciones de Google, generando tráfico cualificado que se convierte en clientes reales.'
-        ctaText='Solicita auditoría SEO'
+        description='Optimizamos tu web para que aparezca en las primeras posiciones de Google, generando tráfico cualificado que se convierte en clientes reales.'
+        ctaText='Solicitar auditoría SEO'
         onCTAClick={openModal}
         secondaryCTAText='Llamar Ahora'
         secondaryCTAAction={callPhone}
@@ -253,7 +253,7 @@ const ServicioSEO = () => {
 
       <SEOProblem
         title='¿Tu Web No Aparece en Google?'
-        subtitle='Estos son los problemas SEO más comunes que resuelvo'
+        subtitle='Estos son los problemas SEO más comunes que resolvemos'
         problems={problems}
       />
 
@@ -275,7 +275,7 @@ const ServicioSEO = () => {
       <Testimonials />
 
       <SEOWhyMe
-        title='Por Qué Confiar en Mis Servicios de SEO'
+        title='Por Qué Confiar en Nuestros Servicios de SEO'
         subtitle='Experiencia, ética y resultados en posicionamiento web'
         reasons={whyMeReasons}
       />
@@ -284,8 +284,8 @@ const ServicioSEO = () => {
 
       <SEOCTAFinal
         title='¿Listo para Dominar los Resultados de Google?'
-        subtitle='Solicita tu auditoría SEO gratuita y descubre el potencial de posicionamiento de tu web. Te muestro qué mejoras implementar para superar a tu competencia.'
-        buttonText='Solicita auditoría SEO'
+        subtitle='Solicita tu auditoría SEO gratuita y descubre el potencial de posicionamiento de tu web. Te mostramos qué mejoras implementar para superar a tu competencia.'
+        buttonText='Solicitar auditoría SEO'
         onButtonClick={openModal}
       />
 

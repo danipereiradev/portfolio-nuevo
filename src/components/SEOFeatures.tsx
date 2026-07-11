@@ -30,13 +30,11 @@ const SEOFeatures = ({ title, subtitle, features }: SEOFeaturesProps) => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className='bg-white p-4 md:p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300'
+              className='bg-white p-4 md:p-6 rounded-lg border border-gray-200'
             >
               <div className='flex items-start gap-3 md:gap-4'>
                 <div className='flex-shrink-0'>
-                  <div className='w-7 h-7 md:w-8 md:h-8 bg-accent rounded-lg flex items-center justify-center'>
-                    <Check className='w-4 h-4 md:w-5 md:h-5 text-white' />
-                  </div>
+                  <Check className='w-5 h-5 md:w-6 md:h-6 text-accent' />
                 </div>
                 <div>
                   <h3 className='text-base md:text-lg lg:text-xl font-bold text-gray-900 mb-2'>

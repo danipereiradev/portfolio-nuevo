@@ -3,17 +3,14 @@ import {
   trackWhatsAppClick,
   trackGoogleAdsWhatsAppConversion,
 } from '../utils/analytics';
-import { ADS_WHATSAPP_MESSAGE, buildWhatsAppUrl } from '../config/contact';
-
-const DEFAULT_MESSAGE =
-  'Hola, estoy interesado en tus servicios de desarrollo web';
+import {
+  buildWhatsAppUrl,
+  getWhatsAppMessageForPath,
+} from '../config/contact';
 
 const WhatsAppButton = () => {
   const { pathname } = useLocation();
-  const isAdsLanding = pathname === '/web-autonomos-pymes';
-  const whatsappUrl = buildWhatsAppUrl(
-    isAdsLanding ? ADS_WHATSAPP_MESSAGE : DEFAULT_MESSAGE,
-  );
+  const whatsappUrl = buildWhatsAppUrl(getWhatsAppMessageForPath(pathname));
 
   return (
     <a
@@ -25,7 +22,7 @@ const WhatsAppButton = () => {
         trackWhatsAppClick('FloatingButton');
         trackGoogleAdsWhatsAppConversion(whatsappUrl);
       }}
-      className='hidden md:block fixed bottom-6 left-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all duration-300 group'
+      className='hidden md:block fixed bottom-6 left-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-colors duration-200 group'
       aria-label='Contactar por WhatsApp'
     >
       <svg

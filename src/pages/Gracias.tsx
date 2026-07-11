@@ -1,12 +1,15 @@
 import { useEffect } from 'react';
-import { CheckCircle2, Home as HomeIcon, MessageCircle } from 'lucide-react';
+import { CheckCircle2, MessageCircle } from 'lucide-react';
 import Button from '../components/Button';
 import ThankYouPlaySection from '../components/ThankYouPlaySection';
-import { trackWhatsAppClick } from '../utils/analytics';
+import {
+  trackWhatsAppClick,
+  trackGoogleAdsWhatsAppConversion,
+} from '../utils/analytics';
 import { buildWhatsAppUrl } from '../config/contact';
 
 const WHATSAPP_URL = buildWhatsAppUrl(
-  'Hola, acabo de enviar el formulario de presupuesto',
+  'Hola, acabo de enviar el formulario de contacto y quiero comentar algo más sobre mi proyecto.',
 );
 
 /**
@@ -19,9 +22,9 @@ const WHATSAPP_URL = buildWhatsAppUrl(
  */
 const Gracias = () => {
   useEffect(() => {
-    const title = 'Gracias por tu solicitud | Dani Pereira';
+    const title = 'Gracias, hemos recibido tu mensaje | PereiraWeb';
     const description =
-      'Hemos recibido tu solicitud de presupuesto. Te responderemos en máximo 2 horas.';
+      'Hemos recibido tu mensaje. Te responderemos en un máximo de 2 horas.';
 
     document.title = title;
 
@@ -62,8 +65,8 @@ const Gracias = () => {
   }, []);
 
   const handleWhatsAppClick = () => {
-    trackWhatsAppClick('GraciasPage', 'Escribir por WhatsApp');
-    window.open(WHATSAPP_URL, '_blank', 'noopener,noreferrer');
+    trackWhatsAppClick('GraciasPage', 'Escríbenos por WhatsApp');
+    trackGoogleAdsWhatsAppConversion(WHATSAPP_URL);
   };
 
   return (
@@ -76,30 +79,28 @@ const Gracias = () => {
         </div>
 
         <h1 className='text-3xl md:text-5xl font-bold text-gray-900 mb-4'>
-          ¡Gracias! Solicitud enviada
+          Gracias, hemos recibido tu mensaje
         </h1>
 
         <p className='text-gray-600 mb-2'>
-          He recibido tu solicitud correctamente. Te responderé en un plazo
-          máximo de{' '}
-          <span className='font-semibold text-gray-900'>2 horas</span> con tu
-          propuesta.
+          Revisaremos la información y te responderemos en un plazo máximo
+          de <span className='font-semibold text-gray-900'>2 horas</span>{' '}
+          con tu propuesta.
         </p>
 
         <p className='text-gray-600 mb-8'>
           Revisa tu bandeja de entrada (y la carpeta de spam) por si acaso. Si
-          prefieres una respuesta más rápida, también puedes escribirme
-          directamente por WhatsApp.
+          quieres avanzar más rápido, también puedes escribirnos directamente
+          por WhatsApp.
         </p>
 
         <div className='flex flex-col sm:flex-row gap-3 justify-center'>
           <Button onClick={handleWhatsAppClick} variant='primary'>
             <MessageCircle className='w-4 h-4' />
-            Escribir por WhatsApp
+            Escríbenos por WhatsApp
           </Button>
-          <Button to='/' variant='ghost'>
-            <HomeIcon className='w-4 h-4' />
-            Volver al inicio
+          <Button to='/#portfolio' variant='ghost'>
+            Ver trabajos
           </Button>
         </div>
 

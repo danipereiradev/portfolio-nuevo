@@ -75,7 +75,7 @@ const AuditoriaEcommerce = () => {
     {
       title: 'Revisión clara',
       description:
-        'Navego por tu tienda y detecto problemas visibles, dudas, bloqueos y errores de experiencia.',
+        'Navegamos por tu tienda y detectamos problemas visibles, dudas, bloqueos y errores de experiencia.',
       icon: <Eye className='w-8 h-8' />,
     },
     {
@@ -87,7 +87,7 @@ const AuditoriaEcommerce = () => {
     {
       title: 'Posible implementación',
       description:
-        'Si tu tienda está en WooCommerce, Shopify o PrestaShop, también puedo ayudarte a aplicar las mejoras.',
+        'Si tu tienda está en WooCommerce, Shopify o PrestaShop, también podemos ayudarte a aplicar las mejoras.',
       icon: <Wrench className='w-8 h-8' />,
     },
   ];
@@ -158,27 +158,27 @@ const AuditoriaEcommerce = () => {
   const processSteps = [
     {
       number: '1',
-      title: 'Me envías la URL de tu tienda',
+      title: 'Nos envías la URL de tu tienda',
       description:
-        'Completa el formulario con la dirección de tu ecommerce y cuéntame brevemente qué te preocupa.',
+        'Completa el formulario con la dirección de tu ecommerce y cuéntanos brevemente qué te preocupa.',
     },
     {
       number: '2',
-      title: 'Reviso el ecommerce como cliente real',
+      title: 'Revisamos el ecommerce como cliente real',
       description:
-        'Navego por tu tienda desde la perspectiva de un usuario que quiere comprar, detectando problemas de claridad, confianza y usabilidad.',
+        'Navegamos por tu tienda desde la perspectiva de un usuario que quiere comprar, detectando problemas de claridad, confianza y usabilidad.',
     },
     {
       number: '3',
-      title: 'Te entrego el vídeo y las mejoras detectadas',
+      title: 'Te entregamos el vídeo y las mejoras detectadas',
       description:
-        'Recibirás el vídeo completo con mis comentarios más una lista priorizada de mejoras.',
+        'Recibirás el vídeo completo con nuestros comentarios más una lista priorizada de mejoras.',
     },
     {
       number: '4',
       title: 'Si quieres, presupuestamos la implementación',
       description:
-        'Si tu tienda está en WooCommerce, Shopify o PrestaShop y decides aplicar las mejoras, puedo ayudarte con la implementación técnica.',
+        'Si tu tienda está en WooCommerce, Shopify o PrestaShop y decides aplicar las mejoras, podemos ayudarte con la implementación técnica.',
     },
   ];
 
@@ -203,22 +203,22 @@ const AuditoriaEcommerce = () => {
     {
       question: '¿La auditoría garantiza más ventas?',
       answer:
-        'No. Ninguna auditoría seria puede garantizar ventas. Lo que sí hago es detectar problemas de claridad, confianza, navegación y compra que pueden estar generando fricción.',
+        'No. Ninguna auditoría seria puede garantizar ventas. Lo que sí hacemos es detectar problemas de claridad, confianza, navegación y compra que pueden estar generando fricción.',
     },
     {
       question: '¿Necesitas acceso a mi tienda?',
       answer:
-        'No para la auditoría inicial. Solo necesito la URL pública. Si después quieres que implemente mejoras, veremos qué accesos hacen falta.',
+        'No para la auditoría inicial. Solo necesitamos la URL pública. Si después quieres que implementemos mejoras, veremos qué accesos hacen falta.',
     },
     {
       question: '¿Sirve para WooCommerce, Shopify y PrestaShop?',
       answer:
-        'Sí. De hecho, si tu tienda está en WooCommerce, Shopify o PrestaShop puedo ayudarte también con la implementación de mejoras.',
+        'Sí. De hecho, si tu tienda está en WooCommerce, Shopify o PrestaShop podemos ayudarte también con la implementación de mejoras.',
     },
     {
       question: '¿Sirve para Shopify?',
       answer:
-        'Sí, puedo auditar y ayudar con la implementación en Shopify. El alcance técnico dependerá de la configuración de tu tienda.',
+        'Sí, podemos auditar y ayudar con la implementación en Shopify. El alcance técnico dependerá de la configuración de tu tienda.',
     },
     {
       question: '¿Cuándo debería contratar esta auditoría?',
@@ -237,25 +237,25 @@ const AuditoriaEcommerce = () => {
       icon: BarChart3,
       title: 'Experiencia en Ecommerce',
       description:
-        'He trabajado con múltiples tiendas online, conozco los errores más comunes y sé identificar qué puede estar frenando las conversiones.',
+        'Hemos trabajado con múltiples tiendas online, conocemos los errores más comunes y sabemos identificar qué puede estar frenando las conversiones.',
     },
     {
       icon: Eye,
       title: 'Visión de Usuario Real',
       description:
-        'Navego tu tienda como lo haría un cliente potencial, detectando puntos de fricción que muchas veces pasan desapercibidos para quien la gestiona.',
+        'Navegamos tu tienda como lo haría un cliente potencial, detectando puntos de fricción que muchas veces pasan desapercibidos para quien la gestiona.',
     },
     {
       icon: CheckCircle2,
       title: 'Recomendaciones Accionables',
       description:
-        'No recibirás un informe lleno de teoría genérica. Te entrego mejoras concretas priorizadas por impacto y viabilidad.',
+        'No recibirás un informe lleno de teoría genérica. Te entregamos mejoras concretas priorizadas por impacto y viabilidad.',
     },
     {
       icon: Settings,
       title: 'Implementación Disponible',
       description:
-        'Si tu tienda está en WooCommerce, Shopify o PrestaShop, puedo ayudarte también a aplicar las mejoras técnicas necesarias.',
+        'Si tu tienda está en WooCommerce, Shopify o PrestaShop, podemos ayudarte también a aplicar las mejoras técnicas necesarias.',
     },
   ];
 
@@ -263,7 +263,7 @@ const AuditoriaEcommerce = () => {
     <div>
       <SEOLandingHero
         title='Auditoría ecommerce antes de invertir en publicidad'
-        subtitle='Reviso tu tienda como cliente real y detecto qué frena las ventas.'
+        subtitle='Revisamos tu tienda como cliente real y detectamos qué frena las ventas.'
         description='Ideal para tiendas que reciben visitas pero no consiguen suficientes conversiones.'
         ctaText='Solicitar auditoría'
         onCTAClick={openModal}
@@ -279,7 +279,7 @@ const AuditoriaEcommerce = () => {
 
       <SEOProblem
         title='Quizá el problema no está en tus anuncios, sino en tu tienda'
-        description='Muchas tiendas invierten en Google Ads, Meta Ads o redes sociales sin revisar antes si su ecommerce está preparado para convertir. Si el usuario llega a una página confusa, lenta, poco clara o que no genera confianza, es muy probable que abandone antes de comprar.'
+        subtitle='Muchas tiendas invierten en Google Ads, Meta Ads o redes sociales sin revisar antes si su ecommerce está preparado para convertir. Si el usuario llega a una página confusa, lenta, poco clara o que no genera confianza, es muy probable que abandone antes de comprar.'
         problems={problems}
       />
 
@@ -287,10 +287,10 @@ const AuditoriaEcommerce = () => {
         <div className='container mx-auto px-6'>
           <div className='text-center mb-16'>
             <h2 className='text-4xl md:text-5xl font-bold text-gray-900 mb-6'>
-              Te ayudo a detectar los puntos de fuga de tu tienda
+              Te ayudamos a detectar los puntos de fuga de tu tienda
             </h2>
             <p className='text-xl text-gray-600 max-w-4xl mx-auto'>
-              Analizo tu ecommerce desde el punto de vista de un cliente real,
+              Analizamos tu ecommerce desde el punto de vista de un cliente real,
               combinando mirada de usuario, diseño, usabilidad y experiencia en
               ecommerce. El objetivo es encontrar mejoras concretas que puedan
               reducir fricción y aumentar confianza antes de seguir invirtiendo
@@ -392,7 +392,7 @@ const AuditoriaEcommerce = () => {
           </div>
 
           <div className='grid md:grid-cols-2 gap-8 max-w-6xl mx-auto'>
-            <div className='bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300'>
+            <div className='bg-white rounded-lg overflow-hidden border border-gray-200'>
               <div className='relative h-64 md:h-80 overflow-hidden'>
                 <img
                   src='/img/portfolio/mock-chicxs.png'
@@ -461,7 +461,7 @@ const AuditoriaEcommerce = () => {
               </div>
             </div>
 
-            <div className='bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300'>
+            <div className='bg-white rounded-lg overflow-hidden border border-gray-200'>
               <div className='relative h-64 md:h-80 overflow-hidden'>
                 <img
                   src='/img/portfolio/mock-delish.png'
@@ -567,15 +567,15 @@ const AuditoriaEcommerce = () => {
       </section>
 
       <SEOWhyMe
-        title='¿Por qué elegir mi auditoría ecommerce?'
+        title='¿Por qué elegir nuestra auditoría ecommerce?'
         reasons={whyMeReasons}
       />
 
-      <SEOFAQ faqs={faqs} />
+      <SEOFAQ title='Preguntas Frecuentes sobre la Auditoría' faqs={faqs} />
 
       <SEOCTAFinal
         title='Antes de invertir más en anuncios, revisa si tu tienda está preparada para vender'
-        subtitle='Te ayudo a detectar los puntos que pueden estar generando dudas, abandono o falta de confianza en tu ecommerce.'
+        subtitle='Te ayudamos a detectar los puntos que pueden estar generando dudas, abandono o falta de confianza en tu ecommerce.'
         buttonText='Solicitar auditoría ecommerce'
         onButtonClick={openModal}
       />

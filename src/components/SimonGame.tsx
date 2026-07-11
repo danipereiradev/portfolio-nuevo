@@ -101,7 +101,7 @@ const SimonGame = () => {
           ¿Una partidita a Simon Dice?
         </h2>
         <p className="text-gray-600">
-          Mientras esperas mi respuesta, ¡divirtámonos un poco! 🎮
+          Mientras esperas nuestra respuesta, ¡divirtámonos un poco! 🎮
         </p>
       </div>
 

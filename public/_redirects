@@ -1,5 +1,9 @@
 /landing-express   /web-autonomos-pymes   301!
 /tienda-online     /tiendas-online        301!
+/about             /sobre-el-estudio      301!
+/about-me          /sobre-el-estudio      301!
+/sobre-mi          /sobre-el-estudio      301!
+/contact           /contacto              301!
 
 # Cada ruta comercial sirve su propio index.html pre-renderizado (con
 # title/description/canonical/OG/Twitter propios) generado por
@@ -14,5 +18,6 @@
 /posicionamiento-web-seo        /posicionamiento-web-seo/index.html        200
 /auditoria-ecommerce            /auditoria-ecommerce/index.html            200
 /contacto                       /contacto/index.html                       200
+/sobre-el-estudio               /sobre-el-estudio/index.html                200
 
 /*    /index.html   200

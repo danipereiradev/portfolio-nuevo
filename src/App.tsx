@@ -19,6 +19,7 @@ import MantenimientoWeb from './pages/MantenimientoWeb';
 import AuditoriaEcommerce from './pages/AuditoriaEcommerce';
 import WebAutonomosPymes from './pages/WebAutonomosPymes';
 import Contacto from './pages/Contacto';
+import SobreElEstudio from './pages/SobreElEstudio';
 import Gracias from './pages/Gracias';
 import NotFound from './pages/NotFound';
 
@@ -47,6 +48,7 @@ function AppContent() {
         <Route path='/auditoria-ecommerce' element={<AuditoriaEcommerce />} />
         <Route path='/web-autonomos-pymes' element={<WebAutonomosPymes />} />
         <Route path='/contacto' element={<Contacto />} />
+        <Route path='/sobre-el-estudio' element={<SobreElEstudio />} />
         <Route path='/gracias' element={<Gracias />} />
 
         {/* Redirecciones de URLs antiguas/duplicadas a la ruta canónica */}
@@ -58,6 +60,19 @@ function AppContent() {
           path='/tienda-online'
           element={<Navigate to='/tiendas-online' replace />}
         />
+        <Route
+          path='/about'
+          element={<Navigate to='/sobre-el-estudio' replace />}
+        />
+        <Route
+          path='/about-me'
+          element={<Navigate to='/sobre-el-estudio' replace />}
+        />
+        <Route
+          path='/sobre-mi'
+          element={<Navigate to='/sobre-el-estudio' replace />}
+        />
+        <Route path='/contact' element={<Navigate to='/contacto' replace />} />
 
         {/* Cualquier otra ruta no existente devuelve una 404 real */}
         <Route path='*' element={<NotFound />} />

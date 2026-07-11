@@ -4,7 +4,7 @@ import Button from '../components/Button';
 
 const NotFound = () => {
   useEffect(() => {
-    const title = 'Página no encontrada (404) | Dani Pereira';
+    const title = 'Página no encontrada (404) | PereiraWeb';
     const description =
       'La página que buscas no existe o se ha movido. Vuelve al inicio o revisa nuestros servicios de desarrollo web.';
 

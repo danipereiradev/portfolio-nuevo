@@ -5,17 +5,13 @@ import {
   trackGoogleAdsWhatsAppConversion,
 } from '../utils/analytics';
 import {
-  ADS_WHATSAPP_MESSAGE,
-  DEFAULT_WHATSAPP_MESSAGE,
   buildWhatsAppUrl,
+  getWhatsAppMessageForPath,
 } from '../config/contact';
 
 const MobileStickyCTA = () => {
   const { pathname } = useLocation();
-  const isAdsLanding = pathname === '/web-autonomos-pymes';
-  const whatsappUrl = buildWhatsAppUrl(
-    isAdsLanding ? ADS_WHATSAPP_MESSAGE : DEFAULT_WHATSAPP_MESSAGE,
-  );
+  const whatsappUrl = buildWhatsAppUrl(getWhatsAppMessageForPath(pathname));
 
   return (
     <a
@@ -28,10 +24,10 @@ const MobileStickyCTA = () => {
         trackGoogleAdsWhatsAppConversion(whatsappUrl);
       }}
       className='md:hidden fixed bottom-0 left-0 right-0 z-40 bg-green-500 hover:bg-green-600 text-white flex items-center justify-center gap-2 py-3 font-semibold text-sm shadow-[0_-4px_12px_rgba(0,0,0,0.15)]'
-      aria-label='Presupuesto por WhatsApp'
+      aria-label='Escríbenos por WhatsApp'
     >
       <MessageCircle className='w-5 h-5' />
-      Presupuesto por WhatsApp
+      Escríbenos por WhatsApp
     </a>
   );
 };

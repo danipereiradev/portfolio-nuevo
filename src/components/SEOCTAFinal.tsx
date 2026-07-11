@@ -1,4 +1,3 @@
-import { ArrowRight } from 'lucide-react';
 import Button from './Button';
 
 interface SEOCTAFinalProps {
@@ -40,7 +39,6 @@ const SEOCTAFinal = ({
               className='!bg-accent !text-white hover:!bg-accent-hover text-sm md:text-base'
             >
               {buttonText}
-              <ArrowRight className='w-4 h-4 md:w-5 md:h-5' />
             </Button>
           </div>
         </div>

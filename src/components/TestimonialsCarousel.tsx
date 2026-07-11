@@ -8,8 +8,8 @@ interface TestimonialsCarouselProps {
 }
 
 const TestimonialsCarousel = ({
-  title = 'Lo que dicen mis clientes',
-  description = 'Testimonios reales de clientes que han confiado en mi trabajo',
+  title = 'Lo que dicen nuestros clientes',
+  description = 'Testimonios reales de clientes que han confiado en nuestro trabajo',
   showRating = true,
 }: TestimonialsCarouselProps) => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);

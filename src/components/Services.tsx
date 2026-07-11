@@ -1,11 +1,11 @@
 import React from 'react';
 import {
   Globe,
-  Smartphone,
   ShoppingCart,
   Palette,
   Settings,
-  Rocket,
+  Search,
+  Code2,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -15,45 +15,40 @@ const Services = () => {
 
   const services = [
     {
-      icon: <Palette className='w-8 h-8' />,
-      title: 'Diseño Web',
-      description:
-        'Creo diseños web modernos y atractivos que reflejan tu marca y captan la atención de tus clientes.',
-      link: '/diseno-web',
-    },
-    {
       icon: <Globe className='w-8 h-8' />,
       title: t('services.corporate.title'),
-      description:
-        'Páginas web corporativas profesionales para empresas que necesitan fortalecer su presencia digital.',
+      description: t('services.corporate.desc'),
       link: '/paginas-web-empresas',
     },
     {
       icon: <ShoppingCart className='w-8 h-8' />,
       title: t('services.ecommerce.title'),
-      description:
-        'Tiendas online completas con pasarela de pago, gestión de productos y todo lo necesario para vender online.',
+      description: t('services.ecommerce.desc'),
       link: '/tiendas-online',
-    },
-    {
-      icon: <Smartphone className='w-8 h-8' />,
-      title: t('services.webapp.title'),
-      description:
-        'Desarrollo de aplicaciones web y móviles a medida para proyectos únicos y startups.',
-      link: '/desarrollo-aplicaciones-web',
-    },
-    {
-      icon: <Rocket className='w-8 h-8' />,
-      title: 'Posicionamiento SEO',
-      description:
-        'Optimización SEO para mejorar tu visibilidad en Google y atraer más clientes a tu negocio.',
-      link: '/posicionamiento-web-seo',
     },
     {
       icon: <Settings className='w-8 h-8' />,
       title: t('services.maintenance.title'),
       description: t('services.maintenance.desc'),
       link: '/mantenimiento-web',
+    },
+    {
+      icon: <Code2 className='w-8 h-8' />,
+      title: t('services.custom.title'),
+      description: t('services.custom.desc'),
+      link: '/desarrollo-aplicaciones-web',
+    },
+    {
+      icon: <Palette className='w-8 h-8' />,
+      title: t('services.design.title'),
+      description: t('services.design.desc'),
+      link: '/diseno-web',
+    },
+    {
+      icon: <Search className='w-8 h-8' />,
+      title: t('services.seo.title'),
+      description: t('services.seo.desc'),
+      link: '/posicionamiento-web-seo',
     },
   ];
 
@@ -77,12 +72,12 @@ const Services = () => {
             <Link
               key={index}
               to={service.link}
-              className='bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 text-center group'
+              className='bg-white p-8 rounded-lg border border-gray-200 hover:border-accent transition-colors duration-200 text-center group'
             >
-              <div className='w-16 h-16 bg-white border-2 border-black rounded-xl flex items-center justify-center text-black mb-6 transition-all duration-300 mx-auto group-hover:border-accent group-hover:text-accent'>
+              <div className='text-gray-900 mb-4 flex justify-center group-hover:text-accent transition-colors'>
                 {service.icon}
               </div>
-              <h3 className='text-xl font-bold text-gray-900 mb-4 group-hover:text-accent transition-colors'>
+              <h3 className='text-xl font-bold text-gray-900 mb-3 group-hover:text-accent transition-colors'>
                 {service.title}
               </h3>
               <p className='text-gray-600 leading-relaxed'>{service.description}</p>

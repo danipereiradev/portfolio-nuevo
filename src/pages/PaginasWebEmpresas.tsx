@@ -65,13 +65,13 @@ const PaginasWebEmpresas = () => {
       icon: Users,
       title: 'Captación de Clientes B2B',
       description:
-        'Diseño tu web pensando en convertir visitantes corporativos en leads cualificados para tu equipo comercial.',
+        'Diseñamos tu web pensando en convertir visitantes corporativos en leads cualificados para tu equipo comercial.',
     },
     {
       icon: TrendingUp,
       title: 'Generación de Leads',
       description:
-        'Implemento formularios estratégicos y CTAs efectivos que capturan información de clientes potenciales interesados en tus servicios.',
+        'Implementamos formularios estratégicos y CTAs efectivos que capturan información de clientes potenciales interesados en tus servicios.',
     },
     {
       icon: Shield,
@@ -83,13 +83,13 @@ const PaginasWebEmpresas = () => {
       icon: Headphones,
       title: 'Soporte Empresarial',
       description:
-        'Ofrezco soporte prioritario para empresas, con respuesta rápida y asistencia técnica cuando la necesites.',
+        'Ofrecemos soporte prioritario para empresas, con respuesta rápida y asistencia técnica cuando la necesites.',
     },
     {
       icon: Zap,
       title: 'Escalable y Flexible',
       description:
-        'Desarrollo webs preparadas para crecer con tu empresa, facilitando la incorporación de nuevas funcionalidades.',
+        'Desarrollamos webs preparadas para crecer con tu empresa, facilitando la incorporación de nuevas funcionalidades.',
     },
   ];
 
@@ -98,31 +98,31 @@ const PaginasWebEmpresas = () => {
       number: '1',
       title: 'Consultoría Inicial',
       description:
-        'Reunión para entender tu empresa, objetivos comerciales, público objetivo y necesidades específicas del proyecto web.',
+        'Nos reunimos para entender tu empresa, objetivos comerciales, público objetivo y necesidades específicas del proyecto web.',
     },
     {
       number: '2',
       title: 'Propuesta y Planificación',
       description:
-        'Elaboro una propuesta detallada con estructura web, funcionalidades, plazos y presupuesto ajustado a tu empresa.',
+        'Preparamos una propuesta detallada con estructura web, funcionalidades, plazos y presupuesto ajustado a tu empresa.',
     },
     {
       number: '3',
       title: 'Diseño Corporativo',
       description:
-        'Creo un diseño profesional alineado con tu identidad corporativa, incluyendo colores, tipografías y elementos visuales de marca.',
+        'Creamos un diseño profesional alineado con tu identidad corporativa, incluyendo colores, tipografías y elementos visuales de marca.',
     },
     {
       number: '4',
       title: 'Desarrollo y Contenidos',
       description:
-        'Programo tu web corporativa e integro todos los contenidos, asegurando claridad en la comunicación de tus servicios.',
+        'Programamos tu web corporativa e integramos todos los contenidos, asegurando claridad en la comunicación de tus servicios.',
     },
     {
       number: '5',
       title: 'Entrega y Seguimiento',
       description:
-        'Lanzo tu web corporativa, formo a tu equipo y realizo seguimiento para optimizar resultados continuamente.',
+        'Publicamos tu web corporativa, formamos a tu equipo y realizamos seguimiento para optimizar resultados continuamente.',
     },
   ];
 
@@ -145,7 +145,7 @@ const PaginasWebEmpresas = () => {
     {
       title: 'Integración con CRM',
       description:
-        'Conecto tu web con tu CRM para automatizar la gestión de leads y centralizar información de clientes.',
+        'Conectamos tu web con tu CRM para automatizar la gestión de leads y centralizar información de clientes.',
     },
     {
       title: 'Blog Corporativo',
@@ -180,19 +180,19 @@ const PaginasWebEmpresas = () => {
       icon: Target,
       title: 'Enfoque B2B',
       description:
-        'Especializado en webs corporativas enfocadas en captación de leads cualificados y apoyo comercial.',
+        'Especializados en webs corporativas enfocadas en captación de leads cualificados y apoyo comercial.',
     },
     {
       icon: Award,
       title: 'Resultados Medibles',
       description:
-        'Implemento sistemas de seguimiento para medir leads, conversiones y ROI de tu inversión web.',
+        'Implementamos sistemas de seguimiento para medir leads, conversiones y ROI de tu inversión web.',
     },
     {
       icon: Shield,
       title: 'Confidencialidad Garantizada',
       description:
-        'Firmo acuerdos de confidencialidad y protejo la información sensible de tu empresa.',
+        'Firmamos acuerdos de confidencialidad y protegemos la información sensible de tu empresa.',
     },
     {
       icon: Headphones,
@@ -221,19 +221,19 @@ const PaginasWebEmpresas = () => {
     },
     {
       question:
-        '¿Puedo integrar la web con mis sistemas empresariales existentes?',
+        '¿Podéis integrar la web con nuestros sistemas empresariales existentes?',
       answer:
-        'Sí, puedo integrar tu web corporativa con CRM, ERP, plataformas de email marketing, sistemas de gestión interna y otras herramientas empresariales que utilices, automatizando procesos y centralizando información.',
+        'Sí, podemos integrar tu web corporativa con CRM, ERP, plataformas de email marketing, sistemas de gestión interna y otras herramientas empresariales que utilices, automatizando procesos y centralizando información.',
     },
     {
-      question: '¿Ofrecen planes de mantenimiento para empresas?',
+      question: '¿Ofrecéis planes de mantenimiento para empresas?',
       answer:
-        'Sí, ofrezco planes de mantenimiento empresarial que incluyen actualizaciones de seguridad, copias de seguridad diarias, soporte técnico prioritario, optimizaciones de rendimiento y actualizaciones de contenido mensuales.',
+        'Sí, ofrecemos planes de mantenimiento empresarial que incluyen actualizaciones de seguridad, copias de seguridad diarias, soporte técnico prioritario, optimizaciones de rendimiento y actualizaciones de contenido mensuales.',
     },
     {
       question: '¿Cuánto cuesta una página web para empresa?',
       answer:
-        'El precio de una web corporativa depende del alcance del proyecto. Páginas web corporativas desde 969€ IVA incluido en pago único para proyectos estándar. También puedes optar por un pago dividido (50% al empezar y 50% al publicar) o un plan mensual desde 129€/mes durante 12 meses que incluye soporte y mantenimiento básico. Te proporciono un presupuesto detallado y transparente adaptado a las necesidades de tu empresa.',
+        'El precio depende del alcance del proyecto: estructura, funcionalidades, contenidos y objetivos de la web, con opciones de pago único, fraccionado o mensual. Preparamos una propuesta a medida, cerrada y transparente antes de empezar, adaptada a las necesidades de tu empresa.',
     },
     {
       question: '¿Qué diferencia hay entre una web corporativa y una básica?',
@@ -246,9 +246,9 @@ const PaginasWebEmpresas = () => {
     <>
       <SEOLandingHero
         title='Páginas Web para Empresas'
-        subtitle='Soluciones Web Corporativas que Impulsan tu Negocio'
-        description='Desarrollo webs corporativas profesionales que transmiten confianza, generan leads cualificados y posicionan tu empresa como líder en tu sector.'
-        ctaText='Solicita presupuesto'
+        subtitle='Páginas web profesionales que transmiten confianza y generan contactos'
+        description='Diseñamos páginas web profesionales para empresas, negocios locales, clínicas, academias y consultorías que necesitan explicar sus servicios y generar contactos. Presupuesto cerrado antes de empezar.'
+        ctaText='Solicitar propuesta'
         onCTAClick={openModal}
         secondaryCTAText='Llamar Ahora'
         secondaryCTAAction={callPhone}
@@ -256,7 +256,7 @@ const PaginasWebEmpresas = () => {
 
       <SEOProblem
         title='¿Tu Web Corporativa No Está a la Altura de tu Empresa?'
-        subtitle='Estos son los desafíos que ayudo a resolver'
+        subtitle='Estos son los desafíos que ayudamos a resolver'
         problems={problems}
       />
 
@@ -274,14 +274,14 @@ const PaginasWebEmpresas = () => {
       <Portfolio />
 
       <SEOProcess
-        title='Cómo Desarrollo tu Web Corporativa'
+        title='Un proceso claro desde el primer mensaje'
         steps={process}
       />
 
       <Testimonials />
 
       <SEOWhyMe
-        title='Por Qué Elegir Mis Servicios para tu Empresa'
+        title='Por Qué Elegir Nuestros Servicios para tu Empresa'
         subtitle='Experiencia y profesionalidad al servicio de tu negocio'
         reasons={whyMeReasons}
       />
@@ -293,8 +293,8 @@ const PaginasWebEmpresas = () => {
 
       <SEOCTAFinal
         title='¿Listo para Impulsar la Presencia Digital de tu Empresa?'
-        subtitle='Solicita un presupuesto personalizado y descubre cómo una web corporativa profesional puede transformar tu negocio.'
-        buttonText='Solicita presupuesto'
+        subtitle='Solicita una propuesta sin compromiso y descubre cómo una página web profesional puede ayudar a tu negocio a generar más contactos.'
+        buttonText='Solicitar propuesta'
         onButtonClick={openModal}
       />
 

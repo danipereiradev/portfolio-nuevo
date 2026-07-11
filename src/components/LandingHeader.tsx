@@ -10,10 +10,10 @@ import { ADS_WHATSAPP_MESSAGE, buildWhatsAppUrl } from '../config/contact';
 const WHATSAPP_URL = buildWhatsAppUrl(ADS_WHATSAPP_MESSAGE);
 
 const navLinks = [
-  { label: 'Precio', id: 'precios' },
-  { label: 'Qué incluye', id: 'incluye' },
   { label: 'Trabajos', id: 'portfolio' },
+  { label: 'Qué incluye', id: 'incluye' },
   { label: 'Valoraciones', id: 'valoraciones' },
+  { label: 'Presupuesto', id: 'precios' },
   { label: 'FAQ', id: 'faq' },
   { label: 'Contacto', id: 'contacto' },
 ];
@@ -32,7 +32,7 @@ const LandingHeader = () => {
   };
 
   return (
-    <header className='fixed w-full max-w-full top-0 z-50 bg-white shadow-lg'>
+    <header className='fixed w-full max-w-full top-0 z-50 bg-white border-b border-gray-200'>
       <div className='mx-auto w-full max-w-screen-2xl px-6 py-4 flex items-center justify-between'>
         <Link to='/' className='flex items-center gap-1.5 flex-shrink-0'>
           <span
@@ -43,7 +43,7 @@ const LandingHeader = () => {
               &gt;
             </span>
             <span className='text-black font-mono tracking-tight ml-1'>
-              danipereiraweb
+              pereiraweb
             </span>
             <span className='text-accent font-mono font-normal'>.es</span>
           </span>
@@ -80,14 +80,14 @@ const LandingHeader = () => {
             className='hidden md:flex items-center gap-2 px-5 py-2.5 rounded-lg bg-green-500 hover:bg-green-600 transition-colors duration-200 text-white font-bold text-sm'
           >
             <MessageCircle className='w-4 h-4' />
-            Pedir presupuesto
+            Escríbenos por WhatsApp
           </button>
 
           {/* Versión compacta solo icono para móvil */}
           <button
             onClick={handleWhatsApp}
             className='md:hidden p-2 rounded-lg bg-green-500 hover:bg-green-600 transition-colors duration-200'
-            aria-label='Pedir presupuesto por WhatsApp'
+            aria-label='Escríbenos por WhatsApp'
           >
             <MessageCircle className='w-5 h-5 text-white' />
           </button>

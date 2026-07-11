@@ -41,10 +41,11 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                     <strong>NIF:</strong> 36153235H
                   </p>
                   <p>
-                    <strong>Dirección:</strong> Calle Condega 1, Madrid
+                    <strong>Dirección:</strong> Calle Condega 7, Torrejón de
+                    Ardoz, 28850, Madrid, Madrid
                   </p>
                   <p>
-                    <strong>Email:</strong> web.danipereira@gmail.com
+                    <strong>Email:</strong> hola@pereiraweb.es
                   </p>
                   <p>
                     <strong>Teléfono:</strong> {PHONE_DISPLAY}
@@ -171,7 +172,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                 </ul>
                 <p className='mt-4'>
                   Para ejercer estos derechos, contacta con nosotros en:
-                  web.danipereira@gmail.com
+                  hola@pereiraweb.es
                 </p>
               </section>
 
@@ -196,13 +197,14 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                 </p>
                 <div className='bg-gray-50 p-4 rounded-lg mt-4'>
                   <p>
-                    <strong>Email:</strong> web.danipereira@gmail.com
+                    <strong>Email:</strong> hola@pereiraweb.es
                   </p>
                   <p>
                     <strong>Teléfono:</strong> {PHONE_DISPLAY}
                   </p>
                   <p>
-                    <strong>Dirección:</strong> Calle Condega 1, Madrid
+                    <strong>Dirección:</strong> Calle Condega 7, Torrejón de
+                    Ardoz, 28850, Madrid, Madrid
                   </p>
                 </div>
               </section>
@@ -238,10 +240,11 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                     <strong>NIF:</strong> 36153235H
                   </p>
                   <p>
-                    <strong>Dirección:</strong> Calle Condega 1, Madrid
+                    <strong>Dirección:</strong> Calle Condega 7, Torrejón de
+                    Ardoz, 28850, Madrid, Madrid
                   </p>
                   <p>
-                    <strong>Email:</strong> web.danipereira@gmail.com
+                    <strong>Email:</strong> hola@pereiraweb.es
                   </p>
                   <p>
                     <strong>Teléfono:</strong> {PHONE_DISPLAY}
@@ -306,8 +309,8 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                     especificaciones
                   </li>
                   <li>
-                    <strong>Entrega:</strong> Entrego el proyecto y se abona
-                    el 50% restante
+                    <strong>Entrega:</strong> Entrego el proyecto y se abona el
+                    50% restante
                   </li>
                 </ol>
               </section>
@@ -380,8 +383,8 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                 </h2>
                 <p>
                   Mi responsabilidad se limita al importe del proyecto
-                  contratado. No me hago responsable de daños indirectos o
-                  lucro cesante.
+                  contratado. No me hago responsable de daños indirectos o lucro
+                  cesante.
                 </p>
               </section>
 
@@ -526,8 +529,8 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                   Cookies de terceros
                 </h2>
                 <p className='mb-4'>
-                  Utilizo servicios de terceros que pueden instalar sus
-                  propias cookies:
+                  Utilizo servicios de terceros que pueden instalar sus propias
+                  cookies:
                 </p>
                 <ul className='list-disc pl-6 space-y-2'>
                   <li>
@@ -566,7 +569,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                 </p>
                 <div className='bg-gray-50 p-4 rounded-lg mt-4'>
                   <p>
-                    <strong>Email:</strong> web.danipereira@gmail.com
+                    <strong>Email:</strong> hola@pereiraweb.es
                   </p>
                   <p>
                     <strong>Teléfono:</strong> {PHONE_DISPLAY}
@@ -600,12 +603,13 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                         <strong>NIF:</strong> 36153235H
                       </p>
                       <p>
-                        <strong>Domicilio:</strong> Calle Condega 1, Madrid
+                        <strong>Domicilio:</strong> Calle Condega 7, Torrejón de
+                        Ardoz, 28850, Madrid, Madrid
                       </p>
                     </div>
                     <div>
                       <p>
-                        <strong>Email:</strong> web.danipereira@gmail.com
+                        <strong>Email:</strong> hola@pereiraweb.es
                       </p>
                       <p>
                         <strong>Teléfono:</strong> {PHONE_DISPLAY}
@@ -751,13 +755,14 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                 </p>
                 <div className='bg-gray-50 p-4 rounded-lg mt-4'>
                   <p>
-                    <strong>Email:</strong> web.danipereira@gmail.com
+                    <strong>Email:</strong> hola@pereiraweb.es
                   </p>
                   <p>
                     <strong>Teléfono:</strong> {PHONE_DISPLAY}
                   </p>
                   <p>
-                    <strong>Dirección:</strong> Calle Condega 1, Madrid
+                    <strong>Dirección:</strong> Calle Condega 7, Torrejón de
+                    Ardoz, 28850, Madrid, Madrid
                   </p>
                 </div>
               </section>

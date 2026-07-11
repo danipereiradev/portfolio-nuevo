@@ -2,15 +2,11 @@ import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown, MessageCircle } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
-import { useContactModal } from '../contexts/ContactModalContext';
 import {
   trackWhatsAppClick,
   trackGoogleAdsWhatsAppConversion,
 } from '../utils/analytics';
-import { PHONE_NUMBER } from '../config/contact';
-
-const HEADER_WHATSAPP_URL = `https://wa.me/${PHONE_NUMBER}`;
-import AboutMe from './AboutMe';
+import { buildWhatsAppUrl, getWhatsAppMessageForPath } from '../config/contact';
 
 interface HeaderProps {
   showNavMenu?: boolean;
@@ -20,17 +16,12 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
   const { t } = useLanguage();
   const location = useLocation();
   const navigate = useNavigate();
-  const { openModal } = useContactModal();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [aboutMeOpen, setAboutMeOpen] = useState<{
-    isOpen: boolean;
-    language: 'es' | 'en';
-  }>({ isOpen: false, language: 'es' });
   const [typedText, setTypedText] = useState('');
   const [hasTyped, setHasTyped] = useState(false);
 
-  const fullText = 'danipereiraweb .es';
+  const fullText = 'pereiraweb .es';
 
   useEffect(() => {
     if (!hasTyped) {
@@ -50,6 +41,9 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
   }, [hasTyped]);
 
   const isHomePage = location.pathname === '/';
+  const headerWhatsAppUrl = buildWhatsAppUrl(
+    getWhatsAppMessageForPath(location.pathname),
+  );
 
   const scrollToSection = (sectionId: string) => {
     if (!isHomePage) {
@@ -68,15 +62,6 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
     setIsServicesOpen(false);
   };
 
-  const openAboutMe = () => {
-    setAboutMeOpen({ isOpen: true, language: 'es' });
-    setIsMenuOpen(false);
-  };
-
-  const closeAboutMe = () => {
-    setAboutMeOpen({ isOpen: false, language: 'es' });
-  };
-
   const services = [
     {
       name: 'Diseño Web',
@@ -90,10 +75,6 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
       name: 'Tiendas Online',
       path: '/tiendas-online',
       popular: true,
-    },
-    {
-      name: 'Aplicaciones Web',
-      path: '/desarrollo-aplicaciones-web',
     },
     {
       name: 'Posicionamiento SEO',
@@ -111,7 +92,7 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
 
   return (
     <>
-      <header className='fixed w-full max-w-full top-0 z-50 bg-white shadow-lg'>
+      <header className='fixed w-full max-w-full top-0 z-50 bg-white border-b border-gray-200'>
         <div className='mx-auto w-full max-w-screen-2xl px-6 py-4'>
           <div className='flex items-center justify-between relative'>
             <Link
@@ -127,7 +108,7 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
                   &gt;
                 </span>
                 <span className='text-black font-mono tracking-tight ml-1'>
-                  {hasTyped ? 'danipereiraweb' : typedText.split(' ')[0]}
+                  {hasTyped ? 'pereiraweb' : typedText.split(' ')[0]}
                 </span>
                 <span className='text-accent font-mono font-normal'>
                   {hasTyped ? ' .es' : (typedText.includes(' .') ? ' ' + typedText.split(' ')[1] : '')}
@@ -147,13 +128,6 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
                   Inicio
                 </Link>
 
-                <button
-                  onClick={openAboutMe}
-                  className='font-bold text-md uppercase text-black transition-colors duration-200 hover:text-accent'
-                >
-                  {t('nav.about')}
-                </button>
-
                 <div
                   className='relative'
                   onMouseEnter={() => setIsServicesOpen(true)}
@@ -166,7 +140,7 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
 
                   {isServicesOpen && (
                     <div className='absolute top-full left-0 pt-2 w-72 z-50'>
-                      <div className='bg-white rounded-lg shadow-xl py-2'>
+                      <div className='bg-white rounded-lg border border-gray-200 py-2'>
                         {services.map((service) => (
                           <a
                             key={service.path}
@@ -210,14 +184,26 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
                 </button>
 
                 <button
-                  onClick={() => {
-                    openModal();
-                    setIsMenuOpen(false);
-                  }}
+                  onClick={() => scrollToSection('proceso')}
+                  className='font-bold text-md uppercase text-black transition-colors duration-200 hover:text-accent'
+                >
+                  Proceso
+                </button>
+
+                <Link
+                  to='/sobre-el-estudio'
+                  className='font-bold text-md uppercase text-black transition-colors duration-200 hover:text-accent'
+                >
+                  {t('nav.about')}
+                </Link>
+
+                <Link
+                  to='/contacto'
+                  onClick={() => setIsMenuOpen(false)}
                   className='font-bold text-md uppercase text-black transition-colors duration-200 hover:text-accent'
                 >
                   {t('nav.contact')}
-                </button>
+                </Link>
               </nav>
             )}
 
@@ -236,13 +222,13 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
               )}
 
               <a
-                href={HEADER_WHATSAPP_URL}
+                href={headerWhatsAppUrl}
                 target='_blank'
                 rel='noopener noreferrer'
                 onClick={(e) => {
                   e.preventDefault();
                   trackWhatsAppClick('Header');
-                  trackGoogleAdsWhatsAppConversion(HEADER_WHATSAPP_URL);
+                  trackGoogleAdsWhatsAppConversion(headerWhatsAppUrl);
                 }}
                 className='p-2 rounded-lg bg-accent hover:bg-accent-hover transition-colors duration-200'
                 aria-label='WhatsApp'
@@ -253,7 +239,7 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
           </div>
 
           {showNavMenu && isMenuOpen && (
-            <nav className='md:hidden mt-4 pb-4 bg-white rounded-lg shadow-lg'>
+            <nav className='md:hidden mt-4 pb-4 bg-white rounded-lg border border-gray-200'>
               <Link
                 to='/'
                 onClick={() => setIsMenuOpen(false)}
@@ -261,13 +247,6 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
               >
                 Inicio
               </Link>
-
-              <button
-                onClick={openAboutMe}
-                className='block w-full text-left px-4 py-2 font-bold text-md uppercase text-black hover:bg-gray-100 hover:text-accent transition-colors duration-200'
-              >
-                {t('nav.about')}
-              </button>
 
               <div>
                 <button
@@ -300,7 +279,7 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
                           </span>
                           {service.popular && (
                             <span className='bg-ink-gray text-white text-xs px-2 py-0.5 rounded-full'>
-                              ★
+                              Popular
                             </span>
                           )}
                         </div>
@@ -318,20 +297,31 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
               </button>
 
               <button
-                onClick={() => {
-                  openModal();
-                  setIsMenuOpen(false);
-                }}
+                onClick={() => scrollToSection('proceso')}
+                className='block w-full text-left px-4 py-2 font-bold text-md uppercase text-black hover:bg-gray-100 hover:text-accent transition-colors duration-200'
+              >
+                Proceso
+              </button>
+
+              <Link
+                to='/sobre-el-estudio'
+                onClick={() => setIsMenuOpen(false)}
+                className='block w-full text-left px-4 py-2 font-bold text-md uppercase text-black hover:bg-gray-100 hover:text-accent transition-colors duration-200'
+              >
+                {t('nav.about')}
+              </Link>
+
+              <Link
+                to='/contacto'
+                onClick={() => setIsMenuOpen(false)}
                 className='block w-full text-left px-4 py-2 font-bold text-md uppercase text-black hover:bg-gray-100 hover:text-accent transition-colors duration-200'
               >
                 {t('nav.contact')}
-              </button>
+              </Link>
             </nav>
           )}
         </div>
       </header>
-
-      <AboutMe isOpen={aboutMeOpen.isOpen} onClose={closeAboutMe} />
     </>
   );
 };

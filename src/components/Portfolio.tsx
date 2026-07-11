@@ -166,7 +166,7 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
               key={index}
               onClick={() => openModal(index)}
               onMouseEnter={() => project.headerImage && preloadImage(project.headerImage)}
-              className='cursor-pointer transform hover:-translate-y-2 transition-all duration-300'
+              className='cursor-pointer group'
             >
               <div className='relative overflow-hidden rounded-lg mb-4'>
                 <img
@@ -175,7 +175,7 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
                   className='w-full h-auto object-contain'
                   loading='lazy'
                 />
-                <div className='absolute inset-0 bg-black/0 hover:bg-black/10 transition-all duration-300'></div>
+                <div className='absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-200'></div>
               </div>
 
               <h3 className='text-xl font-bold text-gray-900 text-center'>
@@ -190,25 +190,22 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
             href='https://github.com/danipereiradev'
             target='_blank'
             rel='noopener noreferrer'
-            className='block bg-gradient-to-r from-gray-900 to-black text-white rounded-2xl p-8 md:p-12 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1'
+            className='block bg-gray-900 text-white rounded-lg p-8 md:p-12 hover:bg-black transition-colors duration-200'
           >
             <div className='flex flex-col md:flex-row items-center justify-between gap-6'>
               <div className='flex items-center gap-4'>
-                <div className='bg-white/10 p-4 rounded-xl'>
-                  <Github className='w-10 h-10 md:w-12 md:h-12' />
-                </div>
+                <Github className='w-10 h-10 md:w-12 md:h-12 flex-shrink-0' />
                 <div className='text-center md:text-left'>
                   <h3 className='text-2xl md:text-3xl font-bold mb-2'>
-                    Explora mis repositorios
+                    Explora nuestros repositorios
                   </h3>
                   <p className='text-white/80 text-base md:text-lg'>
                     Proyectos desarrollados en React, Angular y JavaScript Vanilla
                   </p>
                 </div>
               </div>
-              <div className='flex items-center gap-2 bg-white/10 hover:bg-white/20 px-6 py-3 rounded-xl transition-colors duration-200'>
+              <div className='flex items-center gap-2 border border-white/30 px-6 py-3 rounded-lg'>
                 <span className='font-semibold text-lg'>Ver en GitHub</span>
-                <ExternalLink className='w-5 h-5' />
               </div>
             </div>
           </a>
@@ -225,7 +222,7 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
             >
               <button
                 onClick={closeModal}
-                className='fixed top-4 right-4 md:top-8 md:right-8 bg-white rounded-full p-2 md:p-3 shadow-xl hover:bg-gray-100 transition-colors duration-200 z-20'
+                className='fixed top-4 right-4 md:top-8 md:right-8 bg-white border border-gray-200 rounded-full p-2 md:p-3 hover:bg-gray-100 transition-colors duration-200 z-20'
               >
                 <X className='w-5 h-5 md:w-6 md:h-6 text-gray-700' />
               </button>

@@ -14,8 +14,16 @@ import {
 } from 'lucide-react';
 import { useContactModal } from '../contexts/ContactModalContext';
 import { usePageMeta } from '../hooks/usePageMeta';
-import { trackPhoneClick } from '../utils/analytics';
-import { PHONE_TEL_LINK } from '../config/contact';
+import {
+  trackPhoneClick,
+  trackWhatsAppClick,
+  trackGoogleAdsWhatsAppConversion,
+} from '../utils/analytics';
+import {
+  PHONE_TEL_LINK,
+  ECOMMERCE_WHATSAPP_MESSAGE,
+  buildWhatsAppUrl,
+} from '../config/contact';
 import SEOLandingHero from '../components/SEOLandingHero';
 import SEOProblem from '../components/SEOProblem';
 import SEOBenefits from '../components/SEOBenefits';
@@ -28,6 +36,8 @@ import ContactForm from '../components/ContactForm';
 import Testimonials from '../components/Testimonials';
 import Portfolio from '../components/Portfolio';
 
+const WHATSAPP_URL = buildWhatsAppUrl(ECOMMERCE_WHATSAPP_MESSAGE);
+
 const TiendasOnline = () => {
   const { openModal } = useContactModal();
 
@@ -36,6 +46,11 @@ const TiendasOnline = () => {
   const callPhone = () => {
     trackPhoneClick('TiendasOnlineHero');
     window.location.href = PHONE_TEL_LINK;
+  };
+
+  const handleWhatsAppClick = () => {
+    trackWhatsAppClick('TiendasOnlineCTAFinal');
+    trackGoogleAdsWhatsAppConversion(WHATSAPP_URL);
   };
 
   const problems = [
@@ -51,7 +66,7 @@ const TiendasOnline = () => {
     },
     { text: 'Te preocupa la seguridad de los pagos y la protección de datos' },
     {
-      text: 'Necesitas una tienda profesional pero tu presupuesto es limitado',
+      text: 'Necesitas una tienda profesional con un presupuesto ajustado a tu proyecto',
     },
   ];
 
@@ -60,19 +75,19 @@ const TiendasOnline = () => {
       icon: ShoppingCart,
       title: 'Tienda Completa y Funcional',
       description:
-        'Desarrollo completo de tu tienda online con carrito de compra, gestión de productos, categorías, y todas las funcionalidades necesarias para vender online.',
+        'Desarrollamos tu tienda online con carrito de compra, gestión de productos, categorías, y todas las funcionalidades necesarias para vender online.',
     },
     {
       icon: CreditCard,
       title: 'Pasarelas de Pago Integradas',
       description:
-        'Integración con Stripe, Redsys, PayPal y otras pasarelas de pago seguras que tus clientes ya conocen y confían.',
+        'Integramos Stripe, Redsys, PayPal y otras pasarelas de pago seguras que tus clientes ya conocen y confían.',
     },
     {
       icon: TrendingUp,
       title: 'Optimizada para Conversión',
       description:
-        'Diseño cada elemento de tu tienda pensando en maximizar las ventas, con checkout simplificado y proceso de compra optimizado.',
+        'Diseñamos cada elemento de tu tienda pensando en maximizar las ventas, con checkout simplificado y proceso de compra optimizado.',
     },
     {
       icon: Lock,
@@ -84,7 +99,7 @@ const TiendasOnline = () => {
       icon: Package,
       title: 'Gestión de Envíos',
       description:
-        'Configuración de zonas de envío, tarifas personalizadas e integración con transportistas para automatizar tu logística.',
+        'Configuramos zonas de envío, tarifas personalizadas e integración con transportistas para automatizar tu logística.',
     },
     {
       icon: BarChart,
@@ -98,12 +113,12 @@ const TiendasOnline = () => {
     {
       title: 'Hasta 50 Productos Cargados',
       description:
-        'Cargo tu catálogo inicial completo con descripciones, imágenes optimizadas, precios y variantes.',
+        'Cargamos tu catálogo inicial completo con descripciones, imágenes optimizadas, precios y variantes.',
     },
     {
       title: 'Pasarela de Pago Integrada',
       description:
-        'Configuro Stripe, Redsys, PayPal o la pasarela que prefieras para cobros seguros online.',
+        'Configuramos Stripe, Redsys, PayPal o la pasarela que prefieras para cobros seguros online.',
     },
     {
       title: 'Gestión de Stock Automática',
@@ -113,7 +128,7 @@ const TiendasOnline = () => {
     {
       title: 'Sistema de Cupones y Descuentos',
       description:
-        'Crea promociones, códigos de descuento y ofertas especiales para impulsar las ventas.',
+        'Creamos promociones, códigos de descuento y ofertas especiales para impulsar las ventas.',
     },
     {
       title: 'Carrito de Compra Optimizado',
@@ -128,7 +143,7 @@ const TiendasOnline = () => {
     {
       title: 'Zona de Envíos Configurable',
       description:
-        'Define zonas geográficas, tarifas por peso, valor o destino y métodos de entrega.',
+        'Definimos zonas geográficas, tarifas por peso, valor o destino y métodos de entrega.',
     },
     {
       title: 'SEO para E-commerce',
@@ -148,25 +163,25 @@ const TiendasOnline = () => {
       icon: Target,
       title: 'Enfoque en Conversión',
       description:
-        'Diseño cada elemento de la tienda pensando en maximizar ventas y reducir abandonos de carrito.',
+        'Diseñamos cada elemento de la tienda pensando en maximizar ventas y reducir abandonos de carrito.',
     },
     {
       icon: Award,
       title: 'Formación Completa',
       description:
-        'Te enseño a gestionar productos, procesar pedidos y usar todas las funcionalidades de tu tienda.',
+        'Te enseñamos a gestionar productos, procesar pedidos y usar todas las funcionalidades de tu tienda.',
     },
     {
       icon: Headphones,
       title: 'Soporte Post-Venta',
       description:
-        'No te dejo solo después del lanzamiento. Estoy aquí para resolver dudas y ayudarte a crecer.',
+        'No te dejamos solo después del lanzamiento. Estamos aquí para resolver dudas y ayudarte a crecer.',
     },
     {
       icon: Zap,
       title: 'Optimización Continua',
       description:
-        'Analizo métricas y te ayudo a mejorar continuamente las conversiones de tu tienda.',
+        'Analizamos métricas y te ayudamos a mejorar continuamente las conversiones de tu tienda.',
     },
     {
       icon: Shield,
@@ -181,31 +196,31 @@ const TiendasOnline = () => {
       number: '1',
       title: 'Análisis de tu Negocio',
       description:
-        'Estudio tu catálogo de productos, modelo de negocio, competencia y objetivos para diseñar la tienda online perfecta para tu caso.',
+        'Estudiamos tu catálogo de productos, modelo de negocio, competencia y objetivos para diseñar la tienda online adecuada para tu caso.',
     },
     {
       number: '2',
       title: 'Diseño de la Tienda',
       description:
-        'Creo el diseño visual de tu e-commerce, optimizando la experiencia de compra y asegurando que tus productos destaquen.',
+        'Creamos el diseño visual de tu e-commerce, optimizando la experiencia de compra y asegurando que tus productos destaquen.',
     },
     {
       number: '3',
       title: 'Desarrollo E-commerce',
       description:
-        'Desarrollo tu tienda con WooCommerce o Shopify, configurando pasarelas de pago, envíos, impuestos y todas las funcionalidades necesarias.',
+        'Desarrollamos tu tienda con WooCommerce o Shopify, configurando pasarelas de pago, envíos, impuestos y todas las funcionalidades necesarias.',
     },
     {
       number: '4',
       title: 'Carga de Productos',
       description:
-        'Cargo tu catálogo de productos con descripciones, imágenes optimizadas, precios, variantes y stock para que puedas empezar a vender.',
+        'Cargamos tu catálogo de productos con descripciones, imágenes optimizadas, precios, variantes y stock para que puedas empezar a vender.',
     },
     {
       number: '5',
       title: 'Lanzamiento y Formación',
       description:
-        'Lanzo tu tienda online, te formo en la gestión de pedidos, productos y te acompaño en tus primeras ventas.',
+        'Publicamos tu tienda online, formamos a tu equipo en la gestión de pedidos y productos, y te acompañamos en tus primeras ventas.',
     },
   ];
 
@@ -213,32 +228,32 @@ const TiendasOnline = () => {
     {
       question: '¿Cuánto cuesta crear una tienda online?',
       answer:
-        'Una tienda online profesional desde 1.799€ IVA incluido en pago único, con diseño personalizado, hasta 50 productos cargados, pasarela de pago, sistema de envíos y formación completa. También puedes optar por un pago dividido (50% al empezar y 50% al publicar) o un plan mensual desde 249€/mes durante 12 meses que incluye soporte y mantenimiento básico. El precio varía según funcionalidades específicas que necesites.',
+        'El precio depende del catálogo, funcionalidades y plataforma elegida, con opciones de pago único, fraccionado o mensual. Preparamos una propuesta a medida y cerrada antes de empezar, ajustada a las funcionalidades que necesites.',
     },
     {
-      question: '¿Qué plataforma recomiendan para crear una tienda online?',
+      question: '¿Qué plataforma recomendáis para crear una tienda online?',
       answer:
-        'Recomiendo WooCommerce para tiendas con WordPress o Shopify para soluciones más sencillas. Ambas son potentes, seguras y permiten gestionar tu tienda fácilmente. Elijo la mejor opción según tus necesidades y preferencias.',
+        'Recomendamos WooCommerce para tiendas con WordPress o Shopify para soluciones más sencillas. Ambas son potentes, seguras y permiten gestionar tu tienda fácilmente. Elegimos la mejor opción según tus necesidades y preferencias.',
     },
     {
       question: '¿Incluye la integración de pasarelas de pago?',
       answer:
-        'Sí, configuro e integro las pasarelas de pago que prefieras: Redsys, Stripe, PayPal, Bizum u otras. Tus clientes podrán pagar de forma segura con tarjeta, transferencia o el método que elijas.',
+        'Sí, configuramos e integramos las pasarelas de pago que prefieras: Redsys, Stripe, PayPal, Bizum u otras. Tus clientes podrán pagar de forma segura con tarjeta, transferencia o el método que elijas.',
     },
     {
       question: '¿Podré gestionar yo mismo los productos y pedidos?',
       answer:
-        'Por supuesto. Tu tienda incluye un panel de administración intuitivo donde podrás añadir productos, gestionar stock, procesar pedidos y hacer seguimiento de ventas. Te doy formación completa para que seas autónomo.',
+        'Por supuesto. Tu tienda incluye un panel de administración intuitivo donde podrás añadir productos, gestionar stock, procesar pedidos y hacer seguimiento de ventas. Te damos formación completa para que seas autónomo.',
     },
     {
       question: '¿Cómo funciona el sistema de envíos?',
       answer:
-        'Configuro zonas de envío con tarifas personalizadas según peso, destino o precio del pedido. Puedo integrar con transportistas como Correos, SEUR o MRW para automatizar el proceso de envío.',
+        'Configuramos zonas de envío con tarifas personalizadas según peso, destino o precio del pedido. Podemos integrar con transportistas como Correos, SEUR o MRW para automatizar el proceso de envío.',
     },
     {
       question: '¿Qué pasa si necesito añadir más funcionalidades después?',
       answer:
-        'Tu tienda está preparada para crecer. Puedo añadir funcionalidades como cupones descuento, programa de puntos, suscripciones, venta mayorista, multi-idioma o cualquier característica adicional que necesites.',
+        'Tu tienda está preparada para crecer. Podemos añadir funcionalidades como cupones descuento, programa de puntos, suscripciones, venta mayorista, multi-idioma o cualquier característica adicional que necesites.',
     },
   ];
 
@@ -246,9 +261,9 @@ const TiendasOnline = () => {
     <>
       <SEOLandingHero
         title='Crear Tienda Online Profesional'
-        subtitle='Vende Online con una Tienda que Convierte'
-        description='Desarrollo tu tienda online completa con todo lo necesario para vender con éxito: diseño atractivo, pasarelas de pago y gestión sencilla.'
-        ctaText='Quiero mi tienda online'
+        subtitle='Ecommerce profesional con una experiencia de compra clara'
+        description='Creamos tiendas online con catálogo, pasarela de pago y estructura escalable, acompañándote desde el primer producto. Presupuesto cerrado antes de empezar.'
+        ctaText='Solicitar propuesta'
         onCTAClick={openModal}
         secondaryCTAText='Llamar Ahora'
         secondaryCTAAction={callPhone}
@@ -271,14 +286,14 @@ const TiendasOnline = () => {
       <Portfolio />
 
       <SEOProcess
-        title='Proceso de Creación de tu Tienda Online'
+        title='Un proceso claro desde el primer mensaje'
         steps={process}
       />
 
       <Testimonials />
 
       <SEOWhyMe
-        title='Por Qué Crear tu Tienda Online Conmigo'
+        title='Por Qué Crear tu Tienda Online con Nosotros'
         subtitle='Experiencia y resultados en e-commerce'
         reasons={whyMeReasons}
       />
@@ -287,10 +302,19 @@ const TiendasOnline = () => {
 
       <SEOCTAFinal
         title='¿Listo para Empezar a Vender Online?'
-        subtitle='No esperes más para lanzar tu tienda online. Solicita tu presupuesto personalizado y comienza a vender en internet con éxito.'
-        buttonText='Recibir propuesta en 2h'
+        subtitle='Cuéntanos sobre tu catálogo y objetivos. Te preparamos una propuesta cerrada para tu tienda online en máximo 2h.'
+        buttonText='Solicitar propuesta'
         onButtonClick={openModal}
       />
+
+      <div className='text-center pb-16'>
+        <button
+          onClick={handleWhatsAppClick}
+          className='inline-flex items-center gap-1.5 text-sm text-green-600 font-semibold hover:underline'
+        >
+          O escríbenos directo por WhatsApp
+        </button>
+      </div>
 
       <ContactForm preselectedPlan='Tienda Online' />
     </>

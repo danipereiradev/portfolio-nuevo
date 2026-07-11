@@ -11,8 +11,16 @@ import {
 } from 'lucide-react';
 import { useContactModal } from '../contexts/ContactModalContext';
 import { usePageMeta } from '../hooks/usePageMeta';
-import { trackPhoneClick } from '../utils/analytics';
-import { PHONE_TEL_LINK } from '../config/contact';
+import {
+  trackPhoneClick,
+  trackWhatsAppClick,
+  trackGoogleAdsWhatsAppConversion,
+} from '../utils/analytics';
+import {
+  PHONE_TEL_LINK,
+  MAINTENANCE_WHATSAPP_MESSAGE,
+  buildWhatsAppUrl,
+} from '../config/contact';
 import SEOLandingHero from '../components/SEOLandingHero';
 import SEOProblem from '../components/SEOProblem';
 import SEOBenefits from '../components/SEOBenefits';
@@ -24,6 +32,8 @@ import SEOCTAFinal from '../components/SEOCTAFinal';
 import Testimonials from '../components/Testimonials';
 import ContactForm from '../components/ContactForm';
 
+const WHATSAPP_URL = buildWhatsAppUrl(MAINTENANCE_WHATSAPP_MESSAGE);
+
 const MantenimientoWeb = () => {
   const { openModal } = useContactModal();
 
@@ -32,6 +42,11 @@ const MantenimientoWeb = () => {
   const callPhone = () => {
     trackPhoneClick('MantenimientoWebHero');
     window.location.href = PHONE_TEL_LINK;
+  };
+
+  const handleWhatsAppClick = () => {
+    trackWhatsAppClick('MantenimientoWebCTAFinal');
+    trackGoogleAdsWhatsAppConversion(WHATSAPP_URL);
   };
 
   const problems = [
@@ -58,31 +73,31 @@ const MantenimientoWeb = () => {
       icon: Shield,
       title: 'Seguridad Garantizada',
       description:
-        'Monitorizo tu web 24/7 y aplico parches de seguridad inmediatamente para protegerte de vulnerabilidades y ataques.',
+        'Monitorizamos tu web 24/7 y aplicamos parches de seguridad inmediatamente para protegerte de vulnerabilidades y ataques.',
     },
     {
       icon: RefreshCw,
       title: 'Actualizaciones Automáticas',
       description:
-        'Mantengo tu web, plugins y sistema actualizado sin que tengas que preocuparte por nada, evitando incompatibilidades.',
+        'Mantenemos tu web, plugins y sistema actualizados sin que tengas que preocuparte por nada, evitando incompatibilidades.',
     },
     {
       icon: Zap,
       title: 'Optimización Continua',
       description:
-        'Mejoro constantemente la velocidad y rendimiento de tu web para ofrecer la mejor experiencia a tus usuarios.',
+        'Mejoramos constantemente la velocidad y rendimiento de tu web para ofrecer la mejor experiencia a tus usuarios.',
     },
     {
       icon: Lock,
       title: 'Copias de Seguridad Diarias',
       description:
-        'Realizo backups automáticos diarios de tu web para que nunca pierdas información importante y puedas recuperarla rápidamente.',
+        'Realizamos backups automáticos diarios de tu web para que nunca pierdas información importante y puedas recuperarla rápidamente.',
     },
     {
       icon: TrendingUp,
       title: 'Monitoreo y Reporting',
       description:
-        'Te envío informes mensuales sobre el estado de tu web, métricas de rendimiento y las mejoras implementadas.',
+        'Te enviamos informes mensuales sobre el estado de tu web, métricas de rendimiento y las mejoras implementadas.',
     },
     {
       icon: HeadphonesIcon,
@@ -96,7 +111,7 @@ const MantenimientoWeb = () => {
     {
       title: 'Actualizaciones de CMS y Plugins',
       description:
-        'Mantengo WordPress, WooCommerce y todos los plugins actualizados a las últimas versiones estables.',
+        'Mantenemos WordPress, WooCommerce y todos los plugins actualizados a las últimas versiones estables.',
     },
     {
       title: 'Monitorización 24/7',
@@ -121,7 +136,7 @@ const MantenimientoWeb = () => {
     {
       title: 'Cambios y Actualizaciones',
       description:
-        'Hasta 2 horas mensuales de modificaciones de contenido, textos, imágenes o pequeños ajustes de diseño.',
+        'Modificaciones de contenido, textos, imágenes o pequeños ajustes de diseño incluidos cada mes.',
     },
     {
       title: 'Informes Mensuales',
@@ -140,25 +155,25 @@ const MantenimientoWeb = () => {
       number: '1',
       title: 'Auditoría Inicial',
       description:
-        'Analizo el estado actual de tu web: seguridad, velocidad, SEO y posibles vulnerabilidades. Te entrego un informe completo.',
+        'Analizamos el estado actual de tu web: seguridad, velocidad, SEO y posibles vulnerabilidades. Te entregamos un informe completo.',
     },
     {
       number: '2',
       title: 'Configuración del Servicio',
       description:
-        'Instalo herramientas de monitorización, configuro copias de seguridad automáticas y optimizo la web.',
+        'Instalamos herramientas de monitorización, configuramos copias de seguridad automáticas y optimizamos la web.',
     },
     {
       number: '3',
       title: 'Mantenimiento Continuo',
       description:
-        'Realizo actualizaciones, optimizaciones y monitoreo tu web constantemente sin que tengas que hacer nada.',
+        'Realizamos actualizaciones, optimizaciones y monitorizamos tu web constantemente sin que tengas que hacer nada.',
     },
     {
       number: '4',
       title: 'Reporting Mensual',
       description:
-        'Te envío un informe cada mes con todas las acciones realizadas, métricas de rendimiento y recomendaciones de mejora.',
+        'Te enviamos un informe cada mes con todas las acciones realizadas, métricas de rendimiento y recomendaciones de mejora.',
     },
   ];
 
@@ -173,31 +188,31 @@ const MantenimientoWeb = () => {
       icon: Target,
       title: 'Enfoque Proactivo',
       description:
-        'No espero a que surjan problemas. Identifico y resuelvo incidencias antes de que afecten a tu negocio.',
+        'No esperamos a que surjan problemas. Identificamos y resolvemos incidencias antes de que afecten a tu negocio.',
     },
     {
       icon: Award,
       title: 'Servicio Personalizado',
       description:
-        'No soy una agencia masiva. Cada cliente recibe atención directa y personalizada adaptada a sus necesidades específicas.',
+        'No llevamos decenas de webs a la vez. Cada cliente tiene un contacto directo y una forma de trabajar acordada entre los dos.',
     },
     {
       icon: HeadphonesIcon,
       title: 'Soporte Humano Real',
       description:
-        'Hablas directamente conmigo, sin intermediarios ni bots. Respondo todas tus dudas de forma clara y cercana.',
+        'Hablas directamente con nuestro equipo, sin intermediarios ni bots. Respondemos todas tus dudas de forma clara y cercana.',
     },
     {
       icon: Shield,
       title: 'Transparencia Total',
       description:
-        'Informes mensuales detallados de todo lo que hago. Sabrás exactamente en qué invierto el tiempo.',
+        'Informes mensuales detallados de todo lo que hacemos. Sabrás exactamente en qué invertimos el tiempo.',
     },
     {
       icon: TrendingUp,
       title: 'Mejora Continua',
       description:
-        'No solo mantengo, también optimizo constantemente tu web para mejorar velocidad, SEO y conversiones.',
+        'No solo mantenemos, también optimizamos constantemente tu web para mejorar velocidad, SEO y conversiones.',
     },
   ];
 
@@ -205,37 +220,37 @@ const MantenimientoWeb = () => {
     {
       question: '¿Qué incluye el servicio de mantenimiento web?',
       answer:
-        'Nuestro servicio incluye actualizaciones de CMS y plugins, copias de seguridad diarias, monitorización 24/7, optimización de velocidad, escaneo de seguridad, hasta 2 horas de cambios mensuales, informes detallados y soporte técnico ilimitado.',
+        'Nuestro servicio incluye actualizaciones de CMS y plugins, copias de seguridad diarias, monitorización 24/7, optimización de velocidad, escaneo de seguridad, cambios mensuales de contenido, informes detallados y soporte técnico ilimitado.',
     },
     {
       question: '¿Cuánto cuesta el mantenimiento web mensual?',
       answer:
-        'Los planes de mantenimiento comienzan desde 60€/mes para webs básicas. El precio varía según el tamaño de tu web, tecnologías utilizadas y nivel de soporte requerido. Te ofrezco un presupuesto personalizado sin compromiso.',
+        'Los planes de mantenimiento se contratan de forma mensual, sin permanencia. El precio varía según el tamaño de tu web, tecnologías utilizadas y nivel de soporte requerido. Preparamos un presupuesto personalizado sin compromiso.',
     },
     {
       question: '¿Qué pasa si mi web tiene un problema urgente?',
       answer:
-        'Respondo a incidencias urgentes en máximo de 2 horas durante horario laboral. Para emergencias críticas fuera de horario, ofrezco soporte prioritario 24/7 en planes premium.',
+        'Respondemos a incidencias urgentes en máximo 2 horas durante horario laboral. Para emergencias críticas fuera de horario, ofrecemos soporte prioritario 24/7 en planes premium.',
     },
     {
       question: '¿Hacéis copias de seguridad de mi web?',
       answer:
-        'Sí, realizo copias de seguridad automáticas diarias de toda tu web (archivos y base de datos) que almaceno en la nube con retención de 30 días. Puedes solicitar restauraciones en cualquier momento.',
+        'Sí, realizamos copias de seguridad automáticas diarias de toda tu web (archivos y base de datos) que almacenamos en la nube con retención de 30 días. Puedes solicitar restauraciones en cualquier momento.',
     },
     {
       question: '¿Puedo cancelar el servicio cuando quiera?',
       answer:
-        'Sí, no hay permanencia. Puedes cancelar el servicio con un preaviso de 30 días. Antes de irte, te entrego una copia completa de tu web actualizada.',
+        'Sí, no hay permanencia. Puedes cancelar el servicio con un preaviso de 30 días. Antes de irte, te entregamos una copia completa de tu web actualizada.',
     },
     {
       question: '¿Trabajáis con cualquier tipo de web?',
       answer:
-        'Sí, trabajo con WordPress, WooCommerce, Shopify, webs personalizadas en PHP, React, Vue y otras tecnologías. Si tu web usa una tecnología específica, consúltame para confirmar compatibilidad.',
+        'Sí, trabajamos con WordPress, WooCommerce, Shopify, webs personalizadas en PHP, React, Vue y otras tecnologías. Si tu web usa una tecnología específica, consúltanos para confirmar compatibilidad.',
     },
     {
       question: '¿Qué tipo de cambios puedo solicitar cada mes?',
       answer:
-        'Puedes solicitar cambios de textos, imágenes, añadir páginas simples, modificar formularios, actualizar productos, etc. Incluimos hasta 2 horas mensuales. Cambios más complejos se presupuestan aparte.',
+        'Puedes solicitar cambios de textos, imágenes, añadir páginas simples, modificar formularios, actualizar productos, etc. Los cambios más complejos se presupuestan aparte.',
     },
     {
       question: '¿Me enviaréis informes de lo que hacéis?',
@@ -248,9 +263,9 @@ const MantenimientoWeb = () => {
     <>
       <SEOLandingHero
         title='Mantenimiento Web Profesional'
-        subtitle='Protege, Actualiza y Optimiza tu Sitio Web'
-        description='Servicio completo de mantenimiento web: seguridad, actualizaciones, copias de seguridad y soporte técnico para que tu web funcione perfectamente 24/7.'
-        ctaText='Revisar mi web'
+        subtitle='Soporte mensual, seguridad y tranquilidad para tu web'
+        description='Ofrecemos mantenimiento web recurrente: mejoras técnicas, seguridad, copias de seguridad, cambios de contenido y soporte continuo para que tu web funcione siempre bien.'
+        ctaText='Solicitar orientación'
         onCTAClick={openModal}
         secondaryCTAText='Llamar Ahora'
         secondaryCTAAction={callPhone}
@@ -258,7 +273,7 @@ const MantenimientoWeb = () => {
 
       <SEOProblem
         title='¿Tu Web Te Está Dando Problemas?'
-        subtitle='Estos son los problemas más comunes que soluciono'
+        subtitle='Estos son los problemas más comunes que solucionamos'
         problems={problems}
       />
 
@@ -273,12 +288,15 @@ const MantenimientoWeb = () => {
         features={features}
       />
 
-      <SEOProcess title='Cómo Funciona Nuestro Servicio' steps={process} />
+      <SEOProcess
+        title='Un proceso claro desde el primer mensaje'
+        steps={process}
+      />
 
       <Testimonials />
 
       <SEOWhyMe
-        title='Por Qué Elegir Mi Servicio de Mantenimiento'
+        title='Por Qué Elegir Nuestro Servicio de Mantenimiento'
         subtitle='+12 años de experiencia cuidando webs como la tuya'
         reasons={whyMeReasons}
       />
@@ -290,10 +308,19 @@ const MantenimientoWeb = () => {
 
       <SEOCTAFinal
         title='¿Listo para Olvidarte de los Problemas Técnicos?'
-        subtitle='Déjame encargarme del mantenimiento de tu web mientras tú te centras en hacer crecer tu negocio. Sin permanencia, sin sorpresas.'
-        buttonText='Pedir presupuesto'
+        subtitle='Nos encargamos del mantenimiento de tu web mientras tú te centras en hacer crecer tu negocio. Sin permanencia, sin sorpresas.'
+        buttonText='Solicitar orientación'
         onButtonClick={openModal}
       />
+
+      <div className='text-center pb-16'>
+        <button
+          onClick={handleWhatsAppClick}
+          className='inline-flex items-center gap-1.5 text-sm text-green-600 font-semibold hover:underline'
+        >
+          O escríbenos directo por WhatsApp
+        </button>
+      </div>
 
       <ContactForm preselectedPlan='Mantenimiento Web' />
     </>

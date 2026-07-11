@@ -1,21 +1,50 @@
-import { Mail, Phone, MapPin, Clock } from 'lucide-react';
-import { trackEmailClick, trackPhoneClick } from '../utils/analytics';
-import { PHONE_DISPLAY, PHONE_TEL_LINK } from '../config/contact';
+import { Mail, MapPin, Clock, MessageCircle } from 'lucide-react';
+import {
+  trackEmailClick,
+  trackPhoneClick,
+  trackWhatsAppClick,
+  trackGoogleAdsWhatsAppConversion,
+} from '../utils/analytics';
+import {
+  PHONE_DISPLAY,
+  PHONE_TEL_LINK,
+  CONTACT_PAGE_WHATSAPP_MESSAGE,
+  buildWhatsAppUrl,
+} from '../config/contact';
 import { usePageMeta } from '../hooks/usePageMeta';
 import ContactForm from '../components/ContactForm';
+
+const CONTACT_WHATSAPP_URL = buildWhatsAppUrl(CONTACT_PAGE_WHATSAPP_MESSAGE);
 
 const Contacto = () => {
   usePageMeta('/contacto');
 
+  const handleWhatsAppClick = () => {
+    trackWhatsAppClick('ContactoPage', 'Escríbenos por WhatsApp');
+    trackGoogleAdsWhatsAppConversion(CONTACT_WHATSAPP_URL);
+  };
+
   return (
     <>
-      <section className='relative h-[75vh] flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-br from-gray-900 to-black'>
+      <section className='relative h-[75vh] flex items-center justify-center overflow-hidden pt-20'>
+        <div
+          className='absolute inset-0 bg-cover bg-center bg-no-repeat'
+          style={{
+            backgroundImage: 'url(/img/sobre-el-estudio.png)',
+          }}
+        >
+          <div className='absolute inset-0 bg-black/70'></div>
+        </div>
+
         <div className='relative z-10 text-center max-w-4xl mx-auto px-6 py-4'>
           <h1 className='text-3xl md:text-5xl lg:text-7xl font-bold text-white mb-4 leading-tight'>
-            Cuéntame sobre tu Proyecto
+            Cuéntanos qué necesitas
           </h1>
-          <p className='text-base md:text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed'>
-            Cuéntame tu idea y te ayudaré a convertirla en realidad
+          <p className='text-base md:text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto'>
+            Trabajamos con empresas, autónomos y negocios que necesitan crear o
+            mejorar su presencia online. Podemos ayudarte con páginas web
+            profesionales, tiendas online, mantenimiento web, rediseños, mejoras
+            técnicas y desarrollos a medida.
           </p>
         </div>
       </section>
@@ -28,8 +57,9 @@ const Contacto = () => {
                 Información de Contacto
               </h2>
               <p className='text-gray-600 mb-8 leading-relaxed'>
-                Estoy disponible para ayudarte con tu proyecto web. Respondo a
-                todas las consultas en 2h.
+                PereiraWeb · Estudio web en Torrejón de Ardoz, Madrid ·
+                Proyectos en toda España. Respondemos a todas las consultas en
+                un máximo de 2 horas.
               </p>
 
               <div className='space-y-6'>
@@ -40,30 +70,43 @@ const Contacto = () => {
                   <div>
                     <h3 className='font-bold text-gray-900 mb-1'>Email</h3>
                     <a
-                      href='mailto:web.danipereira@gmail.com'
+                      href='mailto:hola@pereiraweb.es'
                       onClick={() => trackEmailClick('ContactoPage')}
                       className='text-gray-600 hover:text-accent transition-colors'
                     >
-                      web.danipereira@gmail.com
+                      hola@pereiraweb.es
                     </a>
                   </div>
                 </div>
 
                 <div className='flex items-start gap-4'>
-                  <div className='w-12 h-12 bg-accent rounded-xl flex items-center justify-center flex-shrink-0'>
-                    <Phone className='w-6 h-6 text-white' />
+                  <div className='w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center flex-shrink-0'>
+                    <MessageCircle className='w-6 h-6 text-white' />
                   </div>
                   <div>
-                    <h3 className='font-bold text-gray-900 mb-1'>
-                      Teléfono / WhatsApp
-                    </h3>
+                    <h3 className='font-bold text-gray-900 mb-1'>WhatsApp</h3>
                     <a
-                      href={PHONE_TEL_LINK}
-                      onClick={() => trackPhoneClick('ContactoPage')}
+                      href={CONTACT_WHATSAPP_URL}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleWhatsAppClick();
+                      }}
                       className='text-gray-600 hover:text-accent transition-colors'
                     >
-                      {PHONE_DISPLAY}
+                      Escríbenos por WhatsApp
                     </a>
+                    <p className='text-sm text-gray-400 mt-1'>
+                      O llama al{' '}
+                      <a
+                        href={PHONE_TEL_LINK}
+                        onClick={() => trackPhoneClick('ContactoPage')}
+                        className='hover:text-accent transition-colors'
+                      >
+                        {PHONE_DISPLAY}
+                      </a>
+                    </p>
                   </div>
                 </div>
 
@@ -74,9 +117,10 @@ const Contacto = () => {
                   <div>
                     <h3 className='font-bold text-gray-900 mb-1'>Ubicación</h3>
                     <p className='text-gray-600'>
-                      Madrid, España
+                      Calle Condega 7, Torrejón de Ardoz, 28850 Madrid
                       <span className='block text-sm mt-1'>
-                        Servicios en toda España
+                        Proyectos en toda España · Reuniones online o
+                        presenciales con cita previa
                       </span>
                     </p>
                   </div>
@@ -91,7 +135,10 @@ const Contacto = () => {
                       Horario de Atención
                     </h3>
                     <p className='text-gray-600'>
-                      Lunes a Viernes: 9:00 - 19:00
+                      Lunes a Viernes: 9:00 - 18:00
+                      <span className='block text-sm mt-1'>
+                        Sábado: 9:00 - 14:00
+                      </span>
                       <span className='block text-sm mt-1'>
                         Respuesta en 2h máximo
                       </span>
@@ -101,9 +148,9 @@ const Contacto = () => {
               </div>
             </div>
 
-            <div className='bg-gray-50 p-8 rounded-2xl'>
+            <div className='bg-gray-50 p-8 rounded-lg border border-gray-200'>
               <h3 className='text-2xl font-bold text-gray-900 mb-4'>
-                ¿Por Qué Trabajar Conmigo?
+                ¿Por Qué Trabajar con el Estudio?
               </h3>
               <ul className='space-y-4'>
                 <li className='flex items-start gap-3'>
@@ -119,7 +166,7 @@ const Contacto = () => {
                     <span className='text-white text-sm font-bold'>✓</span>
                   </div>
                   <p className='text-gray-600'>
-                    Proyectos entregados a tiempo y dentro del presupuesto
+                    Presupuesto cerrado antes de empezar, sin sorpresas
                   </p>
                 </li>
                 <li className='flex items-start gap-3'>
@@ -127,7 +174,7 @@ const Contacto = () => {
                     <span className='text-white text-sm font-bold'>✓</span>
                   </div>
                   <p className='text-gray-600'>
-                    Comunicación clara y constante durante todo el proyecto
+                    Trato directo y comunicación clara durante todo el proyecto
                   </p>
                 </li>
                 <li className='flex items-start gap-3'>
@@ -143,7 +190,7 @@ const Contacto = () => {
                     <span className='text-white text-sm font-bold'>✓</span>
                   </div>
                   <p className='text-gray-600'>
-                    Presupuestos transparentes sin costes ocultos
+                    Opciones de pago flexible: único, fraccionado o mensual
                   </p>
                 </li>
               </ul>

@@ -14,7 +14,7 @@ const ThankYouPlaySection = () => {
     <div className='mt-12 pt-10 border-t border-gray-200'>
       <div className='max-w-md mx-auto text-center mb-6'>
         <h2 className='text-lg md:text-xl font-bold text-gray-900 mb-2'>
-          Te responderé en un máximo de 2 horas
+          Te responderemos en un máximo de 2 horas
         </h2>
         <p className='text-sm text-gray-600'>
           Mientras tanto, aquí tienes un pequeño reto para hacer la espera más

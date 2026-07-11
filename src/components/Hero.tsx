@@ -1,5 +1,6 @@
-import { MessageCircle, Tag, Briefcase } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useContactModal } from '../contexts/ContactModalContext';
 import {
   trackButtonClick,
   trackWhatsAppClick,
@@ -12,6 +13,7 @@ const WHATSAPP_URL = buildWhatsAppUrl(DEFAULT_WHATSAPP_MESSAGE);
 
 const Hero = () => {
   const { t } = useLanguage();
+  const { openModal } = useContactModal();
 
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
@@ -22,13 +24,13 @@ const Hero = () => {
     trackGoogleAdsWhatsAppConversion(WHATSAPP_URL);
   };
 
-  const handleViewPricing = () => {
-    trackButtonClick('Ver precios', 'Hero');
-    scrollToSection('pricing');
+  const handleRequestProposal = () => {
+    trackButtonClick('Solicitar propuesta', 'Hero');
+    openModal();
   };
 
   const handleViewPortfolio = () => {
-    trackButtonClick('Ver trabajos reales', 'Hero');
+    trackButtonClick('Ver trabajos', 'Hero');
     scrollToSection('portfolio');
   };
 
@@ -51,35 +53,37 @@ const Hero = () => {
           {t('hero.title')}
         </h1>
 
-        <p className='text-base md:text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto'>
+        <p className='text-base md:text-xl lg:text-2xl text-white/90 mb-4 leading-relaxed max-w-3xl mx-auto'>
           {t('hero.subtitle')}
+        </p>
+
+        <p className='text-sm md:text-base text-white/70 mb-8 font-medium'>
+          {t('hero.trustline')}
         </p>
 
         <div className='flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 justify-center items-stretch'>
           <Button
+            onClick={handleRequestProposal}
+            variant='secondary'
+            className='sm:min-w-[200px]'
+          >
+            {t('hero.cta.pricing')}
+          </Button>
+
+          <Button
             onClick={handleWhatsAppClick}
             variant='primary'
-            className='sm:min-w-[240px] !bg-green-500 hover:!bg-green-600'
+            className='sm:min-w-[220px] !bg-green-500 hover:!bg-green-600'
           >
             <MessageCircle className='w-4 h-4 md:w-5 md:h-5' />
             {t('hero.cta.whatsapp')}
           </Button>
 
           <Button
-            onClick={handleViewPricing}
-            variant='secondary'
-            className='sm:min-w-[180px]'
-          >
-            <Tag className='w-4 h-4 md:w-5 md:h-5' />
-            {t('hero.cta.pricing')}
-          </Button>
-
-          <Button
             onClick={handleViewPortfolio}
             variant='ghost'
-            className='sm:min-w-[180px] !bg-white/10 !text-white hover:!bg-white/20 backdrop-blur-sm'
+            className='sm:min-w-[180px] !bg-transparent !text-white border border-white/40 hover:!bg-white/10'
           >
-            <Briefcase className='w-4 h-4 md:w-5 md:h-5' />
             {t('hero.cta.portfolio')}
           </Button>
         </div>

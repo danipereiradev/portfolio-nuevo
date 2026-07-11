@@ -27,11 +27,9 @@ const SEOBenefits = ({ title, benefits }: SEOBenefitsProps) => {
             return (
               <div
                 key={index}
-                className='bg-white p-6 md:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 text-center'
+                className='bg-white p-6 md:p-8 rounded-lg border border-gray-200 hover:border-accent transition-colors duration-200 text-center'
               >
-                <div className='w-12 h-12 md:w-16 md:h-16 bg-white border-2 border-black rounded-xl flex items-center justify-center text-black mb-4 md:mb-6 mx-auto'>
-                  <Icon className='w-6 h-6 md:w-8 md:h-8' />
-                </div>
+                <Icon className='w-7 h-7 md:w-8 md:h-8 text-gray-900 mb-4 md:mb-6 mx-auto' />
                 <h3 className='text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4'>
                   {benefit.title}
                 </h3>

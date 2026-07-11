@@ -1,42 +1,46 @@
 {
   "/": {
-    "title": "Diseño y Desarrollo Web Freelance | Dani Pereira",
-    "description": "Desarrollo páginas web, tiendas online y aplicaciones web para autónomos, pymes y marcas. Webs profesionales desde 969€ IVA incluido y mantenimiento desde 60€/mes."
+    "title": "Estudio Web en Madrid | PereiraWeb",
+    "description": "PereiraWeb es un estudio web con base en Torrejón de Ardoz, Madrid. Diseñamos páginas web profesionales, tiendas online y soluciones digitales para empresas y negocios de toda España."
   },
   "/web-autonomos-pymes": {
-    "title": "Desarrollo Web para Autónomos y Pymes desde 129€/mes | Dani Pereira Web",
-    "description": "Diseño y desarrollo páginas web profesionales para autónomos, pymes y pequeños negocios. Desde 129€/mes o 969€ pago único (IVA incluido). Entrega en 2-3 semanas."
+    "title": "Páginas Web Profesionales para Empresas | PereiraWeb",
+    "description": "Diseñamos páginas web profesionales para empresas, autónomos y negocios. Estudio web en Madrid, proyectos en toda España y presupuesto cerrado."
   },
   "/paginas-web-empresas": {
-    "title": "Páginas Web para Empresas | Dani Pereira Web",
-    "description": "Desarrollo páginas web profesionales para empresas que necesitan una presencia digital clara, rápida y preparada para captar clientes."
+    "title": "Páginas Web para Empresas | PereiraWeb",
+    "description": "Diseñamos y desarrollamos páginas web para empresas que necesitan transmitir confianza, explicar sus servicios y generar contactos. Presupuesto cerrado antes de empezar."
   },
   "/tiendas-online": {
-    "title": "Crear Tienda Online Profesional desde 1.799€ | Dani Pereira Web",
-    "description": "Desarrollo tiendas online profesionales para vender por internet. Ecommerce desde 1.799€ IVA incluido, pasarela de pago, gestión de productos y soporte."
+    "title": "Tiendas Online Profesionales | PereiraWeb",
+    "description": "Creamos tiendas online y catálogos digitales para negocios que necesitan vender productos o servicios online con una experiencia clara y cuidada."
   },
   "/mantenimiento-web": {
-    "title": "Mantenimiento Web desde 60€/mes | Dani Pereira Web",
-    "description": "Mantenimiento web profesional para WordPress, WooCommerce y webs de negocio. Actualizaciones, copias de seguridad, seguridad, soporte y optimización desde 60€/mes."
+    "title": "Mantenimiento Web Profesional | PereiraWeb",
+    "description": "Servicio de mantenimiento web para empresas y negocios. Soporte, mejoras técnicas, cambios de contenido y acompañamiento mensual."
   },
   "/desarrollo-aplicaciones-web": {
-    "title": "Desarrollo de Aplicaciones Web a Medida | Dani Pereira Web",
-    "description": "Desarrollo aplicaciones web, paneles internos, dashboards y herramientas digitales a medida para empresas y proyectos que necesitan software personalizado."
+    "title": "Desarrollo Web a Medida | PereiraWeb",
+    "description": "Desarrollamos paneles internos, dashboards y herramientas web a medida para empresas con necesidades técnicas específicas."
   },
   "/diseno-web": {
-    "title": "Diseño Web Profesional desde 969€ | Dani Pereira Web",
-    "description": "Diseño web profesional desde 969€ IVA incluido. Páginas web modernas, atractivas y optimizadas que convierten visitantes en clientes. Presupuesto en máximo de 2h."
+    "title": "Diseño Web Profesional | PereiraWeb",
+    "description": "Diseñamos y desarrollamos páginas web profesionales, modernas y optimizadas para convertir visitantes en clientes. Presupuesto cerrado antes de empezar."
   },
   "/posicionamiento-web-seo": {
-    "title": "Posicionamiento SEO | Optimización Web para Google | Dani Pereira Web",
-    "description": "Servicios de posicionamiento SEO en España. Mejora tu ranking en Google, aumenta el tráfico orgánico y consigue más clientes. Consultoría SEO profesional."
+    "title": "Posicionamiento SEO | Optimización Web para Google | PereiraWeb",
+    "description": "Servicios de posicionamiento SEO en España. Mejoramos tu ranking en Google, aumentamos el tráfico orgánico y ayudamos a conseguir más clientes."
   },
   "/auditoria-ecommerce": {
-    "title": "Auditoría ecommerce antes de invertir en publicidad | Dani Pereira Web",
-    "description": "Revisión de tiendas online para detectar problemas de confianza, móvil, producto, carrito y checkout antes de invertir más en Google Ads o Meta Ads."
+    "title": "Auditoría Ecommerce antes de invertir en publicidad | PereiraWeb",
+    "description": "Revisamos tiendas online para detectar problemas de confianza, móvil, producto, carrito y checkout antes de invertir más en Google Ads o Meta Ads."
   },
   "/contacto": {
-    "title": "Contacto | Desarrollo Web Profesional - Dani Pereira Web",
-    "description": "Contacta conmigo para tu proyecto web. Solicita presupuesto sin compromiso para diseño web, tienda online o aplicación web personalizada."
+    "title": "Contacto | PereiraWeb",
+    "description": "Contacta con PereiraWeb, estudio web en Torrejón de Ardoz, Madrid, especializado en páginas web profesionales, tiendas online y mantenimiento web para empresas y negocios."
+  },
+  "/sobre-el-estudio": {
+    "title": "Sobre el Estudio | PereiraWeb",
+    "description": "Conoce PereiraWeb, estudio web con base en Torrejón de Ardoz, Madrid, especializado en páginas web profesionales, tiendas online y desarrollo web para empresas y negocios."
   }
 }

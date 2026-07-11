@@ -1,21 +1,21 @@
 import {
   Award,
-  Tag,
-  ShoppingCart,
+  Building2,
   Wallet,
   Clock,
   Send,
   MapPin,
+  FileCheck,
 } from 'lucide-react';
 
 const trustPoints = [
   { icon: Award, text: '+12 años de experiencia' },
-  { icon: Tag, text: 'Web desde 969€ IVA incluido' },
-  { icon: ShoppingCart, text: 'Tienda online desde 1.799€ IVA incluido' },
-  { icon: Wallet, text: 'Plan mensual disponible' },
+  { icon: Building2, text: 'Estudio web en Madrid' },
+  { icon: FileCheck, text: 'Presupuesto cerrado antes de empezar' },
+  { icon: Wallet, text: 'Pago único, fraccionado o mensual' },
   { icon: Clock, text: 'Entrega en 2-3 semanas' },
-  { icon: Send, text: 'Propuesta en 2h' },
-  { icon: MapPin, text: 'Clientes en toda España' },
+  { icon: Send, text: 'Respuesta en 2h' },
+  { icon: MapPin, text: 'Proyectos en toda España' },
 ];
 
 const TrustBar = () => {

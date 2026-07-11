@@ -19,11 +19,7 @@ import {
   trackEmailClick,
 } from '../utils/analytics';
 import { useContactModal } from '../contexts/ContactModalContext';
-import {
-  ADS_WHATSAPP_MESSAGE,
-  PHONE_NUMBER,
-  buildWhatsAppUrl,
-} from '../config/contact';
+import { buildWhatsAppUrl, getWhatsAppMessageForPath } from '../config/contact';
 import Button from './Button';
 
 interface ContactFormProps {
@@ -37,13 +33,9 @@ const ContactForm = ({
 }: ContactFormProps = {}) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  // En el resto del sitio este enlace se mantiene "en blanco" (sin mensaje
-  // predefinido), tal y como estaba; solo en la landing de Ads se precarga
-  // el mensaje pensado para ese tráfico.
-  const isAdsLanding = pathname === '/web-autonomos-pymes';
-  const bottomWhatsAppUrl = isAdsLanding
-    ? buildWhatsAppUrl(ADS_WHATSAPP_MESSAGE)
-    : `https://wa.me/${PHONE_NUMBER}`;
+  const bottomWhatsAppUrl = buildWhatsAppUrl(
+    getWhatsAppMessageForPath(pathname),
+  );
   const { closeModal } = useContactModal();
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -267,11 +259,11 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       const planPrices: { [key: string]: number } = {
         'Página Web': 0,
         'Tienda Online': 0,
-        'App Móvil': 0,
         'Diseño Web': 0,
         'Posicionamiento SEO': 0,
         'Auditoría Ecommerce': 0,
         'Mantenimiento Web': 0,
+        'Desarrollo a Medida': 0,
       };
       const planValue = planPrices[formData.plan] || 0;
       trackFormSubmit(formData.plan, planValue);
@@ -445,6 +437,32 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                 <button
                   type='button'
                   onClick={() =>
+                    handleInputChange('plan', 'Desarrollo a Medida')
+                  }
+                  className={`p-5 text-left border-2 rounded-xl transition-all duration-200 ${
+                    formData.plan === 'Desarrollo a Medida'
+                      ? 'border-accent bg-gray-50'
+                      : errors.plan
+                        ? 'border-accent'
+                        : 'border-gray-300 hover:border-gray-400'
+                  }`}
+                >
+                  <div className='flex items-start justify-between mb-2'>
+                    <h4 className='font-bold text-gray-900'>
+                      Desarrollo a Medida
+                    </h4>
+                    {formData.plan === 'Desarrollo a Medida' && (
+                      <Check className='w-5 h-5 text-accent' />
+                    )}
+                  </div>
+                  <p className='text-sm text-gray-600'>
+                    Soluciones digitales y aplicaciones web a medida
+                  </p>
+                </button>
+
+                <button
+                  type='button'
+                  onClick={() =>
                     handleInputChange('plan', 'Auditoría Ecommerce')
                   }
                   className={`p-5 text-left border-2 rounded-xl transition-all duration-200 ${
@@ -465,28 +483,6 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                   </div>
                   <p className='text-sm text-gray-600'>
                     Revisión de tu tienda online para mejorar conversión
-                  </p>
-                </button>
-
-                <button
-                  type='button'
-                  onClick={() => handleInputChange('plan', 'App Móvil')}
-                  className={`p-5 text-left border-2 rounded-xl transition-all duration-200 ${
-                    formData.plan === 'App Móvil'
-                      ? 'border-accent bg-gray-50'
-                      : errors.plan
-                        ? 'border-accent'
-                        : 'border-gray-300 hover:border-gray-400'
-                  }`}
-                >
-                  <div className='flex items-start justify-between mb-2'>
-                    <h4 className='font-bold text-gray-900'>App Móvil</h4>
-                    {formData.plan === 'App Móvil' && (
-                      <Check className='w-5 h-5 text-accent' />
-                    )}
-                  </div>
-                  <p className='text-sm text-gray-600'>
-                    Aplicaciones web y móviles a medida
                   </p>
                 </button>
 
@@ -726,16 +722,17 @@ Fecha: ${new Date().toLocaleString('es-ES')}
     <>
       <div className='text-center mb-12 md:mb-16'>
         <h2 className='text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4'>
-          Contacta conmigo o solicita un presupuesto
+          Cuéntanos qué necesitas
         </h2>
         <p className='text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto'>
-          Cuéntame sobre tu proyecto y te enviaré una propuesta personalizada en
-          de 24 horas
+          Trabajamos con empresas, autónomos y negocios que necesitan crear o
+          mejorar su presencia online. Cuéntanos sobre tu proyecto y te
+          enviaremos una propuesta personalizada en un máximo de 2 horas.
         </p>
       </div>
 
       <div className='max-w-4xl mx-auto'>
-        <div className='bg-white rounded-2xl shadow-2xl overflow-hidden'>
+        <div className='bg-white rounded-lg border border-gray-200 overflow-hidden'>
           <div className='bg-gray-50 px-8 py-6'>
             <div className='flex items-center justify-between mb-2'>
               <span className='text-sm font-medium text-gray-600'>
@@ -799,8 +796,8 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                   <p className='font-medium'>Error al enviar la solicitud</p>
                 </div>
                 <p className='text-gray-700 text-sm mt-1'>
-                  Por favor, inténtalo de nuevo o contacta directamente por
-                  email: web.danipereira@gmail.com
+                  Por favor, inténtalo de nuevo o contáctanos directamente por
+                  email: hola@pereiraweb.es
                 </p>
               </div>
             )}
@@ -812,12 +809,12 @@ Fecha: ${new Date().toLocaleString('es-ES')}
         <p className='text-gray-600 mb-4'>¿Prefieres contactar directamente?</p>
         <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
           <a
-            href='mailto:web.danipereira@gmail.com'
+            href='mailto:hola@pereiraweb.es'
             onClick={() => trackEmailClick('ContactFormBottom')}
             className='flex items-center gap-2 text-accent hover:text-accent-hover font-medium'
           >
             <Mail className='w-5 h-5' />
-            web.danipereira@gmail.com
+            hola@pereiraweb.es
           </a>
           <span className='hidden sm:block text-gray-300'>|</span>
           <a
@@ -844,10 +841,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
   }
 
   return (
-    <section
-      id='contact'
-      className='py-20 bg-gradient-to-br from-gray-50 to-blue-50'
-    >
+    <section id='contact' className='py-20 bg-gray-50'>
       <div className='container mx-auto px-6'>{formContent}</div>
     </section>
   );

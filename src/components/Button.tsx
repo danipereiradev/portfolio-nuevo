@@ -31,7 +31,7 @@ const Button: React.FC<ButtonProps> = ({
   isLoading = false,
 }) => {
   const baseStyles =
-    'px-6 py-3 md:px-8 md:py-4 rounded-xl font-semibold text-base md:text-lg transition-all duration-200 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2';
+    'px-6 py-3 md:px-8 md:py-4 rounded-lg font-semibold text-base md:text-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2';
 
   const variantStyles = {
     primary:

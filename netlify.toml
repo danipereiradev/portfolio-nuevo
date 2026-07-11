@@ -10,6 +10,30 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "/about"
+  to = "/sobre-el-estudio"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/about-me"
+  to = "/sobre-el-estudio"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/sobre-mi"
+  to = "/sobre-el-estudio"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contact"
+  to = "/contacto"
+  status = 301
+  force = true
+
 # Cada ruta comercial sirve su propio index.html pre-renderizado (con
 # title/description/canonical/OG/Twitter propios), generado por
 # scripts/prerender-meta.mjs tras el build, en lugar de caer en el
@@ -57,6 +81,11 @@
 [[redirects]]
   from = "/contacto"
   to = "/contacto/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/sobre-el-estudio"
+  to = "/sobre-el-estudio/index.html"
   status = 200
 
 [[redirects]]

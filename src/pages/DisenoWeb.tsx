@@ -57,7 +57,7 @@ const DisenoWeb = () => {
       icon: Palette,
       title: 'Diseño Personalizado',
       description:
-        'Creo un diseño único que refleja la identidad de tu marca y se adapta perfectamente a tus necesidades específicas.',
+        'Creamos un diseño único que refleja la identidad de tu marca y se adapta perfectamente a tus necesidades específicas.',
     },
     {
       icon: Smartphone,
@@ -69,13 +69,13 @@ const DisenoWeb = () => {
       icon: Zap,
       title: 'Rápida y Optimizada',
       description:
-        'Desarrollo webs ultrarrápidas optimizadas para ofrecer la mejor experiencia de usuario y mejorar tu posicionamiento en Google.',
+        'Desarrollamos webs ultrarrápidas optimizadas para ofrecer la mejor experiencia de usuario y mejorar tu posicionamiento en Google.',
     },
     {
       icon: TrendingUp,
       title: 'Orientada a Conversión',
       description:
-        'Diseño cada elemento pensando en convertir visitantes en clientes, con llamadas a la acción estratégicamente ubicadas.',
+        'Diseñamos cada elemento pensando en convertir visitantes en clientes, con llamadas a la acción estratégicamente ubicadas.',
     },
     {
       icon: Users,
@@ -87,7 +87,7 @@ const DisenoWeb = () => {
       icon: Award,
       title: 'Soporte Continuo',
       description:
-        'Te acompaño después del lanzamiento con soporte técnico, actualizaciones y mejoras continuas de tu web.',
+        'Te acompañamos después del lanzamiento con soporte técnico, actualizaciones y mejoras continuas de tu web.',
     },
   ];
 
@@ -96,31 +96,31 @@ const DisenoWeb = () => {
       number: '1',
       title: 'Análisis y Estrategia',
       description:
-        'Estudio tu negocio, competencia y objetivos para definir la mejor estrategia de diseño web que se adapte a tus necesidades.',
+        'Estudiamos tu negocio, competencia y objetivos para definir la mejor estrategia de diseño web que se adapte a tus necesidades.',
     },
     {
       number: '2',
       title: 'Diseño Visual',
       description:
-        'Creo mockups y prototipos del diseño visual de tu web, asegurando que refleje tu marca y sea atractivo para tu audiencia.',
+        'Creamos mockups y prototipos del diseño visual de tu web, asegurando que refleje tu marca y sea atractivo para tu audiencia.',
     },
     {
       number: '3',
       title: 'Desarrollo Web',
       description:
-        'Programo tu web con código limpio y tecnologías modernas, garantizando rapidez, seguridad y facilidad de mantenimiento.',
+        'Programamos tu web con código limpio y tecnologías modernas, garantizando rapidez, seguridad y facilidad de mantenimiento.',
     },
     {
       number: '4',
       title: 'Pruebas y Ajustes',
       description:
-        'Realizo pruebas exhaustivas en diferentes dispositivos y navegadores, ajustando cada detalle antes del lanzamiento.',
+        'Realizamos pruebas exhaustivas en diferentes dispositivos y navegadores, ajustando cada detalle antes del lanzamiento.',
     },
     {
       number: '5',
       title: 'Lanzamiento y Formación',
       description:
-        'Publico tu web y te formo para que puedas gestionar contenidos de forma autónoma y aprovechar al máximo tu nueva página.',
+        'Publicamos tu web y te formamos para que puedas gestionar contenidos de forma autónoma y aprovechar al máximo tu nueva página.',
     },
   ];
 
@@ -128,7 +128,7 @@ const DisenoWeb = () => {
     {
       question: '¿Cuánto cuesta el diseño de una página web profesional?',
       answer:
-        'El precio del diseño web depende de las funcionalidades que necesites. Una web profesional desde 969€ IVA incluido en pago único, con opción de pago dividido (50% al empezar y 50% al publicar) o un plan mensual desde 129€/mes durante 12 meses que incluye soporte y mantenimiento básico. Te ofrezco un presupuesto personalizado sin compromiso adaptado a tu presupuesto.',
+        'El precio depende del alcance y las funcionalidades que necesites, con opciones de pago único, fraccionado o mensual. Preparamos una propuesta a medida y cerrada antes de empezar, sin compromiso.',
     },
     {
       question: '¿Cuánto tiempo se tarda en diseñar y desarrollar una web?',
@@ -138,12 +138,12 @@ const DisenoWeb = () => {
     {
       question: '¿Incluye el diseño web el hosting y dominio?',
       answer:
-        'Sí, todos nuestros proyectos incluyen el primer año de hosting gratuito. El dominio también está incluido en el precio. A partir del segundo año, los costes de mantenimiento son muy económicos.',
+        'Sí, todos nuestros proyectos incluyen el primer año de hosting gratuito. El dominio también está incluido. A partir del segundo año, los costes de mantenimiento son muy económicos.',
     },
     {
       question: '¿Podré actualizar yo mismo el contenido de mi web?',
       answer:
-        'Por supuesto. Desarrollo tu web con un panel de administración intuitivo y te doy formación personalizada para que puedas actualizar textos, imágenes y contenidos sin conocimientos técnicos.',
+        'Por supuesto. Desarrollamos tu web con un panel de administración intuitivo y te damos formación personalizada para que puedas actualizar textos, imágenes y contenidos sin conocimientos técnicos.',
     },
     {
       question: '¿El diseño será optimizado para móviles?',
@@ -153,7 +153,7 @@ const DisenoWeb = () => {
     {
       question: '¿Qué pasa si necesito cambios después del lanzamiento?',
       answer:
-        'Incluyo hasta 2 revisiones durante el desarrollo. Después del lanzamiento, ofrezco soporte continuo para cualquier ajuste, actualización o mejora que necesites, con tarifas muy competitivas.',
+        'Incluimos hasta 2 revisiones durante el desarrollo. Después del lanzamiento, ofrecemos soporte continuo para cualquier ajuste, actualización o mejora que necesites, con tarifas muy competitivas.',
     },
   ];
 
@@ -196,7 +196,7 @@ const DisenoWeb = () => {
     {
       title: 'Hosting y Dominio Incluido',
       description:
-        'Primer año de alojamiento web profesional y dominio incluido en el precio.',
+        'Primer año de alojamiento web profesional y dominio incluido.',
     },
   ];
 
@@ -211,25 +211,25 @@ const DisenoWeb = () => {
       icon: Target,
       title: 'Enfoque en Resultados',
       description:
-        'No solo diseño webs bonitas, diseño webs que convierten visitantes en clientes y generan resultados reales.',
+        'No solo diseñamos webs bonitas, diseñamos webs que convierten visitantes en clientes y generan resultados reales.',
     },
     {
       icon: Award,
       title: 'Atención Personalizada',
       description:
-        'Trabajo directamente contigo sin intermediarios. Cada proyecto recibe mi atención personal y dedicada.',
+        'Trabajamos directamente contigo sin intermediarios. Cada proyecto recibe nuestra atención personal y dedicada.',
     },
     {
       icon: HeadphonesIcon,
       title: 'Soporte Continuo',
       description:
-        'No te abandono después del lanzamiento. Te acompaño con soporte, formación y mejoras continuas.',
+        'No te dejamos solo después del lanzamiento. Te acompañamos con soporte, formación y mejoras continuas.',
     },
     {
       icon: Palette,
       title: 'Diseños Únicos',
       description:
-        'Cada web es única y personalizada. No uso plantillas genéricas, creo diseños adaptados a tu marca.',
+        'Cada web es única y personalizada. No usamos plantillas genéricas, creamos diseños adaptados a tu marca.',
     },
     {
       icon: TrendingUp,
@@ -243,9 +243,9 @@ const DisenoWeb = () => {
     <>
       <SEOLandingHero
         title='Diseño Web Profesional'
-        subtitle='Páginas Web que Impactan y Convierten'
-        description='Creo sitios web modernos, atractivos y optimizados que reflejan la esencia de tu marca y generan resultados reales para tu negocio.'
-        ctaText='Solicita presupuesto'
+        subtitle='Páginas web que transmiten confianza y convierten'
+        description='Diseñamos y desarrollamos sitios web modernos, cuidados y optimizados que reflejan la identidad de tu marca. Presupuesto cerrado antes de empezar.'
+        ctaText='Solicitar propuesta'
         onCTAClick={openModal}
         secondaryCTAText='Llamar Ahora'
         secondaryCTAAction={callPhone}
@@ -253,7 +253,7 @@ const DisenoWeb = () => {
 
       <SEOProblem
         title='¿Tu Web Actual No Te Está Dando Resultados?'
-        subtitle='Estos son los problemas más comunes que soluciono'
+        subtitle='Estos son los problemas más comunes que solucionamos'
         problems={problems}
       />
 
@@ -270,12 +270,15 @@ const DisenoWeb = () => {
 
       <Portfolio />
 
-      <SEOProcess title='Nuestro Proceso de Diseño Web' steps={process} />
+      <SEOProcess
+        title='Un proceso claro desde el primer mensaje'
+        steps={process}
+      />
 
       <Testimonials />
 
       <SEOWhyMe
-        title='Por Qué Trabajar Conmigo'
+        title='Por Qué Trabajar con Nosotros'
         subtitle='+12 años de experiencia creando webs que generan resultados'
         reasons={whyMeReasons}
       />
@@ -284,8 +287,8 @@ const DisenoWeb = () => {
 
       <SEOCTAFinal
         title='¿Listo para Tener la Web que Tu Negocio Merece?'
-        subtitle='No esperes más para destacar frente a tu competencia. Solicita tu presupuesto personalizado sin compromiso y descubre cómo puedo ayudarte.'
-        buttonText='Solicita presupuesto'
+        subtitle='Solicita una propuesta sin compromiso y descubre cómo podemos ayudarte a mejorar tu presencia online.'
+        buttonText='Solicitar propuesta'
         onButtonClick={openModal}
       />
 

@@ -14,9 +14,6 @@ import {
   trackWhatsAppClick,
   trackGoogleAdsWhatsAppConversion,
   trackPricingCtaClick,
-  trackPricingSinglePayment,
-  trackPricingSplitPayment,
-  trackPricingMonthlyPlan,
   trackViewPricing,
 } from '../utils/analytics';
 import { ADS_WHATSAPP_MESSAGE, buildWhatsAppUrl } from '../config/contact';
@@ -66,14 +63,7 @@ const WebAutonomosPymes = () => {
   };
 
   const handleQuoteRequest = () => {
-    trackPricingCtaClick('Web autónomos y pymes');
-    openModal('Página Web');
-  };
-
-  const handlePaymentOptionClick = (type: 'single' | 'split' | 'monthly') => {
-    if (type === 'single') trackPricingSinglePayment('Web autónomos y pymes');
-    if (type === 'split') trackPricingSplitPayment('Web autónomos y pymes');
-    if (type === 'monthly') trackPricingMonthlyPlan('Web autónomos y pymes');
+    trackPricingCtaClick('Web autónomos y pymes', 'Solicitar propuesta');
     openModal('Página Web');
   };
 
@@ -150,7 +140,7 @@ const WebAutonomosPymes = () => {
     {
       title: 'Formación de Uso y Gestión',
       description:
-        'Te enseño a gestionar los contenidos básicos de tu web para que seas autónomo.',
+        'Te enseñamos a gestionar los contenidos básicos de tu web para que seas autónomo.',
     },
     {
       title: 'Hasta 2 Revisiones Incluidas',
@@ -162,24 +152,25 @@ const WebAutonomosPymes = () => {
   const process = [
     {
       number: '1',
-      title: 'Me cuentas qué necesitas',
+      title: 'Nos cuentas qué necesitas',
       description: 'Revisamos tu negocio, objetivos y tipo de web.',
     },
     {
       number: '2',
-      title: 'Te envío una propuesta',
-      description: 'Recibes precio, plazo y alcance del proyecto.',
+      title: 'Preparamos una propuesta',
+      description:
+        'Recibes una propuesta cerrada con alcance, plazo y opciones de pago.',
     },
     {
       number: '3',
-      title: 'Diseño y desarrollo tu web',
-      description: 'Trabajo la estructura, diseño responsive y desarrollo.',
+      title: 'Diseñamos y desarrollamos',
+      description: 'Trabajamos la estructura, el diseño responsive y el desarrollo.',
     },
     {
       number: '4',
-      title: 'Publicamos y te explico cómo usarla',
+      title: 'Publicamos y acompañamos',
       description:
-        'La web queda online y te doy una explicación sencilla para que puedas gestionarla.',
+        'La web queda online y te damos una explicación sencilla para que puedas gestionarla.',
     },
   ];
 
@@ -190,44 +181,46 @@ const WebAutonomosPymes = () => {
         'Normalmente entre 2 y 3 semanas, dependiendo del contenido y del alcance.',
     },
     {
-      question: '¿Puedo pagar en varias cuotas?',
+      question: '¿Podemos pagar en varias cuotas?',
       answer:
-        'Sí. Además del pago único, puedes elegir un pago dividido (50% al empezar y 50% al publicar la web) o un plan mensual desde 129€/mes durante 12 meses, que incluye soporte y mantenimiento básico durante ese periodo.',
+        'Sí. Ofrecemos opciones de pago flexible: pago único, pago dividido (por ejemplo una parte al empezar y el resto al publicar la web) o un plan mensual, según lo que mejor se adapte a tu proyecto. Lo concretamos en la propuesta.',
     },
     {
-      question: '¿El precio incluye IVA?',
+      question: '¿El presupuesto incluye IVA?',
       answer:
-        'Sí, los precios mostrados incluyen IVA salvo que se indique lo contrario.',
+        'Sí, la propuesta que preparamos incluye IVA salvo que se indique lo contrario. La propuesta final se cierra antes de empezar el proyecto, para que tengas todo claro desde el principio.',
     },
     {
-      question: '¿Trabajas solo en Madrid?',
-      answer: 'No, trabajo con clientes de toda España de forma remota.',
+      question: '¿Trabajáis solo en Madrid?',
+      answer:
+        'PereiraWeb tiene base en Torrejón de Ardoz, Madrid, pero trabajamos con clientes de toda España de forma online.',
     },
     {
       question: '¿La web será responsive?',
       answer: 'Sí, estará adaptada a móvil, tablet y escritorio.',
     },
     {
-      question: '¿Incluyes mantenimiento?',
+      question: '¿Incluís mantenimiento?',
       answer:
-        'El mantenimiento se puede contratar aparte desde 60€/mes, o venir ya incluido si eliges el plan mensual de la web (129€/mes durante 12 meses).',
+        'El mantenimiento se puede contratar aparte con un plan mensual, o incluirse dentro de la propuesta si eliges pago mensual para tu web. Te pasamos el detalle con tu presupuesto.',
     },
     {
-      question: '¿Puedo pedir una tienda online?',
-      answer: 'Sí, desarrollo tiendas online desde 1.799€ IVA incluido.',
+      question: '¿Podemos pedir una tienda online?',
+      answer:
+        'Sí, también desarrollamos tiendas online. Te preparamos una propuesta a medida según el catálogo y las funcionalidades que necesites.',
     },
   ];
 
   return (
     <>
-      {/* 1. Hero con precio y CTA */}
+      {/* 1. Hero de posicionamiento, sin precio como primer impacto */}
       <SEOLandingHero
-        title='Páginas web para autónomos y pymes desde 129€/mes'
-        subtitle='Diseño, desarrollo y publicación en 2-3 semanas'
-        description='Trato directo conmigo, sin agencias ni intermediarios. También disponible en pago único desde 969€ IVA incluido. Propuesta en máximo 2h.'
-        ctaText='Pedir presupuesto por WhatsApp'
+        title='Páginas web profesionales para empresas y negocios'
+        subtitle='Diseñamos y desarrollamos webs claras, rápidas y preparadas para generar confianza, explicar bien tus servicios y facilitar que tus clientes contacten.'
+        description='Estudio web en Madrid · Proyectos para toda España · Presupuesto cerrado antes de empezar.'
+        ctaText='Solicitar propuesta'
         onCTAClick={() => handleWhatsApp('LandingAutonomosHero')}
-        secondaryCTAText='Ver trabajos reales'
+        secondaryCTAText='Ver trabajos'
         secondaryCTAAction={() => scrollToSection('portfolio')}
         secondaryCTAIcon='chevron-down'
       />
@@ -248,18 +241,19 @@ const WebAutonomosPymes = () => {
         className='scroll-mt-24 py-20 bg-gray-50'
       >
         <div className='content-container'>
-          <div className='text-center mb-12'>
+          <div className='text-center mb-12 max-w-2xl mx-auto'>
             <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4'>
-              Un Precio Claro, Sin Sorpresas
+              Presupuesto claro antes de empezar
             </h2>
-            <p className='text-base md:text-lg text-gray-600 max-w-2xl mx-auto'>
-              Todo lo que necesitas para tener una web profesional lista para
-              captar clientes
+            <p className='text-base md:text-lg text-gray-600'>
+              Cada proyecto tiene necesidades distintas. Por eso preparamos
+              una propuesta personalizada según el alcance, funcionalidades,
+              contenidos y objetivos de la web.
             </p>
           </div>
 
-          <div className='max-w-3xl mx-auto bg-white rounded-2xl shadow-2xl p-8 md:p-10 ring-2 ring-accent relative'>
-            <div className='absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-accent to-accent-hover text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg'>
+          <div className='max-w-3xl mx-auto bg-white rounded-xl p-8 md:p-10 border-2 border-accent relative'>
+            <div className='absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-white px-6 py-1.5 rounded-full text-sm font-semibold'>
               Web Profesional
             </div>
 
@@ -267,17 +261,15 @@ const WebAutonomosPymes = () => {
               Ideal para: Autónomos, marcas personales y pequeños negocios
             </p>
 
-            <div className='flex flex-col items-center gap-1 mb-6'>
-              <div className='flex items-baseline gap-2'>
-                <span className='text-xl text-gray-600'>Desde</span>
-                <span className='text-5xl md:text-6xl font-bold text-accent'>
-                  969
-                </span>
-                <span className='text-xl text-gray-600'>€</span>
-              </div>
-              <span className='text-xs text-gray-400'>IVA incluido</span>
+            <div className='flex flex-col items-center gap-1 mb-6 text-center'>
+              <span className='text-2xl md:text-3xl font-bold text-gray-900'>
+                Presupuesto a medida
+              </span>
+              <span className='text-sm text-gray-500'>
+                Cerrado antes de empezar, sin sorpresas.
+              </span>
               <span className='text-sm text-gray-500 mt-1'>
-                Para proyectos estándar en pago único.
+                Pago único, fraccionado o mensual según el proyecto.
               </span>
               <span className='text-sm text-gray-500'>
                 Entrega: 2-3 semanas
@@ -293,87 +285,27 @@ const WebAutonomosPymes = () => {
               ))}
             </ul>
 
-            {/* Formas de pago: pago único, dividido y plan mensual */}
-            <div className='border-t border-gray-100 pt-8'>
-              <h3 className='text-center text-sm font-bold uppercase tracking-wide text-gray-500 mb-5'>
-                Elige Cómo Pagar
-              </h3>
-              <div className='grid sm:grid-cols-3 gap-4'>
-                <div className='border border-gray-200 rounded-xl p-4 flex flex-col'>
-                  <p className='font-bold text-gray-900 mb-1'>Pago único</p>
-                  <p className='text-2xl font-bold text-accent mb-1'>969€</p>
-                  <p className='text-xs text-gray-500 mb-4 flex-grow'>
-                    IVA incluido. Pago completo al contratar el proyecto.
-                  </p>
-                  <Button
-                    onClick={() => handlePaymentOptionClick('single')}
-                    variant='ghost'
-                    fullWidth
-                    className='!text-sm'
-                  >
-                    Pedir presupuesto
-                  </Button>
-                </div>
+            <div className='border-t border-gray-100 pt-6'>
+              <Button
+                onClick={handleQuoteRequest}
+                variant='primary'
+                fullWidth
+              >
+                Solicitar propuesta
+              </Button>
 
-                <div className='border border-gray-200 rounded-xl p-4 flex flex-col'>
-                  <p className='font-bold text-gray-900 mb-1'>Pago dividido</p>
-                  <p className='text-2xl font-bold text-accent mb-1'>
-                    50% + 50%
-                  </p>
-                  <p className='text-xs text-gray-500 mb-4 flex-grow'>
-                    50% al empezar el proyecto y 50% al publicar la web.
-                  </p>
-                  <Button
-                    onClick={() => handlePaymentOptionClick('split')}
-                    variant='ghost'
-                    fullWidth
-                    className='!text-sm'
-                  >
-                    Pedir presupuesto
-                  </Button>
-                </div>
-
-                <div className='border-2 border-accent bg-accent/5 rounded-xl p-4 flex flex-col relative'>
-                  <span className='absolute -top-2.5 left-1/2 -translate-x-1/2 bg-accent text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full whitespace-nowrap'>
-                    OPCIÓN CÓMODA
-                  </span>
-                  <p className='font-bold text-gray-900 mb-1 mt-1'>
-                    Plan mensual
-                  </p>
-                  <p className='text-2xl font-bold text-accent mb-1'>
-                    129€/mes
-                  </p>
-                  <p className='text-xs text-gray-500 mb-4 flex-grow'>
-                    Durante 12 meses. Incluye soporte y mantenimiento básico.
-                  </p>
-                  <Button
-                    onClick={() => handlePaymentOptionClick('monthly')}
-                    variant='primary'
-                    fullWidth
-                    className='!text-sm'
-                  >
-                    Consultar plan mensual
-                  </Button>
-                </div>
-              </div>
-
-              <p className='text-center text-xs text-gray-400 mt-5'>
-                El plan mensual incluye la creación de la web, soporte y
-                mantenimiento básico durante los 12 meses. Condiciones finales
-                según alcance del proyecto.
+              <p className='text-center text-xs text-gray-400 mt-4'>
+                Presupuesto orientativo, IVA incluido. La propuesta final se
+                cierra antes de empezar, según el alcance real del proyecto.
               </p>
             </div>
-
-            <p className='text-center text-xs text-gray-400 mt-4'>
-              Todos los precios incluyen IVA salvo que se indique lo contrario.
-            </p>
 
             <div className='mt-6 text-center'>
               <button
                 onClick={() => handleWhatsApp('LandingAutonomosPrecio')}
                 className='inline-flex items-center gap-1.5 text-sm text-green-600 font-semibold hover:underline'
               >
-                <MessageCircle className='w-4 h-4' />O escríbeme directo por
+                <MessageCircle className='w-4 h-4' />O escríbenos directo por
                 WhatsApp
               </button>
             </div>
@@ -399,7 +331,10 @@ const WebAutonomosPymes = () => {
       <Testimonials id='valoraciones' />
 
       {/* 7. Proceso de trabajo */}
-      <SEOProcess title='Cómo Trabajaremos' steps={process} />
+      <SEOProcess
+        title='Un proceso claro desde el primer mensaje'
+        steps={process}
+      />
 
       {/* 8. Preguntas frecuentes */}
       <div id='faq' className='scroll-mt-24'>
@@ -408,9 +343,9 @@ const WebAutonomosPymes = () => {
 
       {/* 9. Formulario / contacto final */}
       <SEOCTAFinal
-        title='Páginas web para autónomos y pymes desde 129€/mes'
-        subtitle='Trato directo conmigo, sin agencias ni intermediarios. Solicita tu propuesta y recíbela en de 2h.'
-        buttonText='Recibir propuesta en 2h'
+        title='Páginas web profesionales para empresas y negocios'
+        subtitle='Estudio web en Madrid con proyectos en toda España. Trato directo, sin intermediarios. Solicita tu propuesta y recíbela en máximo 2h.'
+        buttonText='Solicitar propuesta'
         onButtonClick={handleQuoteRequest}
       />
 

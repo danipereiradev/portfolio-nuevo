@@ -31,7 +31,7 @@ const SEOFAQ = ({ title, faqs }: SEOFAQProps) => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className='bg-white rounded-xl shadow-md overflow-hidden'
+              className='bg-white rounded-lg border border-gray-200 overflow-hidden'
             >
               <button
                 onClick={() => toggleFAQ(index)}

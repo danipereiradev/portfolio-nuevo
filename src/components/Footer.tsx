@@ -1,9 +1,30 @@
 import { useState } from 'react';
-import { Mail, Linkedin, Github, MapPin, Phone, Instagram } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import {
+  Mail,
+  Linkedin,
+  Github,
+  MapPin,
+  Phone,
+  Instagram,
+  MessageCircle,
+} from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { trackEmailClick, trackPhoneClick } from '../utils/analytics';
-import { PHONE_DISPLAY, PHONE_TEL_LINK } from '../config/contact';
+import {
+  trackEmailClick,
+  trackPhoneClick,
+  trackWhatsAppClick,
+  trackGoogleAdsWhatsAppConversion,
+} from '../utils/analytics';
+import {
+  PHONE_DISPLAY,
+  PHONE_TEL_LINK,
+  DEFAULT_WHATSAPP_MESSAGE,
+  buildWhatsAppUrl,
+} from '../config/contact';
 import LegalPages from './LegalPages';
+
+const FOOTER_WHATSAPP_URL = buildWhatsAppUrl(DEFAULT_WHATSAPP_MESSAGE);
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -25,7 +46,7 @@ const Footer = () => {
     <>
       <footer className='bg-black text-white'>
         <div className='container mx-auto px-6 py-16'>
-          <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
+          <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
             <div className='lg:col-span-1 text-center md:text-left'>
               <div className='flex items-center mb-6 justify-center md:justify-start'>
                 <span
@@ -36,7 +57,7 @@ const Footer = () => {
                     &gt;
                   </span>
                   <span className='text-white font-mono tracking-tight'>
-                    danipereiraweb
+                    pereiraweb
                   </span>
                   <span className='text-white font-mono font-normal'> .es</span>
                   <span className='text-white font-mono text-sm md:text-base animate-pulse'>
@@ -44,12 +65,15 @@ const Footer = () => {
                   </span>
                 </span>
               </div>
+              <p className='text-accent font-semibold text-sm mb-3'>
+                Estudio web con base en Torrejón de Ardoz, Madrid
+              </p>
               <p className='text-gray-300 mb-6 leading-relaxed'>
                 {t('footer.description')}
               </p>
               <div className='flex space-x-4 justify-center md:justify-start'>
                 <a
-                  href='mailto:web.danipereira@gmail.com'
+                  href='mailto:hola@pereiraweb.es'
                   onClick={() => trackEmailClick('FooterIcon')}
                   className='bg-accent hover:bg-accent-hover p-3 rounded-lg transition-colors duration-200'
                 >
@@ -113,14 +137,6 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href='/desarrollo-aplicaciones-web'
-                    className='hover:text-white transition-colors duration-200'
-                  >
-                    Aplicaciones Web
-                  </a>
-                </li>
-                <li>
-                  <a
                     href='/posicionamiento-web-seo'
                     className='hover:text-white transition-colors duration-200'
                   >
@@ -148,6 +164,54 @@ const Footer = () => {
 
             <div className='text-center md:text-left'>
               <h3 className='text-xl md:text-2xl font-bold mb-6 text-accent'>
+                Estudio
+              </h3>
+              <ul className='space-y-3 text-gray-300'>
+                <li>
+                  <Link
+                    to='/'
+                    className='hover:text-white transition-colors duration-200'
+                  >
+                    Inicio
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to='/#portfolio'
+                    className='hover:text-white transition-colors duration-200'
+                  >
+                    Trabajos
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to='/#proceso'
+                    className='hover:text-white transition-colors duration-200'
+                  >
+                    Proceso
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to='/sobre-el-estudio'
+                    className='hover:text-white transition-colors duration-200'
+                  >
+                    Sobre el Estudio
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to='/contacto'
+                    className='hover:text-white transition-colors duration-200'
+                  >
+                    Contacto
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div className='text-center md:text-left'>
+              <h3 className='text-xl md:text-2xl font-bold mb-6 text-accent'>
                 {t('footer.contact_title')}
               </h3>
               <ul className='space-y-4 text-gray-300'>
@@ -156,11 +220,11 @@ const Footer = () => {
                   <div className='text-center md:text-left'>
                     <p className='font-medium'>Email</p>
                     <a
-                      href='mailto:web.danipereira@gmail.com'
+                      href='mailto:hola@pereiraweb.es'
                       onClick={() => trackEmailClick('FooterList')}
                       className='hover:text-white transition-colors duration-200 break-all'
                     >
-                      web.danipereira@gmail.com
+                      hola@pereiraweb.es
                     </a>
                   </div>
                 </li>
@@ -178,10 +242,34 @@ const Footer = () => {
                   </div>
                 </li>
                 <li className='flex flex-col items-center md:flex-row md:items-start gap-3 md:justify-start'>
+                  <MessageCircle className='w-5 h-5 text-accent flex-shrink-0' />
+                  <div className='text-center md:text-left'>
+                    <p className='font-medium'>WhatsApp</p>
+                    <a
+                      href={FOOTER_WHATSAPP_URL}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      onClick={(e) => {
+                        e.preventDefault();
+                        trackWhatsAppClick('FooterList');
+                        trackGoogleAdsWhatsAppConversion(FOOTER_WHATSAPP_URL);
+                      }}
+                      className='hover:text-white transition-colors duration-200'
+                    >
+                      Escríbenos por WhatsApp
+                    </a>
+                  </div>
+                </li>
+                <li className='flex flex-col items-center md:flex-row md:items-start gap-3 md:justify-start'>
                   <MapPin className='w-5 h-5 text-accent flex-shrink-0' />
                   <div className='text-center md:text-left'>
                     <p className='font-medium'>Ubicación</p>
-                    <p>Madrid, España - Servicios en todas las CCAA</p>
+                    <p>
+                      Torrejón de Ardoz, Madrid
+                      <span className='block text-sm'>
+                        Proyectos en toda España
+                      </span>
+                    </p>
                   </div>
                 </li>
               </ul>

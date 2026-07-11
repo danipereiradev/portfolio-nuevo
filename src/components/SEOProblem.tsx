@@ -27,7 +27,7 @@ const SEOProblem = ({ title, subtitle, problems }: SEOProblemProps) => {
           {problems.map((problem, index) => (
             <div
               key={index}
-              className='flex gap-4 p-4 md:p-6 bg-gray-50 rounded-xl hover:shadow-lg transition-shadow duration-300'
+              className='flex gap-4 p-4 md:p-6 bg-gray-50 rounded-lg border border-gray-200'
             >
               <AlertCircle className='w-5 h-5 md:w-6 md:h-6 text-accent flex-shrink-0 mt-1' />
               <p className='text-sm md:text-base text-gray-700 leading-relaxed'>{problem.text}</p>

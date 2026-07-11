@@ -1,4 +1,4 @@
-import { Check, ArrowRight } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { useContactModal } from '../contexts/ContactModalContext';
 import Button from './Button';
 
@@ -68,12 +68,12 @@ const AuditoriaPlans = () => {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col relative ${
-                plan.recommended ? 'ring-2 ring-accent' : ''
+              className={`bg-white rounded-xl p-8 border flex flex-col relative ${
+                plan.recommended ? 'border-accent' : 'border-gray-200'
               }`}
             >
               {plan.recommended && (
-                <div className='absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-accent to-accent-hover text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg'>
+                <div className='absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-white px-6 py-1.5 rounded-full text-sm font-semibold'>
                   DESTACADO
                 </div>
               )}
@@ -109,7 +109,6 @@ const AuditoriaPlans = () => {
               <div className='mt-auto'>
                 <Button onClick={openModal} variant='primary' fullWidth>
                   {plan.cta}
-                  <ArrowRight className='w-4 h-4 group-hover:translate-x-1 transition-transform duration-200' />
                 </Button>
               </div>
             </div>

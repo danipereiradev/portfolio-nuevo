@@ -33,7 +33,7 @@ const SEOTechnologies = ({
           {technologies.map((tech, index) => (
             <div
               key={index}
-              className='bg-gray-50 p-6 rounded-xl text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1'
+              className='bg-gray-50 p-6 rounded-lg text-center border border-gray-200 hover:border-accent transition-colors duration-200'
             >
               {tech.icon && (
                 <div className='text-4xl mb-3'>{tech.icon}</div>

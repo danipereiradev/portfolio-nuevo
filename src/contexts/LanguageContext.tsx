@@ -12,53 +12,50 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
 const translations = {
   // Header
   'nav.home': 'Inicio',
-  'nav.about': 'Sobre Mí',
+  'nav.about': 'Sobre el Estudio',
   'nav.services': 'Servicios',
-  'nav.portfolio': 'Portfolio',
+  'nav.portfolio': 'Trabajos',
   'nav.clients': 'Clientes',
   'nav.contact': 'Contacto',
 
   // Hero
-  'hero.title':
-    'Páginas web profesionales para autónomos y pymes desde 969€ IVA incluido',
+  'hero.title': 'Estudio web en Madrid para empresas y negocios',
   'hero.subtitle':
-    'Diseño, desarrollo y puesta en marcha en 2-3 semanas. Trato directo conmigo, sin agencias ni intermediarios. Plan mensual disponible desde 129€/mes y propuesta en 2h.',
-  'hero.description':
-    '+12 años de experiencia creando experiencias web que transforman negocios.',
-  'hero.features': 'Código Limpio • Diseño Moderno • Resultados Reales',
-  'hero.cta.whatsapp': 'Pedir presupuesto por WhatsApp',
-  'hero.cta.pricing': 'Ver precios',
-  'hero.cta.portfolio': 'Ver trabajos reales',
+    'Diseñamos y desarrollamos páginas web profesionales, tiendas online y soluciones digitales claras, rápidas y preparadas para captar contactos.',
+  'hero.trustline':
+    'Base en Torrejón de Ardoz · Proyectos en toda España · Presupuesto cerrado antes de empezar',
+  'hero.cta.whatsapp': 'Escríbenos por WhatsApp',
+  'hero.cta.pricing': 'Solicitar propuesta',
+  'hero.cta.portfolio': 'Ver trabajos',
 
   // Services
   'services.title': 'Servicios Profesionales',
-  'services.subtitle':
-    '+12 años creando experiencias web que transforman negocios.',
+  'services.subtitle': 'Diseñamos y desarrollamos soluciones web para negocios reales.',
   'services.description':
-    'Soluciones web completas adaptadas a las necesidades de tu negocio en todas las comunidades autónomas de España',
-  'services.corporate.title': 'Páginas Web Corporativas',
+    'Soluciones web claras y a medida para empresas, autónomos y negocios de toda España.',
+  'services.corporate.title': 'Páginas web profesionales',
   'services.corporate.desc':
-    'Diseño y desarrollo de sitios web profesionales que transmiten confianza y generan resultados.',
-  'services.ecommerce.title': 'E-commerce',
+    'Diseñamos y desarrollamos webs corporativas, páginas de servicios y sitios profesionales para negocios que necesitan mejorar su presencia online y captar contactos.',
+  'services.ecommerce.title': 'Tiendas online',
   'services.ecommerce.desc':
-    'Tiendas online completas con sistemas de pago, gestión de inventario y optimización SEO.',
-  'services.webapp.title': 'Aplicaciones Web',
-  'services.webapp.desc':
-    'Aplicaciones web modernas, rápidas y escalables utilizando las últimas tecnologías.',
-  'services.design.title': 'Diseño UX/UI',
+    'Creamos tiendas online y catálogos digitales para vender productos o servicios con una experiencia clara, cuidada y escalable.',
+  'services.custom.title': 'Desarrollo web a medida',
+  'services.custom.desc':
+    'Desarrollamos soluciones digitales adaptadas a necesidades concretas, desde funcionalidades específicas hasta herramientas internas o integraciones.',
+  'services.design.title': 'Diseño Web',
   'services.design.desc':
-    'Interfaces intuitivas y experiencias de usuario que convierten visitantes en clientes.',
-  'services.maintenance.title': 'Mantenimiento Web',
+    'Diseñamos páginas web a medida, cuidando la identidad de marca y la experiencia de cada visitante.',
+  'services.maintenance.title': 'Mantenimiento y mejoras web',
   'services.maintenance.desc':
-    'Mantén tu web segura, actualizada y funcionando perfectamente con soporte técnico continuo.',
-  'services.seo.title': 'Optimización SEO',
+    'Ofrecemos soporte, ajustes técnicos, cambios de contenido, optimización y acompañamiento mensual para webs ya publicadas.',
+  'services.seo.title': 'Posicionamiento SEO',
   'services.seo.desc':
-    'Posicionamiento web en buscadores para aumentar tu visibilidad y captar más clientes.',
+    'Optimizamos el posicionamiento en Google para aumentar la visibilidad y atraer más clientes a tu negocio.',
 
   // Portfolio
-  'portfolio.title': 'Algunos de mis últimos Trabajos',
+  'portfolio.title': 'Trabajos Reales',
   'portfolio.description':
-    'Una selección de proyectos recientes que demuestran mi experiencia en desarrollo web moderno y diseño innovador',
+    'Una selección de proyectos publicados: páginas web y tiendas online diseñadas y desarrolladas para negocios reales.',
   'portfolio.view': 'Ver Proyecto',
 
   // Proyectos específicos
@@ -96,22 +93,16 @@ const translations = {
 
   // Footer
   'footer.description':
-    'Desarrollador web especializado en crear experiencias digitales excepcionales. Transformo ideas en soluciones web modernas y efectivas.',
+    'Páginas web profesionales, tiendas online y mantenimiento web para empresas, autónomos y negocios de toda España.',
   'footer.services_title': 'Servicios',
   'footer.contact_title': 'Contacto',
   'footer.areas_title': 'Áreas de Servicio',
   'footer.areas_desc': 'Desarrollo web profesional en toda España',
-  'footer.copyright':
-    'Desarrollo Web Dani Pereira. Todos los derechos reservados.',
+  'footer.copyright': 'PereiraWeb. Todos los derechos reservados.',
   'footer.privacy': 'Política de Privacidad',
   'footer.terms': 'Términos de Servicio',
   'footer.cookies': 'Cookies',
   'footer.legal': 'Aviso Legal',
-
-  // About Me Modal
-  'about.title': 'Sobre Mí',
-  'about.curriculum': 'Mi currículum completo lo encontrarás en mi LinkedIn:',
-  'about.linkedin': 'Ver LinkedIn',
 };
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({
