@@ -1,12 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, MessageCircle } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
-import {
-  trackWhatsAppClick,
-  trackGoogleAdsWhatsAppConversion,
-} from '../utils/analytics';
-import { buildWhatsAppUrl, getWhatsAppMessageForPath } from '../config/contact';
 
 interface HeaderProps {
   showNavMenu?: boolean;
@@ -41,9 +36,6 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
   }, [hasTyped]);
 
   const isHomePage = location.pathname === '/';
-  const headerWhatsAppUrl = buildWhatsAppUrl(
-    getWhatsAppMessageForPath(location.pathname),
-  );
 
   const scrollToSection = (sectionId: string) => {
     if (!isHomePage) {
@@ -97,8 +89,7 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
           <div className='flex items-center justify-between relative'>
             <Link
               to='/'
-              className='flex items-center gap-1.5 md:gap-2 flex-shrink-0'
-              style={{ minWidth: '280px', width: '280px' }}
+              className='flex items-center gap-1.5 md:gap-2 flex-shrink-0 md:min-w-[280px] md:w-[280px]'
             >
               <span
                 className='text-xl md:text-2xl whitespace-nowrap font-extrabold flex items-center'
@@ -220,21 +211,6 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
                   )}
                 </button>
               )}
-
-              <a
-                href={headerWhatsAppUrl}
-                target='_blank'
-                rel='noopener noreferrer'
-                onClick={(e) => {
-                  e.preventDefault();
-                  trackWhatsAppClick('Header');
-                  trackGoogleAdsWhatsAppConversion(headerWhatsAppUrl);
-                }}
-                className='p-2 rounded-lg bg-accent hover:bg-accent-hover border-2 border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
-                aria-label='WhatsApp'
-              >
-                <MessageCircle className='w-5 h-5 text-white' />
-              </a>
             </div>
           </div>
 
