@@ -20,7 +20,6 @@ import {
 import { ADS_WHATSAPP_MESSAGE, buildWhatsAppUrl } from '../config/contact';
 import SEOLandingHero from '../components/SEOLandingHero';
 import TrustBar from '../components/TrustBar';
-import { webAutonomosPymesTestimonials } from '../data/testimonialsByService';
 import SEOBenefits from '../components/SEOBenefits';
 import SEOFeatures from '../components/SEOFeatures';
 import SEOProcess from '../components/SEOProcess';
@@ -360,10 +359,7 @@ const WebAutonomosPymes = () => {
       </div>
 
       {/* 6.1 Valoraciones de clientes */}
-      <Testimonials
-        id='valoraciones'
-        testimonials={webAutonomosPymesTestimonials}
-      />
+      <Testimonials id='valoraciones' />
 
       {/* 7. Proceso de trabajo */}
       <SEOProcess

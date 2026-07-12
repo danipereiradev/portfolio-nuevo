@@ -25,7 +25,6 @@ import SEOFAQ from '../components/SEOFAQ';
 import SEOCTAFinal from '../components/SEOCTAFinal';
 import ContactForm from '../components/ContactForm';
 import Testimonials from '../components/Testimonials';
-import { servicioSEOTestimonials } from '../data/testimonialsByService';
 import Portfolio from '../components/Portfolio';
 
 const ServicioSEO = () => {
@@ -274,7 +273,7 @@ const ServicioSEO = () => {
 
       <SEOProcess title='Nuestra Metodología de Trabajo SEO' steps={process} />
 
-      <Testimonials testimonials={servicioSEOTestimonials} />
+      <Testimonials />
 
       <SEOWhyMe
         title='Por Qué Confiar en Nuestros Servicios de SEO'

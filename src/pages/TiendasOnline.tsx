@@ -17,7 +17,6 @@ import SEOFAQ from '../components/SEOFAQ';
 import SEOCTAFinal from '../components/SEOCTAFinal';
 import ContactForm from '../components/ContactForm';
 import Testimonials from '../components/Testimonials';
-import { tiendasOnlineTestimonials } from '../data/testimonialsByService';
 import Portfolio from '../components/Portfolio';
 import { defaultServiceProcess } from '../data/serviceProcess';
 import { servicesFaqs } from '../data/servicesFaqs';
@@ -88,7 +87,7 @@ const TiendasOnline = () => {
 
       <SEOProcess title='Cómo trabajamos' steps={defaultServiceProcess} />
 
-      <Testimonials testimonials={tiendasOnlineTestimonials} />
+      <Testimonials />
 
       <SEOFAQ
         title='Preguntas frecuentes sobre tiendas online'

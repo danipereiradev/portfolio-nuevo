@@ -1,27 +1,123 @@
-import { realTestimonials, type Testimonial } from '../components/Testimonials';
+export interface Testimonial {
+  name: string;
+  company: string;
+  website?: string;
+  date: string;
+  text: string;
+  highlight?: string;
+  rating: number;
+  avatar: string;
+}
 
-// Testimonios ilustrativos (no corresponden a clientes reales) pensados para
-// reflejar el tipo de negocio y problemática de cada landing. Se mantienen
-// ratings variados (no todo 5 estrellas) para que la media resulte creíble,
-// y los nombres de empresa evitan el patrón "apellido + sector" para no
-// resultar artificiales.
-//
-// En cada landing se intercala también una de las reseñas reales (las mismas
-// que aparecen en la home), elegida por afinidad temática con el servicio,
-// para que no se vean como dos bloques separados de reseñas reales/ficticias.
+// Reseñas reales de clientes (las mismas que se muestran en la home).
+export const realTestimonials: Testimonial[] = [
+  {
+    name: 'Arantxa',
+    company: 'Mobile One2One, S.L.',
+    website: 'https://www.o2ods.com/',
+    date: '27/11/2025',
+    text: 'Durante el tiempo que ha durado la colaboración con Daniel, ha quedado en evidencia que es un desarrollador altamente competente, con un enfoque claro en la excelencia técnica y la experiencia de usuario.',
+    highlight:
+      'Ha demostrado un dominio sobresaliente de frameworks modernos, una gran sensibilidad por el diseño y un compromiso constante con la calidad.',
+    rating: 5,
+    avatar: 'A',
+  },
+  {
+    name: 'Víctor',
+    company: 'O Alicornio - Casa Rural',
+    website: 'oalicornio.com',
+    date: '15/3/2024',
+    text: 'Dani me ayudó a crear la web de mi casa rural en O Courel cuando estaba empezando. Necesitaba algo sencillo pero profesional, y él lo consiguió.',
+    highlight:
+      'Gracias a la web, la casa está llena todos los fines de semana de primavera y verano. No me lo esperaba tan rápido.',
+    rating: 5,
+    avatar: 'V',
+  },
+  {
+    name: 'Alex',
+    company: 'Confusion Wear',
+    website: 'confusionwear.com',
+    date: '22/8/2023',
+    text: 'Teníamos web pero necesitábamos un cambio urgente. El diseño estaba anticuado y no nos posicionábamos en Google. Dani vino, hizo un rediseño completo.',
+    highlight:
+      'Los resultados se notaron en semanas. Empezamos a aparecer en búsquedas y las visitas desde Google se multiplicaron.',
+    rating: 5,
+    avatar: 'A',
+  },
+  {
+    name: 'Sumera',
+    company: 'Delish Vegan Madrid',
+    website: 'delishvegann.com',
+    date: '10/11/2023',
+    text: 'We needed a complete e-commerce solution for our vegan bakery and Dani delivered beyond our expectations. The shop is beautiful, easy to manage.',
+    highlight:
+      'He integrated our delivery system perfectly and the national shipping works flawlessly. Our online orders have tripled!',
+    rating: 4,
+    avatar: 'S',
+  },
+  {
+    name: 'Irene',
+    company: 'Chicxsdelacalle',
+    website: 'chicxsdelacalle.com',
+    date: '5/6/2022',
+    text: 'Tengo una tienda online de merchandising de bandas y Dani me hizo la web desde cero. Entendió perfectamente el rollo que buscaba.',
+    highlight:
+      'Siempre que necesito algo, me atiende al momento. Nunca me he quedado tirada, y eso en este negocio es ORO.',
+    rating: 5,
+    avatar: 'I',
+  },
+  {
+    name: 'Irene',
+    company: 'Camisetas Ahora',
+    website: 'camisetas-ahora.com',
+    date: '18/9/2021',
+    text: 'Esta fue mi primera web con Dani y después repetí con otro proyecto. Para Camisetas Ahora necesitaba algo funcional y directo.',
+    highlight:
+      'La plataforma funciona perfecta, los clientes pueden personalizar sus camisetas sin problemas y el sistema de pedidos es muy fiable.',
+    rating: 5,
+    avatar: 'I',
+  },
+  {
+    name: 'Bruno Tomás',
+    company: 'El Viaje de los Elefantes',
+    website: 'elviajedeloselefantes.com',
+    date: '17/5/2025',
+    text: 'Daniel es un gran profesional. Me ha hecho dos páginas webs para mis dos proyectos profesionales los cuales son de campos totalmente diferentes.',
+    highlight:
+      'Estoy muy contento con el resultado. Volvería a trabajar con él sin ninguna duda.',
+    rating: 5,
+    avatar: 'BT',
+  },
+  {
+    name: 'Carlos Rodríguez',
+    company: 'Carper Sonido',
+    website: 'carper-sonido.com',
+    date: '17/5/2025',
+    text: 'Trabajar con Dani ha sido una de las mejores decisiones que hemos tomado para nuestra presencia online. Nos desarrolló una web 100% a medida.',
+    highlight:
+      "Hoy aparecemos en las primeras posiciones de Google para búsquedas clave como 'alquiler sonido en Vigo' y 'comprar sonido en Vigo'.",
+    rating: 5,
+    avatar: 'CR',
+  },
+];
 
 const [
-  arantxaMobileOne2One, // excelencia técnica / frameworks
-  victorOAlicornio, // autónomo empezando, web sencilla
-  alexConfusionWear, // rediseño completo
-  sumeraDelishVegan, // ecommerce
-  ireneChicxsdelacalle, // soporte / atención continua
-  ireneCamisetasAhora, // plataforma ecommerce fiable
-  brunoTomasElViaje, // páginas web para proyectos profesionales
-  carlosRodriguezCarper, // resultados de posicionamiento SEO
+  arantxaMobileOne2One,
+  victorOAlicornio,
+  alexConfusionWear,
+  sumeraDelishVegan,
+  ireneChicxsdelacalle,
+  ireneCamisetasAhora,
+  brunoTomasElViaje,
+  carlosRodriguezCarper,
 ] = realTestimonials;
 
-export const paginasWebEmpresasTestimonials: Testimonial[] = [
+// Reseñas ilustrativas (no corresponden a clientes reales), pensadas para
+// aportar variedad de sector. Se combinan con las reales en un único listado
+// (allTestimonials) que se usa igual en la home y en todas las landings,
+// para que la valoración media mostrada sea siempre la misma en toda la web.
+
+const paginasWebEmpresas: Testimonial[] = [
   {
     name: 'Marta Iglesias',
     company: 'Gestoría Punto Fiscal',
@@ -83,7 +179,7 @@ export const paginasWebEmpresasTestimonials: Testimonial[] = [
   },
 ];
 
-export const tiendasOnlineTestimonials: Testimonial[] = [
+const tiendasOnline: Testimonial[] = [
   {
     name: 'Laura Espino',
     company: 'Terracota Hogar',
@@ -144,7 +240,7 @@ export const tiendasOnlineTestimonials: Testimonial[] = [
   },
 ];
 
-export const mantenimientoWebTestimonials: Testimonial[] = [
+const mantenimientoWeb: Testimonial[] = [
   {
     name: 'Silvia Contreras',
     company: 'Academia Lingua Idiomas',
@@ -203,7 +299,7 @@ export const mantenimientoWebTestimonials: Testimonial[] = [
   },
 ];
 
-export const disenoWebTestimonials: Testimonial[] = [
+const disenoWeb: Testimonial[] = [
   {
     name: 'Carla Miralles',
     company: 'Estudio Cubo Arquitectura',
@@ -262,7 +358,7 @@ export const disenoWebTestimonials: Testimonial[] = [
   },
 ];
 
-export const aplicacionesWebTestimonials: Testimonial[] = [
+const aplicacionesWeb: Testimonial[] = [
   {
     name: 'Raquel Montiel',
     company: 'Transportes Rumbo Sur',
@@ -308,7 +404,7 @@ export const aplicacionesWebTestimonials: Testimonial[] = [
     text: 'La app de reservas de clases ha simplificado mucho la gestión, antes lo hacíamos por WhatsApp y se nos acumulaban los mensajes. El equipo se ha adaptado bien a la herramienta.',
     highlight: '',
     rating: 5,
-    avatar: 'TA',
+    avatar: 'TA2',
   },
   {
     name: 'Ricardo Feito',
@@ -321,7 +417,7 @@ export const aplicacionesWebTestimonials: Testimonial[] = [
   },
 ];
 
-export const servicioSEOTestimonials: Testimonial[] = [
+const servicioSEO: Testimonial[] = [
   {
     name: 'Yolanda Prado',
     company: 'Clínica Dental Vitalia',
@@ -380,7 +476,7 @@ export const servicioSEOTestimonials: Testimonial[] = [
   },
 ];
 
-export const auditoriaEcommerceTestimonials: Testimonial[] = [
+const auditoriaEcommerce: Testimonial[] = [
   {
     name: 'Sonia Barranco',
     company: 'Atelier Marbella Moda',
@@ -439,7 +535,7 @@ export const auditoriaEcommerceTestimonials: Testimonial[] = [
   },
 ];
 
-export const webAutonomosPymesTestimonials: Testimonial[] = [
+const webAutonomosPymes: Testimonial[] = [
   {
     name: 'Rosa Peláez',
     company: 'Espacio Bella Peluquería',
@@ -496,4 +592,18 @@ export const webAutonomosPymesTestimonials: Testimonial[] = [
     rating: 4,
     avatar: 'IZ',
   },
+];
+
+// Listado único combinado: se usa igual en la home y en todas las landings,
+// para que la reseña mostrada y la valoración media sean siempre coherentes
+// en cualquier página del sitio.
+export const allTestimonials: Testimonial[] = [
+  ...paginasWebEmpresas,
+  ...tiendasOnline,
+  ...mantenimientoWeb,
+  ...disenoWeb,
+  ...aplicacionesWeb,
+  ...servicioSEO,
+  ...auditoriaEcommerce,
+  ...webAutonomosPymes,
 ];

@@ -26,7 +26,6 @@ import SEOFAQ from '../components/SEOFAQ';
 import SEOCTAFinal from '../components/SEOCTAFinal';
 import ContactForm from '../components/ContactForm';
 import Testimonials from '../components/Testimonials';
-import { aplicacionesWebTestimonials } from '../data/testimonialsByService';
 import Portfolio from '../components/Portfolio';
 
 const AplicacionesWeb = () => {
@@ -285,7 +284,7 @@ const AplicacionesWeb = () => {
         steps={process}
       />
 
-      <Testimonials testimonials={aplicacionesWebTestimonials} />
+      <Testimonials />
 
       <SEOWhyMe
         title='Por Qué Desarrollar tu App Web con Nosotros'

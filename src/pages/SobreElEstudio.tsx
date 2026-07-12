@@ -94,6 +94,17 @@ const SobreElEstudio = () => {
             </p>
           </div>
 
+          <div className='max-w-3xl mx-auto mt-12'>
+            <div className='rounded-xl overflow-hidden border-2 border-ink-dark shadow-[7px_7px_0_0_#1a1a1a]'>
+              <img
+                src='/img/sobre-el-estudio.png'
+                alt='Espacio de trabajo del estudio PereiraWeb'
+                className='w-full h-56 md:h-72 object-cover'
+                loading='lazy'
+              />
+            </div>
+          </div>
+
           <div className='flex justify-center mt-10'>
             <button
               onClick={handleWhatsAppClick}

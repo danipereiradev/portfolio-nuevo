@@ -16,7 +16,6 @@ import SEOProcess from '../components/SEOProcess';
 import SEOFAQ from '../components/SEOFAQ';
 import SEOCTAFinal from '../components/SEOCTAFinal';
 import Testimonials from '../components/Testimonials';
-import { mantenimientoWebTestimonials } from '../data/testimonialsByService';
 import ContactForm from '../components/ContactForm';
 import { defaultServiceProcess } from '../data/serviceProcess';
 import { servicesFaqs } from '../data/servicesFaqs';
@@ -83,7 +82,7 @@ const MantenimientoWeb = () => {
 
       <SEOProcess title='Cómo trabajamos' steps={defaultServiceProcess} />
 
-      <Testimonials testimonials={mantenimientoWebTestimonials} />
+      <Testimonials />
 
       <SEOFAQ
         title='Preguntas frecuentes sobre mantenimiento web'

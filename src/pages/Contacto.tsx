@@ -60,17 +60,6 @@ const Contacto = () => {
 
       <section className='py-20 bg-white'>
         <div className='container mx-auto px-6'>
-          <div className='max-w-4xl mx-auto mb-16 md:mb-20'>
-            <div className='rounded-xl overflow-hidden border-2 border-ink-dark shadow-[7px_7px_0_0_#1a1a1a]'>
-              <img
-                src='/img/sobre-el-estudio.png'
-                alt='Espacio de trabajo del estudio PereiraWeb'
-                className='w-full h-56 md:h-72 object-cover'
-                loading='lazy'
-              />
-            </div>
-          </div>
-
           <div className='grid md:grid-cols-2 gap-12 max-w-6xl mx-auto mb-16'>
             <div>
               <h2 className='text-3xl font-bold text-gray-900 mb-6'>

@@ -1,16 +1,8 @@
 import { useState } from 'react';
 import { Star } from 'lucide-react';
+import { allTestimonials, type Testimonial } from '../data/testimonials';
 
-export interface Testimonial {
-  name: string;
-  company: string;
-  website?: string;
-  date: string;
-  text: string;
-  highlight?: string;
-  rating: number;
-  avatar: string;
-}
+export type { Testimonial };
 
 interface TestimonialsProps {
   id?: string;
@@ -18,103 +10,12 @@ interface TestimonialsProps {
   averageRating?: number;
 }
 
-export const realTestimonials: Testimonial[] = [
-    {
-      name: 'Arantxa',
-      company: 'Mobile One2One, S.L.',
-      website: 'https://www.o2ods.com/',
-      date: '27/11/2025',
-      text: 'Durante el tiempo que ha durado la colaboración con Daniel, ha quedado en evidencia que es un desarrollador altamente competente, con un enfoque claro en la excelencia técnica y la experiencia de usuario.',
-      highlight:
-        'Ha demostrado un dominio sobresaliente de frameworks modernos, una gran sensibilidad por el diseño y un compromiso constante con la calidad.',
-      rating: 5,
-      avatar: 'A',
-    },
-    {
-      name: 'Víctor',
-      company: 'O Alicornio - Casa Rural',
-      website: 'oalicornio.com',
-      date: '15/3/2024',
-      text: 'Dani me ayudó a crear la web de mi casa rural en O Courel cuando estaba empezando. Necesitaba algo sencillo pero profesional, y él lo consiguió.',
-      highlight:
-        'Gracias a la web, la casa está llena todos los fines de semana de primavera y verano. No me lo esperaba tan rápido.',
-      rating: 5,
-      avatar: 'V',
-    },
-    {
-      name: 'Alex',
-      company: 'Confusion Wear',
-      website: 'confusionwear.com',
-      date: '22/8/2023',
-      text: 'Teníamos web pero necesitábamos un cambio urgente. El diseño estaba anticuado y no nos posicionábamos en Google. Dani vino, hizo un rediseño completo.',
-      highlight:
-        'Los resultados se notaron en semanas. Empezamos a aparecer en búsquedas y las visitas desde Google se multiplicaron.',
-      rating: 5,
-      avatar: 'A',
-    },
-    {
-      name: 'Sumera',
-      company: 'Delish Vegan Madrid',
-      website: 'delishvegann.com',
-      date: '10/11/2023',
-      text: 'We needed a complete e-commerce solution for our vegan bakery and Dani delivered beyond our expectations. The shop is beautiful, easy to manage.',
-      highlight:
-        'He integrated our delivery system perfectly and the national shipping works flawlessly. Our online orders have tripled!',
-      rating: 4,
-      avatar: 'S',
-    },
-    {
-      name: 'Irene',
-      company: 'Chicxsdelacalle',
-      website: 'chicxsdelacalle.com',
-      date: '5/6/2022',
-      text: 'Tengo una tienda online de merchandising de bandas y Dani me hizo la web desde cero. Entendió perfectamente el rollo que buscaba.',
-      highlight:
-        'Siempre que necesito algo, me atiende al momento. Nunca me he quedado tirada, y eso en este negocio es ORO.',
-      rating: 5,
-      avatar: 'I',
-    },
-    {
-      name: 'Irene',
-      company: 'Camisetas Ahora',
-      website: 'camisetas-ahora.com',
-      date: '18/9/2021',
-      text: 'Esta fue mi primera web con Dani y después repetí con otro proyecto. Para Camisetas Ahora necesitaba algo funcional y directo.',
-      highlight:
-        'La plataforma funciona perfecta, los clientes pueden personalizar sus camisetas sin problemas y el sistema de pedidos es muy fiable.',
-      rating: 5,
-      avatar: 'I',
-    },
-    {
-      name: 'Bruno Tomás',
-      company: 'El Viaje de los Elefantes',
-      website: 'elviajedeloselefantes.com',
-      date: '17/5/2025',
-      text: 'Daniel es un gran profesional. Me ha hecho dos páginas webs para mis dos proyectos profesionales los cuales son de campos totalmente diferentes.',
-      highlight:
-        'Estoy muy contento con el resultado. Volvería a trabajar con él sin ninguna duda.',
-      rating: 5,
-      avatar: 'BT',
-    },
-    {
-      name: 'Carlos Rodríguez',
-      company: 'Carper Sonido',
-      website: 'carper-sonido.com',
-      date: '17/5/2025',
-      text: 'Trabajar con Dani ha sido una de las mejores decisiones que hemos tomado para nuestra presencia online. Nos desarrolló una web 100% a medida.',
-      highlight:
-        "Hoy aparecemos en las primeras posiciones de Google para búsquedas clave como 'alquiler sonido en Vigo' y 'comprar sonido en Vigo'.",
-      rating: 5,
-      avatar: 'CR',
-    },
-];
-
 const computeAverage = (items: Testimonial[]) =>
   items.reduce((sum, item) => sum + item.rating, 0) / items.length;
 
 const Testimonials = ({
   id = 'testimonials',
-  testimonials = realTestimonials,
+  testimonials = allTestimonials,
   averageRating,
 }: TestimonialsProps = {}) => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -272,7 +173,7 @@ const Testimonials = ({
           </div>
 
           {/* Indicators */}
-          <div className='flex justify-center mt-8 gap-3'>
+          <div className='flex flex-wrap justify-center mt-8 gap-2 md:gap-3 max-w-md mx-auto'>
             {[...Array(totalSlides)].map((_, index) => (
               <button
                 key={index}
