@@ -99,7 +99,7 @@ const Gracias = () => {
             <MessageCircle className='w-4 h-4' />
             Escríbenos por WhatsApp
           </Button>
-          <Button to='/#portfolio' variant='ghost'>
+          <Button href='/#portfolio' variant='ghost'>
             Ver trabajos
           </Button>
         </div>

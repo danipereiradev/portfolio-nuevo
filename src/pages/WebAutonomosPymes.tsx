@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import {
   Briefcase,
   Building2,
@@ -330,18 +329,18 @@ const WebAutonomosPymes = () => {
             También podemos ayudarte con
           </h3>
           <div className='grid sm:grid-cols-3 gap-4 max-w-4xl mx-auto'>
-            <Link
-              to='/tiendas-online'
+            <a
+              href='/tiendas-online'
               className='block bg-gray-50 border-2 border-ink-dark rounded-xl p-5 text-center font-bold text-gray-900 shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
             >
               Tiendas online
-            </Link>
-            <Link
-              to='/mantenimiento-web'
+            </a>
+            <a
+              href='/mantenimiento-web'
               className='block bg-gray-50 border-2 border-ink-dark rounded-xl p-5 text-center font-bold text-gray-900 shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
             >
               Mantenimiento web
-            </Link>
+            </a>
             <button
               type='button'
               onClick={() => openModal('Página Web')}

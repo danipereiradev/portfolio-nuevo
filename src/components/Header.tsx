@@ -1,7 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Menu, X, ChevronDown, MessageCircle } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
+import {
+  trackWhatsAppClick,
+  trackGoogleAdsWhatsAppConversion,
+} from '../utils/analytics';
+import { buildWhatsAppUrl, getWhatsAppMessageForPath } from '../config/contact';
 
 interface HeaderProps {
   showNavMenu?: boolean;
@@ -10,11 +15,19 @@ interface HeaderProps {
 const Header = ({ showNavMenu = true }: HeaderProps) => {
   const { t } = useLanguage();
   const location = useLocation();
-  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [typedText, setTypedText] = useState('');
   const [hasTyped, setHasTyped] = useState(false);
+
+  const headerWhatsAppUrl = buildWhatsAppUrl(
+    getWhatsAppMessageForPath(location.pathname),
+  );
+
+  const handleWhatsAppClick = () => {
+    trackWhatsAppClick('Header');
+    trackGoogleAdsWhatsAppConversion(headerWhatsAppUrl);
+  };
 
   const fullText = 'pereiraweb .es';
 
@@ -34,25 +47,6 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
       return () => clearInterval(typingInterval);
     }
   }, [hasTyped]);
-
-  const isHomePage = location.pathname === '/';
-
-  const scrollToSection = (sectionId: string) => {
-    if (!isHomePage) {
-      navigate('/');
-      setTimeout(() => {
-        document
-          .getElementById(sectionId)
-          ?.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    } else {
-      document
-        .getElementById(sectionId)
-        ?.scrollIntoView({ behavior: 'smooth' });
-    }
-    setIsMenuOpen(false);
-    setIsServicesOpen(false);
-  };
 
   const services = [
     {
@@ -75,8 +69,8 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
       <header className='fixed w-full max-w-full top-0 z-50 bg-white border-b-2 border-ink-dark'>
         <div className='mx-auto w-full max-w-screen-2xl px-6 py-4'>
           <div className='flex items-center justify-between relative'>
-            <Link
-              to='/'
+            <a
+              href='/'
               className='flex items-center gap-1.5 md:gap-2 flex-shrink-0 md:min-w-[280px] md:w-[280px]'
             >
               <span
@@ -96,16 +90,16 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
                   _
                 </span>
               </span>
-            </Link>
+            </a>
 
             {showNavMenu && (
               <nav className='hidden md:flex items-center space-x-8 absolute left-1/2 -translate-x-1/2'>
-                <Link
-                  to='/'
+                <a
+                  href='/'
                   className='relative font-bold text-md uppercase text-black transition-colors duration-200 hover:text-accent after:content-[""] after:absolute after:left-0 after:-bottom-1.5 after:h-[3px] after:w-0 after:bg-accent after:transition-all after:duration-200 hover:after:w-full'
                 >
                   Inicio
-                </Link>
+                </a>
 
                 <div
                   className='relative'
@@ -140,49 +134,46 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
                           </a>
                         ))}
                         <div className='border-t-2 border-ink-dark mt-2 pt-2'>
-                          <button
-                            onClick={() => {
-                              scrollToSection('pricing');
-                              setIsServicesOpen(false);
-                            }}
+                          <a
+                            href='/#pricing'
+                            onClick={() => setIsServicesOpen(false)}
                             className='block w-full text-left px-4 py-2 text-gray-600 hover:bg-accent hover:text-white text-sm font-bold transition-colors'
                           >
                             Ver todos los servicios →
-                          </button>
+                          </a>
                         </div>
                       </div>
                     </div>
                   )}
                 </div>
 
-                <button
-                  onClick={() => scrollToSection('portfolio')}
+                <a
+                  href='/#portfolio'
                   className='relative font-bold text-md uppercase text-black transition-colors duration-200 hover:text-accent after:content-[""] after:absolute after:left-0 after:-bottom-1.5 after:h-[3px] after:w-0 after:bg-accent after:transition-all after:duration-200 hover:after:w-full'
                 >
                   {t('nav.portfolio')}
-                </button>
+                </a>
 
-                <button
-                  onClick={() => scrollToSection('proceso')}
+                <a
+                  href='/#proceso'
                   className='relative font-bold text-md uppercase text-black transition-colors duration-200 hover:text-accent after:content-[""] after:absolute after:left-0 after:-bottom-1.5 after:h-[3px] after:w-0 after:bg-accent after:transition-all after:duration-200 hover:after:w-full'
                 >
                   Proceso
-                </button>
+                </a>
 
-                <Link
-                  to='/sobre-el-estudio'
+                <a
+                  href='/sobre-el-estudio'
                   className='relative font-bold text-md uppercase text-black transition-colors duration-200 hover:text-accent after:content-[""] after:absolute after:left-0 after:-bottom-1.5 after:h-[3px] after:w-0 after:bg-accent after:transition-all after:duration-200 hover:after:w-full'
                 >
                   {t('nav.about')}
-                </Link>
+                </a>
 
-                <Link
-                  to='/contacto'
-                  onClick={() => setIsMenuOpen(false)}
+                <a
+                  href='/contacto'
                   className='relative font-bold text-md uppercase text-black transition-colors duration-200 hover:text-accent after:content-[""] after:absolute after:left-0 after:-bottom-1.5 after:h-[3px] after:w-0 after:bg-accent after:transition-all after:duration-200 hover:after:w-full'
                 >
                   {t('nav.contact')}
-                </Link>
+                </a>
               </nav>
             )}
 
@@ -199,18 +190,31 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
                   )}
                 </button>
               )}
+
+              <a
+                href={headerWhatsAppUrl}
+                target='_blank'
+                rel='noopener noreferrer'
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleWhatsAppClick();
+                }}
+                className='p-2 rounded-lg bg-accent hover:bg-accent-hover border-2 border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
+                aria-label='WhatsApp'
+              >
+                <MessageCircle className='w-5 h-5 text-white' />
+              </a>
             </div>
           </div>
 
           {showNavMenu && isMenuOpen && (
             <nav className='md:hidden mt-4 pb-2 bg-white rounded-lg border-2 border-ink-dark shadow-[6px_6px_0_0_#1a1a1a] divide-y-2 divide-gray-100'>
-              <Link
-                to='/'
-                onClick={() => setIsMenuOpen(false)}
+              <a
+                href='/'
                 className='block w-full text-left px-4 py-3 font-bold text-md uppercase text-black hover:bg-gray-100 hover:text-accent transition-colors duration-200'
               >
                 Inicio
-              </Link>
+              </a>
 
               <div>
                 <button
@@ -253,35 +257,33 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
                 )}
               </div>
 
-              <button
-                onClick={() => scrollToSection('portfolio')}
+              <a
+                href='/#portfolio'
                 className='block w-full text-left px-4 py-3 font-bold text-md uppercase text-black hover:bg-gray-100 hover:text-accent transition-colors duration-200'
               >
                 {t('nav.portfolio')}
-              </button>
+              </a>
 
-              <button
-                onClick={() => scrollToSection('proceso')}
+              <a
+                href='/#proceso'
                 className='block w-full text-left px-4 py-3 font-bold text-md uppercase text-black hover:bg-gray-100 hover:text-accent transition-colors duration-200'
               >
                 Proceso
-              </button>
+              </a>
 
-              <Link
-                to='/sobre-el-estudio'
-                onClick={() => setIsMenuOpen(false)}
+              <a
+                href='/sobre-el-estudio'
                 className='block w-full text-left px-4 py-3 font-bold text-md uppercase text-black hover:bg-gray-100 hover:text-accent transition-colors duration-200'
               >
                 {t('nav.about')}
-              </Link>
+              </a>
 
-              <Link
-                to='/contacto'
-                onClick={() => setIsMenuOpen(false)}
+              <a
+                href='/contacto'
                 className='block w-full text-left px-4 py-3 font-bold text-md uppercase text-black hover:bg-gray-100 hover:text-accent transition-colors duration-200'
               >
                 {t('nav.contact')}
-              </Link>
+              </a>
             </nav>
           )}
         </div>

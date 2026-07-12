@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import {
   BrowserGraphic,
@@ -61,12 +60,12 @@ const Services = () => {
               </p>
 
               <div className='mt-auto'>
-                <Link
-                  to={service.link}
+                <a
+                  href={service.link}
                   className='inline-flex text-sm font-bold text-white border-2 border-white/30 rounded-lg px-5 py-2.5 shadow-[3px_3px_0_0_rgba(255,255,255,0.25)] hover:bg-white hover:text-ink-dark hover:border-white hover:shadow-[1px_1px_0_0_rgba(255,255,255,0.25)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
                 >
                   Ver servicio
-                </Link>
+                </a>
               </div>
             </div>
           ))}

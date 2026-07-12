@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 interface ButtonProps {
   children: React.ReactNode;
@@ -8,7 +7,6 @@ interface ButtonProps {
   type?: 'button' | 'submit' | 'reset';
   className?: string;
   disabled?: boolean;
-  to?: string;
   href?: string;
   target?: string;
   rel?: string;
@@ -23,7 +21,6 @@ const Button: React.FC<ButtonProps> = ({
   type = 'button',
   className = '',
   disabled = false,
-  to,
   href,
   target,
   rel,
@@ -85,14 +82,6 @@ const Button: React.FC<ButtonProps> = ({
       >
         {content}
       </a>
-    );
-  }
-
-  if (to) {
-    return (
-      <Link to={to} onClick={onClick} className={combinedStyles}>
-        {content}
-      </Link>
     );
   }
 

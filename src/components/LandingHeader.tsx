@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Menu, X, MessageCircle } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import {
   trackWhatsAppClick,
   trackGoogleAdsWhatsAppConversion,
@@ -34,7 +33,7 @@ const LandingHeader = () => {
   return (
     <header className='fixed w-full max-w-full top-0 z-50 bg-white border-b-2 border-ink-dark'>
       <div className='mx-auto w-full max-w-screen-2xl px-6 py-4 flex items-center justify-between'>
-        <Link to='/' className='flex items-center gap-1.5 flex-shrink-0'>
+        <a href='/' className='flex items-center gap-1.5 flex-shrink-0'>
           <span
             className='text-xl md:text-2xl whitespace-nowrap font-extrabold flex items-center'
             style={{ fontFamily: "'Space Grotesk', sans-serif" }}
@@ -47,7 +46,7 @@ const LandingHeader = () => {
             </span>
             <span className='text-accent font-mono font-normal'>.es</span>
           </span>
-        </Link>
+        </a>
 
         <nav className='hidden md:flex items-center gap-8'>
           {navLinks.map((link) => (

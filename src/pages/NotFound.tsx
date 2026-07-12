@@ -62,11 +62,11 @@ const NotFound = () => {
           Prueba a volver al inicio o pide presupuesto para tu proyecto.
         </p>
         <div className='flex flex-col sm:flex-row gap-3 justify-center'>
-          <Button to='/' variant='primary'>
+          <Button href='/' variant='primary'>
             <HomeIcon className='w-4 h-4' />
             Volver al inicio
           </Button>
-          <Button to='/web-autonomos-pymes' variant='ghost'>
+          <Button href='/web-autonomos-pymes' variant='ghost'>
             <MessageCircle className='w-4 h-4' />
             Solicitar propuesta
           </Button>

@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { ContactModalProvider } from './contexts/ContactModalContext';
@@ -32,9 +31,12 @@ function AppContent() {
     normalizePathname(location.pathname),
   );
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
+  // La navegación entre páginas se hace con <a> normales (recarga real),
+  // así que el navegador ya coloca el scroll donde corresponde (arriba, o
+  // en el ancla si la URL lleva "#id") sin necesidad de forzarlo con JS.
+  // Esto solo sigue afectando a las redirecciones internas de rutas
+  // antiguas (<Navigate>) y a la página 404, que no necesitan reset de
+  // scroll porque ya llegan desde una carga de página completa.
 
   return (
     <div className='min-h-screen bg-white overflow-x-hidden pb-16 md:pb-0'>

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { ExternalLink, X, Loader2 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useSectionView } from '../hooks/useSectionView';
@@ -152,59 +153,69 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
   };
 
   return (
-    <section id='portfolio' ref={sectionRef} className='relative py-20 bg-white overflow-hidden'>
-      <div className='container mx-auto px-6 relative z-10'>
-        <div className='text-center mb-16'>
-          <h2 className='text-4xl md:text-5xl font-extrabold text-gray-900 mb-4'>
-            {t('portfolio.title')}
-          </h2>
-          <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-            {t('portfolio.description')}
-          </p>
-        </div>
+    <>
+      <section id='portfolio' ref={sectionRef} className='relative py-20 bg-white overflow-hidden'>
+        <div className='container mx-auto px-6 relative z-10'>
+          <div className='text-center mb-16'>
+            <h2 className='text-4xl md:text-5xl font-extrabold text-gray-900 mb-4'>
+              {t('portfolio.title')}
+            </h2>
+            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
+              {t('portfolio.description')}
+            </p>
+          </div>
 
-        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto'>
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              onClick={() => openModal(index)}
-              onMouseEnter={() =>
-                project.headerImage && preloadImage(project.headerImage)
-              }
-              className={`group cursor-pointer rounded-xl border-2 border-ink-dark bg-white overflow-hidden shadow-[6px_6px_0_0_#1a1a1a] hover:shadow-[3px_3px_0_0_#1a1a1a] hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-200 ${
-                index === 0 ? 'lg:col-span-2' : ''
-              }`}
-            >
-              <div className='relative overflow-hidden bg-white border-b-2 border-ink-dark'>
-                <img
-                  src={project.headerImage}
-                  alt={project.title}
-                  className='w-full aspect-[4/3] object-cover transition-transform duration-300 group-hover:scale-[1.03]'
-                  loading='lazy'
-                />
-                <span className='absolute top-4 left-4 bg-accent text-ink-dark border-2 border-ink-dark text-xs font-bold px-3 py-1 rotate-[-1deg]'>
-                  {project.category}
-                </span>
+          <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto'>
+            {projects.map((project, index) => (
+              <div
+                key={index}
+                onClick={() => openModal(index)}
+                onMouseEnter={() =>
+                  project.headerImage && preloadImage(project.headerImage)
+                }
+                className={`group cursor-pointer rounded-xl border-2 border-ink-dark bg-white overflow-hidden shadow-[6px_6px_0_0_#1a1a1a] hover:shadow-[3px_3px_0_0_#1a1a1a] hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-200 ${
+                  index === 0 ? 'lg:col-span-2' : ''
+                }`}
+              >
+                <div className='relative overflow-hidden bg-white border-b-2 border-ink-dark'>
+                  <img
+                    src={project.headerImage}
+                    alt={project.title}
+                    className='w-full aspect-[4/3] object-cover transition-transform duration-300 group-hover:scale-[1.03]'
+                    loading='lazy'
+                  />
+                  <span className='absolute top-4 left-4 bg-accent text-ink-dark border-2 border-ink-dark text-xs font-bold px-3 py-1 rotate-[-1deg]'>
+                    {project.category}
+                  </span>
+                </div>
+
+                <div className='p-5 md:p-6'>
+                  <h3 className='text-xl font-bold text-gray-900 mb-1.5'>
+                    {project.title}
+                  </h3>
+                  <p className='text-base text-gray-700 font-medium leading-relaxed line-clamp-2'>
+                    {project.description}
+                  </p>
+                  <span className='inline-block text-sm font-semibold text-accent mt-3 group-hover:underline'>
+                    Ver caso completo
+                  </span>
+                </div>
               </div>
-
-              <div className='p-5 md:p-6'>
-                <h3 className='text-xl font-bold text-gray-900 mb-1.5'>
-                  {project.title}
-                </h3>
-                <p className='text-base text-gray-700 font-medium leading-relaxed line-clamp-2'>
-                  {project.description}
-                </p>
-                <span className='inline-block text-sm font-semibold text-accent mt-3 group-hover:underline'>
-                  Ver caso completo
-                </span>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
+      </section>
 
-        {selectedProject !== null && (
+      {selectedProject !== null &&
+        createPortal(
+          // Renderizado con un portal directamente en <body>: si este modal
+          // viviera dentro de la jerarquía normal de la sección (que tiene
+          // ancestros con "position: relative" + z-index propio), su z-50
+          // quedaría atrapado en ese contexto de apilamiento local y podría
+          // renderizarse por DEBAJO del header (también z-50, pero en la
+          // raíz de la app), dejando el botón de cerrar oculto e inutilizable.
           <div
-            className='fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-0'
+            className='fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] flex items-center justify-center p-0'
             onClick={closeModal}
           >
             <div
@@ -287,10 +298,10 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
                 </div>
               </div>
             </div>
-          </div>
+          </div>,
+          document.body,
         )}
-      </div>
-    </section>
+    </>
   );
 };
 

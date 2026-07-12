@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { MessageCircle } from 'lucide-react';
 import { usePageMeta } from '../hooks/usePageMeta';
 import {
@@ -116,9 +115,9 @@ const SobreElEstudio = () => {
           </div>
           <p className='text-center text-sm text-gray-500 mt-4'>
             O si lo prefieres,{' '}
-            <Link to='/contacto' className='text-accent hover:underline'>
+            <a href='/contacto' className='text-accent hover:underline'>
               escríbenos por el formulario de contacto
-            </Link>
+            </a>
             .
           </p>
         </div>

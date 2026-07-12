@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import {
   Mail,
   Linkedin,
@@ -156,44 +155,44 @@ const Footer = ({ minimal = false }: FooterProps = {}) => {
                   <span className='block w-10 h-1 bg-accent mb-6 mx-auto md:mx-0' />
                   <ul className='space-y-3 text-gray-300'>
                     <li>
-                      <Link
-                        to='/'
+                      <a
+                        href='/'
                         className='hover:text-white transition-colors duration-200'
                       >
                         Inicio
-                      </Link>
+                      </a>
                     </li>
                     <li>
-                      <Link
-                        to='/#portfolio'
+                      <a
+                        href='/#portfolio'
                         className='hover:text-white transition-colors duration-200'
                       >
                         Trabajos
-                      </Link>
+                      </a>
                     </li>
                     <li>
-                      <Link
-                        to='/#proceso'
+                      <a
+                        href='/#proceso'
                         className='hover:text-white transition-colors duration-200'
                       >
                         Proceso
-                      </Link>
+                      </a>
                     </li>
                     <li>
-                      <Link
-                        to='/sobre-el-estudio'
+                      <a
+                        href='/sobre-el-estudio'
                         className='hover:text-white transition-colors duration-200'
                       >
                         Sobre el Estudio
-                      </Link>
+                      </a>
                     </li>
                     <li>
-                      <Link
-                        to='/contacto'
+                      <a
+                        href='/contacto'
                         className='hover:text-white transition-colors duration-200'
                       >
                         Contacto
-                      </Link>
+                      </a>
                     </li>
                   </ul>
                 </div>
