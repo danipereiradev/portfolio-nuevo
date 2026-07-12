@@ -290,11 +290,11 @@ const AuditoriaEcommerce = () => {
               Te ayudamos a detectar los puntos de fuga de tu tienda
             </h2>
             <p className='text-xl text-gray-600 max-w-4xl mx-auto'>
-              Analizamos tu ecommerce desde el punto de vista de un cliente real,
-              combinando mirada de usuario, diseño, usabilidad y experiencia en
-              ecommerce. El objetivo es encontrar mejoras concretas que puedan
-              reducir fricción y aumentar confianza antes de seguir invirtiendo
-              en tráfico.
+              Analizamos tu ecommerce desde el punto de vista de un cliente
+              real, combinando mirada de usuario, diseño, usabilidad y
+              experiencia en ecommerce. El objetivo es encontrar mejoras
+              concretas que puedan reducir fricción y aumentar confianza antes
+              de seguir invirtiendo en tráfico.
             </p>
           </div>
 
@@ -302,9 +302,9 @@ const AuditoriaEcommerce = () => {
             {solutionBlocks.map((block, index) => (
               <div
                 key={index}
-                className='bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300'
+                className='bg-gray-50 rounded-xl p-8 border-2 border-ink-dark shadow-[5px_5px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-200'
               >
-                <div className='bg-accent/10 w-16 h-16 rounded-xl flex items-center justify-center mb-6 text-accent'>
+                <div className='bg-accent/10 w-16 h-16 rounded-xl border-2 border-ink-dark flex items-center justify-center mb-6 text-accent'>
                   {block.icon}
                 </div>
                 <h3 className='text-2xl font-bold text-gray-900 mb-4'>
@@ -323,7 +323,7 @@ const AuditoriaEcommerce = () => {
         <div className='container mx-auto px-6'>
           <div className='text-center mb-16'>
             <h2 className='text-4xl md:text-5xl font-bold text-gray-900 mb-6'>
-              Qué reviso en la auditoría
+              Qué revisamos en la auditoría
             </h2>
           </div>
 
@@ -331,7 +331,7 @@ const AuditoriaEcommerce = () => {
             {reviewAreas.map((area, index) => (
               <div
                 key={index}
-                className='bg-white rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300'
+                className='bg-white rounded-xl p-6 text-center border-2 border-ink-dark shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
               >
                 <div className='text-accent mb-4 flex justify-center'>
                   {area.icon}
@@ -359,7 +359,7 @@ const AuditoriaEcommerce = () => {
             {deliverables.map((item, index) => (
               <div
                 key={index}
-                className='flex items-start gap-4 bg-gray-50 rounded-xl p-6'
+                className='flex items-start gap-4 bg-gray-50 rounded-xl p-6 border-2 border-ink-dark shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
               >
                 <div className='text-accent flex-shrink-0'>{item.icon}</div>
                 <p className='text-gray-800 font-medium leading-relaxed'>
@@ -392,14 +392,14 @@ const AuditoriaEcommerce = () => {
           </div>
 
           <div className='grid md:grid-cols-2 gap-8 max-w-6xl mx-auto'>
-            <div className='bg-white rounded-lg overflow-hidden border border-gray-200'>
+            <div className='bg-white rounded-xl overflow-hidden border-2 border-ink-dark shadow-[6px_6px_0_0_#1a1a1a]'>
               <div className='relative h-64 md:h-80 overflow-hidden'>
                 <img
                   src='/img/portfolio/mock-chicxs.png'
                   alt='Chicxs de la Calle'
                   className='w-full h-full object-cover'
                 />
-                <div className='absolute top-4 right-4 bg-accent text-white px-4 py-2 rounded-lg shadow-lg'>
+                <div className='absolute top-4 right-4 bg-accent text-white px-4 py-2 rounded-lg border-2 border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] rotate-[-2deg]'>
                   <div className='flex items-center gap-2'>
                     <TrendingUp className='w-5 h-5' />
                     <div>
@@ -461,14 +461,14 @@ const AuditoriaEcommerce = () => {
               </div>
             </div>
 
-            <div className='bg-white rounded-lg overflow-hidden border border-gray-200'>
+            <div className='bg-white rounded-xl overflow-hidden border-2 border-ink-dark shadow-[6px_6px_0_0_#1a1a1a]'>
               <div className='relative h-64 md:h-80 overflow-hidden'>
                 <img
                   src='/img/portfolio/mock-delish.png'
                   alt='Delish Vegan'
                   className='w-full h-full object-cover'
                 />
-                <div className='absolute top-4 right-4 bg-accent text-white px-4 py-2 rounded-lg shadow-lg'>
+                <div className='absolute top-4 right-4 bg-accent text-white px-4 py-2 rounded-lg border-2 border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] rotate-[-2deg]'>
                   <div className='flex items-center gap-2'>
                     <TrendingUp className='w-5 h-5' />
                     <div>
@@ -527,40 +527,6 @@ const AuditoriaEcommerce = () => {
                   <ArrowUpCircle className='w-5 h-5 rotate-45' />
                 </a>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className='py-20 bg-white'>
-        <div className='container mx-auto px-6'>
-          <div className='max-w-6xl mx-auto grid md:grid-cols-2 gap-12'>
-            <div className='bg-green-50 rounded-2xl p-8 md:p-12'>
-              <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-8'>
-                Este servicio es para ti si…
-              </h2>
-              <ul className='space-y-4'>
-                {forYouList.map((item, index) => (
-                  <li key={index} className='flex items-start gap-3'>
-                    <CheckCircle2 className='w-6 h-6 text-green-600 flex-shrink-0 mt-0.5' />
-                    <span className='text-gray-800'>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className='bg-red-50 rounded-2xl p-8 md:p-12'>
-              <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-8'>
-                Este servicio no es para ti si…
-              </h2>
-              <ul className='space-y-4'>
-                {notForYouList.map((item, index) => (
-                  <li key={index} className='flex items-start gap-3'>
-                    <AlertCircle className='w-6 h-6 text-red-600 flex-shrink-0 mt-0.5' />
-                    <span className='text-gray-800'>{item}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
         </div>

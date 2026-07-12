@@ -26,11 +26,11 @@ const SEOFeatures = ({ title, subtitle, features }: SEOFeaturesProps) => {
           )}
         </div>
 
-        <div className='max-w-5xl mx-auto grid md:grid-cols-2 gap-6'>
+        <div className='max-w-5xl mx-auto grid md:grid-cols-2 gap-5'>
           {features.map((feature, index) => (
             <div
               key={index}
-              className='bg-white p-4 md:p-6 rounded-lg border border-gray-200'
+              className='bg-white p-4 md:p-6 rounded-lg border-2 border-ink-dark shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
             >
               <div className='flex items-start gap-3 md:gap-4'>
                 <div className='flex-shrink-0'>

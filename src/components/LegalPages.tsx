@@ -777,8 +777,8 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
 
   return (
     <div className='fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4'>
-      <div className='bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden'>
-        <div className='flex items-center justify-between p-6 border-b border-gray-200'>
+      <div className='bg-white rounded-xl border-2 border-ink-dark shadow-[8px_8px_0_0_#1a1a1a] max-w-4xl w-full max-h-[90vh] overflow-hidden'>
+        <div className='flex items-center justify-between p-6 border-b-2 border-ink-dark'>
           <div className='flex items-center gap-3'>
             {page === 'privacy' && <Shield className='w-6 h-6 text-accent' />}
             {page === 'terms' && <FileText className='w-6 h-6 text-accent' />}
@@ -793,7 +793,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
           </div>
           <button
             onClick={onClose}
-            className='p-2 hover:bg-gray-100 rounded-lg transition-colors duration-200'
+            className='p-2 border-2 border-ink-dark rounded-lg shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
           >
             <X className='w-6 h-6 text-gray-500' />
           </button>

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import {
   Mail,
   Linkedin,
-  Github,
   MapPin,
   Phone,
   Instagram,
@@ -86,14 +85,6 @@ const Footer = () => {
                   className='bg-accent hover:bg-accent-hover p-3 rounded-lg border-2 border-white/80 shadow-[3px_3px_0_0_rgba(255,255,255,0.4)] hover:shadow-[1px_1px_0_0_rgba(255,255,255,0.4)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
                 >
                   <Linkedin className='w-5 h-5' />
-                </a>
-                <a
-                  href='https://github.com/danipereiradev'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='bg-accent hover:bg-accent-hover p-3 rounded-lg border-2 border-white/80 shadow-[3px_3px_0_0_rgba(255,255,255,0.4)] hover:shadow-[1px_1px_0_0_rgba(255,255,255,0.4)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
-                >
-                  <Github className='w-5 h-5' />
                 </a>
                 <a
                   href='https://www.instagram.com/danipereiraweb.es/'
@@ -267,12 +258,7 @@ const Footer = () => {
                   <MapPin className='w-5 h-5 text-accent flex-shrink-0' />
                   <div className='text-center md:text-left'>
                     <p className='font-medium'>Ubicación</p>
-                    <p>
-                      Torrejón de Ardoz, Madrid
-                      <span className='block text-sm'>
-                        Proyectos en toda España
-                      </span>
-                    </p>
+                    <p>Calle Condega 7 | Torrejón de Ardoz | 28850 | Madrid</p>
                   </div>
                 </li>
               </ul>

@@ -2,15 +2,6 @@ import { Star, Award, Calendar, Users } from 'lucide-react';
 import GlowBackdrop from './decor/GlowBackdrop';
 
 const Clients = () => {
-  const clients = [
-    { name: 'Inditex', sector: 'Moda y Retail' },
-    { name: 'Red Acoge', sector: 'ONG Social' },
-    { name: 'Xacobeo 21/22', sector: 'Turismo y Cultura' },
-    { name: 'Banco Santander Alemania', sector: 'Servicios Financieros' },
-    { name: 'Ferrovial', sector: 'Construcción y Servicios' },
-    { name: 'Acciona', sector: 'Energía e Infraestructuras' },
-  ];
-
   const stats = [
     {
       icon: <Users className='w-8 h-8' />,
@@ -51,30 +42,13 @@ const Clients = () => {
             Trayectoria
           </span>
           <h2 className='text-4xl md:text-5xl font-extrabold mb-4 text-center'>
-            Proyectos en los que Hemos Participado
+            Más de 12 años de experiencia en desarrollo web
           </h2>
           <p className='text-xl text-gray-300 max-w-3xl mx-auto text-center'>
-            Hemos colaborado en proyectos diversos, desde startups hasta
-            grandes corporaciones, aportando nuestra experiencia en
-            desarrollo web y soluciones digitales a través de varias
-            consultoras tecnológicas tanto nacionales como internacionales
+            Hemos trabajado en proyectos de distintos tamaños y sectores,
+            combinando dirección técnica senior con procesos claros y trato
+            directo en cada encargo.
           </p>
-        </div>
-
-        <div className='mb-20'>
-          <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-7xl mx-auto'>
-            {clients.map((client, index) => (
-              <div
-                key={index}
-                className='bg-ink-dark border-2 border-white/20 hover:border-accent rounded-lg p-4 lg:p-6 text-center min-h-[120px] lg:min-h-[140px] flex flex-col items-center justify-center shadow-[4px_4px_0_0_rgba(20,184,166,0.2)] hover:shadow-[2px_2px_0_0_rgba(20,184,166,0.5)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200'
-              >
-                <h3 className='text-base lg:text-lg font-bold text-white mb-2'>
-                  {client.name}
-                </h3>
-                <p className='text-gray-400 text-sm'>{client.sector}</p>
-              </div>
-            ))}
-          </div>
         </div>
 
         <div className='grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto'>

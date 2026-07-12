@@ -249,6 +249,7 @@ const DisenoWeb = () => {
         onCTAClick={openModal}
         secondaryCTAText='Llamar Ahora'
         secondaryCTAAction={callPhone}
+        secondaryCTAIcon='phone'
       />
 
       <SEOProblem

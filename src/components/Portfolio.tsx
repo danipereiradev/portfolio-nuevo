@@ -206,32 +206,6 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
           ))}
         </div>
 
-        {/*  <div className='mt-16 max-w-5xl mx-auto'>
-          <a
-            href='https://github.com/danipereiradev'
-            target='_blank'
-            rel='noopener noreferrer'
-            className='block bg-gray-900 text-white rounded-lg p-8 md:p-12 hover:bg-black transition-colors duration-200'
-          >
-            <div className='flex flex-col md:flex-row items-center justify-between gap-6'>
-              <div className='flex items-center gap-4'>
-                <Github className='w-10 h-10 md:w-12 md:h-12 flex-shrink-0' />
-                <div className='text-center md:text-left'>
-                  <h3 className='text-2xl md:text-3xl font-bold mb-2'>
-                    Explora nuestros repositorios
-                  </h3>
-                  <p className='text-white/80 text-base md:text-lg'>
-                    Proyectos desarrollados en React, Angular y JavaScript Vanilla
-                  </p>
-                </div>
-              </div>
-              <div className='flex items-center gap-2 border border-white/30 px-6 py-3 rounded-lg'>
-                <span className='font-semibold text-lg'>Ver en GitHub</span>
-              </div>
-            </div>
-          </a>
-        </div> */}
-
         {selectedProject !== null && (
           <div
             className='fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-0'

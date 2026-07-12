@@ -1,4 +1,4 @@
-import { Mail, MapPin, Clock, MessageCircle } from 'lucide-react';
+import { Mail, MapPin, Clock, MessageCircle, Check } from 'lucide-react';
 import {
   trackEmailClick,
   trackPhoneClick,
@@ -13,6 +13,8 @@ import {
 } from '../config/contact';
 import { usePageMeta } from '../hooks/usePageMeta';
 import ContactForm from '../components/ContactForm';
+import GlowBackdrop from '../components/decor/GlowBackdrop';
+import FloatingPanel from '../components/decor/FloatingPanel';
 
 const CONTACT_WHATSAPP_URL = buildWhatsAppUrl(CONTACT_PAGE_WHATSAPP_MESSAGE);
 
@@ -26,18 +28,25 @@ const Contacto = () => {
 
   return (
     <>
-      <section className='relative h-[75vh] flex items-center justify-center overflow-hidden pt-20'>
-        <div
-          className='absolute inset-0 bg-cover bg-center bg-no-repeat'
-          style={{
-            backgroundImage: 'url(/img/sobre-el-estudio.png)',
-          }}
-        >
-          <div className='absolute inset-0 bg-black/70'></div>
-        </div>
+      <section className='relative min-h-[80vh] flex items-center justify-center overflow-hidden pt-20 pb-16'>
+        <GlowBackdrop />
+
+        <FloatingPanel
+          variant='chat'
+          tilt={-7}
+          className='hidden lg:block absolute top-28 left-[6%] z-0'
+        />
+        <FloatingPanel
+          variant='contact'
+          tilt={7}
+          className='hidden lg:block absolute bottom-10 right-[6%] z-0'
+        />
 
         <div className='relative z-10 text-center max-w-4xl mx-auto px-6 py-4'>
-          <h1 className='text-3xl md:text-5xl lg:text-7xl font-bold text-white mb-4 leading-tight'>
+          <span className='inline-block bg-accent text-ink-dark text-xs md:text-sm font-bold uppercase tracking-wide px-4 py-1.5 border-2 border-white/80 rotate-[-2deg] mb-6 shadow-[4px_4px_0_0_rgba(255,255,255,0.3)]'>
+            Contacto
+          </span>
+          <h1 className='text-3xl md:text-5xl lg:text-7xl font-extrabold text-white mb-4 leading-tight'>
             Cuéntanos qué necesitas
           </h1>
           <p className='text-base md:text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto'>
@@ -51,6 +60,17 @@ const Contacto = () => {
 
       <section className='py-20 bg-white'>
         <div className='container mx-auto px-6'>
+          <div className='max-w-4xl mx-auto mb-16 md:mb-20'>
+            <div className='rounded-xl overflow-hidden border-2 border-ink-dark shadow-[7px_7px_0_0_#1a1a1a]'>
+              <img
+                src='/img/sobre-el-estudio.png'
+                alt='Espacio de trabajo del estudio PereiraWeb'
+                className='w-full h-56 md:h-72 object-cover'
+                loading='lazy'
+              />
+            </div>
+          </div>
+
           <div className='grid md:grid-cols-2 gap-12 max-w-6xl mx-auto mb-16'>
             <div>
               <h2 className='text-3xl font-bold text-gray-900 mb-6'>
@@ -64,7 +84,7 @@ const Contacto = () => {
 
               <div className='space-y-6'>
                 <div className='flex items-start gap-4'>
-                  <div className='w-12 h-12 bg-accent rounded-xl flex items-center justify-center flex-shrink-0'>
+                  <div className='w-12 h-12 bg-accent rounded-xl border-2 border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] flex items-center justify-center flex-shrink-0'>
                     <Mail className='w-6 h-6 text-white' />
                   </div>
                   <div>
@@ -80,7 +100,7 @@ const Contacto = () => {
                 </div>
 
                 <div className='flex items-start gap-4'>
-                  <div className='w-12 h-12 bg-accent rounded-xl flex items-center justify-center flex-shrink-0'>
+                  <div className='w-12 h-12 bg-accent rounded-xl border-2 border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] flex items-center justify-center flex-shrink-0'>
                     <MessageCircle className='w-6 h-6 text-white' />
                   </div>
                   <div>
@@ -111,7 +131,7 @@ const Contacto = () => {
                 </div>
 
                 <div className='flex items-start gap-4'>
-                  <div className='w-12 h-12 bg-accent rounded-xl flex items-center justify-center flex-shrink-0'>
+                  <div className='w-12 h-12 bg-accent rounded-xl border-2 border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] flex items-center justify-center flex-shrink-0'>
                     <MapPin className='w-6 h-6 text-white' />
                   </div>
                   <div>
@@ -127,7 +147,7 @@ const Contacto = () => {
                 </div>
 
                 <div className='flex items-start gap-4'>
-                  <div className='w-12 h-12 bg-accent rounded-xl flex items-center justify-center flex-shrink-0'>
+                  <div className='w-12 h-12 bg-accent rounded-xl border-2 border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] flex items-center justify-center flex-shrink-0'>
                     <Clock className='w-6 h-6 text-white' />
                   </div>
                   <div>
@@ -148,48 +168,38 @@ const Contacto = () => {
               </div>
             </div>
 
-            <div className='bg-gray-50 p-8 rounded-lg border border-gray-200'>
-              <h3 className='text-2xl font-bold text-gray-900 mb-4'>
+            <div className='bg-gray-50 p-8 rounded-xl border-2 border-ink-dark shadow-[6px_6px_0_0_#1a1a1a]'>
+              <h3 className='text-2xl font-bold text-gray-900 mb-6'>
                 ¿Por Qué Trabajar con el Estudio?
               </h3>
               <ul className='space-y-4'>
                 <li className='flex items-start gap-3'>
-                  <div className='w-6 h-6 bg-accent rounded-full flex items-center justify-center flex-shrink-0 mt-0.5'>
-                    <span className='text-white text-sm font-bold'>✓</span>
-                  </div>
-                  <p className='text-gray-600'>
+                  <Check className='w-5 h-5 text-accent flex-shrink-0 mt-0.5' />
+                  <p className='text-gray-700'>
                     +12 años de experiencia en desarrollo web
                   </p>
                 </li>
                 <li className='flex items-start gap-3'>
-                  <div className='w-6 h-6 bg-accent rounded-full flex items-center justify-center flex-shrink-0 mt-0.5'>
-                    <span className='text-white text-sm font-bold'>✓</span>
-                  </div>
-                  <p className='text-gray-600'>
+                  <Check className='w-5 h-5 text-accent flex-shrink-0 mt-0.5' />
+                  <p className='text-gray-700'>
                     Presupuesto cerrado antes de empezar, sin sorpresas
                   </p>
                 </li>
                 <li className='flex items-start gap-3'>
-                  <div className='w-6 h-6 bg-accent rounded-full flex items-center justify-center flex-shrink-0 mt-0.5'>
-                    <span className='text-white text-sm font-bold'>✓</span>
-                  </div>
-                  <p className='text-gray-600'>
+                  <Check className='w-5 h-5 text-accent flex-shrink-0 mt-0.5' />
+                  <p className='text-gray-700'>
                     Trato directo y comunicación clara durante todo el proyecto
                   </p>
                 </li>
                 <li className='flex items-start gap-3'>
-                  <div className='w-6 h-6 bg-accent rounded-full flex items-center justify-center flex-shrink-0 mt-0.5'>
-                    <span className='text-white text-sm font-bold'>✓</span>
-                  </div>
-                  <p className='text-gray-600'>
+                  <Check className='w-5 h-5 text-accent flex-shrink-0 mt-0.5' />
+                  <p className='text-gray-700'>
                     Soporte continuo y mantenimiento post-lanzamiento
                   </p>
                 </li>
                 <li className='flex items-start gap-3'>
-                  <div className='w-6 h-6 bg-accent rounded-full flex items-center justify-center flex-shrink-0 mt-0.5'>
-                    <span className='text-white text-sm font-bold'>✓</span>
-                  </div>
-                  <p className='text-gray-600'>
+                  <Check className='w-5 h-5 text-accent flex-shrink-0 mt-0.5' />
+                  <p className='text-gray-700'>
                     Opciones de pago flexible: único, fraccionado o mensual
                   </p>
                 </li>

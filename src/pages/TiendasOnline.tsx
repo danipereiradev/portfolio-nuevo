@@ -74,6 +74,7 @@ const TiendasOnline = () => {
         onCTAClick={openModal}
         secondaryCTAText='Llamar Ahora'
         secondaryCTAAction={callPhone}
+        secondaryCTAIcon='phone'
       />
 
       <ServiceScope

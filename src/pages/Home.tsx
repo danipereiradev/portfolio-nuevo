@@ -61,8 +61,8 @@ const Home = () => {
     <>
       <Hero />
       <TrustBar />
-      <Services />
       <Pricing />
+      <Services />
       <div id='proceso' className='scroll-mt-24'>
         <SEOProcess
           title='Un proceso claro desde el primer mensaje'

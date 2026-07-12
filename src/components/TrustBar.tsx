@@ -20,7 +20,7 @@ const trustPoints = [
 
 const TrustBar = () => {
   return (
-    <section className='relative bg-ink-dark py-10 md:py-12 overflow-hidden border-b-2 border-white/10'>
+    <section className='relative bg-black py-10 md:py-12 overflow-hidden border-b-2 border-white/10'>
       <div className='mx-auto w-full max-w-screen-2xl px-6'>
         <div className='flex flex-wrap justify-center gap-3 md:gap-4'>
           {trustPoints.map((point, index) => {

@@ -11,7 +11,7 @@ import GameErrorBoundary from './GameErrorBoundary';
  */
 const ThankYouPlaySection = () => {
   return (
-    <div className='mt-12 pt-10 border-t border-gray-200'>
+    <div className='mt-12 pt-10 border-t-2 border-ink-dark'>
       <div className='max-w-md mx-auto text-center mb-6'>
         <h2 className='text-lg md:text-xl font-bold text-gray-900 mb-2'>
           Te responderemos en un máximo de 2 horas

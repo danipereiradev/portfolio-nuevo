@@ -253,10 +253,10 @@ const WebAutonomosPymes = () => {
             </p>
           </div>
 
-          <div className='max-w-3xl mx-auto bg-white rounded-xl p-8 md:p-10 border-2 border-accent relative'>
-            <div className='absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-white px-6 py-1.5 rounded-full text-sm font-semibold'>
+          <div className='max-w-3xl mx-auto bg-white rounded-xl p-8 md:p-10 border-2 border-ink-dark shadow-[7px_7px_0_0_#1a1a1a] relative'>
+            <span className='absolute -top-4 left-8 bg-accent text-ink-dark border-2 border-ink-dark text-xs font-bold uppercase tracking-wide px-3 py-1 rotate-[-2deg]'>
               Web Profesional
-            </div>
+            </span>
 
             <p className='text-xs font-semibold text-accent uppercase tracking-wide mb-3 mt-4 text-center'>
               Ideal para: Autónomos, marcas personales y pequeños negocios
@@ -286,7 +286,7 @@ const WebAutonomosPymes = () => {
               ))}
             </ul>
 
-            <div className='border-t border-gray-100 pt-6'>
+            <div className='border-t-2 border-gray-100 pt-6'>
               <Button
                 onClick={handleQuoteRequest}
                 variant='primary'

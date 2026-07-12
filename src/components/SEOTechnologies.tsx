@@ -29,15 +29,13 @@ const SEOTechnologies = ({
           )}
         </div>
 
-        <div className='max-w-6xl mx-auto grid md:grid-cols-3 lg:grid-cols-4 gap-6'>
+        <div className='max-w-6xl mx-auto grid md:grid-cols-3 lg:grid-cols-4 gap-5'>
           {technologies.map((tech, index) => (
             <div
               key={index}
-              className='bg-gray-50 p-6 rounded-lg text-center border border-gray-200 hover:border-accent transition-colors duration-200'
+              className='bg-gray-50 p-6 rounded-lg text-center border-2 border-ink-dark hover:border-accent shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
             >
-              {tech.icon && (
-                <div className='text-4xl mb-3'>{tech.icon}</div>
-              )}
+              {tech.icon && <div className='text-4xl mb-3'>{tech.icon}</div>}
               <h3 className='text-lg font-bold text-gray-900 mb-2'>
                 {tech.name}
               </h3>

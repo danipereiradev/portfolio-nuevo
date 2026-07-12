@@ -23,14 +23,16 @@ const SEOProblem = ({ title, subtitle, problems }: SEOProblemProps) => {
           </p>
         </div>
 
-        <div className='max-w-4xl mx-auto grid md:grid-cols-2 gap-6'>
+        <div className='max-w-4xl mx-auto grid md:grid-cols-2 gap-5'>
           {problems.map((problem, index) => (
             <div
               key={index}
-              className='flex gap-4 p-4 md:p-6 bg-gray-50 rounded-lg border border-gray-200'
+              className='flex gap-4 p-4 md:p-6 bg-gray-50 rounded-lg border-2 border-ink-dark shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
             >
               <AlertCircle className='w-5 h-5 md:w-6 md:h-6 text-accent flex-shrink-0 mt-1' />
-              <p className='text-sm md:text-base text-gray-700 leading-relaxed'>{problem.text}</p>
+              <p className='text-sm md:text-base text-gray-700 leading-relaxed'>
+                {problem.text}
+              </p>
             </div>
           ))}
         </div>

@@ -9,6 +9,8 @@ import {
   ABOUT_PAGE_WHATSAPP_MESSAGE,
   buildWhatsAppUrl,
 } from '../config/contact';
+import GlowBackdrop from '../components/decor/GlowBackdrop';
+import FloatingPanel from '../components/decor/FloatingPanel';
 
 const WHATSAPP_URL = buildWhatsAppUrl(ABOUT_PAGE_WHATSAPP_MESSAGE);
 
@@ -22,18 +24,25 @@ const SobreElEstudio = () => {
 
   return (
     <>
-      <section className='relative h-[70vh] flex items-center justify-center overflow-hidden pt-20'>
-        <div
-          className='absolute inset-0 bg-cover bg-center bg-no-repeat'
-          style={{
-            backgroundImage: 'url(/img/sobre-el-estudio.png)',
-          }}
-        >
-          <div className='absolute inset-0 bg-black/70'></div>
-        </div>
+      <section className='relative min-h-[80vh] flex items-center justify-center overflow-hidden pt-20 pb-16'>
+        <GlowBackdrop />
+
+        <FloatingPanel
+          variant='profile'
+          tilt={-7}
+          className='hidden lg:block absolute top-28 left-[6%] z-0'
+        />
+        <FloatingPanel
+          variant='layout'
+          tilt={7}
+          className='hidden lg:block absolute bottom-10 right-[6%] z-0'
+        />
 
         <div className='relative z-10 text-center max-w-4xl mx-auto px-6 py-4'>
-          <h1 className='text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight'>
+          <span className='inline-block bg-accent text-ink-dark text-xs md:text-sm font-bold uppercase tracking-wide px-4 py-1.5 border-2 border-white/80 rotate-[-2deg] mb-6 shadow-[4px_4px_0_0_rgba(255,255,255,0.3)]'>
+            Sobre el estudio
+          </span>
+          <h1 className='text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight'>
             Detrás de PereiraWeb
           </h1>
           <p className='text-base md:text-xl lg:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto'>

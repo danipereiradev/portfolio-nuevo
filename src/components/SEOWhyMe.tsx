@@ -34,10 +34,12 @@ const SEOWhyMe = ({ title, subtitle, reasons }: SEOWhyMeProps) => {
             return (
               <div
                 key={index}
-                className='border border-white/15 p-6 md:p-8 rounded-lg hover:border-white/30 transition-colors duration-200 text-center'
+                className='bg-white/[0.03] border-2 border-white/20 hover:border-accent p-6 md:p-8 rounded-xl shadow-[5px_5px_0_0_rgba(20,184,166,0.2)] hover:shadow-[2px_2px_0_0_rgba(20,184,166,0.5)] hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-200'
               >
-                <Icon className='w-7 h-7 md:w-8 md:h-8 text-accent mb-4 md:mb-6 mx-auto' />
-                <h3 className='text-lg md:text-xl lg:text-2xl font-bold mb-3 md:mb-4'>{reason.title}</h3>
+                <Icon className='w-7 h-7 md:w-8 md:h-8 text-accent mb-4 md:mb-6' />
+                <h3 className='text-lg md:text-xl lg:text-2xl font-bold mb-3 md:mb-4'>
+                  {reason.title}
+                </h3>
                 <p className='text-sm md:text-base text-gray-300 leading-relaxed'>
                   {reason.description}
                 </p>

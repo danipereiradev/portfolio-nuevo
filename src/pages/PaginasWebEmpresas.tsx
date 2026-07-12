@@ -55,6 +55,7 @@ const PaginasWebEmpresas = () => {
         onCTAClick={openModal}
         secondaryCTAText='Llamar Ahora'
         secondaryCTAAction={callPhone}
+        secondaryCTAIcon='phone'
       />
 
       <ServiceScope

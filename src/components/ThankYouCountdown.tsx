@@ -43,7 +43,7 @@ const ThankYouCountdown = () => {
       <div
         role='timer'
         aria-label='Tiempo máximo de respuesta restante'
-        className='inline-flex items-baseline gap-1 font-mono text-3xl md:text-4xl font-bold tracking-widest text-gray-900 bg-white border-2 border-gray-200 rounded-xl px-5 py-3 shadow-sm'
+        className='inline-flex items-baseline gap-1 font-mono text-3xl md:text-4xl font-bold tracking-widest text-gray-900 bg-white border-2 border-ink-dark rounded-xl px-5 py-3 shadow-[3px_3px_0_0_#1a1a1a]'
       >
         {formatDuration(remainingMs)}
       </div>

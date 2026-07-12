@@ -51,8 +51,10 @@ const NotFound = () => {
   return (
     <section className='min-h-[70vh] flex items-center justify-center px-6 py-24 text-center content-container'>
       <div className='max-w-lg mx-auto'>
-        <p className='text-accent font-bold text-lg mb-2'>Error 404</p>
-        <h1 className='text-3xl md:text-5xl font-bold text-gray-900 mb-4'>
+        <span className='inline-block bg-accent text-ink-dark text-xs md:text-sm font-bold uppercase tracking-wide px-4 py-1.5 border-2 border-ink-dark rotate-[-2deg] mb-4 shadow-[3px_3px_0_0_#1a1a1a]'>
+          Error 404
+        </span>
+        <h1 className='text-3xl md:text-5xl font-extrabold text-gray-900 mb-4'>
           Esta página no existe
         </h1>
         <p className='text-gray-600 mb-8'>
