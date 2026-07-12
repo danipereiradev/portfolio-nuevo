@@ -53,7 +53,7 @@ Fecha: {{submission_date}}
 🚨 Urgencia: {{urgency}}
 
 ---
-Este email fue enviado desde el formulario de contacto de danipereiraweb.es
+Este email fue enviado desde el formulario de contacto de pereiraweb.es
 ```
 
 4. Guarda el template y copia el **Template ID**

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import pagesMeta from '../seo/pagesMeta.json';
 
-const SITE_URL = 'https://danipereiraweb.es';
+const SITE_URL = 'https://pereiraweb.es';
 
 type PagesMeta = Record<string, { title: string; description: string }>;
 
@@ -10,9 +10,7 @@ const setMetaByAttr = (
   key: string,
   content: string,
 ) => {
-  let tag = document.querySelector<HTMLMetaElement>(
-    `meta[${attr}="${key}"]`,
-  );
+  let tag = document.querySelector<HTMLMetaElement>(`meta[${attr}="${key}"]`);
   if (!tag) {
     tag = document.createElement('meta');
     tag.setAttribute(attr, key);
@@ -33,7 +31,8 @@ const setMetaByAttr = (
  */
 export const usePageMeta = (path: string) => {
   useEffect(() => {
-    const meta = (pagesMeta as PagesMeta)[path] ?? (pagesMeta as PagesMeta)['/'];
+    const meta =
+      (pagesMeta as PagesMeta)[path] ?? (pagesMeta as PagesMeta)['/'];
     const { title, description } = meta;
 
     document.title = title;

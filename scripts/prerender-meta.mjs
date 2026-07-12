@@ -21,7 +21,7 @@ const rootDir = path.resolve(__dirname, '..');
 const distDir = path.join(rootDir, 'dist');
 const distIndexPath = path.join(distDir, 'index.html');
 
-const SITE_URL = 'https://danipereiraweb.es';
+const SITE_URL = 'https://pereiraweb.es';
 
 if (!existsSync(distIndexPath)) {
   console.error(

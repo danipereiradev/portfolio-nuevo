@@ -615,7 +615,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                         <strong>Teléfono:</strong> {PHONE_DISPLAY}
                       </p>
                       <p>
-                        <strong>Sitio web:</strong> danipereiraweb.es
+                        <strong>Sitio web:</strong> pereiraweb.es
                       </p>
                       <p>
                         <strong>Actividad:</strong> Desarrollo y diseño web
@@ -631,7 +631,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                 </h2>
                 <p>
                   El presente aviso legal regula el uso del sitio web
-                  danipereiraweb.es (en adelante, "el sitio web"), del que es
+                  pereiraweb.es (en adelante, "el sitio web"), del que es
                   titular Daniel Pereira Gesteiro.
                 </p>
                 <p className='mt-4'>

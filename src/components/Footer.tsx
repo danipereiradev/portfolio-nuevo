@@ -87,7 +87,7 @@ const Footer = () => {
                   <Linkedin className='w-5 h-5' />
                 </a>
                 <a
-                  href='https://www.instagram.com/danipereiraweb.es/'
+                  href='https://www.instagram.com/pereiraweb.es/'
                   target='_blank'
                   rel='noopener noreferrer'
                   className='bg-accent hover:bg-accent-hover p-3 rounded-lg border-2 border-white/80 shadow-[3px_3px_0_0_rgba(255,255,255,0.4)] hover:shadow-[1px_1px_0_0_rgba(255,255,255,0.4)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
