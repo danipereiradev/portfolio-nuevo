@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ExternalLink, X, Loader2 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useSectionView } from '../hooks/useSectionView';
+import { useBodyScrollLock } from '../hooks/useBodyScrollLock';
 import { trackViewPortfolioSection } from '../utils/analytics';
 
 const Portfolio = () => {
@@ -9,6 +10,8 @@ const Portfolio = () => {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
   const [imageLoading, setImageLoading] = useState(true);
   const sectionRef = useSectionView<HTMLElement>(trackViewPortfolioSection);
+
+  useBodyScrollLock(selectedProject !== null);
 
   const projects = [
     {
@@ -205,7 +208,7 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
             onClick={closeModal}
           >
             <div
-              className='bg-white w-full md:w-[85vw] lg:w-[75vw] h-screen overflow-y-auto relative'
+              className='bg-white w-full md:w-[85vw] lg:w-[75vw] h-full overflow-y-auto overscroll-contain relative'
               onClick={(e) => e.stopPropagation()}
             >
               <button

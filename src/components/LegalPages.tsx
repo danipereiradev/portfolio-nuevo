@@ -1,6 +1,7 @@
 import React from 'react';
 import { X, FileText, Shield, Cookie, Scale } from 'lucide-react';
 import { PHONE_DISPLAY } from '../config/contact';
+import { useBodyScrollLock } from '../hooks/useBodyScrollLock';
 
 interface LegalPagesProps {
   isOpen: boolean;
@@ -9,6 +10,8 @@ interface LegalPagesProps {
 }
 
 const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
+  useBodyScrollLock(isOpen);
+
   if (!isOpen) return null;
 
   const getPageContent = () => {
@@ -799,7 +802,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
           </button>
         </div>
 
-        <div className='p-6 overflow-y-auto max-h-[calc(90vh-80px)]'>
+        <div className='p-6 overflow-y-auto overscroll-contain max-h-[calc(90vh-80px)]'>
           {getPageContent()}
         </div>
       </div>
