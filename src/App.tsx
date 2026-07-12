@@ -10,13 +10,8 @@ import BackToTopButton from './components/BackToTopButton';
 import MobileStickyCTA from './components/MobileStickyCTA';
 import ContactFormModal from './components/ContactFormModal';
 import Home from './pages/Home';
-import DisenoWeb from './pages/DisenoWeb';
-import PaginasWebEmpresas from './pages/PaginasWebEmpresas';
 import TiendasOnline from './pages/TiendasOnline';
-import AplicacionesWeb from './pages/AplicacionesWeb';
-import ServicioSEO from './pages/ServicioSEO';
 import MantenimientoWeb from './pages/MantenimientoWeb';
-import AuditoriaEcommerce from './pages/AuditoriaEcommerce';
 import WebAutonomosPymes from './pages/WebAutonomosPymes';
 import Contacto from './pages/Contacto';
 import SobreElEstudio from './pages/SobreElEstudio';
@@ -47,13 +42,8 @@ function AppContent() {
 
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/diseno-web' element={<DisenoWeb />} />
-        <Route path='/paginas-web-empresas' element={<PaginasWebEmpresas />} />
         <Route path='/tiendas-online' element={<TiendasOnline />} />
-        <Route path='/desarrollo-aplicaciones-web' element={<AplicacionesWeb />} />
-        <Route path='/posicionamiento-web-seo' element={<ServicioSEO />} />
         <Route path='/mantenimiento-web' element={<MantenimientoWeb />} />
-        <Route path='/auditoria-ecommerce' element={<AuditoriaEcommerce />} />
         <Route path='/web-autonomos-pymes' element={<WebAutonomosPymes />} />
         <Route path='/contacto' element={<Contacto />} />
         <Route path='/sobre-el-estudio' element={<SobreElEstudio />} />
@@ -81,6 +71,30 @@ function AppContent() {
           element={<Navigate to='/sobre-el-estudio' replace />}
         />
         <Route path='/contact' element={<Navigate to='/contacto' replace />} />
+
+        {/* Páginas de servicio eliminadas: solo quedan las 3 landings
+            principales (web-autonomos-pymes, tiendas-online,
+            mantenimiento-web). El resto redirige a la landing más afín. */}
+        <Route
+          path='/paginas-web-empresas'
+          element={<Navigate to='/web-autonomos-pymes' replace />}
+        />
+        <Route
+          path='/diseno-web'
+          element={<Navigate to='/web-autonomos-pymes' replace />}
+        />
+        <Route
+          path='/desarrollo-aplicaciones-web'
+          element={<Navigate to='/web-autonomos-pymes' replace />}
+        />
+        <Route
+          path='/posicionamiento-web-seo'
+          element={<Navigate to='/web-autonomos-pymes' replace />}
+        />
+        <Route
+          path='/auditoria-ecommerce'
+          element={<Navigate to='/tiendas-online' replace />}
+        />
 
         {/* Cualquier otra ruta no existente devuelve una 404 real */}
         <Route path='*' element={<NotFound />} />

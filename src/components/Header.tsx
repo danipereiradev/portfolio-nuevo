@@ -56,25 +56,13 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
 
   const services = [
     {
-      name: 'Diseño Web',
-      path: '/diseno-web',
-    },
-    {
-      name: 'Páginas Web Empresas',
-      path: '/paginas-web-empresas',
+      name: 'Web para Autónomos y Pymes',
+      path: '/web-autonomos-pymes',
     },
     {
       name: 'Tiendas Online',
       path: '/tiendas-online',
       popular: true,
-    },
-    {
-      name: 'Posicionamiento SEO',
-      path: '/posicionamiento-web-seo',
-    },
-    {
-      name: 'Auditoría Ecommerce',
-      path: '/auditoria-ecommerce',
     },
     {
       name: 'Mantenimiento Web',

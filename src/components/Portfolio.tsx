@@ -150,13 +150,6 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
 
   return (
     <section id='portfolio' ref={sectionRef} className='relative py-20 bg-white overflow-hidden'>
-      <span
-        aria-hidden='true'
-        className='pointer-events-none select-none absolute -top-6 left-0 text-[9rem] md:text-[13rem] font-extrabold text-gray-100 leading-none z-0'
-      >
-        03
-      </span>
-
       <div className='container mx-auto px-6 relative z-10'>
         <div className='text-center mb-16'>
           <h2 className='text-4xl md:text-5xl font-extrabold text-gray-900 mb-4'>

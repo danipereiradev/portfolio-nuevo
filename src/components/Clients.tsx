@@ -29,13 +29,6 @@ const Clients = () => {
     <section id='clients' className='py-20 text-white overflow-hidden relative'>
       <GlowBackdrop />
 
-      <span
-        aria-hidden='true'
-        className='pointer-events-none select-none absolute -top-6 right-0 text-[9rem] md:text-[13rem] font-extrabold text-white/5 leading-none z-0'
-      >
-        04
-      </span>
-
       <div className='container mx-auto px-6 relative z-10'>
         <div className='text-center mb-16'>
           <span className='inline-block bg-white/10 text-accent text-xs md:text-sm font-bold uppercase tracking-wide px-4 py-1.5 border-2 border-accent/60 rotate-[-1deg] mb-5'>

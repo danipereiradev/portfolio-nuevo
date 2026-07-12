@@ -124,18 +124,10 @@ const Footer = ({ minimal = false }: FooterProps = {}) => {
                   <ul className='space-y-3 text-gray-300'>
                     <li>
                       <a
-                        href='/diseno-web'
+                        href='/web-autonomos-pymes'
                         className='hover:text-white transition-colors duration-200'
                       >
-                        Diseño Web
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href='/paginas-web-empresas'
-                        className='hover:text-white transition-colors duration-200'
-                      >
-                        Páginas Web Empresas
+                        Web para Autónomos y Pymes
                       </a>
                     </li>
                     <li>
@@ -144,22 +136,6 @@ const Footer = ({ minimal = false }: FooterProps = {}) => {
                         className='hover:text-white transition-colors duration-200'
                       >
                         Tiendas Online
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href='/posicionamiento-web-seo'
-                        className='hover:text-white transition-colors duration-200'
-                      >
-                        Posicionamiento SEO
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href='/auditoria-ecommerce'
-                        className='hover:text-white transition-colors duration-200'
-                      >
-                        Auditoría Ecommerce
                       </a>
                     </li>
                     <li>

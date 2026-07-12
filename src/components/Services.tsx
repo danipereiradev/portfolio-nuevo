@@ -15,7 +15,7 @@ const Services = () => {
       graphic: <BrowserGraphic />,
       title: t('services.corporate.title'),
       description: t('services.corporate.desc'),
-      link: '/paginas-web-empresas',
+      link: '/web-autonomos-pymes',
     },
     {
       graphic: <CartGraphic />,
@@ -71,27 +71,6 @@ const Services = () => {
             </div>
           ))}
         </div>
-
-        <p className='text-center text-white/50 text-sm mt-10'>
-          ¿Buscas algo más específico?{' '}
-          <Link
-            to='/desarrollo-aplicaciones-web'
-            className='text-accent hover:underline'
-          >
-            Desarrollo a medida
-          </Link>
-          {' · '}
-          <Link to='/diseno-web' className='text-accent hover:underline'>
-            Diseño web
-          </Link>
-          {' · '}
-          <Link
-            to='/posicionamiento-web-seo'
-            className='text-accent hover:underline'
-          >
-            Posicionamiento SEO
-          </Link>
-        </p>
       </div>
     </section>
   );

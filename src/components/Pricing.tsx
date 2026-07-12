@@ -15,7 +15,7 @@ const Pricing = () => {
       idealFor: 'Autónomos, marcas personales y pequeños negocios',
       description:
         'Para empresas, autónomos y negocios que necesitan una web clara, responsive y profesional para presentar sus servicios y captar contactos.',
-      path: '/paginas-web-empresas',
+      path: '/web-autonomos-pymes',
       deliveryTime: '2-3 semanas',
       cta: 'Solicitar propuesta',
       features: [
@@ -86,13 +86,6 @@ const Pricing = () => {
       ref={sectionRef}
       className='relative py-20 bg-white overflow-hidden'
     >
-      <span
-        aria-hidden='true'
-        className='pointer-events-none select-none absolute -top-6 right-0 text-[9rem] md:text-[13rem] font-extrabold text-gray-100 leading-none z-0'
-      >
-        02
-      </span>
-
       <div className='mx-auto w-full max-w-screen-2xl px-6 relative z-10'>
         <div className='text-center mb-12 max-w-3xl mx-auto'>
           <h2 className='text-4xl md:text-5xl font-extrabold text-gray-900 mb-6'>

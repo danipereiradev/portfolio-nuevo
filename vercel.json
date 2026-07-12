@@ -29,17 +29,37 @@
       "source": "/contact",
       "destination": "/contacto",
       "permanent": true
+    },
+    {
+      "source": "/paginas-web-empresas",
+      "destination": "/web-autonomos-pymes",
+      "permanent": true
+    },
+    {
+      "source": "/diseno-web",
+      "destination": "/web-autonomos-pymes",
+      "permanent": true
+    },
+    {
+      "source": "/desarrollo-aplicaciones-web",
+      "destination": "/web-autonomos-pymes",
+      "permanent": true
+    },
+    {
+      "source": "/posicionamiento-web-seo",
+      "destination": "/web-autonomos-pymes",
+      "permanent": true
+    },
+    {
+      "source": "/auditoria-ecommerce",
+      "destination": "/tiendas-online",
+      "permanent": true
     }
   ],
   "rewrites": [
     { "source": "/web-autonomos-pymes", "destination": "/web-autonomos-pymes/index.html" },
-    { "source": "/paginas-web-empresas", "destination": "/paginas-web-empresas/index.html" },
     { "source": "/tiendas-online", "destination": "/tiendas-online/index.html" },
     { "source": "/mantenimiento-web", "destination": "/mantenimiento-web/index.html" },
-    { "source": "/desarrollo-aplicaciones-web", "destination": "/desarrollo-aplicaciones-web/index.html" },
-    { "source": "/diseno-web", "destination": "/diseno-web/index.html" },
-    { "source": "/posicionamiento-web-seo", "destination": "/posicionamiento-web-seo/index.html" },
-    { "source": "/auditoria-ecommerce", "destination": "/auditoria-ecommerce/index.html" },
     { "source": "/contacto", "destination": "/contacto/index.html" },
     { "source": "/sobre-el-estudio", "destination": "/sobre-el-estudio/index.html" },
     { "source": "/(.*)", "destination": "/index.html" }
