@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Briefcase,
   Building2,
@@ -303,7 +304,7 @@ const WebAutonomosPymes = () => {
             <div className='mt-6 text-center'>
               <button
                 onClick={() => handleWhatsApp('LandingAutonomosPrecio')}
-                className='inline-flex items-center gap-1.5 text-sm text-green-600 font-semibold hover:underline'
+                className='inline-flex items-center gap-1.5 text-sm text-accent font-semibold hover:underline'
               >
                 <MessageCircle className='w-4 h-4' />O escríbenos directo por
                 WhatsApp
@@ -321,6 +322,36 @@ const WebAutonomosPymes = () => {
           features={features}
         />
       </div>
+
+      {/* 5.1 También podemos ayudarte con (sección secundaria, no compite con el foco principal) */}
+      <section className='py-16 bg-white border-t-2 border-gray-100'>
+        <div className='content-container'>
+          <h3 className='text-xl md:text-2xl font-bold text-gray-900 text-center mb-8'>
+            También podemos ayudarte con
+          </h3>
+          <div className='grid sm:grid-cols-3 gap-4 max-w-4xl mx-auto'>
+            <Link
+              to='/tiendas-online'
+              className='block bg-gray-50 border-2 border-ink-dark rounded-xl p-5 text-center font-bold text-gray-900 shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
+            >
+              Tiendas online
+            </Link>
+            <Link
+              to='/mantenimiento-web'
+              className='block bg-gray-50 border-2 border-ink-dark rounded-xl p-5 text-center font-bold text-gray-900 shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
+            >
+              Mantenimiento web
+            </Link>
+            <button
+              type='button'
+              onClick={() => openModal('Página Web')}
+              className='block bg-gray-50 border-2 border-ink-dark rounded-xl p-5 text-center font-bold text-gray-900 shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
+            >
+              Mejoras o rediseños
+            </button>
+          </div>
+        </div>
+      </section>
 
       {/* 6. Portfolio o trabajos reales */}
       <div id='portfolio' className='scroll-mt-24'>

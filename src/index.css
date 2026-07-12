@@ -58,6 +58,19 @@ html {
   overflow-x: hidden;
 }
 
+/* Los headings usan Space Grotesk (geométrica, técnica) para reforzar
+   la identidad de estudio digital brutalista/maximalista, en contraste
+   con Inter en el texto de lectura. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  letter-spacing: -0.01em;
+}
+
 body {
   overflow-x: hidden;
 }

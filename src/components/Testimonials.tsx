@@ -138,10 +138,10 @@ const Testimonials = ({ id = 'testimonials' }: TestimonialsProps = {}) => {
   };
 
   return (
-    <section id={id} className='scroll-mt-24 py-20 bg-gray-50'>
+    <section id={id} className='scroll-mt-24 py-20 bg-white'>
       <div className='container mx-auto px-6'>
         <div className='text-center mb-16'>
-          <h2 className='text-4xl md:text-5xl font-bold text-gray-900 mb-4'>
+          <h2 className='text-4xl md:text-5xl font-extrabold text-gray-900 mb-4'>
             Lo que Dicen Nuestros Clientes
           </h2>
           <p className='text-xl text-gray-600 max-w-3xl mx-auto mb-6'>
@@ -197,7 +197,7 @@ const Testimonials = ({ id = 'testimonials' }: TestimonialsProps = {}) => {
             {getVisibleTestimonials().map((testimonial, index) => (
               <div
                 key={`${currentSlide}-${index}`}
-                className='bg-white rounded-lg p-6 border border-gray-200 flex flex-col'
+                className='bg-white rounded-lg p-6 border-2 border-ink-dark shadow-[5px_5px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-200 flex flex-col'
               >
                 {/* Stars */}
                 <div className='flex items-center gap-1 mb-4'>
@@ -213,14 +213,14 @@ const Testimonials = ({ id = 'testimonials' }: TestimonialsProps = {}) => {
                 </div>
 
                 {/* Main Text */}
-                <blockquote className='text-sm text-gray-700 leading-relaxed mb-4 flex-grow'>
+                <blockquote className='text-base text-gray-700 leading-relaxed mb-4 flex-grow'>
                   "{testimonial.text}"
                 </blockquote>
 
                 {/* Highlight Text */}
                 {testimonial.highlight && (
                   <div className='bg-gray-50 border-l-4 border-accent p-3 rounded-r-lg mb-4'>
-                    <p className='text-xs text-gray-800 font-medium italic'>
+                    <p className='text-sm text-gray-800 font-medium italic'>
                       "{testimonial.highlight}"
                     </p>
                   </div>
@@ -228,10 +228,10 @@ const Testimonials = ({ id = 'testimonials' }: TestimonialsProps = {}) => {
 
                 {/* Author Info */}
                 <div className='mt-auto'>
-                  <h4 className='font-bold text-gray-900 text-sm'>
+                  <h4 className='font-bold text-gray-900 text-base'>
                     {testimonial.name}
                   </h4>
-                  <p className='text-accent font-medium text-xs'>
+                  <p className='text-accent font-semibold text-sm'>
                     {testimonial.company}
                   </p>
                 </div>

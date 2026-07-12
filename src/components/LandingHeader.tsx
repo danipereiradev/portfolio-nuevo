@@ -32,7 +32,7 @@ const LandingHeader = () => {
   };
 
   return (
-    <header className='fixed w-full max-w-full top-0 z-50 bg-white border-b border-gray-200'>
+    <header className='fixed w-full max-w-full top-0 z-50 bg-white border-b-2 border-ink-dark'>
       <div className='mx-auto w-full max-w-screen-2xl px-6 py-4 flex items-center justify-between'>
         <Link to='/' className='flex items-center gap-1.5 flex-shrink-0'>
           <span
@@ -54,7 +54,7 @@ const LandingHeader = () => {
             <button
               key={link.id}
               onClick={() => scrollToSection(link.id)}
-              className='font-bold text-sm uppercase text-black transition-colors duration-200 hover:text-accent'
+              className='relative font-bold text-sm uppercase text-black transition-colors duration-200 hover:text-accent after:content-[""] after:absolute after:left-0 after:-bottom-1.5 after:h-[3px] after:w-0 after:bg-accent after:transition-all after:duration-200 hover:after:w-full'
             >
               {link.label}
             </button>
@@ -77,7 +77,7 @@ const LandingHeader = () => {
           {/* CTA destacado del header: visible con texto en escritorio */}
           <button
             onClick={handleWhatsApp}
-            className='hidden md:flex items-center gap-2 px-5 py-2.5 rounded-lg bg-green-500 hover:bg-green-600 transition-colors duration-200 text-white font-bold text-sm'
+            className='hidden md:flex items-center gap-2 px-5 py-2.5 rounded-lg bg-accent hover:bg-accent-hover border-2 border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150 text-white font-bold text-sm'
           >
             <MessageCircle className='w-4 h-4' />
             Escríbenos por WhatsApp
@@ -86,7 +86,7 @@ const LandingHeader = () => {
           {/* Versión compacta solo icono para móvil */}
           <button
             onClick={handleWhatsApp}
-            className='md:hidden p-2 rounded-lg bg-green-500 hover:bg-green-600 transition-colors duration-200'
+            className='md:hidden p-2 rounded-lg bg-accent hover:bg-accent-hover border-2 border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
             aria-label='Escríbenos por WhatsApp'
           >
             <MessageCircle className='w-5 h-5 text-white' />
@@ -95,7 +95,7 @@ const LandingHeader = () => {
       </div>
 
       {isMenuOpen && (
-        <nav className='md:hidden bg-white border-t border-gray-100 px-6 py-4 flex flex-col gap-1'>
+        <nav className='md:hidden bg-white border-t-2 border-ink-dark px-6 py-4 flex flex-col gap-1'>
           {navLinks.map((link) => (
             <button
               key={link.id}

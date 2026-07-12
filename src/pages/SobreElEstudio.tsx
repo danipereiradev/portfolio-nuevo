@@ -88,7 +88,7 @@ const SobreElEstudio = () => {
           <div className='flex justify-center mt-10'>
             <button
               onClick={handleWhatsAppClick}
-              className='inline-flex items-center gap-2 bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors duration-200 font-medium'
+              className='inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-lg border-2 border-ink-dark shadow-[4px_4px_0_0_#1a1a1a] hover:bg-accent-hover hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150 font-bold'
             >
               <MessageCircle className='w-5 h-5' />
               Cuéntanos tu proyecto

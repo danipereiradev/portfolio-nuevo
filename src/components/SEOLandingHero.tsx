@@ -4,6 +4,7 @@ interface SEOLandingHeroProps {
   title: string;
   subtitle: string;
   description: string;
+  trustLine?: string;
   ctaText: string;
   onCTAClick: () => void;
   secondaryCTAText?: string;
@@ -16,6 +17,7 @@ const SEOLandingHero = ({
   title,
   subtitle,
   description,
+  trustLine,
   ctaText,
   onCTAClick,
   secondaryCTAText,
@@ -42,15 +44,23 @@ const SEOLandingHero = ({
           {subtitle}
         </h2>
 
-        <p className='text-base md:text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed'>
+        <p
+          className={`text-base md:text-xl lg:text-2xl text-white/90 leading-relaxed ${trustLine ? 'mb-4' : 'mb-8'}`}
+        >
           {description}
         </p>
+
+        {trustLine && (
+          <p className='text-sm md:text-base text-accent mb-8 font-semibold'>
+            {trustLine}
+          </p>
+        )}
 
         <div className='flex flex-col sm:flex-row gap-4 justify-center items-stretch mb-12'>
           <Button
             onClick={onCTAClick}
             variant='primary'
-            className='sm:min-w-[240px]'
+            className='sm:min-w-[240px] !border-white !shadow-[5px_5px_0_0_rgba(255,255,255,0.35)] hover:!shadow-[2px_2px_0_0_rgba(255,255,255,0.35)]'
           >
             {ctaText}
           </Button>

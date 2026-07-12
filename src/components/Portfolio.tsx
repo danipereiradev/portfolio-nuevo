@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ExternalLink, X, Github, Loader2 } from 'lucide-react';
+import { ExternalLink, X, Loader2 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useSectionView } from '../hooks/useSectionView';
 import { trackViewPortfolioSection } from '../utils/analytics';
@@ -149,10 +149,17 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
   };
 
   return (
-    <section id='portfolio' ref={sectionRef} className='py-20 bg-white'>
-      <div className='container mx-auto px-6'>
+    <section id='portfolio' ref={sectionRef} className='relative py-20 bg-white overflow-hidden'>
+      <span
+        aria-hidden='true'
+        className='pointer-events-none select-none absolute -top-6 left-0 text-[9rem] md:text-[13rem] font-extrabold text-gray-100 leading-none z-0'
+      >
+        03
+      </span>
+
+      <div className='container mx-auto px-6 relative z-10'>
         <div className='text-center mb-16'>
-          <h2 className='text-4xl md:text-5xl font-bold text-gray-900 mb-4'>
+          <h2 className='text-4xl md:text-5xl font-extrabold text-gray-900 mb-4'>
             {t('portfolio.title')}
           </h2>
           <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
@@ -160,32 +167,46 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
           </p>
         </div>
 
-        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto'>
+        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto'>
           {projects.map((project, index) => (
             <div
               key={index}
               onClick={() => openModal(index)}
-              onMouseEnter={() => project.headerImage && preloadImage(project.headerImage)}
-              className='cursor-pointer group'
+              onMouseEnter={() =>
+                project.headerImage && preloadImage(project.headerImage)
+              }
+              className={`group cursor-pointer rounded-xl border-2 border-ink-dark bg-white overflow-hidden shadow-[6px_6px_0_0_#1a1a1a] hover:shadow-[3px_3px_0_0_#1a1a1a] hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-200 ${
+                index === 0 ? 'lg:col-span-2' : ''
+              }`}
             >
-              <div className='relative overflow-hidden rounded-lg mb-4'>
+              <div className='relative overflow-hidden bg-white border-b-2 border-ink-dark'>
                 <img
                   src={project.image}
                   alt={project.title}
-                  className='w-full h-auto object-contain'
+                  className='w-full h-56 md:h-64 object-contain p-6 transition-transform duration-300 group-hover:scale-[1.03]'
                   loading='lazy'
                 />
-                <div className='absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-200'></div>
+                <span className='absolute top-4 left-4 bg-accent text-ink-dark border-2 border-ink-dark text-xs font-bold px-3 py-1 rotate-[-1deg]'>
+                  {project.category}
+                </span>
               </div>
 
-              <h3 className='text-xl font-bold text-gray-900 text-center'>
-                {project.title}
-              </h3>
+              <div className='p-5 md:p-6'>
+                <h3 className='text-xl font-bold text-gray-900 mb-1.5'>
+                  {project.title}
+                </h3>
+                <p className='text-base text-gray-700 font-medium leading-relaxed line-clamp-2'>
+                  {project.description}
+                </p>
+                <span className='inline-block text-sm font-semibold text-accent mt-3 group-hover:underline'>
+                  Ver caso completo
+                </span>
+              </div>
             </div>
           ))}
         </div>
 
-        <div className='mt-16 max-w-5xl mx-auto'>
+        {/*  <div className='mt-16 max-w-5xl mx-auto'>
           <a
             href='https://github.com/danipereiradev'
             target='_blank'
@@ -209,7 +230,7 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
               </div>
             </div>
           </a>
-        </div>
+        </div> */}
 
         {selectedProject !== null && (
           <div
@@ -222,7 +243,7 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
             >
               <button
                 onClick={closeModal}
-                className='fixed top-4 right-4 md:top-8 md:right-8 bg-white border border-gray-200 rounded-full p-2 md:p-3 hover:bg-gray-100 transition-colors duration-200 z-20'
+                className='fixed top-4 right-4 md:top-8 md:right-8 bg-white border-2 border-ink-dark rounded-full p-2 md:p-3 shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150 z-20'
               >
                 <X className='w-5 h-5 md:w-6 md:h-6 text-gray-700' />
               </button>
@@ -245,15 +266,15 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
                     />
                   </div>
                 )}
-                
+
                 <div className='max-w-4xl mx-auto px-6 md:px-12 py-12 md:py-16'>
                   <h3 className='text-3xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6'>
                     {projects[selectedProject].title}
                   </h3>
-                  <p className='text-lg md:text-xl text-gray-600 mb-8 md:mb-12 leading-relaxed'>
+                  <p className='text-lg md:text-2xl text-gray-700 font-medium mb-8 md:mb-12 leading-relaxed'>
                     {projects[selectedProject].description}
                   </p>
-                  <div className='prose prose-base md:prose-lg max-w-none mb-8 md:mb-12'>
+                  <div className='prose prose-lg md:prose-xl max-w-none mb-8 md:mb-12'>
                     {projects[selectedProject].longDescription
                       .split('\n\n')
                       .map((paragraph, idx) => (
@@ -287,7 +308,7 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
                       href={projects[selectedProject].url}
                       target='_blank'
                       rel='noopener noreferrer'
-                      className='inline-flex items-center justify-center gap-2 md:gap-3 bg-accent text-white px-6 md:px-8 py-3 md:py-4 rounded-xl hover:bg-accent-hover transition-colors duration-200 text-base md:text-lg font-semibold w-full sm:w-auto'
+                      className='inline-flex items-center justify-center gap-2 md:gap-3 bg-accent text-white px-6 md:px-8 py-3 md:py-4 rounded-xl border-2 border-ink-dark shadow-[5px_5px_0_0_#1a1a1a] hover:bg-accent-hover hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-150 text-base md:text-lg font-bold w-full sm:w-auto'
                     >
                       <ExternalLink className='w-5 h-5 md:w-6 md:h-6' />
                       Visitar sitio web

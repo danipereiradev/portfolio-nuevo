@@ -31,7 +31,11 @@ const SEOFAQ = ({ title, faqs }: SEOFAQProps) => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className='bg-white rounded-lg border border-gray-200 overflow-hidden'
+              className={`bg-white rounded-lg border-2 overflow-hidden transition-all duration-200 ${
+                openIndex === index
+                  ? 'border-accent shadow-[4px_4px_0_0_#0d9488]'
+                  : 'border-ink-dark shadow-[4px_4px_0_0_#1a1a1a]'
+              }`}
             >
               <button
                 onClick={() => toggleFAQ(index)}
@@ -52,7 +56,7 @@ const SEOFAQ = ({ title, faqs }: SEOFAQProps) => {
                 }`}
               >
                 <div className='px-4 pb-4 md:px-6 md:pb-5'>
-                  <p className='text-xs md:text-sm lg:text-base text-gray-600 leading-relaxed'>{faq.answer}</p>
+                        <p className='text-sm md:text-base lg:text-lg text-gray-700 leading-relaxed'>{faq.answer}</p>
                 </div>
               </div>
             </div>

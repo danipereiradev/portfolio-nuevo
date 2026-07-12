@@ -308,8 +308,10 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                     type='text'
                     value={formData.name}
                     onChange={(e) => handleInputChange('name', e.target.value)}
-                    className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                      errors.name ? 'border-accent' : 'border-gray-300'
+                    className={`w-full pl-10 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_#14b8a6] transition-all duration-150 ${
+                      errors.name
+                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                        : 'border-ink-dark'
                     }`}
                     placeholder='Tu nombre completo'
                     maxLength={50}
@@ -328,8 +330,10 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                     type='email'
                     value={formData.email}
                     onChange={(e) => handleInputChange('email', e.target.value)}
-                    className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                      errors.email ? 'border-accent' : 'border-gray-300'
+                    className={`w-full pl-10 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_#14b8a6] transition-all duration-150 ${
+                      errors.email
+                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                        : 'border-ink-dark'
                     }`}
                     placeholder='tu@email.com'
                   />
@@ -347,8 +351,10 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                     type='tel'
                     value={formData.phone}
                     onChange={(e) => handleInputChange('phone', e.target.value)}
-                    className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                      errors.phone ? 'border-accent' : 'border-gray-300'
+                    className={`w-full pl-10 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_#14b8a6] transition-all duration-150 ${
+                      errors.phone
+                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                        : 'border-ink-dark'
                     }`}
                     placeholder='+34 600 000 000'
                   />
@@ -368,7 +374,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                     onChange={(e) =>
                       handleInputChange('company', e.target.value)
                     }
-                    className='w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent'
+                    className='w-full pl-10 pr-4 py-3 border-2 border-ink-dark rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_#14b8a6] transition-all duration-150'
                     placeholder='Tu empresa (opcional)'
                     maxLength={100}
                   />
@@ -393,12 +399,12 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                 <button
                   type='button'
                   onClick={() => handleInputChange('plan', 'Página Web')}
-                  className={`p-5 text-left border-2 rounded-xl transition-all duration-200 ${
+                  className={`p-5 text-left border-2 rounded-xl transition-all duration-150 ${
                     formData.plan === 'Página Web'
-                      ? 'border-accent bg-gray-50'
+                      ? 'border-accent bg-gray-50 shadow-[4px_4px_0_0_#14b8a6]'
                       : errors.plan
-                        ? 'border-accent'
-                        : 'border-gray-300 hover:border-gray-400'
+                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                        : 'border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px]'
                   }`}
                 >
                   <div className='flex items-start justify-between mb-2'>
@@ -415,12 +421,12 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                 <button
                   type='button'
                   onClick={() => handleInputChange('plan', 'Tienda Online')}
-                  className={`p-5 text-left border-2 rounded-xl transition-all duration-200 ${
+                  className={`p-5 text-left border-2 rounded-xl transition-all duration-150 ${
                     formData.plan === 'Tienda Online'
-                      ? 'border-accent bg-gray-50'
+                      ? 'border-accent bg-gray-50 shadow-[4px_4px_0_0_#14b8a6]'
                       : errors.plan
-                        ? 'border-accent'
-                        : 'border-gray-300 hover:border-gray-400'
+                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                        : 'border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px]'
                   }`}
                 >
                   <div className='flex items-start justify-between mb-2'>
@@ -439,12 +445,12 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                   onClick={() =>
                     handleInputChange('plan', 'Desarrollo a Medida')
                   }
-                  className={`p-5 text-left border-2 rounded-xl transition-all duration-200 ${
+                  className={`p-5 text-left border-2 rounded-xl transition-all duration-150 ${
                     formData.plan === 'Desarrollo a Medida'
-                      ? 'border-accent bg-gray-50'
+                      ? 'border-accent bg-gray-50 shadow-[4px_4px_0_0_#14b8a6]'
                       : errors.plan
-                        ? 'border-accent'
-                        : 'border-gray-300 hover:border-gray-400'
+                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                        : 'border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px]'
                   }`}
                 >
                   <div className='flex items-start justify-between mb-2'>
@@ -465,12 +471,12 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                   onClick={() =>
                     handleInputChange('plan', 'Auditoría Ecommerce')
                   }
-                  className={`p-5 text-left border-2 rounded-xl transition-all duration-200 ${
+                  className={`p-5 text-left border-2 rounded-xl transition-all duration-150 ${
                     formData.plan === 'Auditoría Ecommerce'
-                      ? 'border-accent bg-gray-50'
+                      ? 'border-accent bg-gray-50 shadow-[4px_4px_0_0_#14b8a6]'
                       : errors.plan
-                        ? 'border-accent'
-                        : 'border-gray-300 hover:border-gray-400'
+                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                        : 'border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px]'
                   }`}
                 >
                   <div className='flex items-start justify-between mb-2'>
@@ -489,12 +495,12 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                 <button
                   type='button'
                   onClick={() => handleInputChange('plan', 'Diseño Web')}
-                  className={`p-5 text-left border-2 rounded-xl transition-all duration-200 ${
+                  className={`p-5 text-left border-2 rounded-xl transition-all duration-150 ${
                     formData.plan === 'Diseño Web'
-                      ? 'border-accent bg-gray-50'
+                      ? 'border-accent bg-gray-50 shadow-[4px_4px_0_0_#14b8a6]'
                       : errors.plan
-                        ? 'border-accent'
-                        : 'border-gray-300 hover:border-gray-400'
+                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                        : 'border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px]'
                   }`}
                 >
                   <div className='flex items-start justify-between mb-2'>
@@ -513,12 +519,12 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                   onClick={() =>
                     handleInputChange('plan', 'Posicionamiento SEO')
                   }
-                  className={`p-5 text-left border-2 rounded-xl transition-all duration-200 ${
+                  className={`p-5 text-left border-2 rounded-xl transition-all duration-150 ${
                     formData.plan === 'Posicionamiento SEO'
-                      ? 'border-accent bg-gray-50'
+                      ? 'border-accent bg-gray-50 shadow-[4px_4px_0_0_#14b8a6]'
                       : errors.plan
-                        ? 'border-accent'
-                        : 'border-gray-300 hover:border-gray-400'
+                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                        : 'border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px]'
                   }`}
                 >
                   <div className='flex items-start justify-between mb-2'>
@@ -537,12 +543,12 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                 <button
                   type='button'
                   onClick={() => handleInputChange('plan', 'Mantenimiento Web')}
-                  className={`p-5 text-left border-2 rounded-xl transition-all duration-200 ${
+                  className={`p-5 text-left border-2 rounded-xl transition-all duration-150 ${
                     formData.plan === 'Mantenimiento Web'
-                      ? 'border-accent bg-gray-50'
+                      ? 'border-accent bg-gray-50 shadow-[4px_4px_0_0_#14b8a6]'
                       : errors.plan
-                        ? 'border-accent'
-                        : 'border-gray-300 hover:border-gray-400'
+                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                        : 'border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px]'
                   }`}
                 >
                   <div className='flex items-start justify-between mb-2'>
@@ -571,8 +577,10 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                   handleInputChange('description', e.target.value)
                 }
                 rows={4}
-                className={`w-full p-4 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                  errors.description ? 'border-accent' : 'border-gray-300'
+                className={`w-full p-4 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_#14b8a6] transition-all duration-150 ${
+                  errors.description
+                    ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                    : 'border-ink-dark'
                 }`}
                 placeholder='Describe tu proyecto, objetivos, funcionalidades específicas...'
                 maxLength={1000}
@@ -597,7 +605,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                   handleInputChange('inspiration', e.target.value)
                 }
                 rows={3}
-                className='w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent'
+                className='w-full p-4 border-2 border-ink-dark rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_#14b8a6] transition-all duration-150'
                 placeholder='Webs de referencia, estilos que te gusten, colores preferidos...'
                 maxLength={500}
               />
@@ -619,23 +627,36 @@ Fecha: ${new Date().toLocaleString('es-ES')}
               <label className='block text-sm font-medium text-gray-700 mb-3'>
                 ¿Cómo prefieres que te contacte? *
               </label>
-              <div className='space-y-3'>
+              <div className='grid grid-cols-2 sm:grid-cols-4 gap-3'>
                 {['Email', 'Teléfono', 'WhatsApp', 'Videollamada'].map(
-                  (method) => (
-                    <label key={method} className='flex items-center'>
-                      <input
-                        type='radio'
-                        name='preferredContact'
-                        value={method}
-                        checked={formData.preferredContact === method}
-                        onChange={(e) =>
-                          handleInputChange('preferredContact', e.target.value)
-                        }
-                        className='mr-3 text-accent'
-                      />
-                      {method}
-                    </label>
-                  ),
+                  (method) => {
+                    const isSelected = formData.preferredContact === method;
+                    return (
+                      <label
+                        key={method}
+                        className={`flex items-center justify-center text-center px-3 py-3 border-2 rounded-lg font-bold text-sm cursor-pointer transition-all duration-150 ${
+                          isSelected
+                            ? 'border-accent bg-gray-50 text-gray-900 shadow-[3px_3px_0_0_#14b8a6]'
+                            : 'border-ink-dark text-gray-700 shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px]'
+                        }`}
+                      >
+                        <input
+                          type='radio'
+                          name='preferredContact'
+                          value={method}
+                          checked={isSelected}
+                          onChange={(e) =>
+                            handleInputChange(
+                              'preferredContact',
+                              e.target.value,
+                            )
+                          }
+                          className='sr-only'
+                        />
+                        {method}
+                      </label>
+                    );
+                  },
                 )}
               </div>
               {errors.preferredContact && (
@@ -647,29 +668,39 @@ Fecha: ${new Date().toLocaleString('es-ES')}
               <label className='block text-sm font-medium text-gray-700 mb-3'>
                 Urgencia del Proyecto
               </label>
-              <div className='space-y-3'>
+              <div className='grid grid-cols-2 sm:grid-cols-4 gap-3'>
                 {['Muy urgente', 'Urgente', 'Normal', 'Sin prisa'].map(
-                  (urgency) => (
-                    <label key={urgency} className='flex items-center'>
-                      <input
-                        type='radio'
-                        name='urgency'
-                        value={urgency}
-                        checked={formData.urgency === urgency}
-                        onChange={(e) =>
-                          handleInputChange('urgency', e.target.value)
-                        }
-                        className='mr-3 text-accent'
-                      />
-                      {urgency}
-                    </label>
-                  ),
+                  (urgency) => {
+                    const isSelected = formData.urgency === urgency;
+                    return (
+                      <label
+                        key={urgency}
+                        className={`flex items-center justify-center text-center px-3 py-3 border-2 rounded-lg font-bold text-sm cursor-pointer transition-all duration-150 ${
+                          isSelected
+                            ? 'border-accent bg-gray-50 text-gray-900 shadow-[3px_3px_0_0_#14b8a6]'
+                            : 'border-ink-dark text-gray-700 shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px]'
+                        }`}
+                      >
+                        <input
+                          type='radio'
+                          name='urgency'
+                          value={urgency}
+                          checked={isSelected}
+                          onChange={(e) =>
+                            handleInputChange('urgency', e.target.value)
+                          }
+                          className='sr-only'
+                        />
+                        {urgency}
+                      </label>
+                    );
+                  },
                 )}
               </div>
             </div>
 
             {/* Verificación Anti-Spam */}
-            <div className='bg-yellow-50 p-4 rounded-lg border border-yellow-200'>
+            <div className='bg-yellow-50 p-4 rounded-lg border-2 border-ink-dark shadow-[4px_4px_0_0_#1a1a1a]'>
               <label className='block text-sm font-medium text-gray-700 mb-2 text-center md:text-left'>
                 Verificación de Seguridad *
               </label>
@@ -680,16 +711,18 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                 type='text'
                 value={antiSpamAnswer}
                 onChange={(e) => setAntiSpamAnswer(e.target.value)}
-                className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                  errors.antiSpam ? 'border-accent' : 'border-gray-300'
+                className={`w-full px-4 py-2 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_#14b8a6] transition-all duration-150 ${
+                  errors.antiSpam
+                    ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                    : 'border-ink-dark'
                 }`}
                 placeholder='Tu respuesta...'
                 required
               />
               {errors.antiSpam && <ErrorMessage error={errors.antiSpam} />}
             </div>
-            <div className='bg-gray-50 p-6 rounded-lg border border-gray-200'>
-              <h4 className='font-semibold text-gray-900 mb-2'>
+            <div className='bg-gray-50 p-6 rounded-lg border-2 border-ink-dark shadow-[4px_4px_0_0_#1a1a1a]'>
+              <h4 className='font-bold text-gray-900 mb-2'>
                 Resumen de tu Solicitud
               </h4>
               <div className='text-sm text-gray-800 space-y-1'>
@@ -721,7 +754,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
   const formContent = (
     <>
       <div className='text-center mb-12 md:mb-16'>
-        <h2 className='text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4'>
+        <h2 className='text-2xl md:text-3xl lg:text-4xl font-extrabold text-gray-900 mb-4'>
           Cuéntanos qué necesitas
         </h2>
         <p className='text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto'>
@@ -732,7 +765,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       </div>
 
       <div className='max-w-4xl mx-auto'>
-        <div className='bg-white rounded-lg border border-gray-200 overflow-hidden'>
+        <div className='bg-white rounded-lg border-2 border-ink-dark shadow-[7px_7px_0_0_#1a1a1a] overflow-hidden'>
           <div className='bg-gray-50 px-8 py-6'>
             <div className='flex items-center justify-between mb-2'>
               <span className='text-sm font-medium text-gray-600'>
@@ -742,9 +775,9 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                 {Math.round((currentStep / 3) * 100)}% completado
               </span>
             </div>
-            <div className='w-full bg-gray-200 rounded-full h-2'>
+            <div className='w-full bg-gray-200 rounded-full h-3 border-2 border-ink-dark overflow-hidden'>
               <div
-                className='bg-accent h-2 rounded-full transition-all duration-500'
+                className='bg-accent h-full rounded-full transition-all duration-500'
                 style={{ width: `${(currentStep / 3) * 100}%` }}
               ></div>
             </div>
@@ -790,7 +823,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             </div>
 
             {submitStatus === 'error' && (
-              <div className='mt-6 p-4 bg-gray-50 border border-gray-200 rounded-lg'>
+              <div className='mt-6 p-4 bg-gray-50 border-2 border-ink-dark rounded-lg shadow-[4px_4px_0_0_#1a1a1a]'>
                 <div className='flex items-center gap-2 text-gray-800'>
                   <AlertCircle className='w-5 h-5' />
                   <p className='font-medium'>Error al enviar la solicitud</p>
@@ -826,7 +859,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
               trackWhatsAppClick('ContactFormBottom');
               trackGoogleAdsWhatsAppConversion(bottomWhatsAppUrl);
             }}
-            className='flex items-center gap-2 text-green-600 hover:text-green-700 font-medium'
+            className='flex items-center gap-2 text-accent hover:text-accent-hover font-medium'
           >
             <Phone className='w-5 h-5' />
             WhatsApp
@@ -841,7 +874,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
   }
 
   return (
-    <section id='contact' className='py-20 bg-gray-50'>
+    <section id='contact' className='py-20 bg-white'>
       <div className='container mx-auto px-6'>{formContent}</div>
     </section>
   );

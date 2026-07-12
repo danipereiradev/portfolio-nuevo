@@ -80,7 +80,7 @@ const Contacto = () => {
                 </div>
 
                 <div className='flex items-start gap-4'>
-                  <div className='w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center flex-shrink-0'>
+                  <div className='w-12 h-12 bg-accent rounded-xl flex items-center justify-center flex-shrink-0'>
                     <MessageCircle className='w-6 h-6 text-white' />
                   </div>
                   <div>

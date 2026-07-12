@@ -1,4 +1,5 @@
 import { LucideIcon } from 'lucide-react';
+import GlowBackdrop from './decor/GlowBackdrop';
 
 interface Reason {
   icon: LucideIcon;
@@ -14,8 +15,10 @@ interface SEOWhyMeProps {
 
 const SEOWhyMe = ({ title, subtitle, reasons }: SEOWhyMeProps) => {
   return (
-    <section className='py-20 bg-gray-900 text-white'>
-      <div className='container mx-auto px-6'>
+    <section className='relative py-20 text-white overflow-hidden'>
+      <GlowBackdrop />
+
+      <div className='container mx-auto px-6 relative z-10'>
         <div className='text-center mb-12 md:mb-16'>
           <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold mb-4'>{title}</h2>
           {subtitle && (

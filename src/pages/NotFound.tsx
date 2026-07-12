@@ -66,7 +66,7 @@ const NotFound = () => {
           </Button>
           <Button to='/web-autonomos-pymes' variant='ghost'>
             <MessageCircle className='w-4 h-4' />
-            Ver planes y precios
+            Solicitar propuesta
           </Button>
         </div>
       </div>

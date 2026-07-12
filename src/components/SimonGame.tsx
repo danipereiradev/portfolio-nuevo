@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { RotateCcw, Trophy, Zap, Circle } from 'lucide-react';
 
 const SimonGame = () => {

@@ -29,31 +29,31 @@ const translations = {
   'hero.cta.portfolio': 'Ver trabajos',
 
   // Services
-  'services.title': 'Servicios Profesionales',
-  'services.subtitle': 'Diseñamos y desarrollamos soluciones web para negocios reales.',
+  'services.title':
+    'Servicios web para negocios que necesitan una presencia online profesional',
   'services.description':
-    'Soluciones web claras y a medida para empresas, autónomos y negocios de toda España.',
-  'services.corporate.title': 'Páginas web profesionales',
+    'Diseñamos, desarrollamos y mantenemos webs pensadas para transmitir confianza, explicar mejor lo que haces y facilitar que tus clientes contacten o compren.',
+  'services.corporate.title': 'Página web profesional',
   'services.corporate.desc':
-    'Diseñamos y desarrollamos webs corporativas, páginas de servicios y sitios profesionales para negocios que necesitan mejorar su presencia online y captar contactos.',
-  'services.ecommerce.title': 'Tiendas online',
+    'Webs claras, rápidas y responsive para empresas, autónomos y negocios que necesitan presentar sus servicios y captar contactos.',
+  'services.ecommerce.title': 'Tienda online',
   'services.ecommerce.desc':
-    'Creamos tiendas online y catálogos digitales para vender productos o servicios con una experiencia clara, cuidada y escalable.',
+    'Tiendas online y catálogos digitales para vender productos o servicios con una experiencia cuidada y fácil de gestionar.',
   'services.custom.title': 'Desarrollo web a medida',
   'services.custom.desc':
-    'Desarrollamos soluciones digitales adaptadas a necesidades concretas, desde funcionalidades específicas hasta herramientas internas o integraciones.',
+    'Desarrollamos paneles internos, integraciones y funcionalidades a medida cuando una plantilla ya no es suficiente para tu negocio.',
   'services.design.title': 'Diseño Web',
   'services.design.desc':
     'Diseñamos páginas web a medida, cuidando la identidad de marca y la experiencia de cada visitante.',
-  'services.maintenance.title': 'Mantenimiento y mejoras web',
+  'services.maintenance.title': 'Mantenimiento web',
   'services.maintenance.desc':
-    'Ofrecemos soporte, ajustes técnicos, cambios de contenido, optimización y acompañamiento mensual para webs ya publicadas.',
+    'Soporte, cambios, revisión técnica y mejoras para que tu web siga funcionando correctamente después de publicarla.',
   'services.seo.title': 'Posicionamiento SEO',
   'services.seo.desc':
     'Optimizamos el posicionamiento en Google para aumentar la visibilidad y atraer más clientes a tu negocio.',
 
   // Portfolio
-  'portfolio.title': 'Trabajos Reales',
+  'portfolio.title': 'Últimos trabajos en 2026',
   'portfolio.description':
     'Una selección de proyectos publicados: páginas web y tiendas online diseñadas y desarrolladas para negocios reales.',
   'portfolio.view': 'Ver Proyecto',

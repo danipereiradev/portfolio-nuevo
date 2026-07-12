@@ -1,4 +1,5 @@
 import Button from './Button';
+import GlowBackdrop from './decor/GlowBackdrop';
 
 interface SEOCTAFinalProps {
   title: string;
@@ -15,14 +16,7 @@ const SEOCTAFinal = ({
 }: SEOCTAFinalProps) => {
   return (
     <section className='relative py-20 overflow-hidden'>
-      <div
-        className='absolute inset-0 bg-cover bg-center bg-no-repeat'
-        style={{
-          backgroundImage: 'url(/img/cta-background.webp)',
-        }}
-      >
-        <div className='absolute inset-0 bg-black/75'></div>
-      </div>
+      <GlowBackdrop />
 
       <div className='container mx-auto px-6 relative z-10'>
         <div className='max-w-4xl mx-auto text-center'>
@@ -36,7 +30,7 @@ const SEOCTAFinal = ({
             <Button
               onClick={onButtonClick}
               variant='primary'
-              className='!bg-accent !text-white hover:!bg-accent-hover text-sm md:text-base'
+              className='!bg-accent !text-white !border-white hover:!bg-accent-hover text-sm md:text-base !shadow-[5px_5px_0_0_rgba(255,255,255,0.3)] hover:!shadow-[2px_2px_0_0_rgba(255,255,255,0.3)]'
             >
               {buttonText}
             </Button>

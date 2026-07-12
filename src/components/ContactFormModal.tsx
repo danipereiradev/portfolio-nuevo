@@ -27,12 +27,12 @@ const ContactFormModal = () => {
       <div className='absolute inset-0 bg-black/70 backdrop-blur-sm hidden md:block' />
 
       <div
-        className='relative bg-white md:rounded-lg w-full md:max-w-4xl h-full md:h-auto md:max-h-[90vh] overflow-y-auto'
+        className='relative bg-white md:rounded-lg md:border-2 md:border-ink-dark md:shadow-[8px_8px_0_0_#1a1a1a] w-full md:max-w-4xl h-full md:h-auto md:max-h-[90vh] overflow-y-auto'
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={closeModal}
-          className='sticky top-4 right-4 float-right z-10 p-2 bg-white border border-gray-200 rounded-full hover:bg-gray-100 transition-colors duration-200'
+          className='sticky top-4 right-4 float-right z-10 p-2 bg-white border-2 border-ink-dark rounded-full shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
           aria-label='Cerrar modal'
         >
           <X className='w-6 h-6 text-gray-700' />

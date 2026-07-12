@@ -44,10 +44,10 @@ const Footer = () => {
 
   return (
     <>
-      <footer className='bg-black text-white'>
+      <footer className='bg-black text-white border-t-4 border-accent'>
         <div className='container mx-auto px-6 py-16'>
-          <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
-            <div className='lg:col-span-1 text-center md:text-left'>
+          <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 lg:divide-x-2 lg:divide-white/10'>
+            <div className='lg:col-span-1 text-center md:text-left lg:pr-8'>
               <div className='flex items-center mb-6 justify-center md:justify-start'>
                 <span
                   className='text-sm md:text-base whitespace-nowrap font-extrabold flex items-center gap-1'
@@ -75,7 +75,7 @@ const Footer = () => {
                 <a
                   href='mailto:hola@pereiraweb.es'
                   onClick={() => trackEmailClick('FooterIcon')}
-                  className='bg-accent hover:bg-accent-hover p-3 rounded-lg transition-colors duration-200'
+                  className='bg-accent hover:bg-accent-hover p-3 rounded-lg border-2 border-white/80 shadow-[3px_3px_0_0_rgba(255,255,255,0.4)] hover:shadow-[1px_1px_0_0_rgba(255,255,255,0.4)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
                 >
                   <Mail className='w-5 h-5' />
                 </a>
@@ -83,7 +83,7 @@ const Footer = () => {
                   href='https://www.linkedin.com/in/dani-pereira-396618226/'
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='bg-accent hover:bg-accent-hover p-3 rounded-lg transition-colors duration-200'
+                  className='bg-accent hover:bg-accent-hover p-3 rounded-lg border-2 border-white/80 shadow-[3px_3px_0_0_rgba(255,255,255,0.4)] hover:shadow-[1px_1px_0_0_rgba(255,255,255,0.4)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
                 >
                   <Linkedin className='w-5 h-5' />
                 </a>
@@ -91,7 +91,7 @@ const Footer = () => {
                   href='https://github.com/danipereiradev'
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='bg-accent hover:bg-accent-hover p-3 rounded-lg transition-colors duration-200'
+                  className='bg-accent hover:bg-accent-hover p-3 rounded-lg border-2 border-white/80 shadow-[3px_3px_0_0_rgba(255,255,255,0.4)] hover:shadow-[1px_1px_0_0_rgba(255,255,255,0.4)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
                 >
                   <Github className='w-5 h-5' />
                 </a>
@@ -99,17 +99,18 @@ const Footer = () => {
                   href='https://www.instagram.com/danipereiraweb.es/'
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='bg-accent hover:bg-accent-hover p-3 rounded-lg transition-colors duration-200'
+                  className='bg-accent hover:bg-accent-hover p-3 rounded-lg border-2 border-white/80 shadow-[3px_3px_0_0_rgba(255,255,255,0.4)] hover:shadow-[1px_1px_0_0_rgba(255,255,255,0.4)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
                 >
                   <Instagram className='w-5 h-5' />
                 </a>
               </div>
             </div>
 
-            <div className='text-center md:text-left'>
-              <h3 className='text-xl md:text-2xl font-bold mb-6 text-accent'>
+            <div className='text-center md:text-left lg:px-8'>
+              <h3 className='text-xl md:text-2xl font-bold mb-1 text-accent'>
                 Servicios
               </h3>
+              <span className='block w-10 h-1 bg-accent mb-6 mx-auto md:mx-0' />
               <ul className='space-y-3 text-gray-300'>
                 <li>
                   <a
@@ -162,10 +163,11 @@ const Footer = () => {
               </ul>
             </div>
 
-            <div className='text-center md:text-left'>
-              <h3 className='text-xl md:text-2xl font-bold mb-6 text-accent'>
+            <div className='text-center md:text-left lg:px-8'>
+              <h3 className='text-xl md:text-2xl font-bold mb-1 text-accent'>
                 Estudio
               </h3>
+              <span className='block w-10 h-1 bg-accent mb-6 mx-auto md:mx-0' />
               <ul className='space-y-3 text-gray-300'>
                 <li>
                   <Link
@@ -210,10 +212,11 @@ const Footer = () => {
               </ul>
             </div>
 
-            <div className='text-center md:text-left'>
-              <h3 className='text-xl md:text-2xl font-bold mb-6 text-accent'>
+            <div className='text-center md:text-left lg:pl-8'>
+              <h3 className='text-xl md:text-2xl font-bold mb-1 text-accent'>
                 {t('footer.contact_title')}
               </h3>
+              <span className='block w-10 h-1 bg-accent mb-6 mx-auto md:mx-0' />
               <ul className='space-y-4 text-gray-300'>
                 <li className='flex flex-col items-center md:flex-row md:items-start gap-3 md:justify-start'>
                   <Mail className='w-5 h-5 text-accent flex-shrink-0' />
@@ -277,7 +280,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className='border-t border-gray-700'>
+        <div className='border-t-2 border-white/15'>
           <div className='container mx-auto px-6 py-6'>
             <div className='flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left'>
               <p className='text-gray-400 text-sm'>

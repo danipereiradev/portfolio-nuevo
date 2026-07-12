@@ -52,7 +52,7 @@ const DirButton = ({ label, onPress, children, className = '' }: DirButtonProps)
       e.preventDefault();
       onPress();
     }}
-    className={`touch-none flex items-center justify-center aspect-square bg-gray-100 hover:bg-gray-200 active:bg-accent/20 rounded-lg border border-gray-200 text-gray-600 transition-colors ${className}`}
+    className={`touch-none flex items-center justify-center aspect-square bg-gray-100 hover:bg-gray-200 active:bg-accent/20 rounded-lg border-2 border-black text-gray-700 transition-colors ${className}`}
   >
     {children}
   </button>
@@ -305,7 +305,7 @@ const SnakeGame = () => {
             <button
               type='button'
               onClick={resetGame}
-              className='font-mono text-xs sm:text-sm font-bold bg-accent text-white px-4 py-2 rounded-lg hover:bg-accent-hover transition-colors duration-200'
+              className='font-mono text-xs sm:text-sm font-bold bg-accent text-white px-4 py-2 rounded-lg border-2 border-black shadow-[3px_3px_0_0_#000] hover:bg-accent-hover hover:shadow-[1px_1px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
             >
               Jugar de nuevo
             </button>

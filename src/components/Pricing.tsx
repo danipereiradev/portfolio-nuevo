@@ -81,47 +81,68 @@ const Pricing = () => {
   ];
 
   return (
-    <section id='pricing' ref={sectionRef} className='py-20 bg-gray-50'>
-      <div className='mx-auto w-full max-w-screen-2xl px-6'>
+    <section
+      id='pricing'
+      ref={sectionRef}
+      className='relative py-20 bg-white overflow-hidden'
+    >
+      <span
+        aria-hidden='true'
+        className='pointer-events-none select-none absolute -top-6 right-0 text-[9rem] md:text-[13rem] font-extrabold text-gray-100 leading-none z-0'
+      >
+        02
+      </span>
+
+      <div className='mx-auto w-full max-w-screen-2xl px-6 relative z-10'>
         <div className='text-center mb-12 max-w-3xl mx-auto'>
-          <h2 className='text-4xl md:text-5xl font-bold text-gray-900 mb-6'>
+          <h2 className='text-4xl md:text-5xl font-extrabold text-gray-900 mb-6'>
             Presupuesto claro antes de empezar
           </h2>
-          <p className='text-lg text-gray-600 mb-3'>
+          <p className='text-lg md:text-xl text-gray-700 font-medium mb-3'>
             Cada proyecto tiene necesidades distintas. Por eso preparamos una
             propuesta personalizada según el alcance, funcionalidades,
             contenidos y objetivos de la web.
           </p>
-          <p className='text-sm text-gray-500'>
+          <p className='text-base text-gray-500'>
             Antes de empezar, recibirás una propuesta clara con qué incluye
             el proyecto, plazos, forma de trabajo y opciones de pago
             disponibles.
           </p>
         </div>
 
-        <div className='grid md:grid-cols-2 xl:grid-cols-3 gap-8'>
+        <div className='grid md:grid-cols-2 xl:grid-cols-3 gap-8 md:gap-10 pt-4'>
           {plans.map((plan) => (
             <div
               key={plan.id}
-              className={`bg-white rounded-xl p-8 border flex flex-col relative ${
-                plan.recommended ? 'border-accent' : 'border-gray-200'
+              className={`rounded-xl p-8 border-2 flex flex-col relative transition-all duration-200 hover:translate-x-[3px] hover:translate-y-[3px] ${
+                plan.recommended
+                  ? 'bg-ink-dark text-white border-accent shadow-[7px_7px_0_0_#0d9488] hover:shadow-[3px_3px_0_0_#0d9488]'
+                  : 'bg-white border-ink-dark shadow-[7px_7px_0_0_#1a1a1a] hover:shadow-[3px_3px_0_0_#1a1a1a]'
               }`}
             >
               {plan.recommended && (
-                <div className='absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-white px-6 py-1.5 rounded-full text-sm font-semibold'>
+                <div className='absolute -top-4 left-8 bg-accent text-ink-dark px-5 py-1.5 border-2 border-white text-sm font-bold rotate-[-2deg]'>
                   Más solicitado
                 </div>
               )}
 
               <div className='mb-6'>
-                <h3 className='text-2xl font-bold text-gray-900 mb-2'>
+                <h3
+                  className={`text-2xl font-bold mb-2 ${plan.recommended ? 'text-white' : 'text-gray-900'}`}
+                >
                   {plan.name}
                 </h3>
-                <p className='text-xs font-semibold text-accent uppercase tracking-wide mb-3'>
+                <p className='text-sm font-bold text-accent uppercase tracking-wide mb-3'>
                   Ideal para: {plan.idealFor}
                 </p>
-                <p className='text-gray-600 mb-4'>{plan.description}</p>
-                <span className='text-sm text-gray-500'>
+                <p
+                  className={`text-base mb-4 ${plan.recommended ? 'text-white/80' : 'text-gray-700'}`}
+                >
+                  {plan.description}
+                </p>
+                <span
+                  className={`text-sm font-medium ${plan.recommended ? 'text-white/50' : 'text-gray-500'}`}
+                >
                   Entrega: {plan.deliveryTime}
                 </span>
               </div>
@@ -130,7 +151,11 @@ const Pricing = () => {
                 {plan.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className='flex items-start gap-3'>
                     <Check className='w-5 h-5 text-accent flex-shrink-0 mt-0.5' />
-                    <span className='text-gray-700 text-sm'>{feature}</span>
+                    <span
+                      className={`text-base ${plan.recommended ? 'text-white/90' : 'text-gray-800'}`}
+                    >
+                      {feature}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -141,6 +166,11 @@ const Pricing = () => {
                   onClick={() => trackPricingCtaClick(plan.name, plan.cta)}
                   variant='primary'
                   fullWidth
+                  className={
+                    plan.recommended
+                      ? '!bg-accent !text-ink-dark'
+                      : '!bg-ink-dark !text-white hover:!bg-accent hover:!text-ink-dark'
+                  }
                 >
                   {plan.cta}
                 </Button>
@@ -149,30 +179,30 @@ const Pricing = () => {
           ))}
         </div>
 
-        <div className='mt-16 max-w-4xl mx-auto bg-white border border-gray-200 rounded-xl p-8 text-center'>
-          <Wallet className='w-6 h-6 text-accent mx-auto mb-4' />
-          <h3 className='text-2xl md:text-3xl font-bold text-gray-900 mb-4'>
-            Opciones de pago flexible
-          </h3>
-          <p className='text-gray-600 max-w-2xl mx-auto'>
-            Según el tipo de proyecto, podemos trabajar con pago único, pago
-            fraccionado o plan mensual. Todo queda definido en la propuesta
-            antes de empezar, para que tengas claro el alcance, los plazos y
-            las condiciones.
-          </p>
-        </div>
+        <div className='mt-16 grid md:grid-cols-2 gap-8 max-w-6xl mx-auto items-stretch'>
+          <div className='bg-white border-2 border-ink-dark rounded-xl p-8 text-center shadow-[6px_6px_0_0_#1a1a1a] flex flex-col'>
+            <Wallet className='w-6 h-6 text-accent mx-auto mb-4' />
+            <h3 className='text-2xl md:text-3xl font-bold text-gray-900 mb-4'>
+              Opciones de pago flexible
+            </h3>
+            <p className='text-lg text-gray-700 font-medium max-w-2xl mx-auto'>
+              Según el tipo de proyecto, podemos trabajar con pago único, pago
+              fraccionado o plan mensual. Todo queda definido en la propuesta
+              antes de empezar, para que tengas claro el alcance, los plazos y
+              las condiciones.
+            </p>
+          </div>
 
-        <div className='text-center mt-16'>
-          <div className='bg-white border border-gray-200 rounded-xl p-8 max-w-4xl mx-auto'>
-            <h3 className='text-2xl md:text-3xl font-bold text-black mb-4'>
+          <div className='bg-ink-dark border-2 border-ink-dark rounded-xl p-8 text-center shadow-[6px_6px_0_0_rgba(20,184,166,0.5)] flex flex-col'>
+            <h3 className='text-2xl md:text-3xl font-bold text-white mb-4'>
               ¿No sabes qué necesitas exactamente?
             </h3>
-            <p className='text-gray-700 mb-6'>
+            <p className='text-lg text-white/80 font-medium mb-6'>
               También preparamos propuestas para landing pages, páginas de
               presentación o webs más sencillas. Cuéntanos qué necesitas y
               te preparamos una propuesta ajustada a tu proyecto.
             </p>
-            <div className='flex flex-col sm:flex-row gap-4 justify-center'>
+            <div className='flex flex-col sm:flex-row gap-4 justify-center mt-auto'>
               <Button
                 onClick={() => {
                   trackPricingCtaClick(
@@ -181,8 +211,7 @@ const Pricing = () => {
                   );
                   openModal();
                 }}
-                variant='ghost'
-                className='!bg-black !text-white hover:!bg-accent hover:!text-white'
+                variant='primary'
               >
                 Solicitar propuesta
               </Button>

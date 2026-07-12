@@ -20,20 +20,18 @@ const trustPoints = [
 
 const TrustBar = () => {
   return (
-    <section className='bg-white py-8 md:py-10 border-b border-gray-100'>
+    <section className='relative bg-ink-dark py-10 md:py-12 overflow-hidden border-b-2 border-white/10'>
       <div className='mx-auto w-full max-w-screen-2xl px-6'>
-        <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4 md:gap-6'>
+        <div className='flex flex-wrap justify-center gap-3 md:gap-4'>
           {trustPoints.map((point, index) => {
             const Icon = point.icon;
             return (
               <div
                 key={index}
-                className='flex flex-col items-center text-center gap-2 px-2'
+                className='flex items-center gap-2.5 px-4 py-3 max-w-[220px] sm:max-w-none border-2 border-white/15 hover:border-accent rounded-lg bg-white/[0.04] shadow-[3px_3px_0_0_rgba(20,184,166,0.2)] hover:shadow-[3px_3px_0_0_rgba(20,184,166,0.55)] transition-all duration-200'
               >
-                <div className='w-10 h-10 md:w-12 md:h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent'>
-                  <Icon className='w-5 h-5 md:w-6 md:h-6' />
-                </div>
-                <p className='text-xs md:text-sm font-semibold text-gray-800 leading-snug'>
+                <Icon className='w-4 h-4 md:w-5 md:h-5 text-accent flex-shrink-0' />
+                <p className='text-xs md:text-sm font-bold text-white leading-snug sm:whitespace-nowrap'>
                   {point.text}
                 </p>
               </div>

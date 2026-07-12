@@ -8,6 +8,8 @@ import {
 } from '../utils/analytics';
 import { DEFAULT_WHATSAPP_MESSAGE, buildWhatsAppUrl } from '../config/contact';
 import Button from './Button';
+import GlowBackdrop from './decor/GlowBackdrop';
+import FloatingPanel from './decor/FloatingPanel';
 
 const WHATSAPP_URL = buildWhatsAppUrl(DEFAULT_WHATSAPP_MESSAGE);
 
@@ -37,19 +39,27 @@ const Hero = () => {
   return (
     <section
       id='hero'
-      className='relative min-h-[75vh] flex items-center justify-center overflow-hidden pt-20 pb-10'
+      className='relative min-h-[85vh] flex items-center justify-center overflow-hidden pt-20 pb-16'
     >
-      <div
-        className='absolute inset-0 bg-cover bg-center bg-no-repeat'
-        style={{
-          backgroundImage: 'url(/img/hero-home.webp)',
-        }}
-      >
-        <div className='absolute inset-0 bg-black/60'></div>
-      </div>
+      <GlowBackdrop />
 
-      <div className='relative z-10 text-center max-w-4xl mx-auto px-6 py-12'>
-        <h1 className='text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight'>
+      <FloatingPanel
+        variant='code'
+        tilt={-8}
+        className='hidden lg:block absolute top-28 left-[6%] z-0'
+      />
+      <FloatingPanel
+        variant='layout'
+        tilt={7}
+        className='hidden lg:block absolute bottom-16 right-[6%] z-0'
+      />
+
+      <div className='relative z-10 text-center max-w-4xl mx-auto px-6 py-12 animate-fade-in'>
+        <span className='inline-block bg-accent text-ink-dark text-xs md:text-sm font-bold uppercase tracking-wide px-4 py-1.5 border-2 border-white/80 rotate-[-2deg] mb-6 shadow-[4px_4px_0_0_rgba(255,255,255,0.3)]'>
+          Estudio web · Madrid
+        </span>
+
+        <h1 className='text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-5 leading-[1.05] tracking-tight'>
           {t('hero.title')}
         </h1>
 
@@ -57,7 +67,7 @@ const Hero = () => {
           {t('hero.subtitle')}
         </p>
 
-        <p className='text-sm md:text-base text-white/70 mb-8 font-medium'>
+        <p className='text-sm md:text-base text-accent mb-8 font-semibold'>
           {t('hero.trustline')}
         </p>
 
@@ -73,7 +83,7 @@ const Hero = () => {
           <Button
             onClick={handleWhatsAppClick}
             variant='primary'
-            className='sm:min-w-[220px] !bg-green-500 hover:!bg-green-600'
+            className='sm:min-w-[220px] !shadow-[5px_5px_0_0_#0d9488] hover:!shadow-[2px_2px_0_0_#0d9488]'
           >
             <MessageCircle className='w-4 h-4 md:w-5 md:h-5' />
             {t('hero.cta.whatsapp')}
@@ -82,7 +92,7 @@ const Hero = () => {
           <Button
             onClick={handleViewPortfolio}
             variant='ghost'
-            className='sm:min-w-[180px] !bg-transparent !text-white border border-white/40 hover:!bg-white/10'
+            className='sm:min-w-[180px] !bg-transparent !text-white !border-white/50 !shadow-[5px_5px_0_0_rgba(255,255,255,0.3)] hover:!bg-white/10 hover:!shadow-[2px_2px_0_0_rgba(255,255,255,0.3)]'
           >
             {t('hero.cta.portfolio')}
           </Button>
