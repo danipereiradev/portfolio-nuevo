@@ -32,12 +32,20 @@ export const buildWhatsAppUrl = (
   message: string = DEFAULT_WHATSAPP_MESSAGE,
 ) => `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`;
 
+// Quita la barra final de una ruta (salvo si es la raíz "/"), para que las
+// comparaciones exactas de pathname no fallen si la URL llega con "/" al
+// final (p. ej. "/web-autonomos-pymes/" servida directamente como carpeta
+// por el hosting, o enlazada así desde fuera).
+const normalizePath = (pathname: string): string =>
+  pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
+
 // Devuelve el mensaje de WhatsApp más adecuado según la ruta actual, para
 // que el botón flotante / sticky de móvil hable del servicio concreto que
 // el visitante está mirando en cada página.
 export const getWhatsAppMessageForPath = (pathname: string): string => {
-  if (pathname === '/web-autonomos-pymes') return ADS_WHATSAPP_MESSAGE;
-  if (pathname === '/tiendas-online') return ECOMMERCE_WHATSAPP_MESSAGE;
-  if (pathname === '/mantenimiento-web') return MAINTENANCE_WHATSAPP_MESSAGE;
+  const path = normalizePath(pathname);
+  if (path === '/web-autonomos-pymes') return ADS_WHATSAPP_MESSAGE;
+  if (path === '/tiendas-online') return ECOMMERCE_WHATSAPP_MESSAGE;
+  if (path === '/mantenimiento-web') return MAINTENANCE_WHATSAPP_MESSAGE;
   return DEFAULT_WHATSAPP_MESSAGE;
 };

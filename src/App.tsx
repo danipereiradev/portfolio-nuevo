@@ -25,9 +25,17 @@ import NotFound from './pages/NotFound';
 
 const MINIMAL_NAV_ROUTES = ['/web-autonomos-pymes'];
 
+// Quita la barra final (salvo en la raíz "/"), para que la detección de la
+// landing de Ads no falle si la URL llega con "/" al final (p. ej.
+// "/web-autonomos-pymes/" servida directamente como carpeta por el hosting).
+const normalizePathname = (pathname: string): string =>
+  pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
+
 function AppContent() {
   const location = useLocation();
-  const isAdsLanding = MINIMAL_NAV_ROUTES.includes(location.pathname);
+  const isAdsLanding = MINIMAL_NAV_ROUTES.includes(
+    normalizePathname(location.pathname),
+  );
 
   useEffect(() => {
     window.scrollTo(0, 0);
