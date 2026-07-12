@@ -181,9 +181,9 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
             >
               <div className='relative overflow-hidden bg-white border-b-2 border-ink-dark'>
                 <img
-                  src={project.image}
+                  src={project.headerImage}
                   alt={project.title}
-                  className='w-full h-56 md:h-64 object-contain p-6 transition-transform duration-300 group-hover:scale-[1.03]'
+                  className='w-full aspect-[4/3] object-cover transition-transform duration-300 group-hover:scale-[1.03]'
                   loading='lazy'
                 />
                 <span className='absolute top-4 left-4 bg-accent text-ink-dark border-2 border-ink-dark text-xs font-bold px-3 py-1 rotate-[-1deg]'>
