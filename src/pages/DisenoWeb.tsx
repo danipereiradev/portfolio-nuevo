@@ -22,6 +22,7 @@ import SEOWhyMe from '../components/SEOWhyMe';
 import SEOFAQ from '../components/SEOFAQ';
 import SEOCTAFinal from '../components/SEOCTAFinal';
 import Testimonials from '../components/Testimonials';
+import { disenoWebTestimonials } from '../data/testimonialsByService';
 import ContactForm from '../components/ContactForm';
 import Portfolio from '../components/Portfolio';
 
@@ -276,7 +277,7 @@ const DisenoWeb = () => {
         steps={process}
       />
 
-      <Testimonials />
+      <Testimonials testimonials={disenoWebTestimonials} />
 
       <SEOWhyMe
         title='Por Qué Trabajar con Nosotros'

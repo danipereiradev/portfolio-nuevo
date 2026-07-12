@@ -1,16 +1,24 @@
 import { useState } from 'react';
 import { Star } from 'lucide-react';
 
-interface TestimonialsProps {
-  id?: string;
+export interface Testimonial {
+  name: string;
+  company: string;
+  website?: string;
+  date: string;
+  text: string;
+  highlight?: string;
+  rating: number;
+  avatar: string;
 }
 
-const Testimonials = ({ id = 'testimonials' }: TestimonialsProps = {}) => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [touchStart, setTouchStart] = useState(0);
-  const [touchEnd, setTouchEnd] = useState(0);
+interface TestimonialsProps {
+  id?: string;
+  testimonials?: Testimonial[];
+  averageRating?: number;
+}
 
-  const testimonials = [
+export const realTestimonials: Testimonial[] = [
     {
       name: 'Arantxa',
       company: 'Mobile One2One, S.L.',
@@ -99,7 +107,24 @@ const Testimonials = ({ id = 'testimonials' }: TestimonialsProps = {}) => {
       rating: 5,
       avatar: 'CR',
     },
-  ];
+];
+
+const computeAverage = (items: Testimonial[]) =>
+  items.reduce((sum, item) => sum + item.rating, 0) / items.length;
+
+const Testimonials = ({
+  id = 'testimonials',
+  testimonials = realTestimonials,
+  averageRating,
+}: TestimonialsProps = {}) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+
+  const rating = averageRating ?? computeAverage(testimonials);
+  const fullStars = Math.floor(rating);
+  const partialFill = Math.round((rating - fullStars) * 100);
+  const emptyStars = Math.max(0, 5 - fullStars - (partialFill > 0 ? 1 : 0));
 
   const itemsPerSlide = 3;
   const totalSlides = Math.ceil(testimonials.length / itemsPerSlide);
@@ -165,23 +190,30 @@ const Testimonials = ({ id = 'testimonials' }: TestimonialsProps = {}) => {
               <path fill='#4285F4' d='M35.29 41.41V32h31.77c.31 1.64.47 3.58.47 5.68 0 7.06-1.93 15.79-8.15 22.01-6.05 6.3-13.78 9.66-24.02 9.66C16.32 69.35.36 53.89.36 34.79.36 15.69 16.32.23 35.37.23c10.5 0 17.98 4.12 23.6 9.49l-6.64 6.64c-4.03-3.78-9.49-6.72-16.97-6.72-13.86 0-24.7 11.17-24.7 25.03 0 13.86 10.84 25.03 24.7 25.03 8.99 0 14.11-3.61 17.39-6.89 2.66-2.66 4.41-6.46 5.1-11.67l-22.56.07z'/>
             </svg>
             <div className='flex items-center gap-1'>
-              {[...Array(4)].map((_, i) => (
+              {[...Array(fullStars)].map((_, i) => (
                 <Star
                   key={i}
                   className='w-6 h-6 fill-yellow-400 text-yellow-400'
                 />
               ))}
-              <div className='relative'>
-                <Star className='w-6 h-6 fill-yellow-200 text-yellow-200' />
-                <div
-                  className='absolute inset-0 overflow-hidden'
-                  style={{ width: '80%' }}
-                >
-                  <Star className='w-6 h-6 fill-yellow-400 text-yellow-400' />
+              {partialFill > 0 && (
+                <div className='relative'>
+                  <Star className='w-6 h-6 fill-yellow-200 text-yellow-200' />
+                  <div
+                    className='absolute inset-0 overflow-hidden'
+                    style={{ width: `${partialFill}%` }}
+                  >
+                    <Star className='w-6 h-6 fill-yellow-400 text-yellow-400' />
+                  </div>
                 </div>
-              </div>
+              )}
+              {[...Array(emptyStars)].map((_, i) => (
+                <Star key={`empty-${i}`} className='w-6 h-6 fill-yellow-200 text-yellow-200' />
+              ))}
             </div>
-            <span className='text-2xl font-bold text-gray-900'>4.8</span>
+            <span className='text-2xl font-bold text-gray-900'>
+              {rating.toFixed(1)}
+            </span>
             <span className='text-gray-500'>/ 5</span>
           </div>
         </div>

@@ -38,6 +38,7 @@ import SEOCTAFinal from '../components/SEOCTAFinal';
 import AuditoriaPlans from '../components/AuditoriaPlans';
 import ContactForm from '../components/ContactForm';
 import Testimonials from '../components/Testimonials';
+import { auditoriaEcommerceTestimonials } from '../data/testimonialsByService';
 
 const AuditoriaEcommerce = () => {
   const { openModal } = useContactModal();
@@ -377,7 +378,7 @@ const AuditoriaEcommerce = () => {
 
       <SEOProcess title='Cómo funciona' steps={processSteps} />
 
-      <Testimonials />
+      <Testimonials testimonials={auditoriaEcommerceTestimonials} />
 
       <section className='py-20 bg-gray-50'>
         <div className='container mx-auto px-6'>

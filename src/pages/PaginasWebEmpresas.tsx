@@ -9,6 +9,7 @@ import SEOFAQ from '../components/SEOFAQ';
 import SEOCTAFinal from '../components/SEOCTAFinal';
 import ContactForm from '../components/ContactForm';
 import Testimonials from '../components/Testimonials';
+import { paginasWebEmpresasTestimonials } from '../data/testimonialsByService';
 import Portfolio from '../components/Portfolio';
 import { defaultServiceProcess } from '../data/serviceProcess';
 import { servicesFaqs } from '../data/servicesFaqs';
@@ -68,7 +69,7 @@ const PaginasWebEmpresas = () => {
 
       <SEOProcess title='Cómo trabajamos' steps={defaultServiceProcess} />
 
-      <Testimonials />
+      <Testimonials testimonials={paginasWebEmpresasTestimonials} />
 
       <SEOFAQ
         title='Preguntas frecuentes sobre páginas web profesionales'
