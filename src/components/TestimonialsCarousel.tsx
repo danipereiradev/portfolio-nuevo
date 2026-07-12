@@ -197,7 +197,7 @@ const TestimonialsCarousel = ({
                   </div>
                 </div>
               </div>
-              <span className='text-2xl font-bold text-gray-900'>4.8</span>
+              <span className='text-2xl font-bold text-gray-900'>4.6</span>
               <span className='text-gray-500'>/ 5</span>
             </div>
           )}
