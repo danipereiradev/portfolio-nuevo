@@ -86,7 +86,7 @@ function AppContent() {
         <Route path='*' element={<NotFound />} />
       </Routes>
 
-      <Footer />
+      <Footer minimal={isAdsLanding} />
 
       <WhatsAppButton />
 
