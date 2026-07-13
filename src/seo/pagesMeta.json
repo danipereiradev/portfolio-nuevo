@@ -7,6 +7,10 @@
     "title": "Páginas Web Profesionales para Empresas | PereiraWeb",
     "description": "Diseñamos páginas web profesionales para empresas, autónomos y negocios. Estudio web en Madrid, proyectos en toda España y presupuesto cerrado."
   },
+  "/paginas-web-empresas": {
+    "title": "Páginas Web para Empresas | PereiraWeb",
+    "description": "Diseñamos y desarrollamos páginas web para empresas que necesitan transmitir confianza, explicar sus servicios y generar contactos. Presupuesto cerrado antes de empezar."
+  },
   "/tiendas-online": {
     "title": "Tiendas Online Profesionales | PereiraWeb",
     "description": "Creamos tiendas online y catálogos digitales para negocios que necesitan vender productos o servicios online con una experiencia clara y cuidada."
@@ -14,6 +18,22 @@
   "/mantenimiento-web": {
     "title": "Mantenimiento Web Profesional | PereiraWeb",
     "description": "Servicio de mantenimiento web para empresas y negocios. Soporte, mejoras técnicas, cambios de contenido y acompañamiento mensual."
+  },
+  "/desarrollo-aplicaciones-web": {
+    "title": "Desarrollo Web a Medida | PereiraWeb",
+    "description": "Desarrollamos paneles internos, dashboards y herramientas web a medida para empresas con necesidades técnicas específicas."
+  },
+  "/diseno-web": {
+    "title": "Diseño Web Profesional | PereiraWeb",
+    "description": "Diseñamos y desarrollamos páginas web profesionales, modernas y optimizadas para convertir visitantes en clientes. Presupuesto cerrado antes de empezar."
+  },
+  "/posicionamiento-web-seo": {
+    "title": "Posicionamiento SEO | Optimización Web para Google | PereiraWeb",
+    "description": "Servicios de posicionamiento SEO en España. Mejoramos tu ranking en Google, aumentamos el tráfico orgánico y ayudamos a conseguir más clientes."
+  },
+  "/auditoria-ecommerce": {
+    "title": "Auditoría Ecommerce antes de invertir en publicidad | PereiraWeb",
+    "description": "Revisamos tiendas online para detectar problemas de confianza, móvil, producto, carrito y checkout antes de invertir más en Google Ads o Meta Ads."
   },
   "/contacto": {
     "title": "Contacto | PereiraWeb",

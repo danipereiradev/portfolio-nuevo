@@ -133,33 +133,10 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
                             </div>
                           </a>
                         ))}
-                        <div className='border-t-2 border-ink-dark mt-2 pt-2'>
-                          <a
-                            href='/#pricing'
-                            onClick={() => setIsServicesOpen(false)}
-                            className='block w-full text-left px-4 py-2 text-gray-600 hover:bg-accent hover:text-white text-sm font-bold transition-colors'
-                          >
-                            Ver todos los servicios →
-                          </a>
-                        </div>
                       </div>
                     </div>
                   )}
                 </div>
-
-                <a
-                  href='/#portfolio'
-                  className='relative font-bold text-md uppercase text-black transition-colors duration-200 hover:text-accent after:content-[""] after:absolute after:left-0 after:-bottom-1.5 after:h-[3px] after:w-0 after:bg-accent after:transition-all after:duration-200 hover:after:w-full'
-                >
-                  {t('nav.portfolio')}
-                </a>
-
-                <a
-                  href='/#proceso'
-                  className='relative font-bold text-md uppercase text-black transition-colors duration-200 hover:text-accent after:content-[""] after:absolute after:left-0 after:-bottom-1.5 after:h-[3px] after:w-0 after:bg-accent after:transition-all after:duration-200 hover:after:w-full'
-                >
-                  Proceso
-                </a>
 
                 <a
                   href='/sobre-el-estudio'
@@ -256,20 +233,6 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
                   </div>
                 )}
               </div>
-
-              <a
-                href='/#portfolio'
-                className='block w-full text-left px-4 py-3 font-bold text-md uppercase text-black hover:bg-gray-100 hover:text-accent transition-colors duration-200'
-              >
-                {t('nav.portfolio')}
-              </a>
-
-              <a
-                href='/#proceso'
-                className='block w-full text-left px-4 py-3 font-bold text-md uppercase text-black hover:bg-gray-100 hover:text-accent transition-colors duration-200'
-              >
-                Proceso
-              </a>
 
               <a
                 href='/sobre-el-estudio'

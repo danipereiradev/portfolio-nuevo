@@ -24,14 +24,7 @@ import LegalPages from './LegalPages';
 
 const FOOTER_WHATSAPP_URL = buildWhatsAppUrl(DEFAULT_WHATSAPP_MESSAGE);
 
-interface FooterProps {
-  // En páginas pensadas como embudo cerrado (landings de Ads) se oculta todo
-  // lo que no sea marca, contacto o legal, para no ofrecer salidas hacia
-  // otras páginas del sitio.
-  minimal?: boolean;
-}
-
-const Footer = ({ minimal = false }: FooterProps = {}) => {
+const Footer = () => {
   const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
   const [legalPageOpen, setLegalPageOpen] = useState<{
@@ -51,13 +44,7 @@ const Footer = ({ minimal = false }: FooterProps = {}) => {
     <>
       <footer className='bg-black text-white border-t-4 border-accent'>
         <div className='container mx-auto px-6 py-16'>
-          <div
-            className={`grid gap-10 lg:gap-8 lg:divide-x-2 lg:divide-white/10 ${
-              minimal
-                ? 'md:grid-cols-2 max-w-3xl mx-auto'
-                : 'md:grid-cols-2 lg:grid-cols-4'
-            }`}
-          >
+          <div className='grid gap-10 lg:gap-8 lg:divide-x-2 lg:divide-white/10 md:grid-cols-2 lg:grid-cols-4'>
             <div className='lg:col-span-1 text-center md:text-left lg:pr-8'>
               <div className='flex items-center mb-6 justify-center md:justify-start'>
                 <span
@@ -90,114 +77,90 @@ const Footer = ({ minimal = false }: FooterProps = {}) => {
                 >
                   <Mail className='w-5 h-5' />
                 </a>
-                {!minimal && (
-                  <>
-                    <a
-                      href='https://www.linkedin.com/in/dani-pereira-396618226/'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                      className='bg-accent hover:bg-accent-hover p-3 rounded-lg border-2 border-white/80 shadow-[3px_3px_0_0_rgba(255,255,255,0.4)] hover:shadow-[1px_1px_0_0_rgba(255,255,255,0.4)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
-                    >
-                      <Linkedin className='w-5 h-5' />
-                    </a>
-                    <a
-                      href='https://www.instagram.com/pereiraweb.es/'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                      className='bg-accent hover:bg-accent-hover p-3 rounded-lg border-2 border-white/80 shadow-[3px_3px_0_0_rgba(255,255,255,0.4)] hover:shadow-[1px_1px_0_0_rgba(255,255,255,0.4)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
-                    >
-                      <Instagram className='w-5 h-5' />
-                    </a>
-                  </>
-                )}
+                <a
+                  href='https://www.linkedin.com/in/dani-pereira-396618226/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='bg-accent hover:bg-accent-hover p-3 rounded-lg border-2 border-white/80 shadow-[3px_3px_0_0_rgba(255,255,255,0.4)] hover:shadow-[1px_1px_0_0_rgba(255,255,255,0.4)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
+                >
+                  <Linkedin className='w-5 h-5' />
+                </a>
+                <a
+                  href='https://www.instagram.com/pereiraweb.es/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='bg-accent hover:bg-accent-hover p-3 rounded-lg border-2 border-white/80 shadow-[3px_3px_0_0_rgba(255,255,255,0.4)] hover:shadow-[1px_1px_0_0_rgba(255,255,255,0.4)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
+                >
+                  <Instagram className='w-5 h-5' />
+                </a>
               </div>
             </div>
 
-            {!minimal && (
-              <>
-                <div className='text-center md:text-left lg:px-8'>
-                  <h3 className='text-xl md:text-2xl font-bold mb-1 text-accent'>
-                    Servicios
-                  </h3>
-                  <span className='block w-10 h-1 bg-accent mb-6 mx-auto md:mx-0' />
-                  <ul className='space-y-3 text-gray-300'>
-                    <li>
-                      <a
-                        href='/web-autonomos-pymes'
-                        className='hover:text-white transition-colors duration-200'
-                      >
-                        Web para Autónomos y Pymes
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href='/tiendas-online'
-                        className='hover:text-white transition-colors duration-200'
-                      >
-                        Tiendas Online
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href='/mantenimiento-web'
-                        className='hover:text-white transition-colors duration-200'
-                      >
-                        Mantenimiento Web
-                      </a>
-                    </li>
-                  </ul>
-                </div>
+            <div className='text-center md:text-left lg:px-8'>
+              <h3 className='text-xl md:text-2xl font-bold mb-1 text-accent'>
+                Servicios
+              </h3>
+              <span className='block w-10 h-1 bg-accent mb-6 mx-auto md:mx-0' />
+              <ul className='space-y-3 text-gray-300'>
+                <li>
+                  <a
+                    href='/web-autonomos-pymes'
+                    className='hover:text-white transition-colors duration-200'
+                  >
+                    Web para Autónomos y Pymes
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href='/tiendas-online'
+                    className='hover:text-white transition-colors duration-200'
+                  >
+                    Tiendas Online
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href='/mantenimiento-web'
+                    className='hover:text-white transition-colors duration-200'
+                  >
+                    Mantenimiento Web
+                  </a>
+                </li>
+              </ul>
+            </div>
 
-                <div className='text-center md:text-left lg:px-8'>
-                  <h3 className='text-xl md:text-2xl font-bold mb-1 text-accent'>
-                    Estudio
-                  </h3>
-                  <span className='block w-10 h-1 bg-accent mb-6 mx-auto md:mx-0' />
-                  <ul className='space-y-3 text-gray-300'>
-                    <li>
-                      <a
-                        href='/'
-                        className='hover:text-white transition-colors duration-200'
-                      >
-                        Inicio
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href='/#portfolio'
-                        className='hover:text-white transition-colors duration-200'
-                      >
-                        Trabajos
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href='/#proceso'
-                        className='hover:text-white transition-colors duration-200'
-                      >
-                        Proceso
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href='/sobre-el-estudio'
-                        className='hover:text-white transition-colors duration-200'
-                      >
-                        Sobre el Estudio
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href='/contacto'
-                        className='hover:text-white transition-colors duration-200'
-                      >
-                        Contacto
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </>
-            )}
+            <div className='text-center md:text-left lg:px-8'>
+              <h3 className='text-xl md:text-2xl font-bold mb-1 text-accent'>
+                Estudio
+              </h3>
+              <span className='block w-10 h-1 bg-accent mb-6 mx-auto md:mx-0' />
+              <ul className='space-y-3 text-gray-300'>
+                <li>
+                  <a
+                    href='/'
+                    className='hover:text-white transition-colors duration-200'
+                  >
+                    Inicio
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href='/sobre-el-estudio'
+                    className='hover:text-white transition-colors duration-200'
+                  >
+                    Sobre el Estudio
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href='/contacto'
+                    className='hover:text-white transition-colors duration-200'
+                  >
+                    Contacto
+                  </a>
+                </li>
+              </ul>
+            </div>
 
             <div className='text-center md:text-left lg:pl-8'>
               <h3 className='text-xl md:text-2xl font-bold mb-1 text-accent'>

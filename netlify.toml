@@ -34,39 +34,6 @@
   status = 301
   force = true
 
-# Páginas de servicio eliminadas: solo quedan las 3 landings principales
-# (web-autonomos-pymes, tiendas-online, mantenimiento-web). El resto
-# redirige de forma permanente a la landing más afín.
-[[redirects]]
-  from = "/paginas-web-empresas"
-  to = "/web-autonomos-pymes"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/diseno-web"
-  to = "/web-autonomos-pymes"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/desarrollo-aplicaciones-web"
-  to = "/web-autonomos-pymes"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/posicionamiento-web-seo"
-  to = "/web-autonomos-pymes"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/auditoria-ecommerce"
-  to = "/tiendas-online"
-  status = 301
-  force = true
-
 # Cada ruta comercial sirve su propio index.html pre-renderizado (con
 # title/description/canonical/OG/Twitter propios), generado por
 # scripts/prerender-meta.mjs tras el build, en lugar de caer en el
@@ -74,6 +41,31 @@
 [[redirects]]
   from = "/web-autonomos-pymes"
   to = "/web-autonomos-pymes/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/paginas-web-empresas"
+  to = "/paginas-web-empresas/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/diseno-web"
+  to = "/diseno-web/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/desarrollo-aplicaciones-web"
+  to = "/desarrollo-aplicaciones-web/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/posicionamiento-web-seo"
+  to = "/posicionamiento-web-seo/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/auditoria-ecommerce"
+  to = "/auditoria-ecommerce/index.html"
   status = 200
 
 [[redirects]]

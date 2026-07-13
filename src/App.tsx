@@ -1,8 +1,7 @@
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { ContactModalProvider } from './contexts/ContactModalContext';
 import Header from './components/Header';
-import LandingHeader from './components/LandingHeader';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
 import BackToTopButton from './components/BackToTopButton';
@@ -12,25 +11,17 @@ import Home from './pages/Home';
 import TiendasOnline from './pages/TiendasOnline';
 import MantenimientoWeb from './pages/MantenimientoWeb';
 import WebAutonomosPymes from './pages/WebAutonomosPymes';
+import PaginasWebEmpresas from './pages/PaginasWebEmpresas';
+import DisenoWeb from './pages/DisenoWeb';
+import AplicacionesWeb from './pages/AplicacionesWeb';
+import ServicioSEO from './pages/ServicioSEO';
+import AuditoriaEcommerce from './pages/AuditoriaEcommerce';
 import Contacto from './pages/Contacto';
 import SobreElEstudio from './pages/SobreElEstudio';
 import Gracias from './pages/Gracias';
 import NotFound from './pages/NotFound';
 
-const MINIMAL_NAV_ROUTES = ['/web-autonomos-pymes'];
-
-// Quita la barra final (salvo en la raíz "/"), para que la detección de la
-// landing de Ads no falle si la URL llega con "/" al final (p. ej.
-// "/web-autonomos-pymes/" servida directamente como carpeta por el hosting).
-const normalizePathname = (pathname: string): string =>
-  pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
-
 function AppContent() {
-  const location = useLocation();
-  const isAdsLanding = MINIMAL_NAV_ROUTES.includes(
-    normalizePathname(location.pathname),
-  );
-
   // La navegación entre páginas se hace con <a> normales (recarga real),
   // así que el navegador ya coloca el scroll donde corresponde (arriba, o
   // en el ancla si la URL lleva "#id") sin necesidad de forzarlo con JS.
@@ -40,13 +31,21 @@ function AppContent() {
 
   return (
     <div className='min-h-screen bg-white overflow-x-hidden pb-16 md:pb-0'>
-      {isAdsLanding ? <LandingHeader /> : <Header />}
+      <Header />
 
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/tiendas-online' element={<TiendasOnline />} />
         <Route path='/mantenimiento-web' element={<MantenimientoWeb />} />
         <Route path='/web-autonomos-pymes' element={<WebAutonomosPymes />} />
+        <Route path='/paginas-web-empresas' element={<PaginasWebEmpresas />} />
+        <Route path='/diseno-web' element={<DisenoWeb />} />
+        <Route
+          path='/desarrollo-aplicaciones-web'
+          element={<AplicacionesWeb />}
+        />
+        <Route path='/posicionamiento-web-seo' element={<ServicioSEO />} />
+        <Route path='/auditoria-ecommerce' element={<AuditoriaEcommerce />} />
         <Route path='/contacto' element={<Contacto />} />
         <Route path='/sobre-el-estudio' element={<SobreElEstudio />} />
         <Route path='/gracias' element={<Gracias />} />
@@ -74,35 +73,11 @@ function AppContent() {
         />
         <Route path='/contact' element={<Navigate to='/contacto' replace />} />
 
-        {/* Páginas de servicio eliminadas: solo quedan las 3 landings
-            principales (web-autonomos-pymes, tiendas-online,
-            mantenimiento-web). El resto redirige a la landing más afín. */}
-        <Route
-          path='/paginas-web-empresas'
-          element={<Navigate to='/web-autonomos-pymes' replace />}
-        />
-        <Route
-          path='/diseno-web'
-          element={<Navigate to='/web-autonomos-pymes' replace />}
-        />
-        <Route
-          path='/desarrollo-aplicaciones-web'
-          element={<Navigate to='/web-autonomos-pymes' replace />}
-        />
-        <Route
-          path='/posicionamiento-web-seo'
-          element={<Navigate to='/web-autonomos-pymes' replace />}
-        />
-        <Route
-          path='/auditoria-ecommerce'
-          element={<Navigate to='/tiendas-online' replace />}
-        />
-
         {/* Cualquier otra ruta no existente devuelve una 404 real */}
         <Route path='*' element={<NotFound />} />
       </Routes>
 
-      <Footer minimal={isAdsLanding} />
+      <Footer />
 
       <WhatsAppButton />
 
