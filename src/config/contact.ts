@@ -28,6 +28,10 @@ export const CONTACT_PAGE_WHATSAPP_MESSAGE =
 export const ABOUT_PAGE_WHATSAPP_MESSAGE =
   'Hola, he visto la página del estudio y quiero contaros mi proyecto.';
 
+// Mensaje para el CTA "Solicitar ejemplos" de la sección de portfolio.
+export const PORTFOLIO_WHATSAPP_MESSAGE =
+  'Hola, he visto tu portfolio y me gustaría ver más ejemplos de proyectos similares al que necesito.';
+
 export const buildWhatsAppUrl = (
   message: string = DEFAULT_WHATSAPP_MESSAGE,
 ) => `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`;

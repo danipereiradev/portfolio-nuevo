@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Star } from 'lucide-react';
+import { Star, ExternalLink } from 'lucide-react';
 import { allTestimonials, type Testimonial } from '../data/testimonials';
 
 export type { Testimonial };
@@ -12,6 +12,22 @@ interface TestimonialsProps {
 
 const computeAverage = (items: Testimonial[]) =>
   items.reduce((sum, item) => sum + item.rating, 0) / items.length;
+
+// Reproduce el resaltado en negrita que Google aplica a ciertas frases
+// dentro de las reseñas.
+const renderWithBoldPhrase = (content: string, boldPhrase?: string) => {
+  if (!boldPhrase) return content;
+  const index = content.indexOf(boldPhrase);
+  if (index === -1) return content;
+
+  return (
+    <>
+      {content.slice(0, index)}
+      <strong className='font-bold text-gray-900'>{boldPhrase}</strong>
+      {content.slice(index + boldPhrase.length)}
+    </>
+  );
+};
 
 const Testimonials = ({
   id = 'testimonials',
@@ -116,6 +132,10 @@ const Testimonials = ({
               {rating.toFixed(1)}
             </span>
             <span className='text-gray-500'>/ 5</span>
+            <span className='text-gray-400'>·</span>
+            <span className='text-gray-500 text-sm font-medium'>
+              {testimonials.length} reseñas verificadas
+            </span>
           </div>
         </div>
 
@@ -130,10 +150,10 @@ const Testimonials = ({
             {getVisibleTestimonials().map((testimonial, index) => (
               <div
                 key={`${currentSlide}-${index}`}
-                className='bg-white rounded-lg p-6 border-2 border-ink-dark shadow-[5px_5px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-200 flex flex-col'
+                className='w-full h-[440px] bg-white rounded-lg p-6 border-2 border-ink-dark shadow-[5px_5px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-200 flex flex-col overflow-hidden'
               >
                 {/* Stars */}
-                <div className='flex items-center gap-1 mb-4'>
+                <div className='flex items-center gap-1 mb-4 flex-shrink-0'>
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star
                       key={i}
@@ -146,27 +166,40 @@ const Testimonials = ({
                 </div>
 
                 {/* Main Text */}
-                <blockquote className='text-base text-gray-700 leading-relaxed mb-4 flex-grow'>
-                  "{testimonial.text}"
+                <blockquote className='text-base text-gray-700 leading-relaxed mb-4 line-clamp-3'>
+                  "{renderWithBoldPhrase(testimonial.text, testimonial.boldPhrase)}"
                 </blockquote>
 
                 {/* Highlight Text */}
                 {testimonial.highlight && (
                   <div className='bg-gray-50 border-l-4 border-accent p-3 rounded-r-lg mb-4'>
-                    <p className='text-sm text-gray-800 font-medium italic'>
-                      "{testimonial.highlight}"
+                    <p className='text-sm text-gray-800 font-medium italic line-clamp-4'>
+                      "{renderWithBoldPhrase(testimonial.highlight, testimonial.boldPhrase)}"
                     </p>
                   </div>
                 )}
 
                 {/* Author Info */}
-                <div className='mt-auto'>
+                <div className='mt-auto flex-shrink-0'>
                   <h4 className='font-bold text-gray-900 text-base'>
                     {testimonial.name}
                   </h4>
-                  <p className='text-accent font-semibold text-sm'>
-                    {testimonial.company}
-                  </p>
+                  {testimonial.company && (
+                    <p className='text-accent font-semibold text-sm'>
+                      {testimonial.company}
+                    </p>
+                  )}
+                  <a
+                    href={testimonial.sourceUrl}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='inline-flex items-center gap-1 text-xs text-gray-400 hover:text-accent transition-colors mt-1.5'
+                  >
+                    {testimonial.source === 'google'
+                      ? 'Reseña de Google'
+                      : 'Recomendación en Malt'}
+                    <ExternalLink className='w-3 h-3' />
+                  </a>
                 </div>
               </div>
             ))}

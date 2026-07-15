@@ -15,7 +15,7 @@ const Clients = () => {
     },
     {
       icon: <Star className='w-8 h-8' />,
-      number: '4.6',
+      number: '5.0',
       label: 'Valoración Media',
     },
     {

@@ -1,16 +1,46 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { ExternalLink, X, Loader2 } from 'lucide-react';
+import { ExternalLink, X, Loader2, MessageCircle, Star } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useSectionView } from '../hooks/useSectionView';
 import { useBodyScrollLock } from '../hooks/useBodyScrollLock';
-import { trackViewPortfolioSection } from '../utils/analytics';
+import {
+  trackViewPortfolioSection,
+  trackWhatsAppClick,
+  trackGoogleAdsWhatsAppConversion,
+} from '../utils/analytics';
+import { PORTFOLIO_WHATSAPP_MESSAGE, buildWhatsAppUrl } from '../config/contact';
+import { allTestimonials } from '../data/testimonials';
+import Button from './Button';
+
+const WHATSAPP_URL = buildWhatsAppUrl(PORTFOLIO_WHATSAPP_MESSAGE);
+
+// Reproduce el resaltado en negrita que Google aplica a ciertas frases
+// dentro de las reseñas (mismo criterio que en Testimonials.tsx).
+const renderWithBoldPhrase = (content: string, boldPhrase?: string) => {
+  if (!boldPhrase) return content;
+  const index = content.indexOf(boldPhrase);
+  if (index === -1) return content;
+
+  return (
+    <>
+      {content.slice(0, index)}
+      <strong className='font-bold text-gray-900'>{boldPhrase}</strong>
+      {content.slice(index + boldPhrase.length)}
+    </>
+  );
+};
 
 const Portfolio = () => {
   const { t } = useLanguage();
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
   const [imageLoading, setImageLoading] = useState(true);
   const sectionRef = useSectionView<HTMLElement>(trackViewPortfolioSection);
+
+  const handleWhatsAppClick = () => {
+    trackWhatsAppClick('Portfolio', 'Solicitar ejemplos');
+    trackGoogleAdsWhatsAppConversion(WHATSAPP_URL);
+  };
 
   useBodyScrollLock(selectedProject !== null);
 
@@ -65,6 +95,7 @@ La tienda también cuenta con un programa de afiliados que ha generado una red d
       tech: ['WordPress', 'WooCommerce', 'jQuery', 'CSS3'],
       category: 'Tienda Online',
       url: 'https://camisetas-ahora.com',
+      testimonialName: 'Irene Ibáñez',
     },
     {
       title: t('portfolio.hoyviajamos.title'),
@@ -83,67 +114,16 @@ La monetización se logró mediante publicidad estratégica, enlaces de afiliado
       tech: ['HTML5', 'CSS3', 'JavaScript', 'PHP'],
       category: 'Página Web',
       url: 'https://hoyviajamosweb.com',
-    },
-    {
-      title: t('portfolio.carper.title'),
-      description: t('portfolio.carper.desc'),
-      longDescription: `Carper Sonido es una empresa consolidada en el sector del audio profesional que necesitaba actualizar su presencia digital para reflejar su experiencia y profesionalismo en el mercado.
-
-El proyecto comenzó con un análisis exhaustivo de sus competidores y del sector audiovisual. Se diseñó una web corporativa que transmite confianza y experiencia, con un portfolio visual de sus instalaciones más destacadas en teatros, auditorios y espacios corporativos.
-
-La arquitectura de información se estructuró para facilitar el acceso a los diferentes servicios que ofrecen: instalación de sistemas de sonido, alquiler de equipos, mantenimiento y consultoría técnica. Cada servicio tiene su propia landing page optimizada para conversión.
-
-Se implementó un formulario de contacto inteligente que pre-califica los leads según el tipo de proyecto, permitiendo al equipo comercial priorizar las oportunidades más relevantes. También se integró un sistema de presupuestos online para proyectos estándar.
-
-La web ha mejorado significativamente la captación de clientes corporativos y ha posicionado a Carper como referente en el sector del audio profesional en su región.`,
-      image: '/img/portfolio/carper.png',
-      headerImage: '/img/portfolio/mock-carper.png',
-      tech: ['WordPress', 'HTML5', 'CSS3', 'JavaScript'],
-      category: 'Página Web',
-      url: 'https://carpersonido.com',
-    },
-    {
-      title: t('portfolio.chicxs.title'),
-      description: t('portfolio.chicxs.desc'),
-      longDescription: `Chicxs de la Calle es una marca de streetwear que nació en redes sociales y necesitaba una tienda online que mantuviera ese espíritu urbano y auténtico mientras escalaba su operación comercial.
-
-El proyecto requirió un equilibrio delicado entre estética urbana y funcionalidad comercial. Se desarrolló un diseño oscuro y atrevido que refleja la identidad de la marca, con tipografías bold y un layout que prioriza el impacto visual de las prendas.
-
-La implementación técnica incluyó características avanzadas como un sistema de lanzamientos de colecciones limitadas con cuenta regresiva, gestión de tallas y stock en tiempo real, y un sistema de notificaciones push para alertar a los clientes cuando sus productos favoritos vuelven a estar disponibles.
-
-Se integró Instagram directamente en la web para mostrar cómo los clientes reales usan las prendas, generando prueba social y aumentando la confianza en la marca. El checkout se optimizó para mobile, donde la marca recibe el 80% de su tráfico.
-
-Desde el lanzamiento, la tienda ha procesado miles de pedidos y ha permitido a la marca expandirse internacionalmente, enviando productos a más de 15 países.`,
-      image: '/img/portfolio/chicxs.png',
-      headerImage: '/img/portfolio/mock-chicxs.png',
-      tech: ['WordPress', 'WooCommerce', 'CSS3', 'JavaScript'],
-      category: 'Tienda Online',
-      url: 'https://chicxsdelacalle.com',
-    },
-    {
-      title: t('portfolio.delish.title'),
-      description: t('portfolio.delish.desc'),
-      longDescription: `Este proyecto para Delish Vegan representó un desafío apasionante en el mundo del e-commerce vegano. La tienda necesitaba reflejar los valores de sostenibilidad y respeto por los animales de la marca, mientras proporcionaba una experiencia de compra fluida y moderna.
-
-El desarrollo se centró en crear una plataforma WooCommerce completamente personalizada, con un diseño limpio que permite que los productos hablen por sí mismos. Se implementó un sistema de filtrado avanzado que permite a los usuarios encontrar fácilmente productos según sus necesidades dietéticas específicas.
-
-Una de las características más destacadas es el sistema de suscripción mensual para cajas sorpresa, que automatiza la gestión de pedidos recurrentes y facilita la fidelización de clientes. También se integró un blog con recetas veganas que genera tráfico orgánico constante.
-
-El proyecto incluyó optimización SEO específica para búsquedas relacionadas con productos veganos, lo que ha resultado en un incremento significativo del tráfico orgánico. La tienda procesa actualmente cientos de pedidos mensuales y continúa creciendo.`,
-      image: '/img/portfolio/delish.png',
-      headerImage: '/img/portfolio/mock-delish.png',
-      tech: ['WordPress', 'WooCommerce', 'PHP', 'JavaScript', 'CSS3'],
-      category: 'Tienda Online',
-      url: 'https://delishvegann.com',
+      testimonialName: 'Juanvi Raga',
     },
   ];
 
-  const openModal = (index: number) => {
+  const openProjectModal = (index: number) => {
     setSelectedProject(index);
     setImageLoading(true);
   };
 
-  const closeModal = () => {
+  const closeProjectModal = () => {
     setSelectedProject(null);
   };
 
@@ -169,13 +149,11 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
             {projects.map((project, index) => (
               <div
                 key={index}
-                onClick={() => openModal(index)}
+                onClick={() => openProjectModal(index)}
                 onMouseEnter={() =>
                   project.headerImage && preloadImage(project.headerImage)
                 }
-                className={`group cursor-pointer rounded-xl border-2 border-ink-dark bg-white overflow-hidden shadow-[6px_6px_0_0_#1a1a1a] hover:shadow-[3px_3px_0_0_#1a1a1a] hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-200 ${
-                  index === 0 ? 'lg:col-span-2' : ''
-                }`}
+                className='group cursor-pointer rounded-xl border-2 border-ink-dark bg-white overflow-hidden shadow-[6px_6px_0_0_#1a1a1a] hover:shadow-[3px_3px_0_0_#1a1a1a] hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-200'
               >
                 <div className='relative overflow-hidden bg-white border-b-2 border-ink-dark'>
                   <img
@@ -203,6 +181,22 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
               </div>
             ))}
           </div>
+
+          <div className='max-w-3xl mx-auto mt-10 md:mt-12 bg-ink-dark border-2 border-ink-dark rounded-xl p-8 text-center shadow-[6px_6px_0_0_rgba(20,184,166,0.5)]'>
+            <h3 className='text-2xl md:text-3xl font-bold text-white mb-4'>
+              ¿Quieres ver proyectos parecidos al que tienes en mente?
+            </h3>
+            <p className='text-lg text-white/80 font-medium mb-6'>
+              Cuéntame qué tipo de web necesitas y te enviaré ejemplos de
+              trabajos relacionados.
+            </p>
+            <div className='flex justify-center'>
+              <Button onClick={handleWhatsAppClick} variant='primary'>
+                <MessageCircle className='w-4 h-4 md:w-5 md:h-5' />
+                Solicitar ejemplos
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -216,14 +210,14 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
           // raíz de la app), dejando el botón de cerrar oculto e inutilizable.
           <div
             className='fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] flex items-center justify-center p-0'
-            onClick={closeModal}
+            onClick={closeProjectModal}
           >
             <div
               className='bg-white w-full md:w-[85vw] lg:w-[75vw] h-full overflow-y-auto overscroll-contain relative'
               onClick={(e) => e.stopPropagation()}
             >
               <button
-                onClick={closeModal}
+                onClick={closeProjectModal}
                 className='fixed top-4 right-4 md:top-8 md:right-8 bg-white border-2 border-ink-dark rounded-full p-2 md:p-3 shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150 z-20'
               >
                 <X className='w-5 h-5 md:w-6 md:h-6 text-gray-700' />
@@ -283,6 +277,65 @@ El proyecto incluyó optimización SEO específica para búsquedas relacionadas 
                       ))}
                     </div>
                   </div>
+
+                  {(() => {
+                    const review = allTestimonials.find(
+                      (t) => t.name === projects[selectedProject].testimonialName,
+                    );
+                    if (!review) return null;
+
+                    return (
+                      <div className='mb-8 md:mb-12 pb-8 md:pb-12 border-b border-gray-200'>
+                        <h4 className='text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6'>
+                          Opinión real del cliente
+                        </h4>
+                        <div className='bg-white rounded-lg p-6 border-2 border-ink-dark shadow-[5px_5px_0_0_#1a1a1a] max-w-2xl'>
+                          <div className='flex items-center gap-1 mb-4'>
+                            {[...Array(review.rating)].map((_, i) => (
+                              <Star
+                                key={i}
+                                className='w-5 h-5 text-yellow-400 fill-current'
+                              />
+                            ))}
+                          </div>
+
+                          <blockquote className='text-base text-gray-700 leading-relaxed mb-4'>
+                            "{renderWithBoldPhrase(review.text, review.boldPhrase)}"
+                          </blockquote>
+
+                          {review.highlight && (
+                            <div className='bg-gray-50 border-l-4 border-accent p-3 rounded-r-lg mb-4'>
+                              <p className='text-sm text-gray-800 font-medium italic'>
+                                "{renderWithBoldPhrase(review.highlight, review.boldPhrase)}"
+                              </p>
+                            </div>
+                          )}
+
+                          <div>
+                            <h5 className='font-bold text-gray-900 text-base'>
+                              {review.name}
+                            </h5>
+                            {review.company && (
+                              <p className='text-accent font-semibold text-sm'>
+                                {review.company}
+                              </p>
+                            )}
+                            <a
+                              href={review.sourceUrl}
+                              target='_blank'
+                              rel='noopener noreferrer'
+                              className='inline-flex items-center gap-1 text-xs text-gray-400 hover:text-accent transition-colors mt-1.5'
+                            >
+                              {review.source === 'google'
+                                ? 'Reseña de Google'
+                                : 'Recomendación en Malt'}
+                              <ExternalLink className='w-3 h-3' />
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })()}
 
                   <div className='text-center'>
                     <a
