@@ -27,6 +27,18 @@ const MALT_PROFILE_URL = 'https://www.malt.es/profile/danipereiragesteiro';
 // siempre coherentes en cualquier página del sitio.
 export const allTestimonials: Testimonial[] = [
   {
+    name: 'Victor Raposo',
+    company: 'Casa Rural O Alicornio',
+    website: 'https://oalicornio.com',
+    date: '16/07/2026',
+    text: ' Profesional...muy profesional como diría Manquiña, un trabajo bien hecho en toda su extensión',
+    highlight: 'Un saludo a Daniel',
+    rating: 5,
+    avatar: 'V',
+    source: 'google',
+    sourceUrl: GOOGLE_REVIEWS_URL,
+  },
+  {
     name: 'Irene Ibáñez',
     date: 'Hace 3 semanas',
     text: 'Tengo una tienda online de merchandising de bandas y Dani me hizo la web desde cero. Entendió perfectamente el rollo que buscaba.',
