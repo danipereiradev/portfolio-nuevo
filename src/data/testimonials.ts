@@ -40,6 +40,8 @@ export const allTestimonials: Testimonial[] = [
   },
   {
     name: 'Irene Ibáñez',
+    company: 'Camisetas ahora & chicxsdelacalle',
+    website: 'https://camisetas-ahora.com',
     date: 'Hace 3 semanas',
     text: 'Tengo una tienda online de merchandising de bandas y Dani me hizo la web desde cero. Entendió perfectamente el rollo que buscaba.',
     highlight:
@@ -52,6 +54,7 @@ export const allTestimonials: Testimonial[] = [
   },
   {
     name: 'Ingrid Martín-Macho',
+    company: 'Flamingo plugs (Joyería)',
     date: 'Hace 3 semanas',
     text: 'Profesionalidad y eficacia siempre!! Muchas gracias!!!',
     rating: 5,
@@ -61,6 +64,8 @@ export const allTestimonials: Testimonial[] = [
   },
   {
     name: 'Bruno Tomás',
+    company: 'El viaje de los elefantes (blog de viajes)',
+    website: 'https://elviajedeloselefantes.com',
     date: 'Hace 4 semanas',
     text: 'Daniel es un gran profesional. Me ha hecho dos páginas webs para mis dos proyectos profesionales los cuales son de campos totalmente diferentes. Y en ambos he quedado muy satisfecho, pues entendió mi idea para plasmarla en cada página. Además también me dio ideas para que fueran más atractivas.',
     highlight:
@@ -73,6 +78,8 @@ export const allTestimonials: Testimonial[] = [
   },
   {
     name: 'Juanvi Raga',
+    company: 'Hoy Viajamos (Blog de viajes)',
+    website: 'https://hoyviajamosweb.com',
     date: 'Hace 4 semanas',
     text: 'Trabajar con Dani ha sido una experiencia excepcional. Le encargué la programación y optimización de mi blog, y el cambio ha sido increíble: ahora carga rapidísimo, funciona de forma fluida y está mucho mejor organizado a nivel técnico. Además, el servicio fue rapidísimo y siempre estuvo disponible para resolver dudas y ajustar detalles.',
     highlight:
