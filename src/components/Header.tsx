@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Menu, X, ChevronDown, MessageCircle } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -17,8 +17,6 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [typedText, setTypedText] = useState('');
-  const [hasTyped, setHasTyped] = useState(false);
 
   const headerWhatsAppUrl = buildWhatsAppUrl(
     getWhatsAppMessageForPath(location.pathname),
@@ -28,25 +26,6 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
     trackWhatsAppClick('Header');
     trackGoogleAdsWhatsAppConversion(headerWhatsAppUrl);
   };
-
-  const fullText = 'pereiraweb .es';
-
-  useEffect(() => {
-    if (!hasTyped) {
-      let index = 0;
-      const typingInterval = setInterval(() => {
-        if (index <= fullText.length) {
-          setTypedText(fullText.slice(0, index));
-          index++;
-        } else {
-          clearInterval(typingInterval);
-          setHasTyped(true);
-        }
-      }, 80);
-
-      return () => clearInterval(typingInterval);
-    }
-  }, [hasTyped]);
 
   const services = [
     {
@@ -71,25 +50,13 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
           <div className='flex items-center justify-between relative'>
             <a
               href='/'
-              className='flex items-center gap-1.5 md:gap-2 flex-shrink-0 md:min-w-[280px] md:w-[280px]'
+              className='flex items-center flex-shrink-0 md:min-w-[280px] md:w-[280px]'
             >
-              <span
-                className='text-xl md:text-2xl whitespace-nowrap font-extrabold flex items-center'
-                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-              >
-                <span className='text-accent font-mono text-2xl md:text-3xl'>
-                  &gt;
-                </span>
-                <span className='text-black font-mono tracking-tight ml-1'>
-                  {hasTyped ? 'pereiraweb' : typedText.split(' ')[0]}
-                </span>
-                <span className='text-accent font-mono font-normal'>
-                  {hasTyped ? ' .es' : (typedText.includes(' .') ? ' ' + typedText.split(' ')[1] : '')}
-                </span>
-                <span className='text-accent font-mono text-xl md:text-2xl animate-pulse ml-0'>
-                  _
-                </span>
-              </span>
+              <img
+                src='/img/logo-pereiraweb.png'
+                alt='pereiraweb.es'
+                className='h-[3.85rem] md:h-[4.8125rem] w-auto'
+              />
             </a>
 
             {showNavMenu && (
