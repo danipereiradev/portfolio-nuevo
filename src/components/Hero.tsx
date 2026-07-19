@@ -39,7 +39,7 @@ const Hero = () => {
   return (
     <section
       id='hero'
-      className='relative min-h-[80vh] flex items-center justify-center overflow-hidden pt-20 pb-16'
+      className='relative min-h-[80vh] flex items-center justify-center overflow-hidden pt-24 md:pt-28 pb-16'
     >
       <GlowBackdrop />
 
