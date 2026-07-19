@@ -55,7 +55,7 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
               <img
                 src='/img/logo-pereiraweb.png'
                 alt='pereiraweb.es'
-                className='h-[3.85rem] md:h-[4.8125rem] w-auto'
+                className='h-[3.5rem] md:h-[4.375rem] w-auto'
               />
             </a>
 

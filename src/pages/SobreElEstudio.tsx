@@ -23,7 +23,7 @@ const SobreElEstudio = () => {
 
   return (
     <>
-      <section className='relative min-h-[80vh] flex items-center justify-center overflow-hidden pt-24 md:pt-28 pb-16'>
+      <section className='relative min-h-[80vh] flex items-center justify-center overflow-hidden pt-[5.625rem] md:pt-[6.5rem] pb-16'>
         <GlowBackdrop />
 
         <FloatingPanel
