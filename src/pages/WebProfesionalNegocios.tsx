@@ -617,6 +617,9 @@ const WebProfesionalNegocios = () => {
         <Portfolio />
       </div>
 
+      {/* 6.3 Valoraciones de clientes */}
+      <Testimonials id='valoraciones' />
+
       {/* 7. Cómo funciona */}
       <SEOProcess title='Cómo Funciona el Proceso' steps={processSteps} />
       <div className='bg-white pt-6 pb-16 md:pt-8 md:pb-20'>
@@ -741,9 +744,6 @@ const WebProfesionalNegocios = () => {
           faqs={faqs}
         />
       </div>
-
-      {/* 10.1 Valoraciones de clientes */}
-      <Testimonials id='valoraciones' />
 
       {/* 11. CTA final */}
       <SEOCTAFinal
