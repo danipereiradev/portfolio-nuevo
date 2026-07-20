@@ -29,10 +29,16 @@
       "source": "/contact",
       "destination": "/contacto",
       "permanent": true
+    },
+    {
+      "source": "/web-profesional-negocios",
+      "destination": "/web-profesional-360",
+      "permanent": true
     }
   ],
   "rewrites": [
     { "source": "/web-autonomos-pymes", "destination": "/web-autonomos-pymes/index.html" },
+    { "source": "/web-profesional-360", "destination": "/web-profesional-360/index.html" },
     { "source": "/paginas-web-empresas", "destination": "/paginas-web-empresas/index.html" },
     { "source": "/diseno-web", "destination": "/diseno-web/index.html" },
     { "source": "/desarrollo-aplicaciones-web", "destination": "/desarrollo-aplicaciones-web/index.html" },

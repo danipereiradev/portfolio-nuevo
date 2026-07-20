@@ -6,6 +6,8 @@ interface SEOCTAFinalProps {
   subtitle: string;
   buttonText: string;
   onButtonClick: () => void;
+  secondaryButtonText?: string;
+  onSecondaryButtonClick?: () => void;
 }
 
 const SEOCTAFinal = ({
@@ -13,6 +15,8 @@ const SEOCTAFinal = ({
   subtitle,
   buttonText,
   onButtonClick,
+  secondaryButtonText,
+  onSecondaryButtonClick,
 }: SEOCTAFinalProps) => {
   return (
     <section className='relative py-20 overflow-hidden'>
@@ -26,7 +30,7 @@ const SEOCTAFinal = ({
           <p className='text-base md:text-lg lg:text-xl text-white/90 mb-6 md:mb-8 leading-relaxed'>
             {subtitle}
           </p>
-          <div className='flex justify-center'>
+          <div className='flex flex-col sm:flex-row justify-center gap-4'>
             <Button
               onClick={onButtonClick}
               variant='primary'
@@ -34,6 +38,15 @@ const SEOCTAFinal = ({
             >
               {buttonText}
             </Button>
+            {secondaryButtonText && onSecondaryButtonClick && (
+              <Button
+                onClick={onSecondaryButtonClick}
+                variant='secondary'
+                className='text-sm md:text-base'
+              >
+                {secondaryButtonText}
+              </Button>
+            )}
           </div>
         </div>
       </div>

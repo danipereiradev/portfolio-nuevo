@@ -11,6 +11,7 @@ import Home from './pages/Home';
 import TiendasOnline from './pages/TiendasOnline';
 import MantenimientoWeb from './pages/MantenimientoWeb';
 import WebAutonomosPymes from './pages/WebAutonomosPymes';
+import WebProfesionalNegocios from './pages/WebProfesionalNegocios';
 import PaginasWebEmpresas from './pages/PaginasWebEmpresas';
 import DisenoWeb from './pages/DisenoWeb';
 import AplicacionesWeb from './pages/AplicacionesWeb';
@@ -38,6 +39,10 @@ function AppContent() {
         <Route path='/tiendas-online' element={<TiendasOnline />} />
         <Route path='/mantenimiento-web' element={<MantenimientoWeb />} />
         <Route path='/web-autonomos-pymes' element={<WebAutonomosPymes />} />
+        <Route
+          path='/web-profesional-360'
+          element={<WebProfesionalNegocios />}
+        />
         <Route path='/paginas-web-empresas' element={<PaginasWebEmpresas />} />
         <Route path='/diseno-web' element={<DisenoWeb />} />
         <Route
@@ -54,6 +59,10 @@ function AppContent() {
         <Route
           path='/landing-express'
           element={<Navigate to='/web-autonomos-pymes' replace />}
+        />
+        <Route
+          path='/web-profesional-negocios'
+          element={<Navigate to='/web-profesional-360' replace />}
         />
         <Route
           path='/tienda-online'

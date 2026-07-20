@@ -304,7 +304,7 @@ const TiendasOnline = () => {
               href='/web-autonomos-pymes'
               className='block bg-gray-50 border-2 border-ink-dark rounded-xl p-5 text-center font-bold text-gray-900 shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
             >
-              Web para autónomos y pymes
+              Web a Medida
             </a>
             <a
               href='/mantenimiento-web'

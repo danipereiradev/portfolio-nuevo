@@ -257,13 +257,14 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       }
 
       const planPrices: { [key: string]: number } = {
-        'Página Web': 0,
+        'Web a Medida': 0,
+        'Web Profesional 360': 0,
         'Tienda Online': 0,
-        'Diseño Web': 0,
-        'Posicionamiento SEO': 0,
-        'Auditoría Ecommerce': 0,
         'Mantenimiento Web': 0,
-        'Desarrollo a Medida': 0,
+        '360 Presencia': 0,
+        '360 Gestión': 0,
+        'No sé cuál necesito': 0,
+        'Proyecto personalizado': 0,
       };
       const planValue = planPrices[formData.plan] || 0;
       trackFormSubmit(formData.plan, planValue);
@@ -398,9 +399,11 @@ Fecha: ${new Date().toLocaleString('es-ES')}
               <div className='grid gap-4'>
                 <button
                   type='button'
-                  onClick={() => handleInputChange('plan', 'Página Web')}
+                  onClick={() =>
+                    handleInputChange('plan', 'Web Profesional 360')
+                  }
                   className={`p-5 text-left border-2 rounded-xl transition-all duration-150 ${
-                    formData.plan === 'Página Web'
+                    formData.plan === 'Web Profesional 360'
                       ? 'border-accent bg-gray-50 shadow-[4px_4px_0_0_#14b8a6]'
                       : errors.plan
                         ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
@@ -408,13 +411,38 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                   }`}
                 >
                   <div className='flex items-start justify-between mb-2'>
-                    <h4 className='font-bold text-gray-900'>Página Web</h4>
-                    {formData.plan === 'Página Web' && (
+                    <h4 className='font-bold text-gray-900'>
+                      Web Profesional 360
+                    </h4>
+                    {formData.plan === 'Web Profesional 360' && (
                       <Check className='w-5 h-5 text-accent' />
                     )}
                   </div>
                   <p className='text-sm text-gray-600'>
-                    Sitio web profesional para empresas y autónomos
+                    Web de alcance definido, con precio claro y proceso rápido
+                  </p>
+                </button>
+
+                <button
+                  type='button'
+                  onClick={() => handleInputChange('plan', 'Web a Medida')}
+                  className={`p-5 text-left border-2 rounded-xl transition-all duration-150 ${
+                    formData.plan === 'Web a Medida'
+                      ? 'border-accent bg-gray-50 shadow-[4px_4px_0_0_#14b8a6]'
+                      : errors.plan
+                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                        : 'border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px]'
+                  }`}
+                >
+                  <div className='flex items-start justify-between mb-2'>
+                    <h4 className='font-bold text-gray-900'>Web a Medida</h4>
+                    {formData.plan === 'Web a Medida' && (
+                      <Check className='w-5 h-5 text-accent' />
+                    )}
+                  </div>
+                  <p className='text-sm text-gray-600'>
+                    Proyecto con funcionalidades, estructura o integraciones
+                    específicas
                   </p>
                 </button>
 
@@ -442,106 +470,6 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
                 <button
                   type='button'
-                  onClick={() =>
-                    handleInputChange('plan', 'Desarrollo a Medida')
-                  }
-                  className={`p-5 text-left border-2 rounded-xl transition-all duration-150 ${
-                    formData.plan === 'Desarrollo a Medida'
-                      ? 'border-accent bg-gray-50 shadow-[4px_4px_0_0_#14b8a6]'
-                      : errors.plan
-                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
-                        : 'border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px]'
-                  }`}
-                >
-                  <div className='flex items-start justify-between mb-2'>
-                    <h4 className='font-bold text-gray-900'>
-                      Desarrollo a Medida
-                    </h4>
-                    {formData.plan === 'Desarrollo a Medida' && (
-                      <Check className='w-5 h-5 text-accent' />
-                    )}
-                  </div>
-                  <p className='text-sm text-gray-600'>
-                    Soluciones digitales y aplicaciones web a medida
-                  </p>
-                </button>
-
-                <button
-                  type='button'
-                  onClick={() =>
-                    handleInputChange('plan', 'Auditoría Ecommerce')
-                  }
-                  className={`p-5 text-left border-2 rounded-xl transition-all duration-150 ${
-                    formData.plan === 'Auditoría Ecommerce'
-                      ? 'border-accent bg-gray-50 shadow-[4px_4px_0_0_#14b8a6]'
-                      : errors.plan
-                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
-                        : 'border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px]'
-                  }`}
-                >
-                  <div className='flex items-start justify-between mb-2'>
-                    <h4 className='font-bold text-gray-900'>
-                      Auditoría Ecommerce
-                    </h4>
-                    {formData.plan === 'Auditoría Ecommerce' && (
-                      <Check className='w-5 h-5 text-accent' />
-                    )}
-                  </div>
-                  <p className='text-sm text-gray-600'>
-                    Revisión de tu tienda online para mejorar conversión
-                  </p>
-                </button>
-
-                <button
-                  type='button'
-                  onClick={() => handleInputChange('plan', 'Diseño Web')}
-                  className={`p-5 text-left border-2 rounded-xl transition-all duration-150 ${
-                    formData.plan === 'Diseño Web'
-                      ? 'border-accent bg-gray-50 shadow-[4px_4px_0_0_#14b8a6]'
-                      : errors.plan
-                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
-                        : 'border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px]'
-                  }`}
-                >
-                  <div className='flex items-start justify-between mb-2'>
-                    <h4 className='font-bold text-gray-900'>Diseño Web</h4>
-                    {formData.plan === 'Diseño Web' && (
-                      <Check className='w-5 h-5 text-accent' />
-                    )}
-                  </div>
-                  <p className='text-sm text-gray-600'>
-                    Diseño web profesional y moderno que convierte
-                  </p>
-                </button>
-
-                <button
-                  type='button'
-                  onClick={() =>
-                    handleInputChange('plan', 'Posicionamiento SEO')
-                  }
-                  className={`p-5 text-left border-2 rounded-xl transition-all duration-150 ${
-                    formData.plan === 'Posicionamiento SEO'
-                      ? 'border-accent bg-gray-50 shadow-[4px_4px_0_0_#14b8a6]'
-                      : errors.plan
-                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
-                        : 'border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px]'
-                  }`}
-                >
-                  <div className='flex items-start justify-between mb-2'>
-                    <h4 className='font-bold text-gray-900'>
-                      Posicionamiento SEO
-                    </h4>
-                    {formData.plan === 'Posicionamiento SEO' && (
-                      <Check className='w-5 h-5 text-accent' />
-                    )}
-                  </div>
-                  <p className='text-sm text-gray-600'>
-                    Mejora tu visibilidad en Google y atrae más clientes
-                  </p>
-                </button>
-
-                <button
-                  type='button'
                   onClick={() => handleInputChange('plan', 'Mantenimiento Web')}
                   className={`p-5 text-left border-2 rounded-xl transition-all duration-150 ${
                     formData.plan === 'Mantenimiento Web'
@@ -561,6 +489,102 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                   </div>
                   <p className='text-sm text-gray-600'>
                     Soporte, actualizaciones y seguridad continua
+                  </p>
+                </button>
+
+                <button
+                  type='button'
+                  onClick={() => handleInputChange('plan', '360 Presencia')}
+                  className={`p-5 text-left border-2 rounded-xl transition-all duration-150 ${
+                    formData.plan === '360 Presencia'
+                      ? 'border-accent bg-gray-50 shadow-[4px_4px_0_0_#14b8a6]'
+                      : errors.plan
+                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                        : 'border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px]'
+                  }`}
+                >
+                  <div className='flex items-start justify-between mb-2'>
+                    <h4 className='font-bold text-gray-900'>360 Presencia</h4>
+                    {formData.plan === '360 Presencia' && (
+                      <Check className='w-5 h-5 text-accent' />
+                    )}
+                  </div>
+                  <p className='text-sm text-gray-600'>
+                    Web profesional para autónomos y negocios locales
+                  </p>
+                </button>
+
+                <button
+                  type='button'
+                  onClick={() => handleInputChange('plan', '360 Gestión')}
+                  className={`p-5 text-left border-2 rounded-xl transition-all duration-150 ${
+                    formData.plan === '360 Gestión'
+                      ? 'border-accent bg-gray-50 shadow-[4px_4px_0_0_#14b8a6]'
+                      : errors.plan
+                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                        : 'border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px]'
+                  }`}
+                >
+                  <div className='flex items-start justify-between mb-2'>
+                    <h4 className='font-bold text-gray-900'>360 Gestión</h4>
+                    {formData.plan === '360 Gestión' && (
+                      <Check className='w-5 h-5 text-accent' />
+                    )}
+                  </div>
+                  <p className='text-sm text-gray-600'>
+                    Web profesional con panel para editar tú mismo la web
+                  </p>
+                </button>
+
+                <button
+                  type='button'
+                  onClick={() =>
+                    handleInputChange('plan', 'No sé cuál necesito')
+                  }
+                  className={`p-5 text-left border-2 rounded-xl transition-all duration-150 ${
+                    formData.plan === 'No sé cuál necesito'
+                      ? 'border-accent bg-gray-50 shadow-[4px_4px_0_0_#14b8a6]'
+                      : errors.plan
+                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                        : 'border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px]'
+                  }`}
+                >
+                  <div className='flex items-start justify-between mb-2'>
+                    <h4 className='font-bold text-gray-900'>
+                      No sé cuál necesito
+                    </h4>
+                    {formData.plan === 'No sé cuál necesito' && (
+                      <Check className='w-5 h-5 text-accent' />
+                    )}
+                  </div>
+                  <p className='text-sm text-gray-600'>
+                    Te ayudamos a elegir según lo que necesita tu negocio
+                  </p>
+                </button>
+
+                <button
+                  type='button'
+                  onClick={() =>
+                    handleInputChange('plan', 'Proyecto personalizado')
+                  }
+                  className={`p-5 text-left border-2 rounded-xl transition-all duration-150 ${
+                    formData.plan === 'Proyecto personalizado'
+                      ? 'border-accent bg-gray-50 shadow-[4px_4px_0_0_#14b8a6]'
+                      : errors.plan
+                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                        : 'border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px]'
+                  }`}
+                >
+                  <div className='flex items-start justify-between mb-2'>
+                    <h4 className='font-bold text-gray-900'>
+                      Proyecto personalizado
+                    </h4>
+                    {formData.plan === 'Proyecto personalizado' && (
+                      <Check className='w-5 h-5 text-accent' />
+                    )}
+                  </div>
+                  <p className='text-sm text-gray-600'>
+                    Tu proyecto no encaja en los packs anteriores
                   </p>
                 </button>
               </div>

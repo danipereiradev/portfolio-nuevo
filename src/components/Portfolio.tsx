@@ -9,7 +9,10 @@ import {
   trackWhatsAppClick,
   trackGoogleAdsWhatsAppConversion,
 } from '../utils/analytics';
-import { PORTFOLIO_WHATSAPP_MESSAGE, buildWhatsAppUrl } from '../config/contact';
+import {
+  PORTFOLIO_WHATSAPP_MESSAGE,
+  buildWhatsAppUrl,
+} from '../config/contact';
 import { allTestimonials } from '../data/testimonials';
 import Button from './Button';
 
@@ -134,7 +137,11 @@ La monetización se logró mediante publicidad estratégica, enlaces de afiliado
 
   return (
     <>
-      <section id='portfolio' ref={sectionRef} className='relative py-20 bg-white overflow-hidden'>
+      <section
+        id='portfolio'
+        ref={sectionRef}
+        className='relative py-20 bg-white overflow-hidden'
+      >
         <div className='container mx-auto px-6 relative z-10'>
           <div className='text-center mb-16'>
             <h2 className='text-4xl md:text-5xl font-extrabold text-gray-900 mb-4'>
@@ -187,7 +194,7 @@ La monetización se logró mediante publicidad estratégica, enlaces de afiliado
               ¿Quieres ver proyectos parecidos al que tienes en mente?
             </h3>
             <p className='text-lg text-white/80 font-medium mb-6'>
-              Cuéntame qué tipo de web necesitas y te enviaré ejemplos de
+              Cuéntanos qué tipo de web necesitas y te enviaré ejemplos de
               trabajos relacionados.
             </p>
             <div className='flex justify-center'>
@@ -280,7 +287,8 @@ La monetización se logró mediante publicidad estratégica, enlaces de afiliado
 
                   {(() => {
                     const review = allTestimonials.find(
-                      (t) => t.name === projects[selectedProject].testimonialName,
+                      (t) =>
+                        t.name === projects[selectedProject].testimonialName,
                     );
                     if (!review) return null;
 
@@ -300,13 +308,23 @@ La monetización se logró mediante publicidad estratégica, enlaces de afiliado
                           </div>
 
                           <blockquote className='text-base text-gray-700 leading-relaxed mb-4'>
-                            "{renderWithBoldPhrase(review.text, review.boldPhrase)}"
+                            "
+                            {renderWithBoldPhrase(
+                              review.text,
+                              review.boldPhrase,
+                            )}
+                            "
                           </blockquote>
 
                           {review.highlight && (
                             <div className='bg-gray-50 border-l-4 border-accent p-3 rounded-r-lg mb-4'>
                               <p className='text-sm text-gray-800 font-medium italic'>
-                                "{renderWithBoldPhrase(review.highlight, review.boldPhrase)}"
+                                "
+                                {renderWithBoldPhrase(
+                                  review.highlight,
+                                  review.boldPhrase,
+                                )}
+                                "
                               </p>
                             </div>
                           )}

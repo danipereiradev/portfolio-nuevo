@@ -20,6 +20,10 @@ export const ECOMMERCE_WHATSAPP_MESSAGE =
 export const MAINTENANCE_WHATSAPP_MESSAGE =
   'Hola, quiero información sobre mantenimiento web.';
 
+// Mensaje para el botón de WhatsApp de /web-profesional-360.
+export const BUSINESS_PACKS_WHATSAPP_MESSAGE =
+  'Hola, quiero información para la web profesional de mi negocio.';
+
 // Mensaje para el botón de WhatsApp de la página /contacto.
 export const CONTACT_PAGE_WHATSAPP_MESSAGE =
   'Hola, quiero información para un proyecto web.';
@@ -51,5 +55,6 @@ export const getWhatsAppMessageForPath = (pathname: string): string => {
   if (path === '/web-autonomos-pymes') return ADS_WHATSAPP_MESSAGE;
   if (path === '/tiendas-online') return ECOMMERCE_WHATSAPP_MESSAGE;
   if (path === '/mantenimiento-web') return MAINTENANCE_WHATSAPP_MESSAGE;
+  if (path === '/web-profesional-360') return BUSINESS_PACKS_WHATSAPP_MESSAGE;
   return DEFAULT_WHATSAPP_MESSAGE;
 };

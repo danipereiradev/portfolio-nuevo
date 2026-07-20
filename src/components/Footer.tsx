@@ -104,10 +104,18 @@ const Footer = () => {
               <ul className='space-y-3 text-gray-300'>
                 <li>
                   <a
+                    href='/web-profesional-360'
+                    className='hover:text-white transition-colors duration-200'
+                  >
+                    Web Profesional 360
+                  </a>
+                </li>
+                <li>
+                  <a
                     href='/web-autonomos-pymes'
                     className='hover:text-white transition-colors duration-200'
                   >
-                    Web para Autónomos y Pymes
+                    Web a Medida
                   </a>
                 </li>
                 <li>

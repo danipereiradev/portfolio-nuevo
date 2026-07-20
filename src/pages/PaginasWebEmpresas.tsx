@@ -82,7 +82,7 @@ const PaginasWebEmpresas = () => {
         onButtonClick={openModal}
       />
 
-      <ContactForm preselectedPlan='Página Web' />
+      <ContactForm preselectedPlan='Web a Medida' />
     </>
   );
 };

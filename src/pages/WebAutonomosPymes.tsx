@@ -1,9 +1,14 @@
 import { useEffect } from 'react';
 import {
-  Briefcase,
-  Building2,
-  Store,
-  UserCircle,
+  Palette,
+  Blocks,
+  Plug,
+  Lock,
+  CalendarClock,
+  SlidersHorizontal,
+  Workflow,
+  LayoutDashboard,
+  Boxes,
   Check,
   MessageCircle,
 } from 'lucide-react';
@@ -63,69 +68,99 @@ const WebAutonomosPymes = () => {
   };
 
   const handleQuoteRequest = () => {
-    trackPricingCtaClick('Web autónomos y pymes', 'Solicitar propuesta');
-    openModal('Página Web');
+    trackPricingCtaClick('Web a Medida', 'Solicitar propuesta');
+    openModal('Web a Medida');
   };
 
   const targetAudience = [
     {
-      icon: Briefcase,
-      title: 'Autónomos',
+      icon: Palette,
+      title: 'Diseño Completamente Personalizado',
       description:
-        'Necesitas una web que transmita profesionalidad y te ayude a conseguir clientes sin depender solo de redes sociales.',
+        'Sin partir de una base cerrada: la estructura y el diseño se piensan para tu proyecto concreto.',
     },
     {
-      icon: Building2,
-      title: 'Pymes',
+      icon: Blocks,
+      title: 'Funcionalidades Especiales',
       description:
-        'Tu empresa necesita presencia digital sólida para competir y generar confianza en nuevos clientes.',
+        'Necesitas algo que no es un formulario y una lista de servicios, sino un desarrollo a medida.',
     },
     {
-      icon: Store,
-      title: 'Pequeños Negocios',
+      icon: Plug,
+      title: 'Integraciones Externas',
       description:
-        'Negocios locales que quieren aparecer en Google y ser encontrados por clientes cercanos.',
+        'Conexión con CRM, ERP, pasarelas de pago u otras herramientas que ya usa tu negocio.',
     },
     {
-      icon: UserCircle,
-      title: 'Marcas Personales',
+      icon: Lock,
+      title: 'Áreas Privadas',
       description:
-        'Consultores, coaches o profesionales que quieren mostrar su trabajo y credibilidad online.',
+        'Zonas de acceso restringido para clientes, socios o equipo, con permisos propios.',
+    },
+    {
+      icon: CalendarClock,
+      title: 'Reservas Complejas',
+      description:
+        'Sistemas de reserva con disponibilidad, recursos o condiciones que van más allá de un formulario simple.',
+    },
+    {
+      icon: SlidersHorizontal,
+      title: 'Buscadores y Filtros',
+      description:
+        'Catálogos o listados grandes que necesitan búsqueda avanzada y filtros a medida.',
+    },
+    {
+      icon: Workflow,
+      title: 'Automatizaciones',
+      description:
+        'Procesos que hoy haces a mano y que se pueden automatizar dentro de tu propia web.',
+    },
+    {
+      icon: LayoutDashboard,
+      title: 'Paneles Internos y Aplicaciones Web',
+      description:
+        'Herramientas internas o aplicaciones web para gestionar tu negocio, no solo una web informativa.',
+    },
+    {
+      icon: Boxes,
+      title: 'Arquitectura Específica',
+      description:
+        'Proyectos que necesitan una arquitectura técnica propia, pensada para escalar con tu negocio.',
     },
   ];
 
   const included = [
-    'Diseño responsive adaptado a móviles',
-    'Hasta 6 páginas o secciones',
-    'Formulario de contacto funcional',
-    'Optimización SEO básica',
-    'Integración Google Analytics',
-    'Certificado SSL (https seguro)',
-    'Hosting primer año incluido',
-    'Formación uso y gestión',
-    'Hasta 2 revisiones incluidas',
+    'Diseño y arquitectura adaptados al proyecto',
+    'Funcionalidades y flujos a medida',
+    'Integraciones con herramientas externas si el proyecto lo requiere',
+    'Áreas privadas o paneles internos si el proyecto lo requiere',
+    'Estructura técnica pensada para escalar',
+    'Formulario, contacto y analítica configurados',
+    'Certificado SSL (https seguro) y publicación incluida',
+    'Acompañamiento durante todo el desarrollo',
+    'Rondas de revisión acordadas según el proyecto',
   ];
 
   const features = [
     {
-      title: 'Diseño Responsive Adaptado',
+      title: 'Diseño y Arquitectura a Medida',
       description:
-        'Tu web se ve perfecta en móvil, tablet y ordenador, donde te van a encontrar la mayoría de tus clientes.',
+        'La estructura de la web se diseña para tu proyecto concreto, no se adapta desde una plantilla cerrada.',
     },
     {
-      title: 'Formulario de Contacto Funcional',
+      title: 'Funcionalidades Específicas',
       description:
-        'Capta clientes potenciales directamente desde tu web, sin depender de otras plataformas.',
+        'Desarrollamos exactamente lo que tu proyecto necesita: reservas, buscadores, paneles, automatizaciones u otras funciones.',
     },
     {
-      title: 'Optimización SEO Básica',
+      title: 'Integraciones Externas',
       description:
-        'Tu web queda preparada con una estructura que Google entiende desde el primer día.',
+        'Conectamos tu web con las herramientas que ya usas, de forma segura y mantenible.',
     },
     {
-      title: 'Integración Google Analytics',
+      title: 'Áreas Privadas y Paneles Internos',
       description:
-        'Mide tus visitas y resultados desde el primer momento para tomar mejores decisiones.',
+        'Si el proyecto lo necesita, añadimos zonas de acceso restringido o paneles de gestión propios.',
     },
     {
       title: 'Certificado SSL Incluido',
@@ -133,19 +168,19 @@ const WebAutonomosPymes = () => {
         'Navegación segura (https) que transmite confianza a tus clientes y mejora tu SEO.',
     },
     {
-      title: 'Hosting Primer Año Incluido',
+      title: 'Analítica Configurada',
       description:
-        'Tu web queda publicada sin que tengas que preocuparte por la parte técnica.',
+        'Mide tus visitas y resultados desde el primer momento para tomar mejores decisiones.',
     },
     {
-      title: 'Formación de Uso y Gestión',
+      title: 'Acompañamiento Durante el Desarrollo',
       description:
-        'Te enseñamos a gestionar los contenidos básicos de tu web para que seas autónomo.',
+        'Trato directo mientras se construye el proyecto, con revisiones acordadas según su alcance.',
     },
     {
-      title: 'Hasta 2 Revisiones Incluidas',
+      title: 'Pensado para Escalar',
       description:
-        'Ajustamos el diseño y los contenidos hasta que la web quede exactamente como quieres.',
+        'La base técnica se plantea para poder ampliar el proyecto más adelante sin rehacerlo desde cero.',
     },
   ];
 
@@ -153,18 +188,20 @@ const WebAutonomosPymes = () => {
     {
       number: '1',
       title: 'Nos cuentas qué necesitas',
-      description: 'Revisamos tu negocio, objetivos y tipo de web.',
+      description:
+        'Revisamos tu proyecto, sus funcionalidades y qué lo hace distinto de una web estándar.',
     },
     {
       number: '2',
       title: 'Preparamos una propuesta',
       description:
-        'Recibes una propuesta cerrada con alcance, plazo y opciones de pago.',
+        'Recibes una propuesta con el alcance definido, plazo estimado y opciones de pago.',
     },
     {
       number: '3',
       title: 'Diseñamos y desarrollamos',
-      description: 'Trabajamos la estructura, el diseño responsive y el desarrollo.',
+      description:
+        'Trabajamos la arquitectura, el diseño y las funcionalidades específicas de tu proyecto.',
     },
     {
       number: '4',
@@ -176,9 +213,14 @@ const WebAutonomosPymes = () => {
 
   const faqs = [
     {
-      question: '¿Cuánto tarda una web?',
+      question: '¿En qué se diferencia esto de Web Profesional 360?',
       answer:
-        'Normalmente entre 2 y 3 semanas, dependiendo del contenido y del alcance.',
+        'Web Profesional 360 es una web de alcance definido, con precio desde una cifra clara y proceso más rápido. Web a Medida es para proyectos con funcionalidades, estructura o integraciones específicas, con presupuesto y arquitectura adaptados a tu caso.',
+    },
+    {
+      question: '¿Cuánto tarda un proyecto a medida?',
+      answer:
+        'Depende del alcance y las funcionalidades del proyecto. Lo estimamos en la propuesta una vez definidos los requisitos.',
     },
     {
       question: '¿Podemos pagar en varias cuotas?',
@@ -215,9 +257,10 @@ const WebAutonomosPymes = () => {
     <>
       {/* 1. Hero de posicionamiento, sin precio como primer impacto */}
       <SEOLandingHero
-        title='Páginas web profesionales para empresas y negocios'
-        subtitle='Diseñamos y desarrollamos webs claras, rápidas y preparadas para generar confianza, explicar bien tus servicios y facilitar que tus clientes contacten.'
-        description='Estudio web en Madrid · Proyectos para toda España · Presupuesto cerrado antes de empezar.'
+        title='Diseño y desarrollo web a medida para proyectos que necesitan algo más'
+        subtitle='Soluciones web personalizadas para empresas que necesitan una estructura, funcionalidades o integraciones específicas.'
+        description='Diseño y arquitectura adaptados a tu proyecto, con presupuesto según el alcance real que necesitas.'
+        trustLine='Estudio web en Madrid · Proyectos para toda España · Presupuesto según proyecto'
         ctaText='Solicitar propuesta'
         onCTAClick={() => handleWhatsApp('LandingAutonomosHero')}
         secondaryCTAText='Ver trabajos'
@@ -230,9 +273,17 @@ const WebAutonomosPymes = () => {
 
       {/* 3. Para quién es este servicio */}
       <SEOBenefits
-        title='¿Es Esta Web para Tu Negocio?'
+        title='¿Tu Proyecto Necesita Algo a Medida?'
         benefits={targetAudience}
       />
+      <div className='bg-gray-50 pt-6 pb-16 md:pt-8 md:pb-20'>
+        <div className='container mx-auto px-6'>
+          <p className='max-w-2xl mx-auto text-center text-sm md:text-base text-gray-500'>
+            Si tu proyecto no encaja en un alcance cerrado, es un buen
+            candidato para Web a Medida.
+          </p>
+        </div>
+      </div>
 
       {/* 4. Precio y formas de pago */}
       <section
@@ -254,16 +305,17 @@ const WebAutonomosPymes = () => {
 
           <div className='max-w-3xl mx-auto bg-white rounded-xl p-8 md:p-10 border-2 border-ink-dark shadow-[7px_7px_0_0_#1a1a1a] relative'>
             <span className='absolute -top-4 left-8 bg-accent text-ink-dark border-2 border-ink-dark text-xs font-bold uppercase tracking-wide px-3 py-1 rotate-[-2deg]'>
-              Web Profesional
+              Web a Medida
             </span>
 
             <p className='text-xs font-semibold text-accent uppercase tracking-wide mb-3 mt-4 text-center'>
-              Ideal para: Autónomos, marcas personales y pequeños negocios
+              Ideal para: Proyectos con funcionalidades, estructura o
+              integraciones específicas
             </p>
 
             <div className='flex flex-col items-center gap-1 mb-6 text-center'>
               <span className='text-2xl md:text-3xl font-bold text-gray-900'>
-                Presupuesto a medida
+                Presupuesto según proyecto
               </span>
               <span className='text-sm text-gray-500'>
                 Cerrado antes de empezar, sin sorpresas.
@@ -272,7 +324,7 @@ const WebAutonomosPymes = () => {
                 Pago único, fraccionado o mensual según el proyecto.
               </span>
               <span className='text-sm text-gray-500'>
-                Entrega: 2-3 semanas
+                Entrega: según el alcance del proyecto
               </span>
             </div>
 
@@ -316,8 +368,8 @@ const WebAutonomosPymes = () => {
       {/* 5. Qué incluye la web */}
       <div id='incluye' className='scroll-mt-24'>
         <SEOFeatures
-          title='Qué Incluye tu Web'
-          subtitle='Todo lo necesario para tener una presencia digital profesional'
+          title='Qué Incluye un Proyecto a Medida'
+          subtitle='Todo lo necesario para desarrollar un proyecto con funcionalidades específicas'
           features={features}
         />
       </div>
@@ -343,11 +395,29 @@ const WebAutonomosPymes = () => {
             </a>
             <button
               type='button'
-              onClick={() => openModal('Página Web')}
+              onClick={() => openModal('Web a Medida')}
               className='block bg-gray-50 border-2 border-ink-dark rounded-xl p-5 text-center font-bold text-gray-900 shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
             >
               Mejoras o rediseños
             </button>
+          </div>
+        </div>
+      </section>
+
+      {/* 5.2 Enlace cruzado hacia Web Profesional 360 */}
+      <section className='py-12 bg-gray-50 border-t-2 border-gray-100'>
+        <div className='content-container'>
+          <div className='max-w-2xl mx-auto text-center bg-white border-2 border-ink-dark rounded-xl p-6 md:p-8 shadow-[5px_5px_0_0_#1a1a1a]'>
+            <p className='text-base md:text-lg text-gray-800 font-medium mb-4'>
+              Si buscas una solución profesional con alcance, precio y
+              proceso definidos, consulta Web Profesional 360.
+            </p>
+            <a
+              href='/web-profesional-360'
+              className='inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:underline'
+            >
+              Ver Web Profesional 360
+            </a>
           </div>
         </div>
       </section>
@@ -373,14 +443,14 @@ const WebAutonomosPymes = () => {
 
       {/* 9. Formulario / contacto final */}
       <SEOCTAFinal
-        title='Páginas web profesionales para empresas y negocios'
-        subtitle='Estudio web en Madrid con proyectos en toda España. Trato directo, sin intermediarios. Solicita tu propuesta y recíbela en máximo 2h.'
+        title='Diseño y desarrollo web a medida para tu proyecto'
+        subtitle='Estudio web en Madrid con proyectos en toda España. Trato directo, sin intermediarios. Cuéntanos tu proyecto y te preparamos una propuesta a medida.'
         buttonText='Solicitar propuesta'
         onButtonClick={handleQuoteRequest}
       />
 
       <div id='contacto' className='scroll-mt-24'>
-        <ContactForm preselectedPlan='Página Web' />
+        <ContactForm preselectedPlan='Web a Medida' />
       </div>
     </>
   );

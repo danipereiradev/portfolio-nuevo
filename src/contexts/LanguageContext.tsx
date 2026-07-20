@@ -33,9 +33,9 @@ const translations = {
     'Servicios web para negocios que necesitan una presencia online profesional',
   'services.description':
     'Diseñamos, desarrollamos y mantenemos webs pensadas para transmitir confianza, explicar mejor lo que haces y facilitar que tus clientes contacten o compren.',
-  'services.corporate.title': 'Página web profesional',
+  'services.corporate.title': 'Web a Medida',
   'services.corporate.desc':
-    'Webs claras, rápidas y responsive para empresas, autónomos y negocios que necesitan presentar sus servicios y captar contactos.',
+    'Diseño y desarrollo web a medida para proyectos con funcionalidades, estructura o integraciones específicas.',
   'services.ecommerce.title': 'Tienda online',
   'services.ecommerce.desc':
     'Tiendas online y catálogos digitales para vender productos o servicios con una experiencia cuidada y fácil de gestionar.',

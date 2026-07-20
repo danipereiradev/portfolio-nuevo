@@ -29,13 +29,17 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
 
   const services = [
     {
-      name: 'Web para Autónomos y Pymes',
+      name: 'Web Profesional 360',
+      path: '/web-profesional-360',
+      popular: true,
+    },
+    {
+      name: 'Web a Medida',
       path: '/web-autonomos-pymes',
     },
     {
       name: 'Tiendas Online',
       path: '/tiendas-online',
-      popular: true,
     },
     {
       name: 'Mantenimiento Web',
