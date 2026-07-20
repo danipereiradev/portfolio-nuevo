@@ -4,15 +4,12 @@ import {
   Mail,
   Phone,
   User,
-  Globe,
+  Briefcase,
   Check,
-  ArrowRight,
-  ArrowLeft,
   AlertCircle,
 } from 'lucide-react';
 import {
   trackFormSubmit,
-  trackFormStep,
   trackFormError,
   trackWhatsAppClick,
   trackGoogleAdsWhatsAppConversion,
@@ -37,7 +34,6 @@ const ContactForm = ({
     getWhatsAppMessageForPath(pathname),
   );
   const { closeModal } = useContactModal();
-  const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'error'>('idle');
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
@@ -63,28 +59,24 @@ const ContactForm = ({
   });
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
-    phone: '',
-    company: '',
+    contact: '',
+    businessType: '',
     plan: preselectedPlan || '',
-    lowCostBudget: '',
     description: '',
-    inspiration: '',
-    preferredContact: '',
-    urgency: '',
   });
 
-  const validateEmail = (email: string): boolean => {
+  const validateEmail = (value: string): boolean => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return emailRegex.test(email);
+    return emailRegex.test(value);
   };
 
-  const validatePhone = (phone: string): boolean => {
-    if (!phone) return true;
+  const validatePhone = (value: string): boolean => {
     const phoneRegex = /^(\+34|0034|34)?[6789]\d{8}$|^\+\d{1,3}\d{6,14}$/;
-    const cleanPhone = phone.replace(/[\s-()]/g, '');
+    const cleanPhone = value.replace(/[\s-()]/g, '');
     return phoneRegex.test(cleanPhone);
   };
+
+  const isContactAnEmail = (value: string): boolean => validateEmail(value);
 
   const sanitizeText = (text: string): string => {
     return text
@@ -99,60 +91,52 @@ const ContactForm = ({
     return nameRegex.test(trimmedName) && trimmedName.length >= 2;
   };
 
-  const validateCurrentStep = (): boolean => {
+  const validateForm = (): boolean => {
     const newErrors: { [key: string]: string } = {};
 
-    switch (currentStep) {
-      case 1:
-        if (!formData.name || !validateName(formData.name)) {
-          newErrors.name =
-            'El nombre debe contener solo letras y tener entre 2-50 caracteres';
-        }
-        if (!formData.email || !validateEmail(formData.email)) {
-          newErrors.email = 'Por favor, introduce un email válido';
-        }
-        if (formData.phone && !validatePhone(formData.phone)) {
-          newErrors.phone =
-            'Formato de teléfono inválido (ej: +34 600 000 000)';
-        }
-        break;
+    if (!formData.name || !validateName(formData.name)) {
+      newErrors.name =
+        'El nombre debe contener solo letras y tener entre 2-50 caracteres';
+    }
 
-      case 2:
-        if (!formData.plan) {
-          newErrors.plan = 'Selecciona un plan';
-        }
-        if (!formData.description || formData.description.trim().length < 20) {
-          newErrors.description =
-            'La descripción debe tener al menos 20 caracteres';
-        }
-        if (formData.description.trim().length > 1000) {
-          newErrors.description =
-            'La descripción no puede superar los 1000 caracteres';
-        }
-        break;
+    const contactValue = formData.contact.trim();
+    if (
+      !contactValue ||
+      (!validateEmail(contactValue) && !validatePhone(contactValue))
+    ) {
+      newErrors.contact = 'Introduce un email o un teléfono válido';
+    }
 
-      case 3:
-        if (!formData.preferredContact) {
-          newErrors.preferredContact =
-            'Selecciona un método de contacto preferido';
-        }
-        if (
-          !antiSpamAnswer ||
-          antiSpamAnswer.toLowerCase().trim() !== antiSpamQuestion.answer
-        ) {
-          newErrors.antiSpam =
-            'Respuesta incorrecta. Por favor, inténtalo de nuevo.';
-        }
-        break;
+    if (!formData.businessType || formData.businessType.trim().length < 2) {
+      newErrors.businessType = 'Indica el tipo de negocio';
+    }
+
+    if (!formData.plan) {
+      newErrors.plan = 'Selecciona un plan';
+    }
+
+    if (!formData.description || formData.description.trim().length < 10) {
+      newErrors.description = 'La descripción debe tener al menos 10 caracteres';
+    }
+    if (formData.description.trim().length > 500) {
+      newErrors.description =
+        'La descripción no puede superar los 500 caracteres';
+    }
+
+    if (
+      !antiSpamAnswer ||
+      antiSpamAnswer.toLowerCase().trim() !== antiSpamQuestion.answer
+    ) {
+      newErrors.antiSpam =
+        'Respuesta incorrecta. Por favor, inténtalo de nuevo.';
     }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleInputChange = (field: string, value: string | string[]) => {
-    const sanitizedValue =
-      typeof value === 'string' ? sanitizeText(value) : value;
+  const handleInputChange = (field: string, value: string) => {
+    const sanitizedValue = sanitizeText(value);
 
     setFormData((prev) => ({
       ...prev,
@@ -167,38 +151,11 @@ const ContactForm = ({
     }
   };
 
-  const nextStep = () => {
-    if (!validateCurrentStep()) {
-      trackFormError(`validation_step_${currentStep}`, formData.plan);
-      return;
-    }
-
-    if (currentStep < 3) {
-      const nextStepNumber = currentStep + 1;
-      setCurrentStep(nextStepNumber);
-
-      const stepNames = [
-        '',
-        'Información Básica',
-        'Selección de Plan',
-        'Preferencias',
-      ];
-      trackFormStep(nextStepNumber, stepNames[nextStepNumber]);
-    }
-  };
-
-  const prevStep = () => {
-    if (currentStep > 1) {
-      setCurrentStep(currentStep - 1);
-      setErrors({});
-    }
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!validateCurrentStep()) {
-      trackFormError(`validation_step_${currentStep}`, formData.plan);
+    if (!validateForm()) {
+      trackFormError('validation_error', formData.plan);
       return;
     }
 
@@ -207,38 +164,32 @@ const ContactForm = ({
 
     try {
       const formspreeEndpoint = 'https://formspree.io/f/movlevkj';
+      const contactIsEmail = isContactAnEmail(formData.contact);
 
-      const formDataToSend = {
+      const formDataToSend: Record<string, string> = {
         name: formData.name,
-        email: formData.email,
-        phone: formData.phone || 'No proporcionado',
-        company: formData.company || 'No especificada',
+        contact: formData.contact,
+        businessType: formData.businessType,
         plan: formData.plan,
         description: formData.description,
-        inspiration: formData.inspiration || 'No especificada',
-        preferredContact: formData.preferredContact,
-        urgency: formData.urgency || 'No especificada',
         submissionDate: new Date().toLocaleString('es-ES'),
-        _replyto: formData.email,
         _subject: `Nueva Solicitud de Presupuesto - ${formData.name} - ${formData.plan}`,
         message: `
 Nombre: ${formData.name}
-Email: ${formData.email}
-Teléfono: ${formData.phone || 'No proporcionado'}
-Empresa: ${formData.company || 'No especificada'}
+Email o teléfono: ${formData.contact}
+Tipo de negocio: ${formData.businessType}
 
 Plan Seleccionado: ${formData.plan}
 
 Descripción: ${formData.description}
 
-Inspiración: ${formData.inspiration || 'No especificada'}
-
-Método de contacto preferido: ${formData.preferredContact}
-Urgencia: ${formData.urgency || 'No especificada'}
-
 Fecha: ${new Date().toLocaleString('es-ES')}
         `,
       };
+
+      if (contactIsEmail) {
+        formDataToSend._replyto = formData.contact;
+      }
 
       const response = await fetch(formspreeEndpoint, {
         method: 'POST',
@@ -289,15 +240,58 @@ Fecha: ${new Date().toLocaleString('es-ES')}
     </div>
   );
 
-  const renderStep = () => {
-    switch (currentStep) {
-      case 1:
-        return (
-          <div className='space-y-6'>
-            <h3 className='text-xl md:text-2xl font-bold text-gray-900 mb-6 text-center md:text-left'>
-              Información de Contacto
-            </h3>
+  const planOptions = [
+    {
+      value: 'Web Profesional 360',
+      description: 'Web de alcance definido, con precio claro y proceso rápido',
+    },
+    {
+      value: 'Web a Medida',
+      description:
+        'Proyecto con funcionalidades, estructura o integraciones específicas',
+    },
+    {
+      value: 'Tienda Online',
+      description: 'Solución completa para vender productos online',
+    },
+    {
+      value: 'Mantenimiento Web',
+      description: 'Soporte, actualizaciones y seguridad continua',
+    },
+    {
+      value: '360 Presencia',
+      description: 'Web profesional para autónomos y negocios locales',
+    },
+    {
+      value: '360 Gestión',
+      description: 'Web profesional con panel para editar tú mismo la web',
+    },
+    {
+      value: 'No sé cuál necesito',
+      description: 'Te ayudamos a elegir según lo que necesita tu negocio',
+    },
+    {
+      value: 'Proyecto personalizado',
+      description: 'Tu proyecto no encaja en los packs anteriores',
+    },
+  ];
 
+  const formContent = (
+    <>
+      <div className='text-center mb-12 md:mb-16'>
+        <h2 className='text-2xl md:text-3xl lg:text-4xl font-extrabold text-gray-900 mb-4'>
+          Cuéntanos qué necesitas
+        </h2>
+        <p className='text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto'>
+          Trabajamos con empresas, autónomos y negocios que necesitan crear o
+          mejorar su presencia online. Cuéntanos sobre tu proyecto y te
+          enviaremos una propuesta personalizada en un máximo de 2 horas.
+        </p>
+      </div>
+
+      <div className='max-w-4xl mx-auto'>
+        <div className='bg-white rounded-lg border-2 border-ink-dark shadow-[7px_7px_0_0_#1a1a1a] overflow-hidden'>
+          <form onSubmit={handleSubmit} className='p-8 space-y-6'>
             <div className='grid md:grid-cols-2 gap-6'>
               <div>
                 <label className='block text-sm font-medium text-gray-700 mb-2 text-center md:text-left'>
@@ -323,407 +317,120 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
               <div>
                 <label className='block text-sm font-medium text-gray-700 mb-2 text-center md:text-left'>
-                  Email *
+                  Email o Teléfono *
                 </label>
                 <div className='relative'>
                   <Mail className='absolute left-3 top-3 w-5 h-5 text-gray-400' />
                   <input
-                    type='email'
-                    value={formData.email}
-                    onChange={(e) => handleInputChange('email', e.target.value)}
+                    type='text'
+                    value={formData.contact}
+                    onChange={(e) =>
+                      handleInputChange('contact', e.target.value)
+                    }
                     className={`w-full pl-10 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_#14b8a6] transition-all duration-150 ${
-                      errors.email
+                      errors.contact
                         ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
                         : 'border-ink-dark'
                     }`}
-                    placeholder='tu@email.com'
+                    placeholder='tu@email.com o 600 000 000'
                   />
                 </div>
-                {errors.email && <ErrorMessage error={errors.email} />}
+                {errors.contact && <ErrorMessage error={errors.contact} />}
               </div>
 
-              <div>
+              <div className='md:col-span-2'>
                 <label className='block text-sm font-medium text-gray-700 mb-2 text-center md:text-left'>
-                  Teléfono
+                  Tipo de Negocio *
                 </label>
                 <div className='relative'>
-                  <Phone className='absolute left-3 top-3 w-5 h-5 text-gray-400' />
-                  <input
-                    type='tel'
-                    value={formData.phone}
-                    onChange={(e) => handleInputChange('phone', e.target.value)}
-                    className={`w-full pl-10 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_#14b8a6] transition-all duration-150 ${
-                      errors.phone
-                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
-                        : 'border-ink-dark'
-                    }`}
-                    placeholder='+34 600 000 000'
-                  />
-                </div>
-                {errors.phone && <ErrorMessage error={errors.phone} />}
-              </div>
-
-              <div>
-                <label className='block text-sm font-medium text-gray-700 mb-2 text-center md:text-left'>
-                  Empresa
-                </label>
-                <div className='relative'>
-                  <Globe className='absolute left-3 top-3 w-5 h-5 text-gray-400' />
+                  <Briefcase className='absolute left-3 top-3 w-5 h-5 text-gray-400' />
                   <input
                     type='text'
-                    value={formData.company}
+                    value={formData.businessType}
                     onChange={(e) =>
-                      handleInputChange('company', e.target.value)
+                      handleInputChange('businessType', e.target.value)
                     }
-                    className='w-full pl-10 pr-4 py-3 border-2 border-ink-dark rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_#14b8a6] transition-all duration-150'
-                    placeholder='Tu empresa (opcional)'
+                    className={`w-full pl-10 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_#14b8a6] transition-all duration-150 ${
+                      errors.businessType
+                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                        : 'border-ink-dark'
+                    }`}
+                    placeholder='Ej: veterinaria, asesoría, tienda de ropa...'
                     maxLength={100}
                   />
                 </div>
+                {errors.businessType && (
+                  <ErrorMessage error={errors.businessType} />
+                )}
               </div>
             </div>
-          </div>
-        );
-
-      case 2:
-        return (
-          <div className='space-y-6'>
-            <h3 className='text-xl md:text-2xl font-bold text-gray-900 mb-6 text-center md:text-left'>
-              Selecciona tu Plan
-            </h3>
 
             <div>
               <label className='block text-sm font-medium text-gray-700 mb-3'>
-                Plan de Servicio *
+                Plan que te Interesa *
               </label>
-              <div className='grid gap-4'>
-                <button
-                  type='button'
-                  onClick={() =>
-                    handleInputChange('plan', 'Web Profesional 360')
-                  }
-                  className={`p-5 text-left border-2 rounded-xl transition-all duration-150 ${
-                    formData.plan === 'Web Profesional 360'
-                      ? 'border-accent bg-gray-50 shadow-[4px_4px_0_0_#14b8a6]'
-                      : errors.plan
-                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
-                        : 'border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px]'
-                  }`}
-                >
-                  <div className='flex items-start justify-between mb-2'>
-                    <h4 className='font-bold text-gray-900'>
-                      Web Profesional 360
-                    </h4>
-                    {formData.plan === 'Web Profesional 360' && (
-                      <Check className='w-5 h-5 text-accent' />
-                    )}
-                  </div>
-                  <p className='text-sm text-gray-600'>
-                    Web de alcance definido, con precio claro y proceso rápido
-                  </p>
-                </button>
-
-                <button
-                  type='button'
-                  onClick={() => handleInputChange('plan', 'Web a Medida')}
-                  className={`p-5 text-left border-2 rounded-xl transition-all duration-150 ${
-                    formData.plan === 'Web a Medida'
-                      ? 'border-accent bg-gray-50 shadow-[4px_4px_0_0_#14b8a6]'
-                      : errors.plan
-                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
-                        : 'border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px]'
-                  }`}
-                >
-                  <div className='flex items-start justify-between mb-2'>
-                    <h4 className='font-bold text-gray-900'>Web a Medida</h4>
-                    {formData.plan === 'Web a Medida' && (
-                      <Check className='w-5 h-5 text-accent' />
-                    )}
-                  </div>
-                  <p className='text-sm text-gray-600'>
-                    Proyecto con funcionalidades, estructura o integraciones
-                    específicas
-                  </p>
-                </button>
-
-                <button
-                  type='button'
-                  onClick={() => handleInputChange('plan', 'Tienda Online')}
-                  className={`p-5 text-left border-2 rounded-xl transition-all duration-150 ${
-                    formData.plan === 'Tienda Online'
-                      ? 'border-accent bg-gray-50 shadow-[4px_4px_0_0_#14b8a6]'
-                      : errors.plan
-                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
-                        : 'border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px]'
-                  }`}
-                >
-                  <div className='flex items-start justify-between mb-2'>
-                    <h4 className='font-bold text-gray-900'>Tienda Online</h4>
-                    {formData.plan === 'Tienda Online' && (
-                      <Check className='w-5 h-5 text-accent' />
-                    )}
-                  </div>
-                  <p className='text-sm text-gray-600'>
-                    Solución completa para vender productos online
-                  </p>
-                </button>
-
-                <button
-                  type='button'
-                  onClick={() => handleInputChange('plan', 'Mantenimiento Web')}
-                  className={`p-5 text-left border-2 rounded-xl transition-all duration-150 ${
-                    formData.plan === 'Mantenimiento Web'
-                      ? 'border-accent bg-gray-50 shadow-[4px_4px_0_0_#14b8a6]'
-                      : errors.plan
-                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
-                        : 'border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px]'
-                  }`}
-                >
-                  <div className='flex items-start justify-between mb-2'>
-                    <h4 className='font-bold text-gray-900'>
-                      Mantenimiento Web
-                    </h4>
-                    {formData.plan === 'Mantenimiento Web' && (
-                      <Check className='w-5 h-5 text-accent' />
-                    )}
-                  </div>
-                  <p className='text-sm text-gray-600'>
-                    Soporte, actualizaciones y seguridad continua
-                  </p>
-                </button>
-
-                <button
-                  type='button'
-                  onClick={() => handleInputChange('plan', '360 Presencia')}
-                  className={`p-5 text-left border-2 rounded-xl transition-all duration-150 ${
-                    formData.plan === '360 Presencia'
-                      ? 'border-accent bg-gray-50 shadow-[4px_4px_0_0_#14b8a6]'
-                      : errors.plan
-                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
-                        : 'border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px]'
-                  }`}
-                >
-                  <div className='flex items-start justify-between mb-2'>
-                    <h4 className='font-bold text-gray-900'>360 Presencia</h4>
-                    {formData.plan === '360 Presencia' && (
-                      <Check className='w-5 h-5 text-accent' />
-                    )}
-                  </div>
-                  <p className='text-sm text-gray-600'>
-                    Web profesional para autónomos y negocios locales
-                  </p>
-                </button>
-
-                <button
-                  type='button'
-                  onClick={() => handleInputChange('plan', '360 Gestión')}
-                  className={`p-5 text-left border-2 rounded-xl transition-all duration-150 ${
-                    formData.plan === '360 Gestión'
-                      ? 'border-accent bg-gray-50 shadow-[4px_4px_0_0_#14b8a6]'
-                      : errors.plan
-                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
-                        : 'border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px]'
-                  }`}
-                >
-                  <div className='flex items-start justify-between mb-2'>
-                    <h4 className='font-bold text-gray-900'>360 Gestión</h4>
-                    {formData.plan === '360 Gestión' && (
-                      <Check className='w-5 h-5 text-accent' />
-                    )}
-                  </div>
-                  <p className='text-sm text-gray-600'>
-                    Web profesional con panel para editar tú mismo la web
-                  </p>
-                </button>
-
-                <button
-                  type='button'
-                  onClick={() =>
-                    handleInputChange('plan', 'No sé cuál necesito')
-                  }
-                  className={`p-5 text-left border-2 rounded-xl transition-all duration-150 ${
-                    formData.plan === 'No sé cuál necesito'
-                      ? 'border-accent bg-gray-50 shadow-[4px_4px_0_0_#14b8a6]'
-                      : errors.plan
-                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
-                        : 'border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px]'
-                  }`}
-                >
-                  <div className='flex items-start justify-between mb-2'>
-                    <h4 className='font-bold text-gray-900'>
-                      No sé cuál necesito
-                    </h4>
-                    {formData.plan === 'No sé cuál necesito' && (
-                      <Check className='w-5 h-5 text-accent' />
-                    )}
-                  </div>
-                  <p className='text-sm text-gray-600'>
-                    Te ayudamos a elegir según lo que necesita tu negocio
-                  </p>
-                </button>
-
-                <button
-                  type='button'
-                  onClick={() =>
-                    handleInputChange('plan', 'Proyecto personalizado')
-                  }
-                  className={`p-5 text-left border-2 rounded-xl transition-all duration-150 ${
-                    formData.plan === 'Proyecto personalizado'
-                      ? 'border-accent bg-gray-50 shadow-[4px_4px_0_0_#14b8a6]'
-                      : errors.plan
-                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
-                        : 'border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px]'
-                  }`}
-                >
-                  <div className='flex items-start justify-between mb-2'>
-                    <h4 className='font-bold text-gray-900'>
-                      Proyecto personalizado
-                    </h4>
-                    {formData.plan === 'Proyecto personalizado' && (
-                      <Check className='w-5 h-5 text-accent' />
-                    )}
-                  </div>
-                  <p className='text-sm text-gray-600'>
-                    Tu proyecto no encaja en los packs anteriores
-                  </p>
-                </button>
+              <div className='grid sm:grid-cols-2 gap-4'>
+                {planOptions.map((option) => {
+                  const isSelected = formData.plan === option.value;
+                  return (
+                    <button
+                      key={option.value}
+                      type='button'
+                      onClick={() => handleInputChange('plan', option.value)}
+                      className={`p-5 text-left border-2 rounded-xl transition-all duration-150 ${
+                        isSelected
+                          ? 'border-accent bg-gray-50 shadow-[4px_4px_0_0_#14b8a6]'
+                          : errors.plan
+                            ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                            : 'border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px]'
+                      }`}
+                    >
+                      <div className='flex items-start justify-between mb-2'>
+                        <h4 className='font-bold text-gray-900'>
+                          {option.value}
+                        </h4>
+                        {isSelected && (
+                          <Check className='w-5 h-5 text-accent flex-shrink-0' />
+                        )}
+                      </div>
+                      <p className='text-sm text-gray-600'>
+                        {option.description}
+                      </p>
+                    </button>
+                  );
+                })}
               </div>
               {errors.plan && <ErrorMessage error={errors.plan} />}
             </div>
 
             <div>
               <label className='block text-sm font-medium text-gray-700 mb-2 text-center md:text-left'>
-                Descripción del Proyecto *
+                Breve Descripción *
               </label>
               <textarea
                 value={formData.description}
                 onChange={(e) =>
                   handleInputChange('description', e.target.value)
                 }
-                rows={4}
+                rows={3}
                 className={`w-full p-4 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_#14b8a6] transition-all duration-150 ${
                   errors.description
                     ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
                     : 'border-ink-dark'
                 }`}
-                placeholder='Describe tu proyecto, objetivos, funcionalidades específicas...'
-                maxLength={1000}
+                placeholder='Cuéntanos brevemente qué necesitas...'
+                maxLength={500}
               />
               <div className='flex justify-between items-center mt-1'>
                 {errors.description && (
                   <ErrorMessage error={errors.description} />
                 )}
                 <span className='text-sm text-gray-500 ml-auto'>
-                  {formData.description.length}/1000 caracteres
+                  {formData.description.length}/500 caracteres
                 </span>
               </div>
             </div>
 
-            <div>
-              <label className='block text-sm font-medium text-gray-700 mb-2 text-center md:text-left'>
-                Referencias o Inspiración
-              </label>
-              <textarea
-                value={formData.inspiration}
-                onChange={(e) =>
-                  handleInputChange('inspiration', e.target.value)
-                }
-                rows={3}
-                className='w-full p-4 border-2 border-ink-dark rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_#14b8a6] transition-all duration-150'
-                placeholder='Webs de referencia, estilos que te gusten, colores preferidos...'
-                maxLength={500}
-              />
-              <span className='text-sm text-gray-500'>
-                {formData.inspiration.length}/500 caracteres
-              </span>
-            </div>
-          </div>
-        );
-
-      case 3:
-        return (
-          <div className='space-y-6'>
-            <h3 className='text-xl md:text-2xl font-bold text-gray-900 mb-6 text-center md:text-left'>
-              Preferencias de Contacto
-            </h3>
-
-            <div>
-              <label className='block text-sm font-medium text-gray-700 mb-3'>
-                ¿Cómo prefieres que te contacte? *
-              </label>
-              <div className='grid grid-cols-2 sm:grid-cols-4 gap-3'>
-                {['Email', 'Teléfono', 'WhatsApp', 'Videollamada'].map(
-                  (method) => {
-                    const isSelected = formData.preferredContact === method;
-                    return (
-                      <label
-                        key={method}
-                        className={`flex items-center justify-center text-center px-3 py-3 border-2 rounded-lg font-bold text-sm cursor-pointer transition-all duration-150 ${
-                          isSelected
-                            ? 'border-accent bg-gray-50 text-gray-900 shadow-[3px_3px_0_0_#14b8a6]'
-                            : 'border-ink-dark text-gray-700 shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px]'
-                        }`}
-                      >
-                        <input
-                          type='radio'
-                          name='preferredContact'
-                          value={method}
-                          checked={isSelected}
-                          onChange={(e) =>
-                            handleInputChange(
-                              'preferredContact',
-                              e.target.value,
-                            )
-                          }
-                          className='sr-only'
-                        />
-                        {method}
-                      </label>
-                    );
-                  },
-                )}
-              </div>
-              {errors.preferredContact && (
-                <ErrorMessage error={errors.preferredContact} />
-              )}
-            </div>
-
-            <div>
-              <label className='block text-sm font-medium text-gray-700 mb-3'>
-                Urgencia del Proyecto
-              </label>
-              <div className='grid grid-cols-2 sm:grid-cols-4 gap-3'>
-                {['Muy urgente', 'Urgente', 'Normal', 'Sin prisa'].map(
-                  (urgency) => {
-                    const isSelected = formData.urgency === urgency;
-                    return (
-                      <label
-                        key={urgency}
-                        className={`flex items-center justify-center text-center px-3 py-3 border-2 rounded-lg font-bold text-sm cursor-pointer transition-all duration-150 ${
-                          isSelected
-                            ? 'border-accent bg-gray-50 text-gray-900 shadow-[3px_3px_0_0_#14b8a6]'
-                            : 'border-ink-dark text-gray-700 shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px]'
-                        }`}
-                      >
-                        <input
-                          type='radio'
-                          name='urgency'
-                          value={urgency}
-                          checked={isSelected}
-                          onChange={(e) =>
-                            handleInputChange('urgency', e.target.value)
-                          }
-                          className='sr-only'
-                        />
-                        {urgency}
-                      </label>
-                    );
-                  },
-                )}
-              </div>
-            </div>
-
-            {/* Verificación Anti-Spam */}
             <div className='bg-yellow-50 p-4 rounded-lg border-2 border-ink-dark shadow-[4px_4px_0_0_#1a1a1a]'>
               <label className='block text-sm font-medium text-gray-700 mb-2 text-center md:text-left'>
                 Verificación de Seguridad *
@@ -745,109 +452,22 @@ Fecha: ${new Date().toLocaleString('es-ES')}
               />
               {errors.antiSpam && <ErrorMessage error={errors.antiSpam} />}
             </div>
-            <div className='bg-gray-50 p-6 rounded-lg border-2 border-ink-dark shadow-[4px_4px_0_0_#1a1a1a]'>
-              <h4 className='font-bold text-gray-900 mb-2'>
-                Resumen de tu Solicitud
-              </h4>
-              <div className='text-sm text-gray-800 space-y-1'>
-                <p>
-                  <strong>Nombre:</strong> {formData.name}
-                </p>
-                <p>
-                  <strong>Email:</strong> {formData.email}
-                </p>
-                <p>
-                  <strong>Plan:</strong> {formData.plan || 'No seleccionado'}
-                </p>
-                <p>
-                  <strong>Descripción:</strong>{' '}
-                  {formData.description
-                    ? formData.description.substring(0, 100) + '...'
-                    : 'Sin descripción'}
-                </p>
-              </div>
-            </div>
-          </div>
-        );
 
-      default:
-        return null;
-    }
-  };
-
-  const formContent = (
-    <>
-      <div className='text-center mb-12 md:mb-16'>
-        <h2 className='text-2xl md:text-3xl lg:text-4xl font-extrabold text-gray-900 mb-4'>
-          Cuéntanos qué necesitas
-        </h2>
-        <p className='text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto'>
-          Trabajamos con empresas, autónomos y negocios que necesitan crear o
-          mejorar su presencia online. Cuéntanos sobre tu proyecto y te
-          enviaremos una propuesta personalizada en un máximo de 2 horas.
-        </p>
-      </div>
-
-      <div className='max-w-4xl mx-auto'>
-        <div className='bg-white rounded-lg border-2 border-ink-dark shadow-[7px_7px_0_0_#1a1a1a] overflow-hidden'>
-          <div className='bg-gray-50 px-8 py-6'>
-            <div className='flex items-center justify-between mb-2'>
-              <span className='text-sm font-medium text-gray-600'>
-                Paso {currentStep} de 3
-              </span>
-              <span className='text-sm font-medium text-gray-600'>
-                {Math.round((currentStep / 3) * 100)}% completado
-              </span>
-            </div>
-            <div className='w-full bg-gray-200 rounded-full h-3 border-2 border-ink-dark overflow-hidden'>
-              <div
-                className='bg-accent h-full rounded-full transition-all duration-500'
-                style={{ width: `${(currentStep / 3) * 100}%` }}
-              ></div>
-            </div>
-          </div>
-
-          <form onSubmit={handleSubmit} className='p-8'>
-            {renderStep()}
-
-            <div className='flex flex-col sm:flex-row justify-between gap-4 mt-8 pt-6 border-t border-gray-200'>
+            <div className='flex justify-center pt-2'>
               <Button
-                type='button'
-                onClick={prevStep}
-                disabled={currentStep === 1}
-                variant='ghost'
-                className='px-6 py-3 text-base w-full sm:w-auto'
+                type='submit'
+                disabled={isSubmitting}
+                isLoading={isSubmitting}
+                variant='primary'
+                className='px-8 py-3 text-base w-full sm:w-auto'
               >
-                <ArrowLeft className='w-4 h-4' />
-                Anterior
+                {isSubmitting ? 'Enviando...' : 'Enviar Solicitud'}
+                {!isSubmitting && <Check className='w-4 h-4' />}
               </Button>
-
-              {currentStep < 3 ? (
-                <Button
-                  type='button'
-                  onClick={nextStep}
-                  variant='primary'
-                  className='px-6 py-3 text-base w-full sm:w-auto'
-                >
-                  Siguiente
-                  <ArrowRight className='w-4 h-4' />
-                </Button>
-              ) : (
-                <Button
-                  type='submit'
-                  disabled={isSubmitting}
-                  isLoading={isSubmitting}
-                  variant='primary'
-                  className='px-8 py-3 text-base w-full sm:w-auto'
-                >
-                  {isSubmitting ? 'Enviando...' : 'Enviar Solicitud'}
-                  {!isSubmitting && <Check className='w-4 h-4' />}
-                </Button>
-              )}
             </div>
 
             {submitStatus === 'error' && (
-              <div className='mt-6 p-4 bg-gray-50 border-2 border-ink-dark rounded-lg shadow-[4px_4px_0_0_#1a1a1a]'>
+              <div className='mt-2 p-4 bg-gray-50 border-2 border-ink-dark rounded-lg shadow-[4px_4px_0_0_#1a1a1a]'>
                 <div className='flex items-center gap-2 text-gray-800'>
                   <AlertCircle className='w-5 h-5' />
                   <p className='font-medium'>Error al enviar la solicitud</p>

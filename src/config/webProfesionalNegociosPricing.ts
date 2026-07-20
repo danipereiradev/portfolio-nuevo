@@ -94,19 +94,20 @@ export const maintenancePlans: MaintenancePlan[] = [
     priceNote: 'Para cualquier proyecto de Web Profesional 360',
     annualSavingsNote: 'Ahorra 70 € frente al pago mensual',
     features: [
-      'Alojamiento y certificado SSL',
-      'Monitorización básica',
-      'Actualizaciones técnicas',
-      'Mantenimiento del formulario de contacto',
-      'Copias de seguridad y control de despliegues',
+      'Alojamiento web gestionado',
+      'Certificado SSL',
+      'Supervisión técnica básica',
+      'Actualizaciones y mantenimiento técnico',
+      'Revisión del formulario',
+      'Copias y control de despliegues',
       'Soporte técnico',
-      'Hasta 120 minutos mensuales de cambios pequeños',
+      'Gestión básica de dominio y DNS',
+      'Mantenimiento técnico del CMS, cuando el proyecto lo incluya',
+      'Hasta 120 minutos mensuales de pequeños cambios',
+      'Los minutos no utilizados no se acumulan',
     ],
   },
 ];
-
-export const MAINTENANCE_MINUTES_NOTE =
-  'Los minutos de cambios incluidos no se acumulan de un mes a otro.';
 
 export const CUSTOM_MAINTENANCE_NOTE =
   '¿Necesitas más minutos al mes, mantenimiento del panel de gestión o soporte editorial? Podemos adaptar un mantenimiento a medida según lo que necesite tu proyecto.';

@@ -22,7 +22,7 @@ export const MAINTENANCE_WHATSAPP_MESSAGE =
 
 // Mensaje para el botón de WhatsApp de /web-profesional-360.
 export const BUSINESS_PACKS_WHATSAPP_MESSAGE =
-  'Hola, quiero información para la web profesional de mi negocio.';
+  'Hola, he visto Web Profesional 360 y me gustaría recibir información sobre una web para mi negocio.';
 
 // Mensaje para el botón de WhatsApp de la página /contacto.
 export const CONTACT_PAGE_WHATSAPP_MESSAGE =

@@ -32,7 +32,6 @@ import {
 import {
   webPacks,
   maintenancePlans,
-  MAINTENANCE_MINUTES_NOTE,
   CUSTOM_MAINTENANCE_NOTE,
   OUT_OF_SCOPE_NOTE,
 } from '../config/webProfesionalNegociosPricing';
@@ -46,6 +45,7 @@ import SEOFAQ from '../components/SEOFAQ';
 import SEOCTAFinal from '../components/SEOCTAFinal';
 import ContactForm from '../components/ContactForm';
 import Portfolio from '../components/Portfolio';
+import Testimonials from '../components/Testimonials';
 import Button from '../components/Button';
 
 const WHATSAPP_URL = buildWhatsAppUrl(BUSINESS_PACKS_WHATSAPP_MESSAGE);
@@ -374,7 +374,7 @@ const WebProfesionalNegocios = () => {
         trustLine='Diseño personalizado, alcance definido y acompañamiento directo.'
         ctaText='Solicitar propuesta'
         onCTAClick={() => handleWhatsApp('LandingNegociosHero')}
-        secondaryCTAText='Comparar packs'
+        secondaryCTAText='Ver planes 360'
         secondaryCTAAction={() => scrollToSection('packs')}
         secondaryCTAIcon='chevron-down'
       />
@@ -382,37 +382,7 @@ const WebProfesionalNegocios = () => {
       {/* 2. Bloque de confianza rápida */}
       <TrustBar />
 
-      {/* 3. Problema y solución */}
-      <SEOProblem
-        title='Muchos negocios locales están perdiendo clientes por su web'
-        subtitle='Antes de hablar de packs, esto es lo que solemos ver en negocios como el tuyo.'
-        problems={problems}
-      />
-      <div className='bg-white pt-6 pb-16 md:pt-8 md:pb-20'>
-        <div className='container mx-auto px-6'>
-          <div className='max-w-3xl mx-auto text-center bg-gray-50 border-2 border-ink-dark rounded-xl p-6 md:p-8 shadow-[5px_5px_0_0_#1a1a1a]'>
-            <p className='text-base md:text-lg text-gray-800 font-medium leading-relaxed'>
-              La solución es una web profesional de alcance definido, adaptada a
-              tu negocio, con un precio claro desde el principio y sin procesos
-              eternos.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* 4. Para quién es */}
-      <SEOBenefits title='¿Es Esta Web para tu Negocio?' benefits={sectors} />
-      <div className='bg-gray-50 pt-6 pb-16 md:pt-8 md:pb-20'>
-        <div className='container mx-auto px-6'>
-          <p className='max-w-2xl mx-auto text-center text-sm md:text-base text-gray-500'>
-            No usamos el mismo diseño para todos: partimos de una base técnica
-            optimizada, pero cada proyecto adapta marca, contenidos,
-            fotografías, composición y llamadas a la acción a tu negocio.
-          </p>
-        </div>
-      </div>
-
-      {/* 5. Comparativa de paquetes */}
+      {/* 3. Comparativa de paquetes */}
       <section
         id='packs'
         ref={pricingSectionRef}
@@ -561,9 +531,8 @@ const WebProfesionalNegocios = () => {
 
           <div className='max-w-2xl mx-auto text-center bg-gray-50 border-2 border-ink-dark rounded-xl p-6 md:p-8 shadow-[5px_5px_0_0_#1a1a1a] mt-10'>
             <p className='text-base md:text-lg text-gray-800 font-medium mb-4'>
-              ¿Necesitas funcionalidades específicas o un proyecto
-              completamente personalizado? Descubre el servicio de Web a
-              Medida.
+              ¿Necesitas funcionalidades específicas o un proyecto completamente
+              personalizado? Descubre el servicio de Web a Medida.
             </p>
             <a
               href='/web-autonomos-pymes'
@@ -574,6 +543,36 @@ const WebProfesionalNegocios = () => {
           </div>
         </div>
       </section>
+
+      {/* 4. Problema y solución */}
+      <SEOProblem
+        title='Muchos negocios locales están perdiendo clientes por su web'
+        subtitle='Antes de hablar de packs, esto es lo que solemos ver en negocios como el tuyo.'
+        problems={problems}
+      />
+      <div className='bg-white pt-6 pb-16 md:pt-8 md:pb-20'>
+        <div className='container mx-auto px-6'>
+          <div className='max-w-3xl mx-auto text-center bg-gray-50 border-2 border-ink-dark rounded-xl p-6 md:p-8 shadow-[5px_5px_0_0_#1a1a1a]'>
+            <p className='text-base md:text-lg text-gray-800 font-medium leading-relaxed'>
+              La solución es una web profesional de alcance definido, adaptada a
+              tu negocio, con un precio claro desde el principio y sin procesos
+              eternos.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* 5. Para quién es */}
+      <SEOBenefits title='¿Es Esta Web para tu Negocio?' benefits={sectors} />
+      <div className='bg-gray-50 pt-6 pb-16 md:pt-8 md:pb-20'>
+        <div className='container mx-auto px-6'>
+          <p className='max-w-2xl mx-auto text-center text-sm md:text-base text-gray-500'>
+            No usamos el mismo diseño para todos: partimos de una base técnica
+            optimizada, pero cada proyecto adapta marca, contenidos,
+            fotografías, composición y llamadas a la acción a tu negocio.
+          </p>
+        </div>
+      </div>
 
       {/* 6. Qué incluye cualquier web */}
       <div id='incluye' className='scroll-mt-24'>
@@ -627,9 +626,9 @@ const WebProfesionalNegocios = () => {
               <li>· El proyecto se inicia con un 50% del presupuesto.</li>
               <li>· Incluye dos rondas de cambios sobre el diseño.</li>
               <li>
-                · El plazo se acuerda según cuándo nos entregues los
-                contenidos. Si no cuentas con tiempo para prepararlos,
-                nosotros nos encargamos.
+                · El plazo se acuerda según cuándo nos entregues los contenidos.
+                Si no cuentas con tiempo para prepararlos, nosotros nos
+                encargamos.
               </li>
               <li>
                 · El segundo pago se realiza antes de la publicación definitiva.
@@ -725,9 +724,6 @@ const WebProfesionalNegocios = () => {
 
           <div className='max-w-4xl mx-auto mt-8 space-y-2 text-center'>
             <p className='text-xs md:text-sm text-gray-500'>
-              {MAINTENANCE_MINUTES_NOTE}
-            </p>
-            <p className='text-xs md:text-sm text-gray-500'>
               El dominio pertenece siempre al cliente, aunque PereiraWeb puede
               gestionar su configuración y renovación.
             </p>
@@ -745,6 +741,9 @@ const WebProfesionalNegocios = () => {
           faqs={faqs}
         />
       </div>
+
+      {/* 10.1 Valoraciones de clientes */}
+      <Testimonials id='valoraciones' />
 
       {/* 11. CTA final */}
       <SEOCTAFinal
