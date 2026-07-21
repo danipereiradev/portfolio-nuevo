@@ -25,7 +25,7 @@ export const globalFaqs: GlobalFaqItem[] = [
   {
     question: '¿Ofrecéis opciones de pago flexible?',
     answer:
-      'Sí. Según el tipo de proyecto, podemos trabajar con pago único, pago fraccionado o plan mensual. Las condiciones quedan definidas en la propuesta antes de empezar, para que no haya sorpresas durante el proceso.',
+      'Sí. Según el tipo de proyecto, podemos trabajar con pago único o pago fraccionado. Las condiciones quedan definidas en la propuesta antes de empezar, para que no haya sorpresas durante el proceso.',
   },
   {
     question: '¿Cuánto tarda en estar lista una web?',

@@ -189,7 +189,7 @@ const Contacto = () => {
                 <li className='flex items-start gap-3'>
                   <Check className='w-5 h-5 text-accent flex-shrink-0 mt-0.5' />
                   <p className='text-gray-700'>
-                    Opciones de pago flexible: único, fraccionado o mensual
+                    Opciones de pago flexible: único o fraccionado
                   </p>
                 </li>
               </ul>

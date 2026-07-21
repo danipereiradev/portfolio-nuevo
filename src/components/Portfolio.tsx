@@ -92,7 +92,7 @@ Una característica destacada es el visualizador de productos que muestra las ca
 
 El backend incluye un panel de administración personalizado que facilita la carga masiva de productos, gestión de inventario por talla y color, y seguimiento detallado de las ventas por categoría. Esto ha permitido al equipo tomar decisiones informadas sobre qué diseños producir.
 
-La tienda también cuenta con un programa de afiliados que ha generado una red de promotores que generan ventas adicionales mediante comisiones. El proyecto ha sido un éxito comercial, procesando miles de pedidos mensuales.`,
+La tienda también cuenta con un programa de afiliados que ha generado una red de promotores que generan ventas adicionales mediante comisiones. El proyecto ha sido un éxito comercial, procesando cientos de pedidos anuales.`,
       image: '/img/portfolio/camisetas-ahora.png',
       headerImage: '/img/portfolio/mock-camisetas.png',
       tech: ['WordPress', 'WooCommerce', 'jQuery', 'CSS3'],

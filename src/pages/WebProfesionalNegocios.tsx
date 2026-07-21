@@ -693,28 +693,71 @@ const WebProfesionalNegocios = () => {
             {maintenancePlans.map((plan) => (
               <div
                 key={plan.id}
-                className='bg-gray-50 rounded-xl p-6 md:p-8 border-2 border-ink-dark shadow-[5px_5px_0_0_#1a1a1a]'
+                className='rounded-xl p-8 border-2 border-accent bg-ink-dark text-white shadow-[7px_7px_0_0_#0d9488] flex flex-col'
               >
-                <h3 className='text-xl md:text-2xl font-bold text-gray-900 mb-1'>
-                  {plan.name}
-                </h3>
-                <p className='text-xs text-gray-500 mb-4'>{plan.priceNote}</p>
-                <p className='text-2xl font-bold text-accent mb-2'>
-                  {plan.price}
-                </p>
-                {plan.annualSavingsNote && (
-                  <span className='inline-block bg-accent text-ink-dark text-xs font-bold uppercase tracking-wide px-2.5 py-1 rounded-full mb-5'>
-                    {plan.annualSavingsNote}
-                  </span>
-                )}
-                <ul className='space-y-2.5'>
+                <div className='mb-6'>
+                  <h3 className='text-2xl font-bold text-white mb-2'>
+                    {plan.name}
+                  </h3>
+                  <p className='text-sm font-bold text-accent uppercase tracking-wide mb-5'>
+                    Ideal para: {plan.idealFor}
+                  </p>
+
+                  <div className='grid grid-cols-2 gap-3'>
+                    <div className='bg-white/5 border-2 border-white/15 rounded-lg p-4'>
+                      <p className='text-xs text-white/60 uppercase tracking-wide mb-1'>
+                        Mensual
+                      </p>
+                      <p className='text-xl md:text-2xl font-bold text-white leading-tight'>
+                        {plan.monthlyPrice}
+                        <span className='text-sm font-medium text-white/60'>
+                          {plan.monthlyPriceNote}
+                        </span>
+                      </p>
+                    </div>
+                    <div className='bg-accent/15 border-2 border-accent rounded-lg p-4'>
+                      <p className='text-xs text-accent uppercase tracking-wide mb-1'>
+                        Anual
+                      </p>
+                      <p className='text-xl md:text-2xl font-bold text-white leading-tight'>
+                        {plan.annualPrice}
+                        <span className='text-sm font-medium text-white/60'>
+                          {plan.annualPriceNote}
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+
+                  {plan.annualSavingsNote && (
+                    <span className='inline-block mt-4 bg-accent text-ink-dark text-xs font-bold uppercase tracking-wide px-2.5 py-1 rounded-full'>
+                      {plan.annualSavingsNote}
+                    </span>
+                  )}
+                </div>
+
+                <ul className='space-y-3 mb-6'>
                   {plan.features.map((feature, index) => (
                     <li key={index} className='flex items-start gap-3'>
                       <Check className='w-5 h-5 text-accent flex-shrink-0 mt-0.5' />
-                      <span className='text-sm text-gray-700'>{feature}</span>
+                      <span className='text-sm md:text-base text-white/90'>
+                        {feature}
+                      </span>
                     </li>
                   ))}
                 </ul>
+
+                <div className='mt-auto'>
+                  <Button
+                    onClick={() =>
+                      handlePackCta('Mantenimiento Web', 'Solicitar mantenimiento')
+                    }
+                    variant='primary'
+                    fullWidth
+                    className='!bg-accent !text-ink-dark'
+                  >
+                    Solicitar mantenimiento
+                  </Button>
+                </div>
               </div>
             ))}
           </div>

@@ -201,10 +201,9 @@ const Pricing = () => {
               Opciones de pago flexible
             </h3>
             <p className='text-lg text-gray-700 font-medium max-w-2xl mx-auto'>
-              Según el tipo de proyecto, podemos trabajar con pago único, pago
-              fraccionado o plan mensual. Todo queda definido en la propuesta
-              antes de empezar, para que tengas claro el alcance, los plazos y
-              las condiciones.
+              Según el tipo de proyecto, podemos trabajar con pago único o pago
+              fraccionado. Todo queda definido en la propuesta antes de empezar,
+              para que tengas claro el alcance, los plazos y las condiciones.
             </p>
           </div>
 

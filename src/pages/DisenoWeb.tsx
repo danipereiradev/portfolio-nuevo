@@ -128,7 +128,7 @@ const DisenoWeb = () => {
     {
       question: '¿Cuánto cuesta el diseño de una página web profesional?',
       answer:
-        'El precio depende del alcance y las funcionalidades que necesites, con opciones de pago único, fraccionado o mensual. Preparamos una propuesta a medida y cerrada antes de empezar, sin compromiso.',
+        'El precio depende del alcance y las funcionalidades que necesites, con opciones de pago único o fraccionado. Preparamos una propuesta a medida y cerrada antes de empezar, sin compromiso.',
     },
     {
       question: '¿Cuánto tiempo se tarda en diseñar y desarrollar una web?',

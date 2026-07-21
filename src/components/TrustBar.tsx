@@ -12,7 +12,7 @@ const trustPoints = [
   { icon: Award, text: '+12 años de experiencia' },
   { icon: Building2, text: 'Estudio web en Madrid' },
   { icon: FileCheck, text: 'Presupuesto cerrado antes de empezar' },
-  { icon: Wallet, text: 'Pago único, fraccionado o mensual' },
+  { icon: Wallet, text: 'Pago único o fraccionado' },
   { icon: Clock, text: 'Entrega en 2-3 semanas' },
   { icon: Send, text: 'Respuesta en 2h' },
   { icon: MapPin, text: 'Proyectos en toda España' },

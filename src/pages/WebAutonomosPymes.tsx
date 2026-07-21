@@ -225,7 +225,7 @@ const WebAutonomosPymes = () => {
     {
       question: '¿Podemos pagar en varias cuotas?',
       answer:
-        'Sí. Ofrecemos opciones de pago flexible: pago único, pago dividido (por ejemplo una parte al empezar y el resto al publicar la web) o un plan mensual, según lo que mejor se adapte a tu proyecto. Lo concretamos en la propuesta.',
+        'Sí. Ofrecemos opciones de pago flexible: pago único o pago fraccionado (por ejemplo una parte al empezar y el resto al publicar la web), según lo que mejor se adapte a tu proyecto. Lo concretamos en la propuesta.',
     },
     {
       question: '¿El presupuesto incluye IVA?',
@@ -279,8 +279,8 @@ const WebAutonomosPymes = () => {
       <div className='bg-gray-50 pt-6 pb-16 md:pt-8 md:pb-20'>
         <div className='container mx-auto px-6'>
           <p className='max-w-2xl mx-auto text-center text-sm md:text-base text-gray-500'>
-            Si tu proyecto no encaja en un alcance cerrado, es un buen
-            candidato para Web a Medida.
+            Si tu proyecto no encaja en un alcance cerrado, es un buen candidato
+            para Web a Medida.
           </p>
         </div>
       </div>
@@ -297,8 +297,8 @@ const WebAutonomosPymes = () => {
               Presupuesto claro antes de empezar
             </h2>
             <p className='text-base md:text-lg text-gray-600'>
-              Cada proyecto tiene necesidades distintas. Por eso preparamos
-              una propuesta personalizada según el alcance, funcionalidades,
+              Cada proyecto tiene necesidades distintas. Por eso preparamos una
+              propuesta personalizada según el alcance, funcionalidades,
               contenidos y objetivos de la web.
             </p>
           </div>
@@ -338,11 +338,7 @@ const WebAutonomosPymes = () => {
             </ul>
 
             <div className='border-t-2 border-gray-100 pt-6'>
-              <Button
-                onClick={handleQuoteRequest}
-                variant='primary'
-                fullWidth
-              >
+              <Button onClick={handleQuoteRequest} variant='primary' fullWidth>
                 Solicitar propuesta
               </Button>
 
@@ -409,8 +405,8 @@ const WebAutonomosPymes = () => {
         <div className='content-container'>
           <div className='max-w-2xl mx-auto text-center bg-white border-2 border-ink-dark rounded-xl p-6 md:p-8 shadow-[5px_5px_0_0_#1a1a1a]'>
             <p className='text-base md:text-lg text-gray-800 font-medium mb-4'>
-              Si buscas una solución profesional con alcance, precio y
-              proceso definidos, consulta Web Profesional 360.
+              Si buscas una solución profesional con alcance, precio y proceso
+              definidos, consulta Web Profesional 360.
             </p>
             <a
               href='/web-profesional-360'

@@ -1,5 +1,12 @@
 import { useEffect } from 'react';
-import { ShoppingBag, Package, Rocket, TrendingUp, Check, MessageCircle } from 'lucide-react';
+import {
+  ShoppingBag,
+  Package,
+  Rocket,
+  TrendingUp,
+  Check,
+  MessageCircle,
+} from 'lucide-react';
 import { useContactModal } from '../contexts/ContactModalContext';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useSectionView } from '../hooks/useSectionView';
@@ -9,7 +16,10 @@ import {
   trackPricingCtaClick,
   trackViewPricing,
 } from '../utils/analytics';
-import { ECOMMERCE_WHATSAPP_MESSAGE, buildWhatsAppUrl } from '../config/contact';
+import {
+  ECOMMERCE_WHATSAPP_MESSAGE,
+  buildWhatsAppUrl,
+} from '../config/contact';
 import SEOLandingHero from '../components/SEOLandingHero';
 import TrustBar from '../components/TrustBar';
 import SEOBenefits from '../components/SEOBenefits';
@@ -152,7 +162,7 @@ const TiendasOnline = () => {
     {
       question: '¿Podemos pagar en varias cuotas?',
       answer:
-        'Sí. Ofrecemos opciones de pago flexible: pago único, pago dividido o un plan mensual, según lo que mejor se adapte a tu proyecto. Lo concretamos en la propuesta.',
+        'Sí. Ofrecemos opciones de pago flexible: pago único o pago fraccionado, según lo que mejor se adapte a tu proyecto. Lo concretamos en la propuesta.',
     },
     {
       question: '¿El presupuesto incluye IVA?',
@@ -177,7 +187,7 @@ const TiendasOnline = () => {
     {
       question: '¿Incluís mantenimiento?',
       answer:
-        'El mantenimiento se puede contratar aparte con un plan mensual, o incluirse dentro de la propuesta si eliges pago mensual para tu tienda. Te pasamos el detalle con tu presupuesto.',
+        'El mantenimiento se puede contratar aparte con un plan mensual, o incluirse dentro de la propuesta. Te pasamos el detalle con tu presupuesto.',
     },
   ];
 
@@ -257,11 +267,7 @@ const TiendasOnline = () => {
             </ul>
 
             <div className='border-t-2 border-gray-100 pt-6'>
-              <Button
-                onClick={handleQuoteRequest}
-                variant='primary'
-                fullWidth
-              >
+              <Button onClick={handleQuoteRequest} variant='primary' fullWidth>
                 Solicitar propuesta
               </Button>
 

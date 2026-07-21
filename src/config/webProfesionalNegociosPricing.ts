@@ -80,8 +80,11 @@ export const webPacks: WebPack[] = [
 export interface MaintenancePlan {
   id: 'web360';
   name: string;
-  price: string;
-  priceNote: string;
+  idealFor: string;
+  monthlyPrice: string;
+  monthlyPriceNote: string;
+  annualPrice: string;
+  annualPriceNote: string;
   annualSavingsNote?: string;
   features: string[];
 }
@@ -90,8 +93,11 @@ export const maintenancePlans: MaintenancePlan[] = [
   {
     id: 'web360',
     name: 'Mantenimiento Web 360',
-    price: '60 €/mes + IVA o 650 €/año + IVA',
-    priceNote: 'Para cualquier proyecto de Web Profesional 360',
+    idealFor: 'Cualquier proyecto de Web Profesional 360',
+    monthlyPrice: '60 €',
+    monthlyPriceNote: '/mes + IVA',
+    annualPrice: '650 €',
+    annualPriceNote: '/año + IVA',
     annualSavingsNote: 'Ahorra 70 € frente al pago mensual',
     features: [
       'Alojamiento web gestionado',
