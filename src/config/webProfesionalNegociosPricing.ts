@@ -25,7 +25,7 @@ export const webPacks: WebPack[] = [
   {
     id: 'presencia',
     name: '360 Presencia',
-    priceFrom: 'Desde 1.090 €',
+    priceFrom: '1.090 €',
     priceNote: 'Pago único + IVA',
     idealFor:
       'Negocios que necesitan una web profesional y prefieren delegar los cambios en PereiraWeb',
@@ -54,7 +54,7 @@ export const webPacks: WebPack[] = [
   {
     id: 'gestion-autonoma',
     name: '360 Gestión',
-    priceFrom: 'Desde 1.590 €',
+    priceFrom: '1.590 €',
     priceNote: 'Pago único + IVA',
     idealFor:
       'Negocios que quieren poder actualizar ellos mismos servicios, equipo, testimonios o artículos',

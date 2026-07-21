@@ -12,20 +12,21 @@ const Pricing = () => {
     {
       id: 'web360',
       name: 'Web Profesional 360',
-      idealFor: 'Autónomos, pymes y negocios locales que quieren precio y proceso claros',
+      idealFor:
+        'Autónomos, pymes y negocios locales que quieren precio y proceso claros',
       description:
         'Dos packs de alcance definido, con precio claro desde el principio: una web profesional lista para funcionar, sin procesos eternos ni presupuestos ambiguos.',
       path: '/web-profesional-360',
       deliveryTime: '2-3 semanas',
       cta: 'Solicitar propuesta',
       features: [
-        'Dos packs de alcance definido, desde 1.090 € + IVA',
+        'Dos packs de alcance definido, 1.090 € + IVA',
         'Diseño adaptado a tu negocio, móvil y escritorio',
         'SEO técnico y SEO local básico',
         'Formulario de contacto y botón de WhatsApp',
         'Certificado SSL y analítica configurada',
         'Publicación y conexión de tu dominio',
-        'Mantenimiento opcional desde 60 €/mes + IVA',
+        'Mantenimiento opcional 60 €/mes + IVA',
         'Dos rondas de cambios incluidas',
       ],
       recommended: true,
@@ -33,7 +34,8 @@ const Pricing = () => {
     {
       id: 'webpage',
       name: 'Web a Medida',
-      idealFor: 'Proyectos con funcionalidades, estructura o integraciones específicas',
+      idealFor:
+        'Proyectos con funcionalidades, estructura o integraciones específicas',
       description:
         'Para empresas que necesitan un desarrollo con alcance personalizado: funcionalidades especiales, integraciones externas, áreas privadas o arquitectura propia.',
       path: '/web-autonomos-pymes',
@@ -118,9 +120,8 @@ const Pricing = () => {
             contenidos y objetivos de la web.
           </p>
           <p className='text-base text-gray-500'>
-            Antes de empezar, recibirás una propuesta clara con qué incluye
-            el proyecto, plazos, forma de trabajo y opciones de pago
-            disponibles.
+            Antes de empezar, recibirás una propuesta clara con qué incluye el
+            proyecto, plazos, forma de trabajo y opciones de pago disponibles.
           </p>
         </div>
 
@@ -213,8 +214,8 @@ const Pricing = () => {
             </h3>
             <p className='text-lg text-white/80 font-medium mb-6'>
               También preparamos propuestas para landing pages, páginas de
-              presentación o webs más sencillas. Cuéntanos qué necesitas y
-              te preparamos una propuesta ajustada a tu proyecto.
+              presentación o webs más sencillas. Cuéntanos qué necesitas y te
+              preparamos una propuesta ajustada a tu proyecto.
             </p>
             <div className='flex flex-col sm:flex-row gap-4 justify-center mt-auto'>
               <Button
