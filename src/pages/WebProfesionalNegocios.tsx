@@ -296,6 +296,11 @@ const WebProfesionalNegocios = () => {
         'Sí. El dominio es siempre tuyo. Podemos gestionar su configuración y renovación si lo prefieres, pero la titularidad es tuya en todo momento.',
     },
     {
+      question: '¿El hosting está incluido?',
+      answer:
+        'Sí. El alojamiento web está incluido en el servicio, tanto en la publicación inicial como, si contratas mantenimiento, en su gestión y renovación continuas.',
+    },
+    {
       question: '¿Quién escribe los textos?',
       answer:
         'Tú nos aportas la información de tu negocio y nosotros la organizamos y redactamos en un lenguaje claro y profesional para la web.',

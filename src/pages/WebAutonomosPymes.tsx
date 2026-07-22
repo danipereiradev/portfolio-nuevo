@@ -24,6 +24,7 @@ import {
 import { ADS_WHATSAPP_MESSAGE, buildWhatsAppUrl } from '../config/contact';
 import SEOLandingHero from '../components/SEOLandingHero';
 import TrustBar from '../components/TrustBar';
+import SEOProblem from '../components/SEOProblem';
 import SEOBenefits from '../components/SEOBenefits';
 import SEOFeatures from '../components/SEOFeatures';
 import SEOProcess from '../components/SEOProcess';
@@ -71,6 +72,21 @@ const WebAutonomosPymes = () => {
     trackPricingCtaClick('Web a Medida', 'Solicitar propuesta');
     openModal('Web a Medida');
   };
+
+  const problems = [
+    {
+      text: 'Tu proyecto tiene necesidades concretas y las propuestas que recibes son plantillas cerradas que no encajan del todo.',
+    },
+    {
+      text: 'Necesitas integraciones, paneles o funcionalidades específicas y no sabes quién puede desarrollarlas de forma sólida.',
+    },
+    {
+      text: 'Los presupuestos que recibes son muy dispares porque nadie define bien el alcance antes de empezar.',
+    },
+    {
+      text: 'Te preocupa que el desarrollo quede a medio camino o que no pueda crecer si tu negocio cambia.',
+    },
+  ];
 
   const targetAudience = [
     {
@@ -247,6 +263,11 @@ const WebAutonomosPymes = () => {
         'El mantenimiento se puede contratar aparte con un plan mensual, o incluirse dentro de la propuesta si eliges pago mensual para tu web. Te pasamos el detalle con tu presupuesto.',
     },
     {
+      question: '¿El hosting está incluido?',
+      answer:
+        'Sí. El alojamiento web está incluido en el servicio, tanto en la publicación inicial como, si contratas mantenimiento, en su gestión y renovación continuas.',
+    },
+    {
       question: '¿Podemos pedir una tienda online?',
       answer:
         'Sí, también desarrollamos tiendas online. Te preparamos una propuesta a medida según el catálogo y las funcionalidades que necesites.',
@@ -271,21 +292,7 @@ const WebAutonomosPymes = () => {
       {/* 2. Bloque de confianza rápida */}
       <TrustBar />
 
-      {/* 3. Para quién es este servicio */}
-      <SEOBenefits
-        title='¿Tu Proyecto Necesita Algo a Medida?'
-        benefits={targetAudience}
-      />
-      <div className='bg-gray-50 pt-6 pb-16 md:pt-8 md:pb-20'>
-        <div className='container mx-auto px-6'>
-          <p className='max-w-2xl mx-auto text-center text-sm md:text-base text-gray-500'>
-            Si tu proyecto no encaja en un alcance cerrado, es un buen candidato
-            para Web a Medida.
-          </p>
-        </div>
-      </div>
-
-      {/* 4. Precio y formas de pago */}
+      {/* 3. Precio y formas de pago */}
       <section
         id='precios'
         ref={pricingSectionRef}
@@ -361,7 +368,39 @@ const WebAutonomosPymes = () => {
         </div>
       </section>
 
-      {/* 5. Qué incluye la web */}
+      {/* 4. Problema y solución */}
+      <SEOProblem
+        title='Cuando un proyecto no encaja en un alcance cerrado'
+        subtitle='Esto es lo que solemos ver antes de que un negocio llegue a Web a Medida.'
+        problems={problems}
+      />
+      <div className='bg-white pt-6 pb-16 md:pt-8 md:pb-20'>
+        <div className='container mx-auto px-6'>
+          <div className='max-w-3xl mx-auto text-center bg-gray-50 border-2 border-ink-dark rounded-xl p-6 md:p-8 shadow-[5px_5px_0_0_#1a1a1a]'>
+            <p className='text-base md:text-lg text-gray-800 font-medium leading-relaxed'>
+              La solución es un proyecto a medida: definimos el alcance
+              contigo, preparamos un presupuesto claro antes de empezar y
+              construimos una base técnica pensada para tu caso concreto.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* 5. Para quién es este servicio */}
+      <SEOBenefits
+        title='¿Tu Proyecto Necesita Algo a Medida?'
+        benefits={targetAudience}
+      />
+      <div className='bg-gray-50 pt-6 pb-16 md:pt-8 md:pb-20'>
+        <div className='container mx-auto px-6'>
+          <p className='max-w-2xl mx-auto text-center text-sm md:text-base text-gray-500'>
+            Si tu proyecto no encaja en un alcance cerrado, es un buen candidato
+            para Web a Medida.
+          </p>
+        </div>
+      </div>
+
+      {/* 6. Qué incluye la web */}
       <div id='incluye' className='scroll-mt-24'>
         <SEOFeatures
           title='Qué Incluye un Proyecto a Medida'
@@ -370,7 +409,7 @@ const WebAutonomosPymes = () => {
         />
       </div>
 
-      {/* 5.1 También podemos ayudarte con (sección secundaria, no compite con el foco principal) */}
+      {/* 6.1 También podemos ayudarte con (sección secundaria, no compite con el foco principal) */}
       <section className='py-16 bg-white border-t-2 border-gray-100'>
         <div className='content-container'>
           <h3 className='text-xl md:text-2xl font-bold text-gray-900 text-center mb-8'>
@@ -400,7 +439,7 @@ const WebAutonomosPymes = () => {
         </div>
       </section>
 
-      {/* 5.2 Enlace cruzado hacia Web Profesional 360 */}
+      {/* 6.2 Enlace cruzado hacia Web Profesional 360 */}
       <section className='py-12 bg-gray-50 border-t-2 border-gray-100'>
         <div className='content-container'>
           <div className='max-w-2xl mx-auto text-center bg-white border-2 border-ink-dark rounded-xl p-6 md:p-8 shadow-[5px_5px_0_0_#1a1a1a]'>
@@ -418,26 +457,47 @@ const WebAutonomosPymes = () => {
         </div>
       </section>
 
-      {/* 6. Portfolio o trabajos reales */}
+      {/* 7. Portfolio o trabajos reales */}
       <div id='portfolio' className='scroll-mt-24'>
         <Portfolio />
       </div>
 
-      {/* 6.1 Valoraciones de clientes */}
+      {/* 7.1 Valoraciones de clientes */}
       <Testimonials id='valoraciones' />
 
-      {/* 7. Proceso de trabajo */}
+      {/* 8. Proceso de trabajo */}
       <SEOProcess
         title='Un proceso claro desde el primer mensaje'
         steps={process}
       />
+      <div className='bg-white pt-6 pb-16 md:pt-8 md:pb-20'>
+        <div className='container mx-auto px-6'>
+          <div className='max-w-3xl mx-auto bg-gray-50 border-2 border-ink-dark rounded-xl p-6 md:p-8 shadow-[5px_5px_0_0_#1a1a1a]'>
+            <ul className='space-y-2 text-sm md:text-base text-gray-700'>
+              <li>
+                · El proyecto se acuerda con un pago inicial y el resto según
+                lo definido en la propuesta.
+              </li>
+              <li>
+                · El número de revisiones se acuerda según el alcance del
+                proyecto.
+              </li>
+              <li>
+                · El plazo se ajusta al alcance y a cuándo nos entregues
+                contenidos e información necesaria.
+              </li>
+              <li>· El pago final se realiza antes de la publicación definitiva.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
-      {/* 8. Preguntas frecuentes */}
+      {/* 9. Preguntas frecuentes */}
       <div id='faq' className='scroll-mt-24'>
         <SEOFAQ title='Preguntas Frecuentes' faqs={faqs} />
       </div>
 
-      {/* 9. Formulario / contacto final */}
+      {/* 10. Formulario / contacto final */}
       <SEOCTAFinal
         title='Diseño y desarrollo web a medida para tu proyecto'
         subtitle='Estudio web en Madrid con proyectos en toda España. Trato directo, sin intermediarios. Cuéntanos tu proyecto y te preparamos una propuesta a medida.'
