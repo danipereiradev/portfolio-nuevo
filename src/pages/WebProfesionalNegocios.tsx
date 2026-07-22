@@ -417,7 +417,7 @@ const WebProfesionalNegocios = () => {
                     </p>
                     <div className='flex flex-col gap-0.5'>
                       <span
-                        className={`text-2xl md:text-3xl font-bold ${pack.recommended ? 'text-white' : 'text-gray-900'}`}
+                        className={`inline-block origin-left motion-safe:animate-price-pulse text-2xl md:text-3xl font-bold ${pack.recommended ? 'text-white' : 'text-gray-900'}`}
                       >
                         {pack.priceFrom}
                       </span>
@@ -686,7 +686,9 @@ const WebProfesionalNegocios = () => {
                         Mensual
                       </p>
                       <p className='text-xl md:text-2xl font-bold text-white leading-tight'>
-                        {plan.monthlyPrice}
+                        <span className='inline-block origin-left motion-safe:animate-price-pulse'>
+                          {plan.monthlyPrice}
+                        </span>
                         <span className='text-sm font-medium text-white/60'>
                           {plan.monthlyPriceNote}
                         </span>
@@ -697,7 +699,9 @@ const WebProfesionalNegocios = () => {
                         Anual
                       </p>
                       <p className='text-xl md:text-2xl font-bold text-white leading-tight'>
-                        {plan.annualPrice}
+                        <span className='inline-block origin-left motion-safe:animate-price-pulse'>
+                          {plan.annualPrice}
+                        </span>
                         <span className='text-sm font-medium text-white/60'>
                           {plan.annualPriceNote}
                         </span>

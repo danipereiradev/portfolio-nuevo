@@ -25,12 +25,13 @@ export default {
         },
       },
       animation: {
-        'blob': 'blob 7s infinite',
-        'bounce': 'bounce 2s infinite',
+        blob: 'blob 7s infinite',
+        bounce: 'bounce 2s infinite',
         'fade-in': 'fade-in 0.6s ease-out',
         'float-slow': 'float-slow 8s ease-in-out infinite',
         'float-slower': 'float-slow 11s ease-in-out infinite',
-        'drift': 'drift 14s ease-in-out infinite',
+        drift: 'drift 14s ease-in-out infinite',
+        'price-pulse': 'price-pulse 1s ease-in-out infinite',
       },
       keyframes: {
         blob: {
@@ -64,6 +65,10 @@ export default {
         drift: {
           '0%, 100%': { transform: 'translate(0, 0)' },
           '50%': { transform: 'translate(16px, -12px)' },
+        },
+        'price-pulse': {
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.06)' },
         },
       },
       fontFamily: {
