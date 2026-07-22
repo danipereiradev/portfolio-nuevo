@@ -8,7 +8,6 @@ import {
   GraduationCap,
   Dumbbell,
   Sparkles,
-  Briefcase,
   UtensilsCrossed,
   Store,
   Check,
@@ -285,27 +284,6 @@ const WebProfesionalNegocios = () => {
     },
   ];
 
-  const useCases = [
-    {
-      icon: Stethoscope,
-      sector: 'Clínica Veterinaria',
-      description:
-        'Servicios por tipo de animal, equipo, horarios y botón de WhatsApp para citas rápidas.',
-    },
-    {
-      icon: Scale,
-      sector: 'Despacho de Abogados',
-      description:
-        'Áreas de práctica, trayectoria del despacho y formulario de consulta inicial.',
-    },
-    {
-      icon: Briefcase,
-      sector: 'Empresa de Servicios',
-      description:
-        'Presentación de servicios, zona de trabajo y solicitud de presupuesto clara.',
-    },
-  ];
-
   const faqs = [
     {
       question: '¿Es una plantilla igual para todos?',
@@ -544,7 +522,133 @@ const WebProfesionalNegocios = () => {
         </div>
       </section>
 
-      {/* 4. Mantenimiento Opcional */}
+      {/* 4. Problema y solución */}
+      <SEOProblem
+        title='Muchos negocios locales están perdiendo clientes por su web'
+        subtitle='Antes de hablar de packs, esto es lo que solemos ver en negocios como el tuyo.'
+        problems={problems}
+      />
+      <div className='bg-white pt-6 pb-16 md:pt-8 md:pb-20'>
+        <div className='container mx-auto px-6'>
+          <div className='max-w-3xl mx-auto text-center bg-gray-50 border-2 border-ink-dark rounded-xl p-6 md:p-8 shadow-[5px_5px_0_0_#1a1a1a]'>
+            <p className='text-base md:text-lg text-gray-800 font-medium leading-relaxed'>
+              La solución es una web profesional de alcance definido, adaptada a
+              tu negocio, con un precio claro desde el principio y sin procesos
+              eternos.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* 5. Para quién es */}
+      <SEOBenefits title='¿Es Esta Web para tu Negocio?' benefits={sectors} />
+      <div className='bg-gray-50 pt-6 pb-16 md:pt-8 md:pb-20'>
+        <div className='container mx-auto px-6'>
+          <p className='max-w-2xl mx-auto text-center text-sm md:text-base text-gray-500'>
+            No usamos el mismo diseño para todos: partimos de una base técnica
+            optimizada, pero cada proyecto adapta marca, contenidos,
+            fotografías, composición y llamadas a la acción a tu negocio.
+          </p>
+        </div>
+      </div>
+
+      {/* 6. Qué incluye cualquier web */}
+      <div id='incluye' className='scroll-mt-24'>
+        <SEOFeatures
+          title='Qué Incluye Cualquier Web de PereiraWeb'
+          subtitle='Independientemente del pack que elijas, esto viene siempre incluido'
+          features={genericFeatures}
+        />
+      </div>
+
+      {/* 6.1 También podemos ayudarte con (enlaces internos a servicios relacionados) */}
+      <section className='py-16 bg-white border-t-2 border-gray-100'>
+        <div className='container mx-auto px-6'>
+          <h3 className='text-xl md:text-2xl font-bold text-gray-900 text-center mb-8'>
+            También podemos ayudarte con
+          </h3>
+          <div className='grid sm:grid-cols-3 gap-4 max-w-4xl mx-auto'>
+            <a
+              href='/tiendas-online'
+              className='block bg-gray-50 border-2 border-ink-dark rounded-xl p-5 text-center font-bold text-gray-900 shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
+            >
+              Tiendas online
+            </a>
+            <a
+              href='/mantenimiento-web'
+              className='block bg-gray-50 border-2 border-ink-dark rounded-xl p-5 text-center font-bold text-gray-900 shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
+            >
+              Mantenimiento web
+            </a>
+            <a
+              href='/sobre-el-estudio'
+              className='block bg-gray-50 border-2 border-ink-dark rounded-xl p-5 text-center font-bold text-gray-900 shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
+            >
+              Sobre el estudio
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* 6.2 Portfolio o trabajos reales */}
+      <div id='portfolio' className='scroll-mt-24'>
+        <Portfolio />
+      </div>
+
+      {/* 6.3 Valoraciones de clientes */}
+      <Testimonials
+        id='valoraciones'
+        videoTestimonial={{
+          src: '/video/juanvi-testimonio.mp4',
+          name: 'Juanvi',
+          company: 'hoyviajamosweb.com',
+        }}
+      />
+
+      {/* 7. Cómo funciona */}
+      <SEOProcess title='Cómo Funciona el Proceso' steps={processSteps} />
+      <div className='bg-white pt-6 pb-16 md:pt-8 md:pb-20'>
+        <div className='container mx-auto px-6'>
+          <div className='max-w-3xl mx-auto bg-gray-50 border-2 border-ink-dark rounded-xl p-6 md:p-8 shadow-[5px_5px_0_0_#1a1a1a]'>
+            <ul className='space-y-2 text-sm md:text-base text-gray-700'>
+              <li>· El proyecto se inicia con un 50% del presupuesto.</li>
+              <li>· Incluye dos rondas de cambios sobre el diseño.</li>
+              <li>
+                · El plazo se acuerda según cuándo nos entregues los contenidos.
+                Si no cuentas con tiempo para prepararlos, nosotros nos
+                encargamos.
+              </li>
+              <li>
+                · El segundo pago se realiza antes de la publicación definitiva.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* 8. Preguntas frecuentes */}
+      <div id='faq' className='scroll-mt-24'>
+        <SEOFAQ
+          title='Preguntas Frecuentes sobre la Web de tu Negocio'
+          faqs={faqs}
+        />
+      </div>
+
+      {/* 9. CTA final */}
+      <SEOCTAFinal
+        title='Cuéntanos qué necesita tu negocio'
+        subtitle='Te indicaré qué pack encaja mejor y recibirás una propuesta clara, sin compromiso.'
+        buttonText='Abrir formulario'
+        onButtonClick={handleOpenFormGeneric}
+        secondaryButtonText='Hablar por WhatsApp'
+        onSecondaryButtonClick={() => handleWhatsApp('LandingNegociosCTAFinal')}
+      />
+
+      <div id='contacto' className='scroll-mt-24'>
+        <ContactForm />
+      </div>
+
+      {/* 10. Mantenimiento Opcional */}
       <div id='mantenimiento' className='scroll-mt-24 py-20 bg-white'>
         <div className='container mx-auto px-6'>
           <div className='text-center mb-12 max-w-2xl mx-auto'>
@@ -646,160 +750,6 @@ const WebProfesionalNegocios = () => {
             </p>
           </div>
         </div>
-      </div>
-
-      {/* 5. Problema y solución */}
-      <SEOProblem
-        title='Muchos negocios locales están perdiendo clientes por su web'
-        subtitle='Antes de hablar de packs, esto es lo que solemos ver en negocios como el tuyo.'
-        problems={problems}
-      />
-      <div className='bg-white pt-6 pb-16 md:pt-8 md:pb-20'>
-        <div className='container mx-auto px-6'>
-          <div className='max-w-3xl mx-auto text-center bg-gray-50 border-2 border-ink-dark rounded-xl p-6 md:p-8 shadow-[5px_5px_0_0_#1a1a1a]'>
-            <p className='text-base md:text-lg text-gray-800 font-medium leading-relaxed'>
-              La solución es una web profesional de alcance definido, adaptada a
-              tu negocio, con un precio claro desde el principio y sin procesos
-              eternos.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* 6. Para quién es */}
-      <SEOBenefits title='¿Es Esta Web para tu Negocio?' benefits={sectors} />
-      <div className='bg-gray-50 pt-6 pb-16 md:pt-8 md:pb-20'>
-        <div className='container mx-auto px-6'>
-          <p className='max-w-2xl mx-auto text-center text-sm md:text-base text-gray-500'>
-            No usamos el mismo diseño para todos: partimos de una base técnica
-            optimizada, pero cada proyecto adapta marca, contenidos,
-            fotografías, composición y llamadas a la acción a tu negocio.
-          </p>
-        </div>
-      </div>
-
-      {/* 7. Qué incluye cualquier web */}
-      <div id='incluye' className='scroll-mt-24'>
-        <SEOFeatures
-          title='Qué Incluye Cualquier Web de PereiraWeb'
-          subtitle='Independientemente del pack que elijas, esto viene siempre incluido'
-          features={genericFeatures}
-        />
-      </div>
-
-      {/* 7.1 También podemos ayudarte con (enlaces internos a servicios relacionados) */}
-      <section className='py-16 bg-white border-t-2 border-gray-100'>
-        <div className='container mx-auto px-6'>
-          <h3 className='text-xl md:text-2xl font-bold text-gray-900 text-center mb-8'>
-            También podemos ayudarte con
-          </h3>
-          <div className='grid sm:grid-cols-3 gap-4 max-w-4xl mx-auto'>
-            <a
-              href='/tiendas-online'
-              className='block bg-gray-50 border-2 border-ink-dark rounded-xl p-5 text-center font-bold text-gray-900 shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
-            >
-              Tiendas online
-            </a>
-            <a
-              href='/mantenimiento-web'
-              className='block bg-gray-50 border-2 border-ink-dark rounded-xl p-5 text-center font-bold text-gray-900 shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
-            >
-              Mantenimiento web
-            </a>
-            <a
-              href='/sobre-el-estudio'
-              className='block bg-gray-50 border-2 border-ink-dark rounded-xl p-5 text-center font-bold text-gray-900 shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
-            >
-              Sobre el estudio
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* 7.2 Portfolio o trabajos reales */}
-      <div id='portfolio' className='scroll-mt-24'>
-        <Portfolio />
-      </div>
-
-      {/* 7.3 Valoraciones de clientes */}
-      <Testimonials id='valoraciones' />
-
-      {/* 8. Cómo funciona */}
-      <SEOProcess title='Cómo Funciona el Proceso' steps={processSteps} />
-      <div className='bg-white pt-6 pb-16 md:pt-8 md:pb-20'>
-        <div className='container mx-auto px-6'>
-          <div className='max-w-3xl mx-auto bg-gray-50 border-2 border-ink-dark rounded-xl p-6 md:p-8 shadow-[5px_5px_0_0_#1a1a1a]'>
-            <ul className='space-y-2 text-sm md:text-base text-gray-700'>
-              <li>· El proyecto se inicia con un 50% del presupuesto.</li>
-              <li>· Incluye dos rondas de cambios sobre el diseño.</li>
-              <li>
-                · El plazo se acuerda según cuándo nos entregues los contenidos.
-                Si no cuentas con tiempo para prepararlos, nosotros nos
-                encargamos.
-              </li>
-              <li>
-                · El segundo pago se realiza antes de la publicación definitiva.
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      {/* 9. Ejemplos de uso */}
-      <div id='ejemplos' className='scroll-mt-24 py-20 bg-gray-50'>
-        <div className='container mx-auto px-6'>
-          <div className='text-center mb-4 max-w-2xl mx-auto'>
-            <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4'>
-              Así se Adapta la Web a tu Sector
-            </h2>
-            <p className='text-base md:text-lg text-gray-600'>
-              Ejemplos ilustrativos de cómo se plantearía cada proyecto, no
-              clientes reales.
-            </p>
-          </div>
-
-          <div className='grid md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto mt-10'>
-            {useCases.map((useCase, index) => {
-              const Icon = useCase.icon;
-              return (
-                <div
-                  key={index}
-                  className='bg-white p-6 md:p-8 rounded-xl border-2 border-ink-dark shadow-[5px_5px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-200'
-                >
-                  <Icon className='w-7 h-7 md:w-8 md:h-8 text-accent mb-4 md:mb-6' />
-                  <h3 className='text-lg md:text-xl font-bold text-gray-900 mb-3'>
-                    {useCase.sector}
-                  </h3>
-                  <p className='text-sm md:text-base text-gray-700 leading-relaxed'>
-                    {useCase.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-
-      {/* 10. Preguntas frecuentes */}
-      <div id='faq' className='scroll-mt-24'>
-        <SEOFAQ
-          title='Preguntas Frecuentes sobre la Web de tu Negocio'
-          faqs={faqs}
-        />
-      </div>
-
-      {/* 11. CTA final */}
-      <SEOCTAFinal
-        title='Cuéntanos qué necesita tu negocio'
-        subtitle='Te indicaré qué pack encaja mejor y recibirás una propuesta clara, sin compromiso.'
-        buttonText='Abrir formulario'
-        onButtonClick={handleOpenFormGeneric}
-        secondaryButtonText='Hablar por WhatsApp'
-        onSecondaryButtonClick={() => handleWhatsApp('LandingNegociosCTAFinal')}
-      />
-
-      <div id='contacto' className='scroll-mt-24'>
-        <ContactForm />
       </div>
     </>
   );

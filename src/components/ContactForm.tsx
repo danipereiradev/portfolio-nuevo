@@ -259,20 +259,8 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       description: 'Soporte, actualizaciones y seguridad continua',
     },
     {
-      value: '360 Presencia',
-      description: 'Web profesional para autónomos y negocios locales',
-    },
-    {
-      value: '360 Gestión',
-      description: 'Web profesional con panel para editar tú mismo la web',
-    },
-    {
       value: 'No sé cuál necesito',
       description: 'Te ayudamos a elegir según lo que necesita tu negocio',
-    },
-    {
-      value: 'Proyecto personalizado',
-      description: 'Tu proyecto no encaja en los packs anteriores',
     },
   ];
 

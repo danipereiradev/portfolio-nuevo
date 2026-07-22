@@ -1,13 +1,20 @@
 import { useState } from 'react';
-import { Star, ExternalLink } from 'lucide-react';
+import { Star, ExternalLink, PlayCircle } from 'lucide-react';
 import { allTestimonials, type Testimonial } from '../data/testimonials';
 
 export type { Testimonial };
+
+export interface VideoTestimonial {
+  src: string;
+  name: string;
+  company: string;
+}
 
 interface TestimonialsProps {
   id?: string;
   testimonials?: Testimonial[];
   averageRating?: number;
+  videoTestimonial?: VideoTestimonial;
 }
 
 const computeAverage = (items: Testimonial[]) =>
@@ -33,6 +40,7 @@ const Testimonials = ({
   id = 'testimonials',
   testimonials = allTestimonials,
   averageRating,
+  videoTestimonial,
 }: TestimonialsProps = {}) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
@@ -138,6 +146,38 @@ const Testimonials = ({
             </span>
           </div>
         </div>
+
+        {videoTestimonial && (
+          <div className='max-w-xl mx-auto mb-14'>
+            <div className='flex justify-center mb-4'>
+              <span className='inline-flex items-center gap-1.5 bg-accent text-ink-dark text-xs font-bold uppercase tracking-wide px-3 py-1.5 rounded-full'>
+                <PlayCircle className='w-3.5 h-3.5' />
+                Testimonio en vídeo
+              </span>
+            </div>
+            <div className='bg-white rounded-lg border-2 border-ink-dark shadow-[6px_6px_0_0_#1a1a1a] overflow-hidden'>
+              <div className='bg-black'>
+                <video
+                  controls
+                  preload='metadata'
+                  playsInline
+                  className='w-full aspect-video'
+                >
+                  <source src={videoTestimonial.src} type='video/mp4' />
+                  Tu navegador no soporta la reproducción de vídeo.
+                </video>
+              </div>
+              <div className='p-5'>
+                <h4 className='font-bold text-gray-900 text-base'>
+                  {videoTestimonial.name}{' '}
+                  <span className='text-accent'>
+                    de {videoTestimonial.company}
+                  </span>
+                </h4>
+              </div>
+            </div>
+          </div>
+        )}
 
         <div className='relative max-w-7xl mx-auto'>
           {/* Carousel Container */}
