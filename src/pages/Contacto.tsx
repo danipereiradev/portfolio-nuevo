@@ -13,6 +13,7 @@ import {
 } from '../config/contact';
 import { usePageMeta } from '../hooks/usePageMeta';
 import ContactForm from '../components/ContactForm';
+import LocationMap from '../components/LocationMap';
 import GlowBackdrop from '../components/decor/GlowBackdrop';
 import FloatingPanel from '../components/decor/FloatingPanel';
 
@@ -194,6 +195,10 @@ const Contacto = () => {
                 </li>
               </ul>
             </div>
+          </div>
+
+          <div className='max-w-3xl mx-auto'>
+            <LocationMap />
           </div>
         </div>
       </section>

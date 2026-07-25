@@ -8,6 +8,7 @@ import {
   ABOUT_PAGE_WHATSAPP_MESSAGE,
   buildWhatsAppUrl,
 } from '../config/contact';
+import LocationMap from '../components/LocationMap';
 import GlowBackdrop from '../components/decor/GlowBackdrop';
 import FloatingPanel from '../components/decor/FloatingPanel';
 
@@ -91,6 +92,10 @@ const SobreElEstudio = () => {
               cada cliente sepa qué vamos a construir, cómo lo vamos a hacer
               y qué necesita su proyecto para funcionar correctamente.
             </p>
+          </div>
+
+          <div className='max-w-3xl mx-auto mt-12'>
+            <LocationMap />
           </div>
 
           <div className='flex justify-center mt-10'>
