@@ -642,7 +642,7 @@ const WebProfesionalNegocios = () => {
       {/* 9. CTA final */}
       <SEOCTAFinal
         title='Cuéntanos qué necesita tu negocio'
-        subtitle='Te indicaré qué pack encaja mejor y recibirás una propuesta clara, sin compromiso.'
+        subtitle='Te indicaremos qué pack encaja mejor y recibirás una propuesta clara, sin compromiso.'
         buttonText='Abrir formulario'
         onButtonClick={handleOpenFormGeneric}
         secondaryButtonText='Hablar por WhatsApp'
@@ -730,7 +730,10 @@ const WebProfesionalNegocios = () => {
                 <div className='mt-auto'>
                   <Button
                     onClick={() =>
-                      handlePackCta('Mantenimiento Web', 'Solicitar mantenimiento')
+                      handlePackCta(
+                        'Mantenimiento Web',
+                        'Solicitar mantenimiento',
+                      )
                     }
                     variant='primary'
                     fullWidth
