@@ -281,7 +281,7 @@ const WebAutonomosPymes = () => {
         title='Diseño y desarrollo web a medida para proyectos que necesitan algo más'
         subtitle='Soluciones web personalizadas para empresas que necesitan una estructura, funcionalidades o integraciones específicas.'
         description='Diseño y arquitectura adaptados a tu proyecto, con presupuesto según el alcance real que necesitas.'
-        trustLine='Estudio web en Madrid · Proyectos para toda España · Presupuesto según proyecto'
+        trustLine='Proyectos en toda España · Presupuesto según proyecto'
         ctaText='Solicitar propuesta'
         onCTAClick={() => handleWhatsApp('LandingAutonomosHero')}
         secondaryCTAText='Ver trabajos'
@@ -500,7 +500,7 @@ const WebAutonomosPymes = () => {
       {/* 10. Formulario / contacto final */}
       <SEOCTAFinal
         title='Diseño y desarrollo web a medida para tu proyecto'
-        subtitle='Estudio web en Madrid con proyectos en toda España. Trato directo, sin intermediarios. Cuéntanos tu proyecto y te preparamos una propuesta a medida.'
+        subtitle='Trabajamos con empresas de toda España. Trato directo, sin intermediarios. Cuéntanos tu proyecto y te preparamos una propuesta a medida.'
         buttonText='Solicitar propuesta'
         onButtonClick={handleQuoteRequest}
       />

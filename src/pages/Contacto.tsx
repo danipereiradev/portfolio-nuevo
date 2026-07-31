@@ -67,9 +67,9 @@ const Contacto = () => {
                 Información de Contacto
               </h2>
               <p className='text-gray-600 mb-8 leading-relaxed'>
-                PereiraWeb · Estudio web en Torrejón de Ardoz, Madrid ·
-                Proyectos en toda España. Respondemos a todas las consultas en
-                un máximo de 2 horas.
+                PereiraWeb · Estudio web en Torrejón de Ardoz, Madrid.
+                Atendemos proyectos de toda España de forma online. Respondemos
+                a todas las consultas en un máximo de 2 horas.
               </p>
 
               <div className='space-y-6'>
@@ -129,8 +129,7 @@ const Contacto = () => {
                     <p className='text-gray-600'>
                       Calle Condega 7, Torrejón de Ardoz, 28850 Madrid
                       <span className='block text-sm mt-1'>
-                        Proyectos en toda España · Reuniones online o
-                        presenciales con cita previa
+                        Reuniones online o presenciales con cita previa
                       </span>
                     </p>
                   </div>

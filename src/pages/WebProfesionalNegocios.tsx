@@ -351,8 +351,8 @@ const WebProfesionalNegocios = () => {
     <>
       {/* 1. Hero */}
       <SEOLandingHero
-        title='Tu negocio necesita una web profesional, no un proyecto interminable'
-        subtitle='Webs rápidas, personalizadas y con un precio claro para autónomos, pymes y negocios locales.'
+        title='Tu web profesional, lista para representar bien a tu negocio'
+        subtitle='Una solución completa para empresas y autónomos que necesitan una web clara, rápida y preparada para generar contactos.'
         description='Dos packs de alcance definido, sin procesos eternos ni presupuestos ambiguos, pensados para negocios que necesitan estar online y funcionando.'
         trustLine='Diseño personalizado, alcance definido y acompañamiento directo.'
         ctaText='Solicitar propuesta'

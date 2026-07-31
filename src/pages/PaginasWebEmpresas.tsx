@@ -50,7 +50,7 @@ const PaginasWebEmpresas = () => {
         title='Página web profesional'
         subtitle='Una web clara, rápida y preparada para que tus clientes entiendan qué haces y puedan contactar fácilmente.'
         description='Diseñamos y desarrollamos páginas web profesionales para empresas, autónomos y negocios que necesitan algo más que una presencia online básica.'
-        trustLine='Presupuesto cerrado antes de empezar · Proyectos en toda España · Base en Torrejón de Ardoz, Madrid'
+        trustLine='Presupuesto cerrado antes de empezar · Proyectos en toda España'
         ctaText='Solicitar propuesta'
         onCTAClick={openModal}
         secondaryCTAText='Llamar Ahora'

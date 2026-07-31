@@ -184,10 +184,10 @@ const MantenimientoWeb = () => {
     <>
       {/* 1. Hero de posicionamiento, sin precio como primer impacto */}
       <SEOLandingHero
-        title='Mantenimiento web'
+        title='Mantenimiento web para que tu página siga funcionando bien'
         subtitle='Soporte y mejoras para que tu web siga funcionando, cargando bien y transmitiendo confianza después de publicarla.'
         description='Ofrecemos mantenimiento web para negocios que quieren tener la tranquilidad de que su web está atendida y pueden pedir cambios cuando lo necesiten.'
-        trustLine='Presupuesto cerrado antes de empezar · Proyectos en toda España · Base en Torrejón de Ardoz, Madrid'
+        trustLine='Presupuesto cerrado antes de empezar · Proyectos en toda España'
         ctaText='Solicitar orientación'
         onCTAClick={() => handleWhatsApp('LandingMantenimientoHero')}
         secondaryCTAText='Ver trabajos'

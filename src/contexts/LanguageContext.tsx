@@ -19,11 +19,11 @@ const translations = {
   'nav.contact': 'Contacto',
 
   // Hero
-  'hero.title': 'Estudio web en Madrid para empresas y negocios',
+  'hero.title': 'Diseño web profesional para empresas y negocios',
   'hero.subtitle':
-    'Diseñamos y desarrollamos páginas web profesionales, tiendas online y soluciones digitales claras, rápidas y preparadas para captar contactos.',
+    'Creamos páginas web rápidas, claras y adaptadas a las necesidades de cada negocio. Trabajamos con empresas de toda España.',
   'hero.trustline':
-    'Base en Torrejón de Ardoz · Proyectos en toda España · Presupuesto cerrado antes de empezar',
+    'Proyectos en toda España · Presupuesto cerrado antes de empezar',
   'hero.cta.whatsapp': 'Escríbenos por WhatsApp',
   'hero.cta.pricing': 'Solicitar propuesta',
   'hero.cta.portfolio': 'Ver trabajos',

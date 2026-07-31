@@ -10,7 +10,7 @@ import {
 
 const trustPoints = [
   { icon: Award, text: '+12 años de experiencia' },
-  { icon: Building2, text: 'Estudio web en Madrid' },
+  { icon: Building2, text: 'Estudio de diseño web' },
   { icon: FileCheck, text: 'Presupuesto cerrado antes de empezar' },
   { icon: Wallet, text: 'Pago único o fraccionado' },
   { icon: Clock, text: 'Entrega en 2-3 semanas' },

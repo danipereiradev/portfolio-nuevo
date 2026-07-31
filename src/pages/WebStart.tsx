@@ -312,7 +312,7 @@ const WebStart = () => {
     <>
       <SEOLandingHero
         kicker='Web Start'
-        title='Tu negocio puede tener una web profesional sin empezar con una gran inversión'
+        title='Una web profesional para empezar con una inversión más contenida'
         subtitle={WEB_START_PRICE}
         description='Una solución de alcance cerrado para empresas y autónomos que necesitan presentar sus servicios, generar confianza y facilitar el contacto desde el primer día.'
         trustLine='Precio cerrado para proyectos que encajen en el alcance Web Start.'

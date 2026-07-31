@@ -211,10 +211,10 @@ const TiendasOnline = () => {
     <>
       {/* 1. Hero de posicionamiento, sin precio como primer impacto */}
       <SEOLandingHero
-        title='Tienda online'
+        title='Tiendas online preparadas para vender'
         subtitle='Una tienda online clara, cuidada y preparada para vender productos o servicios sin complicar la experiencia de compra.'
         description='Creamos tiendas online y catálogos digitales pensados para que el cliente pueda navegar, entender el producto y comprar con facilidad.'
-        trustLine='Presupuesto cerrado antes de empezar · Proyectos en toda España · Base en Torrejón de Ardoz, Madrid'
+        trustLine='Presupuesto cerrado antes de empezar · Proyectos en toda España'
         ctaText='Solicitar propuesta'
         onCTAClick={() => handleWhatsApp('LandingTiendaHero')}
         secondaryCTAText='Ver trabajos'

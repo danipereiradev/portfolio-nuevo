@@ -49,7 +49,7 @@ const Footer = () => {
                 </span>
               </div>
               <p className='text-accent font-semibold text-sm mb-3'>
-                Estudio web con base en Torrejón de Ardoz, Madrid
+                Estudio de diseño y desarrollo web
               </p>
               <p className='text-gray-300 mb-6 leading-relaxed'>
                 {t('footer.description')}

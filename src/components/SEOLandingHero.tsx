@@ -21,7 +21,7 @@ const SEOLandingHero = ({
   subtitle,
   description,
   trustLine,
-  kicker = 'Estudio web · Madrid',
+  kicker = 'Estudio web',
   ctaText,
   onCTAClick,
   secondaryCTAText,

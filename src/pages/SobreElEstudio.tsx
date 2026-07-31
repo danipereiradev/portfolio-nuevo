@@ -46,9 +46,8 @@ const SobreElEstudio = () => {
             Detrás de PereiraWeb
           </h1>
           <p className='text-base md:text-xl lg:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto'>
-            Un estudio web con base en Torrejón de Ardoz, Madrid,
-            especializado en proyectos digitales para empresas, autónomos y
-            negocios.
+            PereiraWeb es un estudio de diseño y desarrollo web con sede en
+            Madrid que trabaja con empresas y negocios de toda España.
           </p>
         </div>
       </section>
@@ -58,13 +57,11 @@ const SobreElEstudio = () => {
           <div className='max-w-3xl mx-auto text-gray-700 leading-relaxed space-y-5 text-base md:text-lg'>
             <p>
               <strong className='text-gray-900'>PereiraWeb</strong> es un
-              estudio web con base en{' '}
-              <strong className='text-gray-900'>
-                Torrejón de Ardoz, Madrid
-              </strong>
-              . Trabajamos con empresas, autónomos y negocios de toda España
-              que necesitan crear o mejorar su presencia online con una web
-              profesional, clara y preparada para generar confianza.
+              estudio de diseño y desarrollo web con sede en{' '}
+              <strong className='text-gray-900'>Madrid</strong> (Torrejón de
+              Ardoz). Trabajamos con empresas, autónomos y negocios de toda
+              España que necesitan crear o mejorar su presencia online con una
+              web profesional, clara y preparada para generar confianza.
             </p>
             <p>
               Somos un equipo flexible especializado en diseño web,
