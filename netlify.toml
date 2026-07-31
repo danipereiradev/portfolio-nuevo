@@ -1,3 +1,12 @@
+[functions]
+  directory = "netlify/functions"
+
+# Proxy amigable a la función serverless (antes del catch-all SPA).
+[[redirects]]
+  from = "/api/subscribe"
+  to = "/.netlify/functions/subscribe"
+  status = 200
+
 [[redirects]]
   from = "/landing-express"
   to = "/web-autonomos-pymes"

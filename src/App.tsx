@@ -7,6 +7,7 @@ import WhatsAppButton from './components/WhatsAppButton';
 import BackToTopButton from './components/BackToTopButton';
 import MobileStickyCTA from './components/MobileStickyCTA';
 import ContactFormModal from './components/ContactFormModal';
+import ExitIntentPopup from './components/ExitIntentPopup';
 import Home from './pages/Home';
 import TiendasOnline from './pages/TiendasOnline';
 import MantenimientoWeb from './pages/MantenimientoWeb';
@@ -95,6 +96,8 @@ function AppContent() {
       <MobileStickyCTA />
 
       <ContactFormModal />
+
+      <ExitIntentPopup />
     </div>
   );
 }
