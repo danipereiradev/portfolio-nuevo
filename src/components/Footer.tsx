@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Mail, MapPin, Phone, Instagram, MessageCircle } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import {
@@ -13,29 +12,22 @@ import {
   DEFAULT_WHATSAPP_MESSAGE,
   buildWhatsAppUrl,
 } from '../config/contact';
-import LegalPages from './LegalPages';
 
 const FOOTER_WHATSAPP_URL = buildWhatsAppUrl(DEFAULT_WHATSAPP_MESSAGE);
+
+const legalLinks = [
+  { href: '/politica-de-privacidad', labelKey: 'footer.privacy' as const },
+  { href: '/terminos-y-condiciones', labelKey: 'footer.terms' as const },
+  { href: '/politica-de-cookies', labelKey: 'footer.cookies' as const },
+  { href: '/aviso-legal', labelKey: 'footer.legal' as const },
+];
 
 const Footer = () => {
   const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
-  const [legalPageOpen, setLegalPageOpen] = useState<{
-    isOpen: boolean;
-    page: 'privacy' | 'terms' | 'cookies' | 'legal' | null;
-  }>({ isOpen: false, page: null });
-
-  const openLegalPage = (page: 'privacy' | 'terms' | 'cookies' | 'legal') => {
-    setLegalPageOpen({ isOpen: true, page });
-  };
-
-  const closeLegalPage = () => {
-    setLegalPageOpen({ isOpen: false, page: null });
-  };
 
   return (
-    <>
-      <footer className='bg-black text-white border-t-4 border-accent'>
+    <footer className='bg-black text-white border-t-4 border-accent'>
         <div className='container mx-auto px-6 py-16'>
           <div className='grid gap-10 lg:gap-8 lg:divide-x-2 lg:divide-white/10 md:grid-cols-2 lg:grid-cols-4'>
             <div className='lg:col-span-1 text-center md:text-left lg:pr-8'>
@@ -226,44 +218,20 @@ const Footer = () => {
                 © {currentYear} {t('footer.copyright')}
               </p>
               <div className='flex flex-wrap justify-center gap-4 md:gap-6 text-sm text-gray-400'>
-                <button
-                  onClick={() => openLegalPage('privacy')}
-                  className='hover:text-white transition-colors duration-200'
-                >
-                  {t('footer.privacy')}
-                </button>
-                <button
-                  onClick={() => openLegalPage('terms')}
-                  className='hover:text-white transition-colors duration-200'
-                >
-                  {t('footer.terms')}
-                </button>
-                <button
-                  onClick={() => openLegalPage('cookies')}
-                  className='hover:text-white transition-colors duration-200'
-                >
-                  {t('footer.cookies')}
-                </button>
-                <button
-                  onClick={() => openLegalPage('legal')}
-                  className='hover:text-white transition-colors duration-200'
-                >
-                  {t('footer.legal')}
-                </button>
+                {legalLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className='hover:text-white transition-colors duration-200'
+                  >
+                    {t(link.labelKey)}
+                  </a>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </footer>
-
-      {legalPageOpen.isOpen && legalPageOpen.page && (
-        <LegalPages
-          isOpen={legalPageOpen.isOpen}
-          onClose={closeLegalPage}
-          page={legalPageOpen.page}
-        />
-      )}
-    </>
   );
 };
 

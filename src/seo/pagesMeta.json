@@ -46,5 +46,21 @@
   "/sobre-el-estudio": {
     "title": "Sobre el Estudio | PereiraWeb",
     "description": "Conoce PereiraWeb, estudio web con base en Torrejón de Ardoz, Madrid, especializado en páginas web profesionales, tiendas online y desarrollo web para empresas y negocios."
+  },
+  "/politica-de-privacidad": {
+    "title": "Política de Privacidad | PereiraWeb",
+    "description": "Consulta cómo PereiraWeb trata tus datos personales, con qué finalidades y cuáles son tus derechos según el RGPD."
+  },
+  "/terminos-y-condiciones": {
+    "title": "Términos y Condiciones | PereiraWeb",
+    "description": "Condiciones de uso del sitio web y de contratación de los servicios de diseño y desarrollo web de PereiraWeb."
+  },
+  "/politica-de-cookies": {
+    "title": "Política de Cookies | PereiraWeb",
+    "description": "Información sobre las cookies utilizadas en pereiraweb.es y cómo puedes gestionarlas en tu navegador."
+  },
+  "/aviso-legal": {
+    "title": "Aviso Legal | PereiraWeb",
+    "description": "Aviso legal e información del titular del sitio web PereiraWeb: datos identificativos, condiciones de uso y responsabilidad."
   }
 }

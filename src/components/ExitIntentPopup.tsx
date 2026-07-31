@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { AlertCircle, Check, Mail, User, X } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
+import { AlertCircle, Calendar, Check, Mail, User, X } from 'lucide-react';
 import { useContactModal } from '../contexts/ContactModalContext';
 import { useBodyScrollLock } from '../hooks/useBodyScrollLock';
 import { trackFormError, trackFormSubmit } from '../utils/analytics';
@@ -9,20 +9,23 @@ import Button from './Button';
 const STORAGE_KEY = 'exit-intent-dismissed';
 const SUBSCRIBE_ENDPOINT = '/.netlify/functions/subscribe';
 const MOBILE_SHOW_DELAY_MS = 10000;
+const CALENDLY_URL =
+  'https://calendly.com/hola-pereiraweb/sesion-gratuita-pereiraweb';
 
 const isMobileViewport = () =>
   typeof window !== 'undefined' &&
   window.matchMedia('(max-width: 767px)').matches;
 
 const ExitIntentPopup = () => {
-  const navigate = useNavigate();
   const { pathname } = useLocation();
   const { isOpen: isContactModalOpen } = useContactModal();
 
   const [isOpen, setIsOpen] = useState(false);
   const [hasTriggered, setHasTriggered] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<
+    'idle' | 'success' | 'error'
+  >('idle');
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [formData, setFormData] = useState({
     name: '',
@@ -30,7 +33,13 @@ const ExitIntentPopup = () => {
     consent: false,
   });
 
-  const isExcludedPage = pathname === '/gracias' || pathname === '/contacto';
+  const isExcludedPage =
+    pathname === '/gracias' ||
+    pathname === '/contacto' ||
+    pathname === '/politica-de-privacidad' ||
+    pathname === '/terminos-y-condiciones' ||
+    pathname === '/politica-de-cookies' ||
+    pathname === '/aviso-legal';
 
   useBodyScrollLock(isOpen);
 
@@ -219,8 +228,7 @@ const ExitIntentPopup = () => {
 
       trackFormSubmit('Exit Intent', 0);
       markDismissed();
-      setIsOpen(false);
-      navigate('/gracias');
+      setSubmitStatus('success');
     } catch (error) {
       console.error('Error al enviar formulario exit intent:', error);
       trackFormError('submit_failed', 'Exit Intent');
@@ -256,146 +264,186 @@ const ExitIntentPopup = () => {
           </button>
 
           <div className='p-6 md:p-8'>
-            <div className='mb-6 pr-8'>
-              <p className='text-sm font-bold text-accent mb-2'>
-                Antes de irte...
-              </p>
-              <h2
-                id='exit-intent-title'
-                className='text-2xl md:text-3xl font-extrabold text-gray-900 mb-3'
-              >
-                Crea la web que tu negocio necesita.
-              </h2>
-              <p className='text-base text-gray-600 leading-relaxed'>
-                Descarga gratis una guía práctica para evitar errores, ahorrar
-                dinero y saber exactamente qué necesita tu negocio antes de
-                pedir presupuesto.
-              </p>
-            </div>
-
-            <ul className='space-y-2.5 mb-6'>
-              {benefits.map((benefit) => (
-                <li
-                  key={benefit}
-                  className='flex items-start gap-2.5 text-sm md:text-base text-gray-800'
+            {submitStatus === 'success' ? (
+              <div className='text-center pr-8'>
+                <div className='mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full border-2 border-ink-dark bg-accent/10 shadow-[3px_3px_0_0_#1a1a1a]'>
+                  <Check className='h-7 w-7 text-accent' />
+                </div>
+                <h2
+                  id='exit-intent-title'
+                  className='text-2xl md:text-3xl font-extrabold text-gray-900 mb-3'
                 >
-                  <Check className='w-5 h-5 text-accent flex-shrink-0 mt-0.5' />
-                  <span>{benefit}</span>
-                </li>
-              ))}
-            </ul>
-
-            <form onSubmit={handleSubmit} className='space-y-5'>
-              <div>
-                <label className='block text-sm font-medium text-gray-700 mb-2'>
-                  Nombre *
-                </label>
-                <div className='relative'>
-                  <User className='absolute left-3 top-3 w-5 h-5 text-gray-400' />
-                  <input
-                    type='text'
-                    value={formData.name}
-                    onChange={(e) => handleInputChange('name', e.target.value)}
-                    className={`w-full pl-10 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_#14b8a6] transition-all duration-150 ${
-                      errors.name
-                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
-                        : 'border-ink-dark'
-                    }`}
-                    placeholder='Tu nombre'
-                    maxLength={50}
-                    autoComplete='name'
-                  />
-                </div>
-                {errors.name && (
-                  <div className='flex items-center gap-2 text-accent text-sm mt-1'>
-                    <AlertCircle className='w-4 h-4' />
-                    {errors.name}
-                  </div>
-                )}
-              </div>
-
-              <div>
-                <label className='block text-sm font-medium text-gray-700 mb-2'>
-                  Email *
-                </label>
-                <div className='relative'>
-                  <Mail className='absolute left-3 top-3 w-5 h-5 text-gray-400' />
-                  <input
-                    type='email'
-                    value={formData.email}
-                    onChange={(e) => handleInputChange('email', e.target.value)}
-                    className={`w-full pl-10 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_#14b8a6] transition-all duration-150 ${
-                      errors.email
-                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
-                        : 'border-ink-dark'
-                    }`}
-                    placeholder='tu@email.com'
-                    autoComplete='email'
-                  />
-                </div>
-                {errors.email && (
-                  <div className='flex items-center gap-2 text-accent text-sm mt-1'>
-                    <AlertCircle className='w-4 h-4' />
-                    {errors.email}
-                  </div>
-                )}
-              </div>
-
-              <div>
-                <label className='flex items-start gap-3 cursor-pointer'>
-                  <input
-                    type='checkbox'
-                    checked={formData.consent}
-                    onChange={(e) => {
-                      setFormData((prev) => ({
-                        ...prev,
-                        consent: e.target.checked,
-                      }));
-                      if (errors.consent) {
-                        setErrors((prev) => ({ ...prev, consent: '' }));
-                      }
-                    }}
-                    className='mt-1 w-4 h-4 accent-accent border-2 border-ink-dark rounded'
-                  />
-                  <span className='text-sm text-gray-600 leading-relaxed'>
-                    Quiero recibir la guía y consejos relacionados con la
-                    creación de páginas web. Puedo darme de baja cuando quiera.
-                  </span>
-                </label>
-                {errors.consent && (
-                  <div className='flex items-center gap-2 text-accent text-sm mt-1'>
-                    <AlertCircle className='w-4 h-4' />
-                    {errors.consent}
-                  </div>
-                )}
-              </div>
-
-              <div className='pt-1'>
+                  ¡Perfecto!
+                </h2>
+                <p className='text-lg font-semibold text-gray-800 mb-4'>
+                  Acabamos de enviarte la guía.
+                </p>
+                <p className='text-base text-gray-600 leading-relaxed mb-8'>
+                  Mientras la recibes, si prefieres hablar directamente sobre
+                  tu proyecto, puedes reservar una sesión gratuita de 20
+                  minutos.
+                </p>
                 <Button
-                  type='submit'
-                  disabled={isSubmitting}
-                  isLoading={isSubmitting}
+                  href={CALENDLY_URL}
+                  target='_blank'
+                  rel='noopener noreferrer'
                   variant='primary'
                   fullWidth
                   className='px-8 py-3 text-base'
                 >
-                  {isSubmitting ? 'Enviando...' : 'Enviarme la guía gratis'}
-                  {!isSubmitting && <Check className='w-4 h-4' />}
+                  Reservar sesión
+                  <Calendar className='w-4 h-4' />
                 </Button>
               </div>
-
-              {submitStatus === 'error' && (
-                <div className='p-4 bg-gray-50 border-2 border-ink-dark rounded-lg shadow-[4px_4px_0_0_#1a1a1a]'>
-                  <div className='flex items-center gap-2 text-gray-800'>
-                    <AlertCircle className='w-5 h-5' />
-                    <p className='font-medium'>Error al enviar</p>
-                  </div>
-                  <p className='text-gray-700 text-sm mt-1'>
-                    Inténtalo de nuevo o escríbenos a hola@pereiraweb.es
+            ) : (
+              <>
+                <div className='mb-6 pr-8'>
+                  <p className='text-sm font-bold text-accent mb-2'>
+                    Antes de irte...
+                  </p>
+                  <h2
+                    id='exit-intent-title'
+                    className='text-2xl md:text-3xl font-extrabold text-gray-900 mb-3'
+                  >
+                    Crea la web que tu negocio necesita.
+                  </h2>
+                  <p className='text-base text-gray-600 leading-relaxed'>
+                    Descarga gratis una guía práctica para evitar errores,
+                    ahorrar dinero y saber exactamente qué necesita tu negocio
+                    antes de pedir presupuesto.
                   </p>
                 </div>
-              )}
-            </form>
+
+                <ul className='space-y-2.5 mb-6'>
+                  {benefits.map((benefit) => (
+                    <li
+                      key={benefit}
+                      className='flex items-start gap-2.5 text-sm md:text-base text-gray-800'
+                    >
+                      <Check className='w-5 h-5 text-accent flex-shrink-0 mt-0.5' />
+                      <span>{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <form onSubmit={handleSubmit} className='space-y-5'>
+                  <div>
+                    <label className='block text-sm font-medium text-gray-700 mb-2'>
+                      Nombre *
+                    </label>
+                    <div className='relative'>
+                      <User className='absolute left-3 top-3 w-5 h-5 text-gray-400' />
+                      <input
+                        type='text'
+                        value={formData.name}
+                        onChange={(e) =>
+                          handleInputChange('name', e.target.value)
+                        }
+                        className={`w-full pl-10 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_#14b8a6] transition-all duration-150 ${
+                          errors.name
+                            ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                            : 'border-ink-dark'
+                        }`}
+                        placeholder='Tu nombre'
+                        maxLength={50}
+                        autoComplete='name'
+                      />
+                    </div>
+                    {errors.name && (
+                      <div className='flex items-center gap-2 text-accent text-sm mt-1'>
+                        <AlertCircle className='w-4 h-4' />
+                        {errors.name}
+                      </div>
+                    )}
+                  </div>
+
+                  <div>
+                    <label className='block text-sm font-medium text-gray-700 mb-2'>
+                      Email *
+                    </label>
+                    <div className='relative'>
+                      <Mail className='absolute left-3 top-3 w-5 h-5 text-gray-400' />
+                      <input
+                        type='email'
+                        value={formData.email}
+                        onChange={(e) =>
+                          handleInputChange('email', e.target.value)
+                        }
+                        className={`w-full pl-10 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_#14b8a6] transition-all duration-150 ${
+                          errors.email
+                            ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                            : 'border-ink-dark'
+                        }`}
+                        placeholder='tu@email.com'
+                        autoComplete='email'
+                      />
+                    </div>
+                    {errors.email && (
+                      <div className='flex items-center gap-2 text-accent text-sm mt-1'>
+                        <AlertCircle className='w-4 h-4' />
+                        {errors.email}
+                      </div>
+                    )}
+                  </div>
+
+                  <div>
+                    <label className='flex items-start gap-3 cursor-pointer'>
+                      <input
+                        type='checkbox'
+                        checked={formData.consent}
+                        onChange={(e) => {
+                          setFormData((prev) => ({
+                            ...prev,
+                            consent: e.target.checked,
+                          }));
+                          if (errors.consent) {
+                            setErrors((prev) => ({ ...prev, consent: '' }));
+                          }
+                        }}
+                        className='mt-1 w-4 h-4 accent-accent border-2 border-ink-dark rounded'
+                      />
+                      <span className='text-sm text-gray-600 leading-relaxed'>
+                        Quiero recibir la guía y consejos relacionados con la
+                        creación de páginas web. Puedo darme de baja cuando
+                        quiera.
+                      </span>
+                    </label>
+                    {errors.consent && (
+                      <div className='flex items-center gap-2 text-accent text-sm mt-1'>
+                        <AlertCircle className='w-4 h-4' />
+                        {errors.consent}
+                      </div>
+                    )}
+                  </div>
+
+                  <div className='pt-1'>
+                    <Button
+                      type='submit'
+                      disabled={isSubmitting}
+                      isLoading={isSubmitting}
+                      variant='primary'
+                      fullWidth
+                      className='px-8 py-3 text-base'
+                    >
+                      {isSubmitting ? 'Enviando...' : 'Enviarme la guía gratis'}
+                      {!isSubmitting && <Check className='w-4 h-4' />}
+                    </Button>
+                  </div>
+
+                  {submitStatus === 'error' && (
+                    <div className='p-4 bg-gray-50 border-2 border-ink-dark rounded-lg shadow-[4px_4px_0_0_#1a1a1a]'>
+                      <div className='flex items-center gap-2 text-gray-800'>
+                        <AlertCircle className='w-5 h-5' />
+                        <p className='font-medium'>Error al enviar</p>
+                      </div>
+                      <p className='text-gray-700 text-sm mt-1'>
+                        Inténtalo de nuevo o escríbenos a hola@pereiraweb.es
+                      </p>
+                    </div>
+                  )}
+                </form>
+              </>
+            )}
           </div>
         </div>
       </div>

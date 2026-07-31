@@ -23,5 +23,9 @@
 /mantenimiento-web              /mantenimiento-web/index.html              200
 /contacto                       /contacto/index.html                       200
 /sobre-el-estudio               /sobre-el-estudio/index.html                200
+/politica-de-privacidad         /politica-de-privacidad/index.html         200
+/terminos-y-condiciones         /terminos-y-condiciones/index.html         200
+/politica-de-cookies            /politica-de-cookies/index.html            200
+/aviso-legal                    /aviso-legal/index.html                    200
 
 /*    /index.html   200

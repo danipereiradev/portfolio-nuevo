@@ -1,19 +1,14 @@
 import React from 'react';
-import { X, FileText, Shield, Cookie, Scale } from 'lucide-react';
+import { FileText, Shield, Cookie, Scale } from 'lucide-react';
 import { PHONE_DISPLAY } from '../config/contact';
-import { useBodyScrollLock } from '../hooks/useBodyScrollLock';
+
+export type LegalPageId = 'privacy' | 'terms' | 'cookies' | 'legal';
 
 interface LegalPagesProps {
-  isOpen: boolean;
-  onClose: () => void;
-  page: 'privacy' | 'terms' | 'cookies' | 'legal';
+  page: LegalPageId;
 }
 
-const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
-  useBodyScrollLock(isOpen);
-
-  if (!isOpen) return null;
-
+const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
   const getPageContent = () => {
     switch (page) {
       case 'privacy':
@@ -717,9 +712,12 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
                 <p>
                   El tratamiento de datos personales se rige por lo dispuesto en
                   nuestra{' '}
-                  <button className='text-accent hover:underline'>
+                  <a
+                    href='/politica-de-privacidad'
+                    className='text-accent hover:underline'
+                  >
                     Política de Privacidad
-                  </button>
+                  </a>
                   , en cumplimiento del Reglamento General de Protección de
                   Datos (RGPD) y la Ley Orgánica de Protección de Datos.
                 </p>
@@ -779,34 +777,11 @@ const LegalPages: React.FC<LegalPagesProps> = ({ isOpen, onClose, page }) => {
   };
 
   return (
-    <div className='fixed inset-0 bg-black/50 backdrop-blur-sm z-[10050] flex items-center justify-center p-4'>
-      <div className='bg-white rounded-xl border-2 border-ink-dark shadow-[8px_8px_0_0_#1a1a1a] max-w-4xl w-full max-h-[90vh] overflow-hidden'>
-        <div className='flex items-center justify-between p-6 border-b-2 border-ink-dark'>
-          <div className='flex items-center gap-3'>
-            {page === 'privacy' && <Shield className='w-6 h-6 text-accent' />}
-            {page === 'terms' && <FileText className='w-6 h-6 text-accent' />}
-            {page === 'cookies' && <Cookie className='w-6 h-6 text-accent' />}
-            {page === 'legal' && <Scale className='w-6 h-6 text-accent' />}
-            <h2 className='text-xl font-bold text-gray-900'>
-              {page === 'privacy' && 'Política de Privacidad'}
-              {page === 'terms' && 'Términos y Condiciones'}
-              {page === 'cookies' && 'Política de Cookies'}
-              {page === 'legal' && 'Aviso Legal'}
-            </h2>
-          </div>
-          <button
-            onClick={onClose}
-            className='p-2 border-2 border-ink-dark rounded-lg shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
-          >
-            <X className='w-6 h-6 text-gray-500' />
-          </button>
-        </div>
-
-        <div className='p-6 overflow-y-auto overscroll-contain max-h-[calc(90vh-80px)]'>
-          {getPageContent()}
-        </div>
+    <main className='pt-28 pb-20 bg-white min-h-screen'>
+      <div className='container mx-auto px-6'>
+        <div className='max-w-4xl mx-auto'>{getPageContent()}</div>
       </div>
-    </div>
+    </main>
   );
 };
 

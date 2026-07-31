@@ -21,6 +21,7 @@ import AuditoriaEcommerce from './pages/AuditoriaEcommerce';
 import Contacto from './pages/Contacto';
 import SobreElEstudio from './pages/SobreElEstudio';
 import Gracias from './pages/Gracias';
+import LegalDocument from './pages/LegalDocument';
 import NotFound from './pages/NotFound';
 
 function AppContent() {
@@ -55,6 +56,28 @@ function AppContent() {
         <Route path='/contacto' element={<Contacto />} />
         <Route path='/sobre-el-estudio' element={<SobreElEstudio />} />
         <Route path='/gracias' element={<Gracias />} />
+        <Route
+          path='/politica-de-privacidad'
+          element={
+            <LegalDocument page='privacy' path='/politica-de-privacidad' />
+          }
+        />
+        <Route
+          path='/terminos-y-condiciones'
+          element={
+            <LegalDocument page='terms' path='/terminos-y-condiciones' />
+          }
+        />
+        <Route
+          path='/politica-de-cookies'
+          element={
+            <LegalDocument page='cookies' path='/politica-de-cookies' />
+          }
+        />
+        <Route
+          path='/aviso-legal'
+          element={<LegalDocument page='legal' path='/aviso-legal' />}
+        />
 
         {/* Redirecciones de URLs antiguas/duplicadas a la ruta canónica */}
         <Route

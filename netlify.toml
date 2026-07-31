@@ -99,6 +99,26 @@
   status = 200
 
 [[redirects]]
+  from = "/politica-de-privacidad"
+  to = "/politica-de-privacidad/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/terminos-y-condiciones"
+  to = "/terminos-y-condiciones/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/politica-de-cookies"
+  to = "/politica-de-cookies/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/aviso-legal"
+  to = "/aviso-legal/index.html"
+  status = 200
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200

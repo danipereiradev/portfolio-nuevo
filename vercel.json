@@ -48,6 +48,10 @@
     { "source": "/mantenimiento-web", "destination": "/mantenimiento-web/index.html" },
     { "source": "/contacto", "destination": "/contacto/index.html" },
     { "source": "/sobre-el-estudio", "destination": "/sobre-el-estudio/index.html" },
+    { "source": "/politica-de-privacidad", "destination": "/politica-de-privacidad/index.html" },
+    { "source": "/terminos-y-condiciones", "destination": "/terminos-y-condiciones/index.html" },
+    { "source": "/politica-de-cookies", "destination": "/politica-de-cookies/index.html" },
+    { "source": "/aviso-legal", "destination": "/aviso-legal/index.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
