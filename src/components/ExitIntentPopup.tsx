@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { AlertCircle, Calendar, Check, Mail, User, X } from 'lucide-react';
 import { useContactModal } from '../contexts/ContactModalContext';
 import { useBodyScrollLock } from '../hooks/useBodyScrollLock';
-import { trackFormError, trackFormSubmit } from '../utils/analytics';
+import { trackFormError, trackGuideSubscribe } from '../utils/analytics';
 import Button from './Button';
 
 const STORAGE_KEY = 'exit-intent-guide-claimed';
@@ -325,7 +325,8 @@ const ExitIntentPopup = () => {
         );
       }
 
-      trackFormSubmit('Exit Intent', 0);
+      // No usar trackFormSubmit: dispararía conversión Ads de contacto.
+      trackGuideSubscribe('exit_intent_popup');
       markGuideClaimed();
       setSubmitStatus('success');
     } catch (error) {

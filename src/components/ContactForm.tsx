@@ -17,6 +17,7 @@ import {
 } from '../utils/analytics';
 import { useContactModal } from '../contexts/ContactModalContext';
 import { buildWhatsAppUrl, getWhatsAppMessageForPath } from '../config/contact';
+import { markFormSubmissionSuccess } from '../config/formSubmission';
 import Button from './Button';
 
 interface ContactFormProps {
@@ -205,10 +206,15 @@ Fecha: ${new Date().toLocaleString('es-ES')}
         body: JSON.stringify(formDataToSend),
       });
 
-      if (!response.ok) {
-        const result = await response.json();
+      const result = await response.json().catch(() => null);
+
+      // Formspree confirma éxito con HTTP 2xx y { ok: true }.
+      // Sin ambas condiciones no redirigimos ni disparamos conversión.
+      if (!response.ok || !result || result.ok !== true) {
         throw new Error(
-          result.error || `Error ${response.status}: ${response.statusText}`,
+          result?.error ||
+            result?.errors?.[0]?.message ||
+            `Error ${response.status}: ${response.statusText}`,
         );
       }
 
@@ -224,12 +230,15 @@ Fecha: ${new Date().toLocaleString('es-ES')}
         'Proyecto personalizado': 0,
       };
       const planValue = planPrices[formData.plan] || 0;
+
+      // Token de acceso a /gracias: solo tras confirmación real de Formspree.
+      markFormSubmissionSuccess();
       trackFormSubmit(formData.plan, planValue);
 
       if (isInModal) {
         closeModal();
       }
-      navigate('/gracias');
+      navigate('/gracias', { replace: true });
     } catch (error) {
       console.error('Error al enviar formulario:', error);
       trackFormError('submit_failed', formData.plan);

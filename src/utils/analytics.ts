@@ -177,6 +177,23 @@ export const trackFormSubmit = (serviceType: string, value?: number) => {
   trackAdsContactConversion('contact_form');
 };
 
+/** Suscripción a guía / MailerLite: NO es conversión de contacto Ads. */
+export const trackGuideSubscribe = (source: string) => {
+  trackEvent('guide_subscribe', {
+    event_category: 'engagement',
+    event_label: source,
+    source,
+  });
+};
+
+/** Vista válida de /gracias tras envío confirmado (una vez por envío). */
+export const trackThankYouView = () => {
+  trackEvent('thank_you_view', {
+    event_category: 'engagement',
+    event_label: 'gracias',
+  });
+};
+
 export const trackFormError = (errorReason: string, serviceType?: string) => {
   trackEvent('form_error', {
     event_category: 'engagement',

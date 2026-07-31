@@ -1,12 +1,19 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { CheckCircle2, MessageCircle } from 'lucide-react';
 import Button from '../components/Button';
 import ThankYouPlaySection from '../components/ThankYouPlaySection';
 import {
   trackWhatsAppClick,
   trackGoogleAdsWhatsAppConversion,
+  trackThankYouView,
 } from '../utils/analytics';
 import { buildWhatsAppUrl } from '../config/contact';
+import {
+  clearFormSubmissionSuccess,
+  hasFormSubmissionSuccess,
+  shouldTrackThankYouView,
+} from '../config/formSubmission';
 
 const WHATSAPP_URL = buildWhatsAppUrl(
   'Hola, acabo de enviar el formulario de contacto y quiero comentar algo más sobre mi proyecto.',
@@ -15,13 +22,32 @@ const WHATSAPP_URL = buildWhatsAppUrl(
 /**
  * Página de confirmación tras enviar el formulario de contacto.
  *
- * Tiene ruta propia (/gracias) para poder usarse como "URL de destino" de
- * conversión en Google Ads/Analytics, además de servir de confirmación
- * visual clara para el usuario. Se marca como noindex: no aporta valor en
- * buscadores y no queremos que nadie llegue aquí "en frío" desde Google.
+ * Solo es accesible si existe un token de sesión escrito tras un envío
+ * confirmado por Formspree. Visitas directas, bots o recargas sin token
+ * se redirigen a inicio para no inflar conversiones de URL de destino.
  */
 const Gracias = () => {
+  const navigate = useNavigate();
+  const [allowed, setAllowed] = useState(false);
+
   useEffect(() => {
+    if (!hasFormSubmissionSuccess()) {
+      navigate('/', { replace: true });
+      return;
+    }
+
+    setAllowed(true);
+
+    if (shouldTrackThankYouView()) {
+      trackThankYouView();
+    }
+
+    // Tras un breve delay invalidamos el token: una recarga ya no cuenta
+    // como nueva conversión. El delay evita el doble mount de StrictMode.
+    const clearTimer = window.setTimeout(() => {
+      clearFormSubmissionSuccess();
+    }, 2500);
+
     const title = 'Gracias, hemos recibido tu mensaje | PereiraWeb';
     const description =
       'Hemos recibido tu mensaje. Te responderemos en un máximo de 2 horas.';
@@ -60,14 +86,19 @@ const Gracias = () => {
       ?.setAttribute('content', description);
 
     return () => {
+      window.clearTimeout(clearTimer);
       robotsMeta?.remove();
     };
-  }, []);
+  }, [navigate]);
 
   const handleWhatsAppClick = () => {
     trackWhatsAppClick('GraciasPage', 'Escríbenos por WhatsApp');
     trackGoogleAdsWhatsAppConversion(WHATSAPP_URL);
   };
+
+  if (!allowed) {
+    return null;
+  }
 
   return (
     <section className='min-h-[70vh] flex items-center justify-center px-6 py-24 text-center content-container'>
@@ -83,9 +114,9 @@ const Gracias = () => {
         </h1>
 
         <p className='text-gray-600 mb-2'>
-          Revisaremos la información y te responderemos en un plazo máximo
-          de <span className='font-semibold text-gray-900'>2 horas</span>{' '}
-          con tu propuesta.
+          Revisaremos la información y te responderemos en un plazo máximo de{' '}
+          <span className='font-semibold text-gray-900'>2 horas</span> con tu
+          propuesta.
         </p>
 
         <p className='text-gray-600 mb-8'>
