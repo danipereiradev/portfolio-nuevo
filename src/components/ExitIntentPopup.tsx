@@ -6,9 +6,11 @@ import { useBodyScrollLock } from '../hooks/useBodyScrollLock';
 import { trackFormError, trackFormSubmit } from '../utils/analytics';
 import Button from './Button';
 
-const STORAGE_KEY = 'exit-intent-dismissed';
+const STORAGE_KEY = 'exit-intent-guide-claimed';
 const SUBSCRIBE_ENDPOINT = '/.netlify/functions/subscribe';
-const MOBILE_SHOW_DELAY_MS = 10000;
+const MIN_TIME_ON_PAGE_MS = 30000;
+const MOBILE_FALLBACK_MS = 40000;
+const MOBILE_SCROLL_THRESHOLD = 0.6;
 const CALENDLY_URL =
   'https://calendly.com/hola-pereiraweb/sesion-gratuita-pereiraweb';
 
@@ -16,12 +18,21 @@ const isMobileViewport = () =>
   typeof window !== 'undefined' &&
   window.matchMedia('(max-width: 767px)').matches;
 
+const getScrollProgress = () => {
+  const scrollTop = window.scrollY || document.documentElement.scrollTop;
+  const docHeight =
+    document.documentElement.scrollHeight - window.innerHeight;
+  if (docHeight <= 0) return 1;
+  return scrollTop / docHeight;
+};
+
 const ExitIntentPopup = () => {
   const { pathname } = useLocation();
   const { isOpen: isContactModalOpen } = useContactModal();
 
   const [isOpen, setIsOpen] = useState(false);
   const [hasTriggered, setHasTriggered] = useState(false);
+  const [isReady, setIsReady] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<
     'idle' | 'success' | 'error'
@@ -50,17 +61,18 @@ const ExitIntentPopup = () => {
     'Qué preguntar antes de contratar.',
   ];
 
-  const markDismissed = useCallback(() => {
+  // Solo se persiste si el usuario ya pidió/descargó la guía.
+  const markGuideClaimed = useCallback(() => {
     try {
-      sessionStorage.setItem(STORAGE_KEY, '1');
+      localStorage.setItem(STORAGE_KEY, '1');
     } catch {
-      // sessionStorage puede fallar en modo privado estricto
+      // localStorage puede fallar en modo privado estricto
     }
   }, []);
 
-  const wasDismissed = useCallback(() => {
+  const hasClaimedGuide = useCallback(() => {
     try {
-      return sessionStorage.getItem(STORAGE_KEY) === '1';
+      return localStorage.getItem(STORAGE_KEY) === '1';
     } catch {
       return false;
     }
@@ -68,51 +80,48 @@ const ExitIntentPopup = () => {
 
   const openPopup = useCallback(() => {
     if (
+      !isReady ||
       hasTriggered ||
       isOpen ||
       isExcludedPage ||
       isContactModalOpen ||
-      wasDismissed()
+      hasClaimedGuide()
     ) {
       return;
     }
 
     setHasTriggered(true);
     setIsOpen(true);
-  }, [hasTriggered, isOpen, isExcludedPage, isContactModalOpen, wasDismissed]);
+  }, [
+    isReady,
+    hasTriggered,
+    isOpen,
+    isExcludedPage,
+    isContactModalOpen,
+    hasClaimedGuide,
+  ]);
 
   const closePopup = useCallback(() => {
+    // Solo cerramos. Sin localStorage: en la siguiente carga de página
+    // podrá volver a mostrarse si aún no reclamó la guía.
     setIsOpen(false);
-    markDismissed();
-  }, [markDismissed]);
+  }, []);
 
-  // Primera vez que el usuario cambia de pestaña, minimiza o cierra:
-  // al volver (o si la pestaña sigue viva), mostramos el popup.
+  // Armamos los triggers tras 30 s en la página.
   useEffect(() => {
-    if (isExcludedPage) return;
+    if (isExcludedPage || hasClaimedGuide()) return;
 
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === 'hidden') {
-        openPopup();
-      }
-    };
+    setIsReady(false);
+    const timer = window.setTimeout(() => {
+      setIsReady(true);
+    }, MIN_TIME_ON_PAGE_MS);
 
-    const handlePageHide = () => {
-      openPopup();
-    };
+    return () => window.clearTimeout(timer);
+  }, [isExcludedPage, hasClaimedGuide, pathname]);
 
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-    window.addEventListener('pagehide', handlePageHide);
-
-    return () => {
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-      window.removeEventListener('pagehide', handlePageHide);
-    };
-  }, [isExcludedPage, openPopup]);
-
-  // Intento de salir de la página con el cursor (desktop)
+  // Desktop: exit-intent (cursor sale por arriba).
   useEffect(() => {
-    if (isExcludedPage) return;
+    if (!isReady || isExcludedPage || isMobileViewport()) return;
 
     const handleMouseOut = (e: MouseEvent) => {
       if (e.relatedTarget !== null) return;
@@ -122,18 +131,34 @@ const ExitIntentPopup = () => {
 
     document.addEventListener('mouseout', handleMouseOut);
     return () => document.removeEventListener('mouseout', handleMouseOut);
-  }, [isExcludedPage, openPopup]);
+  }, [isReady, isExcludedPage, openPopup]);
 
-  // En móvil no hay exit-intent fiable: mostramos el popup a los 10 s.
+  // Móvil: 60% de scroll (o ya alcanzado al cumplir los 30 s).
   useEffect(() => {
-    if (isExcludedPage || !isMobileViewport()) return;
+    if (!isReady || isExcludedPage || !isMobileViewport()) return;
 
+    const tryOpenFromScroll = () => {
+      if (getScrollProgress() >= MOBILE_SCROLL_THRESHOLD) {
+        openPopup();
+      }
+    };
+
+    tryOpenFromScroll();
+    window.addEventListener('scroll', tryOpenFromScroll, { passive: true });
+    return () => window.removeEventListener('scroll', tryOpenFromScroll);
+  }, [isReady, isExcludedPage, openPopup]);
+
+  // Móvil: fallback ~40 s totales si no llega al 60% de scroll.
+  useEffect(() => {
+    if (!isReady || isExcludedPage || !isMobileViewport()) return;
+
+    const remainingMs = Math.max(MOBILE_FALLBACK_MS - MIN_TIME_ON_PAGE_MS, 0);
     const timer = window.setTimeout(() => {
       openPopup();
-    }, MOBILE_SHOW_DELAY_MS);
+    }, remainingMs);
 
     return () => window.clearTimeout(timer);
-  }, [isExcludedPage, openPopup]);
+  }, [isReady, isExcludedPage, openPopup]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -227,7 +252,7 @@ const ExitIntentPopup = () => {
       }
 
       trackFormSubmit('Exit Intent', 0);
-      markDismissed();
+      markGuideClaimed();
       setSubmitStatus('success');
     } catch (error) {
       console.error('Error al enviar formulario exit intent:', error);
@@ -279,9 +304,8 @@ const ExitIntentPopup = () => {
                   Acabamos de enviarte la guía.
                 </p>
                 <p className='text-base text-gray-600 leading-relaxed mb-8'>
-                  Mientras la recibes, si prefieres hablar directamente sobre
-                  tu proyecto, puedes reservar una sesión gratuita de 20
-                  minutos.
+                  Mientras la recibes, si prefieres hablar directamente sobre tu
+                  proyecto, puedes reservar una sesión gratuita de 20 minutos.
                 </p>
                 <Button
                   href={CALENDLY_URL}
@@ -406,8 +430,8 @@ const ExitIntentPopup = () => {
                       </span>
                       <span className='text-sm text-gray-600 leading-relaxed pt-2 md:pt-0'>
                         Quiero recibir la guía y consejos relacionados con la
-                        creación de páginas web. Puedo darme de baja cuando
-                        quiera.
+                        creación de páginas web.{' '}
+                        <b>Puedo darme de baja cuando quiera.</b>
                       </span>
                     </label>
                     {errors.consent && (
