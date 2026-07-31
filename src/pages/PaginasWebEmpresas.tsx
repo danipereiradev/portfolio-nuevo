@@ -49,7 +49,7 @@ const PaginasWebEmpresas = () => {
       <SEOLandingHero
         title='Página web profesional'
         subtitle='Una web clara, rápida y preparada para que tus clientes entiendan qué haces y puedan contactar fácilmente.'
-        description='Diseñamos y desarrollamos páginas web profesionales para empresas, autónomos y negocios que necesitan algo más que una presencia online básica.'
+        description='Diseñamos y desarrollamos páginas web profesionales para empresas y autónomos que necesitan algo más que una presencia online básica.'
         trustLine='Presupuesto cerrado antes de empezar · Proyectos en toda España'
         ctaText='Solicitar propuesta'
         onCTAClick={openModal}
@@ -59,7 +59,7 @@ const PaginasWebEmpresas = () => {
       />
 
       <ServiceScope
-        audienceText='Para empresas, autónomos y negocios que necesitan una web profesional para presentar sus servicios, transmitir confianza y generar contactos.'
+        audienceText='Para empresas y autónomos que necesitan una web profesional para presentar sus servicios, transmitir confianza y generar contactos.'
         workItems={workItems}
         resultItems={resultItems}
       />

@@ -10,7 +10,7 @@ export const globalFaqs: GlobalFaqItem[] = [
   {
     question: '¿Trabajáis solo con empresas de Madrid?',
     answer:
-      'No. PereiraWeb tiene base en Torrejón de Ardoz, Madrid, pero trabajamos con empresas, autónomos y negocios de toda España. Podemos llevar todo el proceso online mediante llamadas, email y WhatsApp, y también realizar reuniones presenciales con cita previa cuando sea necesario.',
+      'No. PereiraWeb tiene base en Torrejón de Ardoz, Madrid, pero trabajamos con empresas y autónomos de toda España. Podemos llevar todo el proceso online mediante llamadas, email y WhatsApp, y también realizar reuniones presenciales con cita previa cuando sea necesario.',
   },
   {
     question: '¿Qué tipo de webs desarrolláis?',

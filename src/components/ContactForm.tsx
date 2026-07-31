@@ -297,7 +297,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
           Cuéntanos qué necesitas
         </h2>
         <p className='text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto'>
-          Trabajamos con empresas, autónomos y negocios que necesitan crear o
+          Trabajamos con empresas y autónomos que necesitan crear o
           mejorar su presencia online. Cuéntanos sobre tu proyecto y te
           enviaremos una propuesta personalizada en un máximo de 2 horas.
         </p>

@@ -1,7 +1,7 @@
 {
   "/": {
     "title": "Diseño y desarrollo web para empresas | PereiraWeb",
-    "description": "Diseño y desarrollo web para empresas, autónomos y negocios. Webs rápidas, profesionales y pensadas para generar contactos en toda España."
+    "description": "Diseño y desarrollo web para empresas y autónomos. Webs rápidas, profesionales y pensadas para generar contactos en toda España."
   },
   "/web-a-medida": {
     "title": "Diseño Web a Medida para Empresas | Pereiraweb",
@@ -21,7 +21,7 @@
   },
   "/mantenimiento-web": {
     "title": "Mantenimiento web para empresas | PereiraWeb",
-    "description": "Mantenimiento, soporte, actualizaciones y seguridad para páginas web de empresas y negocios de toda España."
+    "description": "Mantenimiento, soporte, actualizaciones y seguridad para páginas web de empresas y autónomos de toda España."
   },
   "/desarrollo-aplicaciones-web": {
     "title": "Desarrollo Web a Medida | PereiraWeb",
@@ -41,11 +41,11 @@
   },
   "/contacto": {
     "title": "Contacto | PereiraWeb",
-    "description": "Contacta con PereiraWeb, estudio web en Torrejón de Ardoz, Madrid, especializado en páginas web profesionales, tiendas online y mantenimiento web para empresas y negocios."
+    "description": "Contacta con PereiraWeb, estudio web en Torrejón de Ardoz, Madrid, especializado en páginas web profesionales, tiendas online y mantenimiento web para empresas y autónomos."
   },
   "/sobre-el-estudio": {
     "title": "Sobre el Estudio | PereiraWeb",
-    "description": "Conoce PereiraWeb, estudio de diseño y desarrollo web con sede en Madrid que trabaja con empresas y negocios de toda España."
+    "description": "Conoce PereiraWeb, estudio de diseño y desarrollo web con sede en Madrid que trabaja con empresas y autónomos de toda España."
   },
   "/politica-de-privacidad": {
     "title": "Política de Privacidad | PereiraWeb",
@@ -65,7 +65,7 @@
   },
   "/web-start": {
     "title": "Web Start: página web profesional por 545 € + IVA | PereiraWeb",
-    "description": "Página web profesional para autónomos, empresas y negocios que necesitan empezar con una solución clara y de alcance cerrado.",
+    "description": "Página web profesional para empresas y autónomos que necesitan empezar con una solución clara y de alcance cerrado.",
     "robots": "noindex, follow",
     "canonical": "https://pereiraweb.es/web-start/"
   }

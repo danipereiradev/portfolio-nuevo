@@ -51,7 +51,7 @@ const Contacto = () => {
             Cuéntanos qué necesitas
           </h1>
           <p className='text-base md:text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto'>
-            Trabajamos con empresas, autónomos y negocios que necesitan crear o
+            Trabajamos con empresas y autónomos que necesitan crear o
             mejorar su presencia online. Podemos ayudarte con páginas web
             profesionales, tiendas online, mantenimiento web, rediseños, mejoras
             técnicas y desarrollos a medida.

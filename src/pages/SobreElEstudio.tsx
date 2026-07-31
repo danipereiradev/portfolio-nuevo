@@ -47,7 +47,7 @@ const SobreElEstudio = () => {
           </h1>
           <p className='text-base md:text-xl lg:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto'>
             PereiraWeb es un estudio de diseño y desarrollo web con sede en
-            Madrid que trabaja con empresas y negocios de toda España.
+            Madrid que trabaja con empresas y autónomos de toda España.
           </p>
         </div>
       </section>
@@ -59,7 +59,7 @@ const SobreElEstudio = () => {
               <strong className='text-gray-900'>PereiraWeb</strong> es un
               estudio de diseño y desarrollo web con sede en{' '}
               <strong className='text-gray-900'>Madrid</strong> (Torrejón de
-              Ardoz). Trabajamos con empresas, autónomos y negocios de toda
+              Ardoz). Trabajamos con empresas y autónomos de toda
               España que necesitan crear o mejorar su presencia online con una
               web profesional, clara y preparada para generar confianza.
             </p>

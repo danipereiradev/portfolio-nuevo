@@ -59,7 +59,7 @@ const WebStart = () => {
     serviceType: 'Diseño y desarrollo de páginas web',
     name: 'Web Start',
     description:
-      'Página web profesional de alcance cerrado para autónomos, empresas y negocios que necesitan empezar con una solución clara.',
+      'Página web profesional de alcance cerrado para empresas y autónomos que necesitan empezar con una solución clara.',
     provider: {
       '@type': 'ProfessionalService',
       name: 'PereiraWeb',

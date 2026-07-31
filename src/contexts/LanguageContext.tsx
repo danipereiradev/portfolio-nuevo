@@ -19,7 +19,7 @@ const translations = {
   'nav.contact': 'Contacto',
 
   // Hero
-  'hero.title': 'Diseño web profesional para empresas y negocios',
+  'hero.title': 'Diseño web profesional para empresas y autónomos',
   'hero.subtitle':
     'Creamos páginas web rápidas, claras y adaptadas a las necesidades de cada negocio. Trabajamos con empresas de toda España.',
   'hero.trustline':
@@ -93,7 +93,7 @@ const translations = {
 
   // Footer
   'footer.description':
-    'Páginas web profesionales, tiendas online y mantenimiento web para empresas, autónomos y negocios de toda España.',
+    'Páginas web profesionales, tiendas online y mantenimiento web para empresas y autónomos de toda España.',
   'footer.services_title': 'Servicios',
   'footer.contact_title': 'Contacto',
   'footer.areas_title': 'Áreas de Servicio',
