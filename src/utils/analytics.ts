@@ -45,16 +45,36 @@ export const trackEvent = (
   }
 };
 
-// Conversión de Google Ads: "Contacto" (ads_conversion_Contacto_1)
-//
-// Debe dispararse ÚNICAMENTE cuando hay una acción real de contacto
-// (WhatsApp, formulario, email o teléfono). Nunca al cargar la página, en
-// scroll, o en eventos de solo visualización (view_pricing, view_portfolio,
-// click_pricing_cta, etc). Por eso vive aislada de `trackEvent` y se invoca
-// solo desde las 4 funciones de contacto de abajo.
+// ---------------------------------------------------------------------------
+// Google Ads — cuenta AW-18305239496 (configurada en index.html)
+// ---------------------------------------------------------------------------
+
+/** Conversion ID de la cuenta (parte AW-…). */
+export const GOOGLE_ADS_CONVERSION_ID = 'AW-18305239496';
+
+/**
+ * Conversión oficial de formulario (evento gtag 'conversion').
+ *
+ * Crear en Google Ads → Objetivos → Conversiones → + Nueva conversión
+ * → Sitio web → "Envío formulario de contacto" → Evento.
+ * Luego pegar aquí el Conversion Label que genera Ads (parte tras la /).
+ *
+ * send_to resultante: AW-18305239496/<LABEL>
+ */
+export const GOOGLE_ADS_FORM_CONVERSION_LABEL = 'REEMPLAZAR_LABEL_FORMULARIO';
+
+const GOOGLE_ADS_FORM_CONVERSION_SEND_TO = `${GOOGLE_ADS_CONVERSION_ID}/${GOOGLE_ADS_FORM_CONVERSION_LABEL}`;
+
+// Conversión oficial WhatsApp (ya existente en la cuenta).
+// send_to: AW-18305239496/uNL7CKX5j84cEMiTz5hE
+const GOOGLE_ADS_WHATSAPP_CONVERSION_SEND_TO =
+  'AW-18305239496/uNL7CKX5j84cEMiTz5hE';
+
+// Evento GA4 auxiliar (NO es la conversión oficial de Ads con send_to).
+// Se mantiene solo para WhatsApp / email / teléfono como señal en GA4.
 const ADS_CONVERSION_CONTACTO = 'ads_conversion_Contacto_1';
 
-type ContactConversionType = 'whatsapp' | 'contact_form' | 'email' | 'phone';
+type ContactConversionType = 'whatsapp' | 'email' | 'phone';
 
 const trackAdsContactConversion = (contactType: ContactConversionType) => {
   if (typeof window === 'undefined') return;
@@ -73,15 +93,35 @@ const trackAdsContactConversion = (contactType: ContactConversionType) => {
   }
 };
 
-// Conversión de Google Ads (cuenta de Ads, no GA4): "Contacto - Click
-// WhatsApp". Usa directamente el destino (send_to) que da Google Ads para
-// esta conversión concreta, independiente del evento GA4 de arriba.
-//
-// Debe dispararse ÚNICAMENTE con un clic real en un botón/enlace de
-// WhatsApp. Nunca en carga de página, scroll, view_pricing, ni en el envío
-// del formulario (ese flujo ya redirige a /gracias y no pasa por aquí).
-const GOOGLE_ADS_WHATSAPP_CONVERSION_SEND_TO =
-  'AW-18305239496/uNL7CKX5j84cEMiTz5hE';
+/**
+ * Conversión oficial de Google Ads por envío de formulario.
+ * Llamar UNA sola vez tras Formspree OK ({ ok: true }), antes de /gracias.
+ * No usar en WhatsApp, newsletter, errores ni carga de página.
+ */
+export const trackGoogleAdsFormConversion = (): void => {
+  if (typeof window === 'undefined') return;
+  if (typeof window.gtag !== 'function') return;
+
+  if (
+    !GOOGLE_ADS_FORM_CONVERSION_LABEL ||
+    GOOGLE_ADS_FORM_CONVERSION_LABEL === 'REEMPLAZAR_LABEL_FORMULARIO'
+  ) {
+    console.warn(
+      '[Ads] Falta GOOGLE_ADS_FORM_CONVERSION_LABEL en analytics.ts. Crea la conversión en Google Ads y pega el label.',
+    );
+    return;
+  }
+
+  try {
+    window.gtag('event', 'conversion', {
+      send_to: GOOGLE_ADS_FORM_CONVERSION_SEND_TO,
+      value: 1.0,
+      currency: 'EUR',
+    });
+  } catch {
+    // La analítica nunca debe romper la experiencia del usuario.
+  }
+};
 
 /**
  * Dispara la conversión de Google Ads "Contacto - Click WhatsApp" y a
@@ -167,6 +207,8 @@ export const trackPhoneClick = (locationSection: string) => {
 // Formulario de contacto
 
 export const trackFormSubmit = (serviceType: string, value?: number) => {
+  // Solo evento GA4. La conversión oficial de Ads del formulario se dispara
+  // aparte con trackGoogleAdsFormConversion() tras Formspree OK.
   trackEvent('submit_contact_form', {
     event_category: 'engagement',
     event_label: 'contact_form',
@@ -174,7 +216,6 @@ export const trackFormSubmit = (serviceType: string, value?: number) => {
     value: value || 0,
     currency: 'EUR',
   });
-  trackAdsContactConversion('contact_form');
 };
 
 /** Suscripción a guía / MailerLite: NO es conversión de contacto Ads. */

@@ -13,6 +13,7 @@ import {
   trackFormError,
   trackWhatsAppClick,
   trackGoogleAdsWhatsAppConversion,
+  trackGoogleAdsFormConversion,
   trackEmailClick,
 } from '../utils/analytics';
 import { useContactModal } from '../contexts/ContactModalContext';
@@ -234,6 +235,8 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       // Token de acceso a /gracias: solo tras confirmación real de Formspree.
       markFormSubmissionSuccess();
       trackFormSubmit(formData.plan, planValue);
+      // Conversión oficial Google Ads (evento). Una sola vez por envío válido.
+      trackGoogleAdsFormConversion();
 
       if (isInModal) {
         closeModal();
