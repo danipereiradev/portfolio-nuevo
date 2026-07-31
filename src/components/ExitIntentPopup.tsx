@@ -30,8 +30,7 @@ const ExitIntentPopup = () => {
     consent: false,
   });
 
-  const isExcludedPage =
-    pathname === '/gracias' || pathname === '/contacto';
+  const isExcludedPage = pathname === '/gracias' || pathname === '/contacto';
 
   useBodyScrollLock(isOpen);
 
@@ -71,13 +70,7 @@ const ExitIntentPopup = () => {
 
     setHasTriggered(true);
     setIsOpen(true);
-  }, [
-    hasTriggered,
-    isOpen,
-    isExcludedPage,
-    isContactModalOpen,
-    wasDismissed,
-  ]);
+  }, [hasTriggered, isOpen, isExcludedPage, isContactModalOpen, wasDismissed]);
 
   const closePopup = useCallback(() => {
     setIsOpen(false);
@@ -271,7 +264,7 @@ const ExitIntentPopup = () => {
                 id='exit-intent-title'
                 className='text-2xl md:text-3xl font-extrabold text-gray-900 mb-3'
               >
-                ¿Vas a crear la web de tu empresa?
+                Crea la web que tu negocio necesita.
               </h2>
               <p className='text-base text-gray-600 leading-relaxed'>
                 Descarga gratis una guía práctica para evitar errores, ahorrar
