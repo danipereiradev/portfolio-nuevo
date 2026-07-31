@@ -388,21 +388,23 @@ const ExitIntentPopup = () => {
 
                   <div>
                     <label className='flex items-start gap-3 cursor-pointer'>
-                      <input
-                        type='checkbox'
-                        checked={formData.consent}
-                        onChange={(e) => {
-                          setFormData((prev) => ({
-                            ...prev,
-                            consent: e.target.checked,
-                          }));
-                          if (errors.consent) {
-                            setErrors((prev) => ({ ...prev, consent: '' }));
-                          }
-                        }}
-                        className='mt-1 w-4 h-4 accent-accent border-2 border-ink-dark rounded'
-                      />
-                      <span className='text-sm text-gray-600 leading-relaxed'>
+                      <span className='relative flex-shrink-0 mt-0.5 flex items-center justify-center w-11 h-11 -ml-2 -mt-1 md:w-5 md:h-5 md:ml-0 md:mt-0.5'>
+                        <input
+                          type='checkbox'
+                          checked={formData.consent}
+                          onChange={(e) => {
+                            setFormData((prev) => ({
+                              ...prev,
+                              consent: e.target.checked,
+                            }));
+                            if (errors.consent) {
+                              setErrors((prev) => ({ ...prev, consent: '' }));
+                            }
+                          }}
+                          className='w-6 h-6 md:w-4 md:h-4 accent-accent border-2 border-ink-dark rounded'
+                        />
+                      </span>
+                      <span className='text-sm text-gray-600 leading-relaxed pt-2 md:pt-0'>
                         Quiero recibir la guía y consejos relacionados con la
                         creación de páginas web. Puedo darme de baja cuando
                         quiera.
