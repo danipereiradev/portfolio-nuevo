@@ -50,6 +50,8 @@ const ExitIntentPopup = () => {
   const isExcludedPage =
     pathname === '/gracias' ||
     pathname === '/contacto' ||
+    pathname === '/web-start' ||
+    pathname === '/web-start/' ||
     pathname === '/politica-de-privacidad' ||
     pathname === '/terminos-y-condiciones' ||
     pathname === '/politica-de-cookies' ||

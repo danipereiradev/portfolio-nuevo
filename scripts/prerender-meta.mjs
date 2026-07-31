@@ -43,9 +43,13 @@ const escapeHtml = (value) =>
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
 
-const buildHtmlForRoute = (routePath, { title, description }) => {
+const buildHtmlForRoute = (
+  routePath,
+  { title, description, robots, canonical },
+) => {
   const canonicalUrl =
-    routePath === '/' ? `${SITE_URL}/` : `${SITE_URL}${routePath}`;
+    canonical ??
+    (routePath === '/' ? `${SITE_URL}/` : `${SITE_URL}${routePath}`);
   const safeTitle = escapeHtml(title);
   const safeDescription = escapeHtml(description);
   const safeCanonical = escapeHtml(canonicalUrl);
@@ -91,6 +95,21 @@ const buildHtmlForRoute = (routePath, { title, description }) => {
     /<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/>/,
     `<meta name="twitter:description" content="${safeDescription}" />`,
   );
+
+  if (robots) {
+    const safeRobots = escapeHtml(robots);
+    if (/<meta\s+name="robots"\s+content="[^"]*"\s*\/>/.test(html)) {
+      html = html.replace(
+        /<meta\s+name="robots"\s+content="[^"]*"\s*\/>/,
+        `<meta name="robots" content="${safeRobots}" />`,
+      );
+    } else {
+      html = html.replace(
+        /<meta\s+name="description"\s+content="[^"]*"\s*\/>/,
+        `<meta name="description" content="${safeDescription}" />\n    <meta name="robots" content="${safeRobots}" />`,
+      );
+    }
+  }
 
   return html;
 };

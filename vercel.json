@@ -52,6 +52,8 @@
     { "source": "/terminos-y-condiciones", "destination": "/terminos-y-condiciones/index.html" },
     { "source": "/politica-de-cookies", "destination": "/politica-de-cookies/index.html" },
     { "source": "/aviso-legal", "destination": "/aviso-legal/index.html" },
+    { "source": "/web-start", "destination": "/web-start/index.html" },
+    { "source": "/web-start/", "destination": "/web-start/index.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {
   Mail,
@@ -64,6 +64,11 @@ const ContactForm = ({
     plan: preselectedPlan || '',
     description: '',
   });
+
+  useEffect(() => {
+    if (!preselectedPlan) return;
+    setFormData((prev) => ({ ...prev, plan: preselectedPlan }));
+  }, [preselectedPlan]);
 
   const validateEmail = (value: string): boolean => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -208,6 +213,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       }
 
       const planPrices: { [key: string]: number } = {
+        'Web Start': 545,
         'Web a Medida': 0,
         'Web Profesional 360': 0,
         'Tienda Online': 0,
@@ -241,6 +247,11 @@ Fecha: ${new Date().toLocaleString('es-ES')}
   );
 
   const planOptions = [
+    {
+      value: 'Web Start',
+      description:
+        'Presencia profesional de alcance cerrado para empezar con claridad',
+    },
     {
       value: 'Web Profesional 360',
       description: 'Web de alcance definido, con precio claro y proceso rápido',

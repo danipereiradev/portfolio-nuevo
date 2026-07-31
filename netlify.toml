@@ -119,6 +119,16 @@
   status = 200
 
 [[redirects]]
+  from = "/web-start"
+  to = "/web-start/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/web-start/"
+  to = "/web-start/index.html"
+  status = 200
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200

@@ -3,7 +3,14 @@ import pagesMeta from '../seo/pagesMeta.json';
 
 const SITE_URL = 'https://pereiraweb.es';
 
-type PagesMeta = Record<string, { title: string; description: string }>;
+type PageMetaEntry = {
+  title: string;
+  description: string;
+  robots?: string;
+  canonical?: string;
+};
+
+type PagesMeta = Record<string, PageMetaEntry>;
 
 const setMetaByAttr = (
   attr: 'name' | 'property',
@@ -33,12 +40,14 @@ export const usePageMeta = (path: string) => {
   useEffect(() => {
     const meta =
       (pagesMeta as PagesMeta)[path] ?? (pagesMeta as PagesMeta)['/'];
-    const { title, description } = meta;
+    const { title, description, robots, canonical } = meta;
 
     document.title = title;
     setMetaByAttr('name', 'description', description);
 
-    const canonicalUrl = path === '/' ? `${SITE_URL}/` : `${SITE_URL}${path}`;
+    const canonicalUrl =
+      canonical ??
+      (path === '/' ? `${SITE_URL}/` : `${SITE_URL}${path}`);
     let canonicalLink = document.querySelector<HTMLLinkElement>(
       'link[rel="canonical"]',
     );
@@ -49,6 +58,20 @@ export const usePageMeta = (path: string) => {
     }
     canonicalLink.setAttribute('href', canonicalUrl);
 
+    let robotsMeta = document.querySelector<HTMLMetaElement>(
+      'meta[name="robots"]',
+    );
+    if (robots) {
+      if (!robotsMeta) {
+        robotsMeta = document.createElement('meta');
+        robotsMeta.setAttribute('name', 'robots');
+        document.head.appendChild(robotsMeta);
+      }
+      robotsMeta.setAttribute('content', robots);
+    } else if (robotsMeta) {
+      robotsMeta.remove();
+    }
+
     // Open Graph
     setMetaByAttr('property', 'og:title', title);
     setMetaByAttr('property', 'og:description', description);
@@ -58,5 +81,11 @@ export const usePageMeta = (path: string) => {
     // Twitter Card
     setMetaByAttr('name', 'twitter:title', title);
     setMetaByAttr('name', 'twitter:description', description);
+
+    return () => {
+      if (robots) {
+        document.querySelector('meta[name="robots"]')?.remove();
+      }
+    };
   }, [path]);
 };

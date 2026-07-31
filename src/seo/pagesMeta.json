@@ -62,5 +62,11 @@
   "/aviso-legal": {
     "title": "Aviso Legal | PereiraWeb",
     "description": "Aviso legal e información del titular del sitio web PereiraWeb: datos identificativos, condiciones de uso y responsabilidad."
+  },
+  "/web-start": {
+    "title": "Web Start: página web profesional por 545 € + IVA | PereiraWeb",
+    "description": "Página web profesional para autónomos, empresas y negocios que necesitan empezar con una solución clara y de alcance cerrado por 545 € + IVA.",
+    "robots": "noindex, follow",
+    "canonical": "https://pereiraweb.es/web-start/"
   }
 }

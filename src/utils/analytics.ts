@@ -280,3 +280,35 @@ export const trackScrollDepth = (depth: number) => {
     value: depth,
   });
 };
+
+// Landing Web Start (tráfico desde automatización de email)
+
+export const trackWebStartView = () => {
+  trackEvent('web_start_view', {
+    event_category: 'web_start',
+    event_label: 'landing',
+  });
+};
+
+export const trackWebStartCalendlyClick = (locationSection: string) => {
+  trackEvent('web_start_calendly_click', {
+    event_category: 'web_start',
+    event_label: locationSection,
+    location_section: locationSection,
+  });
+};
+
+export const trackWebStartContactClick = (locationSection: string) => {
+  trackEvent('web_start_contact_click', {
+    event_category: 'web_start',
+    event_label: locationSection,
+    location_section: locationSection,
+  });
+};
+
+export const trackWebStartFaqOpen = (question: string) => {
+  trackEvent('web_start_faq_open', {
+    event_category: 'web_start',
+    event_label: question,
+  });
+};

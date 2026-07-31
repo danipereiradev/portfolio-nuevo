@@ -9,13 +9,18 @@ interface FAQItem {
 interface SEOFAQProps {
   title: string;
   faqs: FAQItem[];
+  onFaqOpen?: (question: string) => void;
 }
 
-const SEOFAQ = ({ title, faqs }: SEOFAQProps) => {
+const SEOFAQ = ({ title, faqs, onFaqOpen }: SEOFAQProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
+    const nextIndex = openIndex === index ? null : index;
+    if (nextIndex !== null) {
+      onFaqOpen?.(faqs[index].question);
+    }
+    setOpenIndex(nextIndex);
   };
 
   return (

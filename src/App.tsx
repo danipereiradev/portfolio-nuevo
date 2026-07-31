@@ -22,6 +22,7 @@ import Contacto from './pages/Contacto';
 import SobreElEstudio from './pages/SobreElEstudio';
 import Gracias from './pages/Gracias';
 import LegalDocument from './pages/LegalDocument';
+import WebStart from './pages/WebStart';
 import NotFound from './pages/NotFound';
 
 function AppContent() {
@@ -56,6 +57,8 @@ function AppContent() {
         <Route path='/contacto' element={<Contacto />} />
         <Route path='/sobre-el-estudio' element={<SobreElEstudio />} />
         <Route path='/gracias' element={<Gracias />} />
+        <Route path='/web-start' element={<WebStart />} />
+        <Route path='/web-start/' element={<WebStart />} />
         <Route
           path='/politica-de-privacidad'
           element={

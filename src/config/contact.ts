@@ -24,6 +24,10 @@ export const MAINTENANCE_WHATSAPP_MESSAGE =
 export const BUSINESS_PACKS_WHATSAPP_MESSAGE =
   'Hola, he visto Web Profesional 360 y me gustaría recibir información sobre una web para mi negocio.';
 
+// Mensaje para el tráfico de la landing /web-start (automatización email).
+export const WEB_START_WHATSAPP_MESSAGE =
+  'Hola, vengo de la landing Web Start y quiero ver si encaja con mi negocio.';
+
 // Mensaje para el botón de WhatsApp de la página /contacto.
 export const CONTACT_PAGE_WHATSAPP_MESSAGE =
   'Hola, quiero información para un proyecto web.';
@@ -56,5 +60,6 @@ export const getWhatsAppMessageForPath = (pathname: string): string => {
   if (path === '/tiendas-online') return ECOMMERCE_WHATSAPP_MESSAGE;
   if (path === '/mantenimiento-web') return MAINTENANCE_WHATSAPP_MESSAGE;
   if (path === '/web-profesional-360') return BUSINESS_PACKS_WHATSAPP_MESSAGE;
+  if (path === '/web-start') return WEB_START_WHATSAPP_MESSAGE;
   return DEFAULT_WHATSAPP_MESSAGE;
 };

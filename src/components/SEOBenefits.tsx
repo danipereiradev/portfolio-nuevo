@@ -8,10 +8,11 @@ interface Benefit {
 
 interface SEOBenefitsProps {
   title: string;
+  subtitle?: string;
   benefits: Benefit[];
 }
 
-const SEOBenefits = ({ title, benefits }: SEOBenefitsProps) => {
+const SEOBenefits = ({ title, subtitle, benefits }: SEOBenefitsProps) => {
   return (
     <section className='py-20 bg-gray-50'>
       <div className='container mx-auto px-6'>
@@ -19,6 +20,11 @@ const SEOBenefits = ({ title, benefits }: SEOBenefitsProps) => {
           <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4'>
             {title}
           </h2>
+          {subtitle && (
+            <p className='text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto'>
+              {subtitle}
+            </p>
+          )}
         </div>
 
         <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto'>
