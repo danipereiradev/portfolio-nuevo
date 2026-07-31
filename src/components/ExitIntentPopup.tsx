@@ -8,13 +8,35 @@ import Button from './Button';
 
 const STORAGE_KEY = 'exit-intent-guide-claimed';
 const SUBSCRIBE_ENDPOINT = '/.netlify/functions/subscribe';
-const DESKTOP_MIN_TIME_MS = 30000;
-const MOBILE_MIN_TIME_MS = 8000;
+
+/** Desktop: exit-intent activo a partir de aquí. */
+const DESKTOP_EXIT_MIN_MS = 30000;
+/** Desktop: si no hubo exit-intent, se muestra igual. */
+const DESKTOP_GUARANTEED_MS = 45000;
+/** Móvil: puede mostrarse por precios/scroll a partir de aquí. */
+const MOBILE_EARLY_MS = 8000;
+/** Móvil: si no llegó a precios/scroll, se muestra igual. */
+const MOBILE_GUARANTEED_MS = 18000;
+
 const CALENDLY_URL =
   'https://calendly.com/hola-pereiraweb/sesion-gratuita-pereiraweb';
 
-// Secciones de precios en las distintas landings.
 const PRICING_SECTION_IDS = ['packs', 'pricing', 'precios', 'planes'];
+
+const EXCLUDED_PATHS = new Set([
+  '/gracias',
+  '/contacto',
+  '/web-start',
+  '/politica-de-privacidad',
+  '/terminos-y-condiciones',
+  '/politica-de-cookies',
+  '/aviso-legal',
+]);
+
+const normalizePath = (pathname: string) =>
+  pathname.length > 1 && pathname.endsWith('/')
+    ? pathname.slice(0, -1)
+    : pathname;
 
 const isMobileViewport = () =>
   typeof window !== 'undefined' &&
@@ -31,11 +53,10 @@ const findPricingSection = () => {
 const ExitIntentPopup = () => {
   const { pathname } = useLocation();
   const { isOpen: isContactModalOpen } = useContactModal();
+  const normalizedPath = normalizePath(pathname);
 
   const [isOpen, setIsOpen] = useState(false);
   const [hasTriggered, setHasTriggered] = useState(false);
-  const [desktopReady, setDesktopReady] = useState(false);
-  const [mobileReady, setMobileReady] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<
     'idle' | 'success' | 'error'
@@ -47,20 +68,14 @@ const ExitIntentPopup = () => {
     consent: false,
   });
 
-  const isExcludedPage =
-    pathname === '/gracias' ||
-    pathname === '/contacto' ||
-    pathname === '/web-start' ||
-    pathname === '/web-start/' ||
-    pathname === '/politica-de-privacidad' ||
-    pathname === '/terminos-y-condiciones' ||
-    pathname === '/politica-de-cookies' ||
-    pathname === '/aviso-legal';
+  const isExcludedPage = EXCLUDED_PATHS.has(normalizedPath);
 
   const hasTriggeredRef = useRef(false);
   const isOpenRef = useRef(false);
   const isContactModalOpenRef = useRef(isContactModalOpen);
   const isExcludedPageRef = useRef(isExcludedPage);
+  const pendingOpenRef = useRef(false);
+  const desktopExitReadyRef = useRef(false);
 
   useBodyScrollLock(isOpen);
 
@@ -71,7 +86,6 @@ const ExitIntentPopup = () => {
     'Qué preguntar antes de contratar.',
   ];
 
-  // Solo se persiste si el usuario ya pidió/descargó la guía.
   const markGuideClaimed = useCallback(() => {
     try {
       localStorage.setItem(STORAGE_KEY, '1');
@@ -109,130 +123,163 @@ const ExitIntentPopup = () => {
       hasTriggeredRef.current ||
       isOpenRef.current ||
       isExcludedPageRef.current ||
-      isContactModalOpenRef.current ||
       hasClaimedGuide()
     ) {
       return;
     }
 
+    // Si el modal de contacto está abierto, reintentamos al cerrarlo.
+    if (isContactModalOpenRef.current) {
+      pendingOpenRef.current = true;
+      return;
+    }
+
+    pendingOpenRef.current = false;
     hasTriggeredRef.current = true;
     setHasTriggered(true);
     setIsOpen(true);
   }, [hasClaimedGuide]);
 
   const closePopup = useCallback(() => {
-    // Solo cerramos. Sin localStorage: en la siguiente carga de página
-    // podrá volver a mostrarse si aún no reclamó la guía.
     setIsOpen(false);
   }, []);
 
-  // Tiempos mínimos distintos en desktop / móvil.
+  // Reintento cuando se cierra el modal de contacto.
   useEffect(() => {
-    if (isExcludedPage || hasClaimedGuide()) return;
+    if (!isContactModalOpen && pendingOpenRef.current) {
+      openPopup();
+    }
+  }, [isContactModalOpen, openPopup]);
 
-    setDesktopReady(false);
-    setMobileReady(false);
+  // Disparadores: escritorio + móvil. Siempre hay un fallback garantizado.
+  useEffect(() => {
+    if (isExcludedPage || hasClaimedGuide() || hasTriggeredRef.current) return;
 
-    const desktopTimer = window.setTimeout(() => {
-      setDesktopReady(true);
-    }, DESKTOP_MIN_TIME_MS);
+    pendingOpenRef.current = false;
+    desktopExitReadyRef.current = false;
 
-    const mobileTimer = window.setTimeout(() => {
-      setMobileReady(true);
-    }, MOBILE_MIN_TIME_MS);
+    const timers: number[] = [];
+    const cleanups: Array<() => void> = [];
 
-    return () => {
-      window.clearTimeout(desktopTimer);
-      window.clearTimeout(mobileTimer);
+    const schedule = (fn: () => void, ms: number) => {
+      timers.push(window.setTimeout(fn, ms));
     };
-  }, [isExcludedPage, hasClaimedGuide, pathname]);
 
-  // Desktop: exit-intent (cursor sale por arriba) tras 30 s.
-  useEffect(() => {
-    if (!desktopReady || isExcludedPage || isMobileViewport()) return;
+    // ---- Desktop ----
+    schedule(() => {
+      desktopExitReadyRef.current = true;
+    }, DESKTOP_EXIT_MIN_MS);
 
+    // Exit-intent: cursor sale por arriba (o mouseleave del documento).
     const handleMouseOut = (e: MouseEvent) => {
+      if (!desktopExitReadyRef.current || isMobileViewport()) return;
       if (e.relatedTarget !== null) return;
       if (e.clientY > 0) return;
       openPopup();
     };
 
+    const handleMouseLeave = (e: MouseEvent) => {
+      if (!desktopExitReadyRef.current || isMobileViewport()) return;
+      if (e.clientY > 0) return;
+      openPopup();
+    };
+
     document.addEventListener('mouseout', handleMouseOut);
-    return () => document.removeEventListener('mouseout', handleMouseOut);
-  }, [desktopReady, isExcludedPage, openPopup]);
-
-  // Móvil: al llegar a la sección de precios (mejor momento de conversión).
-  useEffect(() => {
-    if (!mobileReady || isExcludedPage || !isMobileViewport()) return;
-
-    let observer: IntersectionObserver | null = null;
-    let retryId: number | undefined;
-    let attempts = 0;
-
-    const attachScrollFallback = () => {
-      const onScroll = () => {
-        const scrollTop = window.scrollY || document.documentElement.scrollTop;
-        const docHeight =
-          document.documentElement.scrollHeight - window.innerHeight;
-        const progress = docHeight <= 0 ? 1 : scrollTop / docHeight;
-        if (progress >= 0.55) {
-          openPopup();
-          window.removeEventListener('scroll', onScroll);
-        }
-      };
-
-      window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
-      return () => window.removeEventListener('scroll', onScroll);
-    };
-
-    let detachFallback: (() => void) | undefined;
-
-    const attachObserver = () => {
-      const section = findPricingSection();
-      if (!section) {
-        attempts += 1;
-        if (attempts < 8) {
-          retryId = window.setTimeout(attachObserver, 400);
-          return;
-        }
-        // Páginas sin bloque de precios: fallback por scroll.
-        detachFallback = attachScrollFallback();
-        return;
-      }
-
-      observer = new IntersectionObserver(
-        (entries) => {
-          for (const entry of entries) {
-            if (entry.isIntersecting && entry.intersectionRatio >= 0.2) {
-              openPopup();
-              observer?.disconnect();
-              return;
-            }
-          }
-        },
-        { threshold: [0.2, 0.35, 0.5] },
+    document.documentElement.addEventListener('mouseleave', handleMouseLeave);
+    cleanups.push(() => {
+      document.removeEventListener('mouseout', handleMouseOut);
+      document.documentElement.removeEventListener(
+        'mouseleave',
+        handleMouseLeave,
       );
+    });
 
-      observer.observe(section);
+    // Garantizado en desktop si no hubo exit-intent.
+    schedule(() => {
+      if (!isMobileViewport()) openPopup();
+    }, DESKTOP_GUARANTEED_MS);
 
-      const rect = section.getBoundingClientRect();
-      const alreadyVisible =
-        rect.top < window.innerHeight * 0.85 &&
-        rect.bottom > window.innerHeight * 0.15;
-      if (alreadyVisible) {
-        openPopup();
+    // ---- Móvil ----
+    let observer: IntersectionObserver | null = null;
+    let mobileEarly = false;
+
+    const tryMobilePricingOrScroll = () => {
+      if (!isMobileViewport() || !mobileEarly) return;
+
+      const section = findPricingSection();
+      if (section) {
+        observer?.disconnect();
+        observer = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting && entry.intersectionRatio >= 0.15) {
+                openPopup();
+                observer?.disconnect();
+                return;
+              }
+            }
+          },
+          { threshold: [0.15, 0.25, 0.4] },
+        );
+        observer.observe(section);
+
+        const rect = section.getBoundingClientRect();
+        const alreadyVisible =
+          rect.top < window.innerHeight * 0.9 &&
+          rect.bottom > window.innerHeight * 0.1;
+        if (alreadyVisible) openPopup();
       }
     };
 
-    attachObserver();
+    const handleScroll = () => {
+      if (!isMobileViewport() || !mobileEarly) return;
+
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight <= 0 ? 1 : scrollTop / docHeight;
+
+      // Umbral bajo para que casi siempre dispare al explorar.
+      if (progress >= 0.35) {
+        openPopup();
+      } else {
+        tryMobilePricingOrScroll();
+      }
+    };
+
+    schedule(() => {
+      mobileEarly = true;
+      if (isMobileViewport()) {
+        tryMobilePricingOrScroll();
+        handleScroll();
+      }
+    }, MOBILE_EARLY_MS);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    cleanups.push(() => {
+      window.removeEventListener('scroll', handleScroll);
+      observer?.disconnect();
+    });
+
+    // Garantizado en móvil si no llegó a precios/scroll.
+    schedule(() => {
+      if (isMobileViewport()) openPopup();
+    }, MOBILE_GUARANTEED_MS);
+
+    // Reintentos cortos por si el bloque de precios monta tarde (SPA).
+    schedule(() => {
+      if (isMobileViewport() && mobileEarly) tryMobilePricingOrScroll();
+    }, MOBILE_EARLY_MS + 600);
+    schedule(() => {
+      if (isMobileViewport() && mobileEarly) tryMobilePricingOrScroll();
+    }, MOBILE_EARLY_MS + 1600);
 
     return () => {
-      if (retryId) window.clearTimeout(retryId);
+      timers.forEach((id) => window.clearTimeout(id));
+      cleanups.forEach((fn) => fn());
       observer?.disconnect();
-      detachFallback?.();
     };
-  }, [mobileReady, isExcludedPage, openPopup, pathname]);
+  }, [isExcludedPage, hasClaimedGuide, normalizedPath, openPopup]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -325,7 +372,6 @@ const ExitIntentPopup = () => {
         );
       }
 
-      // No usar trackFormSubmit: dispararía conversión Ads de contacto.
       trackGuideSubscribe('exit_intent_popup');
       markGuideClaimed();
       setSubmitStatus('success');
