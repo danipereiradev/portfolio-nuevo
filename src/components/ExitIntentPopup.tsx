@@ -7,7 +7,7 @@ import { trackFormError, trackFormSubmit } from '../utils/analytics';
 import Button from './Button';
 
 const STORAGE_KEY = 'exit-intent-dismissed';
-const SUBSCRIBE_ENDPOINT = '/api/subscribe';
+const SUBSCRIBE_ENDPOINT = '/.netlify/functions/subscribe';
 const MOBILE_SHOW_DELAY_MS = 10000;
 
 const isMobileViewport = () =>

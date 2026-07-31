@@ -1,3 +1,5 @@
+/api/subscribe  /.netlify/functions/subscribe  200!
+
 /landing-express   /web-autonomos-pymes   301!
 /tienda-online     /tiendas-online        301!
 /about             /sobre-el-estudio      301!
