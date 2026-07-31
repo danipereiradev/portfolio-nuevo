@@ -14,8 +14,15 @@ interface TestimonialsProps {
   id?: string;
   testimonials?: Testimonial[];
   averageRating?: number;
-  videoTestimonial?: VideoTestimonial;
+  /** Por defecto: testimonio en vídeo de Juanvi (igual que Web 360). */
+  videoTestimonial?: VideoTestimonial | null;
 }
+
+const DEFAULT_VIDEO_TESTIMONIAL: VideoTestimonial = {
+  src: '/video/juanvi-testimonio.mp4',
+  name: 'Juanvi',
+  company: 'hoyviajamosweb.com',
+};
 
 const computeAverage = (items: Testimonial[]) =>
   items.reduce((sum, item) => sum + item.rating, 0) / items.length;
@@ -40,7 +47,7 @@ const Testimonials = ({
   id = 'testimonials',
   testimonials = allTestimonials,
   averageRating,
-  videoTestimonial,
+  videoTestimonial = DEFAULT_VIDEO_TESTIMONIAL,
 }: TestimonialsProps = {}) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [touchStart, setTouchStart] = useState(0);

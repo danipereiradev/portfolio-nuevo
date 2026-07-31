@@ -36,6 +36,7 @@ import {
 import SEOLandingHero from '../components/SEOLandingHero';
 import SEOBenefits from '../components/SEOBenefits';
 import SEOProcess from '../components/SEOProcess';
+import Testimonials from '../components/Testimonials';
 import SEOFAQ from '../components/SEOFAQ';
 import SEOCTAFinal from '../components/SEOCTAFinal';
 import Button from '../components/Button';
@@ -590,6 +591,8 @@ const WebStart = () => {
           </div>
         </div>
       </section>
+
+      <Testimonials id='valoraciones' />
 
       <SEOFAQ
         title='Preguntas frecuentes'

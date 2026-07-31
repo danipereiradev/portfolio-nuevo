@@ -601,14 +601,7 @@ const WebProfesionalNegocios = () => {
       </div>
 
       {/* 6.3 Valoraciones de clientes */}
-      <Testimonials
-        id='valoraciones'
-        videoTestimonial={{
-          src: '/video/juanvi-testimonio.mp4',
-          name: 'Juanvi',
-          company: 'hoyviajamosweb.com',
-        }}
-      />
+      <Testimonials id='valoraciones' />
 
       {/* 7. Cómo funciona */}
       <SEOProcess title='Cómo Funciona el Proceso' steps={processSteps} />
