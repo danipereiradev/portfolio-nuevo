@@ -14,7 +14,7 @@ const Services = () => {
       graphic: <BrowserGraphic />,
       title: t('services.corporate.title'),
       description: t('services.corporate.desc'),
-      link: '/web-autonomos-pymes',
+      link: '/web-a-medida',
     },
     {
       graphic: <CartGraphic />,

@@ -90,7 +90,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href='/web-autonomos-pymes'
+                    href='/web-a-medida'
                     className='hover:text-white transition-colors duration-200'
                   >
                     Web a Medida

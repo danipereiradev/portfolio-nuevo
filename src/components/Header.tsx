@@ -56,7 +56,7 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
     },
     {
       name: 'Web a Medida',
-      path: '/web-autonomos-pymes',
+      path: '/web-a-medida',
     },
     {
       name: 'Tiendas Online',

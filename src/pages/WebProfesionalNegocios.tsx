@@ -518,7 +518,7 @@ const WebProfesionalNegocios = () => {
               personalizado? Descubre el servicio de Web a Medida.
             </p>
             <a
-              href='/web-autonomos-pymes'
+              href='/web-a-medida'
               className='inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:underline'
             >
               Ver Web a Medida

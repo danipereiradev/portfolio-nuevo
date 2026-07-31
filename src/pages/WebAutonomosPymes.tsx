@@ -40,14 +40,14 @@ const WHATSAPP_URL = buildWhatsAppUrl(ADS_WHATSAPP_MESSAGE);
 const WebAutonomosPymes = () => {
   const { openModal } = useContactModal();
 
-  usePageMeta('/web-autonomos-pymes');
+  usePageMeta('/web-a-medida');
 
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   // Permite llegar directamente a una sección vía ancla en la URL
-  // (ej. /web-autonomos-pymes#precios desde un sitelink de Google Ads).
+  // (ej. /web-a-medida#precios desde un sitelink de Google Ads).
   // El scroll nativo del navegador no funciona de forma fiable en esta SPA
   // porque el elemento con ese id todavía no existe cuando la página carga.
   useEffect(() => {

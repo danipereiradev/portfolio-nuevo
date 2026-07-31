@@ -41,10 +41,15 @@ function AppContent() {
         <Route path='/' element={<Home />} />
         <Route path='/tiendas-online' element={<TiendasOnline />} />
         <Route path='/mantenimiento-web' element={<MantenimientoWeb />} />
-        <Route path='/web-autonomos-pymes' element={<WebAutonomosPymes />} />
+        <Route path='/web-a-medida' element={<WebAutonomosPymes />} />
         <Route
           path='/web-profesional-360'
           element={<WebProfesionalNegocios />}
+        />
+        {/* Alias antiguo del servicio Web a Medida */}
+        <Route
+          path='/web-autonomos-pymes'
+          element={<Navigate to='/web-a-medida' replace />}
         />
         <Route path='/paginas-web-empresas' element={<PaginasWebEmpresas />} />
         <Route path='/diseno-web' element={<DisenoWeb />} />
@@ -85,7 +90,7 @@ function AppContent() {
         {/* Redirecciones de URLs antiguas/duplicadas a la ruta canónica */}
         <Route
           path='/landing-express'
-          element={<Navigate to='/web-autonomos-pymes' replace />}
+          element={<Navigate to='/web-a-medida' replace />}
         />
         <Route
           path='/web-profesional-negocios'

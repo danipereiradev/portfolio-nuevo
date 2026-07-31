@@ -8,7 +8,7 @@ export const DEFAULT_WHATSAPP_MESSAGE =
   'Hola, quiero información para un proyecto web.';
 
 // Mensaje específico para el tráfico de campañas de Google Ads que llega a
-// la landing /web-autonomos-pymes.
+// la landing /web-a-medida.
 export const ADS_WHATSAPP_MESSAGE =
   'Hola, vengo de Google y quiero información para una web profesional.';
 
@@ -46,7 +46,7 @@ export const buildWhatsAppUrl = (
 
 // Quita la barra final de una ruta (salvo si es la raíz "/"), para que las
 // comparaciones exactas de pathname no fallen si la URL llega con "/" al
-// final (p. ej. "/web-autonomos-pymes/" servida directamente como carpeta
+// final (p. ej. "/web-a-medida/" servida directamente como carpeta
 // por el hosting, o enlazada así desde fuera).
 const normalizePath = (pathname: string): string =>
   pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
@@ -56,7 +56,7 @@ const normalizePath = (pathname: string): string =>
 // el visitante está mirando en cada página.
 export const getWhatsAppMessageForPath = (pathname: string): string => {
   const path = normalizePath(pathname);
-  if (path === '/web-autonomos-pymes') return ADS_WHATSAPP_MESSAGE;
+  if (path === '/web-a-medida') return ADS_WHATSAPP_MESSAGE;
   if (path === '/tiendas-online') return ECOMMERCE_WHATSAPP_MESSAGE;
   if (path === '/mantenimiento-web') return MAINTENANCE_WHATSAPP_MESSAGE;
   if (path === '/web-profesional-360') return BUSINESS_PACKS_WHATSAPP_MESSAGE;

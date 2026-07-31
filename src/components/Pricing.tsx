@@ -38,7 +38,7 @@ const Pricing = () => {
         'Proyectos con funcionalidades, estructura o integraciones específicas',
       description:
         'Para empresas que necesitan un desarrollo con alcance personalizado: funcionalidades especiales, integraciones externas, áreas privadas o arquitectura propia.',
-      path: '/web-autonomos-pymes',
+      path: '/web-a-medida',
       deliveryTime: 'Según el alcance del proyecto',
       cta: 'Solicitar propuesta',
       features: [

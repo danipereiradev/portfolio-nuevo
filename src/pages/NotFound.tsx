@@ -66,7 +66,7 @@ const NotFound = () => {
             <HomeIcon className='w-4 h-4' />
             Volver al inicio
           </Button>
-          <Button href='/web-autonomos-pymes' variant='ghost'>
+          <Button href='/web-a-medida' variant='ghost'>
             <MessageCircle className='w-4 h-4' />
             Solicitar propuesta
           </Button>

@@ -1,6 +1,7 @@
 /api/subscribe  /.netlify/functions/subscribe  200!
 
-/landing-express   /web-autonomos-pymes   301!
+/landing-express   /web-a-medida   301!
+/web-autonomos-pymes   /web-a-medida   301!
 /tienda-online     /tiendas-online        301!
 /about             /sobre-el-estudio      301!
 /about-me          /sobre-el-estudio      301!
@@ -12,7 +13,7 @@
 # title/description/canonical/OG/Twitter propios) generado por
 # scripts/prerender-meta.mjs tras el build, en vez de caer todas en el
 # index.html genérico de la home.
-/web-autonomos-pymes            /web-autonomos-pymes/index.html            200
+/web-a-medida            /web-a-medida/index.html            200
 /web-profesional-360            /web-profesional-360/index.html            200
 /paginas-web-empresas           /paginas-web-empresas/index.html           200
 /diseno-web                     /diseno-web/index.html                     200
