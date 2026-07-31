@@ -52,18 +52,8 @@ export const trackEvent = (
 /** Conversion ID de la cuenta (parte AW-…). */
 export const GOOGLE_ADS_CONVERSION_ID = 'AW-18305239496';
 
-/**
- * Conversión oficial de formulario (evento gtag 'conversion').
- *
- * Crear en Google Ads → Objetivos → Conversiones → + Nueva conversión
- * → Sitio web → "Envío formulario de contacto" → Evento.
- * Luego pegar aquí el Conversion Label que genera Ads (parte tras la /).
- *
- * send_to resultante: AW-18305239496/<LABEL>
- */
-export const GOOGLE_ADS_FORM_CONVERSION_LABEL = 'REEMPLAZAR_LABEL_FORMULARIO';
-
-const GOOGLE_ADS_FORM_CONVERSION_SEND_TO = `${GOOGLE_ADS_CONVERSION_ID}/${GOOGLE_ADS_FORM_CONVERSION_LABEL}`;
+/** Label de la conversión "Envío formulario de contacto" (evento). */
+export const GOOGLE_ADS_FORM_CONVERSION_LABEL = 'augtCPDI39kcEMiTz5hE';
 
 // Conversión oficial WhatsApp (ya existente en la cuenta).
 // send_to: AW-18305239496/uNL7CKX5j84cEMiTz5hE
@@ -93,6 +83,14 @@ const trackAdsContactConversion = (contactType: ContactConversionType) => {
   }
 };
 
+/** Evita doble disparo (doble clic / listener duplicado) en el mismo envío. */
+let formAdsConversionLocked = false;
+
+/** Liberar el candado al iniciar un nuevo intento de envío (misma sesión SPA). */
+export const unlockGoogleAdsFormConversion = (): void => {
+  formAdsConversionLocked = false;
+};
+
 /**
  * Conversión oficial de Google Ads por envío de formulario.
  * Llamar UNA sola vez tras Formspree OK ({ ok: true }), antes de /gracias.
@@ -100,22 +98,13 @@ const trackAdsContactConversion = (contactType: ContactConversionType) => {
  */
 export const trackGoogleAdsFormConversion = (): void => {
   if (typeof window === 'undefined') return;
-  if (typeof window.gtag !== 'function') return;
-
-  if (
-    !GOOGLE_ADS_FORM_CONVERSION_LABEL ||
-    GOOGLE_ADS_FORM_CONVERSION_LABEL === 'REEMPLAZAR_LABEL_FORMULARIO'
-  ) {
-    console.warn(
-      '[Ads] Falta GOOGLE_ADS_FORM_CONVERSION_LABEL en analytics.ts. Crea la conversión en Google Ads y pega el label.',
-    );
-    return;
-  }
+  if (formAdsConversionLocked) return;
+  formAdsConversionLocked = true;
 
   try {
-    window.gtag('event', 'conversion', {
-      send_to: GOOGLE_ADS_FORM_CONVERSION_SEND_TO,
-      value: 1.0,
+    window.gtag?.('event', 'conversion', {
+      send_to: 'AW-18305239496/augtCPDI39kcEMiTz5hE',
+      value: 1,
       currency: 'EUR',
     });
   } catch {

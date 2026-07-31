@@ -14,6 +14,7 @@ import {
   trackWhatsAppClick,
   trackGoogleAdsWhatsAppConversion,
   trackGoogleAdsFormConversion,
+  unlockGoogleAdsFormConversion,
   trackEmailClick,
 } from '../utils/analytics';
 import { useContactModal } from '../contexts/ContactModalContext';
@@ -161,11 +162,14 @@ const ContactForm = ({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (isSubmitting) return;
+
     if (!validateForm()) {
       trackFormError('validation_error', formData.plan);
       return;
     }
 
+    unlockGoogleAdsFormConversion();
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
@@ -232,11 +236,10 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       };
       const planValue = planPrices[formData.plan] || 0;
 
-      // Token de acceso a /gracias: solo tras confirmación real de Formspree.
-      markFormSubmissionSuccess();
+      // Orden: Formspree OK → GA4 → Ads → token /gracias → navigate.
       trackFormSubmit(formData.plan, planValue);
-      // Conversión oficial Google Ads (evento). Una sola vez por envío válido.
       trackGoogleAdsFormConversion();
+      markFormSubmissionSuccess();
 
       if (isInModal) {
         closeModal();
