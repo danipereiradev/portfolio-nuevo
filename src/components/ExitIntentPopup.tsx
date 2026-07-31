@@ -453,9 +453,9 @@ const ExitIntentPopup = () => {
                     Crea la web que tu negocio necesita.
                   </h2>
                   <p className='text-base text-gray-600 leading-relaxed'>
-                    Descarga gratis una guía práctica para evitar errores,
-                    ahorrar dinero y saber exactamente qué necesita tu negocio
-                    antes de pedir presupuesto.
+                    Descarga <b>GRATIS</b> una guía práctica para evitar
+                    errores, ahorrar dinero y saber exactamente qué necesita tu
+                    negocio antes de pedir presupuesto.
                   </p>
                 </div>
 

@@ -19,11 +19,11 @@ const translations = {
   'nav.contact': 'Contacto',
 
   // Hero
-  'hero.title': 'Diseño web profesional para empresas y autónomos',
+  'hero.title': 'Diseño y desarrollo web para empresas.',
   'hero.subtitle':
-    'Creamos páginas web rápidas, claras y adaptadas a las necesidades de cada negocio. Trabajamos con empresas de toda España.',
+    'Creamos páginas web rápidas, claras y preparadas para transmitir confianza y captar nuevos clientes. Trabajamos con empresas de toda España.',
   'hero.trustline':
-    'Proyectos en toda España · Presupuesto cerrado antes de empezar',
+    'Trato directo · Presupuesto cerrado antes de empezar',
   'hero.cta.whatsapp': 'Escríbenos por WhatsApp',
   'hero.cta.pricing': 'Solicitar propuesta',
   'hero.cta.portfolio': 'Ver trabajos',
