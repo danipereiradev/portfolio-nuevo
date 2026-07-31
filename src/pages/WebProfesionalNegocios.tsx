@@ -67,7 +67,7 @@ const WebProfesionalNegocios = () => {
       url: SITE_URL,
     },
     areaServed: 'ES',
-    url: `${SITE_URL}/web-profesional-360`,
+    url: `${SITE_URL}/web-profesional-360/`,
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Packs de web profesional',

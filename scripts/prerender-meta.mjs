@@ -43,13 +43,17 @@ const escapeHtml = (value) =>
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
 
+const buildCanonicalUrl = (routePath) => {
+  if (routePath === '/') return `${SITE_URL}/`;
+  const normalized = routePath.endsWith('/') ? routePath : `${routePath}/`;
+  return `${SITE_URL}${normalized}`;
+};
+
 const buildHtmlForRoute = (
   routePath,
   { title, description, robots, canonical },
 ) => {
-  const canonicalUrl =
-    canonical ??
-    (routePath === '/' ? `${SITE_URL}/` : `${SITE_URL}${routePath}`);
+  const canonicalUrl = canonical ?? buildCanonicalUrl(routePath);
   const safeTitle = escapeHtml(title);
   const safeDescription = escapeHtml(description);
   const safeCanonical = escapeHtml(canonicalUrl);

@@ -12,6 +12,14 @@ type PageMetaEntry = {
 
 type PagesMeta = Record<string, PageMetaEntry>;
 
+// Netlify sirve las rutas pre-renderizadas con barra final
+// (/ruta/ → 200; /ruta → 301 a /ruta/). El canonical debe coincidir.
+const buildCanonicalUrl = (path: string) => {
+  if (path === '/') return `${SITE_URL}/`;
+  const normalized = path.endsWith('/') ? path : `${path}/`;
+  return `${SITE_URL}${normalized}`;
+};
+
 const setMetaByAttr = (
   attr: 'name' | 'property',
   key: string,
@@ -45,9 +53,7 @@ export const usePageMeta = (path: string) => {
     document.title = title;
     setMetaByAttr('name', 'description', description);
 
-    const canonicalUrl =
-      canonical ??
-      (path === '/' ? `${SITE_URL}/` : `${SITE_URL}${path}`);
+    const canonicalUrl = canonical ?? buildCanonicalUrl(path);
     let canonicalLink = document.querySelector<HTMLLinkElement>(
       'link[rel="canonical"]',
     );
