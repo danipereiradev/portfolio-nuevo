@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { AlertCircle, Calendar, Check, Mail, User, X } from 'lucide-react';
 import { useContactModal } from '../contexts/ContactModalContext';
@@ -8,22 +8,24 @@ import Button from './Button';
 
 const STORAGE_KEY = 'exit-intent-guide-claimed';
 const SUBSCRIBE_ENDPOINT = '/.netlify/functions/subscribe';
-const MIN_TIME_ON_PAGE_MS = 30000;
-const MOBILE_FALLBACK_MS = 40000;
-const MOBILE_SCROLL_THRESHOLD = 0.6;
+const DESKTOP_MIN_TIME_MS = 30000;
+const MOBILE_MIN_TIME_MS = 8000;
 const CALENDLY_URL =
   'https://calendly.com/hola-pereiraweb/sesion-gratuita-pereiraweb';
+
+// Secciones de precios en las distintas landings.
+const PRICING_SECTION_IDS = ['packs', 'pricing', 'precios', 'planes'];
 
 const isMobileViewport = () =>
   typeof window !== 'undefined' &&
   window.matchMedia('(max-width: 767px)').matches;
 
-const getScrollProgress = () => {
-  const scrollTop = window.scrollY || document.documentElement.scrollTop;
-  const docHeight =
-    document.documentElement.scrollHeight - window.innerHeight;
-  if (docHeight <= 0) return 1;
-  return scrollTop / docHeight;
+const findPricingSection = () => {
+  for (const id of PRICING_SECTION_IDS) {
+    const el = document.getElementById(id);
+    if (el) return el;
+  }
+  return null;
 };
 
 const ExitIntentPopup = () => {
@@ -32,7 +34,8 @@ const ExitIntentPopup = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [hasTriggered, setHasTriggered] = useState(false);
-  const [isReady, setIsReady] = useState(false);
+  const [desktopReady, setDesktopReady] = useState(false);
+  const [mobileReady, setMobileReady] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<
     'idle' | 'success' | 'error'
@@ -51,6 +54,11 @@ const ExitIntentPopup = () => {
     pathname === '/terminos-y-condiciones' ||
     pathname === '/politica-de-cookies' ||
     pathname === '/aviso-legal';
+
+  const hasTriggeredRef = useRef(false);
+  const isOpenRef = useRef(false);
+  const isContactModalOpenRef = useRef(isContactModalOpen);
+  const isExcludedPageRef = useRef(isExcludedPage);
 
   useBodyScrollLock(isOpen);
 
@@ -78,28 +86,37 @@ const ExitIntentPopup = () => {
     }
   }, []);
 
+  useEffect(() => {
+    hasTriggeredRef.current = hasTriggered;
+  }, [hasTriggered]);
+
+  useEffect(() => {
+    isOpenRef.current = isOpen;
+  }, [isOpen]);
+
+  useEffect(() => {
+    isContactModalOpenRef.current = isContactModalOpen;
+  }, [isContactModalOpen]);
+
+  useEffect(() => {
+    isExcludedPageRef.current = isExcludedPage;
+  }, [isExcludedPage]);
+
   const openPopup = useCallback(() => {
     if (
-      !isReady ||
-      hasTriggered ||
-      isOpen ||
-      isExcludedPage ||
-      isContactModalOpen ||
+      hasTriggeredRef.current ||
+      isOpenRef.current ||
+      isExcludedPageRef.current ||
+      isContactModalOpenRef.current ||
       hasClaimedGuide()
     ) {
       return;
     }
 
+    hasTriggeredRef.current = true;
     setHasTriggered(true);
     setIsOpen(true);
-  }, [
-    isReady,
-    hasTriggered,
-    isOpen,
-    isExcludedPage,
-    isContactModalOpen,
-    hasClaimedGuide,
-  ]);
+  }, [hasClaimedGuide]);
 
   const closePopup = useCallback(() => {
     // Solo cerramos. Sin localStorage: en la siguiente carga de página
@@ -107,21 +124,30 @@ const ExitIntentPopup = () => {
     setIsOpen(false);
   }, []);
 
-  // Armamos los triggers tras 30 s en la página.
+  // Tiempos mínimos distintos en desktop / móvil.
   useEffect(() => {
     if (isExcludedPage || hasClaimedGuide()) return;
 
-    setIsReady(false);
-    const timer = window.setTimeout(() => {
-      setIsReady(true);
-    }, MIN_TIME_ON_PAGE_MS);
+    setDesktopReady(false);
+    setMobileReady(false);
 
-    return () => window.clearTimeout(timer);
+    const desktopTimer = window.setTimeout(() => {
+      setDesktopReady(true);
+    }, DESKTOP_MIN_TIME_MS);
+
+    const mobileTimer = window.setTimeout(() => {
+      setMobileReady(true);
+    }, MOBILE_MIN_TIME_MS);
+
+    return () => {
+      window.clearTimeout(desktopTimer);
+      window.clearTimeout(mobileTimer);
+    };
   }, [isExcludedPage, hasClaimedGuide, pathname]);
 
-  // Desktop: exit-intent (cursor sale por arriba).
+  // Desktop: exit-intent (cursor sale por arriba) tras 30 s.
   useEffect(() => {
-    if (!isReady || isExcludedPage || isMobileViewport()) return;
+    if (!desktopReady || isExcludedPage || isMobileViewport()) return;
 
     const handleMouseOut = (e: MouseEvent) => {
       if (e.relatedTarget !== null) return;
@@ -131,34 +157,80 @@ const ExitIntentPopup = () => {
 
     document.addEventListener('mouseout', handleMouseOut);
     return () => document.removeEventListener('mouseout', handleMouseOut);
-  }, [isReady, isExcludedPage, openPopup]);
+  }, [desktopReady, isExcludedPage, openPopup]);
 
-  // Móvil: 60% de scroll (o ya alcanzado al cumplir los 30 s).
+  // Móvil: al llegar a la sección de precios (mejor momento de conversión).
   useEffect(() => {
-    if (!isReady || isExcludedPage || !isMobileViewport()) return;
+    if (!mobileReady || isExcludedPage || !isMobileViewport()) return;
 
-    const tryOpenFromScroll = () => {
-      if (getScrollProgress() >= MOBILE_SCROLL_THRESHOLD) {
+    let observer: IntersectionObserver | null = null;
+    let retryId: number | undefined;
+    let attempts = 0;
+
+    const attachScrollFallback = () => {
+      const onScroll = () => {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const docHeight =
+          document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight <= 0 ? 1 : scrollTop / docHeight;
+        if (progress >= 0.55) {
+          openPopup();
+          window.removeEventListener('scroll', onScroll);
+        }
+      };
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+      return () => window.removeEventListener('scroll', onScroll);
+    };
+
+    let detachFallback: (() => void) | undefined;
+
+    const attachObserver = () => {
+      const section = findPricingSection();
+      if (!section) {
+        attempts += 1;
+        if (attempts < 8) {
+          retryId = window.setTimeout(attachObserver, 400);
+          return;
+        }
+        // Páginas sin bloque de precios: fallback por scroll.
+        detachFallback = attachScrollFallback();
+        return;
+      }
+
+      observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting && entry.intersectionRatio >= 0.2) {
+              openPopup();
+              observer?.disconnect();
+              return;
+            }
+          }
+        },
+        { threshold: [0.2, 0.35, 0.5] },
+      );
+
+      observer.observe(section);
+
+      const rect = section.getBoundingClientRect();
+      const alreadyVisible =
+        rect.top < window.innerHeight * 0.85 &&
+        rect.bottom > window.innerHeight * 0.15;
+      if (alreadyVisible) {
         openPopup();
       }
     };
 
-    tryOpenFromScroll();
-    window.addEventListener('scroll', tryOpenFromScroll, { passive: true });
-    return () => window.removeEventListener('scroll', tryOpenFromScroll);
-  }, [isReady, isExcludedPage, openPopup]);
+    attachObserver();
 
-  // Móvil: fallback ~40 s totales si no llega al 60% de scroll.
-  useEffect(() => {
-    if (!isReady || isExcludedPage || !isMobileViewport()) return;
-
-    const remainingMs = Math.max(MOBILE_FALLBACK_MS - MIN_TIME_ON_PAGE_MS, 0);
-    const timer = window.setTimeout(() => {
-      openPopup();
-    }, remainingMs);
-
-    return () => window.clearTimeout(timer);
-  }, [isReady, isExcludedPage, openPopup]);
+    return () => {
+      if (retryId) window.clearTimeout(retryId);
+      observer?.disconnect();
+      detachFallback?.();
+    };
+  }, [mobileReady, isExcludedPage, openPopup, pathname]);
 
   useEffect(() => {
     if (!isOpen) return;
