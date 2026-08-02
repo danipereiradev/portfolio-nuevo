@@ -552,7 +552,6 @@ const ExitIntentPopup = () => {
                       <span className='text-sm text-gray-600 leading-relaxed pt-2 md:pt-0'>
                         Quiero recibir la guía y consejos relacionados con la
                         creación de páginas web.{' '}
-                        <b>Puedo darme de baja cuando quiera.</b>
                       </span>
                     </label>
                     {errors.consent && (
