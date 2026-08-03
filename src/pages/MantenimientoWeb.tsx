@@ -166,7 +166,7 @@ const MantenimientoWeb = () => {
     {
       question: '¿Trabajáis solo en Madrid?',
       answer:
-        'PereiraWeb tiene base en Torrejón de Ardoz, Madrid, pero trabajamos con clientes de toda España de forma online.',
+        'PereiraWeb tiene sede en Galicia/Madrid, pero trabajamos con clientes de toda España de forma online.',
     },
     {
       question: '¿Podéis mantener una web que no habéis creado vosotros?',

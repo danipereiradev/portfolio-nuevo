@@ -67,7 +67,7 @@ const Contacto = () => {
                 Información de Contacto
               </h2>
               <p className='text-gray-600 mb-8 leading-relaxed'>
-                PereiraWeb · Estudio web en Torrejón de Ardoz, Madrid.
+                PereiraWeb · Estudio web con sede en Galicia/Madrid.
                 Atendemos proyectos de toda España de forma online. Respondemos
                 a todas las consultas en un máximo de 2 horas.
               </p>

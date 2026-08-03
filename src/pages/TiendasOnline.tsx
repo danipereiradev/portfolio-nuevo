@@ -198,7 +198,7 @@ const TiendasOnline = () => {
     {
       question: '¿Trabajáis solo en Madrid?',
       answer:
-        'PereiraWeb tiene base en Torrejón de Ardoz, Madrid, pero trabajamos con clientes de toda España de forma online.',
+        'PereiraWeb tiene sede en Galicia/Madrid, pero trabajamos con clientes de toda España de forma online.',
     },
     {
       question: '¿Incluís mantenimiento?',

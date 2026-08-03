@@ -512,17 +512,43 @@ const WebProfesionalNegocios = () => {
             </button>
           </div>
 
-          <div className='max-w-2xl mx-auto text-center bg-gray-50 border-2 border-ink-dark rounded-xl p-6 md:p-8 shadow-[5px_5px_0_0_#1a1a1a] mt-10'>
-            <p className='text-base md:text-lg text-gray-800 font-medium mb-4'>
-              ¿Necesitas funcionalidades específicas o un proyecto completamente
-              personalizado? Descubre el servicio de Web a Medida.
-            </p>
-            <a
-              href='/web-a-medida'
-              className='inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:underline'
-            >
-              Ver Web a Medida
-            </a>
+          <div className='mt-10 grid gap-4 md:grid-cols-2 md:gap-5 max-w-4xl mx-auto items-stretch'>
+            <div className='relative text-center bg-accent border-[3px] border-ink-dark rounded-xl p-6 md:p-8 shadow-[7px_7px_0_0_#1a1a1a] ring-2 ring-accent/40'>
+              <span className='inline-block bg-ink-dark text-white text-xs font-bold uppercase tracking-wide px-3 py-1.5 border-2 border-white/80 rotate-[-2deg] mb-4 shadow-[3px_3px_0_0_rgba(255,255,255,0.35)]'>
+                Presupuesto más ajustado
+              </span>
+              <p className='text-base md:text-lg text-ink-dark font-bold leading-snug mb-5'>
+                Si tu presupuesto es más ajustado, también podemos ayudarte.
+                Hay opciones profesionales desde una inversión más contenida.
+              </p>
+              <div className='flex justify-center'>
+                <Button
+                  type='button'
+                  onClick={() => handleWhatsApp('LandingNegociosBudgetBanner')}
+                  variant='secondary'
+                  className='!bg-ink-dark !text-white !border-ink-dark hover:!bg-black'
+                >
+                  <MessageCircle className='w-4 h-4' />
+                  Hablemos
+                </Button>
+              </div>
+            </div>
+
+            <div className='relative text-center bg-gray-50 border-[3px] border-ink-dark rounded-xl p-6 md:p-8 shadow-[7px_7px_0_0_#1a1a1a]'>
+              <span className='inline-block bg-white text-ink-dark text-xs font-bold uppercase tracking-wide px-3 py-1.5 border-2 border-ink-dark rotate-[-2deg] mb-4 shadow-[3px_3px_0_0_#1a1a1a]'>
+                Proyecto a medida
+              </span>
+              <p className='text-base md:text-lg text-gray-800 font-bold leading-snug mb-5'>
+                ¿Necesitas funcionalidades específicas o un proyecto
+                completamente personalizado? Descubre el servicio de Web a
+                Medida.
+              </p>
+              <div className='flex justify-center'>
+                <Button href='/web-a-medida' variant='primary'>
+                  Ver Web a Medida
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
