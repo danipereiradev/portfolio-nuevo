@@ -77,6 +77,9 @@ const translations = {
   'portfolio.hoyviajamos.title': 'Hoy Viajamos',
   'portfolio.hoyviajamos.desc':
     'Blog de viajes con contenido optimizado, galerías fotográficas y monetización mediante afiliados.',
+  'portfolio.sillysally.title': 'Silly Sally',
+  'portfolio.sillysally.desc':
+    'One-pager para una banda de Madrid con 15 años de trayectoria: bio, Spotify, dossier, merch y Instagram al día.',
   'portfolio.elefantes.title': 'El Viaje de los Elefantes',
   'portfolio.elefantes.desc':
     'Blog de viajes con galería fotográfica, sistema de publicación y optimización SEO.',

@@ -47,7 +47,36 @@ const Portfolio = () => {
 
   useBodyScrollLock(selectedProject !== null);
 
+  // Orden por fecha de publicación (más reciente primero).
   const projects = [
+    {
+      title: t('portfolio.sillysally.title'),
+      description: t('portfolio.sillysally.desc'),
+      longDescription: `Silly Sally es una banda madrileña con 15 años de trayectoria internacional. Necesitaban una web clara, directa y fácil de mantener: un one-pager que presentara el proyecto, facilitara contrataciones y conectara música, merch y redes en un solo sitio.
+
+Diseñamos una página rápida y con personalidad, pensada para que promotores, salas y fans encuentren en segundos lo que buscan. La bio resume su recorrido y tono artístico sin rodeos. La sección de música integra un widget de Spotify para escuchar temas sin salir de la web. Desde la propia página se puede descargar el dossier de contrataciones, listo para enviar a booking y festivales.
+
+También conectamos la tienda de merchandise de Bandcamp, para que la venta de merch viva dentro del mismo recorrido, y el feed de Instagram se actualiza solo: cada publicación nueva aparece en la web sin trabajo manual.
+
+El resultado es una presencia online profesional, útil de verdad: ayuda a vender conciertos, a mantener el contacto con el público y a concentrar bio, música, dossier, merch y redes en una sola URL.
+
+Características: one-pager a medida, sección de bio, widget de Spotify, descarga de dossier para contrataciones, integración con Bandcamp, feed de Instagram siempre actualizado, diseño responsive y enfoque en velocidad y claridad.`,
+      image: '/img/portfolio/silly-sally-mock.png',
+      headerImage: '/img/portfolio/silly-sally-mock.png',
+      tech: [
+        'React',
+        'Vite',
+        'TypeScript',
+        'Tailwind CSS',
+        'Spotify Embed',
+        'Bandcamp',
+        'Instagram Feed',
+      ],
+      product: 'Web Start',
+      productHref: '/web-start',
+      publishedAt: '3 agosto 2026',
+      url: 'https://sillysallyband.com',
+    },
     {
       title: t('portfolio.core.title'),
       description: t('portfolio.core.desc'),
@@ -78,7 +107,9 @@ Características técnicas: subida múltiple de vídeos, validación de archivos
         'GitHub',
         'Google Analytics 4',
       ],
-      category: 'Aplicación Web',
+      product: 'Web a Medida',
+      productHref: '/web-a-medida',
+      publishedAt: '3 julio 2026',
       url: 'https://coregeneratorapp.vercel.app/',
     },
     {
@@ -96,7 +127,9 @@ La tienda también cuenta con un programa de afiliados que ha generado una red d
       image: '/img/portfolio/camisetas-ahora.png',
       headerImage: '/img/portfolio/mock-camisetas.png',
       tech: ['WordPress', 'WooCommerce', 'jQuery', 'CSS3'],
-      category: 'Tienda Online',
+      product: 'Web a Medida',
+      productHref: '/web-a-medida',
+      publishedAt: '18 junio 2026',
       url: 'https://camisetas-ahora.com',
       testimonialName: 'Irene Ibáñez',
     },
@@ -115,7 +148,9 @@ La monetización se logró mediante publicidad estratégica, enlaces de afiliado
       image: '/img/portfolio/hoyviajamos.png',
       headerImage: '/img/portfolio/mock-viajamos.png',
       tech: ['HTML5', 'CSS3', 'JavaScript', 'PHP'],
-      category: 'Página Web',
+      product: 'Web 360',
+      productHref: '/web-profesional-360',
+      publishedAt: '18 mayo 2026',
       url: 'https://hoyviajamosweb.com',
       testimonialName: 'Juanvi Raga',
     },
@@ -152,7 +187,7 @@ La monetización se logró mediante publicidad estratégica, enlaces de afiliado
             </p>
           </div>
 
-          <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto'>
+          <div className='grid md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto'>
             {projects.map((project, index) => (
               <div
                 key={index}
@@ -169,12 +204,19 @@ La monetización se logró mediante publicidad estratégica, enlaces de afiliado
                     className='w-full aspect-[4/3] object-cover transition-transform duration-300 group-hover:scale-[1.03]'
                     loading='lazy'
                   />
-                  <span className='absolute top-4 left-4 bg-accent text-ink-dark border-2 border-ink-dark text-xs font-bold px-3 py-1 rotate-[-1deg]'>
-                    {project.category}
-                  </span>
+                  <a
+                    href={project.productHref}
+                    onClick={(e) => e.stopPropagation()}
+                    className='absolute top-4 left-4 bg-accent text-ink-dark border-2 border-ink-dark text-xs font-bold px-3 py-1 rotate-[-1deg] hover:bg-accent-hover transition-colors z-10'
+                  >
+                    {project.product}
+                  </a>
                 </div>
 
                 <div className='p-5 md:p-6'>
+                  <p className='text-xs font-semibold uppercase tracking-wide text-gray-400 mb-1.5'>
+                    {project.publishedAt}
+                  </p>
                   <h3 className='text-xl font-bold text-gray-900 mb-1.5'>
                     {project.title}
                   </h3>
