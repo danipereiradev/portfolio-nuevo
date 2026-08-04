@@ -23,9 +23,9 @@ const STORAGE_KEY = 'exit-intent-guide-claimed';
 const SUBSCRIBE_ENDPOINT = '/.netlify/functions/subscribe';
 
 /** Desktop: exit-intent activo a partir de aquí. */
-const DESKTOP_EXIT_MIN_MS = 30000;
+const DESKTOP_EXIT_MIN_MS = 15000;
 /** Desktop: si no hubo exit-intent, se muestra igual. */
-const DESKTOP_GUARANTEED_MS = 45000;
+const DESKTOP_GUARANTEED_MS = 30000;
 /** Móvil: puede mostrarse por precios/scroll a partir de aquí. */
 const MOBILE_EARLY_MS = 8000;
 /** Móvil: si no llegó a precios/scroll, se muestra igual. */
@@ -184,10 +184,11 @@ const ExitIntentPopup = () => {
   );
 
   const closePopup = useCallback((method: ExitIntentCloseMethod = 'button') => {
-    if (isOpenRef.current) {
+    // Solo abandono: si ya convirtió, basta con submit / guide_subscribe.
+    if (isOpenRef.current && submitStatusRef.current !== 'success') {
       trackExitIntentPopupClose(
         method,
-        submitStatusRef.current === 'success' ? 'success' : 'form',
+        'form',
         triggerRef.current ?? undefined,
       );
     }

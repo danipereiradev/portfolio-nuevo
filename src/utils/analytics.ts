@@ -277,10 +277,13 @@ export const trackExitIntentPopupView = (trigger: ExitIntentTrigger) => {
   });
 };
 
-/** Usuario cierra el popup sin (o tras) completar. */
+/**
+ * Usuario cierra el popup sin convertir (abandono).
+ * No se dispara tras un envío OK: eso ya va en submit / guide_subscribe.
+ */
 export const trackExitIntentPopupClose = (
   method: ExitIntentCloseMethod,
-  status: 'form' | 'success',
+  status: 'form' = 'form',
   trigger?: ExitIntentTrigger,
 ) => {
   trackEvent('exit_intent_popup_close', {
