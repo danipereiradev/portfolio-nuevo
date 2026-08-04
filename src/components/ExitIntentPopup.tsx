@@ -3,7 +3,20 @@ import { useLocation } from 'react-router-dom';
 import { AlertCircle, Calendar, Check, Mail, User, X } from 'lucide-react';
 import { useContactModal } from '../contexts/ContactModalContext';
 import { useBodyScrollLock } from '../hooks/useBodyScrollLock';
-import { trackFormError, trackGuideSubscribe } from '../utils/analytics';
+import {
+  trackFormError,
+  trackGuideSubscribe,
+  trackExitIntentPopupView,
+  trackExitIntentPopupClose,
+  trackExitIntentPopupSubmit,
+  trackExitIntentPopupCalendlyClick,
+  trackExitIntentPopupNotShown,
+  markPageEngagementStart,
+  getExitIntentEngagementParams,
+  type ExitIntentTrigger,
+  type ExitIntentCloseMethod,
+  type ExitIntentNotShownReason,
+} from '../utils/analytics';
 import Button from './Button';
 
 const STORAGE_KEY = 'exit-intent-guide-claimed';
@@ -75,9 +88,27 @@ const ExitIntentPopup = () => {
   const isContactModalOpenRef = useRef(isContactModalOpen);
   const isExcludedPageRef = useRef(isExcludedPage);
   const pendingOpenRef = useRef(false);
+  const pendingTriggerRef = useRef<ExitIntentTrigger | null>(null);
   const desktopExitReadyRef = useRef(false);
+  const triggerRef = useRef<ExitIntentTrigger | null>(null);
+  const submitStatusRef = useRef(submitStatus);
+  /** Evita spam de popup_not_shown (una vez por razón y sesión). */
+  const notShownReportedRef = useRef<Set<ExitIntentNotShownReason>>(new Set());
 
   useBodyScrollLock(isOpen);
+
+  useEffect(() => {
+    submitStatusRef.current = submitStatus;
+  }, [submitStatus]);
+
+  const reportNotShown = useCallback(
+    (reason: ExitIntentNotShownReason, trigger?: ExitIntentTrigger) => {
+      if (notShownReportedRef.current.has(reason)) return;
+      notShownReportedRef.current.add(reason);
+      trackExitIntentPopupNotShown(reason, trigger);
+    },
+    [],
+  );
 
   const benefits = [
     'Qué tipo de web necesitas realmente.',
@@ -118,42 +149,79 @@ const ExitIntentPopup = () => {
     isExcludedPageRef.current = isExcludedPage;
   }, [isExcludedPage]);
 
-  const openPopup = useCallback(() => {
-    if (
-      hasTriggeredRef.current ||
-      isOpenRef.current ||
-      isExcludedPageRef.current ||
-      hasClaimedGuide()
-    ) {
-      return;
+  const openPopup = useCallback(
+    (trigger: ExitIntentTrigger) => {
+      if (isExcludedPageRef.current) {
+        return;
+      }
+
+      if (hasClaimedGuide()) {
+        reportNotShown('cookie', trigger);
+        return;
+      }
+
+      if (hasTriggeredRef.current || isOpenRef.current) {
+        reportNotShown('already_seen', trigger);
+        return;
+      }
+
+      // Si el modal de contacto está abierto, reintentamos al cerrarlo.
+      if (isContactModalOpenRef.current) {
+        pendingOpenRef.current = true;
+        pendingTriggerRef.current = trigger;
+        return;
+      }
+
+      pendingOpenRef.current = false;
+      pendingTriggerRef.current = null;
+      triggerRef.current = trigger;
+      hasTriggeredRef.current = true;
+      setHasTriggered(true);
+      setIsOpen(true);
+      trackExitIntentPopupView(trigger);
+    },
+    [hasClaimedGuide, reportNotShown],
+  );
+
+  const closePopup = useCallback((method: ExitIntentCloseMethod = 'button') => {
+    if (isOpenRef.current) {
+      trackExitIntentPopupClose(
+        method,
+        submitStatusRef.current === 'success' ? 'success' : 'form',
+        triggerRef.current ?? undefined,
+      );
     }
-
-    // Si el modal de contacto está abierto, reintentamos al cerrarlo.
-    if (isContactModalOpenRef.current) {
-      pendingOpenRef.current = true;
-      return;
-    }
-
-    pendingOpenRef.current = false;
-    hasTriggeredRef.current = true;
-    setHasTriggered(true);
-    setIsOpen(true);
-  }, [hasClaimedGuide]);
-
-  const closePopup = useCallback(() => {
     setIsOpen(false);
   }, []);
 
   // Reintento cuando se cierra el modal de contacto.
   useEffect(() => {
     if (!isContactModalOpen && pendingOpenRef.current) {
-      openPopup();
+      const trigger = pendingTriggerRef.current ?? 'desktop_guaranteed';
+      pendingOpenRef.current = false;
+      pendingTriggerRef.current = null;
+      openPopup(trigger);
     }
   }, [isContactModalOpen, openPopup]);
 
+  // Reinicia el reloj de engagement al cambiar de ruta (SPA).
+  useEffect(() => {
+    markPageEngagementStart();
+  }, [normalizedPath]);
+
   // Disparadores: escritorio + móvil. Siempre hay un fallback garantizado.
   useEffect(() => {
-    if (isExcludedPage || hasClaimedGuide() || hasTriggeredRef.current) return;
+    if (isExcludedPage) return;
+
+    if (hasClaimedGuide()) {
+      reportNotShown('cookie');
+      return;
+    }
+
+    if (hasTriggeredRef.current) {
+      reportNotShown('already_seen');
+      return;
+    }
 
     pendingOpenRef.current = false;
     desktopExitReadyRef.current = false;
@@ -171,17 +239,19 @@ const ExitIntentPopup = () => {
     }, DESKTOP_EXIT_MIN_MS);
 
     // Exit-intent: cursor sale por arriba (o mouseleave del documento).
+    // En móvil este disparador no aplica (hay vía propia); no se marca
+    // mobile_disabled aquí para no ensuciar analítica.
     const handleMouseOut = (e: MouseEvent) => {
       if (!desktopExitReadyRef.current || isMobileViewport()) return;
       if (e.relatedTarget !== null) return;
       if (e.clientY > 0) return;
-      openPopup();
+      openPopup('desktop_exit_intent');
     };
 
     const handleMouseLeave = (e: MouseEvent) => {
       if (!desktopExitReadyRef.current || isMobileViewport()) return;
       if (e.clientY > 0) return;
-      openPopup();
+      openPopup('desktop_exit_intent');
     };
 
     document.addEventListener('mouseout', handleMouseOut);
@@ -196,12 +266,24 @@ const ExitIntentPopup = () => {
 
     // Garantizado en desktop si no hubo exit-intent.
     schedule(() => {
-      if (!isMobileViewport()) openPopup();
+      if (!isMobileViewport()) openPopup('desktop_guaranteed');
     }, DESKTOP_GUARANTEED_MS);
 
     // ---- Móvil ----
+    // Si en el futuro se desactiva el popup en móvil, se registra mobile_disabled.
+    const MOBILE_POPUP_ENABLED = true;
+
     let observer: IntersectionObserver | null = null;
     let mobileEarly = false;
+
+    const openMobilePopup = (trigger: ExitIntentTrigger) => {
+      if (!isMobileViewport()) return;
+      if (!MOBILE_POPUP_ENABLED) {
+        reportNotShown('mobile_disabled', trigger);
+        return;
+      }
+      openPopup(trigger);
+    };
 
     const tryMobilePricingOrScroll = () => {
       if (!isMobileViewport() || !mobileEarly) return;
@@ -213,7 +295,7 @@ const ExitIntentPopup = () => {
           (entries) => {
             for (const entry of entries) {
               if (entry.isIntersecting && entry.intersectionRatio >= 0.15) {
-                openPopup();
+                openMobilePopup('mobile_pricing');
                 observer?.disconnect();
                 return;
               }
@@ -227,7 +309,7 @@ const ExitIntentPopup = () => {
         const alreadyVisible =
           rect.top < window.innerHeight * 0.9 &&
           rect.bottom > window.innerHeight * 0.1;
-        if (alreadyVisible) openPopup();
+        if (alreadyVisible) openMobilePopup('mobile_pricing');
       }
     };
 
@@ -241,7 +323,7 @@ const ExitIntentPopup = () => {
 
       // Umbral bajo para que casi siempre dispare al explorar.
       if (progress >= 0.35) {
-        openPopup();
+        openMobilePopup('mobile_scroll');
       } else {
         tryMobilePricingOrScroll();
       }
@@ -263,7 +345,7 @@ const ExitIntentPopup = () => {
 
     // Garantizado en móvil si no llegó a precios/scroll.
     schedule(() => {
-      if (isMobileViewport()) openPopup();
+      openMobilePopup('mobile_guaranteed');
     }, MOBILE_GUARANTEED_MS);
 
     // Reintentos cortos por si el bloque de precios monta tarde (SPA).
@@ -279,14 +361,20 @@ const ExitIntentPopup = () => {
       cleanups.forEach((fn) => fn());
       observer?.disconnect();
     };
-  }, [isExcludedPage, hasClaimedGuide, normalizedPath, openPopup]);
+  }, [
+    isExcludedPage,
+    hasClaimedGuide,
+    normalizedPath,
+    openPopup,
+    reportNotShown,
+  ]);
 
   useEffect(() => {
     if (!isOpen) return;
 
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        closePopup();
+        closePopup('escape');
       }
     };
 
@@ -344,7 +432,10 @@ const ExitIntentPopup = () => {
     e.preventDefault();
 
     if (!validateForm()) {
-      trackFormError('validation_error', 'Exit Intent');
+      trackFormError('exit_intent_validation_error', 'Exit Intent', {
+        trigger: triggerRef.current ?? undefined,
+        ...getExitIntentEngagementParams(),
+      });
       return;
     }
 
@@ -372,12 +463,20 @@ const ExitIntentPopup = () => {
         );
       }
 
-      trackGuideSubscribe('exit_intent_popup');
+      const engagement = getExitIntentEngagementParams();
+      trackExitIntentPopupSubmit(triggerRef.current ?? undefined);
+      trackGuideSubscribe('exit_intent_popup', {
+        trigger: triggerRef.current ?? undefined,
+        ...engagement,
+      });
       markGuideClaimed();
       setSubmitStatus('success');
     } catch (error) {
       console.error('Error al enviar formulario exit intent:', error);
-      trackFormError('submit_failed', 'Exit Intent');
+      trackFormError('exit_intent_submit_failed', 'Exit Intent', {
+        trigger: triggerRef.current ?? undefined,
+        ...getExitIntentEngagementParams(),
+      });
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -390,7 +489,7 @@ const ExitIntentPopup = () => {
     <>
       <div
         className='fixed inset-0 z-[9999] flex items-center justify-center p-4'
-        onClick={closePopup}
+        onClick={() => closePopup('overlay')}
         role='dialog'
         aria-modal='true'
         aria-labelledby='exit-intent-title'
@@ -402,7 +501,7 @@ const ExitIntentPopup = () => {
           onClick={(e) => e.stopPropagation()}
         >
           <button
-            onClick={closePopup}
+            onClick={() => closePopup('button')}
             className='absolute top-4 right-4 z-10 p-2 bg-white border-2 border-ink-dark rounded-full shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
             aria-label='Cerrar'
           >
@@ -435,6 +534,11 @@ const ExitIntentPopup = () => {
                   variant='primary'
                   fullWidth
                   className='px-8 py-3 text-base'
+                  onClick={() =>
+                    trackExitIntentPopupCalendlyClick(
+                      triggerRef.current ?? undefined,
+                    )
+                  }
                 >
                   Reservar sesión
                   <Calendar className='w-4 h-4' />

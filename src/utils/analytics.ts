@@ -208,11 +208,129 @@ export const trackFormSubmit = (serviceType: string, value?: number) => {
 };
 
 /** Suscripción a guía / MailerLite: NO es conversión de contacto Ads. */
-export const trackGuideSubscribe = (source: string) => {
+export const trackGuideSubscribe = (
+  source: string,
+  extra: Record<string, unknown> = {},
+) => {
   trackEvent('guide_subscribe', {
     event_category: 'engagement',
     event_label: source,
     source,
+    ...extra,
+  });
+};
+
+// Popup exit-intent / guía (comportamiento de usuario; NO es conversión Ads)
+
+export type ExitIntentTrigger =
+  | 'desktop_exit_intent'
+  | 'desktop_guaranteed'
+  | 'mobile_pricing'
+  | 'mobile_scroll'
+  | 'mobile_guaranteed';
+
+export type ExitIntentCloseMethod = 'overlay' | 'button' | 'escape';
+
+export type ExitIntentNotShownReason =
+  | 'already_seen'
+  | 'cookie'
+  | 'mobile_disabled';
+
+/** Inicio de engagement de la página actual (reiniciar en cada ruta SPA). */
+let pageEngagementStartedAt =
+  typeof performance !== 'undefined' ? performance.now() : 0;
+
+export const markPageEngagementStart = () => {
+  if (typeof performance === 'undefined') return;
+  pageEngagementStartedAt = performance.now();
+};
+
+const getTimeOnPageSeconds = (): number => {
+  if (typeof performance === 'undefined') return 0;
+  return Math.max(0, Math.round((performance.now() - pageEngagementStartedAt) / 1000));
+};
+
+const getScrollDepthPercent = (): number => {
+  if (typeof window === 'undefined') return 0;
+  const scrollTop = window.scrollY || document.documentElement.scrollTop;
+  const docHeight =
+    document.documentElement.scrollHeight - window.innerHeight;
+  if (docHeight <= 0) return 100;
+  return Math.min(100, Math.max(0, Math.round((scrollTop / docHeight) * 100)));
+};
+
+/** Contexto de comportamiento común a todos los eventos del popup. */
+export const getExitIntentEngagementParams = () => ({
+  page_path:
+    typeof window !== 'undefined' ? window.location.pathname : undefined,
+  time_on_page: getTimeOnPageSeconds(),
+  scroll_depth: getScrollDepthPercent(),
+});
+
+/** Popup mostrado al usuario. */
+export const trackExitIntentPopupView = (trigger: ExitIntentTrigger) => {
+  trackEvent('exit_intent_popup_view', {
+    event_category: 'exit_intent',
+    event_label: trigger,
+    trigger,
+    ...getExitIntentEngagementParams(),
+  });
+};
+
+/** Usuario cierra el popup sin (o tras) completar. */
+export const trackExitIntentPopupClose = (
+  method: ExitIntentCloseMethod,
+  status: 'form' | 'success',
+  trigger?: ExitIntentTrigger,
+) => {
+  trackEvent('exit_intent_popup_close', {
+    event_category: 'exit_intent',
+    event_label: method,
+    close_method: method,
+    popup_status: status,
+    trigger,
+    ...getExitIntentEngagementParams(),
+  });
+};
+
+/** Envío válido del formulario del popup (además de guide_subscribe). */
+export const trackExitIntentPopupSubmit = (trigger?: ExitIntentTrigger) => {
+  trackEvent('exit_intent_popup_submit', {
+    event_category: 'exit_intent',
+    event_label: 'guide_claimed',
+    trigger,
+    ...getExitIntentEngagementParams(),
+  });
+};
+
+/** Clic en Calendly desde la pantalla de éxito del popup. */
+export const trackExitIntentPopupCalendlyClick = (
+  trigger?: ExitIntentTrigger,
+) => {
+  trackEvent('exit_intent_popup_calendly_click', {
+    event_category: 'exit_intent',
+    event_label: 'calendly',
+    trigger,
+    ...getExitIntentEngagementParams(),
+  });
+};
+
+/**
+ * Popup no mostrado.
+ * - already_seen: ya se mostró/cerró en esta sesión
+ * - cookie: guía ya reclamada (localStorage)
+ * - mobile_disabled: disparador de escritorio omitido en móvil
+ */
+export const trackExitIntentPopupNotShown = (
+  reason: ExitIntentNotShownReason,
+  trigger?: ExitIntentTrigger,
+) => {
+  trackEvent('popup_not_shown', {
+    event_category: 'exit_intent',
+    event_label: reason,
+    reason,
+    trigger,
+    ...getExitIntentEngagementParams(),
   });
 };
 
@@ -224,12 +342,17 @@ export const trackThankYouView = () => {
   });
 };
 
-export const trackFormError = (errorReason: string, serviceType?: string) => {
+export const trackFormError = (
+  errorReason: string,
+  serviceType?: string,
+  extra: Record<string, unknown> = {},
+) => {
   trackEvent('form_error', {
     event_category: 'engagement',
     event_label: errorReason,
     error_reason: errorReason,
     service_type: serviceType,
+    ...extra,
   });
 };
 
