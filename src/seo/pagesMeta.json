@@ -47,6 +47,14 @@
     "title": "Sobre el Estudio | PereiraWeb",
     "description": "Conoce PereiraWeb, estudio de diseño y desarrollo web con sede en Galicia/Madrid que trabaja con empresas y autónomos de toda España."
   },
+  "/condiciones-del-proyecto": {
+    "title": "Condiciones del proyecto | PereiraWeb",
+    "description": "Cómo trabajamos en PereiraWeb: pagos, rondas de cambios, plazos, contenidos y publicación. Todo claro antes de empezar tu web."
+  },
+  "/preguntas-frecuentes": {
+    "title": "Preguntas frecuentes | PereiraWeb",
+    "description": "Respuestas sobre precios, plazos, revisiones, hosting, SEO, tiendas online y mantenimiento web. Resuelve tus dudas antes de pedir presupuesto."
+  },
   "/politica-de-privacidad": {
     "title": "Política de Privacidad | PereiraWeb",
     "description": "Consulta cómo PereiraWeb trata tus datos personales, con qué finalidades y cuáles son tus derechos según el RGPD."

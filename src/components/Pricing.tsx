@@ -200,11 +200,17 @@ const Pricing = () => {
             <h3 className='text-2xl md:text-3xl font-bold text-gray-900 mb-4'>
               Opciones de pago flexible
             </h3>
-            <p className='text-lg text-gray-700 font-medium max-w-2xl mx-auto'>
+            <p className='text-lg text-gray-700 font-medium max-w-2xl mx-auto mb-4'>
               Según el tipo de proyecto, podemos trabajar con pago único o pago
               fraccionado. Todo queda definido en la propuesta antes de empezar,
               para que tengas claro el alcance, los plazos y las condiciones.
             </p>
+            <a
+              href='/condiciones-del-proyecto'
+              className='text-sm font-semibold text-accent hover:underline'
+            >
+              Ver condiciones del proyecto
+            </a>
           </div>
 
           <div className='bg-ink-dark border-2 border-ink-dark rounded-xl p-8 text-center shadow-[6px_6px_0_0_rgba(20,184,166,0.5)] flex flex-col'>

@@ -470,25 +470,14 @@ const WebAutonomosPymes = () => {
         title='Un proceso claro desde el primer mensaje'
         steps={process}
       />
-      <div className='bg-white pt-6 pb-16 md:pt-8 md:pb-20'>
-        <div className='container mx-auto px-6'>
-          <div className='max-w-3xl mx-auto bg-gray-50 border-2 border-ink-dark rounded-xl p-6 md:p-8 shadow-[5px_5px_0_0_#1a1a1a]'>
-            <ul className='space-y-2 text-sm md:text-base text-gray-700'>
-              <li>
-                · El proyecto se acuerda con un pago inicial y el resto según
-                lo definido en la propuesta.
-              </li>
-              <li>
-                · El número de revisiones se acuerda según el alcance del
-                proyecto.
-              </li>
-              <li>
-                · El plazo se ajusta al alcance y a cuándo nos entregues
-                contenidos e información necesaria.
-              </li>
-              <li>· El pago final se realiza antes de la publicación definitiva.</li>
-            </ul>
-          </div>
+      <div className='bg-white pt-2 pb-16 md:pb-20'>
+        <div className='container mx-auto px-6 text-center'>
+          <a
+            href='/condiciones-del-proyecto'
+            className='inline-flex items-center gap-1.5 text-sm md:text-base font-semibold text-accent hover:underline'
+          >
+            Ver condiciones del proyecto: pagos, revisiones y plazos
+          </a>
         </div>
       </div>
 

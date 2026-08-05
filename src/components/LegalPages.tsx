@@ -269,7 +269,9 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                 <h2 className='text-2xl font-bold text-gray-900 mb-4'>
                   3. Servicios
                 </h2>
-                <p className='mb-4'>Ofrezco los siguientes servicios:</p>
+                <p className='mb-4'>
+                  PereiraWeb ofrece los siguientes servicios:
+                </p>
                 <ul className='list-disc pl-6 space-y-2'>
                   <li>Desarrollo de páginas web corporativas</li>
                   <li>Desarrollo de tiendas online (e-commerce)</li>
@@ -291,8 +293,8 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                     a través del formulario web o email
                   </li>
                   <li>
-                    <strong>Propuesta:</strong> Envío propuesta detallada en
-                    máximo 48 horas
+                    <strong>Propuesta:</strong> Se envía una propuesta detallada
+                    en un máximo de 48 horas
                   </li>
                   <li>
                     <strong>Aceptación:</strong> El cliente acepta la propuesta
@@ -303,12 +305,12 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                     iniciar el proyecto
                   </li>
                   <li>
-                    <strong>Desarrollo:</strong> Ejecuto el proyecto según
-                    especificaciones
+                    <strong>Desarrollo:</strong> Se ejecuta el proyecto según
+                    las especificaciones acordadas
                   </li>
                   <li>
-                    <strong>Entrega:</strong> Entrego el proyecto y se abona el
-                    50% restante
+                    <strong>Entrega:</strong> Se entrega el proyecto y se abona
+                    el 50% restante
                   </li>
                 </ol>
               </section>
@@ -334,7 +336,8 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                 </h2>
                 <p>
                   Los plazos se especifican en cada propuesta. Los retrasos por
-                  causas imputables al cliente no serán responsabilidad nuestra.
+                  causas imputables al cliente no serán responsabilidad del
+                  prestador del servicio.
                 </p>
               </section>
 
@@ -348,12 +351,12 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                     abonado íntegramente
                   </li>
                   <li>
-                    Nos reservo el derecho a mostrar el proyecto en nuestro
+                    PereiraWeb se reserva el derecho a mostrar el proyecto en su
                     portfolio
                   </li>
                   <li>
-                    El código fuente y metodologías desarrolladas son de nuestra
-                    propiedad
+                    El código fuente y las metodologías desarrolladas son
+                    propiedad de PereiraWeb
                   </li>
                 </ul>
               </section>
@@ -364,7 +367,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                 </h2>
                 <ul className='list-disc pl-6 space-y-2'>
                   <li>
-                    Garantizo el correcto funcionamiento durante 3 meses
+                    Se garantiza el correcto funcionamiento durante 3 meses
                     post-entrega
                   </li>
                   <li>Corrección gratuita de errores de programación</li>
@@ -380,9 +383,9 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                   9. Limitación de Responsabilidad
                 </h2>
                 <p>
-                  Mi responsabilidad se limita al importe del proyecto
-                  contratado. No me hago responsable de daños indirectos o lucro
-                  cesante.
+                  La responsabilidad de PereiraWeb se limita al importe del
+                  proyecto contratado. PereiraWeb no será responsable de daños
+                  indirectos o lucro cesante.
                 </p>
               </section>
 

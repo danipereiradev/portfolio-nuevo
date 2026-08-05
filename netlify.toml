@@ -105,6 +105,16 @@
   status = 200
 
 [[redirects]]
+  from = "/condiciones-del-proyecto"
+  to = "/condiciones-del-proyecto/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/preguntas-frecuentes"
+  to = "/preguntas-frecuentes/index.html"
+  status = 200
+
+[[redirects]]
   from = "/politica-de-privacidad"
   to = "/politica-de-privacidad/index.html"
   status = 200

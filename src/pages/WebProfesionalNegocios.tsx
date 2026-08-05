@@ -631,22 +631,14 @@ const WebProfesionalNegocios = () => {
 
       {/* 7. Cómo funciona */}
       <SEOProcess title='Cómo Funciona el Proceso' steps={processSteps} />
-      <div className='bg-white pt-6 pb-16 md:pt-8 md:pb-20'>
-        <div className='container mx-auto px-6'>
-          <div className='max-w-3xl mx-auto bg-gray-50 border-2 border-ink-dark rounded-xl p-6 md:p-8 shadow-[5px_5px_0_0_#1a1a1a]'>
-            <ul className='space-y-2 text-sm md:text-base text-gray-700'>
-              <li>· El proyecto se inicia con un 50% del presupuesto.</li>
-              <li>· Incluye dos rondas de cambios sobre el diseño.</li>
-              <li>
-                · El plazo se acuerda según cuándo nos entregues los contenidos.
-                Si no cuentas con tiempo para prepararlos, nosotros nos
-                encargamos.
-              </li>
-              <li>
-                · El segundo pago se realiza antes de la publicación definitiva.
-              </li>
-            </ul>
-          </div>
+      <div className='bg-white pt-2 pb-16 md:pb-20'>
+        <div className='container mx-auto px-6 text-center'>
+          <a
+            href='/condiciones-del-proyecto'
+            className='inline-flex items-center gap-1.5 text-sm md:text-base font-semibold text-accent hover:underline'
+          >
+            Ver pagos del proyecto: pagos, revisiones y plazos
+          </a>
         </div>
       </div>
 

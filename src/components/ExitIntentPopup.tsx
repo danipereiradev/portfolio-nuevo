@@ -44,6 +44,8 @@ const EXCLUDED_PATHS = new Set([
   '/gracias',
   '/contacto',
   '/web-start',
+  '/condiciones-del-proyecto',
+  '/preguntas-frecuentes',
   '/politica-de-privacidad',
   '/terminos-y-condiciones',
   '/politica-de-cookies',
