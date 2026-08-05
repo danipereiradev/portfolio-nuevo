@@ -232,8 +232,9 @@ export type ExitIntentTrigger =
 export type ExitIntentCloseMethod = 'overlay' | 'button' | 'escape';
 
 export type ExitIntentNotShownReason =
-  | 'already_seen'
   | 'cookie'
+  | 'not_interested'
+  | 'cooldown'
   | 'mobile_disabled';
 
 /** Inicio de engagement de la página actual (reiniciar en cada ruta SPA). */
@@ -319,10 +320,14 @@ export const trackExitIntentPopupCalendlyClick = (
 };
 
 /**
- * Popup no mostrado.
- * - already_seen: ya se mostró/cerró en esta sesión
+ * Popup no mostrado (solo bloqueos reales / persistentes).
  * - cookie: guía ya reclamada (localStorage)
- * - mobile_disabled: disparador de escritorio omitido en móvil
+ * - not_interested: pulsó "No me interesa"
+ * - cooldown: cerró hace poco (oculto 7 días)
+ * - mobile_disabled: popup móvil desactivado
+ *
+ * No se usa "already_seen": si ya saltó en la sesión, simplemente no
+ * reintentamos sin ensuciar analítica.
  */
 export const trackExitIntentPopupNotShown = (
   reason: ExitIntentNotShownReason,
@@ -332,6 +337,18 @@ export const trackExitIntentPopupNotShown = (
     event_category: 'exit_intent',
     event_label: reason,
     reason,
+    trigger,
+    ...getExitIntentEngagementParams(),
+  });
+};
+
+/** Usuario pulsa "No me interesa" (rechazo explícito, no volver a mostrar). */
+export const trackExitIntentPopupNotInterested = (
+  trigger?: ExitIntentTrigger,
+) => {
+  trackEvent('popup_not_interested', {
+    event_category: 'exit_intent',
+    event_label: 'not_interested',
     trigger,
     ...getExitIntentEngagementParams(),
   });

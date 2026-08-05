@@ -11,6 +11,7 @@ import {
   trackExitIntentPopupSubmit,
   trackExitIntentPopupCalendlyClick,
   trackExitIntentPopupNotShown,
+  trackExitIntentPopupNotInterested,
   markPageEngagementStart,
   getExitIntentEngagementParams,
   type ExitIntentTrigger,
@@ -19,7 +20,10 @@ import {
 } from '../utils/analytics';
 import Button from './Button';
 
-const STORAGE_KEY = 'exit-intent-guide-claimed';
+const STORAGE_CLAIMED = 'exit-intent-guide-claimed';
+const STORAGE_NOT_INTERESTED = 'exit-intent-not-interested';
+const STORAGE_DISMISS_UNTIL = 'exit-intent-dismissed-until';
+const DISMISS_COOLDOWN_MS = 7 * 24 * 60 * 60 * 1000; // 7 días
 const SUBSCRIBE_ENDPOINT = '/.netlify/functions/subscribe';
 
 /** Desktop: exit-intent activo a partir de aquí. */
@@ -119,7 +123,8 @@ const ExitIntentPopup = () => {
 
   const markGuideClaimed = useCallback(() => {
     try {
-      localStorage.setItem(STORAGE_KEY, '1');
+      localStorage.setItem(STORAGE_CLAIMED, '1');
+      localStorage.removeItem(STORAGE_DISMISS_UNTIL);
     } catch {
       // localStorage puede fallar en modo privado estricto
     }
@@ -127,11 +132,64 @@ const ExitIntentPopup = () => {
 
   const hasClaimedGuide = useCallback(() => {
     try {
-      return localStorage.getItem(STORAGE_KEY) === '1';
+      return localStorage.getItem(STORAGE_CLAIMED) === '1';
     } catch {
       return false;
     }
   }, []);
+
+  const hasNotInterested = useCallback(() => {
+    try {
+      return localStorage.getItem(STORAGE_NOT_INTERESTED) === '1';
+    } catch {
+      return false;
+    }
+  }, []);
+
+  const isInDismissCooldown = useCallback(() => {
+    try {
+      const raw = localStorage.getItem(STORAGE_DISMISS_UNTIL);
+      if (!raw) return false;
+      const until = Number(raw);
+      if (!Number.isFinite(until)) return false;
+      if (Date.now() < until) return true;
+      localStorage.removeItem(STORAGE_DISMISS_UNTIL);
+      return false;
+    } catch {
+      return false;
+    }
+  }, []);
+
+  /** Cierre suave (X / overlay / Escape): no mostrar 7 días. */
+  const markSoftDismiss = useCallback(() => {
+    try {
+      localStorage.setItem(
+        STORAGE_DISMISS_UNTIL,
+        String(Date.now() + DISMISS_COOLDOWN_MS),
+      );
+    } catch {
+      // ignore
+    }
+  }, []);
+
+  /** Rechazo explícito: no volver a mostrar. */
+  const markNotInterested = useCallback(() => {
+    try {
+      localStorage.setItem(STORAGE_NOT_INTERESTED, '1');
+      localStorage.removeItem(STORAGE_DISMISS_UNTIL);
+    } catch {
+      // ignore
+    }
+  }, []);
+
+  /** Motivo de bloqueo persistente, o null si puede mostrarse. */
+  const getPersistentBlockReason =
+    useCallback((): ExitIntentNotShownReason | null => {
+      if (hasClaimedGuide()) return 'cookie';
+      if (hasNotInterested()) return 'not_interested';
+      if (isInDismissCooldown()) return 'cooldown';
+      return null;
+    }, [hasClaimedGuide, hasNotInterested, isInDismissCooldown]);
 
   useEffect(() => {
     hasTriggeredRef.current = hasTriggered;
@@ -155,13 +213,14 @@ const ExitIntentPopup = () => {
         return;
       }
 
-      if (hasClaimedGuide()) {
-        reportNotShown('cookie', trigger);
+      const blockReason = getPersistentBlockReason();
+      if (blockReason) {
+        reportNotShown(blockReason, trigger);
         return;
       }
 
+      // Ya se mostró o está abierto en esta sesión: silencio, sin evento.
       if (hasTriggeredRef.current || isOpenRef.current) {
-        reportNotShown('already_seen', trigger);
         return;
       }
 
@@ -180,20 +239,34 @@ const ExitIntentPopup = () => {
       setIsOpen(true);
       trackExitIntentPopupView(trigger);
     },
-    [hasClaimedGuide, reportNotShown],
+    [getPersistentBlockReason, reportNotShown],
   );
 
-  const closePopup = useCallback((method: ExitIntentCloseMethod = 'button') => {
-    // Solo abandono: si ya convirtió, basta con submit / guide_subscribe.
-    if (isOpenRef.current && submitStatusRef.current !== 'success') {
-      trackExitIntentPopupClose(
-        method,
-        'form',
-        triggerRef.current ?? undefined,
-      );
-    }
+  const closePopup = useCallback(
+    (method: ExitIntentCloseMethod = 'button') => {
+      // Solo abandono: si ya convirtió, basta con submit / guide_subscribe.
+      if (isOpenRef.current && submitStatusRef.current !== 'success') {
+        trackExitIntentPopupClose(
+          method,
+          'form',
+          triggerRef.current ?? undefined,
+        );
+        markSoftDismiss();
+      }
+      setIsOpen(false);
+    },
+    [markSoftDismiss],
+  );
+
+  const handleNotInterested = useCallback(() => {
+    if (!isOpenRef.current || submitStatusRef.current === 'success') return;
+
+    trackExitIntentPopupNotInterested(triggerRef.current ?? undefined);
+    markNotInterested();
+    hasTriggeredRef.current = true;
+    setHasTriggered(true);
     setIsOpen(false);
-  }, []);
+  }, [markNotInterested]);
 
   // Reintento cuando se cierra el modal de contacto.
   useEffect(() => {
@@ -214,13 +287,14 @@ const ExitIntentPopup = () => {
   useEffect(() => {
     if (isExcludedPage) return;
 
-    if (hasClaimedGuide()) {
-      reportNotShown('cookie');
+    const blockReason = getPersistentBlockReason();
+    if (blockReason) {
+      reportNotShown(blockReason);
       return;
     }
 
+    // Ya se mostró en esta sesión: no rearmar triggers ni emitir evento.
     if (hasTriggeredRef.current) {
-      reportNotShown('already_seen');
       return;
     }
 
@@ -364,7 +438,7 @@ const ExitIntentPopup = () => {
     };
   }, [
     isExcludedPage,
-    hasClaimedGuide,
+    getPersistentBlockReason,
     normalizedPath,
     openPopup,
     reportNotShown,
@@ -667,7 +741,7 @@ const ExitIntentPopup = () => {
                     )}
                   </div>
 
-                  <div className='pt-1'>
+                  <div className='pt-1 space-y-3'>
                     <Button
                       type='submit'
                       disabled={isSubmitting}
@@ -679,6 +753,14 @@ const ExitIntentPopup = () => {
                       {isSubmitting ? 'Enviando...' : 'Enviarme la guía gratis'}
                       {!isSubmitting && <Check className='w-4 h-4' />}
                     </Button>
+                    <button
+                      type='button'
+                      onClick={handleNotInterested}
+                      disabled={isSubmitting}
+                      className='w-full text-center text-sm font-medium text-gray-500 hover:text-gray-800 underline underline-offset-2 disabled:opacity-50'
+                    >
+                      No me interesa
+                    </button>
                   </div>
 
                   {submitStatus === 'error' && (
