@@ -23,6 +23,8 @@ import Button from './Button';
 const STORAGE_CLAIMED = 'exit-intent-guide-claimed';
 const STORAGE_NOT_INTERESTED = 'exit-intent-not-interested';
 const STORAGE_DISMISS_UNTIL = 'exit-intent-dismissed-until';
+/** Dedup de popup_not_shown entre recargas (el sitio navega con <a> full reload). */
+const STORAGE_NOT_SHOWN_REPORTED = 'exit-intent-not-shown-reported';
 const DISMISS_COOLDOWN_MS = 7 * 24 * 60 * 60 * 1000; // 7 días
 const SUBSCRIBE_ENDPOINT = '/.netlify/functions/subscribe';
 
@@ -69,6 +71,29 @@ const findPricingSection = () => {
   return null;
 };
 
+const readNotShownReported = (): Set<ExitIntentNotShownReason> => {
+  try {
+    const raw = sessionStorage.getItem(STORAGE_NOT_SHOWN_REPORTED);
+    if (!raw) return new Set();
+    const parsed = JSON.parse(raw) as unknown;
+    if (!Array.isArray(parsed)) return new Set();
+    return new Set(parsed as ExitIntentNotShownReason[]);
+  } catch {
+    return new Set();
+  }
+};
+
+const persistNotShownReported = (reasons: Set<ExitIntentNotShownReason>) => {
+  try {
+    sessionStorage.setItem(
+      STORAGE_NOT_SHOWN_REPORTED,
+      JSON.stringify([...reasons]),
+    );
+  } catch {
+    // ignore
+  }
+};
+
 const ExitIntentPopup = () => {
   const { pathname } = useLocation();
   const { isOpen: isContactModalOpen } = useContactModal();
@@ -98,8 +123,10 @@ const ExitIntentPopup = () => {
   const desktopExitReadyRef = useRef(false);
   const triggerRef = useRef<ExitIntentTrigger | null>(null);
   const submitStatusRef = useRef(submitStatus);
-  /** Evita spam de popup_not_shown (una vez por razón y sesión). */
-  const notShownReportedRef = useRef<Set<ExitIntentNotShownReason>>(new Set());
+  /** Evita spam de popup_not_shown (una vez por razón y pestaña/sesión). */
+  const notShownReportedRef = useRef<Set<ExitIntentNotShownReason>>(
+    readNotShownReported(),
+  );
 
   useBodyScrollLock(isOpen);
 
@@ -109,8 +136,14 @@ const ExitIntentPopup = () => {
 
   const reportNotShown = useCallback(
     (reason: ExitIntentNotShownReason, trigger?: ExitIntentTrigger) => {
-      if (notShownReportedRef.current.has(reason)) return;
-      notShownReportedRef.current.add(reason);
+      // Releer sessionStorage: el ref solo no basta con full page reload.
+      const reported = readNotShownReported();
+      if (reported.has(reason) || notShownReportedRef.current.has(reason)) {
+        return;
+      }
+      reported.add(reason);
+      notShownReportedRef.current = reported;
+      persistNotShownReported(reported);
       trackExitIntentPopupNotShown(reason, trigger);
     },
     [],
@@ -291,8 +324,18 @@ const ExitIntentPopup = () => {
 
     const blockReason = getPersistentBlockReason();
     if (blockReason) {
-      reportNotShown(blockReason);
-      return;
+      // No emitir en cada pageview: solo cuando el popup habría saltado
+      // (timer garantizado), y como máximo 1 vez por razón y sesión.
+      const delayMs = isMobileViewport()
+        ? MOBILE_GUARANTEED_MS
+        : DESKTOP_GUARANTEED_MS;
+      const trigger: ExitIntentTrigger = isMobileViewport()
+        ? 'mobile_guaranteed'
+        : 'desktop_guaranteed';
+      const timerId = window.setTimeout(() => {
+        reportNotShown(blockReason, trigger);
+      }, delayMs);
+      return () => window.clearTimeout(timerId);
     }
 
     // Ya se mostró en esta sesión: no rearmar triggers ni emitir evento.

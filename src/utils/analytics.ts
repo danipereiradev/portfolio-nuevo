@@ -322,12 +322,13 @@ export const trackExitIntentPopupCalendlyClick = (
 /**
  * Popup no mostrado (solo bloqueos reales / persistentes).
  * - cookie: guía ya reclamada (localStorage)
- * - not_interested: pulsó "No me interesa"
+ * - not_interested: pulsó "No me interesa" (flag permanente)
  * - cooldown: cerró hace poco (oculto 7 días)
  * - mobile_disabled: popup móvil desactivado
  *
- * No se usa "already_seen": si ya saltó en la sesión, simplemente no
- * reintentamos sin ensuciar analítica.
+ * Se emite como máximo 1 vez por razón y sesión de pestaña
+ * (sessionStorage), en el momento en que el popup habría saltado.
+ * No cuenta pageviews de usuarios ya bloqueados.
  */
 export const trackExitIntentPopupNotShown = (
   reason: ExitIntentNotShownReason,
