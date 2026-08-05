@@ -79,8 +79,8 @@ También conectamos la tienda de merchandise de Bandcamp, para que la venta de m
 El resultado es una presencia online profesional, útil de verdad: ayuda a vender conciertos, a mantener el contacto con el público y a concentrar bio, música, dossier, merch y redes en una sola URL.
 
 Características: one-pager a medida, sección de bio, widget de Spotify, descarga de dossier para contrataciones, integración con Bandcamp, feed de Instagram siempre actualizado, diseño responsive y enfoque en velocidad y claridad.`,
-      image: '/img/portfolio/silly-sally-mock.png',
-      headerImage: '/img/portfolio/silly-sally-mock.png',
+      image: '/img/portfolio/silly-sally-mock.webp',
+      headerImage: '/img/portfolio/silly-sally-mock.webp',
       tech: [
         'React',
         'Vite',
