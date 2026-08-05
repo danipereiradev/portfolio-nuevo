@@ -52,6 +52,28 @@
   animation-play-state: paused;
 }
 
+/* Barra de progreso L→R en bucle (se reinicia, no se vacía por la derecha). */
+@keyframes upcoming-progress {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.animate-upcoming-progress {
+  transform-origin: left;
+  animation: upcoming-progress 2.2s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-upcoming-progress {
+    animation: none;
+    transform: scaleX(1);
+  }
+}
+
 html {
   scroll-behavior: smooth;
   font-size: 100%;

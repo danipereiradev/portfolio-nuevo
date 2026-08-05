@@ -273,8 +273,16 @@ La monetización se logró mediante publicidad estratégica, enlaces de afiliado
                         loading='lazy'
                       />
                       <div className='absolute inset-0 z-[5] flex items-center justify-center bg-accent/55'>
-                        <span className='bg-ink-dark text-white text-sm md:text-base font-extrabold uppercase tracking-wide px-4 py-2 border-2 border-ink-dark shadow-[4px_4px_0_0_rgba(0,0,0,0.25)] rotate-[-2deg]'>
+                        <span className='relative overflow-hidden bg-ink-dark text-white text-sm md:text-base font-extrabold uppercase tracking-wide px-4 py-2 border-2 border-ink-dark border-b-transparent shadow-[4px_4px_0_0_rgba(0,0,0,0.25)] rotate-[-2deg]'>
                           Próximamente
+                          <span
+                            aria-hidden='true'
+                            className='pointer-events-none absolute bottom-0 left-0 h-[3px] w-full bg-ink-dark'
+                          />
+                          <span
+                            aria-hidden='true'
+                            className='pointer-events-none absolute bottom-0 left-0 h-[3px] w-full origin-left bg-accent animate-upcoming-progress'
+                          />
                         </span>
                       </div>
                       <a
