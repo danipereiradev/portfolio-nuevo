@@ -56,6 +56,9 @@ const translations = {
   'portfolio.title': 'Últimos trabajos en 2026',
   'portfolio.description':
     'Una selección de proyectos publicados: páginas web y tiendas online diseñadas y desarrolladas para negocios reales.',
+  'portfolio.upcoming.title': 'Próximamente',
+  'portfolio.upcoming.description':
+    'Proyectos que estamos terminando y publicaremos en breve.',
   'portfolio.view': 'Ver Proyecto',
 
   // Proyectos específicos
@@ -80,6 +83,12 @@ const translations = {
   'portfolio.sillysally.title': 'Silly Sally',
   'portfolio.sillysally.desc':
     'One-pager para una banda de Madrid con 15 años de trayectoria: bio, Spotify, dossier, merch y Instagram al día.',
+  'portfolio.hatena.title': 'Clínica Veterinaria Hatena',
+  'portfolio.hatena.desc':
+    'Web profesional para clínica veterinaria: servicios, confianza y contacto claro para dueños de mascotas.',
+  'portfolio.resilience.title': 'Resilience Shop',
+  'portfolio.resilience.desc':
+    'Tienda online de equipación de ciclismo: catálogo claro, compra sencilla y experiencia pensada para ciclistas.',
   'portfolio.elefantes.title': 'El Viaje de los Elefantes',
   'portfolio.elefantes.desc':
     'Blog de viajes con galería fotográfica, sistema de publicación y optimización SEO.',
