@@ -1,4 +1,4 @@
-import { Mail, MapPin, Clock, MessageCircle, Check } from 'lucide-react';
+import { Mail, Phone, Video, Clock, MessageCircle, Check } from 'lucide-react';
 import {
   trackEmailClick,
   trackPhoneClick,
@@ -13,7 +13,6 @@ import {
 } from '../config/contact';
 import { usePageMeta } from '../hooks/usePageMeta';
 import ContactForm from '../components/ContactForm';
-import LocationMap from '../components/LocationMap';
 import GlowBackdrop from '../components/decor/GlowBackdrop';
 import FloatingPanel from '../components/decor/FloatingPanel';
 
@@ -51,10 +50,9 @@ const Contacto = () => {
             Cuéntanos qué necesitas
           </h1>
           <p className='text-base md:text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto'>
-            Trabajamos con empresas y autónomos que necesitan crear o
-            mejorar su presencia online. Podemos ayudarte con páginas web
-            profesionales, tiendas online, mantenimiento web, rediseños, mejoras
-            técnicas y desarrollos a medida.
+            PereiraWeb es un estudio de diseño y desarrollo web que trabaja
+            online con empresas y autónomos de toda España. Puedes contactarnos
+            por email, teléfono, WhatsApp o videollamada.
           </p>
         </div>
       </section>
@@ -67,9 +65,9 @@ const Contacto = () => {
                 Información de Contacto
               </h2>
               <p className='text-gray-600 mb-8 leading-relaxed'>
-                PereiraWeb · Estudio web con sede en Galicia/Madrid.
-                Atendemos proyectos de toda España de forma online. Respondemos
-                a todas las consultas en un máximo de 2 horas.
+                Trabajamos online con clientes de toda España. No tenemos una
+                oficina abierta al público. Si estás en Madrid, también podemos
+                desplazarnos. Respondemos muy rápido a todas las consultas.
               </p>
 
               <div className='space-y-6'>
@@ -85,6 +83,22 @@ const Contacto = () => {
                       className='text-gray-600 hover:text-accent transition-colors'
                     >
                       hola@pereiraweb.es
+                    </a>
+                  </div>
+                </div>
+
+                <div className='flex items-start gap-4'>
+                  <div className='w-12 h-12 bg-accent rounded-xl border-2 border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] flex items-center justify-center flex-shrink-0'>
+                    <Phone className='w-6 h-6 text-white' />
+                  </div>
+                  <div>
+                    <h3 className='font-bold text-gray-900 mb-1'>Teléfono</h3>
+                    <a
+                      href={PHONE_TEL_LINK}
+                      onClick={() => trackPhoneClick('ContactoPage')}
+                      className='text-gray-600 hover:text-accent transition-colors'
+                    >
+                      {PHONE_DISPLAY}
                     </a>
                   </div>
                 </div>
@@ -107,29 +121,21 @@ const Contacto = () => {
                     >
                       Escríbenos por WhatsApp
                     </a>
-                    <p className='text-sm text-gray-400 mt-1'>
-                      O llama al{' '}
-                      <a
-                        href={PHONE_TEL_LINK}
-                        onClick={() => trackPhoneClick('ContactoPage')}
-                        className='hover:text-accent transition-colors'
-                      >
-                        {PHONE_DISPLAY}
-                      </a>
-                    </p>
                   </div>
                 </div>
 
                 <div className='flex items-start gap-4'>
                   <div className='w-12 h-12 bg-accent rounded-xl border-2 border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] flex items-center justify-center flex-shrink-0'>
-                    <MapPin className='w-6 h-6 text-white' />
+                    <Video className='w-6 h-6 text-white' />
                   </div>
                   <div>
-                    <h3 className='font-bold text-gray-900 mb-1'>Ubicación</h3>
+                    <h3 className='font-bold text-gray-900 mb-1'>
+                      Videollamada
+                    </h3>
                     <p className='text-gray-600'>
-                      Calle Condega 7, Torrejón de Ardoz, 28850 Madrid
-                      <span className='block text-sm mt-1'>
-                        Reuniones online o presenciales con cita previa
+                      Reuniones por videollamada en toda España.
+                      <span className='block text-sm mt-1 text-gray-500'>
+                        Si estás en Madrid, también podemos desplazarnos.
                       </span>
                     </p>
                   </div>
@@ -149,7 +155,7 @@ const Contacto = () => {
                         Sábado: 9:00 - 14:00
                       </span>
                       <span className='block text-sm mt-1'>
-                        Respuesta en 2h máximo
+                        Respuesta muy rápida
                       </span>
                     </p>
                   </div>
@@ -194,10 +200,6 @@ const Contacto = () => {
                 </li>
               </ul>
             </div>
-          </div>
-
-          <div className='max-w-3xl mx-auto'>
-            <LocationMap />
           </div>
         </div>
       </section>

@@ -42,6 +42,9 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                     <strong>Dirección:</strong> Calle Condega 7, Torrejón de
                     Ardoz, 28850, Madrid, Madrid
                   </p>
+                  <p className='text-sm text-gray-600'>
+                    Dirección fiscal. No atendemos visitas presenciales.
+                  </p>
                   <p>
                     <strong>Email:</strong> hola@pereiraweb.es
                   </p>
@@ -204,6 +207,9 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                     <strong>Dirección:</strong> Calle Condega 7, Torrejón de
                     Ardoz, 28850, Madrid, Madrid
                   </p>
+                  <p className='text-sm text-gray-600'>
+                    Dirección fiscal. No atendemos visitas presenciales.
+                  </p>
                 </div>
               </section>
             </div>
@@ -240,6 +246,9 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                   <p>
                     <strong>Dirección:</strong> Calle Condega 7, Torrejón de
                     Ardoz, 28850, Madrid, Madrid
+                  </p>
+                  <p className='text-sm text-gray-600'>
+                    Dirección fiscal. No atendemos visitas presenciales.
                   </p>
                   <p>
                     <strong>Email:</strong> hola@pereiraweb.es
@@ -607,6 +616,9 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                         <strong>Domicilio:</strong> Calle Condega 7, Torrejón de
                         Ardoz, 28850, Madrid, Madrid
                       </p>
+                      <p className='text-sm text-gray-600 mt-1'>
+                        Dirección fiscal. No atendemos visitas presenciales.
+                      </p>
                     </div>
                     <div>
                       <p>
@@ -767,6 +779,9 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                   <p>
                     <strong>Dirección:</strong> Calle Condega 7, Torrejón de
                     Ardoz, 28850, Madrid, Madrid
+                  </p>
+                  <p className='text-sm text-gray-600'>
+                    Dirección fiscal. No atendemos visitas presenciales.
                   </p>
                 </div>
               </section>

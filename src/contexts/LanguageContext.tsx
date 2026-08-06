@@ -21,17 +21,16 @@ const translations = {
   // Hero
   'hero.title': 'Diseño y desarrollo web con sentido.',
   'hero.subtitle':
-    'Creamos páginas web rápidas, claras y sin plantillas. Trabajamos con todo tipo de empresas y autónomos.',
+    'Creamos páginas web rápidas, claras y sin plantillas. Webs que explican bien lo que haces y ayudan a convertir las visitas en contactos y ventas.',
   'hero.trustline': 'Presupuesto cerrado antes de empezar',
   'hero.cta.whatsapp': 'Escríbenos por WhatsApp',
   'hero.cta.pricing': 'Solicitar propuesta',
   'hero.cta.portfolio': 'Ver trabajos',
 
   // Services
-  'services.title':
-    'Llevamos más de 12 años diseñando y creando páginas web que funcionan',
+  'services.title': 'Llevamos más de 12 años creando páginas web que funcionan',
   'services.description':
-    'Diseñamos, desarrollamos y mantenemos webs pensadas para transmitir confianza, explicar mejor lo que haces y facilitar que tus clientes contacten o compren.',
+    'Diseñamos, desarrollamos y mantenemos páginas web que ayudan a explicar mejor tu negocio, transmitir confianza y conseguir contactos o ventas.',
   'services.corporate.title': 'Web a Medida',
   'services.corporate.desc':
     'Diseño y desarrollo web a medida para proyectos con funcionalidades, estructura o integraciones específicas.',

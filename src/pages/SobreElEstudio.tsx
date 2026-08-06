@@ -8,7 +8,6 @@ import {
   ABOUT_PAGE_WHATSAPP_MESSAGE,
   buildWhatsAppUrl,
 } from '../config/contact';
-import LocationMap from '../components/LocationMap';
 import GlowBackdrop from '../components/decor/GlowBackdrop';
 import FloatingPanel from '../components/decor/FloatingPanel';
 
@@ -46,8 +45,8 @@ const SobreElEstudio = () => {
             Detrás de PereiraWeb
           </h1>
           <p className='text-base md:text-xl lg:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto'>
-            PereiraWeb es un estudio de diseño y desarrollo web con sede en
-            Galicia/Madrid que trabaja con empresas y autónomos de toda España.
+            PereiraWeb es un estudio de diseño y desarrollo web que trabaja
+            online con empresas y autónomos de toda España.
           </p>
         </div>
       </section>
@@ -57,18 +56,21 @@ const SobreElEstudio = () => {
           <div className='max-w-3xl mx-auto text-gray-700 leading-relaxed space-y-5 text-base md:text-lg'>
             <p>
               <strong className='text-gray-900'>PereiraWeb</strong> es un
-              estudio de diseño y desarrollo web con sede en{' '}
-              <strong className='text-gray-900'>Galicia/Madrid</strong>.
-              Trabajamos con empresas y autónomos de toda España que necesitan
-              crear o mejorar su presencia online con una web profesional, clara
-              y preparada para generar confianza.
+              estudio de diseño y desarrollo web que trabaja online con
+              empresas y autónomos de toda España. Ayudamos a crear o mejorar
+              la presencia online con una web profesional, clara y preparada
+              para generar confianza.
             </p>
             <p>
-              Somos un equipo flexible especializado en diseño web,
-              desarrollo y mantenimiento para negocios. Combinamos dirección
-              técnica senior, criterio visual y una forma de trabajar cercana
-              para que cada proyecto tenga una base sólida desde el primer
-              día.
+              Nos puedes contactar por email, teléfono, WhatsApp o
+              videollamada. Si estás en Madrid, también podemos desplazarnos.
+              No tenemos una oficina abierta al público.
+            </p>
+            <p>
+              Somos un equipo flexible especializado en diseño web, desarrollo
+              y mantenimiento para negocios. Combinamos dirección técnica
+              senior, criterio visual y una forma de trabajar cercana para que
+              cada proyecto tenga una base sólida desde el primer día.
             </p>
             <p>
               El estudio está dirigido por{' '}
@@ -89,10 +91,6 @@ const SobreElEstudio = () => {
               cada cliente sepa qué vamos a construir, cómo lo vamos a hacer
               y qué necesita su proyecto para funcionar correctamente.
             </p>
-          </div>
-
-          <div className='max-w-3xl mx-auto mt-12'>
-            <LocationMap />
           </div>
 
           <div className='flex justify-center mt-10'>

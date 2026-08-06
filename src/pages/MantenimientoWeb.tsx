@@ -1,5 +1,12 @@
 import { useEffect } from 'react';
-import { Laptop, Wrench, ShieldCheck, Clock, Check, MessageCircle } from 'lucide-react';
+import {
+  Laptop,
+  Wrench,
+  ShieldCheck,
+  Clock,
+  Check,
+  MessageCircle,
+} from 'lucide-react';
 import { useContactModal } from '../contexts/ContactModalContext';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useSectionView } from '../hooks/useSectionView';
@@ -9,7 +16,10 @@ import {
   trackPricingCtaClick,
   trackViewPricing,
 } from '../utils/analytics';
-import { MAINTENANCE_WHATSAPP_MESSAGE, buildWhatsAppUrl } from '../config/contact';
+import {
+  MAINTENANCE_WHATSAPP_MESSAGE,
+  buildWhatsAppUrl,
+} from '../config/contact';
 import SEOLandingHero from '../components/SEOLandingHero';
 import TrustBar from '../components/TrustBar';
 import SEOBenefits from '../components/SEOBenefits';
@@ -137,8 +147,7 @@ const MantenimientoWeb = () => {
     },
     {
       title: 'Resumen mensual',
-      description:
-        'Recibes un resumen de las tareas realizadas cada mes.',
+      description: 'Recibes un resumen de las tareas realizadas cada mes.',
     },
   ];
 
@@ -166,7 +175,7 @@ const MantenimientoWeb = () => {
     {
       question: '¿Trabajáis solo en Madrid?',
       answer:
-        'PereiraWeb tiene sede en Galicia/Madrid, pero trabajamos con clientes de toda España de forma online.',
+        'No. Trabajamos online con empresas y autónomos de toda España. Podemos hablar por teléfono, videollamada, correo o WhatsApp. Si estás en Madrid, también podemos desplazarnos.',
     },
     {
       question: '¿Podéis mantener una web que no habéis creado vosotros?',
@@ -213,12 +222,12 @@ const MantenimientoWeb = () => {
         <div className='content-container'>
           <div className='text-center mb-12 max-w-2xl mx-auto'>
             <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4'>
-              Presupuesto claro antes de empezar
+              Siempre trabajamos con precio cerrado y sin letras pequeñas
             </h2>
             <p className='text-base md:text-lg text-gray-600'>
-              El mantenimiento se adapta al tamaño y las necesidades de tu
-              web. Preparamos una propuesta personalizada con el alcance y la
-              cuota mensual antes de empezar.
+              El mantenimiento se adapta al tamaño y las necesidades de tu web.
+              Preparamos una propuesta personalizada con el alcance y la cuota
+              mensual antes de empezar.
             </p>
           </div>
 
@@ -257,11 +266,7 @@ const MantenimientoWeb = () => {
             </ul>
 
             <div className='border-t-2 border-gray-100 pt-6'>
-              <Button
-                onClick={handleQuoteRequest}
-                variant='primary'
-                fullWidth
-              >
+              <Button onClick={handleQuoteRequest} variant='primary' fullWidth>
                 Solicitar propuesta
               </Button>
 

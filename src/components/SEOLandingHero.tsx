@@ -14,6 +14,8 @@ interface SEOLandingHeroProps {
   secondaryCTAText?: string;
   secondaryCTAAction?: () => void;
   secondaryCTAIcon?: 'phone' | 'chevron-down';
+  /** Texto breve bajo los CTAs (ej. bullets de confianza). */
+  ctaFootnote?: string;
 }
 
 const SEOLandingHero = ({
@@ -27,6 +29,7 @@ const SEOLandingHero = ({
   secondaryCTAText,
   secondaryCTAAction,
   secondaryCTAIcon,
+  ctaFootnote,
 }: SEOLandingHeroProps) => {
   return (
     <section className='relative min-h-[80vh] flex items-center justify-center overflow-hidden pt-20 pb-16'>
@@ -90,6 +93,12 @@ const SEOLandingHero = ({
             </Button>
           )}
         </div>
+
+        {ctaFootnote && (
+          <p className='mt-6 text-sm md:text-base text-white/75 font-medium tracking-wide'>
+            {ctaFootnote}
+          </p>
+        )}
       </div>
     </section>
   );

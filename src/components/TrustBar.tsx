@@ -10,12 +10,12 @@ import {
 
 const trustPoints = [
   { icon: Award, text: 'RESEÑAS VERIFICADAS' },
-  { icon: Building2, text: 'AGENCIA EN MADRID' },
+  { icon: Building2, text: 'TRABAJAMOS EN TODA ESPAÑA' },
   { icon: FileCheck, text: 'PRECIOS CERRADOS' },
   { icon: Wallet, text: 'FACILIDAD DE PAGO' },
   { icon: Clock, text: 'ENTREGA 2-3 SEMANAS' },
   { icon: Send, text: 'RESPUESTA RÁPIDA' },
-  { icon: MapPin, text: 'SERVICIO EN ESPAÑA' },
+  { icon: MapPin, text: 'ATENCIÓN ONLINE' },
 ];
 
 const TrustPointCard = ({

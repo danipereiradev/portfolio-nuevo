@@ -3,7 +3,6 @@ import Hero from '../components/Hero';
 import TrustBar from '../components/TrustBar';
 import Services from '../components/Services';
 import Portfolio from '../components/Portfolio';
-import Clients from '../components/Clients';
 import Testimonials from '../components/Testimonials';
 import ContactForm from '../components/ContactForm';
 import Pricing from '../components/Pricing';
@@ -17,7 +16,7 @@ const processSteps = [
     number: '1',
     title: 'Nos cuentas qué necesitas',
     description:
-      'Nos reunimos presencialmente o por videollamada sin compromiso, analizamos tu negocio y tus objetivos y las necesidades del proyecto.',
+      'Hablamos por teléfono, email, WhatsApp o videollamada sin compromiso. Si estás en Madrid, también podemos desplazarnos. Analizamos tu negocio, tus objetivos y lo que necesita el proyecto.',
   },
   {
     number: '2',
@@ -70,7 +69,6 @@ const Home = () => {
         />
       </div>
       <Portfolio />
-      <Clients />
       <Testimonials />
       <div id='faq' className='scroll-mt-24'>
         <SEOFAQ title='Preguntas Frecuentes' faqs={globalFaqs} />

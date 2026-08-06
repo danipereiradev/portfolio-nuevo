@@ -70,7 +70,7 @@ const WebProfesionalNegocios = () => {
     url: `${SITE_URL}/web-profesional-360/`,
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
-      name: 'Planes de web profesional',
+      name: 'Modalidades de Web Profesional 360',
       itemListElement: webPacks.map((pack) => ({
         '@type': 'Offer',
         name: pack.name,
@@ -121,17 +121,28 @@ const WebProfesionalNegocios = () => {
 
   const problems = [
     {
-      text: 'Dependen únicamente de redes sociales para que los encuentren, sin una web propia donde el cliente pueda decidir con calma.',
+      text: 'Depender solo de redes sociales hace más difícil que te encuentren y confíen en tu negocio.',
     },
     {
-      text: 'Tienen una web antigua, lenta o poco clara, que no transmite la confianza que su negocio merece.',
+      text: 'Una web antigua o poco clara puede hacer que un posible cliente se vaya.',
     },
     {
-      text: 'No saben cuánto les va a costar el proyecto hasta que ya han hablado con varios proveedores distintos.',
+      text: 'No necesitas pagar por herramientas que no vas a usar.',
     },
     {
-      text: 'Terminan pagando por funciones que no necesitan, dentro de paquetes genéricos pensados para cualquier negocio.',
+      text: 'Tampoco deberías empezar sin saber cuánto costará todo.',
     },
+  ];
+
+  const deliverables = [
+    'Una web completa y publicada',
+    'Entre 4 y 6 páginas principales',
+    'Diseño propio, sin plantillas genéricas',
+    'Versión móvil revisada',
+    'Formulario y WhatsApp funcionando',
+    'Tu dominio conectado',
+    'Preparada para aparecer en Google',
+    'Estadísticas de visitas configuradas',
   ];
 
   const sectors = [
@@ -199,88 +210,88 @@ const WebProfesionalNegocios = () => {
 
   const genericFeatures = [
     {
-      title: 'Móvil, tablet y ordenador',
+      title: 'Se ve bien en cualquier pantalla',
       description:
-        'Tu web se adapta y se ve bien en cualquier dispositivo, donde sea que te busquen.',
+        'Revisamos la web para móvil, tablet y ordenador.',
     },
     {
-      title: 'Carga rápida',
+      title: 'Carga rápido',
       description:
-        'Páginas ligeras para que carguen rápido y no pierdas visitas por ello.',
+        'Optimizamos páginas e imágenes para que tus visitas no tengan que esperar.',
     },
     {
       title: 'Preparada para Google',
       description:
-        'Lista para aparecer en Google y en búsquedas locales de tu zona.',
+        'Dejamos la configuración inicial para que Google pueda encontrar y entender tu web.',
     },
     {
       title: 'Formulario y WhatsApp',
       description:
-        'Dos vías de contacto siempre visibles para que el cliente decida cómo escribirte.',
+        'Tus clientes podrán contactar de la forma que les resulte más cómoda.',
     },
     {
       title: 'Web segura',
       description:
-        'Conexión segura desde el primer día, para que tus visitantes naveguen con confianza.',
+        'La publicamos con conexión segura desde el primer día.',
     },
     {
       title: 'Estadísticas de visitas',
       description:
-        'Configurada para que puedas conocer las visitas de tu web y de dónde llegan.',
+        'Podrás saber cuántas personas visitan tu web y desde dónde llegan.',
     },
     {
       title: 'Fácil de usar',
       description:
-        'Contraste, tamaños de texto y navegación pensados para que cualquier visitante pueda usarla bien.',
+        'Organizamos la información para que cualquier persona encuentre lo que busca.',
     },
     {
       title: 'Tu propio dominio',
       description:
-        'Publicamos la web con tu dominio, sin direcciones gratuitas ni marcas de terceros.',
+        'La web se publica con tu dirección, sin marcas ni subdominios gratuitos.',
     },
     {
-      title: 'Publicación completa',
+      title: 'Publicación incluida',
       description:
-        'Nos encargamos de dejar la web publicada y accesible, no solo diseñada.',
+        'Nos ocupamos de dejarla online y funcionando.',
     },
   ];
 
   const processSteps = [
     {
       number: '1',
-      title: 'Reunión inicial',
+      title: 'Hablamos de tu negocio',
       description:
-        'Hablamos de tu negocio, tu público y qué necesita transmitir tu web.',
+        'Nos cuentas qué haces, qué necesitas y qué quieres conseguir con la web.',
     },
     {
       number: '2',
-      title: 'Recopilación de contenidos',
+      title: 'Nos envías el contenido',
       description:
-        'Nos envías textos, imágenes y datos de contacto, o te ayudamos a organizarlos.',
+        'Recibimos tus textos, imágenes, logo y datos de contacto. Te ayudamos a ordenarlo.',
     },
     {
       number: '3',
-      title: 'Diseño y adaptación',
+      title: 'Diseñamos la web',
       description:
-        'Adaptamos la base a tu marca: colores, logo, textos e imágenes de tu negocio.',
+        'Adaptamos el diseño a tu marca y preparamos todas las páginas incluidas.',
     },
     {
       number: '4',
-      title: 'Revisión',
+      title: 'La revisas',
       description:
-        'Revisas la web y aplicamos los ajustes dentro de las rondas de cambios incluidas.',
+        'Nos envías los cambios dentro de las dos rondas incluidas.',
     },
     {
       number: '5',
-      title: 'Publicación',
+      title: 'La publicamos',
       description:
-        'Publicamos la web y conectamos tu dominio para que esté online y funcionando.',
+        'Conectamos tu dominio y dejamos la web online y funcionando.',
     },
     {
       number: '6',
-      title: 'Mantenimiento opcional',
+      title: 'Seguimos contigo si lo necesitas',
       description:
-        'Si lo necesitas, seguimos cuidando tu web con uno de los planes de mantenimiento.',
+        'El mantenimiento es opcional y se puede contratar después.',
     },
   ];
 
@@ -288,62 +299,62 @@ const WebProfesionalNegocios = () => {
     {
       question: '¿Es una plantilla igual para todos?',
       answer:
-        'No. Partimos de una base técnica optimizada y probada, pero cada proyecto adapta marca, contenidos, fotografías, composición y llamadas a la acción a tu negocio.',
+        'No. Cada web se adapta a la imagen, los textos y las fotos de tu negocio. No entregamos la misma plantilla a todo el mundo.',
+    },
+    {
+      question: '¿Qué diferencia hay entre 360 Presencia y 360 Gestión?',
+      answer:
+        'Las dos modalidades incluyen la misma base profesional. En Presencia, los cambios los hacemos nosotros. En Gestión, además tienes un panel sencillo para actualizar ciertos contenidos por tu cuenta.',
+    },
+    {
+      question: '¿Quién prepara los textos y las imágenes?',
+      answer:
+        'Tú nos envías la información, los textos, el logo y las fotos que tengas. Nosotros te ayudamos a ordenarlo y lo adaptamos a la web. Si necesitas redacción completa desde cero, lo valoramos aparte.',
     },
     {
       question: '¿Puedo utilizar mi propio dominio?',
       answer:
-        'Sí. El dominio es siempre tuyo. Podemos gestionar su configuración y renovación si lo prefieres, pero la titularidad es tuya en todo momento.',
+        'Sí. El dominio es siempre tuyo. Podemos ayudarte a configurarlo o a registrar uno nuevo si hace falta; en ese caso te lo indicamos antes de empezar.',
     },
     {
       question: '¿El alojamiento está incluido?',
       answer:
-        'Sí. El alojamiento de la web está incluido en el servicio, tanto en la publicación inicial como, si contratas mantenimiento, en su gestión continua.',
-    },
-    {
-      question: '¿Quién escribe los textos?',
-      answer:
-        'Tú nos aportas la información de tu negocio y nosotros la organizamos y redactamos en un lenguaje claro y profesional para la web.',
-    },
-    {
-      question: '¿Puedo modificar la web?',
-      answer:
-        'Con 360 Presencia, los cambios los realiza PereiraWeb mediante el servicio de mantenimiento. Con 360 Gestión tienes un panel propio para editar ciertos contenidos tú mismo.',
-    },
-    {
-      question: '¿Qué diferencia hay entre los dos planes?',
-      answer:
-        '360 Presencia incluye una web completa que nosotros mantenemos. 360 Gestión añade un panel sencillo para que puedas actualizar servicios, equipo, testimonios o artículos sin depender de nosotros para esos cambios.',
+        'Sí. El alojamiento para publicar la web está incluido en el servicio. Te lo confirmamos por escrito antes de empezar.',
     },
     {
       question: '¿El mantenimiento es obligatorio?',
       answer:
-        'No es obligatorio, pero sí recomendable para mantener tu web actualizada, segura y con soporte disponible cuando lo necesites.',
+        'No. Es opcional. Sin mantenimiento, la web sigue siendo tuya y puede seguir online.',
     },
     {
-      question: '¿Qué pasa si cancelo el mantenimiento?',
+      question: '¿Qué ocurre si cancelo el mantenimiento?',
       answer:
-        'Tu web sigue siendo tuya. Dejas de recibir las actualizaciones, copias de seguridad y minutos de cambios incluidos en el plan, pero la web no se retira ni deja de funcionar por cancelar el mantenimiento.',
+        'Tu web sigue siendo tuya y no se retira. Dejas de recibir actualizaciones, copias de seguridad, soporte y los minutos de cambios del plan.',
     },
     {
-      question: '¿Incluye posicionamiento en Google?',
+      question: '¿Está preparada para aparecer en Google?',
       answer:
-        'La web se entrega preparada para aparecer en Google y en búsquedas locales. El trabajo mensual de contenidos para posicionar más a fondo es un servicio aparte.',
+        'Sí. Dejamos una configuración inicial para que Google pueda encontrar y entender tu web. Nadie puede garantizar la primera posición. Mejorar posiciones mes a mes es un servicio aparte.',
     },
     {
-      question: '¿Se pueden añadir reservas o tienda online?',
+      question: '¿Puedo añadir reservas o una tienda online?',
       answer:
-        'Sí, como funcionalidad adicional presupuestada aparte. Si tu necesidad principal es vender online, también tenemos un servicio específico de tiendas online.',
+        'Sí, pero se presupuesta aparte. Si lo que necesitas es vender productos online, te orientamos hacia el servicio de tienda online.',
     },
     {
-      question: '¿Cuánto se tarda en tener la web lista?',
+      question: '¿Cuánto tarda en estar lista?',
       answer:
-        'Depende de lo rápido que recibamos tus contenidos. Con la información completa, el plazo habitual es de unas 2-3 semanas.',
+        'El plazo habitual es de 2–3 semanas. El plazo empieza cuando tenemos toda la información necesaria.',
     },
     {
       question: '¿Qué necesito entregar para empezar?',
       answer:
-        'Textos o información básica de tu negocio, imágenes o logo si los tienes, y tus datos de contacto. Si te falta algo, te ayudamos a organizarlo en la reunión inicial.',
+        'La información de tu negocio, textos, logo, imágenes y datos de contacto. Si te falta algo, te ayudamos a ordenar lo que tengas.',
+    },
+    {
+      question: '¿Qué no está incluido en el precio?',
+      answer:
+        'No incluye redacción completa desde cero, nuevas páginas fuera de lo acordado, reservas, tienda online ni el trabajo mensual de posicionamiento en Google. Si lo necesitas, te lo presupuestamos antes de hacerlo.',
     },
   ];
 
@@ -351,21 +362,23 @@ const WebProfesionalNegocios = () => {
     <>
       {/* 1. Hero */}
       <SEOLandingHero
-        title='Tu web profesional, lista para representar bien a tu negocio'
-        subtitle='Una web completa para autónomos, pymes y negocios locales que quieren precio y proceso claros.'
-        description='Adaptada a tu negocio y lista para recibir clientes, sin presupuestos ambiguos ni procesos interminables. Desde 1.090 € + IVA.'
-        trustLine='Lista en 2–3 semanas · Pago único o fraccionado · Acompañamiento directo'
+        kicker='WEB PROFESIONAL 360'
+        title='Tu web profesional, lista en 2–3 semanas'
+        subtitle='Diseñamos y publicamos una web adaptada a tu negocio, preparada para móvil, Google y contacto por formulario o WhatsApp.'
+        description='Precio cerrado desde 1.090 € + IVA. Pago único o fraccionado.'
+        trustLine='El plazo empieza cuando tenemos toda la información necesaria.'
         ctaText='Ver qué incluye'
         onCTAClick={() => scrollToSection('packs')}
-        secondaryCTAText='Solicitar propuesta'
-        secondaryCTAAction={() => handleWhatsApp('LandingNegociosHero')}
+        secondaryCTAText='Cuéntanos qué necesitas'
+        secondaryCTAAction={() => scrollToSection('contacto')}
         secondaryCTAIcon='chevron-down'
+        ctaFootnote='Sin plantillas · Dos rondas de cambios · Publicación incluida'
       />
 
       {/* 2. Bloque de confianza rápida */}
       <TrustBar />
 
-      {/* 3. Comparativa de paquetes */}
+      {/* 3. Modalidades */}
       <section
         id='packs'
         ref={pricingSectionRef}
@@ -374,12 +387,12 @@ const WebProfesionalNegocios = () => {
         <div className='container mx-auto px-6'>
           <div className='text-center mb-12 max-w-2xl mx-auto'>
             <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4'>
-              Web Profesional 360: elige cómo quieres gestionarla
+              Elige quién gestionará los cambios de tu web
             </h2>
             <p className='text-base md:text-lg text-gray-600'>
-              Misma web profesional desde 1.090 € + IVA. La diferencia es si
-              prefieres que gestionemos los cambios nosotros o hacerlo tú con un
-              panel sencillo.
+              Las dos modalidades incluyen la misma base profesional. La
+              diferencia es si prefieres pedirnos los cambios o actualizar
+              algunos contenidos desde tu propio panel.
             </p>
           </div>
 
@@ -498,9 +511,10 @@ const WebProfesionalNegocios = () => {
             })}
           </div>
 
-          <p className='text-center text-xs text-gray-400 mt-8 max-w-2xl mx-auto'>
-            Precios orientativos + IVA. La propuesta final se cierra antes de
-            empezar, según el alcance real de tu proyecto.
+          <p className='text-center text-sm text-gray-600 mt-8 max-w-3xl mx-auto leading-relaxed'>
+            360 Presencia cuesta 1.090 € + IVA y 360 Gestión cuesta 1.590 € +
+            IVA para las webs que encajen en lo indicado en esta página. Antes
+            de empezar confirmaremos por escrito el precio y todo lo incluido.
           </p>
 
           <div className='mt-6 text-center'>
@@ -540,9 +554,8 @@ const WebProfesionalNegocios = () => {
                 Proyecto a medida
               </span>
               <p className='text-base md:text-lg text-gray-800 font-bold leading-snug mb-5'>
-                ¿Necesitas funcionalidades específicas o un proyecto
-                completamente personalizado? Descubre el servicio de Web a
-                Medida.
+                ¿Necesitas funciones especiales o un proyecto completamente
+                personalizado? Descubre el servicio de Web a Medida.
               </p>
               <div className='flex justify-center'>
                 <Button href='/web-a-medida' variant='primary'>
@@ -554,19 +567,45 @@ const WebProfesionalNegocios = () => {
         </div>
       </section>
 
+      {/* 3.1 Qué recibes */}
+      <section className='py-16 md:py-20 bg-gray-50 border-y-2 border-ink-dark/10'>
+        <div className='container mx-auto px-6'>
+          <div className='max-w-3xl mx-auto text-center mb-10'>
+            <h2 className='text-2xl md:text-4xl font-bold text-gray-900 mb-4'>
+              Qué tendrás al terminar
+            </h2>
+          </div>
+          <ul className='max-w-3xl mx-auto grid sm:grid-cols-2 gap-4 mb-8'>
+            {deliverables.map((item) => (
+              <li
+                key={item}
+                className='flex items-start gap-3 bg-white border-2 border-ink-dark rounded-lg p-4 shadow-[3px_3px_0_0_#1a1a1a]'
+              >
+                <Check className='w-5 h-5 text-accent flex-shrink-0 mt-0.5' />
+                <span className='text-sm md:text-base text-gray-800 font-medium'>
+                  {item}
+                </span>
+              </li>
+            ))}
+          </ul>
+          <p className='max-w-2xl mx-auto text-center text-base md:text-lg text-gray-700 font-semibold'>
+            No entregamos solo un diseño. Dejamos la web online y funcionando.
+          </p>
+        </div>
+      </section>
+
       {/* 4. Problema y solución */}
       <SEOProblem
-        title='Muchos negocios locales están perdiendo clientes por su web'
-        subtitle='Antes de hablar de opciones, esto es lo que solemos ver en negocios como el tuyo.'
+        title='Una web debe ayudarte a conseguir clientes, no darte más trabajo'
+        subtitle='Esto es lo que solemos ver cuando un negocio todavía no tiene una presencia clara online.'
         problems={problems}
       />
       <div className='bg-white pt-6 pb-16 md:pt-8 md:pb-20'>
         <div className='container mx-auto px-6'>
           <div className='max-w-3xl mx-auto text-center bg-gray-50 border-2 border-ink-dark rounded-xl p-6 md:p-8 shadow-[5px_5px_0_0_#1a1a1a]'>
             <p className='text-base md:text-lg text-gray-800 font-medium leading-relaxed'>
-              La solución es una web profesional completa, adaptada a tu
-              negocio, con precio y proceso claros desde el principio y lista
-              para recibir clientes.
+              Web Profesional 360 reúne lo necesario para tener una presencia
+              seria, clara y lista para recibir contactos.
             </p>
           </div>
         </div>
@@ -574,21 +613,12 @@ const WebProfesionalNegocios = () => {
 
       {/* 5. Para quién es */}
       <SEOBenefits title='¿Es Esta Web para tu Negocio?' benefits={sectors} />
-      <div className='bg-gray-50 pt-6 pb-16 md:pt-8 md:pb-20'>
-        <div className='container mx-auto px-6'>
-          <p className='max-w-2xl mx-auto text-center text-sm md:text-base text-gray-500'>
-            No usamos el mismo diseño para todos: partimos de una base técnica
-            optimizada, pero cada proyecto adapta marca, contenidos,
-            fotografías, composición y llamadas a la acción a tu negocio.
-          </p>
-        </div>
-      </div>
 
-      {/* 6. Qué incluye cualquier web */}
+      {/* 6. Qué incluye */}
       <div id='incluye' className='scroll-mt-24'>
         <SEOFeatures
-          title='Qué Incluye Cualquier Web de PereiraWeb'
-          subtitle='Independientemente del plan que elijas, esto viene siempre incluido'
+          title='Qué incluye Web Profesional 360'
+          subtitle='Sea cual sea la modalidad que elijas, esto viene siempre incluido'
           features={genericFeatures}
         />
       </div>
@@ -630,15 +660,39 @@ const WebProfesionalNegocios = () => {
       {/* 6.3 Valoraciones de clientes */}
       <Testimonials id='valoraciones' />
 
-      {/* 7. Cómo funciona */}
-      <SEOProcess title='Cómo Funciona el Proceso' steps={processSteps} />
+      {/* 6.4 Qué necesitamos de tu parte */}
+      <section className='py-16 md:py-20 bg-white'>
+        <div className='container mx-auto px-6'>
+          <div className='max-w-3xl mx-auto text-center'>
+            <h2 className='text-2xl md:text-4xl font-bold text-gray-900 mb-5'>
+              ¿Qué necesitamos de tu parte?
+            </h2>
+            <p className='text-base md:text-lg text-gray-700 leading-relaxed mb-4'>
+              Nos envías la información de tu negocio, los textos, el logo y las
+              imágenes que tengas. Nosotros te ayudamos a ordenarlo y lo
+              adaptamos al diseño de la web.
+            </p>
+            <p className='text-sm md:text-base text-gray-600 leading-relaxed bg-gray-50 border-2 border-ink-dark rounded-xl p-5 shadow-[4px_4px_0_0_#1a1a1a]'>
+              Si necesitas que redactemos todos los textos desde cero o que
+              busquemos material adicional, lo valoramos aparte antes de
+              empezar.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Proceso */}
+      <SEOProcess title='Así será el proceso' steps={processSteps} />
       <div className='bg-white pt-2 pb-16 md:pb-20'>
-        <div className='container mx-auto px-6 text-center'>
+        <div className='container mx-auto px-6 text-center space-y-3'>
+          <p className='text-sm md:text-base text-gray-600 font-medium'>
+            El plazo empieza cuando tenemos toda la información necesaria.
+          </p>
           <a
             href='/condiciones-del-proyecto'
             className='inline-flex items-center gap-1.5 text-sm md:text-base font-semibold text-accent hover:underline'
           >
-            Ver pagos del proyecto: pagos, revisiones y plazos
+            Ver condiciones del proyecto: pagos, revisiones y plazos
           </a>
         </div>
       </div>
@@ -646,16 +700,16 @@ const WebProfesionalNegocios = () => {
       {/* 8. Preguntas frecuentes */}
       <div id='faq' className='scroll-mt-24'>
         <SEOFAQ
-          title='Preguntas Frecuentes sobre la Web de tu Negocio'
+          title='Preguntas frecuentes sobre Web Profesional 360'
           faqs={faqs}
         />
       </div>
 
       {/* 9. CTA final */}
       <SEOCTAFinal
-        title='Cuéntanos qué necesita tu negocio'
-        subtitle='Te indicaremos qué plan encaja mejor y recibirás una propuesta clara, sin compromiso.'
-        buttonText='Abrir formulario'
+        title='Cuéntanos qué web necesita tu negocio'
+        subtitle='Te diremos si Web Profesional 360 encaja contigo y qué modalidad te conviene. Antes de empezar recibirás el precio, los plazos y todo lo incluido por escrito.'
+        buttonText='Solicitar propuesta'
         onButtonClick={handleOpenFormGeneric}
         secondaryButtonText='Hablar por WhatsApp'
         onSecondaryButtonClick={() => handleWhatsApp('LandingNegociosCTAFinal')}

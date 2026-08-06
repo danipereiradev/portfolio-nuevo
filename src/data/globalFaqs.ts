@@ -8,9 +8,9 @@ export interface GlobalFaqItem {
 
 export const globalFaqs: GlobalFaqItem[] = [
   {
-    question: '¿Trabajáis solo con empresas de Madrid?',
+    question: '¿Trabajáis solo con clientes de Madrid?',
     answer:
-      'No. PereiraWeb tiene sede en Galicia/Madrid, pero trabajamos con empresas y autónomos de toda España. Podemos llevar todo el proceso online mediante llamadas, email y WhatsApp, y también realizar reuniones presenciales con cita previa cuando sea necesario.',
+      'No. Trabajamos online con empresas y autónomos de toda España. Podemos hablar por teléfono, videollamada, correo o WhatsApp, según te resulte más cómodo. Si estás en Madrid, también podemos desplazarnos.',
   },
   {
     question: '¿Qué tipo de webs desarrolláis?',

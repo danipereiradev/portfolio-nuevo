@@ -229,9 +229,10 @@ Fecha: ${new Date().toLocaleString('es-ES')}
         'Web Profesional 360': 0,
         'Tienda Online': 0,
         'Mantenimiento Web': 0,
-        '360 Presencia': 0,
-        '360 Gestión': 0,
+        '360 Presencia': 1090,
+        '360 Gestión': 1590,
         'No sé cuál necesito': 0,
+        'No sé cuál elegir': 0,
         'Proyecto personalizado': 0,
       };
       const planValue = planPrices[formData.plan] || 0;
@@ -268,13 +269,19 @@ Fecha: ${new Date().toLocaleString('es-ES')}
         'Presencia profesional de alcance cerrado para empezar con claridad',
     },
     {
-      value: 'Web Profesional 360',
-      description: 'Web de alcance definido, con precio claro y proceso rápido',
+      value: '360 Presencia',
+      description:
+        'Web Profesional 360: nosotros nos ocupamos de los cambios (1.090 € + IVA)',
+    },
+    {
+      value: '360 Gestión',
+      description:
+        'Web Profesional 360 con panel para actualizar contenidos (1.590 € + IVA)',
     },
     {
       value: 'Web a Medida',
       description:
-        'Proyecto con funcionalidades, estructura o integraciones específicas',
+        'Proyecto con funciones especiales o zonas privadas según tu negocio',
     },
     {
       value: 'Tienda Online',
@@ -290,8 +297,8 @@ Fecha: ${new Date().toLocaleString('es-ES')}
         'Ya he empezado con IA y necesito ayuda para revisarla y terminarla',
     },
     {
-      value: 'No sé cuál necesito',
-      description: 'Te ayudamos a elegir según lo que necesita tu negocio',
+      value: 'No sé cuál elegir',
+      description: 'Te ayudamos a decidir según lo que necesita tu negocio',
     },
   ];
 
@@ -304,7 +311,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
         <p className='text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto'>
           Trabajamos con empresas y autónomos que necesitan crear o
           mejorar su presencia online. Cuéntanos sobre tu proyecto y te
-          enviaremos una propuesta personalizada en un máximo de 2 horas.
+          enviaremos una propuesta personalizada muy rápido.
         </p>
       </div>
 
@@ -386,7 +393,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
             <div>
               <label className='block text-sm font-medium text-gray-700 mb-3'>
-                Plan que te Interesa *
+                ¿Qué opción te interesa? *
               </label>
               <div className='grid sm:grid-cols-2 gap-4'>
                 {planOptions.map((option) => {
@@ -419,6 +426,9 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                   );
                 })}
               </div>
+              <p className='text-sm text-gray-500 mt-3'>
+                Si no lo tienes claro, te ayudaremos a decidir.
+              </p>
               {errors.plan && <ErrorMessage error={errors.plan} />}
             </div>
 

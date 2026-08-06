@@ -37,8 +37,7 @@ const Pricing = () => {
     {
       id: 'webpage',
       name: 'Web a Medida',
-      idealFor:
-        'negocios que necesitan algo más que una web informativa.',
+      idealFor: 'negocios que necesitan algo más que una web informativa.',
       description:
         'Diseñamos una solución adaptada a tu forma de trabajar cuando necesitas funciones especiales, conexión con otras herramientas o una zona privada para clientes o equipo.',
       path: '/web-a-medida',
@@ -118,16 +117,17 @@ const Pricing = () => {
       <div className='mx-auto w-full max-w-screen-2xl px-6 relative z-10'>
         <div className='text-center mb-12 max-w-3xl mx-auto'>
           <h2 className='text-4xl md:text-5xl font-extrabold text-gray-900 mb-6'>
-            Presupuesto claro antes de empezar
+            Siempre trabajamos con precio cerrado y sin letras pequeñas
           </h2>
           <p className='text-lg md:text-xl text-gray-700 font-medium mb-3'>
-            Cada proyecto tiene necesidades distintas. Por eso preparamos una
-            propuesta personalizada según el alcance, funcionalidades,
-            contenidos y objetivos de la web.
+            Cada web es diferente. Antes de darte un precio, hablamos contigo
+            para entender qué necesitas, qué debe incluir y qué quieres
+            conseguir con ella.
           </p>
           <p className='text-base text-gray-500'>
-            Antes de empezar, recibirás una propuesta clara con qué incluye el
-            proyecto, plazos, forma de trabajo y opciones de pago disponibles.
+            Antes de empezar tendrás por escrito el precio final, los plazos, la
+            forma de trabajo, lo que está incluido y las opciones de pago. Sin
+            sorpresas a mitad del proyecto.
           </p>
         </div>
 
@@ -238,9 +238,10 @@ const Pricing = () => {
               Opciones de pago flexible
             </h3>
             <p className='text-lg text-gray-700 font-medium max-w-2xl mx-auto mb-4'>
-              Según el tipo de proyecto, podemos trabajar con pago único o pago
-              fraccionado. Todo queda definido en la propuesta antes de empezar,
-              para que tengas claro el alcance, los plazos y las condiciones.
+              Puedes pagar el proyecto de una vez o dividirlo en varios pagos,
+              según el tipo de web. Antes de empezar dejaremos por escrito
+              cuánto vas a pagar, cuándo se realiza cada pago y qué incluye el
+              proyecto.
             </p>
             <a
               href='/condiciones-del-proyecto'
@@ -255,9 +256,9 @@ const Pricing = () => {
               ¿No sabes qué necesitas exactamente?
             </h3>
             <p className='text-lg text-white/80 font-medium mb-6'>
-              También preparamos propuestas para landing pages, páginas de
-              presentación o webs más sencillas. Cuéntanos qué necesitas y te
-              preparamos una propuesta ajustada a tu proyecto.
+              No pasa nada. Cuéntanos qué tienes en mente y te diremos qué
+              opción encaja mejor. También hacemos landing pages, webs sencillas
+              de presentación y proyectos con un alcance más reducido.
             </p>
             <div className='flex flex-col sm:flex-row gap-4 justify-center mt-auto'>
               <Button
@@ -270,7 +271,7 @@ const Pricing = () => {
                 }}
                 variant='primary'
               >
-                Solicitar propuesta
+                Cuéntanos tu idea
               </Button>
             </div>
           </div>

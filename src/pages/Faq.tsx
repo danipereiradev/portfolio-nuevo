@@ -63,61 +63,71 @@ const Faq = () => {
         </div>
       </section>
 
-      {faqCategories.map((category, categoryIndex) => (
-        <section
-          key={category.id}
-          id={category.id}
-          className={`scroll-mt-28 py-14 md:py-20 ${
-            categoryIndex % 2 === 0 ? 'bg-gray-50' : 'bg-white'
-          }`}
-        >
-          <div className='container mx-auto px-6'>
-            <h2 className='text-2xl md:text-3xl lg:text-4xl font-extrabold text-gray-900 mb-8 md:mb-10 text-center'>
-              {category.title}
-            </h2>
-            <div className='max-w-3xl mx-auto space-y-3'>
-              {category.faqs.map((faq, index) => {
-                const key = `${category.id}-${index}`;
-                const isOpen = openKey === key;
+      {faqCategories.map((category, categoryIndex) => {
+        const isAccent = categoryIndex % 2 === 1;
 
-                return (
-                  <div
-                    key={key}
-                    className={`bg-white rounded-lg border-2 overflow-hidden transition-all duration-200 ${
-                      isOpen
-                        ? 'border-accent shadow-[4px_4px_0_0_#0d9488]'
-                        : 'border-ink-dark shadow-[4px_4px_0_0_#1a1a1a]'
-                    }`}
-                  >
-                    <button
-                      type='button'
-                      onClick={() => toggleFaq(key)}
-                      className='w-full px-4 py-4 md:px-6 md:py-5 flex items-center justify-between text-left hover:bg-gray-50 transition-colors'
-                      aria-expanded={isOpen}
+        return (
+          <section
+            key={category.id}
+            id={category.id}
+            className={`scroll-mt-28 py-14 md:py-20 ${
+              isAccent ? 'bg-accent' : 'bg-white'
+            }`}
+          >
+            <div className='container mx-auto px-6'>
+              <h2
+                className={`text-2xl md:text-3xl lg:text-4xl font-extrabold mb-8 md:mb-10 text-center ${
+                  isAccent ? 'text-ink-dark' : 'text-gray-900'
+                }`}
+              >
+                {category.title}
+              </h2>
+              <div className='max-w-3xl mx-auto space-y-3'>
+                {category.faqs.map((faq, index) => {
+                  const key = `${category.id}-${index}`;
+                  const isOpen = openKey === key;
+
+                  return (
+                    <div
+                      key={key}
+                      className={`bg-white rounded-lg border-2 overflow-hidden transition-all duration-200 ${
+                        isOpen
+                          ? 'border-ink-dark shadow-[4px_4px_0_0_#0d9488]'
+                          : isAccent
+                            ? 'border-ink-dark shadow-[4px_4px_0_0_rgba(26,26,26,0.35)]'
+                            : 'border-ink-dark shadow-[4px_4px_0_0_#1a1a1a]'
+                      }`}
                     >
-                      <h3 className='text-sm md:text-base lg:text-lg font-bold text-gray-900 pr-3 md:pr-4'>
-                        {faq.question}
-                      </h3>
-                      <ChevronDown
-                        className={`w-4 h-4 md:w-5 md:h-5 text-gray-500 flex-shrink-0 transition-transform ${
-                          isOpen ? 'rotate-180' : ''
-                        }`}
-                      />
-                    </button>
-                    {isOpen && (
-                      <div className='px-4 pb-4 md:px-6 md:pb-5'>
-                        <p className='text-sm md:text-base lg:text-lg text-gray-700 leading-relaxed'>
-                          {faq.answer}
-                        </p>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
+                      <button
+                        type='button'
+                        onClick={() => toggleFaq(key)}
+                        className='w-full px-4 py-4 md:px-6 md:py-5 flex items-center justify-between text-left hover:bg-gray-50 transition-colors'
+                        aria-expanded={isOpen}
+                      >
+                        <h3 className='text-sm md:text-base lg:text-lg font-bold text-gray-900 pr-3 md:pr-4'>
+                          {faq.question}
+                        </h3>
+                        <ChevronDown
+                          className={`w-4 h-4 md:w-5 md:h-5 text-gray-500 flex-shrink-0 transition-transform ${
+                            isOpen ? 'rotate-180' : ''
+                          }`}
+                        />
+                      </button>
+                      {isOpen && (
+                        <div className='px-4 pb-4 md:px-6 md:pb-5'>
+                          <p className='text-sm md:text-base lg:text-lg text-gray-700 leading-relaxed'>
+                            {faq.answer}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-          </div>
-        </section>
-      ))}
+          </section>
+        );
+      })}
 
       <SEOCTAFinal
         title='¿No está tu pregunta aquí?'

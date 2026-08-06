@@ -50,7 +50,7 @@ const Gracias = () => {
 
     const title = 'Gracias, hemos recibido tu mensaje | PereiraWeb';
     const description =
-      'Hemos recibido tu mensaje. Te responderemos en un máximo de 2 horas.';
+      'Hemos recibido tu mensaje. Te responderemos muy rápido.';
 
     document.title = title;
 
@@ -114,9 +114,9 @@ const Gracias = () => {
         </h1>
 
         <p className='text-gray-600 mb-2'>
-          Revisaremos la información y te responderemos en un plazo máximo de{' '}
-          <span className='font-semibold text-gray-900'>2 horas</span> con tu
-          propuesta.
+          Revisaremos la información y te responderemos{' '}
+          <span className='font-semibold text-gray-900'>muy rápido</span> con
+          tu propuesta.
         </p>
 
         <p className='text-gray-600 mb-8'>

@@ -198,7 +198,7 @@ const TiendasOnline = () => {
     {
       question: '¿Trabajáis solo en Madrid?',
       answer:
-        'PereiraWeb tiene sede en Galicia/Madrid, pero trabajamos con clientes de toda España de forma online.',
+        'No. Trabajamos online con empresas y autónomos de toda España. Podemos hablar por teléfono, videollamada, correo o WhatsApp. Si estás en Madrid, también podemos desplazarnos.',
     },
     {
       question: '¿Incluís mantenimiento?',
@@ -234,7 +234,7 @@ const TiendasOnline = () => {
         <div className='content-container'>
           <div className='text-center mb-12 max-w-2xl mx-auto'>
             <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4'>
-              Presupuesto claro antes de empezar
+              Siempre trabajamos con precio cerrado y sin letras pequeñas
             </h2>
             <p className='text-base md:text-lg text-gray-600'>
               Cada tienda tiene necesidades distintas. Por eso preparamos una
@@ -312,8 +312,8 @@ const TiendasOnline = () => {
           <div className='max-w-3xl mx-auto text-center bg-gray-50 border-2 border-ink-dark rounded-xl p-6 md:p-8 shadow-[5px_5px_0_0_#1a1a1a]'>
             <p className='text-base md:text-lg text-gray-800 font-medium leading-relaxed'>
               La solución es una tienda online seria desde el primer día, con
-              presupuesto claro antes de empezar y un catálogo pensado para tu
-              forma de vender.
+              Siempre trabajamos con precio cerrado y sin letras pequeñas y un
+              catálogo pensado para tu forma de vender.
             </p>
           </div>
         </div>

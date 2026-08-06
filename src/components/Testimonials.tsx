@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Star, ExternalLink, PlayCircle } from 'lucide-react';
 import { allTestimonials, type Testimonial } from '../data/testimonials';
+import GlowBackdrop from './decor/GlowBackdrop';
+import FloatingThumbsUp from './decor/FloatingThumbsUp';
 
 export type { Testimonial };
 
@@ -95,15 +97,32 @@ const Testimonials = ({
   };
 
   return (
-    <section id={id} className='scroll-mt-24 py-20 bg-white'>
-      <div className='container mx-auto px-6'>
+    <section
+      id={id}
+      className='scroll-mt-24 py-20 text-white overflow-hidden relative'
+    >
+      <GlowBackdrop />
+
+      <FloatingThumbsUp
+        tilt={-10}
+        size='lg'
+        className='absolute top-16 -left-4 sm:top-20 sm:left-2 lg:left-[6%] z-0 opacity-55 sm:opacity-75 lg:opacity-100'
+      />
+      <FloatingThumbsUp
+        tilt={12}
+        float='slower'
+        size='md'
+        className='absolute bottom-16 -right-3 sm:bottom-24 sm:right-2 lg:right-[7%] z-0 opacity-55 sm:opacity-75 lg:opacity-100'
+      />
+
+      <div className='container mx-auto px-6 relative z-10'>
         <div className='text-center mb-16'>
-          <h2 className='text-4xl md:text-5xl font-extrabold text-gray-900 mb-4'>
+          <h2 className='text-4xl md:text-5xl font-extrabold text-white mb-4'>
             Lo que Dicen Nuestros Clientes
           </h2>
-          <p className='text-xl text-gray-600 max-w-3xl mx-auto mb-6'>
-            Testimonios reales de personas que han confiado en nuestro trabajo
-            para construir y mantener su web o tienda online
+          <p className='text-xl text-gray-300 max-w-3xl mx-auto mb-6'>
+            Testimonios reales de personas que han confiado en nosotros para
+            construir y mantener su web o tienda online
           </p>
 
           {/* Rating */}
@@ -161,12 +180,12 @@ const Testimonials = ({
                 />
               ))}
             </div>
-            <span className='text-2xl font-bold text-gray-900'>
+            <span className='text-2xl font-bold text-white'>
               {rating.toFixed(1)}
             </span>
-            <span className='text-gray-500'>/ 5</span>
-            <span className='text-gray-400'>·</span>
-            <span className='text-gray-500 text-sm font-medium'>
+            <span className='text-gray-400'>/ 5</span>
+            <span className='text-gray-500'>·</span>
+            <span className='text-gray-400 text-sm font-medium'>
               {testimonials.length} reseñas verificadas
             </span>
           </div>
@@ -289,7 +308,7 @@ const Testimonials = ({
                 className={`w-4 h-4 rounded-full transition-all duration-200 ${
                   index === currentSlide
                     ? 'bg-accent scale-110'
-                    : 'bg-gray-300 hover:bg-gray-400'
+                    : 'bg-white/25 hover:bg-white/40'
                 }`}
               />
             ))}

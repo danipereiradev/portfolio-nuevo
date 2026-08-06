@@ -251,7 +251,7 @@ const WebAutonomosPymes = () => {
     {
       question: '¿Trabajáis solo en Madrid?',
       answer:
-        'PereiraWeb tiene sede en Galicia/Madrid, pero trabajamos con clientes de toda España de forma online.',
+        'No. Trabajamos online con empresas y autónomos de toda España. Podemos hablar por teléfono, videollamada, correo o WhatsApp. Si estás en Madrid, también podemos desplazarnos.',
     },
     {
       question: '¿La web se verá bien en el móvil?',
@@ -301,7 +301,7 @@ const WebAutonomosPymes = () => {
         <div className='content-container'>
           <div className='text-center mb-12 max-w-2xl mx-auto'>
             <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4'>
-              Presupuesto claro antes de empezar
+              Siempre trabajamos con precio cerrado y sin letras pequeñas
             </h2>
             <p className='text-base md:text-lg text-gray-600'>
               Cada proyecto tiene necesidades distintas. Por eso preparamos una
@@ -378,9 +378,10 @@ const WebAutonomosPymes = () => {
         <div className='container mx-auto px-6'>
           <div className='max-w-3xl mx-auto text-center bg-gray-50 border-2 border-ink-dark rounded-xl p-6 md:p-8 shadow-[5px_5px_0_0_#1a1a1a]'>
             <p className='text-base md:text-lg text-gray-800 font-medium leading-relaxed'>
-              La solución es un proyecto a medida: definimos el alcance
-              contigo, preparamos un presupuesto claro antes de empezar y
-              construimos una base técnica pensada para tu caso concreto.
+              La solución es un proyecto a medida: definimos el alcance contigo,
+              preparamos un Siempre trabajamos con precio cerrado y sin letras
+              pequeñas y construimos una base técnica pensada para tu caso
+              concreto.
             </p>
           </div>
         </div>

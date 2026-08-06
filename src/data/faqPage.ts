@@ -17,78 +17,58 @@ export const faqCategories: FaqCategory[] = [
       {
         question: '¿Qué es PereiraWeb?',
         answer:
-          'PereiraWeb es un estudio de diseño y desarrollo web con sede en Galicia/Madrid. Trabajamos con empresas y autónomos de toda España para crear webs profesionales, tiendas online, proyectos a medida y mantenimiento web, con trato directo y propuestas claras antes de empezar.',
+          'PereiraWeb es un estudio de diseño y desarrollo web que trabaja online con empresas y autónomos de toda España. Creamos webs profesionales, tiendas online, proyectos a medida y mantenimiento web, con trato directo y un precio cerrado antes de empezar.',
       },
       {
-        question: '¿Trabajáis solo con empresas de Madrid?',
+        question: '¿Trabajáis solo con clientes de Madrid?',
         answer:
-          'No. Tenemos sede en Galicia/Madrid, pero trabajamos con clientes de toda España. El proceso se gestiona online (llamadas, email y WhatsApp) y también podemos hacer reuniones presenciales con cita previa cuando haga falta.',
+          'No. Trabajamos online con empresas y autónomos de toda España. Podemos hablar por teléfono, videollamada, correo o WhatsApp, según te resulte más cómodo.',
       },
       {
-        question: '¿Con qué tipo de negocios trabajáis?',
+        question: '¿Con quién hablaré durante el proyecto?',
         answer:
-          'Trabajamos con autónomos, pymes y empresas de distintos sectores: servicios profesionales, restauración, salud, comercio, turismo, industria creativa y más. Lo importante es que necesiten una web clara, profesional y orientada a conseguir contactos o ventas.',
+          'Tendrás trato directo con la persona que lleva tu web. No pasarás por comerciales ni por varios departamentos para resolver una duda.',
       },
       {
         question: '¿Podemos pedir una propuesta sin compromiso?',
         answer:
-          'Sí. Puedes contarnos qué necesitas y te damos una primera orientación. Si el proyecto encaja, enviamos una propuesta con alcance, plazos, forma de trabajo y precio cerrado antes de empezar.',
+          'Sí. Cuéntanos qué necesitas y te orientamos. Si el proyecto encaja, te enviamos una propuesta clara con plazos, forma de trabajo y precio cerrado antes de empezar.',
       },
       {
         question: '¿Cómo os contacto?',
         answer:
-          'Puedes escribirnos por el formulario de contacto, por email a hola@pereiraweb.es, por teléfono o por WhatsApp. Respondemos con la mayor rapidez posible para orientarte y, si encaja, preparar la propuesta.',
-      },
-      {
-        question: '¿Habláis en nombre de una agencia grande o sois un estudio?',
-        answer:
-          'Somos un estudio con trato directo. No hay capas comerciales intermedias: hablas con quien entiende el proyecto y puede definir alcance, diseño y desarrollo con claridad.',
+          'Puedes escribirnos por email a hola@pereiraweb.es, llamarnos, usar WhatsApp o concertar una videollamada. Si estás en Madrid, también podemos desplazarnos. Respondemos muy rápido para orientarte y, si encaja, preparar la propuesta.',
       },
     ],
   },
   {
     id: 'servicios',
-    title: 'Servicios y planes',
+    title: 'Servicios',
     faqs: [
-      {
-        question: '¿Qué tipo de webs desarrolláis?',
-        answer:
-          'Páginas web profesionales, webs corporativas, páginas de servicios, landings, tiendas online, catálogos, rediseños, mantenimiento y herramientas o paneles web a medida. Cada proyecto se adapta a lo que necesita el negocio.',
-      },
       {
         question: '¿Cómo sé qué servicio necesito?',
         answer:
-          'Si necesitas presentar tu negocio y captar contactos, normalmente encaja una web profesional (Web Profesional 360 o Web a Medida). Si quieres vender online, una tienda online. Si ya tienes web y quieres cuidarla, mantenimiento. Si tienes dudas, cuéntanos tu caso y te orientamos.',
+          'Si quieres presentar tu negocio y recibir contactos, normalmente encaja Web Profesional 360 o Web a Medida. Si quieres vender productos online, una tienda. Si ya tienes web y quieres mantenerla al día, mantenimiento. También hacemos rediseños. Si no lo tienes claro, cuéntanos tu caso y te orientamos.',
       },
       {
         question: '¿Qué diferencia hay entre Web Profesional 360 y Web a Medida?',
         answer:
-          'Web Profesional 360 es un plan con precio y proceso claros. Web a Medida es para negocios que necesitan funciones especiales, conexión con otras herramientas o zonas privadas, con presupuesto según el proyecto.',
-      },
-      {
-        question: '¿Qué diferencia hay entre una web profesional y una tienda online?',
-        answer:
-          'Una web profesional presenta servicios, transmite confianza y genera contactos. Una tienda online añade catálogo, carrito, pagos, pedidos y configuración comercial para vender por internet.',
-      },
-      {
-        question: '¿Es Web Profesional 360 una plantilla igual para todos?',
-        answer:
-          'No. Partimos de una base técnica optimizada, pero cada proyecto adapta marca, contenidos, fotografías, composición y llamadas a la acción a tu negocio.',
+          'Web Profesional 360 es una web profesional con precio y proceso claros: 1.090 € + IVA. Web a Medida es para cuando necesitas algo más concreto, como reservas, calculadoras, conexión con otras herramientas o zonas privadas. En ese caso el precio se calcula según el proyecto y se cierra antes de empezar.',
       },
       {
         question: '¿Qué diferencia hay entre 360 Presencia y 360 Gestión?',
         answer:
-          '360 Presencia incluye una web completa que mantenemos nosotros. 360 Gestión añade un panel sencillo para que puedas actualizar ciertos contenidos (servicios, equipo, testimonios o artículos) sin depender de nosotros para esos cambios.',
+          'Son dos modalidades de Web Profesional 360. Con Presencia, la web la cuidamos nosotros con el mantenimiento. Con Gestión, además tienes un panel sencillo para actualizar ciertos contenidos tú mismo, como servicios, equipo, testimonios o artículos. El precio de cada modalidad se confirma en la propuesta.',
       },
       {
         question: '¿Podéis mejorar o rediseñar una web que ya existe?',
         answer:
-          'Sí. Revisamos la web actual y planteamos mejoras de diseño, estructura, velocidad, contenido, contacto o conversión. En unos casos conviene un rediseño completo; en otros, mejoras concretas.',
+          'Sí. Revisamos tu web actual y te proponemos qué conviene: un rediseño completo o mejoras concretas de diseño, textos, contacto o velocidad. El precio se cierra antes de empezar.',
       },
       {
-        question: '¿Desarrolláis aplicaciones o paneles internos?',
+        question: '¿Hacéis webs con funciones especiales o paneles privados?',
         answer:
-          'Sí, cuando el proyecto lo requiere: paneles, herramientas internas, dashboards o desarrollos a medida con alcance y presupuesto definidos en la propuesta.',
+          'Sí, cuando el proyecto lo necesita. Por ejemplo, reservas, formularios avanzados, conexión con herramientas que ya usas o paneles privados para clientes o equipo. Eso entra dentro de Web a Medida y se presupuesta según lo que haga falta.',
       },
     ],
   },
@@ -97,193 +77,128 @@ export const faqCategories: FaqCategory[] = [
     title: 'Precios y pagos',
     faqs: [
       {
-        question: '¿Cuánto cuesta una página web profesional?',
+        question: '¿Cuánto cuesta Web Profesional 360?',
         answer:
-          'Depende del alcance, secciones, contenidos, funcionalidades y objetivos. No usamos una tarifa única para todos. Primero analizamos qué necesitas y después enviamos una propuesta con precio cerrado.',
+          'Web Profesional 360 cuesta 1.090 € + IVA. Si eliges la modalidad Gestión, el precio se indica en la propuesta antes de empezar.',
       },
       {
-        question: '¿El presupuesto incluye IVA?',
+        question: '¿Cómo se presupuestan Web a Medida y Tienda Online?',
         answer:
-          'Los precios se indican según lo acordado en cada propuesta. El IVA se aplica cuando corresponda y queda reflejado de forma clara en la propuesta y en la facturación.',
+          'Según lo que necesite cada proyecto. Primero vemos qué quieres conseguir y qué tiene que hacer la web o la tienda. Después te enviamos un precio cerrado antes de empezar.',
       },
       {
         question: '¿Ofrecéis pago fraccionado?',
         answer:
-          'Sí. En la mayoría de proyectos web se trabaja con un 50% al inicio y el 50% restante antes de la publicación definitiva. En proyectos a medida el fraccionamiento puede adaptarse a hitos si así se acuerda.',
-      },
-      {
-        question: '¿Hay que pagar todo antes de empezar?',
-        answer:
-          'No. Habitualmente se inicia con el pago inicial (normalmente el 50%) y el resto se abona antes de publicar la versión definitiva.',
-      },
-      {
-        question: '¿Qué formas de pago aceptáis?',
-        answer:
-          'Principalmente transferencia bancaria y, cuando se acuerda, PayPal u otras opciones indicadas en la propuesta.',
+          'Sí. No hay que pagar todo al inicio. En la mayoría de proyectos se paga un 50% para empezar y el 50% restante antes de publicar la web definitiva. También se puede acordar pago único si lo prefieres.',
       },
       {
         question: '¿Hay costes ocultos?',
         answer:
-          'No. Lo incluido y lo excluido queda definido en la propuesta. Si surge un cambio de alcance (nuevas páginas, funcionalidades o rediseños fuera de lo acordado), se presupuesta aparte antes de hacerlo.',
-      },
-      {
-        question: '¿Puedo cancelar el proyecto a mitad?',
-        answer:
-          'Las condiciones de cancelación se recogen en la propuesta y en los términos de contratación. El trabajo ya realizado y el pago inicial se gestionan según lo acordado en esos documentos.',
+          'No. Antes de empezar dejamos por escrito el precio y todo lo que incluye. Si más adelante quieres añadir algo que no estaba previsto, te diremos cuánto cuesta antes de hacerlo.',
       },
     ],
   },
   {
     id: 'proceso',
-    title: 'Proceso, plazos y revisiones',
+    title: 'Proceso y contenidos',
     faqs: [
       {
         question: '¿Cómo es el proceso de trabajo?',
         answer:
-          'Briefing y propuesta → arranque con pago inicial → diseño y desarrollo → revisiones dentro de las rondas incluidas → pago final y publicación. El detalle está en la página de condiciones del proyecto.',
+          'Primero hablamos de lo que necesitas y te enviamos una propuesta. Si encaja, arrancamos con el pago inicial, diseñamos y construimos la web, revisamos contigo los cambios incluidos y, cuando todo está listo y abonado, la publicamos. El detalle está en Condiciones del proyecto.',
       },
       {
         question: '¿Cuánto tarda en estar lista una web?',
         answer:
-          'Depende del alcance y de cuándo recibamos los contenidos. Una web profesional de alcance cerrado suele estar lista en unas 2-3 semanas con la información completa. Proyectos a medida o tiendas online pueden requerir más tiempo, definido en la propuesta.',
+          'Una Web Profesional 360 suele estar lista en 2–3 semanas si nos envías a tiempo la información necesaria. Si los materiales llegan tarde, la fecha prevista también se retrasa. Una Web a Medida o una tienda online puede necesitar más tiempo, y ese plazo se indica en la propuesta.',
       },
       {
         question: '¿Qué necesito entregar para empezar?',
         answer:
-          'Información de tu negocio, textos o ideas de contenido, logo e imágenes si los tienes, y datos de contacto. Si te falta algo, te ayudamos a organizarlo o lo preparamos dentro del alcance acordado.',
+          'La información de tu negocio, los textos o ideas que tengas, fotografías, logo y datos de contacto. Si te falta algo, te ayudamos a ordenarlo con lo que tengas disponible.',
       },
       {
-        question: '¿Quién escribe los textos de la web?',
+        question: '¿Quién prepara los textos?',
         answer:
-          'Puedes aportar tú la información y nosotros la organizamos y redactamos con claridad. Si no tienes tiempo o textos, podemos encargarnos de la redacción dentro de lo acordado en la propuesta.',
+          'Tú nos das la información y los materiales que tengas. Nosotros te ayudamos a ordenarlos y los adaptamos a la web. Si necesitas que redactemos todos los textos desde cero, lo valoramos aparte.',
       },
       {
         question: '¿Cuántas rondas de cambios incluye?',
         answer:
-          'En planes de alcance cerrado (como Web Profesional 360) se incluyen dos rondas de cambios sobre el diseño. En proyectos a medida, el número de revisiones se define en la propuesta.',
-      },
-      {
-        question: '¿Qué pasa si pido cambios fuera del alcance?',
-        answer:
-          'Se valoran y se presupuestan aparte antes de ejecutarlos, para que el precio y el plazo sigan siendo claros.',
-      },
-      {
-        question: '¿Qué ocurre si me retraso al enviar contenidos?',
-        answer:
-          'El calendario se ajusta. Los retrasos en materiales por parte del cliente pueden desplazar la fecha de publicación prevista.',
+          'En Web Profesional 360 se incluyen dos rondas de cambios sobre el diseño. Eso sirve para corregir y afinar lo ya incluido. Si quieres añadir páginas o funciones nuevas, eso se presupuesta aparte. En proyectos a medida, las revisiones se definen en la propuesta.',
       },
     ],
   },
   {
-    id: 'tecnico',
-    title: 'Diseño, móvil y tecnología',
+    id: 'diseno',
+    title: 'Diseño y funcionamiento',
     faqs: [
       {
-        question: '¿La web estará adaptada a móvil?',
+        question: '¿La web se verá bien en el móvil?',
         answer:
-          'Sí. Todas las webs se desarrollan con diseño responsive para móvil, tablet y ordenador, cuidando claridad, velocidad y facilidad de contacto.',
-      },
-      {
-        question: '¿Os encargáis del diseño y del desarrollo?',
-        answer:
-          'Sí. Cubrimos diseño, desarrollo, estructura, experiencia de usuario, rendimiento y publicación. El objetivo es una web que se vea bien y funcione de verdad.',
-      },
-      {
-        question: '¿Trabajáis con WordPress o con código a medida?',
-        answer:
-          'Dependiendo del proyecto. Elegimos la solución más adecuada según necesidades, presupuesto, escalabilidad y facilidad de mantenimiento: webs a medida, WordPress, tiendas online u otras tecnologías si hace falta.',
+          'Sí. Se verá bien en móvil, tablet y ordenador, con una navegación clara y fácil de usar.',
       },
       {
         question: '¿La web será rápida?',
         answer:
-          'Sí. Optimizamos rendimiento, peso de imágenes, estructura y buenas prácticas técnicas para que la web cargue bien y ofrezca una buena experiencia.',
+          'Sí. Cuidamos el peso de las imágenes y la forma en que está construida para que cargue bien y no se haga pesada de usar.',
       },
       {
         question: '¿Puedo editar yo mismo la web?',
         answer:
-          'Depende del plan o del proyecto. En algunas soluciones hay panel de edición para ciertos contenidos; en otras, los cambios se hacen mediante mantenimiento. Lo dejamos claro en la propuesta.',
-      },
-      {
-        question: '¿Puedo ampliar la web más adelante?',
-        answer:
-          'Sí. Se pueden añadir páginas, funcionalidades, reservas, tienda u otras mejoras con un presupuesto adicional según el alcance.',
+          'Depende de la modalidad contratada. En 360 Gestión puedes actualizar ciertos contenidos desde un panel sencillo. En otras opciones, los cambios se hacen a través del mantenimiento. Lo dejamos claro en la propuesta. Más adelante también se pueden ampliar páginas o funciones; te diremos el precio antes de hacerlas.',
       },
     ],
   },
   {
-    id: 'dominio-hosting',
-    title: 'Dominio, hosting y mantenimiento',
+    id: 'dominio',
+    title: 'Dominio y mantenimiento',
     faqs: [
       {
-        question: '¿Puedo usar mi propio dominio?',
+        question: '¿El dominio es mío? ¿Y el alojamiento está incluido?',
         answer:
-          'Sí. El dominio es tuyo. Podemos ayudarte a configurarlo y, si lo deseas, a gestionar renovaciones, pero la titularidad sigue siendo tuya.',
-      },
-      {
-        question: '¿El hosting está incluido?',
-        answer:
-          'En muchos planes el alojamiento está incluido en la publicación y, si contratas mantenimiento, en su gestión continua. En proyectos a medida se indica expresamente en la propuesta.',
-      },
-      {
-        question: '¿Incluye el dominio el precio de la web?',
-        answer:
-          'Depende del plan y de si ya tienes dominio. Si hay que registrar uno nuevo o transferirlo, se indica en la propuesta para que no haya sorpresas.',
+          'El dominio pertenece siempre al cliente. Podemos ayudarte a registrarlo, configurarlo o transferirlo, pero la titularidad es tuya. Si el dominio o el alojamiento están incluidos depende del servicio y de si ya tienes dominio; lo aclaramos en cada propuesta.',
       },
       {
         question: '¿El mantenimiento es obligatorio?',
         answer:
-          'No es obligatorio, pero sí recomendable para seguridad, actualizaciones, copias de seguridad, soporte y pequeños cambios. Sin mantenimiento, la web sigue siendo tuya y puede seguir online.',
+          'No. Es opcional, aunque recomendable para mantener la web segura, actualizada y con soporte cuando haga falta. Sin mantenimiento, la web sigue siendo tuya y puede seguir online.',
       },
       {
         question: '¿Qué incluye el mantenimiento web?',
         answer:
-          'Suele incluir soporte, actualizaciones, revisión técnica, copias de seguridad y un cupo de cambios o mejoras según el plan. El detalle concreto se define en cada plan o propuesta.',
-      },
-      {
-        question: '¿Podéis mantener una web que no habéis creado vosotros?',
-        answer:
-          'Sí, en muchos casos. Primero revisamos el estado técnico y el alcance del soporte posible, y después te proponemos un plan de mantenimiento adecuado.',
+          'Suele incluir actualizaciones de seguridad, copias de seguridad, revisión de que la web siga funcionando, pequeños cambios de textos o imágenes y soporte cuando tengas un problema. El detalle concreto se indica en cada plan o propuesta.',
       },
       {
         question: '¿Qué pasa si cancelo el mantenimiento?',
         answer:
-          'Tu web sigue siendo tuya. Dejas de recibir actualizaciones, backups y minutos de cambios del plan, pero la web no se retira por cancelar el mantenimiento.',
+          'Tu web sigue siendo tuya y no se retira. Dejas de recibir las actualizaciones, las copias de seguridad, el soporte y los cambios incluidos en el plan.',
       },
       {
-        question: '¿Qué ocurre si necesito un cambio urgente?',
+        question: '¿Podéis mantener una web que no habéis creado vosotros?',
         answer:
-          'Con mantenimiento priorizamos las incidencias según el plan. Sin mantenimiento, podemos valorar cambios puntuales con presupuesto aparte.',
+          'Sí, en muchos casos. Primero revisamos cómo está hecha y qué se puede cuidar bien, y después te proponemos un plan de mantenimiento adecuado.',
       },
     ],
   },
   {
-    id: 'seo',
-    title: 'SEO y captación',
+    id: 'google',
+    title: 'Google y posicionamiento',
     faqs: [
       {
-        question: '¿Incluís SEO en la web?',
+        question: '¿La web estará preparada para aparecer en Google?',
         answer:
-          'Incluimos una base SEO inicial: títulos, metadescripciones, jerarquía de contenidos, URLs limpias cuando aplica y una base técnica correcta. El SEO mensual de contenidos o estrategias avanzadas se presupuestan aparte.',
+          'Sí. Entregamos la web con una configuración inicial para que Google pueda entenderla y mostrarla: títulos claros, estructura ordenada y una base técnica correcta. Eso no es lo mismo que un trabajo continuo de posicionamiento.',
       },
       {
-        question: '¿La web saldrá en la primera posición de Google?',
+        question: '¿Garantizáis la primera posición en Google?',
         answer:
-          'Ningún proveedor serio puede garantizar la primera posición. Lo que sí hacemos es dejar la web bien preparada técnicamente y, si contratas SEO continuo, trabajar de forma sostenida para mejorar visibilidad y tráfico cualificado.',
+          'No. Nadie puede garantizar la primera posición. Lo que sí hacemos es dejar la web bien preparada desde el principio.',
       },
       {
-        question: '¿Cuánto tarda en verse el SEO?',
+        question: '¿El posicionamiento continuo está incluido?',
         answer:
-          'El SEO orgánico suele necesitar semanas o meses según competencia, sector y punto de partida. No es publicidad de resultados inmediatos; es una inversión a medio plazo.',
-      },
-      {
-        question: '¿Hacéis Google Ads o solo SEO?',
-        answer:
-          'El foco principal del estudio es diseño, desarrollo y base SEO. Si necesitas publicidad de pago u otras acciones de captación, lo valoramos según el caso o te orientamos sobre la mejor vía.',
-      },
-      {
-        question: '¿La web incluye formularios y WhatsApp?',
-        answer:
-          'Sí, cuando encaja con el proyecto. Dejamos vías claras de contacto (formulario, teléfono, WhatsApp u otras) para que la web ayude a generar consultas reales.',
+          'No. Mejorar posiciones de forma continua, con contenidos y seguimiento mes a mes, es un servicio aparte. Si te interesa, lo valoramos en una propuesta.',
       },
     ],
   },
@@ -292,55 +207,45 @@ export const faqCategories: FaqCategory[] = [
     title: 'Tiendas online',
     faqs: [
       {
-        question: '¿Cuánto tarda una tienda online?',
+        question: '¿Qué incluye una tienda online?',
         answer:
-          'Depende del catálogo, funcionalidades e integraciones. El plazo se define en la propuesta cuando tenemos claro el alcance y los contenidos de producto.',
+          'Una tienda para mostrar tus productos, cobrar online, recibir pedidos y gestionar las ventas desde un panel sencillo. El detalle de productos, envíos y opciones se define en la propuesta según tu negocio. El plazo habitual es de 4 a 6 semanas.',
       },
       {
-        question: '¿Cuántos productos puedo cargar?',
+        question: '¿Cómo cobran los clientes?',
         answer:
-          'Depende de la plataforma y del alcance contratado. Lo importante es definir bien la estructura del catálogo; el volumen concreto se acuerda en la propuesta.',
-      },
-      {
-        question: '¿Qué pasarela de pago usáis?',
-        answer:
-          'Integramos las pasarelas adecuadas al proyecto (por ejemplo Stripe, PayPal u otras según mercado y plataforma). La elección se define en la propuesta.',
+          'Con tarjeta de forma segura, mediante un sistema de pago online. La opción concreta se elige según tu negocio, tu banco y tus clientes, y se indica en la propuesta.',
       },
       {
         question: '¿Me enseñáis a gestionar la tienda?',
         answer:
-          'Sí. Incluimos acompañamiento para que puedas gestionar productos, pedidos y contenidos básicos sin depender de nosotros para el día a día.',
-      },
-      {
-        question: '¿Sirve para WooCommerce, Shopify u otras plataformas?',
-        answer:
-          'Podemos trabajar con distintas soluciones según el caso. Elegimos la plataforma en función de catálogo, operativa, presupuesto y mantenimiento.',
+          'Sí. Incluimos formación para que puedas gestionar productos, pedidos y lo básico del día a día sin depender de nosotros para cada cambio.',
       },
     ],
   },
   {
-    id: 'legal-propiedad',
+    id: 'propiedad',
     title: 'Propiedad y publicación',
     faqs: [
       {
         question: '¿La web es mía cuando termine el proyecto?',
         answer:
-          'Sí. Una vez abonado el proyecto íntegramente, adquieres los derechos de uso de la web entregada según lo indicado en la propuesta y en los términos de contratación.',
+          'El cliente adquiere los derechos de uso del proyecto una vez abonado íntegramente. El código fuente y las metodologías desarrolladas son propiedad de PereiraWeb, según los términos de contratación.',
       },
       {
         question: '¿Podéis mostrar mi proyecto en el portfolio?',
         answer:
-          'Salvo acuerdo en contrario, PereiraWeb puede mostrar el proyecto en su portfolio como muestra de trabajo. Si necesitas confidencialidad, indícalo antes de empezar.',
+          'PereiraWeb se reserva el derecho a mostrar el proyecto en su portfolio. Si necesitas confidencialidad, indícalo antes de empezar.',
       },
       {
         question: '¿Cuándo se publica la web?',
         answer:
-          'Tras la validación de la última revisión incluida y el pago final. Entonces conectamos el dominio (si aplica) y dejamos la web online.',
+          'Cuando hayas validado la última revisión incluida y esté abonado el pago final. Entonces dejamos la web online con tu dominio.',
       },
       {
         question: '¿Hay garantía después de la entrega?',
         answer:
-          'Sí. Se contempla un periodo de garantía para corrección de errores de programación según los términos de contratación. No incluye cambios de diseño o nuevas funcionalidades fuera de lo acordado.',
+          'Sí. Durante el periodo de garantía corregimos gratis errores de programación del trabajo entregado. No incluye cambios de diseño ni funciones nuevas que no estuvieran acordadas.',
       },
       {
         question: '¿Dónde puedo ver las condiciones del proyecto?',

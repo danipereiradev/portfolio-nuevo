@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone, Instagram, MessageCircle } from 'lucide-react';
+import { Mail, Phone, Instagram, MessageCircle } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import {
   trackEmailClick,
@@ -228,13 +228,6 @@ const Footer = () => {
                   >
                     Escríbenos por WhatsApp
                   </a>
-                </div>
-              </li>
-              <li className='flex flex-col items-center md:flex-row md:items-start gap-3 md:justify-start'>
-                <MapPin className='w-5 h-5 text-accent flex-shrink-0' />
-                <div className='text-center md:text-left'>
-                  <p className='font-medium'>Ubicación</p>
-                  <p>Calle Condega 7 | Torrejón de Ardoz | 28850 | Madrid</p>
                 </div>
               </li>
             </ul>

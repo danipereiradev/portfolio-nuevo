@@ -146,6 +146,13 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
                 </a>
 
                 <a
+                  href='/preguntas-frecuentes'
+                  className='relative font-bold text-md uppercase text-black transition-colors duration-200 hover:text-accent after:content-[""] after:absolute after:left-0 after:-bottom-1.5 after:h-[3px] after:w-0 after:bg-accent after:transition-all after:duration-200 hover:after:w-full'
+                >
+                  Preguntas
+                </a>
+
+                <a
                   href='/ia'
                   onClick={() => trackTuWebConIaClick('header_nav')}
                   className='inline-flex items-center justify-center px-3 py-2 rounded-lg bg-accent hover:bg-accent-hover border-2 border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150 text-white text-sm font-bold whitespace-nowrap leading-none'
@@ -242,6 +249,14 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
                 className='block w-full text-left px-4 py-3 font-bold text-md uppercase text-black hover:bg-gray-100 hover:text-accent transition-colors duration-200'
               >
                 {t('nav.contact')}
+              </a>
+
+              <a
+                href='/preguntas-frecuentes'
+                onClick={() => setIsMenuOpen(false)}
+                className='block w-full text-left px-4 py-3 font-bold text-md uppercase text-black hover:bg-gray-100 hover:text-accent transition-colors duration-200'
+              >
+                Preguntas
               </a>
 
               <div className='px-4 py-3'>
