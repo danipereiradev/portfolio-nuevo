@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Star, ExternalLink, PlayCircle } from 'lucide-react';
 import { allTestimonials, type Testimonial } from '../data/testimonials';
+import { trackPlayReviewVideo } from '../utils/analytics';
 import GlowBackdrop from './decor/GlowBackdrop';
 import FloatingThumbsUp from './decor/FloatingThumbsUp';
 
@@ -54,6 +55,7 @@ const Testimonials = ({
   const [currentSlide, setCurrentSlide] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
+  const hasTrackedPlayRef = useRef(false);
 
   const rating = averageRating ?? computeAverage(testimonials);
   const fullStars = Math.floor(rating);
@@ -206,6 +208,14 @@ const Testimonials = ({
                   preload='metadata'
                   playsInline
                   className='w-full aspect-video'
+                  onPlay={() => {
+                    if (hasTrackedPlayRef.current) return;
+                    hasTrackedPlayRef.current = true;
+                    trackPlayReviewVideo({
+                      videoName: videoTestimonial.name,
+                      company: videoTestimonial.company,
+                    });
+                  }}
                 >
                   <source src={videoTestimonial.src} type='video/mp4' />
                   Tu navegador no soporta la reproducción de vídeo.

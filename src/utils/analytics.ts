@@ -460,6 +460,24 @@ export const trackTuWebConIaClick = (locationSection: string) => {
   });
 };
 
+/**
+ * Play en el vídeo de reseña / testimonio (sección valoraciones).
+ * Disparar una vez por reproducción iniciada (el componente deduplica).
+ */
+export const trackPlayReviewVideo = (params: {
+  videoName: string;
+  company?: string;
+}) => {
+  trackEvent('play_review_video', {
+    event_category: 'engagement',
+    event_label: params.videoName,
+    video_name: params.videoName,
+    company: params.company,
+    page_path:
+      typeof window !== 'undefined' ? window.location.pathname : undefined,
+  });
+};
+
 // Genéricos / otros
 
 export const trackButtonClick = (buttonName: string, locationSection: string) => {
