@@ -9,10 +9,7 @@ import {
   trackWhatsAppClick,
   trackGoogleAdsWhatsAppConversion,
 } from '../utils/analytics';
-import {
-  IA_PAGE_WHATSAPP_MESSAGE,
-  buildWhatsAppUrl,
-} from '../config/contact';
+import { IA_PAGE_WHATSAPP_MESSAGE, buildWhatsAppUrl } from '../config/contact';
 
 const IA_WHATSAPP_URL = buildWhatsAppUrl(IA_PAGE_WHATSAPP_MESSAGE);
 const IA_PLAN = 'Web con IA';
@@ -86,15 +83,15 @@ const Ia = () => {
 
         <div className='relative z-10 text-center max-w-4xl mx-auto px-6 py-4'>
           <span className='inline-block bg-accent text-ink-dark text-xs md:text-sm font-bold uppercase tracking-wide px-4 py-1.5 border-2 border-white/80 rotate-[-2deg] mb-6 shadow-[4px_4px_0_0_rgba(255,255,255,0.3)]'>
-            Tu web con IA
+            ¿Vas a crear tu web con IA?
           </span>
           <h1 className='text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-5 leading-tight'>
             «¿Para qué pagar si lo hago en minutos con la IA?»
           </h1>
           <p className='text-base md:text-xl lg:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto'>
-            Buena pregunta. Esta página no va contra la inteligencia artificial.
-            Explica lo que suele pasar cuando se monta una web sin conocimiento
-            técnico… y se descubre que no eran minutos.
+            Buena pregunta. La IA puede generar un primer diseño en minutos.
+            Convertirlo en una web profesional, publicada y preparada para
+            conseguir clientes es otra historia.
           </p>
         </div>
       </section>
@@ -110,9 +107,9 @@ const Ia = () => {
               de diseño, móvil, formularios, dominio, velocidad o publicación.
             </p>
             <p className='text-base md:text-lg text-gray-700 font-medium leading-relaxed mb-8'>
-              En PereiraWeb se revisa lo hecho, se indica qué se puede aprovechar
-              y se ayuda a convertirlo en una web profesional y lista para
-              trabajar.
+              En PereiraWeb se revisa lo hecho, se indica qué se puede
+              aprovechar y se ayuda a convertirlo en una web profesional y lista
+              para trabajar.
             </p>
             <div className='flex flex-col sm:flex-row justify-center gap-4'>
               <Button
@@ -222,12 +219,14 @@ const Ia = () => {
           <div className='max-w-4xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16'>
             <div>
               <h2 className='text-2xl md:text-3xl font-extrabold text-gray-900 mb-6'>
-                Cuándo sí tiene sentido
+                Cuando sí tiene sentido
               </h2>
               <ul className='space-y-4 text-base md:text-lg text-gray-700'>
                 {whenItMakesSense.map((item) => (
                   <li key={item} className='flex gap-3'>
-                    <span className='text-accent font-bold flex-shrink-0'>·</span>
+                    <span className='text-accent font-bold flex-shrink-0'>
+                      ·
+                    </span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -235,12 +234,14 @@ const Ia = () => {
             </div>
             <div>
               <h2 className='text-2xl md:text-3xl font-extrabold text-gray-900 mb-6'>
-                Cuándo suele salir caro
+                Cuando suele salir caro
               </h2>
               <ul className='space-y-4 text-base md:text-lg text-gray-700'>
                 {whenItDoesNot.map((item) => (
                   <li key={item} className='flex gap-3'>
-                    <span className='text-accent font-bold flex-shrink-0'>·</span>
+                    <span className='text-accent font-bold flex-shrink-0'>
+                      ·
+                    </span>
                     <span>{item}</span>
                   </li>
                 ))}
