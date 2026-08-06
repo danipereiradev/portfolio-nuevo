@@ -1,6 +1,6 @@
-// Fuente única de precios y contenido de los packs de la landing
+// Fuente única de precios y contenido de los planes de la landing
 // /web-profesional-360. Cambiar aquí un precio o una característica
-// actualiza automáticamente la comparativa de packs, el desplegable "Ver
+// actualiza automáticamente la comparativa de planes, el desplegable "Ver
 // todo lo incluido" y la sección de mantenimiento, sin tocar el JSX de la
 // página ni escribir el mismo contenido dos veces.
 //
@@ -26,27 +26,24 @@ export const webPacks: WebPack[] = [
     id: 'presencia',
     name: '360 Presencia',
     priceFrom: '1.090 €',
-    priceNote: 'Pago único + IVA',
+    priceNote: 'Pago único o fraccionado + IVA',
     idealFor:
-      'Negocios que necesitan una web profesional y prefieren delegar los cambios en PereiraWeb',
+      'Autónomos, pymes y negocios locales que quieren una web profesional y prefieren que PereiraWeb se ocupe de los cambios',
     recommended: true,
     highlightsCount: 6,
     includes: [
-      'Diseño adaptado a la identidad de tu negocio',
-      'Web responsive (móvil, tablet y escritorio)',
+      'Diseño adaptado a la imagen de tu negocio',
+      'Preparada para móvil, tablet y ordenador',
       'Entre 4 y 6 páginas o secciones principales',
       'Inicio, servicios, sobre el negocio y contacto',
-      'Adaptación de colores, logo, textos e imágenes',
+      'Adaptación de tus textos, imágenes, colores y logo',
       'Formulario de contacto y botón de WhatsApp',
       'Mapa, horarios y datos de contacto',
-      'SEO técnico y SEO local básico',
-      'Metadatos, Open Graph, sitemap y robots.txt',
-      'Datos estructurados Schema.org adecuados a tu sector',
-      'Optimización de imágenes y rendimiento',
-      'Configuración de Analytics y Search Console',
+      'Preparada para aparecer en Google y búsquedas locales',
+      'Estadísticas para conocer las visitas de tu web',
       'Páginas legales básicas con tus datos',
-      'Dos rondas de cambios',
-      'Publicación y conexión de tu dominio',
+      'Dos rondas de cambios incluidas',
+      'Publicación de la web con tu propio dominio',
     ],
     ctaText: 'Solicitar propuesta',
     formPlanName: '360 Presencia',
@@ -55,20 +52,20 @@ export const webPacks: WebPack[] = [
     id: 'gestion-autonoma',
     name: '360 Gestión',
     priceFrom: '1.590 €',
-    priceNote: 'Pago único + IVA',
+    priceNote: 'Pago único o fraccionado + IVA',
     idealFor:
       'Negocios que quieren poder actualizar ellos mismos servicios, equipo, testimonios o artículos',
     recommended: false,
     highlightsCount: 6,
     includes: [
       'Todo lo incluido en 360 Presencia',
-      'Panel de gestión propio, sencillo y en español',
-      'Acceso privado para el cliente',
+      'Panel sencillo en español para actualizar contenidos',
+      'Acceso privado para tu negocio',
       'Edición de servicios, equipo y testimonios',
       'Edición de preguntas frecuentes y artículos',
       'Campos limitados para que no se rompa el diseño',
-      'Configuración completa del panel de gestión',
-      'Integración del panel con tu web',
+      'Configuración completa del panel',
+      'Panel conectado a tu web',
       'Formación inicial de unos 30 minutos',
       'Guía básica de uso para el día a día',
     ],
@@ -100,15 +97,14 @@ export const maintenancePlans: MaintenancePlan[] = [
     annualPriceNote: '/año + IVA',
     annualSavingsNote: 'Ahorra 70 € frente al pago mensual',
     features: [
-      'Alojamiento web gestionado',
-      'Certificado SSL',
-      'Supervisión técnica básica',
-      'Actualizaciones y mantenimiento técnico',
-      'Revisión del formulario',
-      'Copias y control de despliegues',
-      'Soporte técnico',
-      'Gestión básica de dominio y DNS',
-      'Mantenimiento técnico del CMS, cuando el proyecto lo incluya',
+      'Alojamiento de la web gestionado',
+      'Web segura y actualizada',
+      'Revisión básica de que todo funcione bien',
+      'Actualizaciones para mantener la web segura',
+      'Comprobación del formulario de contacto',
+      'Copias de seguridad periódicas',
+      'Soporte técnico cuando tengas un problema',
+      'Ayuda con el dominio y el alojamiento',
       'Hasta 120 minutos mensuales de pequeños cambios',
       'Los minutos no utilizados no se acumulan',
     ],
@@ -116,7 +112,7 @@ export const maintenancePlans: MaintenancePlan[] = [
 ];
 
 export const CUSTOM_MAINTENANCE_NOTE =
-  '¿Necesitas más minutos al mes, mantenimiento del panel de gestión o soporte editorial? Podemos adaptar un mantenimiento a medida según lo que necesite tu proyecto.';
+  '¿Necesitas más minutos al mes, mantenimiento del panel de gestión o ayuda con contenidos? Podemos adaptar un mantenimiento a medida según lo que necesite tu proyecto.';
 
 export const OUT_OF_SCOPE_NOTE =
-  'Nuevas páginas, funcionalidades, rediseños, reservas, tienda online, catálogos, integraciones, redacción de contenidos y SEO mensual se presupuestan aparte.';
+  'Nuevas páginas, funcionalidades, rediseños, reservas, tienda online, catálogos, conexión con otras herramientas, redacción de contenidos y posicionamiento mensual se presupuestan aparte.';

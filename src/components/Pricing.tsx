@@ -13,21 +13,24 @@ const Pricing = () => {
       id: 'web360',
       name: 'Web Profesional 360',
       idealFor:
-        'Autónomos, pymes y negocios locales que quieren precio y proceso claros',
+        'autónomos, pymes y negocios locales que quieren una web profesional con precio y proceso claros',
       description:
-        'Dos packs de alcance definido, con precio claro desde el principio: una web profesional lista para funcionar, sin procesos eternos ni presupuestos ambiguos.',
+        'Una web completa, adaptada a tu negocio y lista para recibir clientes, sin presupuestos ambiguos ni procesos interminables.',
       path: '/web-profesional-360',
-      deliveryTime: '2-3 semanas',
-      cta: 'Solicitar propuesta',
+      deliveryTime: 'Lista en 2–3 semanas',
+      price: '1.090 € + IVA',
+      priceNote: 'Pago único o fraccionado',
+      cta: 'Ver qué incluye',
       features: [
-        'Dos packs de alcance definido, 1.090 € + IVA',
-        'Diseño adaptado a tu negocio, móvil y escritorio',
-        'SEO técnico y SEO local básico',
+        'Diseño adaptado a la imagen de tu negocio',
+        'Preparada para móvil, tablet y ordenador',
+        'Entre 4 y 6 páginas o secciones principales',
+        'Adaptación de tus textos, imágenes, colores y logo',
         'Formulario de contacto y botón de WhatsApp',
-        'Certificado SSL y analítica configurada',
-        'Publicación y conexión de tu dominio',
-        'Mantenimiento opcional 60 €/mes + IVA',
+        'Preparada para aparecer en Google y búsquedas locales',
+        'Publicación de la web con tu propio dominio',
         'Dos rondas de cambios incluidas',
+        'Mantenimiento opcional por 60 €/mes + IVA',
       ],
       recommended: true,
     },
@@ -35,69 +38,72 @@ const Pricing = () => {
       id: 'webpage',
       name: 'Web a Medida',
       idealFor:
-        'Proyectos con funcionalidades, estructura o integraciones específicas',
+        'negocios que necesitan algo más que una web informativa.',
       description:
-        'Para empresas que necesitan un desarrollo con alcance personalizado: funcionalidades especiales, integraciones externas, áreas privadas o arquitectura propia.',
+        'Diseñamos una solución adaptada a tu forma de trabajar cuando necesitas funciones especiales, conexión con otras herramientas o una zona privada para clientes o equipo.',
       path: '/web-a-medida',
-      deliveryTime: 'Según el alcance del proyecto',
-      cta: 'Solicitar propuesta',
+      deliveryTime: 'Plazo y precio según las necesidades del proyecto',
+      cta: 'Saber más',
       features: [
-        'Diseño y arquitectura adaptados al proyecto',
-        'Funcionalidades y flujos a medida',
-        'Integraciones con herramientas externas',
-        'Áreas privadas o paneles internos',
-        'Estructura técnica pensada para escalar',
-        'Formulario, contacto y analítica configurados',
-        'Certificado SSL (https seguro)',
-        'Acompañamiento durante todo el desarrollo',
-        'Rondas de revisión acordadas según el proyecto',
+        'Diseño completamente adaptado a tu negocio',
+        'Funciones especiales desarrolladas para tu proyecto',
+        'Reservas, calculadoras, formularios avanzados o procesos personalizados',
+        'Conexión con programas y herramientas que ya utilizas',
+        'Zonas privadas para clientes, empleados o colaboradores',
+        'Paneles para consultar o gestionar información',
+        'Web segura, rápida y preparada para crecer',
+        'Acompañamiento durante todo el proyecto',
+        'Revisiones acordadas antes de empezar',
       ],
       recommended: false,
     },
     {
       id: 'ecommerce',
       name: 'Tienda online',
-      idealFor: 'Negocios que quieren vender online y emprendedores',
+      idealFor:
+        'negocios y emprendedores que quieren vender productos por internet.',
       description:
-        'Para proyectos que necesitan vender productos o servicios online con una estructura cuidada, escalable y fácil de gestionar.',
+        'Creamos una tienda preparada para mostrar tus productos, cobrar online, recibir pedidos y gestionar las ventas de forma sencilla.',
       path: '/tiendas-online',
-      deliveryTime: '4-6 semanas',
-      cta: 'Solicitar propuesta',
+      deliveryTime: 'Lista en 4–6 semanas',
+      cta: 'Ver qué incluye',
       features: [
-        'Hasta 50 productos cargados',
-        'Pasarela de pago (Stripe/Redsys)',
-        'Gestión de pedidos e inventario',
-        'Sistema de envíos y zonas',
-        'Carrito con cupones descuento',
-        'Diseño responsive profesional',
-        'Panel administración español',
-        'Optimización SEO e-commerce',
-        'Integración redes sociales',
-        'Formación completa incluida',
-        'Hasta 2 revisiones incluidas',
+        'Hasta 50 productos añadidos a la tienda',
+        'Pagos seguros con tarjeta',
+        'Panel sencillo para gestionar productos y pedidos',
+        'Control de existencias para saber qué productos quedan disponibles',
+        'Configuración de gastos y zonas de envío',
+        'Carrito de compra y cupones de descuento',
+        'Diseño adaptado a móvil, tablet y ordenador',
+        'Preparada para aparecer en Google',
+        'Enlaces y conexión con tus redes sociales',
+        'Formación para aprender a gestionar la tienda',
+        'Dos rondas de cambios incluidas',
       ],
       recommended: false,
     },
     {
       id: 'maintenance',
       name: 'Mantenimiento web',
-      idealFor: 'Webs ya publicadas que necesitan soporte continuo',
+      idealFor:
+        'negocios que ya tienen una web y quieren mantenerla actualizada, segura y funcionando correctamente.',
       description:
-        'Para webs ya publicadas que necesitan soporte, pequeños cambios, revisión técnica, mejoras de contenido o acompañamiento mensual.',
+        'Nos ocupamos del cuidado técnico de tu web y de pequeños cambios mensuales para que no tengas que preocuparte por errores, actualizaciones o problemas de seguridad.',
       path: '/mantenimiento-web',
-      deliveryTime: 'Servicio mensual',
-      cta: 'Solicitar propuesta',
+      deliveryLabel: 'Servicio',
+      deliveryTime: 'Atención y mantenimiento mensual',
+      cta: 'Ver planes de mantenimiento',
       features: [
-        'Modificaciones incluidas cada mes',
-        'Actualizaciones de seguridad mensuales',
-        'Backups automáticos semanales',
-        'Monitoreo uptime 24/7',
-        'Soporte técnico prioritario',
-        'Optimización de rendimiento',
-        'Protección contra malware',
-        'Renovación certificado SSL',
-        'Informes mensuales de actividad',
-        'Gestión de dominio y hosting',
+        'Pequeños cambios en textos, imágenes y contenidos',
+        'Actualizaciones para mantener la web segura',
+        'Copias de seguridad periódicas',
+        'Revisión de que la web siga online y funcionando',
+        'Comprobación del formulario de contacto',
+        'Mejoras básicas para que cargue correctamente',
+        'Protección frente a amenazas y archivos maliciosos',
+        'Soporte técnico cuando tengas un problema',
+        'Ayuda con el dominio y el alojamiento de la web',
+        'Resumen mensual de las tareas realizadas',
       ],
       recommended: false,
     },
@@ -155,11 +161,42 @@ const Pricing = () => {
                 >
                   {plan.description}
                 </p>
-                <span
-                  className={`text-sm font-medium ${plan.recommended ? 'text-white/50' : 'text-gray-500'}`}
-                >
-                  Entrega: {plan.deliveryTime}
-                </span>
+                {'price' in plan && plan.price ? (
+                  <div className='space-y-1'>
+                    <p
+                      className={`text-3xl md:text-4xl font-extrabold tracking-tight ${
+                        plan.recommended ? 'text-accent' : 'text-gray-900'
+                      }`}
+                    >
+                      {plan.price}
+                    </p>
+                    {'priceNote' in plan && plan.priceNote ? (
+                      <p
+                        className={`text-sm font-semibold ${
+                          plan.recommended ? 'text-white/80' : 'text-gray-700'
+                        }`}
+                      >
+                        {plan.priceNote}
+                      </p>
+                    ) : null}
+                    <p
+                      className={`text-sm font-medium ${
+                        plan.recommended ? 'text-white/50' : 'text-gray-500'
+                      }`}
+                    >
+                      {plan.deliveryTime}
+                    </p>
+                  </div>
+                ) : (
+                  <span
+                    className={`text-sm font-medium ${plan.recommended ? 'text-white/50' : 'text-gray-500'}`}
+                  >
+                    {'deliveryLabel' in plan && plan.deliveryLabel
+                      ? plan.deliveryLabel
+                      : 'Entrega'}
+                    : {plan.deliveryTime}
+                  </span>
+                )}
               </div>
 
               <ul className='space-y-3 mb-8 flex-grow'>

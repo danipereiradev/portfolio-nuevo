@@ -17,7 +17,7 @@ const processSteps = [
     number: '1',
     title: 'Nos cuentas qué necesitas',
     description:
-      'Analizamos tu negocio, tus objetivos, tus referencias y las necesidades reales del proyecto.',
+      'Nos reunimos presencialmente o por videollamada sin compromiso, analizamos tu negocio y tus objetivos y las necesidades del proyecto.',
   },
   {
     number: '2',

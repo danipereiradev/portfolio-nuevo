@@ -48,7 +48,7 @@ export const faqCategories: FaqCategory[] = [
   },
   {
     id: 'servicios',
-    title: 'Servicios y packs',
+    title: 'Servicios y planes',
     faqs: [
       {
         question: '¿Qué tipo de webs desarrolláis?',
@@ -63,7 +63,7 @@ export const faqCategories: FaqCategory[] = [
       {
         question: '¿Qué diferencia hay entre Web Profesional 360 y Web a Medida?',
         answer:
-          'Web Profesional 360 es un pack de alcance definido, con precio desde una cifra clara y proceso más ágil. Web a Medida es para proyectos con funcionalidades, estructura o integraciones específicas, con presupuesto y arquitectura adaptados a tu caso.',
+          'Web Profesional 360 es un plan con precio y proceso claros. Web a Medida es para negocios que necesitan funciones especiales, conexión con otras herramientas o zonas privadas, con presupuesto según el proyecto.',
       },
       {
         question: '¿Qué diferencia hay entre una web profesional y una tienda online?',
@@ -160,7 +160,7 @@ export const faqCategories: FaqCategory[] = [
       {
         question: '¿Cuántas rondas de cambios incluye?',
         answer:
-          'En packs de alcance cerrado (como Web Profesional 360) se incluyen dos rondas de cambios sobre el diseño. En proyectos a medida, el número de revisiones se define en la propuesta.',
+          'En planes de alcance cerrado (como Web Profesional 360) se incluyen dos rondas de cambios sobre el diseño. En proyectos a medida, el número de revisiones se define en la propuesta.',
       },
       {
         question: '¿Qué pasa si pido cambios fuera del alcance?',
@@ -201,7 +201,7 @@ export const faqCategories: FaqCategory[] = [
       {
         question: '¿Puedo editar yo mismo la web?',
         answer:
-          'Depende del pack o del proyecto. En algunas soluciones hay panel de edición para ciertos contenidos; en otras, los cambios se hacen mediante mantenimiento. Lo dejamos claro en la propuesta.',
+          'Depende del plan o del proyecto. En algunas soluciones hay panel de edición para ciertos contenidos; en otras, los cambios se hacen mediante mantenimiento. Lo dejamos claro en la propuesta.',
       },
       {
         question: '¿Puedo ampliar la web más adelante?',
@@ -222,12 +222,12 @@ export const faqCategories: FaqCategory[] = [
       {
         question: '¿El hosting está incluido?',
         answer:
-          'En muchos packs el alojamiento está incluido en la publicación y, si contratas mantenimiento, en su gestión continua. En proyectos a medida se indica expresamente en la propuesta.',
+          'En muchos planes el alojamiento está incluido en la publicación y, si contratas mantenimiento, en su gestión continua. En proyectos a medida se indica expresamente en la propuesta.',
       },
       {
         question: '¿Incluye el dominio el precio de la web?',
         answer:
-          'Depende del pack y de si ya tienes dominio. Si hay que registrar uno nuevo o transferirlo, se indica en la propuesta para que no haya sorpresas.',
+          'Depende del plan y de si ya tienes dominio. Si hay que registrar uno nuevo o transferirlo, se indica en la propuesta para que no haya sorpresas.',
       },
       {
         question: '¿El mantenimiento es obligatorio?',

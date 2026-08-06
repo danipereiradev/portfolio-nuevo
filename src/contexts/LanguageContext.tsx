@@ -19,18 +19,17 @@ const translations = {
   'nav.contact': 'Contacto',
 
   // Hero
-  'hero.title': 'Diseño y desarrollo web para empresas.',
+  'hero.title': 'Diseño y desarrollo web con sentido.',
   'hero.subtitle':
-    'Creamos páginas web rápidas, claras y preparadas para transmitir confianza y captar nuevos clientes. Trabajamos con empresas de toda España.',
-  'hero.trustline':
-    'Trato directo · Presupuesto cerrado antes de empezar',
+    'Creamos páginas web rápidas, claras y sin plantillas. Trabajamos con todo tipo de empresas y autónomos.',
+  'hero.trustline': 'Presupuesto cerrado antes de empezar',
   'hero.cta.whatsapp': 'Escríbenos por WhatsApp',
   'hero.cta.pricing': 'Solicitar propuesta',
   'hero.cta.portfolio': 'Ver trabajos',
 
   // Services
   'services.title':
-    'Servicios web para negocios que necesitan una presencia online profesional',
+    'Llevamos más de 12 años diseñando y creando páginas web que funcionan',
   'services.description':
     'Diseñamos, desarrollamos y mantenemos webs pensadas para transmitir confianza, explicar mejor lo que haces y facilitar que tus clientes contacten o compren.',
   'services.corporate.title': 'Web a Medida',
@@ -55,7 +54,7 @@ const translations = {
   // Portfolio
   'portfolio.title': 'Últimos trabajos en 2026',
   'portfolio.description':
-    'Una selección de proyectos publicados: páginas web y tiendas online diseñadas y desarrolladas para negocios reales.',
+    'Contamos con más de 200 webs en nuestro portfolio, aquí tienes una selección de proyectos publicados para empresas reales en los últimos 3 meses.',
   'portfolio.upcoming.title': 'Próximamente',
   'portfolio.upcoming.description':
     'Proyectos que estamos terminando y publicaremos en breve.',

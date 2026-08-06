@@ -78,7 +78,7 @@ const TiendasOnline = () => {
       text: 'Has probado plantillas de tienda lentas, difíciles de gestionar o poco profesionales para tus clientes.',
     },
     {
-      text: 'No tienes claro qué pasarela de pago, gestión de stock o sistema de envíos necesitas para tu negocio.',
+      text: 'No tienes claro cómo cobrar online, controlar existencias o configurar los envíos de tu negocio.',
     },
     {
       text: 'Los presupuestos que recibes son muy distintos entre sí y no sabes qué incluye realmente cada uno.',
@@ -113,57 +113,57 @@ const TiendasOnline = () => {
   ];
 
   const included = [
-    'Hasta 50 productos cargados',
-    'Pasarela de pago (Stripe/Redsys)',
-    'Gestión de pedidos e inventario',
-    'Sistema de envíos y zonas',
-    'Carrito con cupones descuento',
-    'Diseño responsive profesional',
-    'Panel administración español',
-    'Optimización SEO e-commerce',
-    'Integración redes sociales',
-    'Formación completa incluida',
-    'Hasta 2 revisiones incluidas',
+    'Hasta 50 productos añadidos a la tienda',
+    'Pagos seguros con tarjeta',
+    'Panel sencillo para gestionar productos y pedidos',
+    'Control de existencias para saber qué productos quedan disponibles',
+    'Configuración de gastos y zonas de envío',
+    'Carrito de compra y cupones de descuento',
+    'Diseño adaptado a móvil, tablet y ordenador',
+    'Preparada para aparecer en Google',
+    'Enlaces y conexión con tus redes sociales',
+    'Formación para aprender a gestionar la tienda',
+    'Dos rondas de cambios incluidas',
   ];
 
   const features = [
     {
-      title: 'Diseño de Tienda Adaptado a tu Marca',
+      title: 'Diseño adaptado a tu marca',
       description:
         'Tu catálogo refleja la identidad de tu negocio, con una navegación clara y cuidada.',
     },
     {
-      title: 'Fichas de Producto Completas',
+      title: 'Fichas de producto claras',
       description:
-        'Imágenes, variantes, precios y descripciones claras para que el cliente decida con confianza.',
+        'Imágenes, variantes, precios y descripciones para que el cliente decida con confianza.',
     },
     {
-      title: 'Carrito y Checkout Optimizado',
+      title: 'Compra sencilla',
       description:
-        'Un proceso de compra sencillo, pensado para reducir abandonos en el pago.',
+        'Un proceso de compra fácil, pensado para que el cliente complete el pedido sin fricción.',
     },
     {
-      title: 'Pasarela de Pago Segura',
+      title: 'Pagos seguros con tarjeta',
       description:
-        'Cobra con tarjeta, Bizum u otros métodos a través de Stripe, Redsys u otras pasarelas.',
+        'Tus clientes pueden pagar online con tarjeta de forma segura.',
     },
     {
-      title: 'Gestión de Pedidos e Inventario',
+      title: 'Gestión de productos y pedidos',
       description:
-        'Controla stock, pedidos y envíos desde un panel de administración en español.',
+        'Controla productos, existencias, pedidos y envíos desde un panel sencillo.',
     },
     {
-      title: 'Diseño Responsive',
+      title: 'Preparada para móvil',
       description:
-        'Tu tienda se ve y funciona perfectamente en móvil, donde compran la mayoría de tus clientes.',
+        'Tu tienda se ve y funciona bien en móvil, tablet y ordenador.',
     },
     {
-      title: 'Base SEO para Categorías y Productos',
+      title: 'Preparada para Google',
       description:
-        'Estructura preparada para que Google entienda y posicione tu catálogo desde el inicio.',
+        'Lista para que Google entienda tu catálogo y tus productos desde el inicio.',
     },
     {
-      title: 'Formación de Uso y Gestión',
+      title: 'Formación incluida',
       description:
         'Te enseñamos a gestionar productos, pedidos y contenidos sin depender de nosotros.',
     },
@@ -173,7 +173,7 @@ const TiendasOnline = () => {
     {
       question: '¿Cuánto tarda una tienda online?',
       answer:
-        'Normalmente entre 4 y 6 semanas, dependiendo del catálogo, las funcionalidades y las pasarelas de pago necesarias.',
+        'Normalmente entre 4 y 6 semanas, dependiendo del catálogo y de lo que necesite tu tienda.',
     },
     {
       question: '¿Podemos pagar en varias cuotas?',
@@ -191,9 +191,9 @@ const TiendasOnline = () => {
         'La propuesta base incluye hasta 50 productos. Si tu catálogo es mayor, lo ajustamos en la propuesta según tu caso.',
     },
     {
-      question: '¿Qué pasarela de pago usáis?',
+      question: '¿Cómo cobran los clientes?',
       answer:
-        'Normalmente Stripe o Redsys, aunque valoramos otras opciones según tu negocio, tu banco y tus clientes.',
+        'Con tarjeta de forma segura. Valoramos la mejor opción según tu negocio, tu banco y tus clientes.',
     },
     {
       question: '¿Trabajáis solo en Madrid?',
@@ -212,11 +212,11 @@ const TiendasOnline = () => {
       {/* 1. Hero de posicionamiento, sin precio como primer impacto */}
       <SEOLandingHero
         title='Tiendas online preparadas para vender'
-        subtitle='Una tienda online clara, cuidada y preparada para vender productos o servicios sin complicar la experiencia de compra.'
-        description='Creamos tiendas online y catálogos digitales pensados para que el cliente pueda navegar, entender el producto y comprar con facilidad.'
-        trustLine='Presupuesto cerrado antes de empezar · Proyectos en toda España'
-        ctaText='Solicitar propuesta'
-        onCTAClick={() => handleWhatsApp('LandingTiendaHero')}
+        subtitle='Ideal para negocios y emprendedores que quieren vender productos por internet.'
+        description='Creamos una tienda preparada para mostrar tus productos, cobrar online, recibir pedidos y gestionar las ventas de forma sencilla.'
+        trustLine='Lista en 4–6 semanas · Presupuesto cerrado antes de empezar'
+        ctaText='Ver qué incluye'
+        onCTAClick={() => scrollToSection('precios')}
         secondaryCTAText='Ver trabajos'
         secondaryCTAAction={() => scrollToSection('portfolio')}
         secondaryCTAIcon='chevron-down'
@@ -249,7 +249,8 @@ const TiendasOnline = () => {
             </span>
 
             <p className='text-xs font-semibold text-accent uppercase tracking-wide mb-3 mt-4 text-center'>
-              Ideal para: Negocios que quieren vender online y emprendedores
+              Ideal para: negocios y emprendedores que quieren vender productos
+              por internet
             </p>
 
             <div className='flex flex-col items-center gap-1 mb-6 text-center'>
@@ -260,10 +261,10 @@ const TiendasOnline = () => {
                 Cerrado antes de empezar, sin sorpresas.
               </span>
               <span className='text-sm text-gray-500 mt-1'>
-                Pago único, fraccionado o mensual según el proyecto.
+                Pago único o fraccionado
               </span>
               <span className='text-sm text-gray-500'>
-                Entrega: 4-6 semanas
+                Lista en 4–6 semanas
               </span>
             </div>
 

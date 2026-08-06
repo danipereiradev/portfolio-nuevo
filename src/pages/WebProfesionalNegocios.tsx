@@ -70,7 +70,7 @@ const WebProfesionalNegocios = () => {
     url: `${SITE_URL}/web-profesional-360/`,
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
-      name: 'Packs de web profesional',
+      name: 'Planes de web profesional',
       itemListElement: webPacks.map((pack) => ({
         '@type': 'Offer',
         name: pack.name,
@@ -199,19 +199,19 @@ const WebProfesionalNegocios = () => {
 
   const genericFeatures = [
     {
-      title: 'Móvil y Escritorio',
+      title: 'Móvil, tablet y ordenador',
       description:
         'Tu web se adapta y se ve bien en cualquier dispositivo, donde sea que te busquen.',
     },
     {
-      title: 'Rapidez',
+      title: 'Carga rápida',
       description:
-        'Páginas ligeras y optimizadas para que carguen rápido y no pierdas visitas por ello.',
+        'Páginas ligeras para que carguen rápido y no pierdas visitas por ello.',
     },
     {
-      title: 'SEO Local',
+      title: 'Preparada para Google',
       description:
-        'Estructura preparada para que Google entienda tu negocio y tu zona de actuación.',
+        'Lista para aparecer en Google y en búsquedas locales de tu zona.',
     },
     {
       title: 'Formulario y WhatsApp',
@@ -219,27 +219,27 @@ const WebProfesionalNegocios = () => {
         'Dos vías de contacto siempre visibles para que el cliente decida cómo escribirte.',
     },
     {
-      title: 'Seguridad y SSL',
+      title: 'Web segura',
       description:
-        'Certificado SSL activo desde el primer día: conexión segura y confianza para el visitante.',
+        'Conexión segura desde el primer día, para que tus visitantes naveguen con confianza.',
     },
     {
-      title: 'Analítica',
+      title: 'Estadísticas de visitas',
       description:
-        'Analytics configurado desde el inicio para que sepas cuántas visitas recibes y de dónde vienen.',
+        'Configurada para que puedas conocer las visitas de tu web y de dónde llegan.',
     },
     {
-      title: 'Accesibilidad Básica',
+      title: 'Fácil de usar',
       description:
         'Contraste, tamaños de texto y navegación pensados para que cualquier visitante pueda usarla bien.',
     },
     {
-      title: 'Dominio Conectado',
+      title: 'Tu propio dominio',
       description:
-        'Tu dominio propio conectado y funcionando, sin subdominios gratuitos ni marcas de terceros.',
+        'Publicamos la web con tu dominio, sin direcciones gratuitas ni marcas de terceros.',
     },
     {
-      title: 'Publicación Completa',
+      title: 'Publicación completa',
       description:
         'Nos encargamos de dejar la web publicada y accesible, no solo diseñada.',
     },
@@ -296,9 +296,9 @@ const WebProfesionalNegocios = () => {
         'Sí. El dominio es siempre tuyo. Podemos gestionar su configuración y renovación si lo prefieres, pero la titularidad es tuya en todo momento.',
     },
     {
-      question: '¿El hosting está incluido?',
+      question: '¿El alojamiento está incluido?',
       answer:
-        'Sí. El alojamiento web está incluido en el servicio, tanto en la publicación inicial como, si contratas mantenimiento, en su gestión y renovación continuas.',
+        'Sí. El alojamiento de la web está incluido en el servicio, tanto en la publicación inicial como, si contratas mantenimiento, en su gestión continua.',
     },
     {
       question: '¿Quién escribe los textos?',
@@ -311,7 +311,7 @@ const WebProfesionalNegocios = () => {
         'Con 360 Presencia, los cambios los realiza PereiraWeb mediante el servicio de mantenimiento. Con 360 Gestión tienes un panel propio para editar ciertos contenidos tú mismo.',
     },
     {
-      question: '¿Qué diferencia hay entre los dos packs?',
+      question: '¿Qué diferencia hay entre los dos planes?',
       answer:
         '360 Presencia incluye una web completa que nosotros mantenemos. 360 Gestión añade un panel sencillo para que puedas actualizar servicios, equipo, testimonios o artículos sin depender de nosotros para esos cambios.',
     },
@@ -326,9 +326,9 @@ const WebProfesionalNegocios = () => {
         'Tu web sigue siendo tuya. Dejas de recibir las actualizaciones, copias de seguridad y minutos de cambios incluidos en el plan, pero la web no se retira ni deja de funcionar por cancelar el mantenimiento.',
     },
     {
-      question: '¿Incluye posicionamiento SEO?',
+      question: '¿Incluye posicionamiento en Google?',
       answer:
-        'Incluye SEO técnico y SEO local básico para que tu web parta bien configurada. El posicionamiento SEO mensual de contenidos es un servicio distinto que se presupuesta aparte.',
+        'La web se entrega preparada para aparecer en Google y en búsquedas locales. El trabajo mensual de contenidos para posicionar más a fondo es un servicio aparte.',
     },
     {
       question: '¿Se pueden añadir reservas o tienda online?',
@@ -352,13 +352,13 @@ const WebProfesionalNegocios = () => {
       {/* 1. Hero */}
       <SEOLandingHero
         title='Tu web profesional, lista para representar bien a tu negocio'
-        subtitle='Una solución completa para empresas y autónomos que necesitan una web clara, rápida y preparada para generar contactos.'
-        description='Dos packs de alcance definido, sin procesos eternos ni presupuestos ambiguos, pensados para negocios que necesitan estar online y funcionando.'
-        trustLine='Diseño personalizado, alcance definido y acompañamiento directo.'
-        ctaText='Solicitar propuesta'
-        onCTAClick={() => handleWhatsApp('LandingNegociosHero')}
-        secondaryCTAText='Ver planes 360'
-        secondaryCTAAction={() => scrollToSection('packs')}
+        subtitle='Una web completa para autónomos, pymes y negocios locales que quieren precio y proceso claros.'
+        description='Adaptada a tu negocio y lista para recibir clientes, sin presupuestos ambiguos ni procesos interminables. Desde 1.090 € + IVA.'
+        trustLine='Lista en 2–3 semanas · Pago único o fraccionado · Acompañamiento directo'
+        ctaText='Ver qué incluye'
+        onCTAClick={() => scrollToSection('packs')}
+        secondaryCTAText='Solicitar propuesta'
+        secondaryCTAAction={() => handleWhatsApp('LandingNegociosHero')}
         secondaryCTAIcon='chevron-down'
       />
 
@@ -374,11 +374,12 @@ const WebProfesionalNegocios = () => {
         <div className='container mx-auto px-6'>
           <div className='text-center mb-12 max-w-2xl mx-auto'>
             <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4'>
-              Dos packs, un precio claro desde el principio
+              Web Profesional 360: elige cómo quieres gestionarla
             </h2>
             <p className='text-base md:text-lg text-gray-600'>
-              Elige el pack que encaje con tu negocio. Si no lo tienes claro, te
-              ayudamos a decidir sin compromiso.
+              Misma web profesional desde 1.090 € + IVA. La diferencia es si
+              prefieres que gestionemos los cambios nosotros o hacerlo tú con un
+              panel sencillo.
             </p>
           </div>
 
@@ -556,16 +557,16 @@ const WebProfesionalNegocios = () => {
       {/* 4. Problema y solución */}
       <SEOProblem
         title='Muchos negocios locales están perdiendo clientes por su web'
-        subtitle='Antes de hablar de packs, esto es lo que solemos ver en negocios como el tuyo.'
+        subtitle='Antes de hablar de opciones, esto es lo que solemos ver en negocios como el tuyo.'
         problems={problems}
       />
       <div className='bg-white pt-6 pb-16 md:pt-8 md:pb-20'>
         <div className='container mx-auto px-6'>
           <div className='max-w-3xl mx-auto text-center bg-gray-50 border-2 border-ink-dark rounded-xl p-6 md:p-8 shadow-[5px_5px_0_0_#1a1a1a]'>
             <p className='text-base md:text-lg text-gray-800 font-medium leading-relaxed'>
-              La solución es una web profesional de alcance definido, adaptada a
-              tu negocio, con un precio claro desde el principio y sin procesos
-              eternos.
+              La solución es una web profesional completa, adaptada a tu
+              negocio, con precio y proceso claros desde el principio y lista
+              para recibir clientes.
             </p>
           </div>
         </div>
@@ -587,7 +588,7 @@ const WebProfesionalNegocios = () => {
       <div id='incluye' className='scroll-mt-24'>
         <SEOFeatures
           title='Qué Incluye Cualquier Web de PereiraWeb'
-          subtitle='Independientemente del pack que elijas, esto viene siempre incluido'
+          subtitle='Independientemente del plan que elijas, esto viene siempre incluido'
           features={genericFeatures}
         />
       </div>
@@ -653,7 +654,7 @@ const WebProfesionalNegocios = () => {
       {/* 9. CTA final */}
       <SEOCTAFinal
         title='Cuéntanos qué necesita tu negocio'
-        subtitle='Te indicaremos qué pack encaja mejor y recibirás una propuesta clara, sin compromiso.'
+        subtitle='Te indicaremos qué plan encaja mejor y recibirás una propuesta clara, sin compromiso.'
         buttonText='Abrir formulario'
         onButtonClick={handleOpenFormGeneric}
         secondaryButtonText='Hablar por WhatsApp'

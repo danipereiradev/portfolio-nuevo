@@ -27,7 +27,7 @@ const processSteps = [
     number: '4',
     title: 'Revisiones',
     description:
-      'Revisas el resultado y aplicamos los ajustes dentro de las rondas de cambios incluidas en tu pack o en lo acordado en la propuesta.',
+      'Revisas el resultado y aplicamos los ajustes dentro de las rondas de cambios incluidas en tu plan o en lo acordado en la propuesta.',
   },
   {
     number: '5',
@@ -115,7 +115,7 @@ const CondicionesDelProyecto = () => {
               <li className='flex gap-3'>
                 <span className='text-accent font-bold flex-shrink-0'>·</span>
                 <span>
-                  En packs de alcance cerrado (como Web Profesional 360 o Web
+                  En planes de alcance cerrado (como Web Profesional 360 o Web
                   Start) se incluyen{' '}
                   <strong className='text-gray-900'>
                     dos rondas de cambios

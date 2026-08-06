@@ -28,7 +28,7 @@ const realities = [
   },
   {
     title: 'Diseño genérico y poco creíble.',
-    text: 'Muchas webs hechas solo con prompts se parecen entre sí: tipografías tipicas, bloques genéricos, textos vacíos. Para un negocio que necesita transmitir confianza, eso se nota. Y corregirlo “a base de más IA” suele alargar el proceso en vez de resolverlo.',
+    text: 'Muchas webs hechas solo con prompts se parecen entre sí: tipografías típicas, bloques genéricos, textos vacíos. Para un negocio que necesita transmitir confianza, eso se nota. Y corregirlo “a base de más IA” suele alargar el proceso en vez de resolverlo.',
   },
   {
     title: 'SEO, velocidad, seguridad y legal no salen solos.',
@@ -271,7 +271,7 @@ const Ia = () => {
 
       <SEOCTAFinal
         title='Si se busca una web hecha, no solo generada'
-        subtitle='Cuéntanos el caso. Desde PereiraWeb se indica con claridad si encaja un pack, un proyecto a medida… o si aún conviene experimentar por cuenta propia.'
+        subtitle='Cuéntanos el caso. Desde PereiraWeb se indica con claridad si encaja un plan, un proyecto a medida… o si aún conviene experimentar por cuenta propia.'
         buttonText='Empecé mi web con IA y necesito ayuda para terminarla'
         onButtonClick={openHelpForm}
         secondaryButtonText='Hablar por WhatsApp'

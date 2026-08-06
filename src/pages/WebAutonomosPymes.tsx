@@ -103,9 +103,9 @@ const WebAutonomosPymes = () => {
     },
     {
       icon: Plug,
-      title: 'Integraciones Externas',
+      title: 'Conexión con tus herramientas',
       description:
-        'Conexión con CRM, ERP, pasarelas de pago u otras herramientas que ya usa tu negocio.',
+        'Conexión con los programas y herramientas que ya usa tu negocio.',
     },
     {
       icon: Lock,
@@ -139,64 +139,64 @@ const WebAutonomosPymes = () => {
     },
     {
       icon: Boxes,
-      title: 'Arquitectura Específica',
+      title: 'Solución a tu medida',
       description:
-        'Proyectos que necesitan una arquitectura técnica propia, pensada para escalar con tu negocio.',
+        'Proyectos que necesitan una web pensada para tu forma de trabajar y preparada para crecer contigo.',
     },
   ];
 
   const included = [
-    'Diseño y arquitectura adaptados al proyecto',
-    'Funcionalidades y flujos a medida',
-    'Integraciones con herramientas externas si el proyecto lo requiere',
-    'Áreas privadas o paneles internos si el proyecto lo requiere',
-    'Estructura técnica pensada para escalar',
-    'Formulario, contacto y analítica configurados',
-    'Certificado SSL (https seguro) y publicación incluida',
-    'Acompañamiento durante todo el desarrollo',
-    'Rondas de revisión acordadas según el proyecto',
+    'Diseño completamente adaptado a tu negocio',
+    'Funciones especiales desarrolladas para tu proyecto',
+    'Reservas, calculadoras, formularios avanzados o procesos personalizados',
+    'Conexión con programas y herramientas que ya utilizas',
+    'Zonas privadas para clientes, empleados o colaboradores',
+    'Paneles para consultar o gestionar información',
+    'Web segura, rápida y preparada para crecer',
+    'Acompañamiento durante todo el proyecto',
+    'Revisiones acordadas antes de empezar',
   ];
 
   const features = [
     {
-      title: 'Diseño y Arquitectura a Medida',
+      title: 'Diseño completamente adaptado',
       description:
-        'La estructura de la web se diseña para tu proyecto concreto, no se adapta desde una plantilla cerrada.',
+        'La web se diseña para tu proyecto concreto, no se adapta desde una plantilla cerrada.',
     },
     {
-      title: 'Funcionalidades Específicas',
+      title: 'Funciones especiales',
       description:
-        'Desarrollamos exactamente lo que tu proyecto necesita: reservas, buscadores, paneles, automatizaciones u otras funciones.',
+        'Desarrollamos lo que tu proyecto necesita: reservas, calculadoras, formularios avanzados u otros procesos personalizados.',
     },
     {
-      title: 'Integraciones Externas',
+      title: 'Conexión con tus herramientas',
       description:
-        'Conectamos tu web con las herramientas que ya usas, de forma segura y mantenible.',
+        'Conectamos tu web con los programas y herramientas que ya utilizas.',
     },
     {
-      title: 'Áreas Privadas y Paneles Internos',
+      title: 'Zonas privadas y paneles',
       description:
-        'Si el proyecto lo necesita, añadimos zonas de acceso restringido o paneles de gestión propios.',
+        'Si el proyecto lo necesita, añadimos zonas privadas para clientes o equipo y paneles para gestionar información.',
     },
     {
-      title: 'Certificado SSL Incluido',
+      title: 'Web segura',
       description:
-        'Navegación segura (https) que transmite confianza a tus clientes y mejora tu SEO.',
+        'Navegación segura que transmite confianza a tus clientes desde el primer día.',
     },
     {
-      title: 'Analítica Configurada',
+      title: 'Lista para crecer',
       description:
-        'Mide tus visitas y resultados desde el primer momento para tomar mejores decisiones.',
+        'Pensada para poder ampliar el proyecto más adelante sin empezar de cero.',
     },
     {
-      title: 'Acompañamiento Durante el Desarrollo',
+      title: 'Acompañamiento durante el proyecto',
       description:
-        'Trato directo mientras se construye el proyecto, con revisiones acordadas según su alcance.',
+        'Trato directo mientras se construye, con revisiones acordadas antes de empezar.',
     },
     {
-      title: 'Pensado para Escalar',
+      title: 'Publicación incluida',
       description:
-        'La base técnica se plantea para poder ampliar el proyecto más adelante sin rehacerlo desde cero.',
+        'Dejamos la web online y te explicamos de forma sencilla cómo usarla.',
     },
   ];
 
@@ -217,7 +217,7 @@ const WebAutonomosPymes = () => {
       number: '3',
       title: 'Diseñamos y desarrollamos',
       description:
-        'Trabajamos la arquitectura, el diseño y las funcionalidades específicas de tu proyecto.',
+        'Trabajamos el diseño y las funciones especiales que necesita tu proyecto.',
     },
     {
       number: '4',
@@ -231,7 +231,7 @@ const WebAutonomosPymes = () => {
     {
       question: '¿En qué se diferencia esto de Web Profesional 360?',
       answer:
-        'Web Profesional 360 es una web de alcance definido, con precio desde una cifra clara y proceso más rápido. Web a Medida es para proyectos con funcionalidades, estructura o integraciones específicas, con presupuesto y arquitectura adaptados a tu caso.',
+        'Web Profesional 360 es una web con precio y proceso claros, ideal cuando necesitas una presencia profesional estándar. Web a Medida es para negocios que necesitan funciones especiales, conexión con otras herramientas o zonas privadas, con presupuesto según el proyecto.',
     },
     {
       question: '¿Cuánto tarda un proyecto a medida?',
@@ -254,18 +254,18 @@ const WebAutonomosPymes = () => {
         'PereiraWeb tiene sede en Galicia/Madrid, pero trabajamos con clientes de toda España de forma online.',
     },
     {
-      question: '¿La web será responsive?',
-      answer: 'Sí, estará adaptada a móvil, tablet y escritorio.',
+      question: '¿La web se verá bien en el móvil?',
+      answer: 'Sí, estará adaptada a móvil, tablet y ordenador.',
     },
     {
       question: '¿Incluís mantenimiento?',
       answer:
-        'El mantenimiento se puede contratar aparte con un plan mensual, o incluirse dentro de la propuesta si eliges pago mensual para tu web. Te pasamos el detalle con tu presupuesto.',
+        'El mantenimiento se puede contratar aparte con un plan mensual, o incluirse dentro de la propuesta. Te pasamos el detalle con tu presupuesto.',
     },
     {
-      question: '¿El hosting está incluido?',
+      question: '¿El alojamiento está incluido?',
       answer:
-        'Sí. El alojamiento web está incluido en el servicio, tanto en la publicación inicial como, si contratas mantenimiento, en su gestión y renovación continuas.',
+        'Sí. El alojamiento de la web está incluido en el servicio, tanto en la publicación inicial como, si contratas mantenimiento, en su gestión continua.',
     },
     {
       question: '¿Podemos pedir una tienda online?',
@@ -279,11 +279,11 @@ const WebAutonomosPymes = () => {
       {/* 1. Hero de posicionamiento, sin precio como primer impacto */}
       <SEOLandingHero
         title='Diseño y desarrollo web a medida para proyectos que necesitan algo más'
-        subtitle='Soluciones web personalizadas para empresas que necesitan una estructura, funcionalidades o integraciones específicas.'
-        description='Diseño y arquitectura adaptados a tu proyecto, con presupuesto según el alcance real que necesitas.'
-        trustLine='Proyectos en toda España · Presupuesto según proyecto'
-        ctaText='Solicitar propuesta'
-        onCTAClick={() => handleWhatsApp('LandingAutonomosHero')}
+        subtitle='Ideal para negocios que necesitan algo más que una web informativa.'
+        description='Diseñamos una solución adaptada a tu forma de trabajar cuando necesitas funciones especiales, conexión con otras herramientas o una zona privada para clientes o equipo.'
+        trustLine='Proyectos en toda España · Plazo y precio según el proyecto'
+        ctaText='Saber más'
+        onCTAClick={() => scrollToSection('precios')}
         secondaryCTAText='Ver trabajos'
         secondaryCTAAction={() => scrollToSection('portfolio')}
         secondaryCTAIcon='chevron-down'
@@ -316,8 +316,8 @@ const WebAutonomosPymes = () => {
             </span>
 
             <p className='text-xs font-semibold text-accent uppercase tracking-wide mb-3 mt-4 text-center'>
-              Ideal para: Proyectos con funcionalidades, estructura o
-              integraciones específicas
+              Ideal para: negocios que necesitan algo más que una web
+              informativa
             </p>
 
             <div className='flex flex-col items-center gap-1 mb-6 text-center'>
@@ -328,10 +328,10 @@ const WebAutonomosPymes = () => {
                 Cerrado antes de empezar, sin sorpresas.
               </span>
               <span className='text-sm text-gray-500 mt-1'>
-                Pago único, fraccionado o mensual según el proyecto.
+                Pago único o fraccionado
               </span>
               <span className='text-sm text-gray-500'>
-                Entrega: según el alcance del proyecto
+                Plazo y precio según las necesidades del proyecto
               </span>
             </div>
 
@@ -346,7 +346,7 @@ const WebAutonomosPymes = () => {
 
             <div className='border-t-2 border-gray-100 pt-6'>
               <Button onClick={handleQuoteRequest} variant='primary' fullWidth>
-                Solicitar propuesta
+                Cuéntanos qué necesitas
               </Button>
 
               <p className='text-center text-xs text-gray-400 mt-4'>

@@ -9,13 +9,13 @@ import {
 } from 'lucide-react';
 
 const trustPoints = [
-  { icon: Award, text: '+12 años de experiencia' },
-  { icon: Building2, text: 'Estudio de diseño web' },
-  { icon: FileCheck, text: 'Presupuesto cerrado antes de empezar' },
-  { icon: Wallet, text: 'Pago único o fraccionado' },
-  { icon: Clock, text: 'Entrega en 2-3 semanas' },
-  { icon: Send, text: 'Respuesta en 2h' },
-  { icon: MapPin, text: 'Proyectos en toda España' },
+  { icon: Award, text: 'RESEÑAS VERIFICADAS' },
+  { icon: Building2, text: 'AGENCIA EN MADRID' },
+  { icon: FileCheck, text: 'PRECIOS CERRADOS' },
+  { icon: Wallet, text: 'FACILIDAD DE PAGO' },
+  { icon: Clock, text: 'ENTREGA 2-3 SEMANAS' },
+  { icon: Send, text: 'RESPUESTA RÁPIDA' },
+  { icon: MapPin, text: 'SERVICIO EN ESPAÑA' },
 ];
 
 const TrustPointCard = ({

@@ -87,58 +87,58 @@ const MantenimientoWeb = () => {
   ];
 
   const included = [
-    'Modificaciones incluidas cada mes',
-    'Actualizaciones de seguridad mensuales',
-    'Backups automáticos semanales',
-    'Monitoreo uptime 24/7',
-    'Soporte técnico prioritario',
-    'Optimización de rendimiento',
-    'Protección contra malware',
-    'Renovación certificado SSL',
-    'Informes mensuales de actividad',
-    'Gestión de dominio y hosting',
+    'Pequeños cambios en textos, imágenes y contenidos',
+    'Actualizaciones para mantener la web segura',
+    'Copias de seguridad periódicas',
+    'Revisión de que la web siga online y funcionando',
+    'Comprobación del formulario de contacto',
+    'Mejoras básicas para que cargue correctamente',
+    'Protección frente a amenazas y archivos maliciosos',
+    'Soporte técnico cuando tengas un problema',
+    'Ayuda con el dominio y el alojamiento de la web',
+    'Resumen mensual de las tareas realizadas',
   ];
 
   const features = [
     {
-      title: 'Actualizaciones Técnicas Periódicas',
+      title: 'Actualizaciones de seguridad',
       description:
-        'Mantenemos tu web, plugins y sistema actualizados para evitar fallos y vulnerabilidades.',
+        'Mantenemos tu web actualizada para evitar fallos y problemas de seguridad.',
     },
     {
-      title: 'Copias de Seguridad',
+      title: 'Copias de seguridad',
       description:
-        'Backups periódicos para poder recuperar tu web ante cualquier imprevisto.',
+        'Copias periódicas para poder recuperar tu web ante cualquier imprevisto.',
     },
     {
-      title: 'Revisión de Seguridad',
+      title: 'Revisión de seguridad',
       description:
-        'Supervisamos tu web para detectar y corregir problemas de seguridad a tiempo.',
+        'Revisamos tu web para detectar y corregir problemas de seguridad a tiempo.',
     },
     {
-      title: 'Cambios de Contenido Incluidos',
+      title: 'Cambios de contenido incluidos',
       description:
         'Pequeños cambios de textos, imágenes o secciones incluidos cada mes según el plan.',
     },
     {
-      title: 'Revisión de Formularios y Contacto',
+      title: 'Comprobación del formulario',
       description:
         'Comprobamos que tus vías de contacto sigan funcionando correctamente.',
     },
     {
-      title: 'Corrección de Errores',
+      title: 'Corrección de errores',
       description:
-        'Detectamos y solucionamos errores visuales o funcionales que puedan aparecer.',
+        'Detectamos y solucionamos errores visuales o de funcionamiento que puedan aparecer.',
     },
     {
-      title: 'Soporte Técnico',
+      title: 'Soporte técnico',
       description:
-        'Puedes escribirnos cuando lo necesites para resolver dudas o incidencias.',
+        'Puedes escribirnos cuando lo necesites para resolver dudas o problemas.',
     },
     {
-      title: 'Informes de Actividad',
+      title: 'Resumen mensual',
       description:
-        'Recibes un resumen de lo revisado y actualizado cada mes.',
+        'Recibes un resumen de las tareas realizadas cada mes.',
     },
   ];
 
@@ -176,7 +176,7 @@ const MantenimientoWeb = () => {
     {
       question: '¿Qué pasa si necesito algo urgente?',
       answer:
-        'Si tienes un plan de mantenimiento activo, tus incidencias tienen prioridad dentro del soporte técnico incluido.',
+        'Si tienes un plan de mantenimiento activo, atendemos tu incidencia dentro del soporte incluido en el plan.',
     },
   ];
 
@@ -185,11 +185,11 @@ const MantenimientoWeb = () => {
       {/* 1. Hero de posicionamiento, sin precio como primer impacto */}
       <SEOLandingHero
         title='Mantenimiento web para que tu página siga funcionando bien'
-        subtitle='Soporte y mejoras para que tu web siga funcionando, cargando bien y transmitiendo confianza después de publicarla.'
-        description='Ofrecemos mantenimiento web para negocios que quieren tener la tranquilidad de que su web está atendida y pueden pedir cambios cuando lo necesiten.'
-        trustLine='Presupuesto cerrado antes de empezar · Proyectos en toda España'
-        ctaText='Solicitar orientación'
-        onCTAClick={() => handleWhatsApp('LandingMantenimientoHero')}
+        subtitle='Ideal para negocios que ya tienen una web y quieren mantenerla actualizada, segura y funcionando correctamente.'
+        description='Nos ocupamos del cuidado técnico de tu web y de pequeños cambios mensuales para que no tengas que preocuparte por errores, actualizaciones o problemas de seguridad.'
+        trustLine='Atención y mantenimiento mensual · Presupuesto cerrado antes de empezar'
+        ctaText='Ver planes de mantenimiento'
+        onCTAClick={() => scrollToSection('precios')}
         secondaryCTAText='Ver trabajos'
         secondaryCTAAction={() => scrollToSection('portfolio')}
         secondaryCTAIcon='chevron-down'
@@ -228,7 +228,8 @@ const MantenimientoWeb = () => {
             </span>
 
             <p className='text-xs font-semibold text-accent uppercase tracking-wide mb-3 mt-4 text-center'>
-              Ideal para: Webs ya publicadas que necesitan soporte continuo
+              Ideal para: negocios que ya tienen una web y quieren mantenerla
+              actualizada, segura y funcionando correctamente
             </p>
 
             <div className='flex flex-col items-center gap-1 mb-6 text-center'>
@@ -239,10 +240,10 @@ const MantenimientoWeb = () => {
                 Cerrado antes de empezar, sin sorpresas.
               </span>
               <span className='text-sm text-gray-500 mt-1'>
-                Plan mensual, según el alcance del servicio.
+                Plan mensual, según el alcance del servicio
               </span>
               <span className='text-sm text-gray-500'>
-                Servicio mensual
+                Atención y mantenimiento mensual
               </span>
             </div>
 
@@ -261,7 +262,7 @@ const MantenimientoWeb = () => {
                 variant='primary'
                 fullWidth
               >
-                Solicitar orientación
+                Solicitar propuesta
               </Button>
 
               <p className='text-center text-xs text-gray-400 mt-4'>

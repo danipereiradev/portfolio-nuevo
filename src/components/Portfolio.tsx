@@ -168,7 +168,7 @@ La monetización se logró mediante publicidad estratégica, enlaces de afiliado
       tech: ['HTML5', 'CSS3', 'JavaScript', 'PHP'],
       product: 'Web 360',
       productHref: '/web-profesional-360',
-      publishedAt: '18 mayo 2026',
+      publishedAt: '24 junio 2026',
       url: 'https://hoyviajamosweb.com',
       testimonialName: 'Juanvi Raga',
     },

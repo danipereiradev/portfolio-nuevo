@@ -56,7 +56,7 @@ const Hero = () => {
 
       <div className='relative z-10 text-center max-w-4xl mx-auto px-6 py-12 animate-fade-in'>
         <span className='inline-block bg-accent text-ink-dark text-xs md:text-sm font-bold uppercase tracking-wide px-4 py-1.5 border-2 border-white/80 rotate-[-2deg] mb-6 shadow-[4px_4px_0_0_rgba(255,255,255,0.3)]'>
-          Estudio web
+          SOMOS PEREIRAWEB
         </span>
 
         <h1 className='text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-5 leading-[1.05] tracking-tight'>
