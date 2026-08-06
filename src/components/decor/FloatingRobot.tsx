@@ -28,7 +28,7 @@ const FloatingRobot = ({
       aria-hidden='true'
     >
       <div
-        className='relative w-36 md:w-44'
+        className='relative w-24 sm:w-32 lg:w-44'
         style={{ transform: `rotate(${tilt}deg)` }}
       >
         {/* Antena */}

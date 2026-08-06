@@ -23,7 +23,7 @@ const FloatingPanel = ({
       style={{ '--tilt': `${tilt}deg` } as React.CSSProperties}
     >
       <div
-        className='w-56 md:w-64 rounded-xl border border-white/15 bg-white/[0.06] backdrop-blur-md shadow-[0_20px_60px_-15px_rgba(0,0,0,0.6)] overflow-hidden'
+        className='w-32 sm:w-44 lg:w-64 rounded-xl border border-white/15 bg-white/[0.06] backdrop-blur-md shadow-[0_20px_60px_-15px_rgba(0,0,0,0.6)] overflow-hidden'
         style={{ transform: `rotate(${tilt}deg)` }}
       >
         <div className='flex items-center gap-1.5 px-3 py-2 border-b border-white/10 bg-white/[0.04]'>

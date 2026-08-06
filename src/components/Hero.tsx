@@ -46,12 +46,12 @@ const Hero = () => {
       <FloatingPanel
         variant='code'
         tilt={-8}
-        className='hidden lg:block absolute top-28 left-[6%] z-0'
+        className='absolute top-24 -left-10 sm:top-28 sm:left-0 lg:left-[6%] z-0 opacity-50 sm:opacity-70 lg:opacity-100'
       />
       <FloatingPanel
         variant='layout'
         tilt={7}
-        className='hidden lg:block absolute bottom-16 right-[6%] z-0'
+        className='absolute bottom-10 -right-10 sm:bottom-16 sm:right-0 lg:right-[6%] z-0 opacity-50 sm:opacity-70 lg:opacity-100'
       />
 
       <div className='relative z-10 text-center max-w-4xl mx-auto px-6 py-12 animate-fade-in'>

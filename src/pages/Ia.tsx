@@ -75,13 +75,13 @@ const Ia = () => {
         <FloatingRobot
           variant='happy'
           tilt={-8}
-          className='hidden lg:block absolute top-28 left-[7%] z-0'
+          className='absolute top-24 -left-6 sm:top-28 sm:left-0 lg:left-[7%] z-0 opacity-50 sm:opacity-70 lg:opacity-100'
         />
         <FloatingRobot
           variant='glitch'
           tilt={9}
           float='slower'
-          className='hidden lg:block absolute bottom-14 right-[7%] z-0'
+          className='absolute bottom-10 -right-6 sm:bottom-14 sm:right-0 lg:right-[7%] z-0 opacity-50 sm:opacity-70 lg:opacity-100'
         />
 
         <div className='relative z-10 text-center max-w-4xl mx-auto px-6 py-4'>
