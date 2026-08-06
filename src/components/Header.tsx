@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { trackTuWebConIaClick } from '../utils/analytics';
 
 interface HeaderProps {
   showNavMenu?: boolean;
@@ -146,6 +147,7 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
 
                 <a
                   href='/ia'
+                  onClick={() => trackTuWebConIaClick('header_nav')}
                   className='inline-flex items-center justify-center px-3 py-2 rounded-lg bg-accent hover:bg-accent-hover border-2 border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150 text-white text-sm font-bold whitespace-nowrap leading-none'
                 >
                   Tu web con IA
@@ -235,7 +237,10 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
               <div className='px-4 py-3'>
                 <a
                   href='/ia'
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => {
+                    trackTuWebConIaClick('header_mobile');
+                    setIsMenuOpen(false);
+                  }}
                   className='flex w-full items-center justify-center px-3 py-3 rounded-lg bg-accent hover:bg-accent-hover border-2 border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150 text-white text-sm font-bold uppercase'
                 >
                   Tu web con IA

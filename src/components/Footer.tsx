@@ -5,6 +5,7 @@ import {
   trackPhoneClick,
   trackWhatsAppClick,
   trackGoogleAdsWhatsAppConversion,
+  trackTuWebConIaClick,
 } from '../utils/analytics';
 import {
   PHONE_DISPLAY,
@@ -142,6 +143,7 @@ const Footer = () => {
               <li>
                 <a
                   href='/ia'
+                  onClick={() => trackTuWebConIaClick('footer')}
                   className='hover:text-white transition-colors duration-200'
                 >
                   Tu web con IA
