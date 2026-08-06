@@ -22,6 +22,7 @@ import Contacto from './pages/Contacto';
 import SobreElEstudio from './pages/SobreElEstudio';
 import CondicionesDelProyecto from './pages/CondicionesDelProyecto';
 import Faq from './pages/Faq';
+import Ia from './pages/Ia';
 import Gracias from './pages/Gracias';
 import LegalDocument from './pages/LegalDocument';
 import WebStart from './pages/WebStart';
@@ -68,6 +69,7 @@ function AppContent() {
           element={<CondicionesDelProyecto />}
         />
         <Route path='/preguntas-frecuentes' element={<Faq />} />
+        <Route path='/ia' element={<Ia />} />
         <Route path='/gracias' element={<Gracias />} />
         <Route path='/web-start' element={<WebStart />} />
         <Route path='/web-start/' element={<WebStart />} />

@@ -141,6 +141,14 @@ const Footer = () => {
               </li>
               <li>
                 <a
+                  href='/ia'
+                  className='hover:text-white transition-colors duration-200'
+                >
+                  Tu web con IA
+                </a>
+              </li>
+              <li>
+                <a
                   href='/contacto'
                   className='hover:text-white transition-colors duration-200'
                 >

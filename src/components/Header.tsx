@@ -1,12 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, MessageCircle } from 'lucide-react';
-import { useLocation } from 'react-router-dom';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import {
-  trackWhatsAppClick,
-  trackGoogleAdsWhatsAppConversion,
-} from '../utils/analytics';
-import { buildWhatsAppUrl, getWhatsAppMessageForPath } from '../config/contact';
 
 interface HeaderProps {
   showNavMenu?: boolean;
@@ -14,20 +8,10 @@ interface HeaderProps {
 
 const Header = ({ showNavMenu = true }: HeaderProps) => {
   const { t } = useLanguage();
-  const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [typedText, setTypedText] = useState('');
   const [hasTyped, setHasTyped] = useState(false);
-
-  const headerWhatsAppUrl = buildWhatsAppUrl(
-    getWhatsAppMessageForPath(location.pathname),
-  );
-
-  const handleWhatsAppClick = () => {
-    trackWhatsAppClick('Header');
-    trackGoogleAdsWhatsAppConversion(headerWhatsAppUrl);
-  };
 
   const fullText = 'pereiraweb .es';
 
@@ -159,37 +143,29 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
                 >
                   {t('nav.contact')}
                 </a>
+
+                <a
+                  href='/ia'
+                  className='inline-flex items-center justify-center px-3 py-2 rounded-lg bg-accent hover:bg-accent-hover border-2 border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150 text-white text-sm font-bold whitespace-nowrap leading-none'
+                >
+                  Tu web con IA
+                </a>
               </nav>
             )}
 
-            <div className='flex items-center gap-2 md:gap-4'>
-              {showNavMenu && (
-                <button
-                  className='md:hidden p-2'
-                  onClick={() => setIsMenuOpen(!isMenuOpen)}
-                >
-                  {isMenuOpen ? (
-                    <X className='w-6 h-6 text-black' />
-                  ) : (
-                    <Menu className='w-6 h-6 text-black' />
-                  )}
-                </button>
-              )}
-
-              <a
-                href={headerWhatsAppUrl}
-                target='_blank'
-                rel='noopener noreferrer'
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleWhatsAppClick();
-                }}
-                className='p-2 rounded-lg bg-accent hover:bg-accent-hover border-2 border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
-                aria-label='WhatsApp'
+            {showNavMenu && (
+              <button
+                className='md:hidden p-2'
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
               >
-                <MessageCircle className='w-5 h-5 text-white' />
-              </a>
-            </div>
+                {isMenuOpen ? (
+                  <X className='w-6 h-6 text-black' />
+                ) : (
+                  <Menu className='w-6 h-6 text-black' />
+                )}
+              </button>
+            )}
           </div>
 
           {showNavMenu && isMenuOpen && (
@@ -255,6 +231,16 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
               >
                 {t('nav.contact')}
               </a>
+
+              <div className='px-4 py-3'>
+                <a
+                  href='/ia'
+                  onClick={() => setIsMenuOpen(false)}
+                  className='flex w-full items-center justify-center px-3 py-3 rounded-lg bg-accent hover:bg-accent-hover border-2 border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150 text-white text-sm font-bold uppercase'
+                >
+                  Tu web con IA
+                </a>
+              </div>
             </nav>
           )}
         </div>

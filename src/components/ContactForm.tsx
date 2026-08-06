@@ -285,6 +285,11 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       description: 'Soporte, actualizaciones y seguridad continua',
     },
     {
+      value: 'Web con IA',
+      description:
+        'Ya he empezado con IA y necesito ayuda para revisarla y terminarla',
+    },
+    {
       value: 'No sé cuál necesito',
       description: 'Te ayudamos a elegir según lo que necesita tu negocio',
     },
