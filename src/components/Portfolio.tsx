@@ -311,7 +311,7 @@ La monetización se logró mediante publicidad estratégica, enlaces de afiliado
               ¿Quieres ver proyectos parecidos al que tienes en mente?
             </h3>
             <p className='text-lg text-white/80 font-medium mb-6'>
-              Cuéntanos qué tipo de web necesitas y te enviaré ejemplos de
+              Cuéntanos qué tipo de web necesitas y te enviaremos ejemplos de
               trabajos relacionados.
             </p>
             <div className='flex justify-center'>

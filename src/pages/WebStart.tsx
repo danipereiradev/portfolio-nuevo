@@ -191,9 +191,9 @@ const WebStart = () => {
   const processSteps = [
     {
       number: '1',
-      title: 'Reserva o cuéntame tu proyecto',
+      title: 'Reserva o cuéntanos tu proyecto',
       description:
-        'Agendamos una sesión o me escribes para revisar si Web Start encaja contigo.',
+        'Agendamos una sesión o nos escribes para revisar si Web Start encaja contigo.',
     },
     {
       number: '2',
@@ -203,20 +203,21 @@ const WebStart = () => {
     },
     {
       number: '3',
-      title: 'Me envías materiales',
+      title: 'Nos envías materiales',
       description:
         'Textos, logo, imágenes y datos de contacto, ubicación y horarios.',
     },
     {
       number: '4',
-      title: 'Adapto el diseño',
+      title: 'Adaptamos el diseño',
       description:
-        'Preparo la web sobre una base técnica profesional, adaptada a tu identidad.',
+        'Preparamos la web sobre una base técnica profesional, adaptada a tu identidad.',
     },
     {
       number: '5',
       title: 'Revisas la primera versión',
-      description: 'Ves la web funcionando y me indicas los ajustes necesarios.',
+      description:
+        'Ves la web funcionando y nos indicas los ajustes necesarios.',
     },
     {
       number: '6',
@@ -227,7 +228,8 @@ const WebStart = () => {
     {
       number: '7',
       title: 'Publicación',
-      description: 'Publico la web y conecto tu dominio para que quede online.',
+      description:
+        'Publicamos la web y conectamos tu dominio para que quede online.',
     },
   ];
 
@@ -274,7 +276,7 @@ const WebStart = () => {
     {
       question: '¿Incluye dominio?',
       answer:
-        'La conexión del dominio está incluida. El dominio y el correo profesional no están incluidos si todavía no los tienes; puedo ayudarte a configurarlos.',
+        'La conexión del dominio está incluida. El dominio y el correo profesional no están incluidos si todavía no los tienes; podemos ayudarte a configurarlos.',
     },
     {
       question: '¿Incluye hosting?',
@@ -288,12 +290,12 @@ const WebStart = () => {
     {
       question: '¿Qué ocurre si necesito más de cuatro páginas?',
       answer:
-        'Entonces Web Start deja de encajar. Te propondré Web Profesional 360 o una solución a medida y te indicaré el coste antes de empezar.',
+        'Entonces Web Start deja de encajar. Te propondremos Web Profesional 360 o una solución a medida y te indicaremos el coste antes de empezar.',
     },
     {
       question: '¿Quién prepara los textos y las imágenes?',
       answer:
-        'Tú aportas la información base, imágenes y datos. Si no tienes los textos completamente preparados, puedo ayudarte a organizarlos a partir de lo que me facilites. La redacción extensa o creación completa de contenido no está incluida.',
+        'Tú aportas la información base, imágenes y datos. Si no tienes los textos completamente preparados, podemos ayudarte a organizarlos a partir de lo que nos facilites. La redacción extensa o creación completa de contenido no está incluida.',
     },
     {
       question: '¿Cuánto tarda el proyecto?',
@@ -468,11 +470,11 @@ const WebStart = () => {
             <p className='text-white/80 text-sm md:text-base leading-relaxed mb-4'>
               El precio se mantiene cerrado siempre que el proyecto encaje en
               este alcance. Si necesitas más páginas, integraciones o
-              funcionalidades, te indicaré el coste antes de empezar.
+              funcionalidades, te indicaremos el coste antes de empezar.
             </p>
             <p className='text-white/60 text-sm leading-relaxed mb-6'>
               Dominio y correo profesional no incluidos si todavía no los
-              tienes. Puedo ayudarte a configurarlos. El alojamiento web está
+              tienes. Podemos ayudarte a configurarlos. El alojamiento web está
               incluido en el servicio, tanto en la publicación inicial como, si
               contratas mantenimiento, en su gestión y renovación continuas.
             </p>
@@ -584,10 +586,10 @@ const WebStart = () => {
                 ))}
               </ul>
               <p className='text-gray-600 text-sm md:text-base leading-relaxed'>
-                Si no tienes los textos completamente preparados, puedo ayudarte
-                a organizarlos a partir de la información que me facilites. La
-                redacción extensa o creación completa de contenido no está
-                incluida.
+                Si no tienes los textos completamente preparados, podemos
+                ayudarte a organizarlos a partir de la información que nos
+                facilites. La redacción extensa o creación completa de contenido
+                no está incluida.
               </p>
             </div>
           </div>
@@ -608,10 +610,10 @@ const WebStart = () => {
 
       <SEOCTAFinal
         title='Empieza con la web que tu negocio necesita ahora'
-        subtitle='Reserva una sesión gratuita de 20 minutos. Revisaremos tu caso y te diré con claridad si Web Start es suficiente o si necesitas una solución más completa.'
+        subtitle='Reserva una sesión gratuita de 20 minutos. Revisaremos tu caso y te diremos con claridad si Web Start es suficiente o si necesitas una solución más completa.'
         buttonText='Ver si Web Start encaja conmigo'
         onButtonClick={() => openCalendly('CTAFinal')}
-        secondaryButtonText='Cuéntame tu proyecto'
+        secondaryButtonText='Cuéntanos tu proyecto'
         onSecondaryButtonClick={() => openContact('CTAFinal')}
       />
 
