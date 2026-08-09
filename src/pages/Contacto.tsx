@@ -9,6 +9,8 @@ import {
   PHONE_DISPLAY,
   PHONE_TEL_LINK,
   CONTACT_PAGE_WHATSAPP_MESSAGE,
+  GOOGLE_MAPS_EMBED_URL,
+  GOOGLE_MAPS_PLACE_URL,
   buildWhatsAppUrl,
 } from '../config/contact';
 import { usePageMeta } from '../hooks/usePageMeta';
@@ -200,6 +202,40 @@ const Contacto = () => {
                 </li>
               </ul>
             </div>
+          </div>
+
+          <div id='mapa' className='scroll-mt-24 max-w-6xl mx-auto'>
+            <div className='text-center mb-8 max-w-2xl mx-auto'>
+              <h2 className='text-2xl md:text-3xl font-bold text-gray-900 mb-3'>
+                Encuéntranos en Google
+              </h2>
+              <p className='text-gray-600 leading-relaxed'>
+                Ficha oficial de Pereira Web en Google Maps, con valoraciones de
+                clientes. Dirección fiscal en Torrejón de Ardoz, 28850, Madrid.
+              </p>
+            </div>
+
+            <div className='rounded-xl border-2 border-ink-dark overflow-hidden shadow-[7px_7px_0_0_#1a1a1a] bg-white'>
+              <iframe
+                title='Pereira Web en Google Maps'
+                src={GOOGLE_MAPS_EMBED_URL}
+                className='block w-full h-[320px] md:h-[450px] border-0'
+                loading='lazy'
+                referrerPolicy='strict-origin-when-cross-origin'
+                allowFullScreen
+              />
+            </div>
+
+            <p className='text-center mt-5'>
+              <a
+                href={GOOGLE_MAPS_PLACE_URL}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:underline'
+              >
+                Abrir ficha en Google Maps
+              </a>
+            </p>
           </div>
         </div>
       </section>

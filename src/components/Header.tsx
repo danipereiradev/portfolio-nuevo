@@ -35,6 +35,10 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
 
   const services = [
     {
+      name: 'Web Start',
+      path: '/web-start',
+    },
+    {
       name: 'Web Profesional 360',
       path: '/web-profesional-360',
       popular: true,
@@ -151,39 +155,43 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
                 >
                   Preguntas
                 </a>
-
-                <a
-                  href='/ia'
-                  onClick={() => trackTuWebConIaClick('header_nav')}
-                  className='inline-flex items-center justify-center px-3 py-2 rounded-lg bg-accent hover:bg-accent-hover border-2 border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150 text-white text-sm font-bold whitespace-nowrap leading-none'
-                >
-                  Tu web con IA
-                </a>
               </nav>
             )}
 
             {showNavMenu && (
-              <div className='md:hidden flex items-center gap-2'>
-                <a
-                  href='/ia'
-                  onClick={() => trackTuWebConIaClick('header_mobile_ia')}
-                  className='inline-flex items-center justify-center px-2.5 py-1 rounded-md bg-accent hover:bg-accent-hover border-2 border-ink-dark shadow-[2px_2px_0_0_#1a1a1a] active:shadow-none active:translate-x-[1px] active:translate-y-[1px] transition-all duration-150 text-white text-xs font-bold leading-none'
-                  aria-label='Tu web con IA'
-                >
-                  IA
-                </a>
-                <button
-                  className='p-2'
-                  onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
-                >
-                  {isMenuOpen ? (
-                    <X className='w-6 h-6 text-black' />
-                  ) : (
-                    <Menu className='w-6 h-6 text-black' />
-                  )}
-                </button>
-              </div>
+              <>
+                <div className='hidden md:flex items-center justify-end md:min-w-[280px] md:w-[280px]'>
+                  <a
+                    href='/ia'
+                    onClick={() => trackTuWebConIaClick('header_nav')}
+                    className='inline-flex items-center justify-center px-3 py-2 rounded-lg bg-accent hover:bg-accent-hover border-2 border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150 text-white text-sm font-bold whitespace-nowrap leading-none'
+                  >
+                    Tu web con IA
+                  </a>
+                </div>
+
+                <div className='md:hidden flex items-center gap-2'>
+                  <a
+                    href='/ia'
+                    onClick={() => trackTuWebConIaClick('header_mobile_ia')}
+                    className='inline-flex items-center justify-center px-2.5 py-1 rounded-md bg-accent hover:bg-accent-hover border-2 border-ink-dark shadow-[2px_2px_0_0_#1a1a1a] active:shadow-none active:translate-x-[1px] active:translate-y-[1px] transition-all duration-150 text-white text-xs font-bold leading-none'
+                    aria-label='Tu web con IA'
+                  >
+                    IA
+                  </a>
+                  <button
+                    className='p-2'
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+                  >
+                    {isMenuOpen ? (
+                      <X className='w-6 h-6 text-black' />
+                    ) : (
+                      <Menu className='w-6 h-6 text-black' />
+                    )}
+                  </button>
+                </div>
+              </>
             )}
           </div>
 

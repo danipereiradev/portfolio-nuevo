@@ -85,6 +85,14 @@ const Footer = () => {
             <ul className='space-y-3 text-gray-300'>
               <li>
                 <a
+                  href='/web-start'
+                  className='hover:text-white transition-colors duration-200'
+                >
+                  Web Start
+                </a>
+              </li>
+              <li>
+                <a
                   href='/web-profesional-360'
                   className='hover:text-white transition-colors duration-200'
                 >

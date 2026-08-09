@@ -56,9 +56,10 @@ export const faqCategories: FaqCategory[] = [
           'Web Profesional 360 es una web profesional con precio y proceso claros: 1.090 € + IVA. Web a Medida es para cuando necesitas algo más concreto, como reservas, calculadoras, conexión con otras herramientas o zonas privadas. En ese caso el precio se calcula según el proyecto y se cierra antes de empezar.',
       },
       {
-        question: '¿Qué diferencia hay entre 360 Presencia y 360 Gestión?',
+        question:
+          '¿Qué diferencia hay entre 360 Start, 360 Presencia y 360 Gestión?',
         answer:
-          'Son dos modalidades de Web Profesional 360. Con Presencia, la web la cuidamos nosotros con el mantenimiento. Con Gestión, además tienes un panel sencillo para actualizar ciertos contenidos tú mismo, como servicios, equipo, testimonios o artículos. El precio de cada modalidad se confirma en la propuesta.',
+          '360 Start es la opción más sencilla (545 € + IVA), con alcance cerrado y una sola ronda de cambios. 360 Presencia (1.090 € + IVA) y 360 Gestión (1.590 € + IVA) son la base profesional más completa: con Presencia nos ocupamos nosotros de los cambios; con Gestión, además, tienes un panel sencillo para actualizar ciertos contenidos tú mismo.',
       },
       {
         question: '¿Podéis mejorar o rediseñar una web que ya existe?',
@@ -79,7 +80,7 @@ export const faqCategories: FaqCategory[] = [
       {
         question: '¿Cuánto cuesta Web Profesional 360?',
         answer:
-          'Web Profesional 360 cuesta 1.090 € + IVA. Si eliges la modalidad Gestión, el precio se indica en la propuesta antes de empezar.',
+          'Hay tres opciones: 360 Start (545 € + IVA), 360 Presencia (1.090 € + IVA) y 360 Gestión (1.590 € + IVA). Antes de empezar confirmamos por escrito el precio y todo lo incluido.'
       },
       {
         question: '¿Cómo se presupuestan Web a Medida y Tienda Online?',

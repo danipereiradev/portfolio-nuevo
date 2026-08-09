@@ -36,13 +36,15 @@ import {
 import SEOLandingHero from '../components/SEOLandingHero';
 import SEOBenefits from '../components/SEOBenefits';
 import SEOProcess from '../components/SEOProcess';
+import Portfolio from '../components/Portfolio';
 import Testimonials from '../components/Testimonials';
 import SEOFAQ from '../components/SEOFAQ';
 import SEOCTAFinal from '../components/SEOCTAFinal';
 import Button from '../components/Button';
 
 const SITE_URL = 'https://pereiraweb.es';
-const presencia360 = webPacks[0];
+const presencia360 =
+  webPacks.find((pack) => pack.id === 'presencia') ?? webPacks[1];
 const maintenance = maintenancePlans[0];
 
 const WebStart = () => {
@@ -591,6 +593,10 @@ const WebStart = () => {
           </div>
         </div>
       </section>
+
+      <div id='portfolio' className='scroll-mt-24'>
+        <Portfolio />
+      </div>
 
       <Testimonials id='valoraciones' />
 

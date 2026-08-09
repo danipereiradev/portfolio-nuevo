@@ -4,6 +4,13 @@ export const PHONE_NUMBER = '34644669828';
 export const PHONE_DISPLAY = '+34 644 669 828';
 export const PHONE_TEL_LINK = `tel:+${PHONE_NUMBER}`;
 
+// Ficha oficial de Google Maps (Pereira Web) para el mapa embebido en /contacto.
+export const GOOGLE_MAPS_EMBED_URL =
+  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d194347.47826694263!2d-3.844350133832642!3d40.4380986114016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fbfaf5298cafb17%3A0xeff7a55bec419fb2!2sPereira%20Web!5e0!3m2!1ses!2ses!4v1786271937055!5m2!1ses!2ses';
+
+export const GOOGLE_MAPS_PLACE_URL =
+  'https://www.google.com/maps/place/Pereira+Web/data=!4m6!3m5!1s0x8fbfaf5298cafb17:0xeff7a55bec419fb2!8m2!3d40.4380986!4d-3.8443501!16s%2Fg%2F11zkg96x_g?hl=es&entry=ttu';
+
 export const DEFAULT_WHATSAPP_MESSAGE =
   'Hola, quiero información para un proyecto web.';
 

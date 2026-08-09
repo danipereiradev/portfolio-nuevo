@@ -2,9 +2,12 @@
 // /web-profesional-360. Cambiar aquí un precio o una característica
 // actualiza automáticamente la comparativa, el desplegable "Ver todo lo
 // incluido" y la sección de mantenimiento.
+// 360 Start enlaza a /web-start; su precio canónico vive en webStart.ts.
+
+import { WEB_START_FORM_PLAN, WEB_START_PRICE } from './webStart';
 
 export interface WebPack {
-  id: 'presencia' | 'gestion-autonoma';
+  id: 'start' | 'presencia' | 'gestion-autonoma';
   name: string;
   priceFrom: string;
   priceNote: string;
@@ -14,9 +17,34 @@ export interface WebPack {
   highlightsCount: number;
   ctaText: string;
   formPlanName: string;
+  /** Si está definido, el CTA navega a esta ruta en lugar de abrir el formulario. */
+  href?: string;
 }
 
 export const webPacks: WebPack[] = [
+  {
+    id: 'start',
+    name: '360 Start',
+    priceFrom: WEB_START_PRICE,
+    priceNote: 'Alcance cerrado · Pago único',
+    idealFor:
+      'Negocios que necesitan una presencia profesional sencilla, con menos páginas y una sola ronda de cambios.',
+    recommended: false,
+    highlightsCount: 6,
+    includes: [
+      'Hasta cuatro páginas o secciones',
+      'Una ronda de cambios',
+      'Contenido aportado por el cliente',
+      'Funcionalidades estándar',
+      'Entrega y publicación',
+      'Dominio conectado',
+      'Diseño profesional adaptado a tu negocio',
+      'Preparada para móvil',
+    ],
+    ctaText: 'Ver esta opción',
+    formPlanName: WEB_START_FORM_PLAN,
+    href: '/web-start',
+  },
   {
     id: 'presencia',
     name: '360 Presencia',
@@ -38,7 +66,7 @@ export const webPacks: WebPack[] = [
       'Estadísticas para conocer las visitas de tu web',
       'Páginas legales básicas con tus datos',
     ],
-    ctaText: 'Quiero esta opción',
+    ctaText: 'Ver esta opción',
     formPlanName: '360 Presencia',
   },
   {
@@ -60,7 +88,7 @@ export const webPacks: WebPack[] = [
       'Formación inicial de unos 30 minutos',
       'Guía básica de uso para el día a día',
     ],
-    ctaText: 'Quiero esta opción',
+    ctaText: 'Ver esta opción',
     formPlanName: '360 Gestión',
   },
 ];

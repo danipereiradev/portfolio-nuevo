@@ -266,7 +266,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
     {
       value: 'Web Start',
       description:
-        'Presencia profesional de alcance cerrado para empezar con claridad',
+        '360 Start: presencia profesional de alcance cerrado (545 € + IVA)',
     },
     {
       value: '360 Presencia',

@@ -34,6 +34,7 @@ import {
   CUSTOM_MAINTENANCE_NOTE,
   OUT_OF_SCOPE_NOTE,
 } from '../config/webProfesionalNegociosPricing';
+import { WEB_START_PRICE } from '../config/webStart';
 import SEOLandingHero from '../components/SEOLandingHero';
 import TrustBar from '../components/TrustBar';
 import SEOProblem from '../components/SEOProblem';
@@ -105,9 +106,10 @@ const WebProfesionalNegocios = () => {
     trackGoogleAdsWhatsAppConversion(WHATSAPP_URL);
   };
 
-  const handlePackCta = (planName: string, ctaText: string) => {
-    trackPricingCtaClick(planName, ctaText);
-    openModal(planName);
+  const handlePackCta = (pack: (typeof webPacks)[number]) => {
+    trackPricingCtaClick(pack.formPlanName, pack.ctaText);
+    if (pack.href) return;
+    openModal(pack.formPlanName);
   };
 
   const handleOpenFormGeneric = () => {
@@ -302,9 +304,9 @@ const WebProfesionalNegocios = () => {
         'No. Cada web se adapta a la imagen, los textos y las fotos de tu negocio. No entregamos la misma plantilla a todo el mundo.',
     },
     {
-      question: '¿Qué diferencia hay entre 360 Presencia y 360 Gestión?',
+      question: '¿Qué diferencia hay entre 360 Start, 360 Presencia y 360 Gestión?',
       answer:
-        'Las dos modalidades incluyen la misma base profesional. En Presencia, los cambios los hacemos nosotros. En Gestión, además tienes un panel sencillo para actualizar ciertos contenidos por tu cuenta.',
+        '360 Start es la opción más sencilla y económica, con alcance cerrado y una sola ronda de cambios. 360 Presencia y 360 Gestión comparten la misma base profesional más completa: en Presencia nos ocupamos nosotros de los cambios; en Gestión, además, tienes un panel sencillo para actualizar ciertos contenidos por tu cuenta.',
     },
     {
       question: '¿Quién prepara los textos y las imágenes?',
@@ -365,14 +367,14 @@ const WebProfesionalNegocios = () => {
         kicker='WEB PROFESIONAL 360'
         title='Tu web profesional, lista en 2–3 semanas'
         subtitle='Diseñamos y publicamos una web adaptada a tu negocio, preparada para móvil, Google y contacto por formulario o WhatsApp.'
-        description='Precio cerrado desde 1.090 € + IVA. Pago único o fraccionado.'
+        description={`Tres opciones claras desde ${WEB_START_PRICE}. Pago único o fraccionado.`}
         trustLine='El plazo empieza cuando tenemos toda la información necesaria.'
-        ctaText='Ver qué incluye'
+        ctaText='Ver precios'
         onCTAClick={() => scrollToSection('packs')}
         secondaryCTAText='Cuéntanos qué necesitas'
         secondaryCTAAction={() => scrollToSection('contacto')}
         secondaryCTAIcon='chevron-down'
-        ctaFootnote='Sin plantillas · Dos rondas de cambios · Publicación incluida'
+        ctaFootnote='360 Start · 360 Presencia · 360 Gestión'
       />
 
       {/* 2. Bloque de confianza rápida */}
@@ -387,16 +389,16 @@ const WebProfesionalNegocios = () => {
         <div className='container mx-auto px-6'>
           <div className='text-center mb-12 max-w-2xl mx-auto'>
             <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4'>
-              Elige quién gestionará los cambios de tu web
+              Elige la opción que encaja con tu negocio
             </h2>
             <p className='text-base md:text-lg text-gray-600'>
-              Las dos modalidades incluyen la misma base profesional. La
-              diferencia es si prefieres pedirnos los cambios o actualizar
-              algunos contenidos desde tu propio panel.
+              Tres precios claros. 360 Start es la vía más sencilla; Presencia
+              y Gestión son la base profesional completa, según si prefieres
+              pedirnos los cambios o actualizar algunos contenidos tú mismo.
             </p>
           </div>
 
-          <div className='grid md:grid-cols-2 gap-8 md:gap-10 max-w-5xl mx-auto items-start'>
+          <div className='grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto items-start'>
             {webPacks.map((pack) => {
               const isExpanded = expandedPackId === pack.id;
               const visibleIncludes = pack.includes.slice(
@@ -408,21 +410,26 @@ const WebProfesionalNegocios = () => {
               return (
                 <div
                   key={pack.id}
-                  className={`rounded-xl p-8 border-2 flex flex-col relative transition-all duration-200 ${
+                  className={`rounded-xl p-6 md:p-7 border-2 flex flex-col relative transition-all duration-200 ${
                     pack.recommended
                       ? 'bg-ink-dark text-white border-accent shadow-[7px_7px_0_0_#0d9488]'
                       : 'bg-white border-ink-dark shadow-[7px_7px_0_0_#1a1a1a]'
                   }`}
                 >
                   {pack.recommended && (
-                    <div className='absolute -top-4 left-8 bg-accent text-ink-dark px-5 py-1.5 border-2 border-white text-sm font-bold rotate-[-2deg]'>
+                    <div className='absolute -top-4 left-6 bg-accent text-ink-dark px-4 py-1.5 border-2 border-white text-xs md:text-sm font-bold rotate-[-2deg]'>
                       Recomendado para la mayoría
+                    </div>
+                  )}
+                  {pack.id === 'start' && (
+                    <div className='absolute -top-4 left-6 bg-white text-ink-dark px-4 py-1.5 border-2 border-ink-dark text-xs md:text-sm font-bold rotate-[-2deg]'>
+                      Presupuesto más ajustado
                     </div>
                   )}
 
                   <div className='mb-6 mt-2'>
                     <h3
-                      className={`text-2xl font-bold mb-2 ${pack.recommended ? 'text-white' : 'text-gray-900'}`}
+                      className={`text-xl md:text-2xl font-bold mb-2 ${pack.recommended ? 'text-white' : 'text-gray-900'}`}
                     >
                       {pack.name}
                     </h3>
@@ -476,9 +483,7 @@ const WebProfesionalNegocios = () => {
                         type='button'
                         onClick={() => togglePackDetails(pack.id)}
                         aria-expanded={isExpanded}
-                        className={`inline-flex items-center gap-1.5 text-sm font-semibold hover:underline ${
-                          pack.recommended ? 'text-accent' : 'text-accent'
-                        }`}
+                        className='inline-flex items-center gap-1.5 text-sm font-semibold hover:underline text-accent'
                       >
                         {isExpanded
                           ? 'Ver menos'
@@ -492,9 +497,8 @@ const WebProfesionalNegocios = () => {
 
                   <div className='mt-auto'>
                     <Button
-                      onClick={() =>
-                        handlePackCta(pack.formPlanName, pack.ctaText)
-                      }
+                      href={pack.href}
+                      onClick={() => handlePackCta(pack)}
                       variant='primary'
                       fullWidth
                       className={
@@ -512,9 +516,10 @@ const WebProfesionalNegocios = () => {
           </div>
 
           <p className='text-center text-sm text-gray-600 mt-8 max-w-3xl mx-auto leading-relaxed'>
-            360 Presencia cuesta 1.090 € + IVA y 360 Gestión cuesta 1.590 € +
-            IVA para las webs que encajen en lo indicado en esta página. Antes
-            de empezar confirmaremos por escrito el precio y todo lo incluido.
+            360 Start cuesta {WEB_START_PRICE}, 360 Presencia 1.090 € + IVA y
+            360 Gestión 1.590 € + IVA para los proyectos que encajen en lo
+            indicado. Antes de empezar confirmaremos por escrito el precio y
+            todo lo incluido.
           </p>
 
           <div className='mt-6 text-center'>
@@ -527,28 +532,7 @@ const WebProfesionalNegocios = () => {
             </button>
           </div>
 
-          <div className='mt-10 grid gap-4 md:grid-cols-2 md:gap-5 max-w-4xl mx-auto items-stretch'>
-            <div className='relative text-center bg-accent border-[3px] border-ink-dark rounded-xl p-6 md:p-8 shadow-[7px_7px_0_0_#1a1a1a] ring-2 ring-accent/40'>
-              <span className='inline-block bg-ink-dark text-white text-xs font-bold uppercase tracking-wide px-3 py-1.5 border-2 border-white/80 rotate-[-2deg] mb-4 shadow-[3px_3px_0_0_rgba(255,255,255,0.35)]'>
-                Presupuesto más ajustado
-              </span>
-              <p className='text-base md:text-lg text-ink-dark font-bold leading-snug mb-5'>
-                Si tu presupuesto es más ajustado, también podemos ayudarte.
-                Hay opciones profesionales desde una inversión más contenida.
-              </p>
-              <div className='flex justify-center'>
-                <Button
-                  type='button'
-                  onClick={() => handleWhatsApp('LandingNegociosBudgetBanner')}
-                  variant='secondary'
-                  className='!bg-ink-dark !text-white !border-ink-dark hover:!bg-black'
-                >
-                  <MessageCircle className='w-4 h-4' />
-                  Hablemos
-                </Button>
-              </div>
-            </div>
-
+          <div className='mt-10 max-w-xl mx-auto'>
             <div className='relative text-center bg-gray-50 border-[3px] border-ink-dark rounded-xl p-6 md:p-8 shadow-[7px_7px_0_0_#1a1a1a]'>
               <span className='inline-block bg-white text-ink-dark text-xs font-bold uppercase tracking-wide px-3 py-1.5 border-2 border-ink-dark rotate-[-2deg] mb-4 shadow-[3px_3px_0_0_#1a1a1a]'>
                 Proyecto a medida
@@ -708,7 +692,7 @@ const WebProfesionalNegocios = () => {
       {/* 9. CTA final */}
       <SEOCTAFinal
         title='Cuéntanos qué web necesita tu negocio'
-        subtitle='Te diremos si Web Profesional 360 encaja contigo y qué modalidad te conviene. Antes de empezar recibirás el precio, los plazos y todo lo incluido por escrito.'
+        subtitle='Te diremos si encaja 360 Start, Presencia o Gestión. Antes de empezar recibirás el precio, los plazos y todo lo incluido por escrito.'
         buttonText='Solicitar propuesta'
         onButtonClick={handleOpenFormGeneric}
         secondaryButtonText='Hablar por WhatsApp'
