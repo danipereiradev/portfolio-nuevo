@@ -365,7 +365,7 @@ const WebProfesionalNegocios = () => {
       {/* 1. Hero */}
       <SEOLandingHero
         kicker='WEB PROFESIONAL 360'
-        title='Tu web profesional, lista en 2–3 semanas'
+        title='Tu web profesional, lista en pocos días'
         subtitle='Diseñamos y publicamos una web adaptada a tu negocio, preparada para móvil, Google y contacto por formulario o WhatsApp.'
         description={`Tres opciones claras desde ${WEB_START_PRICE}. Pago único o fraccionado.`}
         trustLine='El plazo empieza cuando tenemos toda la información necesaria.'

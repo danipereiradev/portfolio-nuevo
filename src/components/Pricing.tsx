@@ -18,7 +18,7 @@ const Pricing = () => {
         'Una web completa, adaptada a tu negocio y lista para recibir clientes, sin presupuestos ambiguos ni procesos interminables.',
       path: '/web-profesional-360',
       deliveryTime: 'Lista en 2–3 semanas',
-      price: '1.090 € + IVA',
+      price: 'Desde 545 € + IVA',
       priceNote: 'Pago único o fraccionado',
       cta: 'Ver qué incluye',
       features: [
