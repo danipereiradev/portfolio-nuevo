@@ -2,12 +2,47 @@
   "redirects": [
     {
       "source": "/landing-express",
-      "destination": "/web-a-medida",
+      "destination": "/web-profesional-a-medida",
       "permanent": true
     },
     {
       "source": "/web-autonomos-pymes",
-      "destination": "/web-a-medida",
+      "destination": "/web-profesional-a-medida",
+      "permanent": true
+    },
+    {
+      "source": "/web-a-medida",
+      "destination": "/web-profesional-a-medida",
+      "permanent": true
+    },
+    {
+      "source": "/web-a-medida/",
+      "destination": "/web-profesional-a-medida",
+      "permanent": true
+    },
+    {
+      "source": "/web-profesional-360",
+      "destination": "/web-profesional-a-medida",
+      "permanent": true
+    },
+    {
+      "source": "/web-profesional-360/",
+      "destination": "/web-profesional-a-medida",
+      "permanent": true
+    },
+    {
+      "source": "/web-profesional-negocios",
+      "destination": "/web-profesional-a-medida",
+      "permanent": true
+    },
+    {
+      "source": "/web-start",
+      "destination": "/web-profesional-a-medida",
+      "permanent": true
+    },
+    {
+      "source": "/web-start/",
+      "destination": "/web-profesional-a-medida",
       "permanent": true
     },
     {
@@ -34,34 +69,62 @@
       "source": "/contact",
       "destination": "/contacto",
       "permanent": true
-    },
-    {
-      "source": "/web-profesional-negocios",
-      "destination": "/web-profesional-360",
-      "permanent": true
     }
   ],
   "rewrites": [
-    { "source": "/web-a-medida", "destination": "/web-a-medida/index.html" },
-    { "source": "/web-profesional-360", "destination": "/web-profesional-360/index.html" },
-    { "source": "/paginas-web-empresas", "destination": "/paginas-web-empresas/index.html" },
+    {
+      "source": "/web-profesional-a-medida",
+      "destination": "/web-profesional-a-medida/index.html"
+    },
+    {
+      "source": "/paginas-web-empresas",
+      "destination": "/paginas-web-empresas/index.html"
+    },
     { "source": "/diseno-web", "destination": "/diseno-web/index.html" },
-    { "source": "/desarrollo-aplicaciones-web", "destination": "/desarrollo-aplicaciones-web/index.html" },
-    { "source": "/posicionamiento-web-seo", "destination": "/posicionamiento-web-seo/index.html" },
-    { "source": "/auditoria-ecommerce", "destination": "/auditoria-ecommerce/index.html" },
+    {
+      "source": "/desarrollo-aplicaciones-web",
+      "destination": "/desarrollo-aplicaciones-web/index.html"
+    },
+    {
+      "source": "/posicionamiento-web-seo",
+      "destination": "/posicionamiento-web-seo/index.html"
+    },
+    {
+      "source": "/auditoria-ecommerce",
+      "destination": "/auditoria-ecommerce/index.html"
+    },
     { "source": "/tiendas-online", "destination": "/tiendas-online/index.html" },
-    { "source": "/mantenimiento-web", "destination": "/mantenimiento-web/index.html" },
+    {
+      "source": "/mantenimiento-web",
+      "destination": "/mantenimiento-web/index.html"
+    },
     { "source": "/contacto", "destination": "/contacto/index.html" },
-    { "source": "/sobre-el-estudio", "destination": "/sobre-el-estudio/index.html" },
-    { "source": "/condiciones-del-proyecto", "destination": "/condiciones-del-proyecto/index.html" },
-    { "source": "/preguntas-frecuentes", "destination": "/preguntas-frecuentes/index.html" },
+    {
+      "source": "/sobre-el-estudio",
+      "destination": "/sobre-el-estudio/index.html"
+    },
+    {
+      "source": "/condiciones-del-proyecto",
+      "destination": "/condiciones-del-proyecto/index.html"
+    },
+    {
+      "source": "/preguntas-frecuentes",
+      "destination": "/preguntas-frecuentes/index.html"
+    },
     { "source": "/ia", "destination": "/ia/index.html" },
-    { "source": "/politica-de-privacidad", "destination": "/politica-de-privacidad/index.html" },
-    { "source": "/terminos-y-condiciones", "destination": "/terminos-y-condiciones/index.html" },
-    { "source": "/politica-de-cookies", "destination": "/politica-de-cookies/index.html" },
+    {
+      "source": "/politica-de-privacidad",
+      "destination": "/politica-de-privacidad/index.html"
+    },
+    {
+      "source": "/terminos-y-condiciones",
+      "destination": "/terminos-y-condiciones/index.html"
+    },
+    {
+      "source": "/politica-de-cookies",
+      "destination": "/politica-de-cookies/index.html"
+    },
     { "source": "/aviso-legal", "destination": "/aviso-legal/index.html" },
-    { "source": "/web-start", "destination": "/web-start/index.html" },
-    { "source": "/web-start/", "destination": "/web-start/index.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

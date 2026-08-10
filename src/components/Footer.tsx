@@ -85,26 +85,10 @@ const Footer = () => {
             <ul className='space-y-3 text-gray-300'>
               <li>
                 <a
-                  href='/web-start'
+                  href='/web-profesional-a-medida'
                   className='hover:text-white transition-colors duration-200'
                 >
-                  Web Start
-                </a>
-              </li>
-              <li>
-                <a
-                  href='/web-profesional-360'
-                  className='hover:text-white transition-colors duration-200'
-                >
-                  Web Profesional 360
-                </a>
-              </li>
-              <li>
-                <a
-                  href='/web-a-medida'
-                  className='hover:text-white transition-colors duration-200'
-                >
-                  Web a Medida
+                  Web profesional a medida
                 </a>
               </li>
               <li>

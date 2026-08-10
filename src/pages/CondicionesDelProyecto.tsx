@@ -115,10 +115,9 @@ const CondicionesDelProyecto = () => {
               <li className='flex gap-3'>
                 <span className='text-accent font-bold flex-shrink-0'>·</span>
                 <span>
-                  En planes de alcance cerrado (como Web Profesional 360 o Web
-                  Start) se incluyen{' '}
+                  En cada propuesta se indican las{' '}
                   <strong className='text-gray-900'>
-                    dos rondas de cambios
+                    rondas de cambios incluidas
                   </strong>{' '}
                   sobre el diseño.
                 </span>

@@ -1,6 +1,5 @@
 // FAQ global de PereiraWeb: preguntas frecuentes válidas para toda la web,
-// en tono plural y sin precios concretos (el usuario debe contactar primero
-// para recibir una propuesta).
+// en tono plural. Sin tarifas fijas públicas; solo orientación de rango.
 export interface GlobalFaqItem {
   question: string;
   answer: string;
@@ -20,7 +19,7 @@ export const globalFaqs: GlobalFaqItem[] = [
   {
     question: '¿Cuánto cuesta una página web profesional?',
     answer:
-      'El precio depende del alcance, número de secciones, contenidos, funcionalidades y objetivos del proyecto. Por eso no trabajamos con una tarifa única para todos los casos. Primero analizamos qué necesitas y después preparamos una propuesta clara con alcance, plazos, forma de trabajo y precio cerrado antes de empezar.',
+      'No publicamos tarifas fijas porque cada proyecto es distinto. Como orientación, la mayoría de webs profesionales suelen situarse entre 400 € y 3.000 € + IVA, según páginas, diseño, funcionalidades y contenidos. Tras hablar contigo te enviamos una propuesta concreta con precio, plazos y lo incluido.',
   },
   {
     question: '¿Ofrecéis opciones de pago flexible?',

@@ -163,14 +163,19 @@ const MantenimientoWeb = () => {
         'El mantenimiento se contrata como plan mensual. Si necesitas un cambio puntual más grande, también podemos presupuestarlo aparte con pago único o fraccionado.',
     },
     {
+      question: '¿Cuánto cuesta el mantenimiento web?',
+      answer:
+        'No hay una cuota fija pública: depende del nivel de soporte y de los cambios mensuales que necesites. Te enviamos una propuesta con la cuota mensual y lo incluido, antes de empezar.',
+    },
+    {
       question: '¿El presupuesto incluye IVA?',
       answer:
-        'Sí, la propuesta que preparamos incluye IVA salvo que se indique lo contrario. El alcance y la cuota mensual se cierran antes de empezar.',
+        'Sí, la propuesta que preparamos incluye IVA salvo que se indique lo contrario. El alcance y la cuota mensual quedan por escrito antes de empezar.',
     },
     {
       question: '¿Cuántos cambios incluye cada mes?',
       answer:
-        'Depende del plan contratado. Te indicamos el alcance exacto de modificaciones y soporte incluido en la propuesta según lo que necesites.',
+        'Lo indicamos en la propuesta según lo que necesites: modificaciones y soporte incluidos en la cuota mensual.',
     },
     {
       question: '¿Trabajáis solo en Madrid?',
@@ -306,7 +311,7 @@ const MantenimientoWeb = () => {
           </h3>
           <div className='grid sm:grid-cols-3 gap-4 max-w-4xl mx-auto'>
             <a
-              href='/web-a-medida'
+              href='/web-profesional-a-medida'
               className='block bg-gray-50 border-2 border-ink-dark rounded-xl p-5 text-center font-bold text-gray-900 shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
             >
               Web a Medida

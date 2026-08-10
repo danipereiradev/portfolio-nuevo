@@ -17,7 +17,7 @@ export const faqCategories: FaqCategory[] = [
       {
         question: '¿Qué es PereiraWeb?',
         answer:
-          'PereiraWeb es un estudio de diseño y desarrollo web que trabaja online con empresas y autónomos de toda España. Creamos webs profesionales, tiendas online, proyectos a medida y mantenimiento web, con trato directo y un precio cerrado antes de empezar.',
+          'PereiraWeb es un estudio de diseño y desarrollo web que trabaja online con empresas y autónomos de toda España. Creamos webs profesionales, tiendas online, proyectos a medida y mantenimiento web, con trato directo y una propuesta clara antes de empezar.',
       },
       {
         question: '¿Trabajáis solo con clientes de Madrid?',
@@ -32,7 +32,7 @@ export const faqCategories: FaqCategory[] = [
       {
         question: '¿Podemos pedir una propuesta sin compromiso?',
         answer:
-          'Sí. Cuéntanos qué necesitas y te orientamos. Si el proyecto encaja, te enviamos una propuesta clara con plazos, forma de trabajo y precio cerrado antes de empezar.',
+          'Sí. Cuéntanos qué necesitas y te orientamos. Si el proyecto encaja, te enviamos una propuesta clara con plazos, forma de trabajo y precio, antes de empezar.',
       },
       {
         question: '¿Cómo os contacto?',
@@ -48,28 +48,22 @@ export const faqCategories: FaqCategory[] = [
       {
         question: '¿Cómo sé qué servicio necesito?',
         answer:
-          'Si quieres presentar tu negocio y recibir contactos, normalmente encaja Web Profesional 360 o Web a Medida. Si quieres vender productos online, una tienda. Si ya tienes web y quieres mantenerla al día, mantenimiento. También hacemos rediseños. Si no lo tienes claro, cuéntanos tu caso y te orientamos.',
+          'Si quieres presentar tu negocio y recibir contactos, encaja una web profesional a medida. Si quieres vender productos online, una tienda. Si ya tienes web y quieres mantenerla al día, mantenimiento. También hacemos rediseños. Si no lo tienes claro, cuéntanos tu caso y te orientamos.',
       },
       {
-        question: '¿Qué diferencia hay entre Web Profesional 360 y Web a Medida?',
+        question: '¿Qué incluye una web profesional a medida?',
         answer:
-          'Web Profesional 360 es una web profesional con precio y proceso claros: 1.090 € + IVA. Web a Medida es para cuando necesitas algo más concreto, como reservas, calculadoras, conexión con otras herramientas o zonas privadas. En ese caso el precio se calcula según el proyecto y se cierra antes de empezar.',
-      },
-      {
-        question:
-          '¿Qué diferencia hay entre 360 Start, 360 Presencia y 360 Gestión?',
-        answer:
-          '360 Start es la opción más sencilla (545 € + IVA), con alcance cerrado y una sola ronda de cambios. 360 Presencia (1.090 € + IVA) y 360 Gestión (1.590 € + IVA) son la base profesional más completa: con Presencia nos ocupamos nosotros de los cambios; con Gestión, además, tienes un panel sencillo para actualizar ciertos contenidos tú mismo.',
+          'Una web adaptada a tu negocio, lista para móvil, contacto por formulario o WhatsApp, dominio conectado y configuración inicial para Google. Si necesitas funciones especiales (reservas, paneles, integraciones), las incluimos en la propuesta según el proyecto.',
       },
       {
         question: '¿Podéis mejorar o rediseñar una web que ya existe?',
         answer:
-          'Sí. Revisamos tu web actual y te proponemos qué conviene: un rediseño completo o mejoras concretas de diseño, textos, contacto o velocidad. El precio se cierra antes de empezar.',
+          'Sí. Revisamos tu web actual y te proponemos qué conviene: un rediseño completo o mejoras concretas de diseño, textos, contacto o velocidad. El alcance y el precio se detallan en la propuesta.',
       },
       {
         question: '¿Hacéis webs con funciones especiales o paneles privados?',
         answer:
-          'Sí, cuando el proyecto lo necesita. Por ejemplo, reservas, formularios avanzados, conexión con herramientas que ya usas o paneles privados para clientes o equipo. Eso entra dentro de Web a Medida y se presupuesta según lo que haga falta.',
+          'Sí, cuando el proyecto lo necesita. Por ejemplo, reservas, formularios avanzados, conexión con herramientas que ya usas o paneles privados para clientes o equipo. Se presupuesta según lo que haga falta.',
       },
     ],
   },
@@ -78,14 +72,14 @@ export const faqCategories: FaqCategory[] = [
     title: 'Precios y pagos',
     faqs: [
       {
-        question: '¿Cuánto cuesta Web Profesional 360?',
+        question: '¿Cuánto cuesta una web profesional?',
         answer:
-          'Hay tres opciones: 360 Start (545 € + IVA), 360 Presencia (1.090 € + IVA) y 360 Gestión (1.590 € + IVA). Antes de empezar confirmamos por escrito el precio y todo lo incluido.'
+          'No hay una tarifa fija pública: cada proyecto es distinto. Como orientación, la mayoría de webs profesionales suelen situarse entre 400 € y 3.000 € + IVA, según páginas, diseño, funcionalidades y contenidos. Tras hablar contigo te enviamos una propuesta concreta con precio, plazos y lo incluido.',
       },
       {
-        question: '¿Cómo se presupuestan Web a Medida y Tienda Online?',
+        question: '¿Cómo se presupuestan Tienda Online y Mantenimiento?',
         answer:
-          'Según lo que necesite cada proyecto. Primero vemos qué quieres conseguir y qué tiene que hacer la web o la tienda. Después te enviamos un precio cerrado antes de empezar.',
+          'Según el catálogo, las funcionalidades o el nivel de soporte que necesites. Primero vemos qué quieres conseguir y después te enviamos una propuesta con el precio y el alcance, antes de empezar.',
       },
       {
         question: '¿Ofrecéis pago fraccionado?',
@@ -111,7 +105,7 @@ export const faqCategories: FaqCategory[] = [
       {
         question: '¿Cuánto tarda en estar lista una web?',
         answer:
-          'Una Web Profesional 360 suele estar lista en 2–3 semanas si nos envías a tiempo la información necesaria. Si los materiales llegan tarde, la fecha prevista también se retrasa. Una Web a Medida o una tienda online puede necesitar más tiempo, y ese plazo se indica en la propuesta.',
+          'El plazo depende del alcance y se indica en la propuesta. Si los materiales llegan tarde, la fecha prevista también se retrasa.',
       },
       {
         question: '¿Qué necesito entregar para empezar?',
@@ -126,7 +120,7 @@ export const faqCategories: FaqCategory[] = [
       {
         question: '¿Cuántas rondas de cambios incluye?',
         answer:
-          'En Web Profesional 360 se incluyen dos rondas de cambios sobre el diseño. Eso sirve para corregir y afinar lo ya incluido. Si quieres añadir páginas o funciones nuevas, eso se presupuesta aparte. En proyectos a medida, las revisiones se definen en la propuesta.',
+          'Las revisiones se definen en la propuesta según el tipo de proyecto. Sirven para corregir y afinar lo ya incluido. Si quieres añadir páginas o funciones nuevas, eso se presupuesta aparte.',
       },
     ],
   },
@@ -147,7 +141,7 @@ export const faqCategories: FaqCategory[] = [
       {
         question: '¿Puedo editar yo mismo la web?',
         answer:
-          'Depende de la modalidad contratada. En 360 Gestión puedes actualizar ciertos contenidos desde un panel sencillo. En otras opciones, los cambios se hacen a través del mantenimiento. Lo dejamos claro en la propuesta. Más adelante también se pueden ampliar páginas o funciones; te diremos el precio antes de hacerlas.',
+          'Depende de lo acordado en la propuesta. En algunos proyectos puedes actualizar ciertos contenidos desde un panel sencillo; en otros, los cambios se hacen a través del mantenimiento. Más adelante también se pueden ampliar páginas o funciones; te diremos el precio antes de hacerlas.',
       },
     ],
   },

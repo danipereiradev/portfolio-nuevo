@@ -128,7 +128,7 @@ const DisenoWeb = () => {
     {
       question: '¿Cuánto cuesta el diseño de una página web profesional?',
       answer:
-        'El precio depende del alcance y las funcionalidades que necesites, con opciones de pago único o fraccionado. Preparamos una propuesta a medida y cerrada antes de empezar, sin compromiso.',
+        'No publicamos tarifas fijas. Como orientación, la mayoría de webs profesionales suelen situarse entre 400 € y 3.000 € + IVA, según el alcance. Te enviamos una propuesta concreta con precio, plazos y opciones de pago, sin compromiso.',
     },
     {
       question: '¿Cuánto tiempo se tarda en diseñar y desarrollar una web?',

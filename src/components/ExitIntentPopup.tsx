@@ -45,7 +45,6 @@ const PRICING_SECTION_IDS = ['packs', 'pricing', 'precios', 'planes'];
 const EXCLUDED_PATHS = new Set([
   '/gracias',
   '/contacto',
-  '/web-start',
   '/condiciones-del-proyecto',
   '/preguntas-frecuentes',
   '/politica-de-privacidad',

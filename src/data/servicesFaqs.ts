@@ -1,6 +1,6 @@
 // FAQ compartida entre las páginas de servicio (página web, tienda online,
-// mantenimiento). Ayuda a que el cliente entienda qué servicio necesita, sin
-// precios públicos: el precio siempre se cierra en la propuesta.
+// mantenimiento). Ayuda a que el cliente entienda qué servicio necesita.
+// Sin tarifas fijas públicas; el precio concreto va en la propuesta.
 export interface ServiceFaqItem {
   question: string;
   answer: string;

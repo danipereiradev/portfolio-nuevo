@@ -11,8 +11,7 @@ import ExitIntentPopup from './components/ExitIntentPopup';
 import Home from './pages/Home';
 import TiendasOnline from './pages/TiendasOnline';
 import MantenimientoWeb from './pages/MantenimientoWeb';
-import WebAutonomosPymes from './pages/WebAutonomosPymes';
-import WebProfesionalNegocios from './pages/WebProfesionalNegocios';
+import WebProfesionalAMedida from './pages/WebProfesionalAMedida';
 import PaginasWebEmpresas from './pages/PaginasWebEmpresas';
 import DisenoWeb from './pages/DisenoWeb';
 import AplicacionesWeb from './pages/AplicacionesWeb';
@@ -25,7 +24,6 @@ import Faq from './pages/Faq';
 import Ia from './pages/Ia';
 import Gracias from './pages/Gracias';
 import LegalDocument from './pages/LegalDocument';
-import WebStart from './pages/WebStart';
 import NotFound from './pages/NotFound';
 
 function AppContent() {
@@ -44,15 +42,9 @@ function AppContent() {
         <Route path='/' element={<Home />} />
         <Route path='/tiendas-online' element={<TiendasOnline />} />
         <Route path='/mantenimiento-web' element={<MantenimientoWeb />} />
-        <Route path='/web-a-medida' element={<WebAutonomosPymes />} />
         <Route
-          path='/web-profesional-360'
-          element={<WebProfesionalNegocios />}
-        />
-        {/* Alias antiguo del servicio Web a Medida */}
-        <Route
-          path='/web-autonomos-pymes'
-          element={<Navigate to='/web-a-medida' replace />}
+          path='/web-profesional-a-medida'
+          element={<WebProfesionalAMedida />}
         />
         <Route path='/paginas-web-empresas' element={<PaginasWebEmpresas />} />
         <Route path='/diseno-web' element={<DisenoWeb />} />
@@ -71,8 +63,6 @@ function AppContent() {
         <Route path='/preguntas-frecuentes' element={<Faq />} />
         <Route path='/ia' element={<Ia />} />
         <Route path='/gracias' element={<Gracias />} />
-        <Route path='/web-start' element={<WebStart />} />
-        <Route path='/web-start/' element={<WebStart />} />
         <Route
           path='/politica-de-privacidad'
           element={
@@ -98,12 +88,28 @@ function AppContent() {
 
         {/* Redirecciones de URLs antiguas/duplicadas a la ruta canónica */}
         <Route
-          path='/landing-express'
-          element={<Navigate to='/web-a-medida' replace />}
+          path='/web-profesional-360'
+          element={<Navigate to='/web-profesional-a-medida' replace />}
         />
         <Route
           path='/web-profesional-negocios'
-          element={<Navigate to='/web-profesional-360' replace />}
+          element={<Navigate to='/web-profesional-a-medida' replace />}
+        />
+        <Route
+          path='/web-a-medida'
+          element={<Navigate to='/web-profesional-a-medida' replace />}
+        />
+        <Route
+          path='/web-autonomos-pymes'
+          element={<Navigate to='/web-profesional-a-medida' replace />}
+        />
+        <Route
+          path='/landing-express'
+          element={<Navigate to='/web-profesional-a-medida' replace />}
+        />
+        <Route
+          path='/web-start'
+          element={<Navigate to='/web-profesional-a-medida' replace />}
         />
         <Route
           path='/tienda-online'

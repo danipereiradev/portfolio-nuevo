@@ -3,13 +3,9 @@
     "title": "Diseño y desarrollo web para empresas | PereiraWeb",
     "description": "Diseño y desarrollo web para empresas y autónomos. Webs rápidas, profesionales y pensadas para generar contactos en toda España."
   },
-  "/web-a-medida": {
-    "title": "Diseño Web a Medida para Empresas | Pereiraweb",
-    "description": "Diseño y desarrollo web a medida para empresas que necesitan funcionalidades, estructura o integraciones específicas."
-  },
-  "/web-profesional-360": {
-    "title": "Web Profesional 360 para empresas y autónomos | PereiraWeb",
-    "description": "Web profesional con precio claro, diseño adaptado y todo lo necesario para presentar tu negocio y captar clientes en toda España."
+  "/web-profesional-a-medida": {
+    "title": "Web profesional a medida para empresas y autónomos | PereiraWeb",
+    "description": "Diseño y desarrollo de webs profesionales a medida. Presupuesto cerrado antes de empezar para presentar tu negocio y captar clientes en toda España."
   },
   "/paginas-web-empresas": {
     "title": "Páginas Web para Empresas | PereiraWeb",
@@ -74,11 +70,5 @@
   "/aviso-legal": {
     "title": "Aviso Legal | PereiraWeb",
     "description": "Aviso legal e información del titular del sitio web PereiraWeb: datos identificativos, condiciones de uso y responsabilidad."
-  },
-  "/web-start": {
-    "title": "Web Start: página web profesional por 545 € + IVA | PereiraWeb",
-    "description": "Página web profesional para empresas y autónomos que necesitan empezar con una solución clara y de alcance cerrado.",
-    "robots": "noindex, follow",
-    "canonical": "https://pereiraweb.es/web-start/"
   }
 }

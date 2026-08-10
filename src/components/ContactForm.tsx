@@ -224,13 +224,10 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       }
 
       const planPrices: { [key: string]: number } = {
-        'Web Start': 545,
         'Web a Medida': 0,
-        'Web Profesional 360': 0,
         'Tienda Online': 0,
         'Mantenimiento Web': 0,
-        '360 Presencia': 1090,
-        '360 Gestión': 1590,
+        'Web con IA': 0,
         'No sé cuál necesito': 0,
         'No sé cuál elegir': 0,
         'Proyecto personalizado': 0,
@@ -264,24 +261,9 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
   const planOptions = [
     {
-      value: 'Web Start',
-      description:
-        '360 Start: presencia profesional de alcance cerrado (545 € + IVA)',
-    },
-    {
-      value: '360 Presencia',
-      description:
-        'Web Profesional 360: nosotros nos ocupamos de los cambios (1.090 € + IVA)',
-    },
-    {
-      value: '360 Gestión',
-      description:
-        'Web Profesional 360 con panel para actualizar contenidos (1.590 € + IVA)',
-    },
-    {
       value: 'Web a Medida',
       description:
-        'Proyecto con funciones especiales o zonas privadas según tu negocio',
+        'Web profesional a medida para presentar tu negocio y captar clientes',
     },
     {
       value: 'Tienda Online',

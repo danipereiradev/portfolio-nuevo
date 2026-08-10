@@ -223,7 +223,7 @@ const AplicacionesWeb = () => {
     {
       question: '¿Cuánto cuesta desarrollar una aplicación web a medida?',
       answer:
-        'El coste depende de la complejidad, funcionalidades e integraciones necesarias. Preparamos una propuesta a medida y cerrada tras analizar tus necesidades específicas, con opciones de pago flexible.',
+        'El coste depende de la complejidad, funcionalidades e integraciones. No hay una tarifa fija: tras analizar tus necesidades te enviamos una propuesta concreta con precio, plazos y opciones de pago.',
     },
     {
       question: '¿Qué tecnologías utilizáis para desarrollar aplicaciones web?',

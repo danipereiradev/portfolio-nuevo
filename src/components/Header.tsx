@@ -35,17 +35,9 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
 
   const services = [
     {
-      name: 'Web Start',
-      path: '/web-start',
-    },
-    {
-      name: 'Web Profesional 360',
-      path: '/web-profesional-360',
+      name: 'Web profesional a medida',
+      path: '/web-profesional-a-medida',
       popular: true,
-    },
-    {
-      name: 'Web a Medida',
-      path: '/web-a-medida',
     },
     {
       name: 'Tiendas Online',

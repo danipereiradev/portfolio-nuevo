@@ -15,9 +15,9 @@ export const DEFAULT_WHATSAPP_MESSAGE =
   'Hola, quiero información para un proyecto web.';
 
 // Mensaje específico para el tráfico de campañas de Google Ads que llega a
-// la landing /web-a-medida.
+// la landing /web-profesional-a-medida.
 export const ADS_WHATSAPP_MESSAGE =
-  'Hola, vengo de Google y quiero información para una web profesional.';
+  'Hola, vengo de Google y quiero información para una web profesional a medida.';
 
 // Mensaje para el botón de WhatsApp de /tiendas-online.
 export const ECOMMERCE_WHATSAPP_MESSAGE =
@@ -26,14 +26,6 @@ export const ECOMMERCE_WHATSAPP_MESSAGE =
 // Mensaje para el botón de WhatsApp de /mantenimiento-web.
 export const MAINTENANCE_WHATSAPP_MESSAGE =
   'Hola, quiero información sobre mantenimiento web.';
-
-// Mensaje para el botón de WhatsApp de /web-profesional-360.
-export const BUSINESS_PACKS_WHATSAPP_MESSAGE =
-  'Hola, he visto Web Profesional 360 y me gustaría recibir información sobre una web para mi negocio.';
-
-// Mensaje para el tráfico de la landing /web-start (automatización email).
-export const WEB_START_WHATSAPP_MESSAGE =
-  'Hola, vengo de la landing Web Start y quiero ver si encaja con mi negocio.';
 
 // Mensaje para el botón de WhatsApp de la página /contacto.
 export const CONTACT_PAGE_WHATSAPP_MESSAGE =
@@ -57,8 +49,8 @@ export const buildWhatsAppUrl = (
 
 // Quita la barra final de una ruta (salvo si es la raíz "/"), para que las
 // comparaciones exactas de pathname no fallen si la URL llega con "/" al
-// final (p. ej. "/web-a-medida/" servida directamente como carpeta
-// por el hosting, o enlazada así desde fuera).
+// final (p. ej. "/web-profesional-a-medida/" servida directamente como
+// carpeta por el hosting, o enlazada así desde fuera).
 const normalizePath = (pathname: string): string =>
   pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
 
@@ -67,11 +59,9 @@ const normalizePath = (pathname: string): string =>
 // el visitante está mirando en cada página.
 export const getWhatsAppMessageForPath = (pathname: string): string => {
   const path = normalizePath(pathname);
-  if (path === '/web-a-medida') return ADS_WHATSAPP_MESSAGE;
+  if (path === '/web-profesional-a-medida') return ADS_WHATSAPP_MESSAGE;
   if (path === '/tiendas-online') return ECOMMERCE_WHATSAPP_MESSAGE;
   if (path === '/mantenimiento-web') return MAINTENANCE_WHATSAPP_MESSAGE;
-  if (path === '/web-profesional-360') return BUSINESS_PACKS_WHATSAPP_MESSAGE;
-  if (path === '/web-start') return WEB_START_WHATSAPP_MESSAGE;
   if (path === '/ia') return IA_PAGE_WHATSAPP_MESSAGE;
   return DEFAULT_WHATSAPP_MESSAGE;
 };

@@ -10,39 +10,15 @@ const Pricing = () => {
 
   const plans = [
     {
-      id: 'web360',
-      name: 'Web Profesional 360',
-      idealFor:
-        'autónomos, pymes y negocios locales que quieren una web profesional con precio y proceso claros',
-      description:
-        'Una web completa, adaptada a tu negocio y lista para recibir clientes, sin presupuestos ambiguos ni procesos interminables.',
-      path: '/web-profesional-360',
-      deliveryTime: 'Lista en 2–3 semanas',
-      price: 'Desde 545 € + IVA',
-      priceNote: 'Pago único o fraccionado',
-      cta: 'Ver qué incluye',
-      features: [
-        'Diseño adaptado a la imagen de tu negocio',
-        'Preparada para móvil, tablet y ordenador',
-        'Entre 4 y 6 páginas o secciones principales',
-        'Adaptación de tus textos, imágenes, colores y logo',
-        'Formulario de contacto y botón de WhatsApp',
-        'Preparada para aparecer en Google y búsquedas locales',
-        'Publicación de la web con tu propio dominio',
-        'Dos rondas de cambios incluidas',
-        'Mantenimiento opcional por 60 €/mes + IVA',
-      ],
-      recommended: true,
-    },
-    {
       id: 'webpage',
       name: 'Web a Medida',
+      formPlanName: 'Web a Medida',
       idealFor: 'negocios que necesitan algo más que una web informativa.',
       description:
         'Diseñamos una solución adaptada a tu forma de trabajar cuando necesitas funciones especiales, conexión con otras herramientas o una zona privada para clientes o equipo.',
-      path: '/web-a-medida',
-      deliveryTime: 'Plazo y precio según las necesidades del proyecto',
-      cta: 'Saber más',
+      path: '/web-profesional-a-medida',
+      deliveryTime: 'Plazo según las necesidades del proyecto',
+      cta: 'Solicitar presupuesto',
       features: [
         'Diseño completamente adaptado a tu negocio',
         'Funciones especiales desarrolladas para tu proyecto',
@@ -54,20 +30,21 @@ const Pricing = () => {
         'Acompañamiento durante todo el proyecto',
         'Revisiones acordadas antes de empezar',
       ],
-      recommended: false,
+      recommended: true,
     },
     {
       id: 'ecommerce',
       name: 'Tienda online',
+      formPlanName: 'Tienda Online',
       idealFor:
         'negocios y emprendedores que quieren vender productos por internet.',
       description:
         'Creamos una tienda preparada para mostrar tus productos, cobrar online, recibir pedidos y gestionar las ventas de forma sencilla.',
       path: '/tiendas-online',
-      deliveryTime: 'Lista en 4–6 semanas',
-      cta: 'Ver qué incluye',
+      deliveryTime: 'Plazo según el catálogo y las necesidades del proyecto',
+      cta: 'Solicitar presupuesto',
       features: [
-        'Hasta 50 productos añadidos a la tienda',
+        'Productos añadidos según lo acordado en la propuesta',
         'Pagos seguros con tarjeta',
         'Panel sencillo para gestionar productos y pedidos',
         'Control de existencias para saber qué productos quedan disponibles',
@@ -77,21 +54,21 @@ const Pricing = () => {
         'Preparada para aparecer en Google',
         'Enlaces y conexión con tus redes sociales',
         'Formación para aprender a gestionar la tienda',
-        'Dos rondas de cambios incluidas',
+        'Rondas de cambios acordadas en la propuesta',
       ],
       recommended: false,
     },
     {
       id: 'maintenance',
       name: 'Mantenimiento web',
+      formPlanName: 'Mantenimiento Web',
       idealFor:
         'negocios que ya tienen una web y quieren mantenerla actualizada, segura y funcionando correctamente.',
       description:
         'Nos ocupamos del cuidado técnico de tu web y de pequeños cambios mensuales para que no tengas que preocuparte por errores, actualizaciones o problemas de seguridad.',
       path: '/mantenimiento-web',
-      deliveryLabel: 'Servicio',
-      deliveryTime: 'Atención y mantenimiento mensual',
-      cta: 'Ver planes de mantenimiento',
+      deliveryTime: 'Servicio mensual según el plan que te propongamos',
+      cta: 'Solicitar presupuesto',
       features: [
         'Pequeños cambios en textos, imágenes y contenidos',
         'Actualizaciones para mantener la web segura',
@@ -108,6 +85,11 @@ const Pricing = () => {
     },
   ];
 
+  const handleQuoteCta = (planName: string, ctaText: string) => {
+    trackPricingCtaClick(planName, ctaText);
+    openModal(planName);
+  };
+
   return (
     <section
       id='pricing'
@@ -117,17 +99,15 @@ const Pricing = () => {
       <div className='mx-auto w-full max-w-screen-2xl px-6 relative z-10'>
         <div className='text-center mb-12 max-w-3xl mx-auto'>
           <h2 className='text-4xl md:text-5xl font-extrabold text-gray-900 mb-6'>
-            Siempre trabajamos con precio cerrado y sin letras pequeñas
+            Cuéntanos tu proyecto y te preparamos un presupuesto a medida
           </h2>
           <p className='text-lg md:text-xl text-gray-700 font-medium mb-3'>
-            Cada web es diferente. Antes de darte un precio, hablamos contigo
-            para entender qué necesitas, qué debe incluir y qué quieres
-            conseguir con ella.
+            Cada negocio es diferente. Antes de hablar de precio, queremos
+            entender qué necesitas, qué debe incluir y qué quieres conseguir.
           </p>
           <p className='text-base text-gray-500'>
-            Antes de empezar tendrás por escrito el precio final, los plazos, la
-            forma de trabajo, lo que está incluido y las opciones de pago. Sin
-            sorpresas a mitad del proyecto.
+            Te enviaremos una propuesta clara con plazos, forma de trabajo, lo
+            incluido y el precio cerrado. Sin sorpresas a mitad del proyecto.
           </p>
         </div>
 
@@ -161,42 +141,20 @@ const Pricing = () => {
                 >
                   {plan.description}
                 </p>
-                {'price' in plan && plan.price ? (
-                  <div className='space-y-1'>
-                    <p
-                      className={`text-3xl md:text-4xl font-extrabold tracking-tight ${
-                        plan.recommended ? 'text-accent' : 'text-gray-900'
-                      }`}
-                    >
-                      {plan.price}
-                    </p>
-                    {'priceNote' in plan && plan.priceNote ? (
-                      <p
-                        className={`text-sm font-semibold ${
-                          plan.recommended ? 'text-white/80' : 'text-gray-700'
-                        }`}
-                      >
-                        {plan.priceNote}
-                      </p>
-                    ) : null}
-                    <p
-                      className={`text-sm font-medium ${
-                        plan.recommended ? 'text-white/50' : 'text-gray-500'
-                      }`}
-                    >
-                      {plan.deliveryTime}
-                    </p>
-                  </div>
-                ) : (
-                  <span
-                    className={`text-sm font-medium ${plan.recommended ? 'text-white/50' : 'text-gray-500'}`}
-                  >
-                    {'deliveryLabel' in plan && plan.deliveryLabel
-                      ? plan.deliveryLabel
-                      : 'Entrega'}
-                    : {plan.deliveryTime}
-                  </span>
-                )}
+                <p
+                  className={`text-sm font-medium ${
+                    plan.recommended ? 'text-white/50' : 'text-gray-500'
+                  }`}
+                >
+                  {plan.deliveryTime}
+                </p>
+                <p
+                  className={`mt-3 text-lg font-extrabold ${
+                    plan.recommended ? 'text-accent' : 'text-gray-900'
+                  }`}
+                >
+                  Presupuesto a medida
+                </p>
               </div>
 
               <ul className='space-y-3 mb-8 flex-grow'>
@@ -212,10 +170,9 @@ const Pricing = () => {
                 ))}
               </ul>
 
-              <div className='mt-auto'>
+              <div className='mt-auto space-y-3'>
                 <Button
-                  href={plan.path}
-                  onClick={() => trackPricingCtaClick(plan.name, plan.cta)}
+                  onClick={() => handleQuoteCta(plan.formPlanName, plan.cta)}
                   variant='primary'
                   fullWidth
                   className={
@@ -226,6 +183,17 @@ const Pricing = () => {
                 >
                   {plan.cta}
                 </Button>
+                <a
+                  href={plan.path}
+                  onClick={() =>
+                    trackPricingCtaClick(plan.name, 'Ver más detalles')
+                  }
+                  className={`block text-center text-sm font-semibold hover:underline ${
+                    plan.recommended ? 'text-accent' : 'text-gray-600'
+                  }`}
+                >
+                  Ver más detalles
+                </a>
               </div>
             </div>
           ))}

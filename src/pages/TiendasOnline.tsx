@@ -181,14 +181,19 @@ const TiendasOnline = () => {
         'Sí. Ofrecemos opciones de pago flexible: pago único o pago fraccionado, según lo que mejor se adapte a tu proyecto. Lo concretamos en la propuesta.',
     },
     {
+      question: '¿Cuánto cuesta una tienda online?',
+      answer:
+        'Depende del catálogo y las funcionalidades. Como orientación, muchos proyectos web suelen situarse entre 400 € y 3.000 € + IVA; una tienda se valora según tu caso. Te enviamos una propuesta concreta antes de empezar.',
+    },
+    {
       question: '¿El presupuesto incluye IVA?',
       answer:
-        'Sí, la propuesta que preparamos incluye IVA salvo que se indique lo contrario. La propuesta final se cierra antes de empezar el proyecto.',
+        'Sí, la propuesta que preparamos incluye IVA salvo que se indique lo contrario. El precio y el alcance quedan por escrito antes de empezar.',
     },
     {
       question: '¿Cuántos productos puedo cargar?',
       answer:
-        'La propuesta base incluye hasta 50 productos. Si tu catálogo es mayor, lo ajustamos en la propuesta según tu caso.',
+        'Lo definimos en la propuesta según tu catálogo. Si necesitas muchos productos, lo ajustamos a tu caso.',
     },
     {
       question: '¿Cómo cobran los clientes?',
@@ -342,7 +347,7 @@ const TiendasOnline = () => {
           </h3>
           <div className='grid sm:grid-cols-3 gap-4 max-w-4xl mx-auto'>
             <a
-              href='/web-a-medida'
+              href='/web-profesional-a-medida'
               className='block bg-gray-50 border-2 border-ink-dark rounded-xl p-5 text-center font-bold text-gray-900 shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
             >
               Web a Medida

@@ -11,7 +11,7 @@ import {
 const trustPoints = [
   { icon: Award, text: 'RESEÑAS VERIFICADAS' },
   { icon: Building2, text: 'TRABAJAMOS EN TODA ESPAÑA' },
-  { icon: FileCheck, text: 'PRECIOS CERRADOS' },
+  { icon: FileCheck, text: 'PROPUESTA CLARA' },
   { icon: Wallet, text: 'FACILIDAD DE PAGO' },
   { icon: Clock, text: 'ENTREGA 2-3 SEMANAS' },
   { icon: Send, text: 'RESPUESTA RÁPIDA' },
