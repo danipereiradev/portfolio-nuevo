@@ -287,8 +287,14 @@ const WebProfesionalAMedida = () => {
         </div>
       </section>
 
-      <section className='py-20 bg-ink-dark'>
-        <div className='container mx-auto px-6'>
+      <section className='relative py-20 overflow-hidden'>
+        <div
+          className='absolute inset-0 bg-cover bg-center bg-no-repeat'
+          style={{ backgroundImage: "url('/img/hero-home.webp')" }}
+          aria-hidden='true'
+        />
+        <div className='absolute inset-0 bg-ink-dark/85' aria-hidden='true' />
+        <div className='relative z-10 container mx-auto px-6'>
           <div className='max-w-3xl mx-auto text-center mb-10'>
             <h2 className='text-2xl md:text-4xl font-bold text-white mb-4'>
               Qué tendrás al terminar
@@ -301,7 +307,7 @@ const WebProfesionalAMedida = () => {
             {deliverables.map((item) => (
               <li
                 key={item}
-                className='flex items-start gap-3 bg-white/5 border-2 border-white/20 rounded-lg p-4'
+                className='flex items-start gap-3 bg-white/10 backdrop-blur-[2px] border-2 border-white/20 rounded-lg p-4'
               >
                 <Check className='w-5 h-5 text-accent flex-shrink-0 mt-0.5' />
                 <span className='text-sm md:text-base text-white font-medium'>
@@ -360,8 +366,14 @@ const WebProfesionalAMedida = () => {
         </div>
       </section>
 
-      <section className='py-20 bg-ink-dark'>
-        <div className='container mx-auto px-6'>
+      <section className='relative py-20 overflow-hidden'>
+        <div
+          className='absolute inset-0 bg-cover bg-center bg-no-repeat'
+          style={{ backgroundImage: "url('/img/cta-background.webp')" }}
+          aria-hidden='true'
+        />
+        <div className='absolute inset-0 bg-ink-dark/85' aria-hidden='true' />
+        <div className='relative z-10 container mx-auto px-6'>
           <div className='text-center mb-12 max-w-3xl mx-auto'>
             <h2 className='text-2xl md:text-4xl font-bold text-white mb-4'>
               Qué incluye tu web profesional
@@ -374,7 +386,7 @@ const WebProfesionalAMedida = () => {
             {features.map((feature) => (
               <div
                 key={feature.title}
-                className='rounded-xl border-2 border-accent/40 bg-white/5 p-5 md:p-6'
+                className='rounded-xl border-2 border-accent/40 bg-white/10 backdrop-blur-[2px] p-5 md:p-6'
               >
                 <div className='flex items-start gap-3'>
                   <Check className='w-5 h-5 text-accent flex-shrink-0 mt-0.5' />
