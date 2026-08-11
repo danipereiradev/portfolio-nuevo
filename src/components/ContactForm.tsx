@@ -62,7 +62,8 @@ const ContactForm = ({
   });
   const [formData, setFormData] = useState({
     name: '',
-    contact: '',
+    email: '',
+    phone: '',
     businessType: '',
     plan: preselectedPlan || '',
     description: '',
@@ -79,12 +80,13 @@ const ContactForm = ({
   };
 
   const validatePhone = (value: string): boolean => {
-    const phoneRegex = /^(\+34|0034|34)?[6789]\d{8}$|^\+\d{1,3}\d{6,14}$/;
-    const cleanPhone = value.replace(/[\s-()]/g, '');
-    return phoneRegex.test(cleanPhone);
+    const cleanPhone = value.replace(/[\s\-().]/g, '');
+    // España: móvil/fijo (6/7/8/9 + 8 dígitos), con o sin +34 / 0034 / 34
+    const spanishPhone = /^(?:\+34|0034|34)?[6789]\d{8}$/;
+    // Internacional: + y entre 8 y 15 dígitos en total
+    const internationalPhone = /^\+[1-9]\d{7,14}$/;
+    return spanishPhone.test(cleanPhone) || internationalPhone.test(cleanPhone);
   };
-
-  const isContactAnEmail = (value: string): boolean => validateEmail(value);
 
   const sanitizeText = (text: string): string => {
     return text
@@ -107,16 +109,15 @@ const ContactForm = ({
         'El nombre debe contener solo letras y tener entre 2-50 caracteres';
     }
 
-    const contactValue = formData.contact.trim();
-    if (
-      !contactValue ||
-      (!validateEmail(contactValue) && !validatePhone(contactValue))
-    ) {
-      newErrors.contact = 'Introduce un email o un teléfono válido';
+    const emailValue = formData.email.trim();
+    if (!emailValue || !validateEmail(emailValue)) {
+      newErrors.email = 'Introduce un email válido';
     }
 
-    if (!formData.businessType || formData.businessType.trim().length < 2) {
-      newErrors.businessType = 'Indica el tipo de negocio';
+    const phoneValue = formData.phone.trim();
+    if (!phoneValue || !validatePhone(phoneValue)) {
+      newErrors.phone =
+        'Introduce un teléfono válido (ej: 600 000 000 o +34 600 000 000)';
     }
 
     if (!formData.plan) {
@@ -175,19 +176,21 @@ const ContactForm = ({
 
     try {
       const formspreeEndpoint = 'https://formspree.io/f/movlevkj';
-      const contactIsEmail = isContactAnEmail(formData.contact);
 
       const formDataToSend: Record<string, string> = {
         name: formData.name,
-        contact: formData.contact,
+        email: formData.email,
+        phone: formData.phone,
         businessType: formData.businessType,
         plan: formData.plan,
         description: formData.description,
         submissionDate: new Date().toLocaleString('es-ES'),
         _subject: `Nueva Solicitud de Presupuesto - ${formData.name} - ${formData.plan}`,
+        _replyto: formData.email,
         message: `
 Nombre: ${formData.name}
-Email o teléfono: ${formData.contact}
+Email: ${formData.email}
+Teléfono: ${formData.phone}
 Tipo de negocio: ${formData.businessType}
 
 Plan Seleccionado: ${formData.plan}
@@ -197,10 +200,6 @@ Descripción: ${formData.description}
 Fecha: ${new Date().toLocaleString('es-ES')}
         `,
       };
-
-      if (contactIsEmail) {
-        formDataToSend._replyto = formData.contact;
-      }
 
       const response = await fetch(formspreeEndpoint, {
         method: 'POST',
@@ -325,30 +324,56 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
               <div>
                 <label className='block text-sm font-medium text-gray-700 mb-2 text-center md:text-left'>
-                  Email o Teléfono *
+                  Email *
                 </label>
                 <div className='relative'>
                   <Mail className='absolute left-3 top-3 w-5 h-5 text-gray-400' />
                   <input
-                    type='text'
-                    value={formData.contact}
+                    type='email'
+                    value={formData.email}
                     onChange={(e) =>
-                      handleInputChange('contact', e.target.value)
+                      handleInputChange('email', e.target.value)
                     }
                     className={`w-full pl-10 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_#14b8a6] transition-all duration-150 ${
-                      errors.contact
+                      errors.email
                         ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
                         : 'border-ink-dark'
                     }`}
-                    placeholder='tu@email.com o 600 000 000'
+                    placeholder='tu@email.com'
+                    autoComplete='email'
                   />
                 </div>
-                {errors.contact && <ErrorMessage error={errors.contact} />}
+                {errors.email && <ErrorMessage error={errors.email} />}
               </div>
 
-              <div className='md:col-span-2'>
+              <div>
                 <label className='block text-sm font-medium text-gray-700 mb-2 text-center md:text-left'>
-                  Tipo de Negocio *
+                  Teléfono *
+                </label>
+                <div className='relative'>
+                  <Phone className='absolute left-3 top-3 w-5 h-5 text-gray-400' />
+                  <input
+                    type='tel'
+                    value={formData.phone}
+                    onChange={(e) =>
+                      handleInputChange('phone', e.target.value)
+                    }
+                    className={`w-full pl-10 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_#14b8a6] transition-all duration-150 ${
+                      errors.phone
+                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                        : 'border-ink-dark'
+                    }`}
+                    placeholder='600 000 000'
+                    autoComplete='tel'
+                    inputMode='tel'
+                  />
+                </div>
+                {errors.phone && <ErrorMessage error={errors.phone} />}
+              </div>
+
+              <div>
+                <label className='block text-sm font-medium text-gray-700 mb-2 text-center md:text-left'>
+                  Tipo de Negocio
                 </label>
                 <div className='relative'>
                   <Briefcase className='absolute left-3 top-3 w-5 h-5 text-gray-400' />
