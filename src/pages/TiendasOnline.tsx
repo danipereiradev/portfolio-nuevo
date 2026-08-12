@@ -120,6 +120,7 @@ const TiendasOnline = () => {
     'Configuración de gastos y zonas de envío',
     'Carrito de compra y cupones de descuento',
     'Diseño adaptado a móvil, tablet y ordenador',
+    'Hosting y dominio incluidos',
     'Preparada para aparecer en Google',
     'Enlaces y conexión con tus redes sociales',
     'Formación para aprender a gestionar la tienda',
@@ -156,6 +157,11 @@ const TiendasOnline = () => {
       title: 'Preparada para móvil',
       description:
         'Tu tienda se ve y funciona bien en móvil, tablet y ordenador.',
+    },
+    {
+      title: 'Hosting y dominio incluidos',
+      description:
+        'Publicamos la tienda con dominio propio y alojamiento, lista para vender online.',
     },
     {
       title: 'Preparada para Google',
@@ -199,11 +205,6 @@ const TiendasOnline = () => {
       question: '¿Cómo cobran los clientes?',
       answer:
         'Con tarjeta de forma segura. Valoramos la mejor opción según tu negocio, tu banco y tus clientes.',
-    },
-    {
-      question: '¿Trabajáis solo en Madrid?',
-      answer:
-        'No. Trabajamos online con empresas y autónomos de toda España. Podemos hablar por teléfono, videollamada, correo o WhatsApp. Si estás en Madrid, también podemos desplazarnos.',
     },
     {
       question: '¿Incluís mantenimiento?',

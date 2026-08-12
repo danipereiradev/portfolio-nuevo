@@ -7,11 +7,6 @@ export interface GlobalFaqItem {
 
 export const globalFaqs: GlobalFaqItem[] = [
   {
-    question: '¿Trabajáis solo con clientes de Madrid?',
-    answer:
-      'No. Trabajamos online con empresas y autónomos de toda España. Podemos hablar por teléfono, videollamada, correo o WhatsApp, según te resulte más cómodo. Si estás en Madrid, también podemos desplazarnos.',
-  },
-  {
     question: '¿Qué tipo de webs desarrolláis?',
     answer:
       'Diseñamos y desarrollamos páginas web profesionales, webs corporativas, páginas de servicios, tiendas online, catálogos digitales, rediseños web, mantenimiento y herramientas web a medida. Cada proyecto se adapta a lo que necesita el negocio en concreto.',
@@ -51,11 +46,7 @@ export const globalFaqs: GlobalFaqItem[] = [
     answer:
       'Sí. Ofrecemos mantenimiento web mensual para negocios que necesitan soporte, pequeños cambios, revisión técnica, mejoras de contenido, actualizaciones o acompañamiento después de publicar la web.',
   },
-  {
-    question: '¿Trabajáis con WordPress, código a medida o tiendas online?',
-    answer:
-      'Depende del proyecto. Elegimos la solución más adecuada según las necesidades, presupuesto, escalabilidad y facilidad de mantenimiento. Podemos trabajar con webs a medida, WordPress, tiendas online o soluciones específicas si el proyecto lo requiere.',
-  },
+
   {
     question: '¿Podemos pedir una propuesta sin compromiso?',
     answer:

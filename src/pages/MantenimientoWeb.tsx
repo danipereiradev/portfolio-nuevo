@@ -194,11 +194,6 @@ const MantenimientoWeb = () => {
         'Lo indicamos en la propuesta según lo que necesites: modificaciones y soporte incluidos en la cuota mensual.',
     },
     {
-      question: '¿Trabajáis solo en Madrid?',
-      answer:
-        'No. Trabajamos online con empresas y autónomos de toda España. Podemos hablar por teléfono, videollamada, correo o WhatsApp. Si estás en Madrid, también podemos desplazarnos.',
-    },
-    {
       question: '¿Podéis mantener una web que no habéis creado vosotros?',
       answer:
         'Sí, podemos hacernos cargo del mantenimiento de webs desarrolladas por otros, revisando antes su estado técnico.',

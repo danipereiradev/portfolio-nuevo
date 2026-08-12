@@ -19,11 +19,7 @@ export const faqCategories: FaqCategory[] = [
         answer:
           'PereiraWeb es un estudio de diseño y desarrollo web que trabaja online con empresas y autónomos de toda España. Creamos webs profesionales, tiendas online, proyectos a medida y mantenimiento web, con trato directo y una propuesta clara antes de empezar.',
       },
-      {
-        question: '¿Trabajáis solo con clientes de Madrid?',
-        answer:
-          'No. Trabajamos online con empresas y autónomos de toda España. Podemos hablar por teléfono, videollamada, correo o WhatsApp, según te resulte más cómodo.',
-      },
+
       {
         question: '¿Con quién hablaré durante el proyecto?',
         answer:
@@ -252,5 +248,5 @@ export const faqCategories: FaqCategory[] = [
 ];
 
 export const allFaqItems: FaqItem[] = faqCategories.flatMap(
-  (category) => category.faqs
+  (category) => category.faqs,
 );

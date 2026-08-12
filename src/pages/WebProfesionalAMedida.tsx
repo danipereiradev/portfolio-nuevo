@@ -90,7 +90,7 @@ const WebProfesionalAMedida = () => {
     'Diseño propio, sin plantillas genéricas',
     'Versión móvil revisada',
     'Formulario y WhatsApp funcionando',
-    'Tu dominio conectado',
+    'Hosting y dominio incluidos',
     'Preparada para aparecer en Google',
     'Estadísticas de visitas configuradas',
     'Propuesta clara con precio y alcance por escrito',
@@ -173,8 +173,9 @@ const WebProfesionalAMedida = () => {
       description: 'Publicación con conexión segura desde el primer día.',
     },
     {
-      title: 'Tu propio dominio',
-      description: 'Sin marcas ni subdominios gratuitos.',
+      title: 'Hosting y dominio incluidos',
+      description:
+        'Publicamos la web con dominio propio y alojamiento, sin marcas ni subdominios gratuitos.',
     },
   ];
 
