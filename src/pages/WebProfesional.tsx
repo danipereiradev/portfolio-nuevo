@@ -48,7 +48,7 @@ const processSteps = [
     number: '2',
     title: 'Nos mandas textos e imágenes',
     description:
-      'Con lo tuyo montamos. Si no tienes, hay extras de redacción, fotos o logo.',
+      'Con lo tuyo montamos. Si no lo tienes, nosotros nos encargamos de crearlo.',
   },
   {
     number: '3',
@@ -133,17 +133,17 @@ const extras = [
   {
     icon: FileText,
     title: 'Redacción de textos',
-    description: 'Si no quieres escribirlos tú, los preparamos.',
+    description: 'Si no los tienes, los escribimos nosotros.',
   },
   {
     icon: Camera,
     title: 'Imágenes',
-    description: 'Fotos o recursos para que no quede vacía.',
+    description: 'Si no tienes fotos, las preparamos para la web.',
   },
   {
     icon: Palette,
-    title: 'Logo (si no tienes)',
-    description: 'Uno sencillo para salir del paso con cara propia.',
+    title: 'Logo',
+    description: 'Si no tienes logo, lo creamos para que salgas con cara propia.',
   },
 ];
 
@@ -342,8 +342,7 @@ const WebProfesional = () => {
                 ¿Necesitas textos, fotos o logo?
               </h2>
               <p className='text-base md:text-lg text-gray-600'>
-                Por defecto usamos lo que nos envías. Si no lo tienes, podemos
-                ayudarte con estos extras.
+                Si no lo tienes, nosotros nos encargamos de crearlo.
               </p>
             </div>
           </RevealOnScroll>
