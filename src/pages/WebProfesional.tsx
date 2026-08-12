@@ -314,6 +314,14 @@ const WebProfesional = () => {
             </RevealOnScroll>
           </div>
 
+          <p className='max-w-2xl mx-auto mt-8 text-center text-xs md:text-sm text-gray-500 leading-relaxed'>
+            Podrás solicitar cambios de textos e imágenes durante la fase de
+            revisión incluida.
+            <br className='hidden sm:block' />
+            Una vez publicada, los cambios posteriores pueden hacerse como
+            servicio puntual o mediante mantenimiento opcional.
+          </p>
+
           <RevealOnScroll delayMs={100} className='mt-10'>
             <div className='max-w-3xl mx-auto bg-white border-2 border-ink-dark rounded-xl p-6 md:p-8 shadow-[5px_5px_0_0_#1a1a1a]'>
               <h3 className='text-lg md:text-xl font-bold text-gray-900 mb-3 text-center'>
