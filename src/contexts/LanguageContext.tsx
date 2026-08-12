@@ -37,18 +37,9 @@ const translations = {
   'services.ecommerce.title': 'Tienda online',
   'services.ecommerce.desc':
     'Tiendas online y catálogos digitales para vender productos o servicios con una experiencia cuidada y fácil de gestionar.',
-  'services.custom.title': 'Desarrollo web a medida',
-  'services.custom.desc':
-    'Desarrollamos paneles internos, integraciones y funcionalidades a medida cuando una plantilla ya no es suficiente para tu negocio.',
-  'services.design.title': 'Diseño Web',
-  'services.design.desc':
-    'Diseñamos páginas web a medida, cuidando la identidad de marca y la experiencia de cada visitante.',
   'services.maintenance.title': 'Mantenimiento web',
   'services.maintenance.desc':
     'Soporte, cambios, revisión técnica y mejoras para que tu web siga funcionando correctamente después de publicarla.',
-  'services.seo.title': 'Posicionamiento SEO',
-  'services.seo.desc':
-    'Optimizamos el posicionamiento en Google para aumentar la visibilidad y atraer más clientes a tu negocio.',
 
   // Portfolio
   'portfolio.title': 'Últimos trabajos en 2026',

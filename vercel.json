@@ -69,6 +69,31 @@
       "source": "/contact",
       "destination": "/contacto",
       "permanent": true
+    },
+    {
+      "source": "/paginas-web-empresas",
+      "destination": "/web-profesional-a-medida",
+      "permanent": true
+    },
+    {
+      "source": "/diseno-web",
+      "destination": "/web-profesional-a-medida",
+      "permanent": true
+    },
+    {
+      "source": "/desarrollo-aplicaciones-web",
+      "destination": "/web-profesional-a-medida",
+      "permanent": true
+    },
+    {
+      "source": "/posicionamiento-web-seo",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/auditoria-ecommerce",
+      "destination": "/tiendas-online",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -79,23 +104,6 @@
     {
       "source": "/web-profesional",
       "destination": "/web-profesional/index.html"
-    },
-    {
-      "source": "/paginas-web-empresas",
-      "destination": "/paginas-web-empresas/index.html"
-    },
-    { "source": "/diseno-web", "destination": "/diseno-web/index.html" },
-    {
-      "source": "/desarrollo-aplicaciones-web",
-      "destination": "/desarrollo-aplicaciones-web/index.html"
-    },
-    {
-      "source": "/posicionamiento-web-seo",
-      "destination": "/posicionamiento-web-seo/index.html"
-    },
-    {
-      "source": "/auditoria-ecommerce",
-      "destination": "/auditoria-ecommerce/index.html"
     },
     { "source": "/tiendas-online", "destination": "/tiendas-online/index.html" },
     {

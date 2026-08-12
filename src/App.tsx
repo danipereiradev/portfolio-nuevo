@@ -13,11 +13,6 @@ import TiendasOnline from './pages/TiendasOnline';
 import MantenimientoWeb from './pages/MantenimientoWeb';
 import WebProfesionalAMedida from './pages/WebProfesionalAMedida';
 import WebProfesional from './pages/WebProfesional';
-import PaginasWebEmpresas from './pages/PaginasWebEmpresas';
-import DisenoWeb from './pages/DisenoWeb';
-import AplicacionesWeb from './pages/AplicacionesWeb';
-import ServicioSEO from './pages/ServicioSEO';
-import AuditoriaEcommerce from './pages/AuditoriaEcommerce';
 import Contacto from './pages/Contacto';
 import SobreElEstudio from './pages/SobreElEstudio';
 import CondicionesDelProyecto from './pages/CondicionesDelProyecto';
@@ -48,14 +43,6 @@ function AppContent() {
           element={<WebProfesionalAMedida />}
         />
         <Route path='/web-profesional' element={<WebProfesional />} />
-        <Route path='/paginas-web-empresas' element={<PaginasWebEmpresas />} />
-        <Route path='/diseno-web' element={<DisenoWeb />} />
-        <Route
-          path='/desarrollo-aplicaciones-web'
-          element={<AplicacionesWeb />}
-        />
-        <Route path='/posicionamiento-web-seo' element={<ServicioSEO />} />
-        <Route path='/auditoria-ecommerce' element={<AuditoriaEcommerce />} />
         <Route path='/contacto' element={<Contacto />} />
         <Route path='/sobre-el-estudio' element={<SobreElEstudio />} />
         <Route
@@ -112,6 +99,26 @@ function AppContent() {
         <Route
           path='/web-start'
           element={<Navigate to='/web-profesional-a-medida' replace />}
+        />
+        <Route
+          path='/paginas-web-empresas'
+          element={<Navigate to='/web-profesional-a-medida' replace />}
+        />
+        <Route
+          path='/diseno-web'
+          element={<Navigate to='/web-profesional-a-medida' replace />}
+        />
+        <Route
+          path='/desarrollo-aplicaciones-web'
+          element={<Navigate to='/web-profesional-a-medida' replace />}
+        />
+        <Route
+          path='/posicionamiento-web-seo'
+          element={<Navigate to='/' replace />}
+        />
+        <Route
+          path='/auditoria-ecommerce'
+          element={<Navigate to='/tiendas-online' replace />}
         />
         <Route
           path='/tienda-online'

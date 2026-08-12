@@ -1,25 +1,31 @@
 /api/subscribe  /.netlify/functions/subscribe  200!
 
-/landing-express   /web-a-medida   301!
-/web-autonomos-pymes   /web-a-medida   301!
+/landing-express   /web-profesional-a-medida   301!
+/web-autonomos-pymes   /web-profesional-a-medida   301!
+/web-a-medida   /web-profesional-a-medida   301!
+/web-a-medida/   /web-profesional-a-medida   301!
+/web-profesional-360   /web-profesional-a-medida   301!
+/web-profesional-360/   /web-profesional-a-medida   301!
+/web-profesional-negocios   /web-profesional-a-medida   301!
+/web-start   /web-profesional-a-medida   301!
+/web-start/   /web-profesional-a-medida   301!
+/paginas-web-empresas   /web-profesional-a-medida   301!
+/diseno-web   /web-profesional-a-medida   301!
+/desarrollo-aplicaciones-web   /web-profesional-a-medida   301!
+/posicionamiento-web-seo   /   301!
+/auditoria-ecommerce   /tiendas-online   301!
 /tienda-online     /tiendas-online        301!
 /about             /sobre-el-estudio      301!
 /about-me          /sobre-el-estudio      301!
 /sobre-mi          /sobre-el-estudio      301!
 /contact           /contacto              301!
-/web-profesional-negocios   /web-profesional-360   301!
 
 # Cada ruta comercial sirve su propio index.html pre-renderizado (con
 # title/description/canonical/OG/Twitter propios) generado por
 # scripts/prerender-meta.mjs tras el build, en vez de caer todas en el
 # index.html genérico de la home.
-/web-a-medida            /web-a-medida/index.html            200
-/web-profesional-360            /web-profesional-360/index.html            200
-/paginas-web-empresas           /paginas-web-empresas/index.html           200
-/diseno-web                     /diseno-web/index.html                     200
-/desarrollo-aplicaciones-web    /desarrollo-aplicaciones-web/index.html    200
-/posicionamiento-web-seo        /posicionamiento-web-seo/index.html        200
-/auditoria-ecommerce            /auditoria-ecommerce/index.html            200
+/web-profesional-a-medida       /web-profesional-a-medida/index.html       200
+/web-profesional                /web-profesional/index.html                200
 /tiendas-online                 /tiendas-online/index.html                 200
 /mantenimiento-web              /mantenimiento-web/index.html              200
 /contacto                       /contacto/index.html                       200
@@ -31,7 +37,5 @@
 /terminos-y-condiciones         /terminos-y-condiciones/index.html         200
 /politica-de-cookies            /politica-de-cookies/index.html            200
 /aviso-legal                    /aviso-legal/index.html                    200
-/web-start                      /web-start/index.html                      200
-/web-start/                     /web-start/index.html                      200
 
 /*    /index.html   200

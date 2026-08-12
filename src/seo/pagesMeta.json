@@ -12,10 +12,6 @@
     "description": "One Page desde 249 € + IVA o web de 3 páginas por 349 € + IVA. Entrega en 72 horas, hosting incluido y publicación con tu dominio.",
     "robots": "noindex, nofollow"
   },
-  "/paginas-web-empresas": {
-    "title": "Páginas Web para Empresas | PereiraWeb",
-    "description": "Diseñamos y desarrollamos páginas web para empresas que necesitan transmitir confianza, explicar sus servicios y generar contactos. Presupuesto cerrado antes de empezar."
-  },
   "/tiendas-online": {
     "title": "Diseño de tiendas online para empresas | PereiraWeb",
     "description": "Creamos tiendas online rápidas, claras y preparadas para vender. Diseño, desarrollo y configuración para negocios de toda España."
@@ -23,22 +19,6 @@
   "/mantenimiento-web": {
     "title": "Mantenimiento web para empresas | PereiraWeb",
     "description": "Mantenimiento, soporte, actualizaciones y seguridad para páginas web de empresas y autónomos de toda España."
-  },
-  "/desarrollo-aplicaciones-web": {
-    "title": "Desarrollo Web a Medida | PereiraWeb",
-    "description": "Desarrollamos paneles internos, dashboards y herramientas web a medida para empresas con necesidades técnicas específicas."
-  },
-  "/diseno-web": {
-    "title": "Diseño Web Profesional | PereiraWeb",
-    "description": "Diseñamos y desarrollamos páginas web profesionales, modernas y optimizadas para convertir visitantes en clientes. Presupuesto cerrado antes de empezar."
-  },
-  "/posicionamiento-web-seo": {
-    "title": "Posicionamiento SEO | Optimización Web para Google | PereiraWeb",
-    "description": "Servicios de posicionamiento SEO en España. Mejoramos tu ranking en Google, aumentamos el tráfico orgánico y ayudamos a conseguir más clientes."
-  },
-  "/auditoria-ecommerce": {
-    "title": "Auditoría Ecommerce antes de invertir en publicidad | PereiraWeb",
-    "description": "Revisamos tiendas online para detectar problemas de confianza, móvil, producto, carrito y checkout antes de invertir más en Google Ads o Meta Ads."
   },
   "/contacto": {
     "title": "Contacto | PereiraWeb",

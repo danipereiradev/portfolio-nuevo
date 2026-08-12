@@ -10,13 +10,55 @@
 
 [[redirects]]
   from = "/landing-express"
-  to = "/web-a-medida"
+  to = "/web-profesional-a-medida"
   status = 301
   force = true
 
 [[redirects]]
   from = "/web-autonomos-pymes"
-  to = "/web-a-medida"
+  to = "/web-profesional-a-medida"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/web-a-medida"
+  to = "/web-profesional-a-medida"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/web-a-medida/"
+  to = "/web-profesional-a-medida"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/web-profesional-360"
+  to = "/web-profesional-a-medida"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/web-profesional-360/"
+  to = "/web-profesional-a-medida"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/web-profesional-negocios"
+  to = "/web-profesional-a-medida"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/web-start"
+  to = "/web-profesional-a-medida"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/web-start/"
+  to = "/web-profesional-a-medida"
   status = 301
   force = true
 
@@ -50,38 +92,48 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "/paginas-web-empresas"
+  to = "/web-profesional-a-medida"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/diseno-web"
+  to = "/web-profesional-a-medida"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/desarrollo-aplicaciones-web"
+  to = "/web-profesional-a-medida"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/posicionamiento-web-seo"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/auditoria-ecommerce"
+  to = "/tiendas-online"
+  status = 301
+  force = true
+
 # Cada ruta comercial sirve su propio index.html pre-renderizado (con
 # title/description/canonical/OG/Twitter propios), generado por
 # scripts/prerender-meta.mjs tras el build, en lugar de caer en el
 # index.html genérico de la home.
 [[redirects]]
-  from = "/web-a-medida"
-  to = "/web-a-medida/index.html"
+  from = "/web-profesional-a-medida"
+  to = "/web-profesional-a-medida/index.html"
   status = 200
 
 [[redirects]]
-  from = "/paginas-web-empresas"
-  to = "/paginas-web-empresas/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/diseno-web"
-  to = "/diseno-web/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/desarrollo-aplicaciones-web"
-  to = "/desarrollo-aplicaciones-web/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/posicionamiento-web-seo"
-  to = "/posicionamiento-web-seo/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/auditoria-ecommerce"
-  to = "/auditoria-ecommerce/index.html"
+  from = "/web-profesional"
+  to = "/web-profesional/index.html"
   status = 200
 
 [[redirects]]
@@ -137,16 +189,6 @@
 [[redirects]]
   from = "/aviso-legal"
   to = "/aviso-legal/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/web-start"
-  to = "/web-start/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/web-start/"
-  to = "/web-start/index.html"
   status = 200
 
 [[redirects]]
