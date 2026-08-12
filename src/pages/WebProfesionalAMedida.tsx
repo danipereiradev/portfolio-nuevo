@@ -242,7 +242,7 @@ const WebProfesionalAMedida = () => {
   return (
     <>
       <SEOLandingHero
-        kicker='WEB PROFESIONAL A MEDIDA'
+        kicker='Web a medida'
         title='Tu web, hecha para que te escriban'
         subtitle='Estructura, móvil, formulario y WhatsApp. Con tu marca, no con una plantilla de moda.'
         description='Cuéntanos el caso y te pasamos precio y plazos antes de empezar.'

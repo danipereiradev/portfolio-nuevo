@@ -9,7 +9,6 @@ import {
   buildWhatsAppUrl,
 } from '../config/contact';
 import GlowBackdrop from '../components/decor/GlowBackdrop';
-import FloatingPanel from '../components/decor/FloatingPanel';
 
 const WHATSAPP_URL = buildWhatsAppUrl(ABOUT_PAGE_WHATSAPP_MESSAGE);
 
@@ -23,31 +22,36 @@ const SobreElEstudio = () => {
 
   return (
     <>
-      <section className='relative min-h-[80vh] flex items-center justify-center overflow-hidden pt-20 pb-16'>
+      <section className='relative min-h-[min(72vh,640px)] flex items-end md:items-center overflow-hidden pt-24 pb-14'>
         <GlowBackdrop />
 
-        <FloatingPanel
-          variant='profile'
-          tilt={-7}
-          className='absolute top-24 -left-10 sm:top-28 sm:left-0 lg:left-[6%] z-0 opacity-50 sm:opacity-70 lg:opacity-100'
-        />
-        <FloatingPanel
-          variant='layout'
-          tilt={7}
-          className='absolute bottom-10 -right-10 sm:bottom-14 sm:right-0 lg:right-[6%] z-0 opacity-50 sm:opacity-70 lg:opacity-100'
-        />
+        <div className='relative z-10 w-full mx-auto max-w-screen-2xl px-6'>
+          <div className='grid lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] gap-10 items-end lg:items-center'>
+            <div className='max-w-2xl text-left'>
+              <p className='text-accent font-mono text-sm md:text-base font-semibold tracking-tight mb-5'>
+                Sobre el estudio
+              </p>
+              <h1 className='text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight'>
+                Detrás de PereiraWeb
+              </h1>
+              <p className='text-base md:text-xl text-white/85 leading-relaxed max-w-xl'>
+                Estudio pequeño de diseño y desarrollo web. Trabajamos online
+                con clientes de toda España.
+              </p>
+            </div>
 
-        <div className='relative z-10 text-center max-w-4xl mx-auto px-6 py-4'>
-          <span className='inline-block bg-accent text-ink-dark text-xs md:text-sm font-bold uppercase tracking-wide px-4 py-1.5 border-2 border-white/80 rotate-[-2deg] mb-6 shadow-[4px_4px_0_0_rgba(255,255,255,0.3)]'>
-            Sobre el estudio
-          </span>
-          <h1 className='text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight'>
-            Detrás de PereiraWeb
-          </h1>
-          <p className='text-base md:text-xl lg:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto'>
-            Estudio pequeño de diseño y desarrollo web. Trabajamos online con
-            clientes de toda España.
-          </p>
+            <div className='hidden md:block justify-self-end w-full max-w-sm'>
+              <img
+                src='/img/portfolio/dani-pensando.png'
+                alt='Dani Pereira'
+                width={480}
+                height={480}
+                className='w-full aspect-square object-cover border-2 border-white/20 grayscale'
+                loading='eager'
+                decoding='async'
+              />
+            </div>
+          </div>
         </div>
       </section>
 

@@ -16,7 +16,6 @@ import {
 import { usePageMeta } from '../hooks/usePageMeta';
 import ContactForm from '../components/ContactForm';
 import GlowBackdrop from '../components/decor/GlowBackdrop';
-import FloatingPanel from '../components/decor/FloatingPanel';
 
 const CONTACT_WHATSAPP_URL = buildWhatsAppUrl(CONTACT_PAGE_WHATSAPP_MESSAGE);
 
@@ -30,31 +29,22 @@ const Contacto = () => {
 
   return (
     <>
-      <section className='relative min-h-[80vh] flex items-center justify-center overflow-hidden pt-20 pb-16'>
+      <section className='relative min-h-[min(72vh,640px)] flex items-end md:items-center overflow-hidden pt-24 pb-14'>
         <GlowBackdrop />
 
-        <FloatingPanel
-          variant='chat'
-          tilt={-7}
-          className='absolute top-24 -left-10 sm:top-28 sm:left-0 lg:left-[6%] z-0 opacity-50 sm:opacity-70 lg:opacity-100'
-        />
-        <FloatingPanel
-          variant='contact'
-          tilt={7}
-          className='absolute bottom-10 -right-10 sm:bottom-14 sm:right-0 lg:right-[6%] z-0 opacity-50 sm:opacity-70 lg:opacity-100'
-        />
-
-        <div className='relative z-10 text-center max-w-4xl mx-auto px-6 py-4'>
-          <span className='inline-block bg-accent text-ink-dark text-xs md:text-sm font-bold uppercase tracking-wide px-4 py-1.5 border-2 border-white/80 rotate-[-2deg] mb-6 shadow-[4px_4px_0_0_rgba(255,255,255,0.3)]'>
-            Contacto
-          </span>
-          <h1 className='text-3xl md:text-5xl lg:text-7xl font-extrabold text-white mb-4 leading-tight'>
-            Cuéntanos qué necesitas
-          </h1>
-          <p className='text-base md:text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto'>
-            WhatsApp, email, teléfono o videollamada. Si estás en Madrid,
-            también podemos vernos. Respondemos pronto.
-          </p>
+        <div className='relative z-10 w-full mx-auto max-w-screen-2xl px-6'>
+          <div className='max-w-2xl text-left'>
+            <p className='text-accent font-mono text-sm md:text-base font-semibold tracking-tight mb-5'>
+              Contacto
+            </p>
+            <h1 className='text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight'>
+              Cuéntanos qué necesitas
+            </h1>
+            <p className='text-base md:text-xl text-white/85 leading-relaxed max-w-xl'>
+              WhatsApp, email, teléfono o videollamada. Si estás en Madrid,
+              también podemos vernos. Respondemos pronto.
+            </p>
+          </div>
         </div>
       </section>
 

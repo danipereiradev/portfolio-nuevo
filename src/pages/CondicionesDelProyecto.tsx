@@ -43,19 +43,21 @@ const CondicionesDelProyecto = () => {
 
   return (
     <>
-      <section className='relative min-h-[70vh] flex items-center justify-center overflow-hidden pt-20 pb-16'>
+      <section className='relative min-h-[min(68vh,560px)] flex items-end md:items-center overflow-hidden pt-24 pb-14'>
         <GlowBackdrop />
-        <div className='relative z-10 text-center max-w-4xl mx-auto px-6 py-4'>
-          <span className='inline-block bg-accent text-ink-dark text-xs md:text-sm font-bold uppercase tracking-wide px-4 py-1.5 border-2 border-white/80 rotate-[-2deg] mb-6 shadow-[4px_4px_0_0_rgba(255,255,255,0.3)]'>
-            Condiciones del proyecto
-          </span>
-          <h1 className='text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight'>
-            Cómo trabajamos contigo
-          </h1>
-          <p className='text-base md:text-xl lg:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto'>
-            Pagos, revisiones, plazos y publicación. Lo que suele regir el
-            trabajo, sin letra pequeña a mitad de camino.
-          </p>
+        <div className='relative z-10 w-full mx-auto max-w-screen-2xl px-6'>
+          <div className='max-w-2xl text-left'>
+            <p className='text-accent font-mono text-sm md:text-base font-semibold tracking-tight mb-5'>
+              Condiciones del proyecto
+            </p>
+            <h1 className='text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight'>
+              Cómo trabajamos contigo
+            </h1>
+            <p className='text-base md:text-xl text-white/85 leading-relaxed max-w-xl'>
+              Pagos, revisiones, plazos y publicación. Lo que suele regir el
+              trabajo, sin letra pequeña a mitad de camino.
+            </p>
+          </div>
         </div>
       </section>
 

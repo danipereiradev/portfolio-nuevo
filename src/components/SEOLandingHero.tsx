@@ -1,8 +1,6 @@
 import type { ReactNode } from 'react';
 import { Phone, ChevronDown } from 'lucide-react';
 import Button from './Button';
-import GlowBackdrop from './decor/GlowBackdrop';
-import FloatingPanel from './decor/FloatingPanel';
 
 interface SEOLandingHeroProps {
   title: ReactNode;
@@ -17,6 +15,8 @@ interface SEOLandingHeroProps {
   secondaryCTAIcon?: 'phone' | 'chevron-down';
   /** Texto breve bajo los CTAs (ej. bullets de confianza). */
   ctaFootnote?: string;
+  /** Fondo de imagen. Por defecto hero-home. */
+  backgroundImage?: string;
 }
 
 const SEOLandingHero = ({
@@ -24,82 +24,88 @@ const SEOLandingHero = ({
   subtitle,
   description,
   trustLine,
-  kicker = 'Estudio web',
+  kicker,
   ctaText,
   onCTAClick,
   secondaryCTAText,
   secondaryCTAAction,
   secondaryCTAIcon,
   ctaFootnote,
+  backgroundImage = '/img/hero-home.webp',
 }: SEOLandingHeroProps) => {
   return (
-    <section className='relative min-h-[80vh] flex items-center justify-center overflow-hidden pt-20 pb-16'>
-      <GlowBackdrop />
-
-      <FloatingPanel
-        variant='layout'
-        tilt={-7}
-        className='absolute top-24 -left-10 sm:top-28 sm:left-0 lg:left-[6%] z-0 opacity-50 sm:opacity-70 lg:opacity-100'
+    <section className='relative min-h-[min(88vh,760px)] flex items-end md:items-center overflow-hidden pt-24 pb-14 md:pb-20'>
+      <div
+        className='absolute inset-0 bg-cover bg-center bg-no-repeat'
+        style={{ backgroundImage: `url('${backgroundImage}')` }}
+        aria-hidden='true'
       />
-      <FloatingPanel
-        variant='code'
-        tilt={8}
-        className='absolute bottom-10 -right-10 sm:bottom-16 sm:right-0 lg:right-[6%] z-0 opacity-50 sm:opacity-70 lg:opacity-100'
+      <div
+        className='absolute inset-0 bg-gradient-to-r from-ink-dark via-ink-dark/90 to-ink-dark/50'
+        aria-hidden='true'
+      />
+      <div
+        className='absolute inset-0 bg-gradient-to-t from-ink-dark/90 via-transparent to-ink-dark/35'
+        aria-hidden='true'
       />
 
-      <div className='relative z-10 text-center max-w-4xl mx-auto px-6 py-12 animate-fade-in'>
-        <span className='inline-block bg-accent text-ink-dark text-xs md:text-sm font-bold uppercase tracking-wide px-4 py-1.5 border-2 border-white/80 rotate-[-2deg] mb-6 shadow-[4px_4px_0_0_rgba(255,255,255,0.3)]'>
-          {kicker}
-        </span>
+      <div className='relative z-10 w-full mx-auto max-w-screen-2xl px-6'>
+        <div className='max-w-2xl md:max-w-3xl text-left animate-fade-in'>
+          {kicker && (
+            <p className='text-accent font-mono text-sm md:text-base font-semibold tracking-tight mb-5'>
+              {kicker}
+            </p>
+          )}
 
-        <h1 className='text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-[1.1] tracking-tight'>
-          {title}
-        </h1>
+          <h1 className='text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-[1.08] tracking-tight'>
+            {title}
+          </h1>
 
-        <h2 className='text-lg md:text-2xl lg:text-3xl font-semibold text-white/90 mb-4'>
-          {subtitle}
-        </h2>
+          <h2 className='text-lg md:text-2xl font-semibold text-white/90 mb-4'>
+            {subtitle}
+          </h2>
 
-        <p
-          className={`text-base md:text-xl text-white/80 leading-relaxed max-w-3xl mx-auto ${trustLine ? 'mb-4' : 'mb-8'}`}
-        >
-          {description}
-        </p>
-
-        {trustLine && (
-          <p className='text-sm md:text-base text-accent mb-8 font-semibold'>
-            {trustLine}
-          </p>
-        )}
-
-        <div className='flex flex-col sm:flex-row gap-4 justify-center items-stretch'>
-          <Button
-            onClick={onCTAClick}
-            variant='primary'
-            className='sm:min-w-[240px] !shadow-[5px_5px_0_0_#0d9488] hover:!shadow-[2px_2px_0_0_#0d9488]'
+          <p
+            className={`text-base md:text-lg text-white/80 leading-relaxed max-w-2xl ${trustLine ? 'mb-3' : 'mb-8'}`}
           >
-            {ctaText}
-          </Button>
-          {secondaryCTAText && secondaryCTAAction && (
+            {description}
+          </p>
+
+          {trustLine && (
+            <p className='text-sm md:text-base text-white/60 mb-8 font-medium'>
+              {trustLine}
+            </p>
+          )}
+
+          <div className='flex flex-col sm:flex-row gap-3 md:gap-4 items-stretch sm:items-center'>
             <Button
-              onClick={secondaryCTAAction}
-              variant='secondary'
-              className='sm:min-w-[240px]'
+              onClick={onCTAClick}
+              variant='primary'
+              className='sm:min-w-[220px]'
             >
-              {secondaryCTAIcon === 'phone' && <Phone className='w-4 h-4' />}
-              {secondaryCTAText}
-              {secondaryCTAIcon === 'chevron-down' && (
-                <ChevronDown className='w-4 h-4' />
-              )}
+              {ctaText}
             </Button>
+            {secondaryCTAText && secondaryCTAAction && (
+              <Button
+                onClick={secondaryCTAAction}
+                variant='secondary'
+                className='sm:min-w-[200px]'
+              >
+                {secondaryCTAIcon === 'phone' && <Phone className='w-4 h-4' />}
+                {secondaryCTAText}
+                {secondaryCTAIcon === 'chevron-down' && (
+                  <ChevronDown className='w-4 h-4' />
+                )}
+              </Button>
+            )}
+          </div>
+
+          {ctaFootnote && (
+            <p className='mt-6 text-sm text-white/65 font-medium'>
+              {ctaFootnote}
+            </p>
           )}
         </div>
-
-        {ctaFootnote && (
-          <p className='mt-6 text-sm md:text-base text-white/75 font-medium tracking-wide'>
-            {ctaFootnote}
-          </p>
-        )}
       </div>
     </section>
   );

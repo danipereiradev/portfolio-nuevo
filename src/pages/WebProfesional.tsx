@@ -42,8 +42,7 @@ const processSteps = [
   {
     number: '1',
     title: 'Eliges la opción',
-    description:
-      'One Page 249 € o web de 3 páginas 349 €. Hosting en las dos.',
+    description: 'One Page 249 € o web de 3 páginas 349 €. Hosting en las dos.',
   },
   {
     number: '2',
@@ -63,8 +62,7 @@ const whyPoints = [
   {
     icon: Award,
     title: 'Más de 12 años',
-    description:
-      'Webs para negocios reales. Sabemos qué sobra y qué no.',
+    description: 'Webs para negocios reales. Sabemos qué sobra y qué no.',
   },
   {
     icon: Building2,
@@ -75,33 +73,29 @@ const whyPoints = [
   {
     icon: Handshake,
     title: 'Trato directo',
-    description:
-      'Hablas con quien hace la web. Sin intermediario hinchado.',
+    description: 'Hablas con quien hace la web. Sin intermediario hinchado.',
   },
   {
     icon: ShieldCheck,
     title: 'Precio cerrado',
-    description:
-      'Sabes qué entra y cuánto cuesta antes de empezar.',
+    description: 'Sabes qué entra y cuánto cuesta antes de empezar.',
   },
   {
     icon: Zap,
     title: 'Lista para que te escriban',
-    description:
-      'Formulario, WhatsApp, móvil y SEO básico desde el día uno.',
+    description: 'Formulario, WhatsApp, móvil y SEO básico desde el día uno.',
   },
   {
     icon: MessageSquare,
     title: 'Respuesta rápida',
-    description:
-      'Formulario o WhatsApp. Sin rodeos.',
+    description: 'Formulario o WhatsApp. Sin rodeos.',
   },
 ];
 
 const esencialIncludes = [
   '1 página tipo One Page',
   'Hasta 5 secciones: Inicio, Servicios, Sobre mí/nosotros, CTA y Contacto',
-  'Diseño adaptado a tu negocio (con tu starter)',
+  'Diseño adaptado a tu negocio',
   'Bien en móvil, tablet y ordenador',
   'Formulario de contacto',
   'Botón de WhatsApp',
@@ -186,7 +180,7 @@ const WebProfesional = () => {
   return (
     <>
       <SEOLandingHero
-        kicker='WEB PROFESIONAL'
+        kicker='Web profesional'
         title={
           <>
             Tu web
@@ -214,10 +208,7 @@ const WebProfesional = () => {
         <TrustBar deliveryText='ENTREGA EN 72H' hidePaymentPoint />
       </RevealOnScroll>
 
-      <section
-        ref={planesSectionRef}
-        className='py-20 bg-gray-50'
-      >
+      <section ref={planesSectionRef} className='py-20 bg-gray-50'>
         <div id='incluye' className='scroll-mt-24' />
         <div id='planes' className='scroll-mt-24 h-0' aria-hidden='true' />
         <div className='container mx-auto px-6'>
@@ -226,10 +217,10 @@ const WebProfesional = () => {
               <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4'>
                 Qué incluye
               </h2>
-            <p className='text-base md:text-lg text-gray-600'>
-              Dos opciones — One Page 249 € / Web 3 páginas 349 €. Hosting
-              incluido y entrega en 72 horas en ambas.
-            </p>
+              <p className='text-base md:text-lg text-gray-600'>
+                Dos opciones — One Page 249 € / Web 3 páginas 349 €. Hosting
+                incluido y entrega en 72 horas en ambas.
+              </p>
             </div>
           </RevealOnScroll>
 
@@ -244,7 +235,9 @@ const WebProfesional = () => {
                 </h3>
                 <p className='text-3xl font-bold text-gray-900 mb-1'>
                   249 €{' '}
-                  <span className='text-lg font-semibold text-gray-500'>+ IVA</span>
+                  <span className='text-lg font-semibold text-gray-500'>
+                    + IVA
+                  </span>
                 </p>
                 <p className='text-sm text-gray-500 mb-6'>
                   Una sola página para presentarte. Luego se puede ampliar si
@@ -285,7 +278,9 @@ const WebProfesional = () => {
                 </h3>
                 <p className='text-3xl font-bold text-gray-900 mb-1'>
                   349 €{' '}
-                  <span className='text-lg font-semibold text-gray-500'>+ IVA</span>
+                  <span className='text-lg font-semibold text-gray-500'>
+                    + IVA
+                  </span>
                 </p>
                 <p className='text-sm text-gray-500 mb-6'>
                   Más estructura para servicios. Buena base si luego quieres
@@ -332,9 +327,9 @@ const WebProfesional = () => {
               </h3>
               <p className='text-sm md:text-base text-gray-700 leading-relaxed text-center'>
                 No hace falta una web enorme el primer día. Publicamos una base
-                usable y, si más adelante quieres páginas, blog, reservas u otras
-                funciones, lo valoramos entonces. Sin obligarte a pagar por lo
-                que aún no usas.
+                usable y, si más adelante quieres páginas, blog, reservas u
+                otras funciones, lo valoramos entonces. Sin obligarte a pagar
+                por lo que aún no usas.
               </p>
             </div>
           </RevealOnScroll>

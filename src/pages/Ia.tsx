@@ -66,32 +66,28 @@ const Ia = () => {
 
   return (
     <>
-      <section className='relative min-h-[80vh] flex items-center justify-center overflow-hidden pt-20 pb-16'>
+      <section className='relative min-h-[min(80vh,720px)] flex items-end md:items-center overflow-hidden pt-24 pb-14'>
         <GlowBackdrop />
 
         <FloatingRobot
           variant='happy'
           tilt={-8}
-          className='absolute top-24 -left-6 sm:top-28 sm:left-0 lg:left-[7%] z-0 opacity-50 sm:opacity-70 lg:opacity-100'
-        />
-        <FloatingRobot
-          variant='glitch'
-          tilt={9}
-          float='slower'
-          className='absolute bottom-10 -right-6 sm:bottom-14 sm:right-0 lg:right-[7%] z-0 opacity-50 sm:opacity-70 lg:opacity-100'
+          className='absolute top-28 right-4 sm:right-8 lg:right-[8%] z-0 opacity-40 sm:opacity-70 hidden sm:block'
         />
 
-        <div className='relative z-10 text-center max-w-4xl mx-auto px-6 py-4'>
-          <span className='inline-block bg-accent text-ink-dark text-xs md:text-sm font-bold uppercase tracking-wide px-4 py-1.5 border-2 border-white/80 rotate-[-2deg] mb-6 shadow-[4px_4px_0_0_rgba(255,255,255,0.3)]'>
-            ¿Vas a crear tu web con IA?
-          </span>
-          <h1 className='text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-5 leading-tight'>
-            «¿Para qué pagar si lo hago en minutos con la IA?»
-          </h1>
-          <p className='text-base md:text-xl lg:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto'>
-            Buena pregunta. La IA saca un primer diseño en minutos. Dejarla
-            publicada, usable y lista para que te escriban es otra historia.
-          </p>
+        <div className='relative z-10 w-full mx-auto max-w-screen-2xl px-6'>
+          <div className='max-w-2xl md:max-w-3xl text-left'>
+            <p className='text-accent font-mono text-sm md:text-base font-semibold tracking-tight mb-5'>
+              ¿Vas a crear tu web con IA?
+            </p>
+            <h1 className='text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-5 leading-tight'>
+              «¿Para qué pagar si lo hago en minutos con la IA?»
+            </h1>
+            <p className='text-base md:text-xl text-white/85 leading-relaxed max-w-2xl'>
+              Buena pregunta. La IA saca un primer diseño en minutos. Dejarla
+              publicada, usable y lista para que te escriban es otra historia.
+            </p>
+          </div>
         </div>
       </section>
 

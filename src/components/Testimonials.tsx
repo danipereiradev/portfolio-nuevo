@@ -3,7 +3,6 @@ import { Star, ExternalLink, PlayCircle } from 'lucide-react';
 import { allTestimonials, type Testimonial } from '../data/testimonials';
 import { trackPlayReviewVideo } from '../utils/analytics';
 import GlowBackdrop from './decor/GlowBackdrop';
-import FloatingThumbsUp from './decor/FloatingThumbsUp';
 
 export type { Testimonial };
 
@@ -105,26 +104,13 @@ const Testimonials = ({
     >
       <GlowBackdrop />
 
-      <FloatingThumbsUp
-        tilt={-10}
-        size='lg'
-        className='absolute top-16 -left-4 sm:top-20 sm:left-2 lg:left-[6%] z-0 opacity-55 sm:opacity-75 lg:opacity-100'
-      />
-      <FloatingThumbsUp
-        tilt={12}
-        float='slower'
-        size='md'
-        className='absolute bottom-16 -right-3 sm:bottom-24 sm:right-2 lg:right-[7%] z-0 opacity-55 sm:opacity-75 lg:opacity-100'
-      />
-
       <div className='container mx-auto px-6 relative z-10'>
         <div className='text-center mb-16'>
           <h2 className='text-4xl md:text-5xl font-extrabold text-white mb-4'>
-            Lo que Dicen Nuestros Clientes
+            Lo que dicen clientes
           </h2>
           <p className='text-xl text-gray-300 max-w-3xl mx-auto mb-6'>
-            Testimonios reales de personas que han confiado en nosotros para
-            construir y mantener su web o tienda online
+            Reseñas reales de gente que nos encargó su web o tienda.
           </p>
 
           {/* Rating */}
