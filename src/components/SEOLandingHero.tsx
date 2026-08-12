@@ -15,7 +15,7 @@ interface SEOLandingHeroProps {
   secondaryCTAIcon?: 'phone' | 'chevron-down';
   /** Texto breve bajo los CTAs (ej. bullets de confianza). */
   ctaFootnote?: string;
-  /** Fondo de imagen. Por defecto hero-home. */
+  /** Fondo de imagen. Por defecto web-design-charlesdeluvio. */
   backgroundImage?: string;
 }
 
@@ -31,16 +31,16 @@ const SEOLandingHero = ({
   secondaryCTAAction,
   secondaryCTAIcon,
   ctaFootnote,
-  backgroundImage = '/img/hero-home.webp',
+  backgroundImage = '/img/web-design-charlesdeluvio.webp',
 }: SEOLandingHeroProps) => {
   return (
-    <section className='relative min-h-[min(88vh,760px)] flex items-center justify-center overflow-hidden pt-24 pb-14 md:pb-20'>
+    <section className='relative flex items-center justify-center overflow-hidden pt-[var(--site-header-h)] pb-14 min-h-[70vh] md:pb-0 md:min-h-[100svh]'>
       <div
         className='absolute inset-0 bg-cover bg-center bg-no-repeat'
         style={{ backgroundImage: `url('${backgroundImage}')` }}
         aria-hidden='true'
       />
-      <div className='absolute inset-0 bg-ink-dark/80' aria-hidden='true' />
+      <div className='absolute inset-0 bg-ink-dark/60' aria-hidden='true' />
 
       <div className='relative z-10 w-full mx-auto max-w-screen-2xl px-6'>
         <div className='max-w-3xl mx-auto text-center animate-fade-in'>

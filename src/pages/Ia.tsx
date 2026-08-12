@@ -1,6 +1,5 @@
 import { MessageCircle } from 'lucide-react';
 import { usePageMeta } from '../hooks/usePageMeta';
-import GlowBackdrop from '../components/decor/GlowBackdrop';
 import FloatingRobot from '../components/decor/FloatingRobot';
 import SEOCTAFinal from '../components/SEOCTAFinal';
 import Button from '../components/Button';
@@ -66,8 +65,15 @@ const Ia = () => {
 
   return (
     <>
-      <section className='relative min-h-[min(80vh,720px)] flex items-center justify-center overflow-hidden pt-24 pb-14'>
-        <GlowBackdrop />
+      <section className='relative flex items-center justify-center overflow-hidden pt-[var(--site-header-h)] pb-14 min-h-[65vh] md:pb-0 md:min-h-[100svh]'>
+        <div
+          className='absolute inset-0 bg-cover bg-center bg-no-repeat'
+          style={{
+            backgroundImage: "url('/img/web-design-charlesdeluvio.webp')",
+          }}
+          aria-hidden='true'
+        />
+        <div className='absolute inset-0 bg-ink-dark/60' aria-hidden='true' />
 
         <FloatingRobot
           variant='happy'

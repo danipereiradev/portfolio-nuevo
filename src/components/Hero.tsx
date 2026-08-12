@@ -37,15 +37,15 @@ const Hero = () => {
   return (
     <section
       id='hero'
-      className='relative min-h-[min(92vh,820px)] flex items-center justify-center overflow-hidden pt-24 pb-14 md:pb-20'
+      className='relative flex items-center justify-center overflow-hidden pt-[var(--site-header-h)] pb-14 min-h-[70vh] md:pb-0 md:min-h-[100svh]'
     >
       <div
         className='absolute inset-0 bg-cover bg-center bg-no-repeat'
-        style={{ backgroundImage: "url('/img/hero-home.webp')" }}
+        style={{ backgroundImage: "url('/img/web-design-charlesdeluvio.webp')" }}
         aria-hidden='true'
       />
       <div
-        className='absolute inset-0 bg-ink-dark/80'
+        className='absolute inset-0 bg-ink-dark/60'
         aria-hidden='true'
       />
 

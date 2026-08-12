@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
-import GlowBackdrop from '../components/decor/GlowBackdrop';
 import SEOCTAFinal from '../components/SEOCTAFinal';
 import { useContactModal } from '../contexts/ContactModalContext';
 import { allFaqItems, faqCategories } from '../data/faqPage';
@@ -31,26 +30,21 @@ const Faq = () => {
 
   return (
     <>
-      <section className='relative min-h-[min(68vh,560px)] flex items-center justify-center overflow-hidden pt-24 pb-14'>
-        <GlowBackdrop />
-        <div className='relative z-10 w-full mx-auto max-w-screen-2xl px-6'>
-          <div className='max-w-2xl mx-auto text-center'>
-            <p className='text-accent font-mono text-sm md:text-base font-semibold tracking-tight mb-5'>
+      <section className='pt-[calc(var(--site-header-h)+2.5rem)] pb-10 md:pb-12 bg-white border-b-2 border-ink-dark/10'>
+        <div className='container mx-auto px-6'>
+          <div className='max-w-3xl mx-auto mb-10 md:mb-12'>
+            <p className='text-accent font-mono text-sm md:text-base font-semibold tracking-tight mb-3'>
               Preguntas frecuentes
             </p>
-            <h1 className='text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight'>
+            <h1 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4 leading-tight'>
               Dudas habituales antes de pedir presupuesto
             </h1>
-            <p className='text-base md:text-xl text-white/85 leading-relaxed mx-auto max-w-xl'>
+            <p className='text-base md:text-lg text-gray-600 leading-relaxed'>
               Precios, plazos, hosting, SEO, tiendas… Si no está tu pregunta,
               escríbenos.
             </p>
           </div>
-        </div>
-      </section>
 
-      <section className='py-12 md:py-16 bg-white border-b-2 border-ink-dark/10'>
-        <div className='container mx-auto px-6'>
           <div className='flex flex-wrap justify-center gap-2 md:gap-3 max-w-5xl mx-auto'>
             {faqCategories.map((category) => (
               <a
@@ -66,22 +60,18 @@ const Faq = () => {
       </section>
 
       {faqCategories.map((category, categoryIndex) => {
-        const isAccent = categoryIndex % 2 === 1;
+        const isAlt = categoryIndex % 2 === 1;
 
         return (
           <section
             key={category.id}
             id={category.id}
             className={`scroll-mt-28 py-14 md:py-20 ${
-              isAccent ? 'bg-accent' : 'bg-white'
+              isAlt ? 'bg-white' : 'bg-gray-50'
             }`}
           >
             <div className='container mx-auto px-6'>
-              <h2
-                className={`text-2xl md:text-3xl lg:text-4xl font-extrabold mb-8 md:mb-10 text-center ${
-                  isAccent ? 'text-ink-dark' : 'text-gray-900'
-                }`}
-              >
+              <h2 className='text-2xl md:text-3xl lg:text-4xl font-extrabold mb-8 md:mb-10 text-center text-gray-900'>
                 {category.title}
               </h2>
               <div className='max-w-3xl mx-auto space-y-3'>
@@ -95,9 +85,7 @@ const Faq = () => {
                       className={`bg-white rounded-lg border-2 overflow-hidden transition-all duration-200 ${
                         isOpen
                           ? 'border-ink-dark shadow-[4px_4px_0_0_#0d9488]'
-                          : isAccent
-                            ? 'border-ink-dark shadow-[4px_4px_0_0_rgba(26,26,26,0.35)]'
-                            : 'border-ink-dark shadow-[4px_4px_0_0_#1a1a1a]'
+                          : 'border-ink-dark shadow-[4px_4px_0_0_#1a1a1a]'
                       }`}
                     >
                       <button

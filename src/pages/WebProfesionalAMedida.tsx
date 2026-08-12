@@ -257,13 +257,13 @@ const WebProfesionalAMedida = () => {
 
       <TrustBar />
 
-      <section className='py-20 bg-accent'>
+      <section className='py-20 bg-white'>
         <div className='container mx-auto px-6'>
           <div className='text-center mb-12 max-w-3xl mx-auto'>
-            <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-ink-dark mb-4'>
+            <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4'>
               Si tu web no ayuda a conseguir clientes, sobra
             </h2>
-            <p className='text-base md:text-lg text-ink-dark/80'>
+            <p className='text-base md:text-lg text-gray-600'>
               Situaciones que vemos a menudo antes de arrancar un proyecto.
             </p>
           </div>
@@ -314,19 +314,16 @@ const WebProfesionalAMedida = () => {
         </div>
       </section>
 
-      <section id='incluye' className='relative py-20 overflow-hidden scroll-mt-24'>
-        <div
-          className='absolute inset-0 bg-cover bg-center bg-no-repeat'
-          style={{ backgroundImage: "url('/img/cta-background.webp')" }}
-          aria-hidden='true'
-        />
-        <div className='absolute inset-0 bg-ink-dark/85' aria-hidden='true' />
+      <section
+        id='incluye'
+        className='relative py-20 overflow-hidden scroll-mt-24 bg-white'
+      >
         <div className='relative z-10 container mx-auto px-6'>
           <div className='text-center mb-12 max-w-3xl mx-auto'>
-            <h2 className='text-2xl md:text-4xl font-bold text-white mb-4'>
+            <h2 className='text-2xl md:text-4xl font-bold text-gray-900 mb-4'>
               Qué suele llevar la web
             </h2>
-            <p className='text-white/70 text-base md:text-lg'>
+            <p className='text-gray-600 text-base md:text-lg'>
               Lo básico para presentarte y que te contacten. Sin relleno.
             </p>
           </div>
@@ -334,15 +331,15 @@ const WebProfesionalAMedida = () => {
             {features.map((feature) => (
               <div
                 key={feature.title}
-                className='rounded-xl border-2 border-accent/40 bg-white/10 backdrop-blur-[2px] p-5 md:p-6'
+                className='rounded-xl border-2 border-ink-dark bg-white p-5 md:p-6 shadow-[4px_4px_0_0_#1a1a1a]'
               >
                 <div className='flex items-start gap-3'>
                   <Check className='w-5 h-5 text-accent flex-shrink-0 mt-0.5' />
                   <div>
-                    <h3 className='text-lg font-bold text-white mb-1'>
+                    <h3 className='text-lg font-bold text-gray-900 mb-1'>
                       {feature.title}
                     </h3>
-                    <p className='text-sm md:text-base text-white/75'>
+                    <p className='text-sm md:text-base text-gray-700'>
                       {feature.description}
                     </p>
                   </div>
@@ -353,19 +350,13 @@ const WebProfesionalAMedida = () => {
         </div>
       </section>
 
-      <section className='relative py-20 overflow-hidden'>
-        <div
-          className='absolute inset-0 bg-cover bg-center bg-no-repeat'
-          style={{ backgroundImage: "url('/img/hero-home.webp')" }}
-          aria-hidden='true'
-        />
-        <div className='absolute inset-0 bg-ink-dark/85' aria-hidden='true' />
-        <div className='relative z-10 container mx-auto px-6'>
+      <section className='py-20 bg-gray-50'>
+        <div className='container mx-auto px-6'>
           <div className='max-w-3xl mx-auto text-center mb-10'>
-            <h2 className='text-2xl md:text-4xl font-bold text-white mb-4'>
+            <h2 className='text-2xl md:text-4xl font-bold text-gray-900 mb-4'>
               Qué tendrás al terminar
             </h2>
-            <p className='text-white/70 text-base md:text-lg'>
+            <p className='text-gray-600 text-base md:text-lg'>
               No entregamos solo un diseño. Dejamos la web online y funcionando.
             </p>
           </div>
@@ -373,21 +364,17 @@ const WebProfesionalAMedida = () => {
             {deliverables.map((item) => (
               <li
                 key={item}
-                className='flex items-start gap-3 bg-white/10 backdrop-blur-[2px] border-2 border-white/20 rounded-lg p-4'
+                className='flex items-start gap-3 bg-white border-2 border-ink-dark rounded-lg p-4 shadow-[3px_3px_0_0_#1a1a1a]'
               >
                 <Check className='w-5 h-5 text-accent flex-shrink-0 mt-0.5' />
-                <span className='text-sm md:text-base text-white font-medium'>
+                <span className='text-sm md:text-base text-gray-800 font-medium'>
                   {item}
                 </span>
               </li>
             ))}
           </ul>
           <div className='mt-10 flex flex-col sm:flex-row gap-4 justify-center'>
-            <Button
-              onClick={() => openQuote('Deliverables')}
-              variant='primary'
-              className='!bg-accent !text-ink-dark'
-            >
+            <Button onClick={() => openQuote('Deliverables')} variant='primary'>
               Solicitar presupuesto
             </Button>
             <button
@@ -402,10 +389,10 @@ const WebProfesionalAMedida = () => {
         </div>
       </section>
 
-      <section className='py-20 bg-accent'>
+      <section className='py-20 bg-white'>
         <div className='container mx-auto px-6'>
           <div className='text-center mb-12 max-w-3xl mx-auto'>
-            <h2 className='text-2xl md:text-4xl font-bold text-ink-dark mb-4'>
+            <h2 className='text-2xl md:text-4xl font-bold text-gray-900 mb-4'>
               Así será el proceso
             </h2>
           </div>
@@ -454,7 +441,7 @@ const WebProfesionalAMedida = () => {
         onSecondaryButtonClick={() => handleWhatsApp('LandingWebAMedidaCTAFinal')}
       />
 
-      <div id='contacto' className='scroll-mt-24 bg-accent/30 py-4'>
+      <div id='contacto' className='scroll-mt-24 py-4'>
         <ContactForm />
       </div>
     </>

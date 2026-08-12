@@ -209,7 +209,7 @@ Hay categorías (destinos, guías, tips, comida), galerías ligeras, mapas de si
       <section
         id='portfolio'
         ref={sectionRef}
-        className='relative py-20 bg-white overflow-hidden'
+        className='relative py-20 bg-gray-50 overflow-hidden'
       >
         <div className='container mx-auto px-6 relative z-10'>
           <div className='text-center mb-16'>

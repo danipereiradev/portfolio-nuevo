@@ -1,73 +1,85 @@
 import { useLanguage } from '../contexts/LanguageContext';
-import {
-  BrowserGraphic,
-  CartGraphic,
-  ShieldGraphic,
-} from './decor/ServiceGraphics';
-import GlowBackdrop from './decor/GlowBackdrop';
 
 const Services = () => {
   const { t } = useLanguage();
 
   const mainServices = [
     {
-      graphic: <BrowserGraphic />,
       title: t('services.corporate.title'),
       description: t('services.corporate.desc'),
       link: '/web-profesional-a-medida',
+      image: '/img/portfolio/mock-viajamos.png',
+      imageAlt: 'Mock de web a medida — Hoy Viajamos',
+      cta: 'Ver web a medida',
     },
     {
-      graphic: <CartGraphic />,
       title: t('services.ecommerce.title'),
       description: t('services.ecommerce.desc'),
       link: '/tiendas-online',
+      image: '/img/portfolio/mock-camisetas.png',
+      imageAlt: 'Mock de tienda online — Camisetas Ahora',
+      cta: 'Ver tiendas online',
     },
     {
-      graphic: <ShieldGraphic />,
       title: t('services.maintenance.title'),
       description: t('services.maintenance.desc'),
       link: '/mantenimiento-web',
+      image: '/img/portfolio/mock-carper.webp',
+      imageAlt: 'Mock de web en mantenimiento — Carper Sonido',
+      cta: 'Ver mantenimiento',
     },
   ];
 
   return (
-    <section id='services' className='relative py-20 overflow-hidden'>
-      <GlowBackdrop />
-
-      <div className='container mx-auto px-6 relative z-10'>
-        <div className='text-center mb-16'>
-          <h2 className='text-4xl md:text-5xl font-extrabold text-white mb-4 max-w-4xl mx-auto'>
+    <section id='services' className='relative py-20 md:py-24 bg-gray-50'>
+      <div className='container mx-auto px-6'>
+        <div className='max-w-3xl mx-auto text-center mb-12 md:mb-16'>
+          <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4 leading-tight'>
             {t('services.title')}
           </h2>
-          <p className='text-xl text-white/70 max-w-3xl mx-auto'>
+          <p className='text-base md:text-lg text-gray-600 leading-relaxed'>
             {t('services.description')}
           </p>
         </div>
 
         <div className='grid md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto'>
-          {mainServices.map((service, index) => (
-            <div
-              key={index}
-              className='rounded-xl bg-ink-dark border-2 border-white/15 hover:border-accent shadow-[6px_6px_0_0_rgba(20,184,166,0.25)] hover:shadow-[3px_3px_0_0_rgba(20,184,166,0.5)] hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-200 p-6 md:p-8 flex flex-col'
+          {mainServices.map((service) => (
+            <article
+              key={service.link}
+              className='bg-white border-2 border-ink-dark rounded-xl overflow-hidden flex flex-col shadow-[6px_6px_0_0_#1a1a1a]'
             >
-              {service.graphic}
+              <a
+                href={service.link}
+                className='block bg-gray-100 border-b-2 border-ink-dark'
+                tabIndex={-1}
+                aria-hidden='true'
+              >
+                <img
+                  src={service.image}
+                  alt={service.imageAlt}
+                  width={800}
+                  height={600}
+                  className='w-full aspect-[4/3] object-contain object-center p-3 md:p-4'
+                  loading='lazy'
+                  decoding='async'
+                />
+              </a>
 
-              <h3 className='text-2xl font-bold text-white mt-5 mb-3'>
-                {service.title}
-              </h3>
-              <p className='text-white/80 text-base leading-relaxed mb-6'>
-                {service.description}
-              </p>
-
-              <div className='mt-auto'>
+              <div className='p-5 md:p-6 flex flex-col flex-1'>
+                <h3 className='text-xl md:text-2xl font-bold text-gray-900 mb-2'>
+                  {service.title}
+                </h3>
+                <p className='text-sm md:text-base text-gray-600 leading-relaxed mb-5 flex-1'>
+                  {service.description}
+                </p>
                 <a
                   href={service.link}
-                  className='inline-flex text-sm font-bold text-white border-2 border-white/30 rounded-lg px-5 py-2.5 shadow-[3px_3px_0_0_rgba(255,255,255,0.25)] hover:bg-white hover:text-ink-dark hover:border-white hover:shadow-[1px_1px_0_0_rgba(255,255,255,0.25)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
+                  className='inline-flex self-start text-sm font-bold text-ink-dark border-2 border-ink-dark bg-accent px-4 py-2 rounded-lg shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
                 >
-                  Ver servicio
+                  {service.cta}
                 </a>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

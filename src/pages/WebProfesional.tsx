@@ -204,9 +204,7 @@ const WebProfesional = () => {
         ctaFootnote='72 horas · Precio cerrado · Preguntar no obliga'
       />
 
-      <RevealOnScroll>
-        <TrustBar deliveryText='ENTREGA EN 72H' hidePaymentPoint />
-      </RevealOnScroll>
+      <TrustBar deliveryText='ENTREGA EN 72H' hidePaymentPoint />
 
       <section ref={planesSectionRef} className='py-20 bg-gray-50'>
         <div id='incluye' className='scroll-mt-24' />
@@ -374,14 +372,14 @@ const WebProfesional = () => {
         </div>
       </RevealOnScroll>
 
-      <section id='por-que' className='scroll-mt-24 py-20 bg-accent'>
+      <section id='por-que' className='scroll-mt-24 py-20 bg-gray-50'>
         <div className='container mx-auto px-6'>
           <RevealOnScroll>
             <div className='text-center mb-10 max-w-3xl mx-auto'>
-              <h2 className='text-2xl md:text-4xl font-bold text-ink-dark mb-4'>
+              <h2 className='text-2xl md:text-4xl font-bold text-gray-900 mb-4'>
                 ¿Por qué PereiraWeb?
               </h2>
-              <p className='text-base md:text-lg text-ink-dark/80'>
+              <p className='text-base md:text-lg text-gray-600'>
                 Más de 12 años haciendo webs. Gente del equipo ha trabajado en
                 proyectos de banca y retail.
               </p>
@@ -438,13 +436,12 @@ const WebProfesional = () => {
           subtitle='One Page desde 249 € + IVA o 3 páginas por 349 € + IVA. Hosting y 72 h. WhatsApp o formulario.'
           buttonText='WhatsApp'
           onButtonClick={() => handleWhatsApp('LandingWebProfesionalCTAFinal')}
-          backgroundImage='/img/cta-background.webp'
           className='mt-[100px] !py-[calc(5rem+50px)]'
         />
       </RevealOnScroll>
 
       <RevealOnScroll>
-        <div id='contacto' className='scroll-mt-24 bg-accent/30 py-4'>
+        <div id='contacto' className='scroll-mt-24 py-4'>
           <ContactForm preselectedPlan='Web Esencial' />
         </div>
       </RevealOnScroll>

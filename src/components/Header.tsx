@@ -101,7 +101,7 @@ const Header = ({ showNavMenu }: HeaderProps) => {
 
   return (
     <>
-      <header className='fixed w-full max-w-full top-0 z-50 bg-white border-b-2 border-ink-dark'>
+      <header className='fixed w-full max-w-full top-0 z-50 bg-white shadow-[0_4px_16px_rgba(0,0,0,0.08)]'>
         <div className='mx-auto w-full max-w-screen-2xl px-6 py-4'>
           <div className='flex items-center justify-between relative'>
             {isPackLanding || !navEnabled ? (

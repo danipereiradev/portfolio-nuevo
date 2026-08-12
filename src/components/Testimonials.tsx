@@ -100,16 +100,16 @@ const Testimonials = ({
   return (
     <section
       id={id}
-      className='scroll-mt-24 py-20 text-white overflow-hidden relative'
+      className='scroll-mt-24 py-20 text-gray-900 overflow-hidden relative'
     >
       <GlowBackdrop />
 
       <div className='container mx-auto px-6 relative z-10'>
         <div className='text-center mb-16'>
-          <h2 className='text-4xl md:text-5xl font-extrabold text-white mb-4'>
+          <h2 className='text-4xl md:text-5xl font-extrabold text-gray-900 mb-4'>
             Lo que dicen clientes
           </h2>
-          <p className='text-xl text-gray-300 max-w-3xl mx-auto mb-6'>
+          <p className='text-xl text-gray-600 max-w-3xl mx-auto mb-6'>
             Reseñas reales de gente que nos encargó su web o tienda.
           </p>
 
@@ -168,12 +168,12 @@ const Testimonials = ({
                 />
               ))}
             </div>
-            <span className='text-2xl font-bold text-white'>
+            <span className='text-2xl font-bold text-gray-900'>
               {rating.toFixed(1)}
             </span>
-            <span className='text-gray-400'>/ 5</span>
-            <span className='text-gray-500'>·</span>
-            <span className='text-gray-400 text-sm font-medium'>
+            <span className='text-gray-500'>/ 5</span>
+            <span className='text-gray-400'>·</span>
+            <span className='text-gray-500 text-sm font-medium'>
               {testimonials.length} reseñas verificadas
             </span>
           </div>
@@ -304,7 +304,7 @@ const Testimonials = ({
                 className={`w-4 h-4 rounded-full transition-all duration-200 ${
                   index === currentSlide
                     ? 'bg-accent scale-110'
-                    : 'bg-white/25 hover:bg-white/40'
+                    : 'bg-ink-dark/20 hover:bg-ink-dark/35'
                 }`}
               />
             ))}

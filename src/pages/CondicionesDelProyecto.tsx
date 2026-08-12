@@ -1,5 +1,4 @@
 import { usePageMeta } from '../hooks/usePageMeta';
-import GlowBackdrop from '../components/decor/GlowBackdrop';
 import SEOProcess from '../components/SEOProcess';
 import SEOCTAFinal from '../components/SEOCTAFinal';
 import { useContactModal } from '../contexts/ContactModalContext';
@@ -43,8 +42,15 @@ const CondicionesDelProyecto = () => {
 
   return (
     <>
-      <section className='relative min-h-[min(68vh,560px)] flex items-center justify-center overflow-hidden pt-24 pb-14'>
-        <GlowBackdrop />
+      <section className='relative flex items-center justify-center overflow-hidden pt-[var(--site-header-h)] pb-14 min-h-[55vh] md:pb-0 md:min-h-[100svh]'>
+        <div
+          className='absolute inset-0 bg-cover bg-center bg-no-repeat'
+          style={{
+            backgroundImage: "url('/img/web-design-charlesdeluvio.webp')",
+          }}
+          aria-hidden='true'
+        />
+        <div className='absolute inset-0 bg-ink-dark/60' aria-hidden='true' />
         <div className='relative z-10 w-full mx-auto max-w-screen-2xl px-6'>
           <div className='max-w-2xl mx-auto text-center'>
             <p className='text-accent font-mono text-sm md:text-base font-semibold tracking-tight mb-5'>

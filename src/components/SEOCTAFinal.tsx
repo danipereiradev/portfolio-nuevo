@@ -1,5 +1,4 @@
 import Button from './Button';
-import GlowBackdrop from './decor/GlowBackdrop';
 
 interface SEOCTAFinalProps {
   title: string;
@@ -8,8 +7,6 @@ interface SEOCTAFinalProps {
   onButtonClick: () => void;
   secondaryButtonText?: string;
   onSecondaryButtonClick?: () => void;
-  /** Fondo de imagen opcional (con overlay oscuro). */
-  backgroundImage?: string;
   className?: string;
 }
 
@@ -20,25 +17,18 @@ const SEOCTAFinal = ({
   onButtonClick,
   secondaryButtonText,
   onSecondaryButtonClick,
-  backgroundImage,
   className = '',
 }: SEOCTAFinalProps) => {
   return (
     <section
       className={`relative py-20 overflow-hidden ${className}`.trim()}
     >
-      {backgroundImage ? (
-        <>
-          <div
-            className='absolute inset-0 bg-cover bg-center bg-no-repeat'
-            style={{ backgroundImage: `url('${backgroundImage}')` }}
-            aria-hidden='true'
-          />
-          <div className='absolute inset-0 bg-ink-dark/85' aria-hidden='true' />
-        </>
-      ) : (
-        <GlowBackdrop />
-      )}
+      <div
+        className='absolute inset-0 bg-cover bg-center bg-no-repeat'
+        style={{ backgroundImage: "url('/img/cta-pereiraweb.webp')" }}
+        aria-hidden='true'
+      />
+      <div className='absolute inset-0 bg-ink-dark/70' aria-hidden='true' />
 
       <div className='container mx-auto px-6 relative z-10'>
         <div className='max-w-4xl mx-auto text-center'>
@@ -52,7 +42,7 @@ const SEOCTAFinal = ({
             <Button
               onClick={onButtonClick}
               variant='primary'
-              className='!bg-accent !text-white !border-white hover:!bg-accent-hover text-sm md:text-base !shadow-[5px_5px_0_0_rgba(255,255,255,0.3)] hover:!shadow-[2px_2px_0_0_rgba(255,255,255,0.3)]'
+              className='text-sm md:text-base'
             >
               {buttonText}
             </Button>

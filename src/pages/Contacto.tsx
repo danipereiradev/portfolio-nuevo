@@ -15,7 +15,6 @@ import {
 } from '../config/contact';
 import { usePageMeta } from '../hooks/usePageMeta';
 import ContactForm from '../components/ContactForm';
-import GlowBackdrop from '../components/decor/GlowBackdrop';
 
 const CONTACT_WHATSAPP_URL = buildWhatsAppUrl(CONTACT_PAGE_WHATSAPP_MESSAGE);
 
@@ -29,27 +28,21 @@ const Contacto = () => {
 
   return (
     <>
-      <section className='relative min-h-[min(72vh,640px)] flex items-center justify-center overflow-hidden pt-24 pb-14'>
-        <GlowBackdrop />
-
-        <div className='relative z-10 w-full mx-auto max-w-screen-2xl px-6'>
-          <div className='max-w-2xl mx-auto text-center'>
-            <p className='text-accent font-mono text-sm md:text-base font-semibold tracking-tight mb-5'>
+      <section className='pt-[calc(var(--site-header-h)+2.5rem)] pb-20 bg-white'>
+        <div className='container mx-auto px-6'>
+          <div className='max-w-3xl mx-auto mb-12 md:mb-16'>
+            <p className='text-accent font-mono text-sm md:text-base font-semibold tracking-tight mb-3'>
               Contacto
             </p>
-            <h1 className='text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight'>
+            <h1 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4 leading-tight'>
               Cuéntanos qué necesitas
             </h1>
-            <p className='text-base md:text-xl text-white/85 leading-relaxed mx-auto max-w-xl'>
+            <p className='text-base md:text-lg text-gray-600 leading-relaxed'>
               WhatsApp, email, teléfono o videollamada. Si estás en Madrid,
               también podemos vernos. Respondemos pronto.
             </p>
           </div>
-        </div>
-      </section>
 
-      <section className='py-20 bg-white'>
-        <div className='container mx-auto px-6'>
           <div className='grid md:grid-cols-2 gap-12 max-w-6xl mx-auto mb-16'>
             <div>
               <h2 className='text-3xl font-bold text-gray-900 mb-6'>

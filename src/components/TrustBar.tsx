@@ -25,7 +25,7 @@ const TrustPointCard = ({
   icon: (typeof defaultTrustPoints)[number]['icon'];
   text: string;
 }) => (
-  <div className='flex h-full min-h-[3.25rem] items-center gap-2.5 rounded-lg border-2 border-white/15 bg-white/[0.04] px-3 py-3 shadow-[3px_3px_0_0_rgba(20,184,166,0.2)] transition-all duration-200 hover:border-accent hover:shadow-[3px_3px_0_0_rgba(20,184,166,0.55)] md:px-4'>
+  <div className='flex h-full min-h-[3.25rem] items-center gap-2.5 rounded-lg border-2 border-white/15 bg-white/[0.04] px-3 py-3 shadow-[3px_3px_0_0_rgba(20,184,166,0.2)] md:px-4'>
     <Icon className='h-4 w-4 flex-shrink-0 text-accent md:h-5 md:w-5' />
     <p className='text-xs font-bold leading-snug text-white md:text-sm'>
       {text}
