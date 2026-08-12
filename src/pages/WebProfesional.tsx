@@ -94,7 +94,7 @@ const whyPoints = [
 ];
 
 const esencialIncludes = [
-  '1 página',
+  '1 página con secciones y menú de navegación',
   'Hasta 5 secciones: Inicio, Servicios, Sobre mí/nosotros, CTA y Contacto',
   'Diseño adaptado a tu negocio',
   'Bien en móvil, tablet y ordenador',
@@ -240,8 +240,8 @@ const WebProfesional = () => {
                   </span>
                 </p>
                 <p className='text-sm text-gray-500 mb-6'>
-                  Una sola página para presentarte. Luego se puede ampliar si
-                  hace falta.
+                  Una sola página con diferentes secciones y un menú para
+                  navegar a través de ellas.
                 </p>
                 <ul className='space-y-3 mb-8 flex-1'>
                   {esencialIncludes.map((item) => (
