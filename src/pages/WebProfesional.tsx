@@ -53,9 +53,9 @@ const processSteps = [
   },
   {
     number: '3',
-    title: 'Diseñamos y publicamos',
+    title: 'Entrega en 72 horas',
     description:
-      'Adaptamos el diseño a tu negocio, revisamos contigo y dejamos la web online con tu dominio.',
+      'Diseñamos, revisamos contigo y publicamos la web con tu dominio en 72 horas desde que tenemos lo necesario.',
   },
 ];
 
@@ -109,6 +109,7 @@ const esencialIncludes = [
   'Optimización de velocidad',
   'Integración de dominio existente',
   'Publicación y puesta en producción',
+  'Entrega en 72 horas',
   'Hosting incluido',
   'Sin cuotas mensuales obligatorias',
   'Mantenimiento opcional disponible',
@@ -124,6 +125,7 @@ const profesionalIncludes = [
   'Hasta 2 servicios destacados en la página de Servicios',
   'Mejor base para SEO y para crecer con nuevas páginas o contenidos',
   '2 rondas de cambios',
+  'Entrega en 72 horas',
   'Hosting incluido',
   'Sin cuotas mensuales obligatorias',
   'Mantenimiento opcional disponible',
@@ -192,7 +194,7 @@ const WebProfesional = () => {
         }
         subtitle='Dos opciones claras: One Page o web de 3 páginas.'
         description='Diseño adaptado a tu negocio, hosting incluido, publicación con tu dominio y lista para móvil, Google y contacto.'
-        trustLine='One Page 249 € · Web 3 páginas 349 € · Hosting incluido'
+        trustLine='One Page 249 € · Web 3 páginas 349 € · Entrega en 72 h'
         ctaText='WhatsApp'
         onCTAClick={() => handleWhatsApp('LandingWebProfesionalHero')}
         secondaryCTAText='Ver qué incluye'
@@ -203,11 +205,11 @@ const WebProfesional = () => {
             ?.scrollIntoView({ behavior: 'smooth' });
         }}
         secondaryCTAIcon='chevron-down'
-        ctaFootnote='Precio cerrado · Sin compromiso · Respuesta rápida'
+        ctaFootnote='Entrega en 72 horas · Precio cerrado · Sin compromiso'
       />
 
       <RevealOnScroll>
-        <TrustBar />
+        <TrustBar deliveryText='ENTREGA EN 72H' hidePaymentPoint />
       </RevealOnScroll>
 
       <section
@@ -221,10 +223,10 @@ const WebProfesional = () => {
               <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4'>
                 Qué incluye
               </h2>
-              <p className='text-base md:text-lg text-gray-600'>
-                Dos opciones — One Page 249 € / Web 3 páginas 349 €. Hosting
-                incluido en ambas.
-              </p>
+            <p className='text-base md:text-lg text-gray-600'>
+              Dos opciones — One Page 249 € / Web 3 páginas 349 €. Hosting
+              incluido y entrega en 72 horas en ambas.
+            </p>
             </div>
           </RevealOnScroll>
 
@@ -329,7 +331,7 @@ const WebProfesional = () => {
         </div>
       </section>
 
-      <section className='py-20 bg-white'>
+      <section id='extras' className='scroll-mt-24 py-20 bg-white'>
         <div className='container mx-auto px-6'>
           <RevealOnScroll>
             <div className='text-center mb-12 max-w-3xl mx-auto'>
@@ -362,10 +364,12 @@ const WebProfesional = () => {
       </section>
 
       <RevealOnScroll>
-        <SEOProcess title='Cómo funciona' steps={processSteps} />
+        <div id='proceso' className='scroll-mt-24'>
+          <SEOProcess title='Cómo funciona' steps={processSteps} />
+        </div>
       </RevealOnScroll>
 
-      <section className='py-20 bg-accent'>
+      <section id='por-que' className='scroll-mt-24 py-20 bg-accent'>
         <div className='container mx-auto px-6'>
           <RevealOnScroll>
             <div className='text-center mb-10 max-w-3xl mx-auto'>
@@ -427,7 +431,7 @@ const WebProfesional = () => {
       <RevealOnScroll>
         <SEOCTAFinal
           title='Elige tu web y empecemos'
-          subtitle='One Page desde 249 € + IVA o web de 3 páginas por 349 € + IVA. Hosting incluido. Escríbenos por WhatsApp o deja tus datos en el formulario.'
+          subtitle='One Page desde 249 € + IVA o web de 3 páginas por 349 € + IVA. Hosting incluido y entrega en 72 horas. Escríbenos por WhatsApp o deja tus datos en el formulario.'
           buttonText='WhatsApp'
           onButtonClick={() => handleWhatsApp('LandingWebProfesionalCTAFinal')}
           backgroundImage='/img/cta-background.webp'

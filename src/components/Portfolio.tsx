@@ -199,10 +199,10 @@ La monetización se logró mediante publicidad estratégica, enlaces de afiliado
     : projectsRaw
   ).map(mapPackBadge);
 
-  const upcomingProjects = (isPackLanding
-    ? upcomingProjectsRaw.filter((project) => project.product !== 'Tienda Online')
-    : upcomingProjectsRaw
-  ).map(mapPackBadge);
+  // En /web-profesional no mostramos el bloque "Próximamente".
+  const upcomingProjects = isPackLanding
+    ? []
+    : upcomingProjectsRaw.map(mapPackBadge);
 
   const openProjectModal = (index: number) => {
     setSelectedProject(index);
@@ -228,14 +228,24 @@ La monetización se logró mediante publicidad estratégica, enlaces de afiliado
         <div className='container mx-auto px-6 relative z-10'>
           <div className='text-center mb-16'>
             <h2 className='text-4xl md:text-5xl font-extrabold text-gray-900 mb-4'>
-              {t('portfolio.title')}
+              {isPackLanding ? 'Trabajos reales' : t('portfolio.title')}
             </h2>
-            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-              {t('portfolio.description')}
-            </p>
+            {!isPackLanding && (
+              <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
+                {t('portfolio.description')}
+              </p>
+            )}
           </div>
 
-          <div className='grid md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto'>
+          <div
+            className={
+              projects.length === 1
+                ? 'flex justify-center max-w-6xl mx-auto'
+                : isPackLanding
+                  ? 'grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto'
+                  : 'grid md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto'
+            }
+          >
             {projects.map((project, index) => (
               <div
                 key={index}
@@ -243,7 +253,9 @@ La monetización se logró mediante publicidad estratégica, enlaces de afiliado
                 onMouseEnter={() =>
                   project.headerImage && preloadImage(project.headerImage)
                 }
-                className='group cursor-pointer rounded-xl border-2 border-ink-dark bg-white overflow-hidden shadow-[6px_6px_0_0_#1a1a1a] hover:shadow-[3px_3px_0_0_#1a1a1a] hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-200'
+                className={`group cursor-pointer rounded-xl border-2 border-ink-dark bg-white overflow-hidden shadow-[6px_6px_0_0_#1a1a1a] hover:shadow-[3px_3px_0_0_#1a1a1a] hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-200 ${
+                  projects.length === 1 ? 'w-full max-w-md' : ''
+                }`}
               >
                 <div className='relative overflow-hidden bg-white border-b-2 border-ink-dark'>
                   <img
@@ -262,9 +274,11 @@ La monetización se logró mediante publicidad estratégica, enlaces de afiliado
                 </div>
 
                 <div className='p-5 md:p-6'>
-                  <p className='text-xs font-semibold uppercase tracking-wide text-gray-400 mb-1.5'>
-                    {project.publishedAt}
-                  </p>
+                  {!isPackLanding && (
+                    <p className='text-xs font-semibold uppercase tracking-wide text-gray-400 mb-1.5'>
+                      {project.publishedAt}
+                    </p>
+                  )}
                   <h3 className='text-xl font-bold text-gray-900 mb-1.5'>
                     {project.title}
                   </h3>

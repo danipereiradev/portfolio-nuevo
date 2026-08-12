@@ -8,13 +8,28 @@ interface HeaderProps {
   showNavMenu?: boolean;
 }
 
+const packLandingAnchors = [
+  { href: '#incluye', label: 'Incluye' },
+  { href: '#proceso', label: 'Proceso' },
+  { href: '#por-que', label: 'Por qué' },
+  { href: '#portfolio', label: 'Trabajos' },
+  { href: '#valoraciones', label: 'Reseñas' },
+  { href: '#contacto', label: 'Contacto' },
+];
+
+const navLinkClass =
+  'relative font-bold text-md uppercase text-black transition-colors duration-200 hover:text-accent after:content-[""] after:absolute after:left-0 after:-bottom-1.5 after:h-[3px] after:w-0 after:bg-accent after:transition-all after:duration-200 hover:after:w-full';
+
+const mobileNavLinkClass =
+  'block w-full text-left px-4 py-3 font-bold text-md uppercase text-black hover:bg-gray-100 hover:text-accent transition-colors duration-200';
+
 const Header = ({ showNavMenu }: HeaderProps) => {
   const { t } = useLanguage();
   const { pathname } = useLocation();
   const normalizedPath =
     pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
-  const isMinimalChrome = normalizedPath === '/web-profesional';
-  const navEnabled = showNavMenu ?? !isMinimalChrome;
+  const isPackLanding = normalizedPath === '/web-profesional';
+  const navEnabled = showNavMenu ?? !isPackLanding;
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -56,64 +71,73 @@ const Header = ({ showNavMenu }: HeaderProps) => {
     },
   ];
 
+  const brand = (
+    <span
+      className='text-xl md:text-2xl whitespace-nowrap font-extrabold flex items-center'
+      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+    >
+      <span className='text-accent font-mono text-2xl md:text-3xl'>&gt;</span>
+      <span className='text-black font-mono tracking-tight ml-1'>
+        {hasTyped ? 'pereiraweb' : typedText.split(' ')[0]}
+      </span>
+      <span className='text-accent font-mono font-normal'>
+        {hasTyped
+          ? ' .es'
+          : typedText.includes(' .')
+            ? ' ' + typedText.split(' ')[1]
+            : ''}
+      </span>
+      <span className='text-accent font-mono text-xl md:text-2xl animate-pulse ml-0'>
+        _
+      </span>
+    </span>
+  );
+
+  const scrollToAnchor = (href: string) => {
+    const id = href.replace('#', '');
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    setIsMenuOpen(false);
+  };
+
   return (
     <>
       <header className='fixed w-full max-w-full top-0 z-50 bg-white border-b-2 border-ink-dark'>
         <div className='mx-auto w-full max-w-screen-2xl px-6 py-4'>
-          <div
-            className={`flex items-center relative ${
-              navEnabled ? 'justify-between' : 'justify-center'
-            }`}
-          >
-            {(() => {
-              const brand = (
-                <span
-                  className='text-xl md:text-2xl whitespace-nowrap font-extrabold flex items-center'
-                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                >
-                  <span className='text-accent font-mono text-2xl md:text-3xl'>
-                    &gt;
-                  </span>
-                  <span className='text-black font-mono tracking-tight ml-1'>
-                    {hasTyped ? 'pereiraweb' : typedText.split(' ')[0]}
-                  </span>
-                  <span className='text-accent font-mono font-normal'>
-                    {hasTyped
-                      ? ' .es'
-                      : typedText.includes(' .')
-                        ? ' ' + typedText.split(' ')[1]
-                        : ''}
-                  </span>
-                  <span className='text-accent font-mono text-xl md:text-2xl animate-pulse ml-0'>
-                    _
-                  </span>
-                </span>
-              );
+          <div className='flex items-center justify-between relative'>
+            {isPackLanding || !navEnabled ? (
+              <div className='flex items-center gap-1.5 md:gap-2 flex-shrink-0 md:min-w-[200px]'>
+                {brand}
+              </div>
+            ) : (
+              <a
+                href='/'
+                className='flex items-center gap-1.5 md:gap-2 flex-shrink-0 md:min-w-[280px] md:w-[280px]'
+              >
+                {brand}
+              </a>
+            )}
 
-              if (!navEnabled) {
-                return (
-                  <div className='flex items-center justify-center gap-1.5 md:gap-2'>
-                    {brand}
-                  </div>
-                );
-              }
-
-              return (
-                <a
-                  href='/'
-                  className='flex items-center gap-1.5 md:gap-2 flex-shrink-0 md:min-w-[280px] md:w-[280px]'
-                >
-                  {brand}
-                </a>
-              );
-            })()}
+            {isPackLanding && (
+              <nav className='hidden md:flex items-center space-x-5 lg:space-x-7 absolute left-1/2 -translate-x-1/2'>
+                {packLandingAnchors.map((item) => (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToAnchor(item.href);
+                    }}
+                    className={navLinkClass}
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </nav>
+            )}
 
             {navEnabled && (
               <nav className='hidden md:flex items-center space-x-8 absolute left-1/2 -translate-x-1/2'>
-                <a
-                  href='/'
-                  className='relative font-bold text-md uppercase text-black transition-colors duration-200 hover:text-accent after:content-[""] after:absolute after:left-0 after:-bottom-1.5 after:h-[3px] after:w-0 after:bg-accent after:transition-all after:duration-200 hover:after:w-full'
-                >
+                <a href='/' className={navLinkClass}>
                   Inicio
                 </a>
 
@@ -122,7 +146,7 @@ const Header = ({ showNavMenu }: HeaderProps) => {
                   onMouseEnter={() => setIsServicesOpen(true)}
                   onMouseLeave={() => setIsServicesOpen(false)}
                 >
-                  <button className='relative font-bold text-md uppercase text-black transition-colors duration-200 hover:text-accent flex items-center gap-1 after:content-[""] after:absolute after:left-0 after:-bottom-1.5 after:h-[3px] after:w-0 after:bg-accent after:transition-all after:duration-200 hover:after:w-full'>
+                  <button className={`${navLinkClass} flex items-center gap-1`}>
                     Servicios
                     <ChevronDown className='w-4 h-4' />
                   </button>
@@ -154,27 +178,38 @@ const Header = ({ showNavMenu }: HeaderProps) => {
                   )}
                 </div>
 
-                <a
-                  href='/sobre-el-estudio'
-                  className='relative font-bold text-md uppercase text-black transition-colors duration-200 hover:text-accent after:content-[""] after:absolute after:left-0 after:-bottom-1.5 after:h-[3px] after:w-0 after:bg-accent after:transition-all after:duration-200 hover:after:w-full'
-                >
+                <a href='/sobre-el-estudio' className={navLinkClass}>
                   {t('nav.about')}
                 </a>
 
-                <a
-                  href='/contacto'
-                  className='relative font-bold text-md uppercase text-black transition-colors duration-200 hover:text-accent after:content-[""] after:absolute after:left-0 after:-bottom-1.5 after:h-[3px] after:w-0 after:bg-accent after:transition-all after:duration-200 hover:after:w-full'
-                >
+                <a href='/contacto' className={navLinkClass}>
                   {t('nav.contact')}
                 </a>
 
-                <a
-                  href='/preguntas-frecuentes'
-                  className='relative font-bold text-md uppercase text-black transition-colors duration-200 hover:text-accent after:content-[""] after:absolute after:left-0 after:-bottom-1.5 after:h-[3px] after:w-0 after:bg-accent after:transition-all after:duration-200 hover:after:w-full'
-                >
+                <a href='/preguntas-frecuentes' className={navLinkClass}>
                   Preguntas
                 </a>
               </nav>
+            )}
+
+            {isPackLanding && (
+              <div className='md:hidden flex items-center justify-end'>
+                <button
+                  className='p-2'
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+                >
+                  {isMenuOpen ? (
+                    <X className='w-6 h-6 text-black' />
+                  ) : (
+                    <Menu className='w-6 h-6 text-black' />
+                  )}
+                </button>
+              </div>
+            )}
+
+            {isPackLanding && (
+              <div className='hidden md:block md:min-w-[200px]' aria-hidden='true' />
             )}
 
             {navEnabled && (
@@ -214,12 +249,27 @@ const Header = ({ showNavMenu }: HeaderProps) => {
             )}
           </div>
 
+          {isPackLanding && isMenuOpen && (
+            <nav className='md:hidden mt-4 pb-2 bg-white rounded-lg border-2 border-ink-dark shadow-[6px_6px_0_0_#1a1a1a] divide-y-2 divide-gray-100'>
+              {packLandingAnchors.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToAnchor(item.href);
+                  }}
+                  className={mobileNavLinkClass}
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+          )}
+
           {navEnabled && isMenuOpen && (
             <nav className='md:hidden mt-4 pb-2 bg-white rounded-lg border-2 border-ink-dark shadow-[6px_6px_0_0_#1a1a1a] divide-y-2 divide-gray-100'>
-              <a
-                href='/'
-                className='block w-full text-left px-4 py-3 font-bold text-md uppercase text-black hover:bg-gray-100 hover:text-accent transition-colors duration-200'
-              >
+              <a href='/' className={mobileNavLinkClass}>
                 Inicio
               </a>
 
@@ -264,24 +314,18 @@ const Header = ({ showNavMenu }: HeaderProps) => {
                 )}
               </div>
 
-              <a
-                href='/sobre-el-estudio'
-                className='block w-full text-left px-4 py-3 font-bold text-md uppercase text-black hover:bg-gray-100 hover:text-accent transition-colors duration-200'
-              >
+              <a href='/sobre-el-estudio' className={mobileNavLinkClass}>
                 {t('nav.about')}
               </a>
 
-              <a
-                href='/contacto'
-                className='block w-full text-left px-4 py-3 font-bold text-md uppercase text-black hover:bg-gray-100 hover:text-accent transition-colors duration-200'
-              >
+              <a href='/contacto' className={mobileNavLinkClass}>
                 {t('nav.contact')}
               </a>
 
               <a
                 href='/preguntas-frecuentes'
                 onClick={() => setIsMenuOpen(false)}
-                className='block w-full text-left px-4 py-3 font-bold text-md uppercase text-black hover:bg-gray-100 hover:text-accent transition-colors duration-200'
+                className={mobileNavLinkClass}
               >
                 Preguntas
               </a>
