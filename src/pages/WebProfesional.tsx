@@ -42,7 +42,8 @@ const processSteps = [
   {
     number: '1',
     title: 'Eliges la opción',
-    description: 'One Page 249 € o web de 3 páginas 349 €. Hosting en las dos.',
+    description:
+      'Una página 249 € o web de 3 páginas 349 €. Hosting en las dos.',
   },
   {
     number: '2',
@@ -93,7 +94,7 @@ const whyPoints = [
 ];
 
 const esencialIncludes = [
-  '1 página tipo One Page',
+  '1 página',
   'Hasta 5 secciones: Inicio, Servicios, Sobre mí/nosotros, CTA y Contacto',
   'Diseño adaptado a tu negocio',
   'Bien en móvil, tablet y ordenador',
@@ -189,9 +190,9 @@ const WebProfesional = () => {
             desde 249 € + IVA
           </>
         }
-        subtitle='Dos packs: One Page o web de 3 páginas.'
+        subtitle='Dos packs: Una página o web de 3 páginas.'
         description='Diseño a tu negocio, hosting, tu dominio, móvil, formulario y WhatsApp. Entrega en 72 h cuando tenemos lo necesario.'
-        trustLine='One Page 249 € · 3 páginas 349 € · Entrega en 72 h'
+        trustLine='Una página 249 € · 3 páginas 349 € · Entrega en 72 h'
         ctaText='WhatsApp'
         onCTAClick={() => handleWhatsApp('LandingWebProfesionalHero')}
         secondaryCTAText='Ver qué incluye'
@@ -217,7 +218,7 @@ const WebProfesional = () => {
                 Qué incluye
               </h2>
               <p className='text-base md:text-lg text-gray-600'>
-                Dos opciones — One Page 249 € / Web 3 páginas 349 €. Hosting
+                Dos opciones — Una página 249 € / Web 3 páginas 349 €. Hosting
                 incluido y entrega en 72 horas en ambas.
               </p>
             </div>
@@ -227,7 +228,7 @@ const WebProfesional = () => {
             <RevealOnScroll delayMs={80}>
               <article className='bg-white rounded-xl p-7 md:p-8 border-2 border-ink-dark shadow-[7px_7px_0_0_#1a1a1a] relative flex flex-col h-full'>
                 <span className='absolute -top-4 left-6 bg-accent text-ink-dark border-2 border-ink-dark text-xs font-bold uppercase tracking-wide px-3 py-1 rotate-[-2deg]'>
-                  One Page
+                  Una página
                 </span>
                 <h3 className='text-2xl font-extrabold text-gray-900 mt-2 mb-1'>
                   Web Esencial
@@ -254,7 +255,7 @@ const WebProfesional = () => {
                   onClick={() =>
                     handleWhatsApp(
                       'LandingWebProfesionalEsencial',
-                      'Hola, me interesa la Web Esencial (One Page) por 249 € + IVA.',
+                      'Hola, me interesa la Web Esencial (Una página) por 249 € + IVA.',
                       'Web Esencial',
                     )
                   }
@@ -433,7 +434,7 @@ const WebProfesional = () => {
       <RevealOnScroll>
         <SEOCTAFinal
           title='Elige pack y escribimos'
-          subtitle='One Page desde 249 € + IVA o 3 páginas por 349 € + IVA. Hosting y 72 h. WhatsApp o formulario.'
+          subtitle='Una página desde 249 € + IVA o 3 páginas por 349 € + IVA. Hosting y 72 h. WhatsApp o formulario.'
           buttonText='WhatsApp'
           onButtonClick={() => handleWhatsApp('LandingWebProfesionalCTAFinal')}
           className='mt-[100px] !py-[calc(5rem+50px)]'

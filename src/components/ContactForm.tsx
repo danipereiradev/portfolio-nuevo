@@ -1,13 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import {
-  Mail,
-  Phone,
-  User,
-  Briefcase,
-  Check,
-  AlertCircle,
-} from 'lucide-react';
+import { Mail, Phone, User, Briefcase, Check, AlertCircle } from 'lucide-react';
 import {
   trackFormSubmit,
   trackFormError,
@@ -126,7 +119,8 @@ const ContactForm = ({
     }
 
     if (!formData.description || formData.description.trim().length < 10) {
-      newErrors.description = 'La descripción debe tener al menos 10 caracteres';
+      newErrors.description =
+        'La descripción debe tener al menos 10 caracteres';
     }
     if (formData.description.trim().length > 500) {
       newErrors.description =
@@ -274,7 +268,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
     ? [
         {
           value: 'Web Esencial',
-          description: 'One Page desde 249 € + IVA, hosting incluido',
+          description: 'Una página desde 249 € + IVA, hosting incluido',
         },
         {
           value: 'Web Profesional',
@@ -355,9 +349,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                   <input
                     type='email'
                     value={formData.email}
-                    onChange={(e) =>
-                      handleInputChange('email', e.target.value)
-                    }
+                    onChange={(e) => handleInputChange('email', e.target.value)}
                     className={`w-full pl-10 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_#14b8a6] transition-all duration-150 ${
                       errors.email
                         ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
@@ -379,9 +371,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                   <input
                     type='tel'
                     value={formData.phone}
-                    onChange={(e) =>
-                      handleInputChange('phone', e.target.value)
-                    }
+                    onChange={(e) => handleInputChange('phone', e.target.value)}
                     className={`w-full pl-10 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_#14b8a6] transition-all duration-150 ${
                       errors.phone
                         ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
