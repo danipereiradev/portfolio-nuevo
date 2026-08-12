@@ -282,31 +282,29 @@ Fecha: ${new Date().toLocaleString('es-ES')}
         },
         {
           value: 'No sé cuál elegir',
-          description: 'Te ayudamos a decidir según lo que necesita tu negocio',
+          description: 'Cuéntanos el caso y te orientamos',
         },
       ]
     : [
         {
           value: 'Web a Medida',
-          description:
-            'Web profesional a medida para presentar tu negocio y captar clientes',
+          description: 'Para presentarte y que te escriban',
         },
         {
           value: 'Tienda Online',
-          description: 'Solución completa para vender productos online',
+          description: 'Catálogo, cobro online y pedidos',
         },
         {
           value: 'Mantenimiento Web',
-          description: 'Soporte, actualizaciones y seguridad continua',
+          description: 'Actualizaciones, copias y cambios pequeños',
         },
         {
           value: 'Web con IA',
-          description:
-            'Ya he empezado con IA y necesito ayuda para revisarla y terminarla',
+          description: 'Empecé con IA y necesito ayuda para terminarla',
         },
         {
           value: 'No sé cuál elegir',
-          description: 'Te ayudamos a decidir según lo que necesita tu negocio',
+          description: 'Cuéntanos el caso y te orientamos',
         },
       ];
 

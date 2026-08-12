@@ -9,31 +9,31 @@ const processSteps = [
     number: '1',
     title: 'Briefing y propuesta',
     description:
-      'Nos cuentas qué necesitas. Analizamos alcance, estructura y objetivos, y te enviamos una propuesta cerrada con precio, plazos y forma de trabajo antes de empezar.',
+      'Nos cuentas qué necesitas. Te mandamos precio, plazos y forma de trabajo por escrito.',
   },
   {
     number: '2',
-    title: 'Arranque del proyecto',
+    title: 'Arranque',
     description:
-      'Al aceptar la propuesta y realizar el pago inicial, bloqueamos fechas y empezamos. Si aún no tienes los contenidos listos, te ayudamos a organizarlos o los preparamos nosotros.',
+      'Aceptas, pagas el inicial y bloqueamos fechas. Si faltan textos, te ayudamos a ordenarlos.',
   },
   {
     number: '3',
     title: 'Diseño y desarrollo',
     description:
-      'Adaptamos la web a tu marca: estructura, diseño, textos, imágenes y funcionalidades acordadas. Vas viendo avances con comunicación directa durante el proceso.',
+      'Montamos estructura, diseño, textos e imágenes según lo acordado. Vas viendo avances.',
   },
   {
     number: '4',
     title: 'Revisiones',
     description:
-      'Revisas el resultado y aplicamos los ajustes dentro de las rondas de cambios incluidas en tu plan o en lo acordado en la propuesta.',
+      'Afinamos dentro de las rondas incluidas. Cosas nuevas fuera de alcance van aparte.',
   },
   {
     number: '5',
     title: 'Pago final y publicación',
     description:
-      'Antes de publicar la versión definitiva se abona el pago restante. Conectamos el dominio, publicamos la web y te dejamos todo listo para funcionar.',
+      'Pago restante, dominio conectado y web online.',
   },
 ];
 
@@ -53,8 +53,8 @@ const CondicionesDelProyecto = () => {
             Cómo trabajamos contigo
           </h1>
           <p className='text-base md:text-xl lg:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto'>
-            Pagos, revisiones, plazos y publicación: todo claro desde el
-            principio, sin sorpresas a mitad de camino.
+            Pagos, revisiones, plazos y publicación. Lo que suele regir el
+            trabajo, sin letra pequeña a mitad de camino.
           </p>
         </div>
       </section>
@@ -225,8 +225,8 @@ const CondicionesDelProyecto = () => {
       </section>
 
       <SEOCTAFinal
-        title='¿Listo para empezar con claridad?'
-        subtitle='Cuéntanos tu proyecto y te enviamos una propuesta con alcance, plazos y condiciones concretas.'
+        title='¿Empezamos?'
+        subtitle='Cuéntanos el proyecto y te mandamos propuesta con alcance, plazos y condiciones.'
         buttonText='Solicitar propuesta'
         onButtonClick={() => openModal()}
       />

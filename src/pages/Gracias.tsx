@@ -110,19 +110,18 @@ const Gracias = () => {
         </div>
 
         <h1 className='text-3xl md:text-5xl font-extrabold text-gray-900 mb-4'>
-          Gracias, hemos recibido tu mensaje
+          Mensaje recibido
         </h1>
 
         <p className='text-gray-600 mb-2'>
-          Revisaremos la información y te responderemos{' '}
-          <span className='font-semibold text-gray-900'>muy rápido</span> con
-          tu propuesta.
+          Lo miramos y te respondemos{' '}
+          <span className='font-semibold text-gray-900'>pronto</span> con la
+          propuesta o con lo que haga falta preguntarte.
         </p>
 
         <p className='text-gray-600 mb-8'>
-          Revisa tu bandeja de entrada (y la carpeta de spam) por si acaso. Si
-          quieres avanzar más rápido, también puedes escribirnos directamente
-          por WhatsApp.
+          Revisa bandeja de entrada y spam. Si quieres ir más rápido, WhatsApp
+          también vale.
         </p>
 
         <div className='flex flex-col sm:flex-row gap-3 justify-center'>

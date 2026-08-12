@@ -17,40 +17,40 @@ const IA_PLAN = 'Web con IA';
 const realities = [
   {
     title: 'No son minutos. Son horas… y luego días.',
-    text: 'Generar un primer pantallazo puede ser rápido. Tener una web publicada, con dominio, formularios que funcionen, móvil bien resuelto y sin errores raros, casi nunca lo es. La IA acelera el borrador; no sustituye el trabajo de dejarla lista de verdad.',
+    text: 'Un pantallazo sale rápido. Una web publicada, con dominio, formularios que funcionan y móvil decente, casi nunca. La IA acelera el borrador; no sustituye dejarla lista de verdad.',
   },
   {
     title: 'Sin criterio técnico, es difícil saber qué pedir.',
-    text: 'Sin base de desarrollo, es fácil aceptar respuestas que “parecen” correctas. Un cambio pequeño rompe otro. Se pide un arreglo y aparecen tres nuevos. El chat avanza, pero sin criterio técnico no hay forma clara de saber si el proyecto va bien o se está parcheando a ciegas.',
+    text: 'Sin base de desarrollo, es fácil aceptar respuestas que “parecen” correctas. Un cambio rompe otro. El chat avanza, pero no sabes si vas bien o estás parcheando a ciegas.',
   },
   {
     title: 'Diseño genérico y poco creíble.',
-    text: 'Muchas webs hechas solo con prompts se parecen entre sí: tipografías típicas, bloques genéricos, textos vacíos. Para un negocio que necesita transmitir confianza, eso se nota. Y corregirlo “a base de más IA” suele alargar el proceso en vez de resolverlo.',
+    text: 'Muchas webs solo con prompts se parecen: tipografías típicas, bloques vacíos. En un negocio se nota. Y arreglarlo a base de más IA suele alargar el lío.',
   },
   {
     title: 'SEO, velocidad, seguridad y legal no salen solos.',
-    text: 'Metadatos, rendimiento, formularios seguros, cookies, privacidad, estructura indexable… la IA puede ayudar si se sabe qué pedir y qué revisar. Si no, la web queda “bonita en el portátil” y floja donde importa: Google, móvil, confianza y conversión.',
+    text: 'Metadatos, rendimiento, formularios, cookies, privacidad… la IA ayuda si sabes qué pedir. Si no, queda bonita en el portátil y floja en Google, móvil y confianza.',
   },
   {
-    title: 'Publicar no es lo mismo que tener una web que vende.',
-    text: 'Una web útil ordena el mensaje, deja claro qué ofrece el negocio, facilita el contacto y está pensada para el cliente final. Eso no se improvisa con un prompt. Se decide. Y si no se decide bien al principio, se paga después en tiempo, cambios y frustración.',
+    title: 'Publicar ≠ tener una web que vende.',
+    text: 'Hace falta mensaje claro, qué ofreces y cómo contactarte. Eso se decide; no se improvisa con un prompt. Si se decide mal al inicio, se paga después en tiempo y cambios.',
   },
   {
-    title: 'El atajo caro: contratar cuando ya está roto.',
-    text: 'No pasa en todos los casos, pero sí en muchos: tras semanas de idas y venidas, se acaba llamando a un profesional… con una base difícil de aprovechar. Entonces no solo se paga el proyecto: también el tiempo perdido intentando ahorrarlo.',
+    title: 'El atajo caro: llamar cuando ya está roto.',
+    text: 'Pasa a menudo: semanas de idas y venidas y acabas llamando a alguien… con una base difícil de aprovechar. Pagas el proyecto y el tiempo perdido.',
   },
 ];
 
 const whenItMakesSense = [
   'Probar ideas, bocetos o textos iniciales.',
-  'Aprender y experimentar sin prisa ni presión comercial.',
-  'Usarla junto a un equipo que sepa revisar, publicar y mantener.',
+  'Aprender sin prisa ni presión comercial.',
+  'Usarla junto a alguien que sepa revisar, publicar y mantener.',
 ];
 
 const whenItDoesNot = [
-  'Se necesita una web para captar clientes de verdad este mes.',
-  'No hay tiempo ni ganas de convertirse en mini-desarrollador.',
-  'El negocio necesita confianza, claridad y que no se rompa al cambiar una cosa.',
+  'Necesitas clientes de verdad este mes.',
+  'No quieres convertirte en mini-desarrollador.',
+  'El negocio necesita claridad y que no se rompa al tocar una cosa.',
 ];
 
 const Ia = () => {
@@ -89,9 +89,8 @@ const Ia = () => {
             «¿Para qué pagar si lo hago en minutos con la IA?»
           </h1>
           <p className='text-base md:text-xl lg:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto'>
-            Buena pregunta. La IA puede generar un primer diseño en minutos.
-            Convertirlo en una web profesional, publicada y preparada para
-            conseguir clientes es otra historia.
+            Buena pregunta. La IA saca un primer diseño en minutos. Dejarla
+            publicada, usable y lista para que te escriban es otra historia.
           </p>
         </div>
       </section>
@@ -107,9 +106,8 @@ const Ia = () => {
               de diseño, móvil, formularios, dominio, velocidad o publicación.
             </p>
             <p className='text-base md:text-lg text-gray-700 font-medium leading-relaxed mb-8'>
-              En PereiraWeb se revisa lo hecho, se indica qué se puede
-              aprovechar y se ayuda a convertirlo en una web profesional y lista
-              para trabajar.
+              Revisamos lo hecho, te decimos qué se salva y te ayudamos a
+              terminar una web usable de verdad.
             </p>
             <div className='flex flex-col sm:flex-row justify-center gap-4'>
               <Button
@@ -271,8 +269,8 @@ const Ia = () => {
       </section>
 
       <SEOCTAFinal
-        title='Si se busca una web hecha, no solo generada'
-        subtitle='Cuéntanos el caso. Desde PereiraWeb se indica con claridad si encaja un plan, un proyecto a medida… o si aún conviene experimentar por cuenta propia.'
+        title='Si quieres una web hecha, no solo generada'
+        subtitle='Cuéntanos el caso. Te diremos si encaja un plan, un proyecto a medida… o si aún te conviene seguir por tu cuenta.'
         buttonText='Empecé mi web con IA y necesito ayuda para terminarla'
         onButtonClick={openHelpForm}
         secondaryButtonText='Hablar por WhatsApp'

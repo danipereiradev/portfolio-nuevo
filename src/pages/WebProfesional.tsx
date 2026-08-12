@@ -41,115 +41,115 @@ const WHATSAPP_URL = buildWhatsAppUrl(WEB_PROFESIONAL_WHATSAPP_MESSAGE);
 const processSteps = [
   {
     number: '1',
-    title: 'Eliges tu opción',
+    title: 'Eliges la opción',
     description:
-      'One Page 249 € o Web de 3 páginas 349 €. Hosting incluido en ambas.',
+      'One Page 249 € o web de 3 páginas 349 €. Hosting en las dos.',
   },
   {
     number: '2',
-    title: 'Nos envías textos e imágenes',
+    title: 'Nos mandas textos e imágenes',
     description:
-      'Usamos tu contenido. Si lo necesitas, podemos encargarnos de la redacción, fotos o logo.',
+      'Con lo tuyo montamos. Si no tienes, hay extras de redacción, fotos o logo.',
   },
   {
     number: '3',
-    title: 'Entrega en 72 horas',
+    title: 'En 72 horas está online',
     description:
-      'Diseñamos, revisamos contigo y publicamos la web con tu dominio en 72 horas desde que tenemos lo necesario.',
+      'Diseño, revisión contigo y publicación con tu dominio. El reloj cuenta desde que tenemos lo necesario.',
   },
 ];
 
 const whyPoints = [
   {
     icon: Award,
-    title: 'Más de 12 años de experiencia',
+    title: 'Más de 12 años',
     description:
-      'Llevamos más de una década creando webs para negocios reales. Sabemos qué funciona y qué no.',
+      'Webs para negocios reales. Sabemos qué sobra y qué no.',
   },
   {
     icon: Building2,
-    title: 'Experiencia en grandes empresas',
+    title: 'También en empresas grandes',
     description:
-      'Desarrolladores que han trabajado en proyectos para empresas de banca, retail y otros sectores, como Banco Santander o Inditex.',
+      'Gente del equipo ha tocado proyectos de banca y retail (Santander, Inditex…).',
   },
   {
     icon: Handshake,
     title: 'Trato directo',
     description:
-      'Hablas con quien hace la web. Sin intermediarios ni agencia hinchada.',
+      'Hablas con quien hace la web. Sin intermediario hinchado.',
   },
   {
     icon: ShieldCheck,
     title: 'Precio cerrado',
     description:
-      'Sabes qué incluye y cuánto cuesta antes de empezar. Sin sorpresas.',
+      'Sabes qué entra y cuánto cuesta antes de empezar.',
   },
   {
     icon: Zap,
-    title: 'Lista para captar clientes',
+    title: 'Lista para que te escriban',
     description:
-      'Formulario, WhatsApp, móvil y SEO básico desde el primer día.',
+      'Formulario, WhatsApp, móvil y SEO básico desde el día uno.',
   },
   {
     icon: MessageSquare,
     title: 'Respuesta rápida',
     description:
-      'Te contestamos pronto por formulario o WhatsApp, sin rodeos.',
+      'Formulario o WhatsApp. Sin rodeos.',
   },
 ];
 
 const esencialIncludes = [
   '1 página tipo One Page',
   'Hasta 5 secciones: Inicio, Servicios, Sobre mí/nosotros, CTA y Contacto',
-  'Diseño adaptado al negocio usando tu starter',
-  'Responsive móvil / tablet / ordenador',
+  'Diseño adaptado a tu negocio (con tu starter)',
+  'Bien en móvil, tablet y ordenador',
   'Formulario de contacto',
   'Botón de WhatsApp',
-  'Integración con redes sociales',
+  'Enlaces a redes',
   'SEO técnico básico',
-  'Optimización de velocidad',
-  'Integración de dominio existente',
-  'Publicación y puesta en producción',
+  'Que no se eternice cargando',
+  'Tu dominio conectado',
+  'Publicación online',
   'Entrega en 72 horas',
   'Hosting incluido',
-  'Sin cuotas mensuales obligatorias',
-  'Mantenimiento opcional disponible',
+  'Sin cuota mensual obligatoria',
+  'Mantenimiento opcional',
   '1 ronda de cambios',
-  'Textos e imágenes aportados por el cliente',
-  'Pensada para ampliarse más adelante (páginas, secciones o funciones)',
+  'Textos e imágenes los aportas tú',
+  'Se puede ampliar después (páginas o funciones)',
 ];
 
 const profesionalIncludes = [
-  '3 páginas independientes: Inicio, Servicios y Contacto',
-  'Más libertad de estructura dentro de esas páginas',
-  'Todo lo incluido en Web Esencial',
-  'Integración con redes sociales',
-  'Hasta 2 servicios destacados en la página de Servicios',
-  'Mejor base para SEO y para crecer con nuevas páginas o contenidos',
+  '3 páginas: Inicio, Servicios y Contacto',
+  'Más margen de estructura en cada página',
+  'Todo lo de Web Esencial',
+  'Enlaces a redes',
+  'Hasta 2 servicios destacados en Servicios',
+  'Mejor base si quieres crecer en Google o añadir páginas',
   '2 rondas de cambios',
   'Entrega en 72 horas',
   'Hosting incluido',
-  'Sin cuotas mensuales obligatorias',
-  'Mantenimiento opcional disponible',
-  'Publicación y puesta en producción',
-  'Escalable: puedes añadir páginas, servicios o mejoras cuando lo necesites',
+  'Sin cuota mensual obligatoria',
+  'Mantenimiento opcional',
+  'Publicación online',
+  'Luego puedes sumar páginas o mejoras',
 ];
 
 const extras = [
   {
     icon: FileText,
-    title: 'Redacción completa de textos',
-    description: 'Si no quieres escribir tú los contenidos, los preparamos por ti.',
+    title: 'Redacción de textos',
+    description: 'Si no quieres escribirlos tú, los preparamos.',
   },
   {
     icon: Camera,
-    title: 'Imágenes profesionales',
-    description: 'Fotos o recursos visuales para que la web se vea cuidada y creíble.',
+    title: 'Imágenes',
+    description: 'Fotos o recursos para que no quede vacía.',
   },
   {
     icon: Palette,
-    title: 'Logo (si no lo tienes)',
-    description: 'Creamos un logo sencillo para tu negocio si aún no tienes identidad.',
+    title: 'Logo (si no tienes)',
+    description: 'Uno sencillo para salir del paso con cara propia.',
   },
 ];
 
@@ -189,14 +189,14 @@ const WebProfesional = () => {
         kicker='WEB PROFESIONAL'
         title={
           <>
-            Tu web profesional
+            Tu web
             <br />
             desde 249 € + IVA
           </>
         }
-        subtitle='Dos opciones claras: One Page o web de 3 páginas.'
-        description='Diseño adaptado a tu negocio, hosting incluido, publicación con tu dominio y lista para móvil, Google y contacto.'
-        trustLine='One Page 249 € · Web 3 páginas 349 € · Entrega en 72 h'
+        subtitle='Dos packs: One Page o web de 3 páginas.'
+        description='Diseño a tu negocio, hosting, tu dominio, móvil, formulario y WhatsApp. Entrega en 72 h cuando tenemos lo necesario.'
+        trustLine='One Page 249 € · 3 páginas 349 € · Entrega en 72 h'
         ctaText='WhatsApp'
         onCTAClick={() => handleWhatsApp('LandingWebProfesionalHero')}
         secondaryCTAText='Ver qué incluye'
@@ -207,7 +207,7 @@ const WebProfesional = () => {
             ?.scrollIntoView({ behavior: 'smooth' });
         }}
         secondaryCTAIcon='chevron-down'
-        ctaFootnote='Entrega en 72 horas · Precio cerrado · Sin compromiso'
+        ctaFootnote='72 horas · Precio cerrado · Preguntar no obliga'
       />
 
       <RevealOnScroll>
@@ -247,8 +247,8 @@ const WebProfesional = () => {
                   <span className='text-lg font-semibold text-gray-500'>+ IVA</span>
                 </p>
                 <p className='text-sm text-gray-500 mb-6'>
-                  Ideal para presentarte online con una sola página clara. Luego
-                  puedes ampliarla cuando tu negocio lo pida.
+                  Una sola página para presentarte. Luego se puede ampliar si
+                  hace falta.
                 </p>
                 <ul className='space-y-3 mb-8 flex-1'>
                   {esencialIncludes.map((item) => (
@@ -288,8 +288,8 @@ const WebProfesional = () => {
                   <span className='text-lg font-semibold text-gray-500'>+ IVA</span>
                 </p>
                 <p className='text-sm text-gray-500 mb-6'>
-                  Más estructura para servicios y SEO. Una base sólida a la que
-                  puedes sumar páginas o funciones más adelante.
+                  Más estructura para servicios. Buena base si luego quieres
+                  sumar páginas.
                 </p>
                 <ul className='space-y-3 mb-8 flex-1'>
                   {profesionalIncludes.map((item) => (
@@ -328,14 +328,13 @@ const WebProfesional = () => {
           <RevealOnScroll delayMs={100} className='mt-10'>
             <div className='max-w-3xl mx-auto bg-white border-2 border-ink-dark rounded-xl p-6 md:p-8 shadow-[5px_5px_0_0_#1a1a1a]'>
               <h3 className='text-lg md:text-xl font-bold text-gray-900 mb-3 text-center'>
-                Empieza simple. Crece cuando haga falta.
+                Empieza simple. Crece después.
               </h3>
               <p className='text-sm md:text-base text-gray-700 leading-relaxed text-center'>
-                No hace falta montar una web grande el primer día. Publicamos una
-                base clara y profesional, y más adelante puedes ampliarla: nuevas
-                páginas, más servicios, blog, reserva de citas, mejoras de diseño
-                u otras funciones. Lo valoramos contigo cuando lo necesites, sin
-                obligarte a pagar por cosas que aún no usas.
+                No hace falta una web enorme el primer día. Publicamos una base
+                usable y, si más adelante quieres páginas, blog, reservas u otras
+                funciones, lo valoramos entonces. Sin obligarte a pagar por lo
+                que aún no usas.
               </p>
             </div>
           </RevealOnScroll>
@@ -388,9 +387,8 @@ const WebProfesional = () => {
                 ¿Por qué PereiraWeb?
               </h2>
               <p className='text-base md:text-lg text-ink-dark/80'>
-                Más de 12 años creando webs profesionales, con un equipo que ha
-                trabajado en proyectos para empresas de banca, retail y otros
-                sectores exigentes.
+                Más de 12 años haciendo webs. Gente del equipo ha trabajado en
+                proyectos de banca y retail.
               </p>
             </div>
           </RevealOnScroll>
@@ -398,10 +396,10 @@ const WebProfesional = () => {
             <div className='max-w-3xl mx-auto mb-10'>
               <div className='bg-ink-dark text-white rounded-xl border-2 border-ink-dark p-5 md:p-6 shadow-[5px_5px_0_0_#1a1a1a] text-center'>
                 <p className='text-sm md:text-base font-semibold leading-relaxed'>
-                  Experiencia real en entornos corporativos:{' '}
-                  <span className='text-accent'>Banca</span>,{' '}
-                  <span className='text-accent'>Retail</span> y más — con
-                  trayectoria en proyectos vinculados a empresas como{' '}
+                  Proyectos en entornos de{' '}
+                  <span className='text-accent'>banca</span> y{' '}
+                  <span className='text-accent'>retail</span> — trayectoria
+                  vinculada a sitios como{' '}
                   <span className='text-accent'>Banco Santander</span> e{' '}
                   <span className='text-accent'>Inditex</span>.
                 </p>
@@ -441,8 +439,8 @@ const WebProfesional = () => {
 
       <RevealOnScroll>
         <SEOCTAFinal
-          title='Elige tu web y empecemos'
-          subtitle='One Page desde 249 € + IVA o web de 3 páginas por 349 € + IVA. Hosting incluido y entrega en 72 horas. Escríbenos por WhatsApp o deja tus datos en el formulario.'
+          title='Elige pack y escribimos'
+          subtitle='One Page desde 249 € + IVA o 3 páginas por 349 € + IVA. Hosting y 72 h. WhatsApp o formulario.'
           buttonText='WhatsApp'
           onButtonClick={() => handleWhatsApp('LandingWebProfesionalCTAFinal')}
           backgroundImage='/img/cta-background.webp'

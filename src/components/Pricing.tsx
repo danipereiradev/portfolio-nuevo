@@ -132,7 +132,7 @@ const Pricing = () => {
                   {plan.name}
                 </h3>
                 <p className='text-sm font-bold text-accent uppercase tracking-wide mb-3'>
-                  Ideal para: {plan.idealFor}
+                  Ideal si: {plan.idealFor}
                 </p>
                 <p
                   className={`text-base mb-4 ${plan.recommended ? 'text-white/80' : 'text-gray-700'}`}

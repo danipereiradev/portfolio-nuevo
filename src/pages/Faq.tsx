@@ -38,11 +38,11 @@ const Faq = () => {
             Preguntas frecuentes
           </span>
           <h1 className='text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight'>
-            Resolvemos tus dudas antes de empezar
+            Dudas habituales antes de pedir presupuesto
           </h1>
           <p className='text-base md:text-xl lg:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto'>
-            Precios, plazos, revisiones, hosting, SEO, tiendas online y más.
-            Si no encuentras tu respuesta, escríbenos.
+            Precios, plazos, hosting, SEO, tiendas… Si no está tu pregunta,
+            escríbenos.
           </p>
         </div>
       </section>
@@ -130,8 +130,8 @@ const Faq = () => {
       })}
 
       <SEOCTAFinal
-        title='¿No está tu pregunta aquí?'
-        subtitle='Cuéntanos tu caso y te respondemos con claridad: alcance, plazos y siguiente paso.'
+        title='¿No está tu pregunta?'
+        subtitle='Cuéntanos el caso. Te respondemos con alcance, plazos y el siguiente paso.'
         buttonText='Contactar'
         onButtonClick={() => openModal()}
       />
