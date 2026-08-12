@@ -228,7 +228,7 @@ const WebProfesional = () => {
             <RevealOnScroll delayMs={80}>
               <article className='bg-white rounded-xl p-7 md:p-8 border-2 border-ink-dark shadow-[7px_7px_0_0_#1a1a1a] relative flex flex-col h-full'>
                 <span className='absolute -top-4 left-6 bg-accent text-ink-dark border-2 border-ink-dark text-xs font-bold uppercase tracking-wide px-3 py-1 rotate-[-2deg]'>
-                  Una página
+                  1 página
                 </span>
                 <h3 className='text-2xl font-extrabold text-gray-900 mt-2 mb-1'>
                   Web Esencial
