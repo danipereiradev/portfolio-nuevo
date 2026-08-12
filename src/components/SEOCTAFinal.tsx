@@ -8,6 +8,9 @@ interface SEOCTAFinalProps {
   onButtonClick: () => void;
   secondaryButtonText?: string;
   onSecondaryButtonClick?: () => void;
+  /** Fondo de imagen opcional (con overlay oscuro). */
+  backgroundImage?: string;
+  className?: string;
 }
 
 const SEOCTAFinal = ({
@@ -17,10 +20,25 @@ const SEOCTAFinal = ({
   onButtonClick,
   secondaryButtonText,
   onSecondaryButtonClick,
+  backgroundImage,
+  className = '',
 }: SEOCTAFinalProps) => {
   return (
-    <section className='relative py-20 overflow-hidden'>
-      <GlowBackdrop />
+    <section
+      className={`relative py-20 overflow-hidden ${className}`.trim()}
+    >
+      {backgroundImage ? (
+        <>
+          <div
+            className='absolute inset-0 bg-cover bg-center bg-no-repeat'
+            style={{ backgroundImage: `url('${backgroundImage}')` }}
+            aria-hidden='true'
+          />
+          <div className='absolute inset-0 bg-ink-dark/85' aria-hidden='true' />
+        </>
+      ) : (
+        <GlowBackdrop />
+      )}
 
       <div className='container mx-auto px-6 relative z-10'>
         <div className='max-w-4xl mx-auto text-center'>

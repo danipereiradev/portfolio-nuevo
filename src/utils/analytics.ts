@@ -536,3 +536,48 @@ export const trackWebStartFaqOpen = (question: string) => {
     event_label: question,
   });
 };
+
+// Landing /web-profesional (packs 249 € / 349 €)
+
+export const trackWebProfesionalView = () => {
+  trackEvent('web_profesional_view', {
+    event_category: 'web_profesional',
+    event_label: 'landing',
+  });
+};
+
+export const trackWebProfesionalWhatsAppClick = (
+  locationSection: string,
+  plan?: string,
+) => {
+  trackEvent('web_profesional_whatsapp_click', {
+    event_category: 'web_profesional',
+    event_label: locationSection,
+    location_section: locationSection,
+    plan: plan || undefined,
+  });
+};
+
+export const trackWebProfesionalViewPlanes = () => {
+  trackEvent('web_profesional_view_planes', {
+    event_category: 'web_profesional',
+    event_label: 'incluye',
+  });
+};
+
+export const trackWebProfesionalScrollToPlanes = () => {
+  trackEvent('web_profesional_scroll_to_planes', {
+    event_category: 'web_profesional',
+    event_label: 'hero_ver_que_incluye',
+  });
+};
+
+export const trackWebProfesionalFormSubmit = (plan: string, value?: number) => {
+  trackEvent('web_profesional_form_submit', {
+    event_category: 'web_profesional',
+    event_label: plan,
+    plan,
+    value: value || 0,
+    currency: 'EUR',
+  });
+};

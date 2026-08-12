@@ -12,6 +12,7 @@ import Home from './pages/Home';
 import TiendasOnline from './pages/TiendasOnline';
 import MantenimientoWeb from './pages/MantenimientoWeb';
 import WebProfesionalAMedida from './pages/WebProfesionalAMedida';
+import WebProfesional from './pages/WebProfesional';
 import PaginasWebEmpresas from './pages/PaginasWebEmpresas';
 import DisenoWeb from './pages/DisenoWeb';
 import AplicacionesWeb from './pages/AplicacionesWeb';
@@ -46,6 +47,7 @@ function AppContent() {
           path='/web-profesional-a-medida'
           element={<WebProfesionalAMedida />}
         />
+        <Route path='/web-profesional' element={<WebProfesional />} />
         <Route path='/paginas-web-empresas' element={<PaginasWebEmpresas />} />
         <Route path='/diseno-web' element={<DisenoWeb />} />
         <Route

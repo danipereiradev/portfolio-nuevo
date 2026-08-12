@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { trackTuWebConIaClick } from '../utils/analytics';
@@ -7,8 +8,14 @@ interface HeaderProps {
   showNavMenu?: boolean;
 }
 
-const Header = ({ showNavMenu = true }: HeaderProps) => {
+const Header = ({ showNavMenu }: HeaderProps) => {
   const { t } = useLanguage();
+  const { pathname } = useLocation();
+  const normalizedPath =
+    pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
+  const isMinimalChrome = normalizedPath === '/web-profesional';
+  const navEnabled = showNavMenu ?? !isMinimalChrome;
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [typedText, setTypedText] = useState('');
@@ -53,35 +60,55 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
     <>
       <header className='fixed w-full max-w-full top-0 z-50 bg-white border-b-2 border-ink-dark'>
         <div className='mx-auto w-full max-w-screen-2xl px-6 py-4'>
-          <div className='flex items-center justify-between relative'>
-            <a
-              href='/'
-              className='flex items-center gap-1.5 md:gap-2 flex-shrink-0 md:min-w-[280px] md:w-[280px]'
-            >
-              <span
-                className='text-xl md:text-2xl whitespace-nowrap font-extrabold flex items-center'
-                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-              >
-                <span className='text-accent font-mono text-2xl md:text-3xl'>
-                  &gt;
+          <div
+            className={`flex items-center relative ${
+              navEnabled ? 'justify-between' : 'justify-center'
+            }`}
+          >
+            {(() => {
+              const brand = (
+                <span
+                  className='text-xl md:text-2xl whitespace-nowrap font-extrabold flex items-center'
+                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                >
+                  <span className='text-accent font-mono text-2xl md:text-3xl'>
+                    &gt;
+                  </span>
+                  <span className='text-black font-mono tracking-tight ml-1'>
+                    {hasTyped ? 'pereiraweb' : typedText.split(' ')[0]}
+                  </span>
+                  <span className='text-accent font-mono font-normal'>
+                    {hasTyped
+                      ? ' .es'
+                      : typedText.includes(' .')
+                        ? ' ' + typedText.split(' ')[1]
+                        : ''}
+                  </span>
+                  <span className='text-accent font-mono text-xl md:text-2xl animate-pulse ml-0'>
+                    _
+                  </span>
                 </span>
-                <span className='text-black font-mono tracking-tight ml-1'>
-                  {hasTyped ? 'pereiraweb' : typedText.split(' ')[0]}
-                </span>
-                <span className='text-accent font-mono font-normal'>
-                  {hasTyped
-                    ? ' .es'
-                    : typedText.includes(' .')
-                      ? ' ' + typedText.split(' ')[1]
-                      : ''}
-                </span>
-                <span className='text-accent font-mono text-xl md:text-2xl animate-pulse ml-0'>
-                  _
-                </span>
-              </span>
-            </a>
+              );
 
-            {showNavMenu && (
+              if (!navEnabled) {
+                return (
+                  <div className='flex items-center justify-center gap-1.5 md:gap-2'>
+                    {brand}
+                  </div>
+                );
+              }
+
+              return (
+                <a
+                  href='/'
+                  className='flex items-center gap-1.5 md:gap-2 flex-shrink-0 md:min-w-[280px] md:w-[280px]'
+                >
+                  {brand}
+                </a>
+              );
+            })()}
+
+            {navEnabled && (
               <nav className='hidden md:flex items-center space-x-8 absolute left-1/2 -translate-x-1/2'>
                 <a
                   href='/'
@@ -150,7 +177,7 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
               </nav>
             )}
 
-            {showNavMenu && (
+            {navEnabled && (
               <>
                 <div className='hidden md:flex items-center justify-end md:min-w-[280px] md:w-[280px]'>
                   <a
@@ -187,7 +214,7 @@ const Header = ({ showNavMenu = true }: HeaderProps) => {
             )}
           </div>
 
-          {showNavMenu && isMenuOpen && (
+          {navEnabled && isMenuOpen && (
             <nav className='md:hidden mt-4 pb-2 bg-white rounded-lg border-2 border-ink-dark shadow-[6px_6px_0_0_#1a1a1a] divide-y-2 divide-gray-100'>
               <a
                 href='/'

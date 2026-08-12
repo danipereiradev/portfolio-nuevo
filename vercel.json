@@ -77,6 +77,10 @@
       "destination": "/web-profesional-a-medida/index.html"
     },
     {
+      "source": "/web-profesional",
+      "destination": "/web-profesional/index.html"
+    },
+    {
       "source": "/paginas-web-empresas",
       "destination": "/paginas-web-empresas/index.html"
     },

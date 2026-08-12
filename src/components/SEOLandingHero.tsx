@@ -1,10 +1,11 @@
+import type { ReactNode } from 'react';
 import { Phone, ChevronDown } from 'lucide-react';
 import Button from './Button';
 import GlowBackdrop from './decor/GlowBackdrop';
 import FloatingPanel from './decor/FloatingPanel';
 
 interface SEOLandingHeroProps {
-  title: string;
+  title: ReactNode;
   subtitle: string;
   description: string;
   trustLine?: string;

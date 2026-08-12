@@ -16,6 +16,7 @@ import {
   trackGoogleAdsFormConversion,
   unlockGoogleAdsFormConversion,
   trackEmailClick,
+  trackWebProfesionalFormSubmit,
 } from '../utils/analytics';
 import { useContactModal } from '../contexts/ContactModalContext';
 import { buildWhatsAppUrl, getWhatsAppMessageForPath } from '../config/contact';
@@ -223,6 +224,8 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       }
 
       const planPrices: { [key: string]: number } = {
+        'Web Esencial': 249,
+        'Web Profesional': 349,
         'Web a Medida': 0,
         'Tienda Online': 0,
         'Mantenimiento Web': 0,
@@ -235,6 +238,11 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
       // Orden: Formspree OK → GA4 → Ads → token /gracias → navigate.
       trackFormSubmit(formData.plan, planValue);
+      const path =
+        pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
+      if (path === '/web-profesional') {
+        trackWebProfesionalFormSubmit(formData.plan, planValue);
+      }
       trackGoogleAdsFormConversion();
       markFormSubmissionSuccess();
 
@@ -258,30 +266,49 @@ Fecha: ${new Date().toLocaleString('es-ES')}
     </div>
   );
 
-  const planOptions = [
-    {
-      value: 'Web a Medida',
-      description:
-        'Web profesional a medida para presentar tu negocio y captar clientes',
-    },
-    {
-      value: 'Tienda Online',
-      description: 'Solución completa para vender productos online',
-    },
-    {
-      value: 'Mantenimiento Web',
-      description: 'Soporte, actualizaciones y seguridad continua',
-    },
-    {
-      value: 'Web con IA',
-      description:
-        'Ya he empezado con IA y necesito ayuda para revisarla y terminarla',
-    },
-    {
-      value: 'No sé cuál elegir',
-      description: 'Te ayudamos a decidir según lo que necesita tu negocio',
-    },
-  ];
+  const normalizedPath =
+    pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
+  const isWebProfesionalLanding = normalizedPath === '/web-profesional';
+
+  const planOptions = isWebProfesionalLanding
+    ? [
+        {
+          value: 'Web Esencial',
+          description: 'One Page desde 249 € + IVA, hosting incluido',
+        },
+        {
+          value: 'Web Profesional',
+          description: 'Web de 3 páginas por 349 € + IVA, hosting incluido',
+        },
+        {
+          value: 'No sé cuál elegir',
+          description: 'Te ayudamos a decidir según lo que necesita tu negocio',
+        },
+      ]
+    : [
+        {
+          value: 'Web a Medida',
+          description:
+            'Web profesional a medida para presentar tu negocio y captar clientes',
+        },
+        {
+          value: 'Tienda Online',
+          description: 'Solución completa para vender productos online',
+        },
+        {
+          value: 'Mantenimiento Web',
+          description: 'Soporte, actualizaciones y seguridad continua',
+        },
+        {
+          value: 'Web con IA',
+          description:
+            'Ya he empezado con IA y necesito ayuda para revisarla y terminarla',
+        },
+        {
+          value: 'No sé cuál elegir',
+          description: 'Te ayudamos a decidir según lo que necesita tu negocio',
+        },
+      ];
 
   const formContent = (
     <>

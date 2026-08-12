@@ -1,4 +1,5 @@
 import { Mail, Phone, Instagram, MessageCircle } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import {
   trackEmailClick,
@@ -27,12 +28,20 @@ const infoLinks = [
 
 const Footer = () => {
   const { t } = useLanguage();
+  const { pathname } = useLocation();
+  const normalizedPath =
+    pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
+  const isMinimalChrome = normalizedPath === '/web-profesional';
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className='bg-black text-white border-t-4 border-accent'>
       <div className='container mx-auto px-6 py-16'>
-        <div className='grid gap-10 lg:gap-6 xl:gap-8 lg:divide-x-2 lg:divide-white/10 md:grid-cols-2 lg:grid-cols-5'>
+        <div
+          className={`grid gap-10 lg:gap-6 xl:gap-8 lg:divide-x-2 lg:divide-white/10 md:grid-cols-2 ${
+            isMinimalChrome ? 'lg:grid-cols-3' : 'lg:grid-cols-5'
+          }`}
+        >
           <div className='lg:col-span-1 text-center md:text-left lg:pr-6 xl:pr-8'>
             <div className='flex items-center mb-6 justify-center md:justify-start'>
               <span
@@ -77,80 +86,84 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className='text-center md:text-left lg:px-6 xl:px-8'>
-            <h3 className='text-xl md:text-2xl font-bold mb-1 text-accent'>
-              Servicios
-            </h3>
-            <span className='block w-10 h-1 bg-accent mb-6 mx-auto md:mx-0' />
-            <ul className='space-y-3 text-gray-300'>
-              <li>
-                <a
-                  href='/web-profesional-a-medida'
-                  className='hover:text-white transition-colors duration-200'
-                >
-                  Web profesional a medida
-                </a>
-              </li>
-              <li>
-                <a
-                  href='/tiendas-online'
-                  className='hover:text-white transition-colors duration-200'
-                >
-                  Tiendas Online
-                </a>
-              </li>
-              <li>
-                <a
-                  href='/mantenimiento-web'
-                  className='hover:text-white transition-colors duration-200'
-                >
-                  Mantenimiento Web
-                </a>
-              </li>
-            </ul>
-          </div>
+          {!isMinimalChrome && (
+            <div className='text-center md:text-left lg:px-6 xl:px-8'>
+              <h3 className='text-xl md:text-2xl font-bold mb-1 text-accent'>
+                Servicios
+              </h3>
+              <span className='block w-10 h-1 bg-accent mb-6 mx-auto md:mx-0' />
+              <ul className='space-y-3 text-gray-300'>
+                <li>
+                  <a
+                    href='/web-profesional-a-medida'
+                    className='hover:text-white transition-colors duration-200'
+                  >
+                    Web profesional a medida
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href='/tiendas-online'
+                    className='hover:text-white transition-colors duration-200'
+                  >
+                    Tiendas Online
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href='/mantenimiento-web'
+                    className='hover:text-white transition-colors duration-200'
+                  >
+                    Mantenimiento Web
+                  </a>
+                </li>
+              </ul>
+            </div>
+          )}
 
-          <div className='text-center md:text-left lg:px-6 xl:px-8'>
-            <h3 className='text-xl md:text-2xl font-bold mb-1 text-accent'>
-              Estudio
-            </h3>
-            <span className='block w-10 h-1 bg-accent mb-6 mx-auto md:mx-0' />
-            <ul className='space-y-3 text-gray-300'>
-              <li>
-                <a
-                  href='/'
-                  className='hover:text-white transition-colors duration-200'
-                >
-                  Inicio
-                </a>
-              </li>
-              <li>
-                <a
-                  href='/sobre-el-estudio'
-                  className='hover:text-white transition-colors duration-200'
-                >
-                  Sobre el Estudio
-                </a>
-              </li>
-              <li>
-                <a
-                  href='/ia'
-                  onClick={() => trackTuWebConIaClick('footer')}
-                  className='hover:text-white transition-colors duration-200'
-                >
-                  Tu web con IA
-                </a>
-              </li>
-              <li>
-                <a
-                  href='/contacto'
-                  className='hover:text-white transition-colors duration-200'
-                >
-                  Contacto
-                </a>
-              </li>
-            </ul>
-          </div>
+          {!isMinimalChrome && (
+            <div className='text-center md:text-left lg:px-6 xl:px-8'>
+              <h3 className='text-xl md:text-2xl font-bold mb-1 text-accent'>
+                Estudio
+              </h3>
+              <span className='block w-10 h-1 bg-accent mb-6 mx-auto md:mx-0' />
+              <ul className='space-y-3 text-gray-300'>
+                <li>
+                  <a
+                    href='/'
+                    className='hover:text-white transition-colors duration-200'
+                  >
+                    Inicio
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href='/sobre-el-estudio'
+                    className='hover:text-white transition-colors duration-200'
+                  >
+                    Sobre el Estudio
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href='/ia'
+                    onClick={() => trackTuWebConIaClick('footer')}
+                    className='hover:text-white transition-colors duration-200'
+                  >
+                    Tu web con IA
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href='/contacto'
+                    className='hover:text-white transition-colors duration-200'
+                  >
+                    Contacto
+                  </a>
+                </li>
+              </ul>
+            </div>
+          )}
 
           <div className='text-center md:text-left lg:px-6 xl:px-8'>
             <h3 className='text-xl md:text-2xl font-bold mb-1 text-accent'>

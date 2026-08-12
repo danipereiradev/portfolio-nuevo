@@ -19,6 +19,10 @@ export const DEFAULT_WHATSAPP_MESSAGE =
 export const ADS_WHATSAPP_MESSAGE =
   'Hola, vengo de Google y quiero información para una web profesional a medida.';
 
+// Mensaje para el botón de WhatsApp de /web-profesional (landing de packs).
+export const WEB_PROFESIONAL_WHATSAPP_MESSAGE =
+  'Hola, quiero información sobre la web profesional (249 € / 349 €).';
+
 // Mensaje para el botón de WhatsApp de /tiendas-online.
 export const ECOMMERCE_WHATSAPP_MESSAGE =
   'Hola, quiero información para una tienda online.';
@@ -60,6 +64,7 @@ const normalizePath = (pathname: string): string =>
 export const getWhatsAppMessageForPath = (pathname: string): string => {
   const path = normalizePath(pathname);
   if (path === '/web-profesional-a-medida') return ADS_WHATSAPP_MESSAGE;
+  if (path === '/web-profesional') return WEB_PROFESIONAL_WHATSAPP_MESSAGE;
   if (path === '/tiendas-online') return ECOMMERCE_WHATSAPP_MESSAGE;
   if (path === '/mantenimiento-web') return MAINTENANCE_WHATSAPP_MESSAGE;
   if (path === '/ia') return IA_PAGE_WHATSAPP_MESSAGE;

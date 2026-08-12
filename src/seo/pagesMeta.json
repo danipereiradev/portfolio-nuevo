@@ -7,6 +7,11 @@
     "title": "Web profesional a medida para empresas y autónomos | PereiraWeb",
     "description": "Diseño y desarrollo de webs profesionales a medida. Presupuesto cerrado antes de empezar para presentar tu negocio y captar clientes en toda España."
   },
+  "/web-profesional": {
+    "title": "Web profesional desde 249 € + IVA | PereiraWeb",
+    "description": "One Page desde 249 € + IVA o web de 3 páginas por 349 € + IVA. Hosting incluido, diseño adaptado a tu negocio y publicación con tu dominio.",
+    "robots": "noindex, nofollow"
+  },
   "/paginas-web-empresas": {
     "title": "Páginas Web para Empresas | PereiraWeb",
     "description": "Diseñamos y desarrollamos páginas web para empresas que necesitan transmitir confianza, explicar sus servicios y generar contactos. Presupuesto cerrado antes de empezar."

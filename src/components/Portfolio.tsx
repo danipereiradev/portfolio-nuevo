@@ -34,11 +34,17 @@ const renderWithBoldPhrase = (content: string, boldPhrase?: string) => {
   );
 };
 
-const Portfolio = () => {
+interface PortfolioProps {
+  /** En /web-profesional: badges de packs y sin proyectos de tienda online. */
+  variant?: 'default' | 'web-profesional';
+}
+
+const Portfolio = ({ variant = 'default' }: PortfolioProps) => {
   const { t } = useLanguage();
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
   const [imageLoading, setImageLoading] = useState(true);
   const sectionRef = useSectionView<HTMLElement>(trackViewPortfolioSection);
+  const isPackLanding = variant === 'web-profesional';
 
   const handleWhatsAppClick = () => {
     trackWhatsAppClick('Portfolio', 'Solicitar ejemplos');
@@ -48,7 +54,7 @@ const Portfolio = () => {
   useBodyScrollLock(selectedProject !== null);
 
   // Proyectos en construcción (separados del portfolio publicado).
-  const upcomingProjects = [
+  const upcomingProjectsRaw = [
     {
       title: t('portfolio.hatena.title'),
       description: t('portfolio.hatena.desc'),
@@ -66,7 +72,7 @@ const Portfolio = () => {
   ];
 
   // Orden por fecha de publicación (más reciente primero).
-  const projects = [
+  const projectsRaw = [
     {
       title: t('portfolio.sillysally.title'),
       description: t('portfolio.sillysally.desc'),
@@ -173,6 +179,30 @@ La monetización se logró mediante publicidad estratégica, enlaces de afiliado
       testimonialName: 'Juanvi Raga',
     },
   ];
+
+  const mapPackBadge = <
+    T extends { product: string; productHref: string; url?: string },
+  >(
+    project: T,
+  ): T => {
+    if (!isPackLanding) return project;
+    const isEsencial = project.url?.includes('sillysally') ?? false;
+    return {
+      ...project,
+      product: isEsencial ? 'Web Esencial' : 'Web Profesional',
+      productHref: '#incluye',
+    };
+  };
+
+  const projects = (isPackLanding
+    ? projectsRaw.filter((project) => project.product !== 'Tienda Online')
+    : projectsRaw
+  ).map(mapPackBadge);
+
+  const upcomingProjects = (isPackLanding
+    ? upcomingProjectsRaw.filter((project) => project.product !== 'Tienda Online')
+    : upcomingProjectsRaw
+  ).map(mapPackBadge);
 
   const openProjectModal = (index: number) => {
     setSelectedProject(index);
