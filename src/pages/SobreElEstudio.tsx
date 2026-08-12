@@ -45,8 +45,8 @@ const SobreElEstudio = () => {
             Detrás de PereiraWeb
           </h1>
           <p className='text-base md:text-xl lg:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto'>
-            PereiraWeb es un estudio de diseño y desarrollo web que trabaja
-            online con empresas y autónomos de toda España.
+            Estudio pequeño de diseño y desarrollo web. Trabajamos online con
+            clientes de toda España.
           </p>
         </div>
       </section>
@@ -55,41 +55,27 @@ const SobreElEstudio = () => {
         <div className='container mx-auto px-6'>
           <div className='max-w-3xl mx-auto text-gray-700 leading-relaxed space-y-5 text-base md:text-lg'>
             <p>
-              <strong className='text-gray-900'>PereiraWeb</strong> es un
-              estudio de diseño y desarrollo web que trabaja online con
-              empresas y autónomos de toda España. Ayudamos a crear o mejorar
-              la presencia online con una web profesional, clara y preparada
-              para generar confianza.
+              <strong className='text-gray-900'>PereiraWeb</strong> no es una
+              agencia de 40 personas. Montamos webs, tiendas y mantenimiento
+              para autónomos y empresas. Si el proyecto no encaja, te lo
+              decimos.
             </p>
             <p>
-              Nos puedes contactar por email, teléfono, WhatsApp o
-              videollamada. Si estás en Madrid, también podemos desplazarnos.
-              No tenemos una oficina abierta al público.
+              Nos escribes por email, teléfono, WhatsApp o videollamada. En
+              Madrid también podemos vernos. No hay oficina abierta al público.
             </p>
             <p>
-              Somos un equipo flexible especializado en diseño web, desarrollo
-              y mantenimiento para negocios. Combinamos dirección técnica
-              senior, criterio visual y una forma de trabajar cercana para que
-              cada proyecto tenga una base sólida desde el primer día.
-            </p>
-            <p>
-              El estudio está dirigido por{' '}
+              El estudio lo dirige{' '}
               <strong className='text-gray-900'>Dani Pereira</strong>,{' '}
-              <strong className='text-gray-900'>
-                desarrollador web senior
-              </strong>
-              , con experiencia en proyectos para pequeños negocios, pymes y
-              colaboraciones en grandes empresas de sectores como{' '}
-              <strong className='text-gray-900'>retail y banca</strong>. Según
-              las necesidades de cada proyecto, contamos con perfiles
-              especializados para cubrir diseño, desarrollo, contenido,
-              mantenimiento o mejoras técnicas.
+              desarrollador web senior con más de 12 años en esto. Ha trabajado
+              en proyectos para pequeños negocios y también en entornos de{' '}
+              <strong className='text-gray-900'>retail y banca</strong>. Cuando
+              hace falta, entra gente de diseño, contenido o soporte.
             </p>
             <p>
-              Trabajamos con procesos claros, comunicación directa y
-              propuestas cerradas antes de empezar. Nuestro objetivo es que
-              cada cliente sepa qué vamos a construir, cómo lo vamos a hacer
-              y qué necesita su proyecto para funcionar correctamente.
+              Trabajamos con propuesta por escrito antes de empezar: qué se
+              hace, cuánto cuesta y en cuánto tiempo. Sin misterio a mitad de
+              proyecto.
             </p>
           </div>
 

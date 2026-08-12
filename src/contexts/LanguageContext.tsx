@@ -19,32 +19,32 @@ const translations = {
   'nav.contact': 'Contacto',
 
   // Hero
-  'hero.title': 'Diseño y desarrollo web con sentido.',
+  'hero.title': 'Webs que explican lo que haces.',
   'hero.subtitle':
-    'Creamos páginas web rápidas, claras y sin plantillas. Webs que explican bien lo que haces y ayudan a convertir las visitas en contactos y ventas.',
-  'hero.trustline': 'Presupuesto cerrado antes de empezar',
+    'Sin plantillas de moda. Te hacemos la página, la tienda o el mantenimiento, con precio cerrado y trato directo.',
+  'hero.trustline': 'Precio y alcance por escrito antes de empezar',
   'hero.cta.whatsapp': 'Escríbenos por WhatsApp',
   'hero.cta.pricing': 'Solicitar propuesta',
   'hero.cta.portfolio': 'Ver trabajos',
 
   // Services
-  'services.title': 'Llevamos más de 12 años creando páginas web que funcionan',
+  'services.title': 'Más de 12 años haciendo webs para negocios reales',
   'services.description':
-    'Diseñamos, desarrollamos y mantenemos páginas web que ayudan a explicar mejor tu negocio, transmitir confianza y conseguir contactos o ventas.',
+    'Tres cosas: web a medida, tienda online o mantenimiento. Eliges según lo que necesites ahora, no según un catálogo hinchado.',
   'services.corporate.title': 'Web a Medida',
   'services.corporate.desc':
-    'Diseño y desarrollo web a medida para proyectos con funcionalidades, estructura o integraciones específicas.',
+    'Cuando hace falta una estructura concreta, reservas, zona privada o conexión con lo que ya usas.',
   'services.ecommerce.title': 'Tienda online',
   'services.ecommerce.desc':
-    'Tiendas online y catálogos digitales para vender productos o servicios con una experiencia cuidada y fácil de gestionar.',
+    'Catálogo, cobro con tarjeta, envíos y un panel para que tú subas productos y gestiones pedidos.',
   'services.maintenance.title': 'Mantenimiento web',
   'services.maintenance.desc':
-    'Soporte, cambios, revisión técnica y mejoras para que tu web siga funcionando correctamente después de publicarla.',
+    'Actualizaciones, copias, cambios de textos y fotos, y soporte cuando algo se rompe.',
 
   // Portfolio
   'portfolio.title': 'Últimos trabajos en 2026',
   'portfolio.description':
-    'Contamos con más de 200 webs en nuestro portfolio, aquí tienes una selección de proyectos publicados para empresas reales en los últimos 3 meses.',
+    'Más de 200 webs hechas. Aquí van algunas publicadas en los últimos meses.',
   'portfolio.upcoming.title': 'Próximamente',
   'portfolio.upcoming.description':
     'Proyectos que estamos terminando y publicaremos en breve.',
@@ -53,40 +53,40 @@ const translations = {
   // Proyectos específicos
   'portfolio.core.title': 'Core Generator app',
   'portfolio.core.desc':
-    'App web para generar vídeos CORE en formato vertical, listos para TikTok, Reels y Shorts.',
+    'App web para generar vídeos CORE en vertical, listos para TikTok, Reels y Shorts.',
   'portfolio.chicxs.title': 'Chicxsdelacalle',
   'portfolio.chicxs.desc':
-    'Tienda online de moda urbana con diseño moderno y sistema de gestión de inventario completo.',
+    'Tienda de moda urbana: catálogo, stock y pedidos sin líos.',
   'portfolio.confusion.title': 'Confusion Wear',
   'portfolio.confusion.desc':
-    'E-commerce de moda streetwear con catálogo dinámico y pasarela de pagos integrada.',
+    'Streetwear con catálogo vivo y pago con tarjeta.',
   'portfolio.camisetas.title': 'Camisetas Ahora',
   'portfolio.camisetas.desc':
-    'Plataforma de personalización de camisetas con herramientas de diseño y sistema de pedidos online.',
+    'Tienda de camisetas personalizadas con muchos diseños, filtros y panel de stock.',
   'portfolio.carper.title': 'Carper Sonido',
   'portfolio.carper.desc':
-    'Web corporativa para empresa de audio profesional con catálogo de productos y servicios.',
+    'Web de audio profesional con catálogo de productos y servicios.',
   'portfolio.hoyviajamos.title': 'Hoy Viajamos',
   'portfolio.hoyviajamos.desc':
-    'Blog de viajes con contenido optimizado, galerías fotográficas y monetización mediante afiliados.',
+    'Blog de viajes con galerías, categorías y afiliados.',
   'portfolio.sillysally.title': 'Silly Sally',
   'portfolio.sillysally.desc':
-    'One-pager para una banda de Madrid con 15 años de trayectoria: bio, Spotify, dossier, merch y Instagram al día.',
+    'One-pager de una banda de Madrid: bio, Spotify, dossier, merch e Instagram.',
   'portfolio.hatena.title': 'Clínica Veterinaria Hatena',
   'portfolio.hatena.desc':
-    'Web profesional para clínica veterinaria: servicios, confianza y contacto claro para dueños de mascotas.',
+    'Web de clínica: servicios, equipo y cómo pedir cita sin marear al dueño.',
   'portfolio.resilience.title': 'Resilience Shop',
   'portfolio.resilience.desc':
-    'Tienda online de equipación de ciclismo: catálogo claro, compra sencilla y experiencia pensada para ciclistas.',
+    'Tienda de ciclismo: catálogo claro y compra sin rodeos.',
   'portfolio.elefantes.title': 'El Viaje de los Elefantes',
   'portfolio.elefantes.desc':
-    'Blog de viajes con galería fotográfica, sistema de publicación y optimización SEO.',
+    'Blog de viajes con galería y estructura pensada para buscadores.',
   'portfolio.delish.title': 'Delish Vegan Madrid',
   'portfolio.delish.desc':
-    'E-commerce de repostería 100% vegana con tienda online, sistema de pedidos, entrega a domicilio y envío nacional. Uno de los lugares veganos más emblemáticos de Madrid.',
+    'Repostería vegana con pedidos online y envío nacional. Local conocido en Madrid.',
   'portfolio.alicornio.title': 'O Alicornio - Casa Rural',
   'portfolio.alicornio.desc':
-    'Web para casa rural en O Courel, Lugo. Desarrollada con WordPress y Elementor. Gracias a su excelente posicionamiento orgánico SEO, la casa está llena toda la primavera y verano.',
+    'Casa rural en O Courel (Lugo). WordPress. En temporada alta suele ir llena por búsquedas orgánicas.',
 
   // Categorías de contacto
   'contact.project.ecommerce': 'E-commerce',
@@ -94,11 +94,11 @@ const translations = {
 
   // Footer
   'footer.description':
-    'Páginas web profesionales, tiendas online y mantenimiento web para empresas y autónomos de toda España.',
+    'Webs, tiendas y mantenimiento. Trabajamos online con clientes de toda España.',
   'footer.services_title': 'Servicios',
   'footer.contact_title': 'Contacto',
   'footer.areas_title': 'Áreas de Servicio',
-  'footer.areas_desc': 'Desarrollo web profesional en toda España',
+  'footer.areas_desc': 'Proyectos en toda España',
   'footer.copyright': 'PereiraWeb. Todos los derechos reservados.',
   'footer.privacy': 'Política de Privacidad',
   'footer.terms': 'Términos de Servicio',

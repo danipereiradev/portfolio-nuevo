@@ -72,136 +72,123 @@ const MantenimientoWeb = () => {
 
   const problems = [
     {
-      text: 'La web está publicada, pero nadie la revisa: actualizaciones, seguridad y copias quedan aparcadas.',
+      text: 'La web está online, pero nadie mira actualizaciones, seguridad ni copias.',
     },
     {
-      text: 'Cada cambio pequeño (textos, fotos, horarios) se convierte en un problema técnico o en un retraso.',
+      text: 'Cambiar un horario o una foto se convierte en un pelea técnica.',
     },
     {
-      text: 'Te preocupa que la web se caiga, se ralentice o quede vulnerable sin que te enteres a tiempo.',
+      text: 'Te da miedo que se caiga o la hackeen y te enteres tarde.',
     },
     {
-      text: 'No quieres pelearte con el dominio, el alojamiento ni con avisos técnicos que no entiendes.',
+      text: 'No quieres pelearte con el dominio, el hosting ni avisos raros.',
     },
   ];
 
   const targetAudience = [
     {
       icon: Laptop,
-      title: 'Webs Ya Publicadas',
-      description:
-        'Tienes una web funcionando y quieres que siga actualizada, segura y en buen estado.',
+      title: 'Ya tienes web',
+      description: 'Está publicada y quieres que no se quede abandonada.',
     },
     {
       icon: Wrench,
-      title: 'Cambios Puntuales',
-      description:
-        'Necesitas hacer ajustes de contenido, textos o imágenes de forma recurrente, sin complicaciones técnicas.',
+      title: 'Cambios del día a día',
+      description: 'Textos, fotos, horarios… sin abrir un ticket eterno.',
     },
     {
       icon: ShieldCheck,
-      title: 'Seguridad y Copias',
-      description:
-        'Quieres evitar caídas, hackeos o pérdida de información con copias de seguridad periódicas.',
+      title: 'Copias y seguridad',
+      description: 'Por si un día hay que recuperar o parar un susto.',
     },
     {
       icon: Clock,
-      title: 'Soporte Continuo',
-      description:
-        'Prefieres tener a alguien disponible para resolver dudas o problemas técnicos cuando surgen.',
+      title: 'Alguien al otro lado',
+      description: 'Cuando algo falla, escribes y te contestan.',
     },
   ];
 
   const included = [
-    'Pequeños cambios en textos, imágenes y contenidos',
-    'Actualizaciones para mantener la web segura',
-    'Copias de seguridad periódicas',
-    'Revisión de que la web siga online y funcionando',
-    'Comprobación del formulario de contacto',
-    'Mejoras básicas para que cargue correctamente',
-    'Protección frente a amenazas y archivos maliciosos',
-    'Soporte técnico cuando tengas un problema',
-    'Ayuda con el dominio y el alojamiento de la web',
-    'Resumen mensual de las tareas realizadas',
+    'Cambios pequeños de textos e imágenes',
+    'Actualizaciones de seguridad',
+    'Copias periódicas',
+    'Comprobar que sigue online',
+    'Revisar el formulario de contacto',
+    'Apaños básicos de carga',
+    'Vigilancia ante amenazas',
+    'Soporte cuando haya un problema',
+    'Ayuda con dominio y hosting',
+    'Resumen mensual de lo hecho',
   ];
 
   const features = [
     {
-      title: 'Actualizaciones de seguridad',
-      description:
-        'Mantenemos tu web actualizada para evitar fallos y problemas de seguridad.',
+      title: 'Actualizaciones',
+      description: 'Para no dejar la web en una versión vieja y vulnerable.',
     },
     {
-      title: 'Copias de seguridad',
-      description:
-        'Copias periódicas para poder recuperar tu web ante cualquier imprevisto.',
+      title: 'Copias',
+      description: 'Por si hay que volver atrás.',
     },
     {
       title: 'Revisión de seguridad',
-      description:
-        'Revisamos tu web para detectar y corregir problemas de seguridad a tiempo.',
+      description: 'Miramos fallos antes de que te den un disgusto.',
     },
     {
-      title: 'Cambios de contenido incluidos',
-      description:
-        'Pequeños cambios de textos, imágenes o secciones incluidos cada mes según el plan.',
+      title: 'Cambios de contenido',
+      description: 'Textos, fotos o secciones, según el plan mensual.',
     },
     {
-      title: 'Comprobación del formulario',
-      description:
-        'Comprobamos que tus vías de contacto sigan funcionando correctamente.',
+      title: 'Formulario',
+      description: 'Que siga llegando el correo o el aviso de contacto.',
     },
     {
-      title: 'Corrección de errores',
-      description:
-        'Detectamos y solucionamos errores visuales o de funcionamiento que puedan aparecer.',
+      title: 'Errores',
+      description: 'Cosas rotas en pantalla o en el funcionamiento.',
     },
     {
-      title: 'Soporte técnico',
-      description:
-        'Puedes escribirnos cuando lo necesites para resolver dudas o problemas.',
+      title: 'Soporte',
+      description: 'Escribes cuando lo necesites.',
     },
     {
       title: 'Resumen mensual',
-      description: 'Recibes un resumen de las tareas realizadas cada mes.',
+      description: 'Sabes qué se ha tocado ese mes.',
     },
   ];
 
   const faqs = [
     {
-      question: '¿Es obligatorio el mantenimiento web?',
+      question: '¿Es obligatorio el mantenimiento?',
       answer:
-        'No es obligatorio, pero sí recomendable si quieres que la web siga actualizada, revisada y en buen estado después de publicarla.',
+        'No. Pero si nadie mira la web, acaba dando problemas. Tú decides.',
     },
     {
-      question: '¿Podemos pagar en varias cuotas?',
+      question: '¿Se paga a plazos?',
       answer:
-        'El mantenimiento se contrata como plan mensual. Si necesitas un cambio puntual más grande, también podemos presupuestarlo aparte con pago único o fraccionado.',
+        'Es cuota mensual. Un cambio grande puntual se presupuesta aparte.',
     },
     {
-      question: '¿Cuánto cuesta el mantenimiento web?',
+      question: '¿Cuánto cuesta?',
       answer:
-        'No hay una cuota fija pública: depende del nivel de soporte y de los cambios mensuales que necesites. Te enviamos una propuesta con la cuota mensual y lo incluido, antes de empezar.',
+        'Depende del soporte y de los cambios mensuales. Te pasamos la cuota antes de empezar.',
     },
     {
-      question: '¿El presupuesto incluye IVA?',
-      answer:
-        'Sí, la propuesta que preparamos incluye IVA salvo que se indique lo contrario. El alcance y la cuota mensual quedan por escrito antes de empezar.',
+      question: '¿Lleva IVA?',
+      answer: 'Sí, salvo que indiquemos lo contrario. Todo por escrito.',
     },
     {
-      question: '¿Cuántos cambios incluye cada mes?',
-      answer:
-        'Lo indicamos en la propuesta según lo que necesites: modificaciones y soporte incluidos en la cuota mensual.',
+      question: '¿Cuántos cambios al mes?',
+      answer: 'Lo dejamos claro en la propuesta según lo que necesites.',
     },
     {
-      question: '¿Podéis mantener una web que no habéis creado vosotros?',
+      question: '¿Podéis mantener una web que no hicisteis vosotros?',
       answer:
-        'Sí, podemos hacernos cargo del mantenimiento de webs desarrolladas por otros, revisando antes su estado técnico.',
+        'Sí. Antes miramos el estado técnico y te decimos si tiene sentido.',
     },
     {
-      question: '¿Qué pasa si necesito algo urgente?',
+      question: '¿Y si es urgente?',
       answer:
-        'Si tienes un plan de mantenimiento activo, atendemos tu incidencia dentro del soporte incluido en el plan.',
+        'Con plan activo, lo atendemos dentro del soporte incluido.',
     },
   ];
 
@@ -209,10 +196,10 @@ const MantenimientoWeb = () => {
     <>
       {/* 1. Hero de posicionamiento, sin precio como primer impacto */}
       <SEOLandingHero
-        title='Mantenimiento web para que tu página siga funcionando bien'
-        subtitle='Ideal para negocios que ya tienen una web y quieren mantenerla actualizada, segura y funcionando correctamente.'
-        description='Nos ocupamos del cuidado técnico de tu web y de pequeños cambios mensuales para que no tengas que preocuparte por errores, actualizaciones o problemas de seguridad.'
-        trustLine='Atención y mantenimiento mensual · Presupuesto cerrado antes de empezar'
+        title='Mantenimiento web: que no se te caiga encima'
+        subtitle='Actualizaciones, copias, cambios de textos y alguien a quien escribir.'
+        description='Si ya tienes web y no quieres pelearte con ella cada mes, esto es para ti.'
+        trustLine='Cuota mensual · Alcance por escrito antes de empezar'
         ctaText='Ver qué incluye'
         onCTAClick={() => scrollToSection('incluye')}
         secondaryCTAText='Ver trabajos'
@@ -220,27 +207,23 @@ const MantenimientoWeb = () => {
         secondaryCTAIcon='chevron-down'
       />
 
-      {/* 2. Bloque de confianza rápida */}
       <TrustBar />
 
-      {/* 3. Problema */}
       <SEOProblem
-        title='Una web sin mantenimiento acaba dando problemas'
-        subtitle='Esto es lo que solemos ver cuando un negocio tiene web, pero nadie se ocupa de ella con continuidad.'
+        title='Una web sin nadie detrás acaba dando problemas'
+        subtitle='Lo que solemos ver cuando la página está online… y abandonada.'
         problems={problems}
       />
 
-      {/* 4. Para quién es este servicio */}
       <SEOBenefits
-        title='¿Necesitas Mantenimiento para tu Web?'
+        title='¿Te hace falta mantenimiento?'
         benefits={targetAudience}
       />
 
-      {/* 5. Qué incluye el mantenimiento web */}
       <div id='incluye' className='scroll-mt-24'>
         <SEOFeatures
-          title='Qué Incluye tu Mantenimiento Web'
-          subtitle='Todo lo necesario para que tu web siga funcionando y actualizada'
+          title='Qué suele incluir el plan'
+          subtitle='Lo habitual. Si necesitas más cambios, lo ajustamos.'
           features={features}
         />
       </div>
@@ -254,12 +237,11 @@ const MantenimientoWeb = () => {
         <div className='content-container'>
           <div className='text-center mb-12 max-w-2xl mx-auto'>
             <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4'>
-              Qué tendrás con el mantenimiento
+              Qué tendrás con el plan
             </h2>
             <p className='text-base md:text-lg text-gray-600'>
-              El mantenimiento se adapta al tamaño y las necesidades de tu web.
-              Preparamos una propuesta personalizada con el alcance y la cuota
-              mensual antes de empezar.
+              La cuota depende del tamaño de la web y de cuántos cambios
+              mensuales quieras. Te lo escribimos antes.
             </p>
           </div>
 
@@ -269,22 +251,21 @@ const MantenimientoWeb = () => {
             </span>
 
             <p className='text-xs font-semibold text-accent uppercase tracking-wide mb-3 mt-4 text-center'>
-              Ideal para: negocios que ya tienen una web y quieren mantenerla
-              actualizada, segura y funcionando correctamente
+              Si ya tienes web y no quieres pelearte con ella
             </p>
 
             <div className='flex flex-col items-center gap-1 mb-6 text-center'>
               <span className='text-2xl md:text-3xl font-bold text-gray-900'>
-                Presupuesto a medida
+                Cuota según tu caso
               </span>
               <span className='text-sm text-gray-500'>
-                Cerrado antes de empezar, sin sorpresas.
+                Por escrito, antes de activar el plan.
               </span>
               <span className='text-sm text-gray-500 mt-1'>
-                Plan mensual, según el alcance del servicio
+                Plan mensual
               </span>
               <span className='text-sm text-gray-500'>
-                Atención y mantenimiento mensual
+                Soporte + cambios incluidos
               </span>
             </div>
 
@@ -303,8 +284,8 @@ const MantenimientoWeb = () => {
               </Button>
 
               <p className='text-center text-xs text-gray-400 mt-4'>
-                Presupuesto orientativo, IVA incluido. La propuesta final se
-                cierra antes de empezar, según el alcance real del servicio.
+                Orientativo, IVA incluido. La cuota final la cerramos en la
+                propuesta según el alcance.
               </p>
             </div>
 
@@ -323,7 +304,7 @@ const MantenimientoWeb = () => {
 
       {/* 7. Proceso de trabajo */}
       <SEOProcess
-        title='Un proceso claro desde el primer mensaje'
+        title='Cómo solemos trabajar'
         steps={defaultServiceProcess}
       />
 
@@ -368,15 +349,14 @@ const MantenimientoWeb = () => {
       {/* 11. Preguntas frecuentes */}
       <div id='faq' className='scroll-mt-24'>
         <SEOFAQ
-          title='Preguntas Frecuentes sobre Mantenimiento Web'
+          title='Preguntas frecuentes sobre mantenimiento'
           faqs={faqs}
         />
       </div>
 
-      {/* 12. Formulario / contacto final */}
       <SEOCTAFinal
-        title='¿Hablamos del mantenimiento de tu web?'
-        subtitle='Cuéntanos cómo está tu web ahora. Te preparamos una propuesta cerrada de mantenimiento, con alcance y plazos claros.'
+        title='¿Te hacemos el mantenimiento?'
+        subtitle='Cuéntanos cómo está la web ahora. Te pasamos cuota y qué entra.'
         buttonText='Solicitar orientación'
         onButtonClick={handleQuoteRequest}
       />

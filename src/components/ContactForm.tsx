@@ -317,9 +317,8 @@ Fecha: ${new Date().toLocaleString('es-ES')}
           Cuéntanos qué necesitas
         </h2>
         <p className='text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto'>
-          Trabajamos con empresas y autónomos que necesitan crear o
-          mejorar su presencia online. Cuéntanos sobre tu proyecto y te
-          enviaremos una propuesta personalizada muy rápido.
+          Cuéntanos el caso. Si encaja, te mandamos propuesta. Si no, te lo
+          decimos. Suele ir rápido.
         </p>
       </div>
 

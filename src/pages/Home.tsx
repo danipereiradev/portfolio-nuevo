@@ -16,25 +16,25 @@ const processSteps = [
     number: '1',
     title: 'Nos cuentas qué necesitas',
     description:
-      'Hablamos por teléfono, email, WhatsApp o videollamada sin compromiso. Si estás en Madrid, también podemos desplazarnos. Analizamos tu negocio, tus objetivos y lo que necesita el proyecto.',
+      'WhatsApp, email, llamada o videollamada. Si estás en Madrid, también podemos vernos. Nos dices qué haces y qué te falta.',
   },
   {
     number: '2',
-    title: 'Preparamos una propuesta',
+    title: 'Te enviamos una propuesta',
     description:
-      'Recibes una propuesta clara con alcance, plazos, precio cerrado y opciones de pago.',
+      'Alcance, plazos, precio y cómo se paga. Por escrito, antes de empezar.',
   },
   {
     number: '3',
-    title: 'Diseñamos y desarrollamos',
+    title: 'Montamos la web o la tienda',
     description:
-      'Construimos la web cuidando estructura, diseño, rendimiento, adaptación móvil y facilidad de uso.',
+      'Estructura, textos, móvil y lo que hayas pedido. Sin agencia de 40 personas en medio.',
   },
   {
     number: '4',
-    title: 'Publicamos y acompañamos',
+    title: 'Publicamos y te dejamos usándola',
     description:
-      'Publicamos el proyecto y te acompañamos en los primeros pasos para que puedas usarlo con seguridad.',
+      'Dominio, hosting y un repaso contigo. Si quieres, luego hay mantenimiento mensual.',
   },
 ];
 
@@ -64,14 +64,14 @@ const Home = () => {
       <Services />
       <div id='proceso' className='scroll-mt-24'>
         <SEOProcess
-          title='Un proceso claro desde el primer mensaje'
+          title='Cómo solemos trabajar'
           steps={processSteps}
         />
       </div>
       <Portfolio />
       <Testimonials />
       <div id='faq' className='scroll-mt-24'>
-        <SEOFAQ title='Preguntas Frecuentes' faqs={globalFaqs} />
+        <SEOFAQ title='Preguntas frecuentes' faqs={globalFaqs} />
       </div>
       <ContactForm />
     </>

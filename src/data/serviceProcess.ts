@@ -1,6 +1,4 @@
-// Proceso de trabajo compartido por las páginas de servicio (página web,
-// tienda online, mantenimiento). Mismo esquema en las tres para que el
-// cliente reconozca la forma de trabajar de PereiraWeb en cualquier página.
+// Proceso de trabajo compartido por tienda online y mantenimiento.
 export interface ServiceProcessStep {
   number: string;
   title: string;
@@ -12,30 +10,30 @@ export const defaultServiceProcess: ServiceProcessStep[] = [
     number: '1',
     title: 'Nos cuentas qué necesitas',
     description:
-      'Nos explicas tu negocio, tu proyecto y qué necesitas conseguir con la web.',
+      'Qué vendes, qué web tienes ahora o qué te falla. WhatsApp vale.',
   },
   {
     number: '2',
-    title: 'Analizamos el alcance',
+    title: 'Miramos el alcance',
     description:
-      'Revisamos qué incluye el proyecto: estructura, funcionalidades, contenidos y plazos.',
+      'Páginas, catálogo, cambios mensuales… lo concreto, no un pack genérico.',
   },
   {
     number: '3',
-    title: 'Preparamos una propuesta',
+    title: 'Te enviamos la propuesta',
     description:
-      'Recibes una propuesta cerrada con alcance, plazos y opciones de pago antes de empezar.',
+      'Precio, plazos y qué entra. Si no te cuadra, no pasa nada.',
   },
   {
     number: '4',
-    title: 'Diseñamos, desarrollamos o mantenemos',
+    title: 'Trabajamos el proyecto',
     description:
-      'Trabajamos tu proyecto con una base técnica sólida y comunicación directa durante todo el proceso.',
+      'Diseño, desarrollo o el plan de mantenimiento. Hablas con quien lo hace.',
   },
   {
     number: '5',
-    title: 'Revisamos y acompañamos',
+    title: 'Revisión y puesta en marcha',
     description:
-      'Revisamos el resultado contigo y te acompañamos tras la publicación o durante el servicio contratado.',
+      'Afinamos contigo, publicamos o activamos el plan, y te dejamos usándolo.',
   },
 ];

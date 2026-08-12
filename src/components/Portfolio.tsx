@@ -76,15 +76,11 @@ const Portfolio = ({ variant = 'default' }: PortfolioProps) => {
     {
       title: t('portfolio.sillysally.title'),
       description: t('portfolio.sillysally.desc'),
-      longDescription: `Silly Sally es una banda madrileña con 15 años de trayectoria internacional. Necesitaban una web clara, directa y fácil de mantener: un one-pager que presentara el proyecto, facilitara contrataciones y conectara música, merch y redes en un solo sitio.
+      longDescription: `Silly Sally es una banda de Madrid con 15 años de carrera. Querían un one-pager claro: bio, música, dossier para booking, merch y redes, sin marear a promotores ni fans.
 
-Diseñamos una página rápida y con personalidad, pensada para que promotores, salas y fans encuentren en segundos lo que buscan. La bio resume su recorrido y tono artístico sin rodeos. La sección de música integra un widget de Spotify para escuchar temas sin salir de la web. Desde la propia página se puede descargar el dossier de contrataciones, listo para enviar a booking y festivales.
+Hay Spotify embebido, descarga del dossier, Bandcamp para el merch e Instagram que se actualiza solo. Rápida, directa, mantenible.
 
-También conectamos la tienda de merchandise de Bandcamp, para que la venta de merch viva dentro del mismo recorrido, y el feed de Instagram se actualiza solo: cada publicación nueva aparece en la web sin trabajo manual.
-
-El resultado es una presencia online profesional, útil de verdad: ayuda a vender conciertos, a mantener el contacto con el público y a concentrar bio, música, dossier, merch y redes en una sola URL.
-
-Características: one-pager a medida, sección de bio, widget de Spotify, descarga de dossier para contrataciones, integración con Bandcamp, feed de Instagram siempre actualizado, diseño responsive y enfoque en velocidad y claridad.`,
+Una URL con todo lo que necesitan salas y público.`,
       image: '/img/portfolio/silly-sally-mock.webp',
       headerImage: '/img/portfolio/silly-sally-mock.webp',
       tech: [
@@ -139,15 +135,11 @@ Características técnicas: subida múltiple de vídeos, validación de archivos
     {
       title: t('portfolio.camisetas.title'),
       description: t('portfolio.camisetas.desc'),
-      longDescription: `Camisetas Ahora es un proyecto de e-commerce especializado en camisetas personalizadas y diseños exclusivos. El cliente necesitaba una plataforma que permitiera gestionar un catálogo amplio y cambiante de diseños.
+      longDescription: `Camisetas Ahora vende camisetas personalizadas con un catálogo que cambia mucho. Hacía falta filtrar por tags, temas, colores y tallas sin volverse loco.
 
-El desarrollo se enfocó en crear una experiencia de usuario excepcional para la búsqueda y filtrado de productos. Se implementó un sistema de búsqueda por tags, temas, colores y tallas que permite a los usuarios encontrar exactamente lo que buscan entre cientos de opciones.
+Montamos búsqueda usable, visualizador con varios ángulos y zoom, y un panel para cargar productos a lo bruto y mirar stock por talla/color. También hay afiliados para quien promociona.
 
-Una característica destacada es el visualizador de productos que muestra las camisetas desde múltiples ángulos y permite hacer zoom para apreciar los detalles de cada diseño. También se integró un sistema de recomendaciones basado en las preferencias de navegación.
-
-El backend incluye un panel de administración personalizado que facilita la carga masiva de productos, gestión de inventario por talla y color, y seguimiento detallado de las ventas por categoría. Esto ha permitido al equipo tomar decisiones informadas sobre qué diseños producir.
-
-La tienda también cuenta con un programa de afiliados que ha generado una red de promotores que generan ventas adicionales mediante comisiones. El proyecto ha sido un éxito comercial, procesando cientos de pedidos anuales.`,
+Hoy procesan cientos de pedidos al año.`,
       image: '/img/portfolio/camisetas-ahora.png',
       headerImage: '/img/portfolio/mock-camisetas.png',
       tech: ['WordPress', 'WooCommerce', 'jQuery', 'CSS3'],
@@ -160,15 +152,9 @@ La tienda también cuenta con un programa de afiliados que ha generado una red d
     {
       title: t('portfolio.hoyviajamos.title'),
       description: t('portfolio.hoyviajamos.desc'),
-      longDescription: `Hoy Viajamos es un blog de viajes que documenta las aventuras de una pareja de viajeros por el mundo. El proyecto necesitaba una plataforma que permitiera compartir historias, fotografías y consejos de viaje de manera atractiva.
+      longDescription: `Hoy Viajamos es el blog de una pareja que cuenta viajes. Prioridad: que se lean bien las historias y se vean las fotos sin que la página se arrastre.
 
-El diseño se centró en la experiencia de lectura, con tipografía cuidadosamente seleccionada y espacios generosos que permiten que el contenido respire. Las imágenes de alta calidad son el protagonista, con un sistema de galerías optimizado que mantiene los tiempos de carga rápidos.
-
-Se implementó una estructura de contenido compleja con múltiples categorías: destinos, guías de viaje, consejos prácticos, y experiencias gastronómicas. Cada artículo está optimizado para SEO con rich snippets que mejoran la visibilidad en buscadores.
-
-El blog incluye funcionalidades interactivas como mapas de destinos visitados, calculadoras de presupuesto de viaje, y un sistema de comentarios que fomenta la comunidad de viajeros. También se integró una newsletter que ha crecido a miles de suscriptores.
-
-La monetización se logró mediante publicidad estratégica, enlaces de afiliados a booking y productos de viaje, y colaboraciones con marcas del sector turístico. El blog genera actualmente ingresos pasivos consistentes.`,
+Hay categorías (destinos, guías, tips, comida), galerías ligeras, mapas de sitios visitados y newsletter. Monetizan con afiliados y alguna colaboración. Nada de inventar un “ecosistema digital”: una web que aguanta el contenido.`,
       image: '/img/portfolio/hoyviajamos.png',
       headerImage: '/img/portfolio/mock-viajamos.png',
       tech: ['HTML5', 'CSS3', 'JavaScript', 'PHP'],

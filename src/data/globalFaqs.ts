@@ -1,5 +1,4 @@
-// FAQ global de PereiraWeb: preguntas frecuentes válidas para toda la web,
-// en tono plural. Sin tarifas fijas públicas; solo orientación de rango.
+// FAQ global de PereiraWeb.
 export interface GlobalFaqItem {
   question: string;
   answer: string;
@@ -7,49 +6,48 @@ export interface GlobalFaqItem {
 
 export const globalFaqs: GlobalFaqItem[] = [
   {
-    question: '¿Qué tipo de webs desarrolláis?',
+    question: '¿Qué tipo de webs hacéis?',
     answer:
-      'Diseñamos y desarrollamos páginas web profesionales, webs corporativas, páginas de servicios, tiendas online, catálogos digitales, rediseños web, mantenimiento y herramientas web a medida. Cada proyecto se adapta a lo que necesita el negocio en concreto.',
+      'Webs de negocio, tiendas online, rediseños, mantenimiento y, si hace falta, piezas a medida (reservas, paneles, integraciones). No vendemos plantillas con el logo cambiado.',
   },
   {
-    question: '¿Cuánto cuesta una página web profesional?',
+    question: '¿Cuánto cuesta una página web?',
     answer:
-      'No publicamos tarifas fijas porque cada proyecto es distinto. Como orientación, la mayoría de webs profesionales suelen situarse entre 400 € y 3.000 € + IVA, según páginas, diseño, funcionalidades y contenidos. Tras hablar contigo te enviamos una propuesta concreta con precio, plazos y lo incluido.',
+      'No hay tarifa fija pública. Orientación: muchas webs quedan entre 400 € y 3.000 € + IVA, según páginas y funciones. Tras hablarte, te enviamos un número concreto con plazos y lo incluido.',
   },
   {
-    question: '¿Ofrecéis opciones de pago flexible?',
+    question: '¿Se puede pagar a plazos?',
     answer:
-      'Sí. Según el tipo de proyecto, podemos trabajar con pago único o pago fraccionado. Las condiciones quedan definidas en la propuesta antes de empezar, para que no haya sorpresas durante el proceso.',
+      'Sí, en muchos proyectos. Lo dejamos escrito en la propuesta: pago único o fraccionado.',
   },
   {
-    question: '¿Cuánto tarda en estar lista una web?',
+    question: '¿Cuánto tarda?',
     answer:
-      'Depende del alcance y de si los contenidos están preparados. Una web profesional estándar puede estar lista en pocas semanas desde que tenemos definidos los materiales, estructura y objetivos. En proyectos más amplios, tiendas online o desarrollos a medida, los plazos se ajustan en la propuesta.',
+      'Una web estándar, pocas semanas desde que tenemos textos e imágenes. Una tienda suele ir a 4–6 semanas. El reloj empieza cuando nos llega lo necesario, no el día del “ok”.',
   },
   {
-    question: '¿Podéis encargaros del diseño y del desarrollo?',
+    question: '¿Hacéis diseño y desarrollo?',
     answer:
-      'Sí. Nos encargamos tanto del diseño como del desarrollo, cuidando la estructura, la experiencia de usuario, la adaptación móvil, el rendimiento y la publicación final. El objetivo es que la web no solo se vea bien, sino que sea clara, rápida y funcional.',
+      'Sí, las dos cosas. La idea es que se vea bien y que funcione: móvil, velocidad, formulario y WhatsApp sin dramas.',
   },
   {
-    question: '¿La web estará adaptada a móvil?',
+    question: '¿Se ve bien en el móvil?',
     answer:
-      'Sí. Todas las webs que desarrollamos se trabajan con diseño responsive para que se vean correctamente en móvil, tablet y ordenador. También cuidamos la velocidad, la claridad del contenido y la facilidad de contacto.',
+      'Sí. La revisamos en móvil, tablet y escritorio antes de publicar.',
   },
   {
     question: '¿Incluís SEO?',
     answer:
-      'Incluimos una base SEO inicial en la estructura de la web: títulos, metadescripciones, jerarquía de contenidos, URLs limpias cuando aplica y una base técnica correcta. Si el proyecto necesita una estrategia SEO avanzada o contenidos recurrentes, podemos valorarlo aparte.',
+      'Dejamos una base razonable: títulos, estructura, URLs limpias cuando aplica. El SEO continuo mes a mes no va en el precio de la web; si lo quieres, lo valoramos aparte.',
   },
   {
-    question: '¿Podéis mantener la web después de publicarla?',
+    question: '¿Podéis mantener la web después?',
     answer:
-      'Sí. Ofrecemos mantenimiento web mensual para negocios que necesitan soporte, pequeños cambios, revisión técnica, mejoras de contenido, actualizaciones o acompañamiento después de publicar la web.',
+      'Sí. Hay plan mensual: actualizaciones, copias, cambios pequeños y soporte. Si solo quieres un apaño puntual, también.',
   },
-
   {
-    question: '¿Podemos pedir una propuesta sin compromiso?',
+    question: '¿Pedimos presupuesto y luego qué?',
     answer:
-      'Sí. Puedes contarnos qué necesitas y prepararemos una primera orientación. Si el proyecto encaja, enviaremos una propuesta clara con alcance, plazos, forma de trabajo y opciones de pago antes de empezar.',
+      'Nos cuentas el caso. Si encaja, te mandamos propuesta. Si no, te lo decimos y listo. No hay compromiso por preguntar.',
   },
 ];

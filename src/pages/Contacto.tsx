@@ -52,9 +52,8 @@ const Contacto = () => {
             Cuéntanos qué necesitas
           </h1>
           <p className='text-base md:text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto'>
-            PereiraWeb es un estudio de diseño y desarrollo web que trabaja
-            online con empresas y autónomos de toda España. Puedes contactarnos
-            por email, teléfono, WhatsApp o videollamada.
+            WhatsApp, email, teléfono o videollamada. Si estás en Madrid,
+            también podemos vernos. Respondemos pronto.
           </p>
         </div>
       </section>
@@ -64,12 +63,11 @@ const Contacto = () => {
           <div className='grid md:grid-cols-2 gap-12 max-w-6xl mx-auto mb-16'>
             <div>
               <h2 className='text-3xl font-bold text-gray-900 mb-6'>
-                Información de Contacto
+                Cómo contactar
               </h2>
               <p className='text-gray-600 mb-8 leading-relaxed'>
-                Trabajamos online con clientes de toda España. No tenemos una
-                oficina abierta al público. Si estás en Madrid, también podemos
-                desplazarnos. Respondemos muy rápido a todas las consultas.
+                Trabajamos online con clientes de toda España. No hay oficina
+                abierta al público. En Madrid podemos desplazarnos.
               </p>
 
               <div className='space-y-6'>
@@ -167,31 +165,31 @@ const Contacto = () => {
 
             <div className='bg-gray-50 p-8 rounded-xl border-2 border-ink-dark shadow-[6px_6px_0_0_#1a1a1a]'>
               <h3 className='text-2xl font-bold text-gray-900 mb-6'>
-                ¿Por Qué Trabajar con el Estudio?
+                Por qué escribirnos
               </h3>
               <ul className='space-y-4'>
                 <li className='flex items-start gap-3'>
                   <Check className='w-5 h-5 text-accent flex-shrink-0 mt-0.5' />
                   <p className='text-gray-700'>
-                    +12 años de experiencia en desarrollo web
+                    Más de 12 años haciendo webs
                   </p>
                 </li>
                 <li className='flex items-start gap-3'>
                   <Check className='w-5 h-5 text-accent flex-shrink-0 mt-0.5' />
                   <p className='text-gray-700'>
-                    Presupuesto cerrado antes de empezar, sin sorpresas
+                    Precio y alcance por escrito antes de empezar
                   </p>
                 </li>
                 <li className='flex items-start gap-3'>
                   <Check className='w-5 h-5 text-accent flex-shrink-0 mt-0.5' />
                   <p className='text-gray-700'>
-                    Trato directo y comunicación clara durante todo el proyecto
+                    Hablas con quien construye el proyecto
                   </p>
                 </li>
                 <li className='flex items-start gap-3'>
                   <Check className='w-5 h-5 text-accent flex-shrink-0 mt-0.5' />
                   <p className='text-gray-700'>
-                    Soporte continuo y mantenimiento post-lanzamiento
+                    Mantenimiento después, si lo quieres
                   </p>
                 </li>
                 <li className='flex items-start gap-3'>

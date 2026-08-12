@@ -13,22 +13,22 @@ const Pricing = () => {
       id: 'webpage',
       name: 'Web a Medida',
       formPlanName: 'Web a Medida',
-      idealFor: 'negocios que necesitan algo más que una web informativa.',
+      idealFor: 'si tu negocio necesita más que una página de visita.',
       description:
-        'Diseñamos una solución adaptada a tu forma de trabajar cuando necesitas funciones especiales, conexión con otras herramientas o una zona privada para clientes o equipo.',
+        'Reservas, calculadoras, zona de clientes, conexión con lo que ya usas… lo montamos a tu medida.',
       path: '/web-profesional-a-medida',
-      deliveryTime: 'Plazo según las necesidades del proyecto',
+      deliveryTime: 'El plazo lo marcamos según el alcance',
       cta: 'Solicitar presupuesto',
       features: [
-        'Diseño completamente adaptado a tu negocio',
-        'Funciones especiales desarrolladas para tu proyecto',
-        'Reservas, calculadoras, formularios avanzados o procesos personalizados',
-        'Conexión con programas y herramientas que ya utilizas',
-        'Zonas privadas para clientes, empleados o colaboradores',
-        'Paneles para consultar o gestionar información',
-        'Web segura, rápida y preparada para crecer',
-        'Acompañamiento durante todo el proyecto',
-        'Revisiones acordadas antes de empezar',
+        'Diseño propio, no plantilla genérica',
+        'Funciones hechas para tu caso',
+        'Reservas, formularios avanzados o procesos propios',
+        'Conexión con herramientas que ya usas',
+        'Zonas privadas si las necesitas',
+        'Paneles para consultar o gestionar datos',
+        'Móvil, HTTPS y base lista para crecer',
+        'Hablas con quien construye la web',
+        'Rondas de cambios acordadas al inicio',
       ],
       recommended: true,
     },
@@ -36,25 +36,24 @@ const Pricing = () => {
       id: 'ecommerce',
       name: 'Tienda online',
       formPlanName: 'Tienda Online',
-      idealFor:
-        'negocios y emprendedores que quieren vender productos por internet.',
+      idealFor: 'si vendes productos y quieres cobrar por internet.',
       description:
-        'Creamos una tienda preparada para mostrar tus productos, cobrar online, recibir pedidos y gestionar las ventas de forma sencilla.',
+        'Catálogo, carrito, tarjeta, envíos y un panel para que tú gestiones pedidos.',
       path: '/tiendas-online',
-      deliveryTime: 'Plazo según el catálogo y las necesidades del proyecto',
+      deliveryTime: 'Suele ser 4–6 semanas, según el catálogo',
       cta: 'Solicitar presupuesto',
       features: [
-        'Productos añadidos según lo acordado en la propuesta',
-        'Pagos seguros con tarjeta',
-        'Panel sencillo para gestionar productos y pedidos',
-        'Control de existencias para saber qué productos quedan disponibles',
-        'Configuración de gastos y zonas de envío',
-        'Carrito de compra y cupones de descuento',
-        'Diseño adaptado a móvil, tablet y ordenador',
-        'Preparada para aparecer en Google',
-        'Enlaces y conexión con tus redes sociales',
-        'Formación para aprender a gestionar la tienda',
-        'Rondas de cambios acordadas en la propuesta',
+        'Productos cargados según lo acordado',
+        'Pago con tarjeta',
+        'Panel para productos y pedidos',
+        'Control de stock',
+        'Gastos y zonas de envío',
+        'Carrito y cupones',
+        'Bien en móvil',
+        'Lista para que Google la indexe',
+        'Enlaces a tus redes',
+        'Te enseñamos a gestionarla',
+        'Rondas de cambios en la propuesta',
       ],
       recommended: false,
     },
@@ -62,24 +61,23 @@ const Pricing = () => {
       id: 'maintenance',
       name: 'Mantenimiento web',
       formPlanName: 'Mantenimiento Web',
-      idealFor:
-        'negocios que ya tienen una web y quieren mantenerla actualizada, segura y funcionando correctamente.',
+      idealFor: 'si ya tienes web y no quieres pelearte con ella cada mes.',
       description:
-        'Nos ocupamos del cuidado técnico de tu web y de pequeños cambios mensuales para que no tengas que preocuparte por errores, actualizaciones o problemas de seguridad.',
+        'Actualizaciones, copias, cambios de textos y fotos, y alguien a quien escribir cuando falla algo.',
       path: '/mantenimiento-web',
-      deliveryTime: 'Servicio mensual según el plan que te propongamos',
+      deliveryTime: 'Cuota mensual según el plan',
       cta: 'Solicitar presupuesto',
       features: [
-        'Pequeños cambios en textos, imágenes y contenidos',
-        'Actualizaciones para mantener la web segura',
-        'Copias de seguridad periódicas',
-        'Revisión de que la web siga online y funcionando',
-        'Comprobación del formulario de contacto',
-        'Mejoras básicas para que cargue correctamente',
-        'Protección frente a amenazas y archivos maliciosos',
-        'Soporte técnico cuando tengas un problema',
-        'Ayuda con el dominio y el alojamiento de la web',
-        'Resumen mensual de las tareas realizadas',
+        'Cambios pequeños de textos e imágenes',
+        'Actualizaciones de seguridad',
+        'Copias periódicas',
+        'Comprobar que sigue online',
+        'Revisar el formulario de contacto',
+        'Arreglos básicos de carga',
+        'Vigilancia ante amenazas',
+        'Soporte cuando tengas un problema',
+        'Ayuda con dominio y hosting',
+        'Resumen mensual de lo hecho',
       ],
       recommended: false,
     },
@@ -99,15 +97,15 @@ const Pricing = () => {
       <div className='mx-auto w-full max-w-screen-2xl px-6 relative z-10'>
         <div className='text-center mb-12 max-w-3xl mx-auto'>
           <h2 className='text-4xl md:text-5xl font-extrabold text-gray-900 mb-6'>
-            Cuéntanos tu proyecto y te preparamos un presupuesto a medida
+            Cuéntanos el proyecto y te pasamos números
           </h2>
           <p className='text-lg md:text-xl text-gray-700 font-medium mb-3'>
-            Cada negocio es diferente. Antes de hablar de precio, queremos
-            entender qué necesitas, qué debe incluir y qué quieres conseguir.
+            No hay tarifa única en la web: depende de páginas, funciones y
+            contenidos. Primero entendemos qué necesitas.
           </p>
           <p className='text-base text-gray-500'>
-            Te enviaremos una propuesta clara con plazos, forma de trabajo, lo
-            incluido y el precio cerrado. Sin sorpresas a mitad del proyecto.
+            Luego te llega una propuesta con plazos, lo incluido y el precio.
+            Si no encaja, te lo decimos.
           </p>
         </div>
 

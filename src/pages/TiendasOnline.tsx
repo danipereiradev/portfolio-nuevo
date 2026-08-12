@@ -72,144 +72,135 @@ const TiendasOnline = () => {
 
   const problems = [
     {
-      text: 'Quieres vender online pero las plataformas genéricas no encajan con tu catálogo ni con tu forma de trabajar.',
+      text: 'Quieres vender online y Shopify o la plantilla barata no te encajan.',
     },
     {
-      text: 'Has probado plantillas de tienda lentas, difíciles de gestionar o poco profesionales para tus clientes.',
+      text: 'Ya probaste una tienda lenta o imposible de gestionar.',
     },
     {
-      text: 'No tienes claro cómo cobrar online, controlar existencias o configurar los envíos de tu negocio.',
+      text: 'No tienes claro cobros, stock o envíos.',
     },
     {
-      text: 'Los presupuestos que recibes son muy distintos entre sí y no sabes qué incluye realmente cada uno.',
+      text: 'Te llegan presupuestos muy distintos y nadie dice qué incluye de verdad.',
     },
   ];
 
   const targetAudience = [
     {
       icon: ShoppingBag,
-      title: 'Negocios con Producto Físico',
+      title: 'Producto físico',
       description:
-        'Vendes productos y necesitas un catálogo claro con un proceso de compra sencillo para tus clientes.',
+        'Vendes cosas reales y necesitas catálogo + compra sin líos.',
     },
     {
       icon: Package,
-      title: 'Catálogos Amplios',
+      title: 'Muchas referencias',
       description:
-        'Tienes muchas referencias, variantes de talla o color, y necesitas una estructura que lo organice todo con claridad.',
+        'Tallas, colores, variantes… hace falta orden, no un Excel eterno.',
     },
     {
       icon: Rocket,
-      title: 'Nuevos en Venta Online',
+      title: 'Empiezas ahora',
       description:
-        'Empiezas a vender por internet y quieres una tienda seria desde el primer día, sin improvisar.',
+        'Primera tienda seria. Sin inventar el proceso a base de prueba y error.',
     },
     {
       icon: TrendingUp,
-      title: 'Tiendas que Ya Venden',
+      title: 'Ya vendes',
       description:
-        'Ya tienes una tienda online y quieres mejorarla, rediseñarla o migrarla a una plataforma más sólida.',
+        'Quieres rediseñar, migrar o dejar de pelearte con la plataforma actual.',
     },
   ];
 
   const included = [
-    'Hasta 50 productos añadidos a la tienda',
-    'Pagos seguros con tarjeta',
-    'Panel sencillo para gestionar productos y pedidos',
-    'Control de existencias para saber qué productos quedan disponibles',
-    'Configuración de gastos y zonas de envío',
-    'Carrito de compra y cupones de descuento',
-    'Diseño adaptado a móvil, tablet y ordenador',
+    'Hasta 50 productos cargados',
+    'Pago con tarjeta',
+    'Panel para productos y pedidos',
+    'Control de stock',
+    'Gastos y zonas de envío',
+    'Carrito y cupones',
+    'Bien en móvil',
     'Hosting y dominio incluidos',
-    'Preparada para aparecer en Google',
-    'Enlaces y conexión con tus redes sociales',
-    'Formación para aprender a gestionar la tienda',
-    'Dos rondas de cambios incluidas',
+    'Lista para Google',
+    'Enlaces a redes',
+    'Te enseñamos a gestionarla',
+    'Dos rondas de cambios',
   ];
 
   const features = [
     {
-      title: 'Diseño adaptado a tu marca',
-      description:
-        'Tu catálogo refleja la identidad de tu negocio, con una navegación clara y cuidada.',
+      title: 'Diseño con tu marca',
+      description: 'No una plantilla genérica con tu logo pegado.',
     },
     {
-      title: 'Fichas de producto claras',
-      description:
-        'Imágenes, variantes, precios y descripciones para que el cliente decida con confianza.',
+      title: 'Fichas claras',
+      description: 'Fotos, variantes, precio y lo que hace falta para decidir.',
     },
     {
-      title: 'Compra sencilla',
-      description:
-        'Un proceso de compra fácil, pensado para que el cliente complete el pedido sin fricción.',
+      title: 'Compra corta',
+      description: 'Pocos pasos. Menos abandono en el carrito.',
     },
     {
-      title: 'Pagos seguros con tarjeta',
-      description:
-        'Tus clientes pueden pagar online con tarjeta de forma segura.',
+      title: 'Pago con tarjeta',
+      description: 'Cobro online seguro.',
     },
     {
-      title: 'Gestión de productos y pedidos',
-      description:
-        'Controla productos, existencias, pedidos y envíos desde un panel sencillo.',
+      title: 'Panel de gestión',
+      description: 'Productos, stock, pedidos y envíos sin pedirnos ayuda cada vez.',
     },
     {
-      title: 'Preparada para móvil',
-      description:
-        'Tu tienda se ve y funciona bien en móvil, tablet y ordenador.',
+      title: 'Móvil',
+      description: 'La mayoría compra desde el teléfono. Tiene que ir bien ahí.',
     },
     {
-      title: 'Hosting y dominio incluidos',
-      description:
-        'Publicamos la tienda con dominio propio y alojamiento, lista para vender online.',
+      title: 'Hosting y dominio',
+      description: 'Publicamos con tu dominio y alojamiento.',
     },
     {
-      title: 'Preparada para Google',
-      description:
-        'Lista para que Google entienda tu catálogo y tus productos desde el inicio.',
+      title: 'Base para Google',
+      description: 'Estructura lista para que el buscador entienda el catálogo.',
     },
     {
-      title: 'Formación incluida',
-      description:
-        'Te enseñamos a gestionar productos, pedidos y contenidos sin depender de nosotros.',
+      title: 'Formación',
+      description: 'Una sesión para que sepas subir productos y mirar pedidos.',
     },
   ];
 
   const faqs = [
     {
-      question: '¿Cuánto tarda una tienda online?',
+      question: '¿Cuánto tarda una tienda?',
       answer:
-        'Normalmente entre 4 y 6 semanas, dependiendo del catálogo y de lo que necesite tu tienda.',
+        'Normalmente 4 a 6 semanas, según el catálogo y lo que pedáis.',
     },
     {
-      question: '¿Podemos pagar en varias cuotas?',
+      question: '¿Se puede pagar a plazos?',
       answer:
-        'Sí. Ofrecemos opciones de pago flexible: pago único o pago fraccionado, según lo que mejor se adapte a tu proyecto. Lo concretamos en la propuesta.',
+        'Sí. Único o fraccionado. Lo dejamos en la propuesta.',
     },
     {
-      question: '¿Cuánto cuesta una tienda online?',
+      question: '¿Cuánto cuesta?',
       answer:
-        'Depende del catálogo y las funcionalidades. Como orientación, muchos proyectos web suelen situarse entre 400 € y 3.000 € + IVA; una tienda se valora según tu caso. Te enviamos una propuesta concreta antes de empezar.',
+        'Depende del catálogo y las funciones. Te pasamos un número concreto antes de empezar.',
     },
     {
-      question: '¿El presupuesto incluye IVA?',
+      question: '¿El presupuesto lleva IVA?',
       answer:
-        'Sí, la propuesta que preparamos incluye IVA salvo que se indique lo contrario. El precio y el alcance quedan por escrito antes de empezar.',
+        'Sí, salvo que indiquemos lo contrario. Todo por escrito.',
     },
     {
-      question: '¿Cuántos productos puedo cargar?',
+      question: '¿Cuántos productos?',
       answer:
-        'Lo definimos en la propuesta según tu catálogo. Si necesitas muchos productos, lo ajustamos a tu caso.',
+        'Lo fijamos en la propuesta. Si son muchos, lo ajustamos.',
     },
     {
-      question: '¿Cómo cobran los clientes?',
+      question: '¿Cómo pagan los clientes?',
       answer:
-        'Con tarjeta de forma segura. Valoramos la mejor opción según tu negocio, tu banco y tus clientes.',
+        'Con tarjeta. Elegimos pasarela según tu banco y tu público.',
     },
     {
-      question: '¿Incluís mantenimiento?',
+      question: '¿Incluye mantenimiento?',
       answer:
-        'El mantenimiento se puede contratar aparte con un plan mensual, o incluirse dentro de la propuesta. Te pasamos el detalle con tu presupuesto.',
+        'Se puede contratar aparte o meterlo en la propuesta. Te lo detallamos.',
     },
   ];
 
@@ -217,10 +208,10 @@ const TiendasOnline = () => {
     <>
       {/* 1. Hero de posicionamiento, sin precio como primer impacto */}
       <SEOLandingHero
-        title='Tiendas online preparadas para vender'
-        subtitle='Ideal para negocios y emprendedores que quieren vender productos por internet.'
-        description='Creamos una tienda preparada para mostrar tus productos, cobrar online, recibir pedidos y gestionar las ventas de forma sencilla.'
-        trustLine='Lista en 4–6 semanas · Presupuesto cerrado antes de empezar'
+        title='Tienda online para vender de verdad'
+        subtitle='Catálogo, cobro con tarjeta, envíos y un panel que puedas usar tú.'
+        description='Si Shopify o la plantilla barata no te sirven, hablamos y te decimos qué haría falta.'
+        trustLine='Suele estar en 4–6 semanas · Precio por escrito antes de empezar'
         ctaText='Ver qué incluye'
         onCTAClick={() => scrollToSection('incluye')}
         secondaryCTAText='Ver trabajos'
@@ -233,33 +224,30 @@ const TiendasOnline = () => {
 
       {/* 3. Problema y solución */}
       <SEOProblem
-        title='Vender online sin la tienda adecuada cuesta clientes'
-        subtitle='Esto es lo que solemos ver antes de que un negocio llegue a Tienda Online.'
+        title='Sin una tienda decente, pierdes pedidos'
+        subtitle='Cosas que vemos antes de montar o rehacer una tienda.'
         problems={problems}
       />
       <div className='bg-white pt-6 pb-16 md:pt-8 md:pb-20'>
         <div className='container mx-auto px-6'>
           <div className='max-w-3xl mx-auto text-center bg-gray-50 border-2 border-ink-dark rounded-xl p-6 md:p-8 shadow-[5px_5px_0_0_#1a1a1a]'>
             <p className='text-base md:text-lg text-gray-800 font-medium leading-relaxed'>
-              La solución es una tienda online seria desde el primer día, con
-              precio cerrado y sin letras pequeñas, y un catálogo pensado para
-              tu forma de vender.
+              La idea es una tienda que encaje con cómo vendes tú: precio
+              cerrado, catálogo ordenado y panel usable. Sin letra pequeña.
             </p>
           </div>
         </div>
       </div>
 
-      {/* 4. Para quién es este servicio */}
       <SEOBenefits
-        title='¿Es Esta Tienda Online para tu Negocio?'
+        title='¿Te encaja esta tienda?'
         benefits={targetAudience}
       />
 
-      {/* 5. Qué incluye la tienda online */}
       <div id='incluye' className='scroll-mt-24'>
         <SEOFeatures
-          title='Qué Incluye tu Tienda Online'
-          subtitle='Todo lo necesario para vender online de forma profesional'
+          title='Qué lleva la tienda'
+          subtitle='Lo habitual. Si necesitas más, lo vemos en la propuesta.'
           features={features}
         />
       </div>
@@ -276,9 +264,8 @@ const TiendasOnline = () => {
               Qué tendrás al terminar
             </h2>
             <p className='text-base md:text-lg text-gray-600'>
-              Cada tienda tiene necesidades distintas. Por eso preparamos una
-              propuesta personalizada según el catálogo, las funcionalidades y
-              los objetivos de tu negocio.
+              El precio depende del catálogo y de lo que pedáis. Te lo
+              escribimos antes de empezar.
             </p>
           </div>
 
@@ -288,22 +275,21 @@ const TiendasOnline = () => {
             </span>
 
             <p className='text-xs font-semibold text-accent uppercase tracking-wide mb-3 mt-4 text-center'>
-              Ideal para: negocios y emprendedores que quieren vender productos
-              por internet
+              Si vendes productos y quieres cobrar online
             </p>
 
             <div className='flex flex-col items-center gap-1 mb-6 text-center'>
               <span className='text-2xl md:text-3xl font-bold text-gray-900'>
-                Presupuesto a medida
+                Presupuesto según tu caso
               </span>
               <span className='text-sm text-gray-500'>
-                Cerrado antes de empezar, sin sorpresas.
+                Por escrito, antes de cobrar nada.
               </span>
               <span className='text-sm text-gray-500 mt-1'>
                 Pago único o fraccionado
               </span>
               <span className='text-sm text-gray-500'>
-                Lista en 4–6 semanas
+                Suele estar en 4–6 semanas
               </span>
             </div>
 
@@ -322,8 +308,8 @@ const TiendasOnline = () => {
               </Button>
 
               <p className='text-center text-xs text-gray-400 mt-4'>
-                Presupuesto orientativo, IVA incluido. La propuesta final se
-                cierra antes de empezar, según el alcance real del proyecto.
+                Orientativo, IVA incluido. El número final lo cerramos en la
+                propuesta según el alcance real.
               </p>
             </div>
 
@@ -342,7 +328,7 @@ const TiendasOnline = () => {
 
       {/* 7. Proceso de trabajo */}
       <SEOProcess
-        title='Un proceso claro desde el primer mensaje'
+        title='Cómo solemos trabajar'
         steps={defaultServiceProcess}
       />
       <div className='bg-white pt-2 pb-16 md:pb-20'>
@@ -396,13 +382,12 @@ const TiendasOnline = () => {
 
       {/* 11. Preguntas frecuentes */}
       <div id='faq' className='scroll-mt-24'>
-        <SEOFAQ title='Preguntas Frecuentes sobre Tiendas Online' faqs={faqs} />
+        <SEOFAQ title='Preguntas frecuentes sobre tiendas' faqs={faqs} />
       </div>
 
-      {/* 12. Formulario / contacto final */}
       <SEOCTAFinal
-        title='¿Hablamos de tu tienda online?'
-        subtitle='Cuéntanos tu catálogo y objetivos. Te preparamos una propuesta cerrada, con alcance y plazos claros, antes de empezar.'
+        title='¿Montamos tu tienda?'
+        subtitle='Cuéntanos el catálogo y lo que necesitas cobrar. Te mandamos propuesta con plazos y precio.'
         buttonText='Solicitar propuesta'
         onButtonClick={handleQuoteRequest}
       />

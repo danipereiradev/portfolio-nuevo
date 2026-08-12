@@ -56,7 +56,7 @@ const WebProfesionalAMedida = () => {
     areaServed: 'ES',
     url: `${SITE_URL}/web-profesional-a-medida/`,
     description:
-      'Diseño y desarrollo de webs profesionales a medida, con presupuesto cerrado antes de empezar.',
+      'Te montamos la web de tu negocio con precio y plazos por escrito antes de empezar.',
   });
 
   useEffect(() => {
@@ -79,129 +79,125 @@ const WebProfesionalAMedida = () => {
   };
 
   const problems = [
-    'Depender solo de redes sociales hace más difícil que te encuentren y confíen en tu negocio.',
-    'Una web antigua o poco clara puede hacer que un posible cliente se vaya.',
-    'No necesitas pagar por herramientas que no vas a usar.',
-    'Mereces saber el precio, los plazos y lo incluido antes de empezar.',
+    'Solo redes: cuando Instagram cambia el algoritmo, desapareces.',
+    'Web vieja o confusa: el cliente entra y se va en diez segundos.',
+    'Presupuestos hinchados con cosas que no vas a usar.',
+    'Quieres saber precio, plazos y qué entra… antes de pagar.',
   ];
 
   const deliverables = [
-    'Una web completa y publicada',
-    'Diseño propio, sin plantillas genéricas',
-    'Versión móvil revisada',
-    'Formulario y WhatsApp funcionando',
+    'Web publicada con tu dominio',
+    'Diseño propio, no plantilla genérica',
+    'Revisada en móvil',
+    'Formulario y WhatsApp listos',
     'Hosting y dominio incluidos',
-    'Preparada para aparecer en Google',
-    'Estadísticas de visitas configuradas',
-    'Propuesta clara con precio y alcance por escrito',
+    'Base para que Google la encuentre',
+    'Estadísticas de visitas',
+    'Propuesta con precio y alcance por escrito',
   ];
 
   const sectors = [
     {
       icon: Stethoscope,
       title: 'Clínicas y salud',
-      description: 'Servicios, equipo, horarios y contacto claro.',
+      description: 'Servicios, equipo, horarios y cómo contactar.',
     },
     {
       icon: Smile,
       title: 'Dentistas',
-      description: 'Tratamientos, confianza y solicitud de cita sencilla.',
+      description: 'Tratamientos y pedir cita sin laberinto.',
     },
     {
       icon: Brain,
-      title: 'Psicólogos y clínicas',
-      description: 'Especialidades y un primer contacto sin fricción.',
+      title: 'Psicólogos',
+      description: 'Especialidades y un primer contacto sencillo.',
     },
     {
       icon: Scale,
-      title: 'Abogados y despachos',
+      title: 'Abogados',
       description: 'Áreas de práctica y contacto discreto.',
     },
     {
       icon: Hammer,
-      title: 'Reformas y servicios',
-      description: 'Trabajos, zona de actuación y presupuesto fácil.',
+      title: 'Reformas y oficios',
+      description: 'Trabajos, zona y pedir presupuesto.',
     },
     {
       icon: GraduationCap,
       title: 'Academias',
-      description: 'Cursos, horarios y matriculación claros.',
+      description: 'Cursos, horarios e inscripción.',
     },
     {
       icon: Dumbbell,
       title: 'Gimnasios',
-      description: 'Actividades, horarios y captación de altas.',
+      description: 'Actividades, horarios y altas.',
     },
     {
       icon: Sparkles,
-      title: 'Estética y bienestar',
-      description: 'Tratamientos, resultados y reserva de cita.',
+      title: 'Estética',
+      description: 'Tratamientos y reserva de cita.',
     },
     {
       icon: UtensilsCrossed,
       title: 'Hostelería',
-      description: 'Carta, ubicación y contacto directo.',
+      description: 'Carta, dónde estás y cómo llamar.',
     },
     {
       icon: Store,
       title: 'Autónomos y pymes',
-      description: 'Una presencia profesional para mostrar lo que haces.',
+      description: 'Una web que diga qué haces y cómo te escriben.',
     },
   ];
 
   const features = [
     {
-      title: 'Se ve bien en cualquier pantalla',
-      description: 'Revisamos la web para móvil, tablet y ordenador.',
+      title: 'Bien en cualquier pantalla',
+      description: 'La miramos en móvil, tablet y ordenador antes de publicar.',
     },
     {
-      title: 'Carga rápido',
-      description:
-        'Optimizamos páginas e imágenes para que tus visitas no esperen.',
+      title: 'Que no se eternice cargando',
+      description: 'Páginas e imágenes ligeras. Nadie espera 8 segundos.',
     },
     {
-      title: 'Preparada para Google',
+      title: 'Lista para Google',
       description:
-        'Dejamos la configuración inicial para que Google pueda encontrarla.',
+        'Títulos y estructura en orden para que el buscador la entienda.',
     },
     {
       title: 'Formulario y WhatsApp',
-      description: 'Tus clientes contactan como les resulte más cómodo.',
+      description: 'El cliente elige cómo escribirte.',
     },
     {
-      title: 'Web segura',
-      description: 'Publicación con conexión segura desde el primer día.',
+      title: 'HTTPS desde el día uno',
+      description: 'Publicación con conexión segura.',
     },
     {
       title: 'Hosting y dominio incluidos',
       description:
-        'Publicamos la web con dominio propio y alojamiento, sin marcas ni subdominios gratuitos.',
+        'Tu dominio, tu alojamiento. Sin subdominios raros ni marcas ajenas.',
     },
   ];
 
   const processSteps = [
     {
       number: '1',
-      title: 'Nos cuentas tu proyecto',
-      description:
-        'Qué haces, qué necesitas y qué quieres conseguir con la web.',
+      title: 'Nos cuentas el caso',
+      description: 'Qué haces, a quién te diriges y qué quieres que haga la web.',
     },
     {
       number: '2',
-      title: 'Recibes propuesta clara',
-      description:
-        'Precio cerrado, plazos, lo incluido y la forma de trabajo, por escrito.',
+      title: 'Te mandamos la propuesta',
+      description: 'Precio, plazos, lo incluido. Por escrito.',
     },
     {
       number: '3',
-      title: 'Diseñamos y desarrollamos',
-      description: 'Adaptamos la web a tu marca y a cómo trabaja tu negocio.',
+      title: 'La montamos',
+      description: 'Con tu marca, tus textos y tus fotos (o te ayudamos a ordenarlos).',
     },
     {
       number: '4',
-      title: 'Revisas y publicamos',
-      description:
-        'Afinamos contigo, conectamos el dominio y dejamos la web online.',
+      title: 'Revisas y sale online',
+      description: 'Afinamos, conectamos el dominio y listo.',
     },
   ];
 
@@ -209,37 +205,37 @@ const WebProfesionalAMedida = () => {
     {
       question: '¿Es una plantilla igual para todos?',
       answer:
-        'No. Cada web se adapta a la imagen, los textos y las fotos de tu negocio.',
+        'No. Se adapta a tu imagen, textos y fotos. Si solo quieres una plantilla barata, hay sitios mejores para eso.',
     },
     {
-      question: '¿Cuánto cuesta una web profesional?',
+      question: '¿Cuánto cuesta?',
       answer:
-        'No hay una tarifa fija pública. Como orientación, la mayoría de webs profesionales suelen situarse entre 400 € y 3.000 € + IVA, según el alcance. Tras hablar contigo te enviamos una propuesta concreta con precio, plazos y lo incluido.',
+        'Orientación: muchas webs entre 400 € y 3.000 € + IVA. Te damos un número concreto tras hablar contigo.',
     },
     {
-      question: '¿Quién prepara los textos y las imágenes?',
+      question: '¿Quién prepara textos e imágenes?',
       answer:
-        'Tú nos envías la información que tengas. Nosotros te ayudamos a ordenarla y la adaptamos a la web. La redacción completa desde cero se valora aparte.',
+        'Tú nos mandas lo que tengas. Lo ordenamos y lo metemos en la web. Redactar todo desde cero se valora aparte.',
     },
     {
-      question: '¿Puedo utilizar mi propio dominio?',
+      question: '¿Puedo usar mi dominio?',
       answer:
-        'Sí. El dominio es siempre tuyo. Podemos ayudarte a configurarlo o a registrar uno nuevo si hace falta.',
+        'Sí, es tuyo. Lo configuramos o te ayudamos a registrar uno nuevo.',
     },
     {
-      question: '¿El alojamiento está incluido?',
+      question: '¿El hosting está incluido?',
       answer:
-        'Sí. El alojamiento para publicar la web está incluido. Te lo confirmamos en la propuesta.',
+        'Sí, para publicar la web. Lo confirmamos en la propuesta.',
     },
     {
-      question: '¿Cuánto tarda en estar lista?',
+      question: '¿Cuánto tarda?',
       answer:
-        'Depende del alcance. En la propuesta te indicamos un plazo realista. El plazo empieza cuando tenemos la información necesaria.',
+        'Depende del alcance. El plazo de la propuesta cuenta desde que tenemos lo necesario, no desde el primer “hola”.',
     },
     {
-      question: '¿Podéis hacer una tienda online?',
+      question: '¿Y si quiero vender productos?',
       answer:
-        'Sí. Si lo que necesitas es vender productos, te orientamos al servicio de tienda online con una propuesta específica.',
+        'Eso es tienda online. Te pasamos a esa propuesta.',
     },
   ];
 
@@ -247,16 +243,16 @@ const WebProfesionalAMedida = () => {
     <>
       <SEOLandingHero
         kicker='WEB PROFESIONAL A MEDIDA'
-        title='Tu web profesional, hecha para captar clientes'
-        subtitle='Diseñamos y publicamos una web adaptada a tu negocio, lista para móvil, Google y contacto por formulario o WhatsApp.'
-        description='Cuéntanos qué necesitas y te preparamos un presupuesto claro antes de empezar.'
-        trustLine='Sin plantillas genéricas · Trato directo · Propuesta clara por escrito'
+        title='Tu web, hecha para que te escriban'
+        subtitle='Estructura, móvil, formulario y WhatsApp. Con tu marca, no con una plantilla de moda.'
+        description='Cuéntanos el caso y te pasamos precio y plazos antes de empezar.'
+        trustLine='Sin plantillas genéricas · Hablas con quien la hace · Propuesta por escrito'
         ctaText='Solicitar presupuesto'
         onCTAClick={() => openQuote('Hero')}
         secondaryCTAText='Hablar por WhatsApp'
         secondaryCTAAction={() => handleWhatsApp('LandingWebAMedidaHero')}
         secondaryCTAIcon='phone'
-        ctaFootnote='Respondemos muy rápido · Sin compromiso'
+        ctaFootnote='Respondemos rápido · Preguntar no compromete'
       />
 
       <TrustBar />
@@ -265,11 +261,10 @@ const WebProfesionalAMedida = () => {
         <div className='container mx-auto px-6'>
           <div className='text-center mb-12 max-w-3xl mx-auto'>
             <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-ink-dark mb-4'>
-              Una web debe ayudarte a conseguir clientes
+              Si tu web no ayuda a conseguir clientes, sobra
             </h2>
             <p className='text-base md:text-lg text-ink-dark/80'>
-              Esto es lo que solemos ver cuando un negocio todavía no tiene una
-              presencia clara online.
+              Situaciones que vemos a menudo antes de arrancar un proyecto.
             </p>
           </div>
           <div className='max-w-4xl mx-auto grid md:grid-cols-2 gap-5'>
@@ -292,10 +287,11 @@ const WebProfesionalAMedida = () => {
         <div className='container mx-auto px-6'>
           <div className='text-center mb-12 max-w-3xl mx-auto'>
             <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4'>
-              ¿Es esta web para tu negocio?
+              ¿Para quién es?
             </h2>
             <p className='text-base md:text-lg text-gray-600'>
-              Trabajamos con autónomos, pymes y negocios locales de toda España.
+              Autónomos, pymes y negocios locales. Da igual la ciudad: trabajamos
+              online.
             </p>
           </div>
           <div className='max-w-5xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-5'>
@@ -328,10 +324,10 @@ const WebProfesionalAMedida = () => {
         <div className='relative z-10 container mx-auto px-6'>
           <div className='text-center mb-12 max-w-3xl mx-auto'>
             <h2 className='text-2xl md:text-4xl font-bold text-white mb-4'>
-              Qué incluye tu web profesional
+              Qué suele llevar la web
             </h2>
             <p className='text-white/70 text-base md:text-lg'>
-              Lo esencial para presentar tu negocio y recibir contactos.
+              Lo básico para presentarte y que te contacten. Sin relleno.
             </p>
           </div>
           <div className='max-w-5xl mx-auto grid md:grid-cols-2 gap-5'>
@@ -450,8 +446,8 @@ const WebProfesionalAMedida = () => {
       </section>
 
       <SEOCTAFinal
-        title='Cuéntanos qué web necesita tu negocio'
-        subtitle='Te diremos si encaja contigo y te enviaremos una propuesta con precio, plazos y todo lo incluido por escrito.'
+        title='Cuéntanos qué web necesitas'
+        subtitle='Si encaja, te enviamos propuesta con precio, plazos y lo incluido. Si no, te lo decimos.'
         buttonText='Solicitar presupuesto'
         onButtonClick={() => openQuote('CTAFinal')}
         secondaryButtonText='Hablar por WhatsApp'
