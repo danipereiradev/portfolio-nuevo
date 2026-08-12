@@ -29,18 +29,18 @@ const Contacto = () => {
 
   return (
     <>
-      <section className='relative min-h-[min(72vh,640px)] flex items-end md:items-center overflow-hidden pt-24 pb-14'>
+      <section className='relative min-h-[min(72vh,640px)] flex items-center justify-center overflow-hidden pt-24 pb-14'>
         <GlowBackdrop />
 
         <div className='relative z-10 w-full mx-auto max-w-screen-2xl px-6'>
-          <div className='max-w-2xl text-left'>
+          <div className='max-w-2xl mx-auto text-center'>
             <p className='text-accent font-mono text-sm md:text-base font-semibold tracking-tight mb-5'>
               Contacto
             </p>
             <h1 className='text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight'>
               Cuéntanos qué necesitas
             </h1>
-            <p className='text-base md:text-xl text-white/85 leading-relaxed max-w-xl'>
+            <p className='text-base md:text-xl text-white/85 leading-relaxed mx-auto max-w-xl'>
               WhatsApp, email, teléfono o videollamada. Si estás en Madrid,
               también podemos vernos. Respondemos pronto.
             </p>

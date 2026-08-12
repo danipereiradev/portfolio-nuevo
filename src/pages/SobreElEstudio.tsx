@@ -22,35 +22,21 @@ const SobreElEstudio = () => {
 
   return (
     <>
-      <section className='relative min-h-[min(72vh,640px)] flex items-end md:items-center overflow-hidden pt-24 pb-14'>
+      <section className='relative min-h-[min(72vh,640px)] flex items-center justify-center overflow-hidden pt-24 pb-14'>
         <GlowBackdrop />
 
         <div className='relative z-10 w-full mx-auto max-w-screen-2xl px-6'>
-          <div className='grid lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] gap-10 items-end lg:items-center'>
-            <div className='max-w-2xl text-left'>
-              <p className='text-accent font-mono text-sm md:text-base font-semibold tracking-tight mb-5'>
-                Sobre el estudio
-              </p>
-              <h1 className='text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight'>
-                Detrás de PereiraWeb
-              </h1>
-              <p className='text-base md:text-xl text-white/85 leading-relaxed max-w-xl'>
-                Estudio pequeño de diseño y desarrollo web. Trabajamos online
-                con clientes de toda España.
-              </p>
-            </div>
-
-            <div className='hidden md:block justify-self-end w-full max-w-sm'>
-              <img
-                src='/img/portfolio/dani-pensando.png'
-                alt='Dani Pereira'
-                width={480}
-                height={480}
-                className='w-full aspect-square object-cover border-2 border-white/20 grayscale'
-                loading='eager'
-                decoding='async'
-              />
-            </div>
+          <div className='max-w-2xl mx-auto text-center'>
+            <p className='text-accent font-mono text-sm md:text-base font-semibold tracking-tight mb-5'>
+              Sobre el estudio
+            </p>
+            <h1 className='text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight'>
+              Detrás de PereiraWeb
+            </h1>
+            <p className='text-base md:text-xl text-white/85 leading-relaxed mx-auto max-w-xl'>
+              Estudio pequeño de diseño y desarrollo web. Trabajamos online
+              con clientes de toda España.
+            </p>
           </div>
         </div>
       </section>

@@ -66,7 +66,7 @@ const Ia = () => {
 
   return (
     <>
-      <section className='relative min-h-[min(80vh,720px)] flex items-end md:items-center overflow-hidden pt-24 pb-14'>
+      <section className='relative min-h-[min(80vh,720px)] flex items-center justify-center overflow-hidden pt-24 pb-14'>
         <GlowBackdrop />
 
         <FloatingRobot
@@ -76,14 +76,14 @@ const Ia = () => {
         />
 
         <div className='relative z-10 w-full mx-auto max-w-screen-2xl px-6'>
-          <div className='max-w-2xl md:max-w-3xl text-left'>
+          <div className='max-w-2xl md:max-w-3xl mx-auto text-center'>
             <p className='text-accent font-mono text-sm md:text-base font-semibold tracking-tight mb-5'>
               ¿Vas a crear tu web con IA?
             </p>
             <h1 className='text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-5 leading-tight'>
               «¿Para qué pagar si lo hago en minutos con la IA?»
             </h1>
-            <p className='text-base md:text-xl text-white/85 leading-relaxed max-w-2xl'>
+            <p className='text-base md:text-xl text-white/85 leading-relaxed mx-auto max-w-2xl'>
               Buena pregunta. La IA saca un primer diseño en minutos. Dejarla
               publicada, usable y lista para que te escriban es otra historia.
             </p>
