@@ -109,7 +109,7 @@ const esencialIncludes = [
   'Sin cuota mensual obligatoria',
   'Mantenimiento opcional',
   '1 ronda de cambios',
-  'Textos e imágenes los aportas tú',
+  'Textos e imágenes los aportas tú (Si los tienes)',
   'Se puede ampliar después (páginas o funciones)',
 ];
 
@@ -143,7 +143,8 @@ const extras = [
   {
     icon: Palette,
     title: 'Logo',
-    description: 'Si no tienes logo, lo creamos para que salgas con cara propia.',
+    description:
+      'Si no tienes logo, lo creamos para que salgas con cara propia.',
   },
 ];
 
