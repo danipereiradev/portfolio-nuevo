@@ -213,10 +213,11 @@ const WebProfesional = () => {
       </RevealOnScroll>
 
       <section
-        id='incluye'
         ref={planesSectionRef}
-        className='scroll-mt-24 py-20 bg-gray-50'
+        className='py-20 bg-gray-50'
       >
+        <div id='incluye' className='scroll-mt-24' />
+        <div id='planes' className='scroll-mt-24 h-0' aria-hidden='true' />
         <div className='container mx-auto px-6'>
           <RevealOnScroll>
             <div className='text-center mb-12 max-w-3xl mx-auto'>
