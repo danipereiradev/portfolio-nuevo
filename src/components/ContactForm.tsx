@@ -223,7 +223,6 @@ Fecha: ${new Date().toLocaleString('es-ES')}
         'Web a Medida': 0,
         'Tienda Online': 0,
         'Mantenimiento Web': 0,
-        'Web con IA': 0,
         'No sé cuál necesito': 0,
         'No sé cuál elegir': 0,
         'Proyecto personalizado': 0,
@@ -291,10 +290,6 @@ Fecha: ${new Date().toLocaleString('es-ES')}
         {
           value: 'Mantenimiento Web',
           description: 'Actualizaciones, copias y cambios pequeños',
-        },
-        {
-          value: 'Web con IA',
-          description: 'Empecé con IA y necesito ayuda para terminarla',
         },
         {
           value: 'No sé cuál elegir',

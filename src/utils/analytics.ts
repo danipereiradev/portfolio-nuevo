@@ -446,21 +446,6 @@ export const trackPortfolioClick = (projectName: string) => {
 };
 
 /**
- * Clic en "Tu web con IA" (nav, menú móvil, footer…).
- * Evento dedicado para medir el interés en /ia.
- */
-export const trackTuWebConIaClick = (locationSection: string) => {
-  trackEvent('click_tu_web_con_ia', {
-    event_category: 'engagement',
-    event_label: locationSection,
-    location_section: locationSection,
-    cta_text: 'Tu web con IA',
-    page_path:
-      typeof window !== 'undefined' ? window.location.pathname : undefined,
-  });
-};
-
-/**
  * Play en el vídeo de reseña / testimonio (sección valoraciones).
  * Disparar una vez por reproducción iniciada (el componente deduplica).
  */

@@ -17,7 +17,6 @@ import Contacto from './pages/Contacto';
 import SobreElEstudio from './pages/SobreElEstudio';
 import CondicionesDelProyecto from './pages/CondicionesDelProyecto';
 import Faq from './pages/Faq';
-import Ia from './pages/Ia';
 import Gracias from './pages/Gracias';
 import LegalDocument from './pages/LegalDocument';
 import NotFound from './pages/NotFound';
@@ -50,7 +49,7 @@ function AppContent() {
           element={<CondicionesDelProyecto />}
         />
         <Route path='/preguntas-frecuentes' element={<Faq />} />
-        <Route path='/ia' element={<Ia />} />
+        <Route path='/ia' element={<Navigate to='/' replace />} />
         <Route path='/gracias' element={<Gracias />} />
         <Route
           path='/politica-de-privacidad'

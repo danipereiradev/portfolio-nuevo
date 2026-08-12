@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { trackTuWebConIaClick } from '../utils/analytics';
 
 interface HeaderProps {
   showNavMenu?: boolean;
@@ -214,25 +213,12 @@ const Header = ({ showNavMenu }: HeaderProps) => {
 
             {navEnabled && (
               <>
-                <div className='hidden md:flex items-center justify-end md:min-w-[280px] md:w-[280px]'>
-                  <a
-                    href='/ia'
-                    onClick={() => trackTuWebConIaClick('header_nav')}
-                    className='inline-flex items-center justify-center px-3 py-2 rounded-lg bg-accent hover:bg-accent-hover border-2 border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150 text-white text-sm font-bold whitespace-nowrap leading-none'
-                  >
-                    Tu web con IA
-                  </a>
-                </div>
+                <div
+                  className='hidden md:block md:min-w-[280px] md:w-[280px]'
+                  aria-hidden='true'
+                />
 
-                <div className='md:hidden flex items-center gap-2'>
-                  <a
-                    href='/ia'
-                    onClick={() => trackTuWebConIaClick('header_mobile_ia')}
-                    className='inline-flex items-center justify-center px-2.5 py-1 rounded-md bg-accent hover:bg-accent-hover border-2 border-ink-dark shadow-[2px_2px_0_0_#1a1a1a] active:shadow-none active:translate-x-[1px] active:translate-y-[1px] transition-all duration-150 text-white text-xs font-bold leading-none'
-                    aria-label='Tu web con IA'
-                  >
-                    IA
-                  </a>
+                <div className='md:hidden flex items-center justify-end'>
                   <button
                     className='p-2'
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -329,19 +315,6 @@ const Header = ({ showNavMenu }: HeaderProps) => {
               >
                 Preguntas
               </a>
-
-              <div className='px-4 py-3'>
-                <a
-                  href='/ia'
-                  onClick={() => {
-                    trackTuWebConIaClick('header_mobile');
-                    setIsMenuOpen(false);
-                  }}
-                  className='flex w-full items-center justify-center px-3 py-3 rounded-lg bg-accent hover:bg-accent-hover border-2 border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150 text-white text-sm font-bold uppercase'
-                >
-                  Tu web con IA
-                </a>
-              </div>
             </nav>
           )}
         </div>

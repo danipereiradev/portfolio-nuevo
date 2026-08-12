@@ -39,10 +39,6 @@ export const CONTACT_PAGE_WHATSAPP_MESSAGE =
 export const ABOUT_PAGE_WHATSAPP_MESSAGE =
   'Hola, he visto la página del estudio y quiero contaros mi proyecto.';
 
-// Mensaje para /ia (web empezada con IA que necesita terminarse).
-export const IA_PAGE_WHATSAPP_MESSAGE =
-  'Hola, he empezado mi web con IA y necesito ayuda para terminarla.';
-
 // Mensaje para el CTA "Solicitar ejemplos" de la sección de portfolio.
 export const PORTFOLIO_WHATSAPP_MESSAGE =
   'Hola, he visto tu portfolio y me gustaría ver más ejemplos de proyectos similares al que necesito.';
@@ -67,6 +63,5 @@ export const getWhatsAppMessageForPath = (pathname: string): string => {
   if (path === '/web-profesional') return WEB_PROFESIONAL_WHATSAPP_MESSAGE;
   if (path === '/tiendas-online') return ECOMMERCE_WHATSAPP_MESSAGE;
   if (path === '/mantenimiento-web') return MAINTENANCE_WHATSAPP_MESSAGE;
-  if (path === '/ia') return IA_PAGE_WHATSAPP_MESSAGE;
   return DEFAULT_WHATSAPP_MESSAGE;
 };
