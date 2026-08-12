@@ -221,7 +221,7 @@ const TiendasOnline = () => {
         description='Creamos una tienda preparada para mostrar tus productos, cobrar online, recibir pedidos y gestionar las ventas de forma sencilla.'
         trustLine='Lista en 4–6 semanas · Presupuesto cerrado antes de empezar'
         ctaText='Ver qué incluye'
-        onCTAClick={() => scrollToSection('precios')}
+        onCTAClick={() => scrollToSection('incluye')}
         secondaryCTAText='Ver trabajos'
         secondaryCTAAction={() => scrollToSection('portfolio')}
         secondaryCTAIcon='chevron-down'
@@ -230,7 +230,40 @@ const TiendasOnline = () => {
       {/* 2. Bloque de confianza rápida */}
       <TrustBar />
 
-      {/* 3. Precio y formas de pago */}
+      {/* 3. Problema y solución */}
+      <SEOProblem
+        title='Vender online sin la tienda adecuada cuesta clientes'
+        subtitle='Esto es lo que solemos ver antes de que un negocio llegue a Tienda Online.'
+        problems={problems}
+      />
+      <div className='bg-white pt-6 pb-16 md:pt-8 md:pb-20'>
+        <div className='container mx-auto px-6'>
+          <div className='max-w-3xl mx-auto text-center bg-gray-50 border-2 border-ink-dark rounded-xl p-6 md:p-8 shadow-[5px_5px_0_0_#1a1a1a]'>
+            <p className='text-base md:text-lg text-gray-800 font-medium leading-relaxed'>
+              La solución es una tienda online seria desde el primer día, con
+              precio cerrado y sin letras pequeñas, y un catálogo pensado para
+              tu forma de vender.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* 4. Para quién es este servicio */}
+      <SEOBenefits
+        title='¿Es Esta Tienda Online para tu Negocio?'
+        benefits={targetAudience}
+      />
+
+      {/* 5. Qué incluye la tienda online */}
+      <div id='incluye' className='scroll-mt-24'>
+        <SEOFeatures
+          title='Qué Incluye tu Tienda Online'
+          subtitle='Todo lo necesario para vender online de forma profesional'
+          features={features}
+        />
+      </div>
+
+      {/* 6. Qué tendrás / propuesta */}
       <section
         id='precios'
         ref={pricingSectionRef}
@@ -239,7 +272,7 @@ const TiendasOnline = () => {
         <div className='content-container'>
           <div className='text-center mb-12 max-w-2xl mx-auto'>
             <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4'>
-              Siempre trabajamos con precio cerrado y sin letras pequeñas
+              Qué tendrás al terminar
             </h2>
             <p className='text-base md:text-lg text-gray-600'>
               Cada tienda tiene necesidades distintas. Por eso preparamos una
@@ -306,40 +339,23 @@ const TiendasOnline = () => {
         </div>
       </section>
 
-      {/* 4. Problema y solución */}
-      <SEOProblem
-        title='Vender online sin la tienda adecuada cuesta clientes'
-        subtitle='Esto es lo que solemos ver antes de que un negocio llegue a Tienda Online.'
-        problems={problems}
+      {/* 7. Proceso de trabajo */}
+      <SEOProcess
+        title='Un proceso claro desde el primer mensaje'
+        steps={defaultServiceProcess}
       />
-      <div className='bg-white pt-6 pb-16 md:pt-8 md:pb-20'>
-        <div className='container mx-auto px-6'>
-          <div className='max-w-3xl mx-auto text-center bg-gray-50 border-2 border-ink-dark rounded-xl p-6 md:p-8 shadow-[5px_5px_0_0_#1a1a1a]'>
-            <p className='text-base md:text-lg text-gray-800 font-medium leading-relaxed'>
-              La solución es una tienda online seria desde el primer día, con
-              Siempre trabajamos con precio cerrado y sin letras pequeñas y un
-              catálogo pensado para tu forma de vender.
-            </p>
-          </div>
+      <div className='bg-white pt-2 pb-16 md:pb-20'>
+        <div className='container mx-auto px-6 text-center'>
+          <a
+            href='/condiciones-del-proyecto'
+            className='inline-flex items-center gap-1.5 text-sm md:text-base font-semibold text-accent hover:underline'
+          >
+            Ver condiciones del proyecto: pagos, revisiones y plazos
+          </a>
         </div>
       </div>
 
-      {/* 5. Para quién es este servicio */}
-      <SEOBenefits
-        title='¿Es Esta Tienda Online para tu Negocio?'
-        benefits={targetAudience}
-      />
-
-      {/* 6. Qué incluye la tienda online */}
-      <div id='incluye' className='scroll-mt-24'>
-        <SEOFeatures
-          title='Qué Incluye tu Tienda Online'
-          subtitle='Todo lo necesario para vender online de forma profesional'
-          features={features}
-        />
-      </div>
-
-      {/* 6.1 También podemos ayudarte con (sección secundaria, no compite con el foco principal) */}
+      {/* 8. También podemos ayudarte con */}
       <section className='py-16 bg-white border-t-2 border-gray-100'>
         <div className='content-container'>
           <h3 className='text-xl md:text-2xl font-bold text-gray-900 text-center mb-8'>
@@ -369,36 +385,20 @@ const TiendasOnline = () => {
         </div>
       </section>
 
-      {/* 7. Portfolio o trabajos reales */}
+      {/* 9. Portfolio o trabajos reales */}
       <div id='portfolio' className='scroll-mt-24'>
         <Portfolio />
       </div>
 
-      {/* 7.1 Valoraciones de clientes */}
+      {/* 10. Valoraciones de clientes */}
       <Testimonials id='valoraciones' />
 
-      {/* 8. Proceso de trabajo */}
-      <SEOProcess
-        title='Un proceso claro desde el primer mensaje'
-        steps={defaultServiceProcess}
-      />
-      <div className='bg-white pt-2 pb-16 md:pb-20'>
-        <div className='container mx-auto px-6 text-center'>
-          <a
-            href='/condiciones-del-proyecto'
-            className='inline-flex items-center gap-1.5 text-sm md:text-base font-semibold text-accent hover:underline'
-          >
-            Ver condiciones del proyecto: pagos, revisiones y plazos
-          </a>
-        </div>
-      </div>
-
-      {/* 9. Preguntas frecuentes */}
+      {/* 11. Preguntas frecuentes */}
       <div id='faq' className='scroll-mt-24'>
         <SEOFAQ title='Preguntas Frecuentes sobre Tiendas Online' faqs={faqs} />
       </div>
 
-      {/* 10. Formulario / contacto final */}
+      {/* 12. Formulario / contacto final */}
       <SEOCTAFinal
         title='¿Hablamos de tu tienda online?'
         subtitle='Cuéntanos tu catálogo y objetivos. Te preparamos una propuesta cerrada, con alcance y plazos claros, antes de empezar.'

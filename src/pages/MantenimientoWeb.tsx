@@ -22,6 +22,7 @@ import {
 } from '../config/contact';
 import SEOLandingHero from '../components/SEOLandingHero';
 import TrustBar from '../components/TrustBar';
+import SEOProblem from '../components/SEOProblem';
 import SEOBenefits from '../components/SEOBenefits';
 import SEOFeatures from '../components/SEOFeatures';
 import SEOProcess from '../components/SEOProcess';
@@ -68,6 +69,21 @@ const MantenimientoWeb = () => {
     trackPricingCtaClick('Mantenimiento web', 'Solicitar orientación');
     openModal('Mantenimiento Web');
   };
+
+  const problems = [
+    {
+      text: 'La web está publicada, pero nadie la revisa: actualizaciones, seguridad y copias quedan aparcadas.',
+    },
+    {
+      text: 'Cada cambio pequeño (textos, fotos, horarios) se convierte en un problema técnico o en un retraso.',
+    },
+    {
+      text: 'Te preocupa que la web se caiga, se ralentice o quede vulnerable sin que te enteres a tiempo.',
+    },
+    {
+      text: 'No quieres pelearte con el dominio, el alojamiento ni con avisos técnicos que no entiendes.',
+    },
+  ];
 
   const targetAudience = [
     {
@@ -202,8 +218,8 @@ const MantenimientoWeb = () => {
         subtitle='Ideal para negocios que ya tienen una web y quieren mantenerla actualizada, segura y funcionando correctamente.'
         description='Nos ocupamos del cuidado técnico de tu web y de pequeños cambios mensuales para que no tengas que preocuparte por errores, actualizaciones o problemas de seguridad.'
         trustLine='Atención y mantenimiento mensual · Presupuesto cerrado antes de empezar'
-        ctaText='Ver planes de mantenimiento'
-        onCTAClick={() => scrollToSection('precios')}
+        ctaText='Ver qué incluye'
+        onCTAClick={() => scrollToSection('incluye')}
         secondaryCTAText='Ver trabajos'
         secondaryCTAAction={() => scrollToSection('portfolio')}
         secondaryCTAIcon='chevron-down'
@@ -212,13 +228,29 @@ const MantenimientoWeb = () => {
       {/* 2. Bloque de confianza rápida */}
       <TrustBar />
 
-      {/* 3. Para quién es este servicio */}
+      {/* 3. Problema */}
+      <SEOProblem
+        title='Una web sin mantenimiento acaba dando problemas'
+        subtitle='Esto es lo que solemos ver cuando un negocio tiene web, pero nadie se ocupa de ella con continuidad.'
+        problems={problems}
+      />
+
+      {/* 4. Para quién es este servicio */}
       <SEOBenefits
         title='¿Necesitas Mantenimiento para tu Web?'
         benefits={targetAudience}
       />
 
-      {/* 4. Precio y formas de pago */}
+      {/* 5. Qué incluye el mantenimiento web */}
+      <div id='incluye' className='scroll-mt-24'>
+        <SEOFeatures
+          title='Qué Incluye tu Mantenimiento Web'
+          subtitle='Todo lo necesario para que tu web siga funcionando y actualizada'
+          features={features}
+        />
+      </div>
+
+      {/* 6. Qué tendrás / propuesta */}
       <section
         id='precios'
         ref={pricingSectionRef}
@@ -227,7 +259,7 @@ const MantenimientoWeb = () => {
         <div className='content-container'>
           <div className='text-center mb-12 max-w-2xl mx-auto'>
             <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4'>
-              Siempre trabajamos con precio cerrado y sin letras pequeñas
+              Qué tendrás con el mantenimiento
             </h2>
             <p className='text-base md:text-lg text-gray-600'>
               El mantenimiento se adapta al tamaño y las necesidades de tu web.
@@ -294,16 +326,13 @@ const MantenimientoWeb = () => {
         </div>
       </section>
 
-      {/* 5. Qué incluye el mantenimiento web */}
-      <div id='incluye' className='scroll-mt-24'>
-        <SEOFeatures
-          title='Qué Incluye tu Mantenimiento Web'
-          subtitle='Todo lo necesario para que tu web siga funcionando y actualizada'
-          features={features}
-        />
-      </div>
+      {/* 7. Proceso de trabajo */}
+      <SEOProcess
+        title='Un proceso claro desde el primer mensaje'
+        steps={defaultServiceProcess}
+      />
 
-      {/* 5.1 También podemos ayudarte con (sección secundaria, no compite con el foco principal) */}
+      {/* 8. También podemos ayudarte con */}
       <section className='py-16 bg-white border-t-2 border-gray-100'>
         <div className='content-container'>
           <h3 className='text-xl md:text-2xl font-bold text-gray-900 text-center mb-8'>
@@ -333,21 +362,15 @@ const MantenimientoWeb = () => {
         </div>
       </section>
 
-      {/* 6. Portfolio o trabajos reales */}
+      {/* 9. Portfolio o trabajos reales */}
       <div id='portfolio' className='scroll-mt-24'>
         <Portfolio />
       </div>
 
-      {/* 6.1 Valoraciones de clientes */}
+      {/* 10. Valoraciones de clientes */}
       <Testimonials id='valoraciones' />
 
-      {/* 7. Proceso de trabajo */}
-      <SEOProcess
-        title='Un proceso claro desde el primer mensaje'
-        steps={defaultServiceProcess}
-      />
-
-      {/* 8. Preguntas frecuentes */}
+      {/* 11. Preguntas frecuentes */}
       <div id='faq' className='scroll-mt-24'>
         <SEOFAQ
           title='Preguntas Frecuentes sobre Mantenimiento Web'
@@ -355,7 +378,7 @@ const MantenimientoWeb = () => {
         />
       </div>
 
-      {/* 9. Formulario / contacto final */}
+      {/* 12. Formulario / contacto final */}
       <SEOCTAFinal
         title='¿Hablamos del mantenimiento de tu web?'
         subtitle='Cuéntanos cómo está tu web ahora. Te preparamos una propuesta cerrada de mantenimiento, con alcance y plazos claros.'
