@@ -366,7 +366,7 @@ const WebProfesionalAMedida = () => {
         </div>
       </section>
 
-      <section className='relative py-20 overflow-hidden'>
+      <section id='incluye' className='relative py-20 overflow-hidden scroll-mt-24'>
         <div
           className='absolute inset-0 bg-cover bg-center bg-no-repeat'
           style={{ backgroundImage: "url('/img/cta-background.webp')" }}
