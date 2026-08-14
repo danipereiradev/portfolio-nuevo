@@ -104,7 +104,7 @@ const Gracias = () => {
     <section className='min-h-[70vh] flex items-center justify-center px-6 py-24 text-center content-container'>
       <div className='max-w-lg mx-auto'>
         <div className='flex justify-center mb-6'>
-          <div className='bg-accent rounded-xl p-4 border-2 border-ink-dark shadow-[4px_4px_0_0_#1a1a1a]'>
+          <div className='bg-accent rounded-2xl p-4 border-2 border-ink-dark shadow-[4px_4px_0_0_#1a1a1a]'>
             <CheckCircle2 className='w-14 h-14 text-white' />
           </div>
         </div>

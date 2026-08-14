@@ -146,11 +146,13 @@ const TiendasOnline = () => {
     },
     {
       title: 'Panel de gestión',
-      description: 'Productos, stock, pedidos y envíos sin pedirnos ayuda cada vez.',
+      description:
+        'Productos, stock, pedidos y envíos sin pedirnos ayuda cada vez.',
     },
     {
       title: 'Móvil',
-      description: 'La mayoría compra desde el teléfono. Tiene que ir bien ahí.',
+      description:
+        'La mayoría compra desde el teléfono. Tiene que ir bien ahí.',
     },
     {
       title: 'Hosting y dominio',
@@ -158,7 +160,8 @@ const TiendasOnline = () => {
     },
     {
       title: 'Base para Google',
-      description: 'Estructura lista para que el buscador entienda el catálogo.',
+      description:
+        'Estructura lista para que el buscador entienda el catálogo.',
     },
     {
       title: 'Formación',
@@ -169,13 +172,11 @@ const TiendasOnline = () => {
   const faqs = [
     {
       question: '¿Cuánto tarda una tienda?',
-      answer:
-        'Normalmente 4 a 6 semanas, según el catálogo y lo que pedáis.',
+      answer: 'Normalmente 4 a 6 semanas, según el catálogo y lo que pedáis.',
     },
     {
       question: '¿Se puede pagar a plazos?',
-      answer:
-        'Sí. Único o fraccionado. Lo dejamos en la propuesta.',
+      answer: 'Sí. Único o fraccionado. Lo dejamos en la propuesta.',
     },
     {
       question: '¿Cuánto cuesta?',
@@ -184,18 +185,15 @@ const TiendasOnline = () => {
     },
     {
       question: '¿El presupuesto lleva IVA?',
-      answer:
-        'Sí, salvo que indiquemos lo contrario. Todo por escrito.',
+      answer: 'Sí, salvo que indiquemos lo contrario. Todo por escrito.',
     },
     {
       question: '¿Cuántos productos?',
-      answer:
-        'Lo fijamos en la propuesta. Si son muchos, lo ajustamos.',
+      answer: 'Lo fijamos en la propuesta. Si son muchos, lo ajustamos.',
     },
     {
       question: '¿Cómo pagan los clientes?',
-      answer:
-        'Con tarjeta. Elegimos pasarela según tu banco y tu público.',
+      answer: 'Con tarjeta. Elegimos pasarela según tu banco y tu público.',
     },
     {
       question: '¿Incluye mantenimiento?',
@@ -230,7 +228,7 @@ const TiendasOnline = () => {
       />
       <div className='bg-white pt-6 pb-16 md:pt-8 md:pb-20'>
         <div className='container mx-auto px-6'>
-          <div className='max-w-3xl mx-auto text-center bg-gray-50 border-2 border-ink-dark rounded-xl p-6 md:p-8 shadow-[5px_5px_0_0_#1a1a1a]'>
+          <div className='max-w-3xl mx-auto text-center bg-gray-50 border-2 border-ink-dark rounded-2xl p-6 md:p-8 shadow-[5px_5px_0_0_#1a1a1a]'>
             <p className='text-base md:text-lg text-gray-800 font-medium leading-relaxed'>
               La idea es una tienda que encaje con cómo vendes tú: precio
               cerrado, catálogo ordenado y panel usable. Sin letra pequeña.
@@ -239,10 +237,7 @@ const TiendasOnline = () => {
         </div>
       </div>
 
-      <SEOBenefits
-        title='¿Te encaja esta tienda?'
-        benefits={targetAudience}
-      />
+      <SEOBenefits title='¿Te encaja esta tienda?' benefits={targetAudience} />
 
       <div id='incluye' className='scroll-mt-24'>
         <SEOFeatures
@@ -269,7 +264,7 @@ const TiendasOnline = () => {
             </p>
           </div>
 
-          <div className='max-w-3xl mx-auto bg-white rounded-xl p-8 md:p-10 border-2 border-ink-dark shadow-[7px_7px_0_0_#1a1a1a] relative'>
+          <div className='max-w-3xl mx-auto bg-white rounded-2xl p-8 md:p-10 border-2 border-ink-dark shadow-[7px_7px_0_0_#1a1a1a] relative'>
             <span className='absolute -top-4 left-8 bg-accent text-ink-dark border-2 border-ink-dark text-xs font-bold uppercase tracking-wide px-3 py-1 rotate-[-2deg]'>
               Tienda Online
             </span>
@@ -327,10 +322,7 @@ const TiendasOnline = () => {
       </section>
 
       {/* 7. Proceso de trabajo */}
-      <SEOProcess
-        title='Cómo solemos trabajar'
-        steps={defaultServiceProcess}
-      />
+      <SEOProcess title='Cómo solemos trabajar' steps={defaultServiceProcess} />
       <div className='bg-white pt-2 pb-16 md:pb-20'>
         <div className='container mx-auto px-6 text-center'>
           <a
@@ -351,20 +343,20 @@ const TiendasOnline = () => {
           <div className='grid sm:grid-cols-3 gap-4 max-w-4xl mx-auto'>
             <a
               href='/web-profesional-a-medida'
-              className='block bg-gray-50 border-2 border-ink-dark rounded-xl p-5 text-center font-bold text-gray-900 shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
+              className='block bg-gray-50 border-2 border-ink-dark rounded-2xl p-5 text-center font-bold text-gray-900 shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
             >
               Web a Medida
             </a>
             <a
               href='/mantenimiento-web'
-              className='block bg-gray-50 border-2 border-ink-dark rounded-xl p-5 text-center font-bold text-gray-900 shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
+              className='block bg-gray-50 border-2 border-ink-dark rounded-2xl p-5 text-center font-bold text-gray-900 shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
             >
               Mantenimiento web
             </a>
             <button
               type='button'
               onClick={() => openModal('Tienda Online')}
-              className='block bg-gray-50 border-2 border-ink-dark rounded-xl p-5 text-center font-bold text-gray-900 shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
+              className='block bg-gray-50 border-2 border-ink-dark rounded-2xl p-5 text-center font-bold text-gray-900 shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
             >
               Mejoras o rediseños
             </button>

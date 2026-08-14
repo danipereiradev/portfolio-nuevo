@@ -7,20 +7,20 @@ interface HeaderProps {
   showNavMenu?: boolean;
 }
 
-const packLandingAnchors = [
+/* const packLandingAnchors = [
   { href: '#incluye', label: 'Incluye' },
   { href: '#proceso', label: 'Proceso' },
   { href: '#por-que', label: 'Por qué' },
   { href: '#portfolio', label: 'Trabajos' },
   { href: '#valoraciones', label: 'Reseñas' },
   { href: '#contacto', label: 'Contacto' },
-];
+]; */
 
 const navLinkClass =
   'relative text-xl text-white uppercase transition-colors duration-200 hover:text-accent after:content-[""] after:absolute after:left-0 after:-bottom-1.5 after:h-[3px] after:w-0 after:bg-accent after:transition-all after:duration-200 hover:after:w-full';
 
 const mobileNavLinkClass =
-  'block w-full text-left px-4 py-3 font-bold text-md uppercase text-black hover:bg-gray-100 hover:text-accent transition-colors duration-200';
+  'text-white block w-full text-left px-4 py-3 font-bold text-md uppercase text-black hover:bg-gray-100 hover:text-accent transition-colors duration-200';
 
 const Header = ({ showNavMenu }: HeaderProps) => {
   const { t } = useLanguage();
@@ -28,7 +28,7 @@ const Header = ({ showNavMenu }: HeaderProps) => {
   const normalizedPath =
     pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
   const isPackLanding = normalizedPath === '/web-profesional';
-  const navEnabled = showNavMenu ?? !isPackLanding;
+  const navEnabled = showNavMenu;
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -92,163 +92,92 @@ const Header = ({ showNavMenu }: HeaderProps) => {
     </span>
   );
 
-  const scrollToAnchor = (href: string) => {
+  /* const scrollToAnchor = (href: string) => {
     const id = href.replace('#', '');
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     setIsMenuOpen(false);
-  };
+  }; */
 
   return (
     <>
-      <header className='p-4 fixed w-[95%] mx-auto place-self-center mt-4 rounded-2xl top-0 z-50 bg-ink-dark shadow-[0_4px_16px_rgba(0,0,0,0.08)]'>
+      <header className='min-w-[350px] p-4 fixed md:min-w-[82rem]  mx-auto place-self-center mt-4 rounded-2xl top-0 z-50 bg-ink-dark shadow-[0_4px_16px_rgba(0,0,0,0.08)]'>
         <div className='mx-auto w-full max-w-screen-2xl px-6 py-4'>
-          <div className='flex items-center justify-between relative'>
-            {isPackLanding || !navEnabled ? (
-              <div className='flex items-center gap-1.5 md:gap-2 flex-shrink-0 md:min-w-[200px]'>
-                {brand}
-              </div>
-            ) : (
-              <a
-                href='/'
-                className='flex items-center gap-1.5 md:gap-2 flex-shrink-0 md:min-w-[280px] md:w-[280px]'
-              >
-                {brand}
-              </a>
-            )}
+          <div className='flex items-center justify-evenly w-full'>
+            <a
+              href='/'
+              className='flex items-center gap-1.5 md:gap-2 flex-shrink-0 md:min-w-[280px] md:w-[280px]'
+            >
+              {brand}
+            </a>
+            <>
+              <div
+                className='hidden md:block md:min-w-[280px] md:w-[280px]'
+                aria-hidden='true'
+              />
 
-            {isPackLanding && (
-              <nav className='text-white hidden md:flex items-center space-x-5 lg:space-x-7 absolute left-1/2 -translate-x-1/2'>
-                {packLandingAnchors.map((item) => (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToAnchor(item.href);
-                    }}
-                    className={navLinkClass}
-                  >
-                    {item.label}
-                  </a>
-                ))}
-              </nav>
-            )}
-
-            {navEnabled && (
-              <nav className='text-white hidden md:flex items-center space-x-8 absolute left-1/2 -translate-x-1/2'>
-                <a href='/sobre-el-estudio' className={navLinkClass}>
-                  {t('nav.about')}
-                </a>
-                <div
-                  className='relative'
-                  onMouseEnter={() => setIsServicesOpen(true)}
-                  onMouseLeave={() => setIsServicesOpen(false)}
-                >
-                  <button
-                    className={`${navLinkClass} flex items-center gap-1 text-white`}
-                  >
-                    Servicios
-                    <ChevronDown className='w-4 h-4' />
-                  </button>
-
-                  {isServicesOpen && (
-                    <div className='absolute top-full left-0 pt-3 w-72 z-50'>
-                      <div className='bg-ink-dark rounded-lg py-2 uppercase'>
-                        {services.map((service) => (
-                          <a
-                            key={service.path}
-                            href={service.path}
-                            className='group block px-4 py-3 hover:bg-accent transition-colors'
-                            onClick={() => setIsServicesOpen(false)}
-                          >
-                            <div className='flex items-center justify-between'>
-                              <span className='text-white group-hover:text-white  text-lg transition-colors'>
-                                {service.name}
-                              </span>
-                            </div>
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                <a href='/contacto' className={navLinkClass}>
-                  {t('nav.contact')}
-                </a>
-
-                <a href='/' className={navLinkClass}>
-                  {t('nav.blog')}
-                </a>
-              </nav>
-            )}
-
-            {isPackLanding && (
               <div className='md:hidden flex items-center justify-end'>
                 <button
-                  className='p-2'
+                  className='p-2 text-white'
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
                   aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
                 >
                   {isMenuOpen ? (
-                    <X className='w-6 h-6 text-black' />
+                    <X className='w-6 h-6 text-neutral-300' />
                   ) : (
-                    <Menu className='w-6 h-6 text-black' />
+                    <Menu className='w-6 h-6 text-neutral-300' />
                   )}
                 </button>
               </div>
-            )}
-
-            {isPackLanding && (
+            </>
+            <nav className='text-white hidden md:flex place-self-end space-x-8'>
+              <a href='/sobre-el-estudio' className={navLinkClass}>
+                {t('nav.about')}
+              </a>
               <div
-                className='hidden md:block md:min-w-[200px]'
-                aria-hidden='true'
-              />
-            )}
+                className='relative'
+                onMouseEnter={() => setIsServicesOpen(true)}
+                onMouseLeave={() => setIsServicesOpen(false)}
+              >
+                <button
+                  className={`${navLinkClass} flex items-center gap-1 text-white`}
+                >
+                  Servicios
+                  <ChevronDown className='w-4 h-4' />
+                </button>
 
-            {navEnabled && (
-              <>
-                <div
-                  className='hidden md:block md:min-w-[280px] md:w-[280px]'
-                  aria-hidden='true'
-                />
+                {isServicesOpen && (
+                  <div className='absolute top-full left-0 pt-3 w-72 z-50'>
+                    <div className='bg-ink-dark rounded-lg py-2 uppercase'>
+                      {services.map((service) => (
+                        <a
+                          key={service.path}
+                          href={service.path}
+                          className='group block px-4 py-3 hover:bg-accent transition-colors'
+                          onClick={() => setIsServicesOpen(false)}
+                        >
+                          <div className='flex items-center justify-between'>
+                            <span className='text-white group-hover:text-white  text-lg transition-colors'>
+                              {service.name}
+                            </span>
+                          </div>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
 
-                <div className='md:hidden flex items-center justify-end'>
-                  <button
-                    className='p-2 text-white'
-                    onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
-                  >
-                    {isMenuOpen ? (
-                      <X className='w-6 h-6 text-black' />
-                    ) : (
-                      <Menu className='w-6 h-6 text-black' />
-                    )}
-                  </button>
-                </div>
-              </>
-            )}
+              <a href='/contacto' className={navLinkClass}>
+                {t('nav.contact')}
+              </a>
+
+              <a href='/' className={navLinkClass}>
+                {t('nav.blog')}
+              </a>
+            </nav>
           </div>
 
-          {isPackLanding && isMenuOpen && (
-            <nav className='md:hidden mt-4 pb-2 bg-[#333333] text-white rounded-lg border-2 border-ink-dark shadow-[6px_6px_0_0_#1a1a1a] divide-y-2 divide-gray-100'>
-              {packLandingAnchors.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToAnchor(item.href);
-                  }}
-                  className={mobileNavLinkClass}
-                >
-                  {item.label}
-                </a>
-              ))}
-            </nav>
-          )}
-
-          {navEnabled && isMenuOpen && (
+          {isMenuOpen && (
             <nav className='md:hidden mt-4 pb-2 bg-ink-dark text-white rounded-lg border-2 border-ink-dark shadow-[6px_6px_0_0_#1a1a1a] divide-y-2 divide-gray-100'>
               <a href='/' className={mobileNavLinkClass}>
                 Inicio
@@ -257,7 +186,7 @@ const Header = ({ showNavMenu }: HeaderProps) => {
               <div>
                 <button
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
-                  className='flex items-center justify-between w-full px-4 py-3 font-bold text-md uppercase text-black hover:bg-gray-100 hover:text-accent transition-colors duration-200'
+                  className='flex text-white items-center justify-between w-full px-4 py-3 font-bold text-md uppercase  hover:bg-gray-100 hover:text-accent transition-colors duration-200'
                 >
                   <span>Servicios</span>
                   <ChevronDown

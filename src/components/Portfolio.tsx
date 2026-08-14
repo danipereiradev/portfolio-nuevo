@@ -53,24 +53,6 @@ const Portfolio = ({ variant = 'default' }: PortfolioProps) => {
 
   useBodyScrollLock(selectedProject !== null);
 
-  // Proyectos en construcción (separados del portfolio publicado).
-  const upcomingProjectsRaw = [
-    {
-      title: t('portfolio.hatena.title'),
-      description: t('portfolio.hatena.desc'),
-      image: '/img/portfolio/hatena-mock.webp',
-      product: 'Web a Medida',
-      productHref: '/web-profesional-a-medida',
-    },
-    {
-      title: t('portfolio.resilience.title'),
-      description: t('portfolio.resilience.desc'),
-      image: '/img/portfolio/resilience-mock.webp',
-      product: 'Tienda Online',
-      productHref: '/tiendas-online',
-    },
-  ];
-
   // Orden por fecha de publicación (más reciente primero).
   const projectsRaw = [
     {
@@ -180,15 +162,13 @@ Hay categorías (destinos, guías, tips, comida), galerías ligeras, mapas de si
     };
   };
 
-  const projects = (isPackLanding
-    ? projectsRaw.filter((project) => project.product !== 'Tienda Online')
-    : projectsRaw
+  const projects = (
+    isPackLanding
+      ? projectsRaw.filter((project) => project.product !== 'Tienda Online')
+      : projectsRaw
   ).map(mapPackBadge);
 
   // En /web-profesional no mostramos el bloque "Próximamente".
-  const upcomingProjects = isPackLanding
-    ? []
-    : upcomingProjectsRaw.map(mapPackBadge);
 
   const openProjectModal = (index: number) => {
     setSelectedProject(index);
@@ -239,7 +219,7 @@ Hay categorías (destinos, guías, tips, comida), galerías ligeras, mapas de si
                 onMouseEnter={() =>
                   project.headerImage && preloadImage(project.headerImage)
                 }
-                className={`group cursor-pointer rounded-xl border-2 border-ink-dark bg-white overflow-hidden shadow-[6px_6px_0_0_#1a1a1a] hover:shadow-[3px_3px_0_0_#1a1a1a] hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-200 ${
+                className={`group cursor-pointer rounded-2xl border-2 border-ink-dark bg-white overflow-hidden shadow-[6px_6px_0_0_#1a1a1a] hover:shadow-[3px_3px_0_0_#1a1a1a] hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-200 ${
                   projects.length === 1 ? 'w-full max-w-md' : ''
                 }`}
               >
@@ -279,64 +259,7 @@ Hay categorías (destinos, guías, tips, comida), galerías ligeras, mapas de si
             ))}
           </div>
 
-          {upcomingProjects.length > 0 && (
-            <div className='mt-16 md:mt-20 max-w-5xl mx-auto'>
-              <div className='text-center mb-10'>
-                <h3 className='text-2xl md:text-3xl font-extrabold text-gray-900 mb-3'>
-                  {t('portfolio.upcoming.title')}
-                </h3>
-                <p className='text-base md:text-lg text-gray-600 max-w-2xl mx-auto'>
-                  {t('portfolio.upcoming.description')}
-                </p>
-              </div>
-              <div className='grid md:grid-cols-2 gap-6 md:gap-8'>
-                {upcomingProjects.map((project) => (
-                  <div
-                    key={project.title}
-                    className='rounded-xl border-2 border-ink-dark bg-white overflow-hidden shadow-[6px_6px_0_0_#1a1a1a]'
-                  >
-                    <div className='relative overflow-hidden bg-white border-b-2 border-ink-dark'>
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className='w-full aspect-[4/3] object-cover'
-                        loading='lazy'
-                      />
-                      <div className='absolute inset-0 z-[5] flex items-center justify-center bg-accent/55'>
-                        <span className='relative overflow-hidden bg-ink-dark text-white text-sm md:text-base font-extrabold uppercase tracking-wide px-4 py-2 border-2 border-ink-dark border-b-transparent shadow-[4px_4px_0_0_rgba(0,0,0,0.25)] rotate-[-2deg]'>
-                          Próximamente
-                          <span
-                            aria-hidden='true'
-                            className='pointer-events-none absolute bottom-0 left-0 h-[3px] w-full bg-ink-dark'
-                          />
-                          <span
-                            aria-hidden='true'
-                            className='pointer-events-none absolute bottom-0 left-0 h-[3px] w-full origin-left bg-accent animate-upcoming-progress'
-                          />
-                        </span>
-                      </div>
-                      <a
-                        href={project.productHref}
-                        className='absolute top-4 left-4 bg-accent text-ink-dark border-2 border-ink-dark text-xs font-bold px-3 py-1 rotate-[-1deg] hover:bg-accent-hover transition-colors z-10'
-                      >
-                        {project.product}
-                      </a>
-                    </div>
-                    <div className='p-5 md:p-6'>
-                      <h4 className='text-xl font-bold text-gray-900 mb-1.5'>
-                        {project.title}
-                      </h4>
-                      <p className='text-base text-gray-700 font-medium leading-relaxed'>
-                        {project.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          <div className='max-w-3xl mx-auto mt-[100px] mb-[50px] bg-ink-dark border-2 border-ink-dark rounded-xl p-8 text-center shadow-[6px_6px_0_0_rgba(20,184,166,0.5)]'>
+          <div className='max-w-3xl mx-auto mt-[100px] mb-[50px] bg-ink-dark border-2 border-ink-dark rounded-2xl p-8 text-center shadow-[6px_6px_0_0_rgba(20,184,166,0.5)]'>
             <h3 className='text-2xl md:text-3xl font-bold text-white mb-4'>
               ¿Quieres ver proyectos parecidos al que tienes en mente?
             </h3>
@@ -508,7 +431,7 @@ Hay categorías (destinos, guías, tips, comida), galerías ligeras, mapas de si
                         href={projects[selectedProject].url}
                         target='_blank'
                         rel='noopener noreferrer'
-                        className='inline-flex items-center justify-center gap-2 md:gap-3 bg-accent text-white px-6 md:px-8 py-3 md:py-4 rounded-xl border-2 border-ink-dark shadow-[5px_5px_0_0_#1a1a1a] hover:bg-accent-hover hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-150 text-base md:text-lg font-bold w-full sm:w-auto'
+                        className='inline-flex items-center justify-center gap-2 md:gap-3 bg-accent text-white px-6 md:px-8 py-3 md:py-4 rounded-2xl border-2 border-ink-dark shadow-[5px_5px_0_0_#1a1a1a] hover:bg-accent-hover hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-150 text-base md:text-lg font-bold w-full sm:w-auto'
                       >
                         <ExternalLink className='w-5 h-5 md:w-6 md:h-6' />
                         Visitar sitio web

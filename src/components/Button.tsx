@@ -33,7 +33,7 @@ const Button: React.FC<ButtonProps> = ({
   const variantStyles = {
     primary: 'bg-accent text-2xl text-ink-dark uppercase  ',
     secondary:
-      'text-ink-dark uppercase hover:bg-white hover:text-black shadow-[5px_5px_0_0_rgba(255,255,255,0.35)] hover:shadow-[2px_2px_0_0_rgba(255,255,255,0.35)] ',
+      'text-ink-dark uppercase hover:bg-white hover:text-white shadow-[5px_5px_0_0_rgba(255,255,255,0.35)] hover:shadow-[2px_2px_0_0_rgba(255,255,255,0.35)] ',
     ghost:
       'bg-gray-200 text-gray-700 hover:bg-gray-300 border-ink-dark   hover:translate-x-[3px] hover:translate-y-[3px]',
   };

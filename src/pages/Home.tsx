@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import Hero from '../components/Hero';
-import TrustBar from '../components/TrustBar';
 import Services from '../components/Services';
 import Portfolio from '../components/Portfolio';
 import Testimonials from '../components/Testimonials';
@@ -59,21 +58,17 @@ const Home = () => {
   return (
     <>
       <Hero />
-      <TrustBar />
-      <Pricing />
+      {/*  <Pricing /> */}
       <Services />
       <div id='proceso' className='scroll-mt-24'>
-        <SEOProcess
-          title='Cómo solemos trabajar'
-          steps={processSteps}
-        />
+        <SEOProcess title='Cómo solemos trabajar' steps={processSteps} />
       </div>
       <Portfolio />
       <Testimonials />
       <div id='faq' className='scroll-mt-24'>
         <SEOFAQ title='Preguntas frecuentes' faqs={globalFaqs} />
       </div>
-      <ContactForm />
+      {/* <ContactForm /> */}
     </>
   );
 };

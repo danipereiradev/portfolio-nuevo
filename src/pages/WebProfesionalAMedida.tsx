@@ -21,10 +21,7 @@ import {
   trackGoogleAdsWhatsAppConversion,
   trackPricingCtaClick,
 } from '../utils/analytics';
-import {
-  ADS_WHATSAPP_MESSAGE,
-  buildWhatsAppUrl,
-} from '../config/contact';
+import { ADS_WHATSAPP_MESSAGE, buildWhatsAppUrl } from '../config/contact';
 import SEOLandingHero from '../components/SEOLandingHero';
 import TrustBar from '../components/TrustBar';
 import SEOFAQ from '../components/SEOFAQ';
@@ -182,7 +179,8 @@ const WebProfesionalAMedida = () => {
     {
       number: '1',
       title: 'Nos cuentas el caso',
-      description: 'Qué haces, a quién te diriges y qué quieres que haga la web.',
+      description:
+        'Qué haces, a quién te diriges y qué quieres que haga la web.',
     },
     {
       number: '2',
@@ -192,7 +190,8 @@ const WebProfesionalAMedida = () => {
     {
       number: '3',
       title: 'La montamos',
-      description: 'Con tu marca, tus textos y tus fotos (o te ayudamos a ordenarlos).',
+      description:
+        'Con tu marca, tus textos y tus fotos (o te ayudamos a ordenarlos).',
     },
     {
       number: '4',
@@ -224,8 +223,7 @@ const WebProfesionalAMedida = () => {
     },
     {
       question: '¿El hosting está incluido?',
-      answer:
-        'Sí, para publicar la web. Lo confirmamos en la propuesta.',
+      answer: 'Sí, para publicar la web. Lo confirmamos en la propuesta.',
     },
     {
       question: '¿Cuánto tarda?',
@@ -234,8 +232,7 @@ const WebProfesionalAMedida = () => {
     },
     {
       question: '¿Y si quiero vender productos?',
-      answer:
-        'Eso es tienda online. Te pasamos a esa propuesta.',
+      answer: 'Eso es tienda online. Te pasamos a esa propuesta.',
     },
   ];
 
@@ -271,7 +268,7 @@ const WebProfesionalAMedida = () => {
             {problems.map((problem) => (
               <div
                 key={problem}
-                className='flex gap-4 p-5 md:p-6 bg-white rounded-xl border-2 border-ink-dark shadow-[5px_5px_0_0_#1a1a1a]'
+                className='flex gap-4 p-5 md:p-6 bg-white rounded-2xl border-2 border-ink-dark shadow-[5px_5px_0_0_#1a1a1a]'
               >
                 <span className='text-ink-dark font-black text-xl leading-none'>
                   !
@@ -290,8 +287,8 @@ const WebProfesionalAMedida = () => {
               ¿Para quién es?
             </h2>
             <p className='text-base md:text-lg text-gray-600'>
-              Autónomos, pymes y negocios locales. Da igual la ciudad: trabajamos
-              online.
+              Autónomos, pymes y negocios locales. Da igual la ciudad:
+              trabajamos online.
             </p>
           </div>
           <div className='max-w-5xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-5'>
@@ -300,7 +297,7 @@ const WebProfesionalAMedida = () => {
               return (
                 <div
                   key={sector.title}
-                  className='bg-white rounded-xl border-2 border-ink-dark p-5 shadow-[4px_4px_0_0_#1a1a1a]'
+                  className='bg-white rounded-2xl border-2 border-ink-dark p-5 shadow-[4px_4px_0_0_#1a1a1a]'
                 >
                   <Icon className='w-7 h-7 text-accent mb-3' />
                   <h3 className='text-lg font-bold text-gray-900 mb-1'>
@@ -331,7 +328,7 @@ const WebProfesionalAMedida = () => {
             {features.map((feature) => (
               <div
                 key={feature.title}
-                className='rounded-xl border-2 border-ink-dark bg-white p-5 md:p-6 shadow-[4px_4px_0_0_#1a1a1a]'
+                className='rounded-2xl border-2 border-ink-dark bg-white p-5 md:p-6 shadow-[4px_4px_0_0_#1a1a1a]'
               >
                 <div className='flex items-start gap-3'>
                   <Check className='w-5 h-5 text-accent flex-shrink-0 mt-0.5' />
@@ -400,7 +397,7 @@ const WebProfesionalAMedida = () => {
             {processSteps.map((step) => (
               <div
                 key={step.number}
-                className='flex gap-4 md:gap-6 bg-white border-2 border-ink-dark rounded-xl p-5 md:p-6 shadow-[5px_5px_0_0_#1a1a1a]'
+                className='flex gap-4 md:gap-6 bg-white border-2 border-ink-dark rounded-2xl p-5 md:p-6 shadow-[5px_5px_0_0_#1a1a1a]'
               >
                 <span className='flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-lg bg-ink-dark text-accent font-extrabold flex items-center justify-center text-lg'>
                   {step.number}
@@ -426,10 +423,7 @@ const WebProfesionalAMedida = () => {
       <Testimonials id='valoraciones' />
 
       <section id='faq' className='scroll-mt-24 py-4 bg-gray-50'>
-        <SEOFAQ
-          title='Preguntas frecuentes'
-          faqs={faqs}
-        />
+        <SEOFAQ title='Preguntas frecuentes' faqs={faqs} />
       </section>
 
       <SEOCTAFinal
@@ -438,7 +432,9 @@ const WebProfesionalAMedida = () => {
         buttonText='Solicitar presupuesto'
         onButtonClick={() => openQuote('CTAFinal')}
         secondaryButtonText='Hablar por WhatsApp'
-        onSecondaryButtonClick={() => handleWhatsApp('LandingWebAMedidaCTAFinal')}
+        onSecondaryButtonClick={() =>
+          handleWhatsApp('LandingWebAMedidaCTAFinal')
+        }
       />
 
       <div id='contacto' className='scroll-mt-24 py-4'>

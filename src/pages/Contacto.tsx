@@ -55,7 +55,7 @@ const Contacto = () => {
 
               <div className='space-y-6'>
                 <div className='flex items-start gap-4'>
-                  <div className='w-12 h-12 bg-accent rounded-xl border-2 border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] flex items-center justify-center flex-shrink-0'>
+                  <div className='w-12 h-12 bg-accent rounded-2xl border-2 border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] flex items-center justify-center flex-shrink-0'>
                     <Mail className='w-6 h-6 text-white' />
                   </div>
                   <div>
@@ -71,7 +71,7 @@ const Contacto = () => {
                 </div>
 
                 <div className='flex items-start gap-4'>
-                  <div className='w-12 h-12 bg-accent rounded-xl border-2 border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] flex items-center justify-center flex-shrink-0'>
+                  <div className='w-12 h-12 bg-accent rounded-2xl border-2 border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] flex items-center justify-center flex-shrink-0'>
                     <Phone className='w-6 h-6 text-white' />
                   </div>
                   <div>
@@ -87,7 +87,7 @@ const Contacto = () => {
                 </div>
 
                 <div className='flex items-start gap-4'>
-                  <div className='w-12 h-12 bg-accent rounded-xl border-2 border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] flex items-center justify-center flex-shrink-0'>
+                  <div className='w-12 h-12 bg-accent rounded-2xl border-2 border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] flex items-center justify-center flex-shrink-0'>
                     <MessageCircle className='w-6 h-6 text-white' />
                   </div>
                   <div>
@@ -108,7 +108,7 @@ const Contacto = () => {
                 </div>
 
                 <div className='flex items-start gap-4'>
-                  <div className='w-12 h-12 bg-accent rounded-xl border-2 border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] flex items-center justify-center flex-shrink-0'>
+                  <div className='w-12 h-12 bg-accent rounded-2xl border-2 border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] flex items-center justify-center flex-shrink-0'>
                     <Video className='w-6 h-6 text-white' />
                   </div>
                   <div>
@@ -125,7 +125,7 @@ const Contacto = () => {
                 </div>
 
                 <div className='flex items-start gap-4'>
-                  <div className='w-12 h-12 bg-accent rounded-xl border-2 border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] flex items-center justify-center flex-shrink-0'>
+                  <div className='w-12 h-12 bg-accent rounded-2xl border-2 border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] flex items-center justify-center flex-shrink-0'>
                     <Clock className='w-6 h-6 text-white' />
                   </div>
                   <div>
@@ -146,16 +146,14 @@ const Contacto = () => {
               </div>
             </div>
 
-            <div className='bg-gray-50 p-8 rounded-xl border-2 border-ink-dark shadow-[6px_6px_0_0_#1a1a1a]'>
+            <div className='bg-gray-50 p-8 rounded-2xl border-2 border-ink-dark shadow-[6px_6px_0_0_#1a1a1a]'>
               <h3 className='text-2xl font-bold text-gray-900 mb-6'>
                 Por qué escribirnos
               </h3>
               <ul className='space-y-4'>
                 <li className='flex items-start gap-3'>
                   <Check className='w-5 h-5 text-accent flex-shrink-0 mt-0.5' />
-                  <p className='text-gray-700'>
-                    Más de 12 años haciendo webs
-                  </p>
+                  <p className='text-gray-700'>Más de 12 años haciendo webs</p>
                 </li>
                 <li className='flex items-start gap-3'>
                   <Check className='w-5 h-5 text-accent flex-shrink-0 mt-0.5' />
@@ -196,7 +194,7 @@ const Contacto = () => {
               </p>
             </div>
 
-            <div className='rounded-xl border-2 border-ink-dark overflow-hidden shadow-[7px_7px_0_0_#1a1a1a] bg-white'>
+            <div className='rounded-2xl border-2 border-ink-dark overflow-hidden shadow-[7px_7px_0_0_#1a1a1a] bg-white'>
               <iframe
                 title='Pereira Web en Google Maps'
                 src={GOOGLE_MAPS_EMBED_URL}

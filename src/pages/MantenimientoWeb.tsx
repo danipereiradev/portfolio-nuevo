@@ -187,8 +187,7 @@ const MantenimientoWeb = () => {
     },
     {
       question: '¿Y si es urgente?',
-      answer:
-        'Con plan activo, lo atendemos dentro del soporte incluido.',
+      answer: 'Con plan activo, lo atendemos dentro del soporte incluido.',
     },
   ];
 
@@ -245,7 +244,7 @@ const MantenimientoWeb = () => {
             </p>
           </div>
 
-          <div className='max-w-3xl mx-auto bg-white rounded-xl p-8 md:p-10 border-2 border-ink-dark shadow-[7px_7px_0_0_#1a1a1a] relative'>
+          <div className='max-w-3xl mx-auto bg-white rounded-2xl p-8 md:p-10 border-2 border-ink-dark shadow-[7px_7px_0_0_#1a1a1a] relative'>
             <span className='absolute -top-4 left-8 bg-accent text-ink-dark border-2 border-ink-dark text-xs font-bold uppercase tracking-wide px-3 py-1 rotate-[-2deg]'>
               Mantenimiento Web
             </span>
@@ -261,9 +260,7 @@ const MantenimientoWeb = () => {
               <span className='text-sm text-gray-500'>
                 Por escrito, antes de activar el plan.
               </span>
-              <span className='text-sm text-gray-500 mt-1'>
-                Plan mensual
-              </span>
+              <span className='text-sm text-gray-500 mt-1'>Plan mensual</span>
               <span className='text-sm text-gray-500'>
                 Soporte + cambios incluidos
               </span>
@@ -303,10 +300,7 @@ const MantenimientoWeb = () => {
       </section>
 
       {/* 7. Proceso de trabajo */}
-      <SEOProcess
-        title='Cómo solemos trabajar'
-        steps={defaultServiceProcess}
-      />
+      <SEOProcess title='Cómo solemos trabajar' steps={defaultServiceProcess} />
 
       {/* 8. También podemos ayudarte con */}
       <section className='py-16 bg-white border-t-2 border-gray-100'>
@@ -317,20 +311,20 @@ const MantenimientoWeb = () => {
           <div className='grid sm:grid-cols-3 gap-4 max-w-4xl mx-auto'>
             <a
               href='/web-profesional-a-medida'
-              className='block bg-gray-50 border-2 border-ink-dark rounded-xl p-5 text-center font-bold text-gray-900 shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
+              className='block bg-gray-50 border-2 border-ink-dark rounded-2xl p-5 text-center font-bold text-gray-900 shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
             >
               Web a Medida
             </a>
             <a
               href='/tiendas-online'
-              className='block bg-gray-50 border-2 border-ink-dark rounded-xl p-5 text-center font-bold text-gray-900 shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
+              className='block bg-gray-50 border-2 border-ink-dark rounded-2xl p-5 text-center font-bold text-gray-900 shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
             >
               Tiendas online
             </a>
             <button
               type='button'
               onClick={() => openModal('Mantenimiento Web')}
-              className='block bg-gray-50 border-2 border-ink-dark rounded-xl p-5 text-center font-bold text-gray-900 shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
+              className='block bg-gray-50 border-2 border-ink-dark rounded-2xl p-5 text-center font-bold text-gray-900 shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
             >
               Mejoras o rediseños
             </button>
@@ -348,10 +342,7 @@ const MantenimientoWeb = () => {
 
       {/* 11. Preguntas frecuentes */}
       <div id='faq' className='scroll-mt-24'>
-        <SEOFAQ
-          title='Preguntas frecuentes sobre mantenimiento'
-          faqs={faqs}
-        />
+        <SEOFAQ title='Preguntas frecuentes sobre mantenimiento' faqs={faqs} />
       </div>
 
       <SEOCTAFinal

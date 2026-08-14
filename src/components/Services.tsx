@@ -5,10 +5,18 @@ const Services = () => {
 
   const mainServices = [
     {
-      title: t('services.corporate.title'),
-      description: t('services.corporate.desc'),
+      title: t('services.webdesign.title'),
+      description: t('services.webdesign.desc'),
       link: '/web-profesional-a-medida',
-      image: '/img/portfolio/mock-viajamos.png',
+      image: '/img/theme-photos-CGpifH3FjOA-unsplash.jpg',
+      imageAlt: 'Mock de web a medida — Hoy Viajamos',
+      cta: 'Ver web a medida',
+    },
+    {
+      title: t('services.wordpress.title'),
+      description: t('services.wordpress.desc'),
+      link: '/web-profesional-a-medida',
+      image: '/img/fikret-tozak-rfNLa1HL7eY-unsplash.jpg',
       imageAlt: 'Mock de web a medida — Hoy Viajamos',
       cta: 'Ver web a medida',
     },
@@ -16,9 +24,17 @@ const Services = () => {
       title: t('services.ecommerce.title'),
       description: t('services.ecommerce.desc'),
       link: '/tiendas-online',
-      image: '/img/portfolio/mock-camisetas.png',
+      image: '/img/sumup-ShB9pI4mpRg-unsplash.jpg',
       imageAlt: 'Mock de tienda online — Camisetas Ahora',
       cta: 'Ver tiendas online',
+    },
+    {
+      title: t('services.seo.title'),
+      description: t('services.seo.desc'),
+      link: '/web-profesional-a-medida',
+      image: '/img/portfolio/mock-viajamos.png',
+      imageAlt: 'Mock de web a medida — Hoy Viajamos',
+      cta: 'Ver web a medida',
     },
     {
       title: t('services.maintenance.title'),
@@ -37,7 +53,7 @@ const Services = () => {
           <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4 leading-tight'>
             {t('services.title')}
           </h2>
-          <p className='text-base md:text-lg text-gray-600 leading-relaxed'>
+          <p className='text-xl md:text-2xl text-black leading-relaxed'>
             {t('services.description')}
           </p>
         </div>
@@ -46,11 +62,11 @@ const Services = () => {
           {mainServices.map((service) => (
             <article
               key={service.link}
-              className='bg-white border-2 border-ink-dark rounded-xl overflow-hidden flex flex-col shadow-[6px_6px_0_0_#1a1a1a]'
+              className='bg-ink-dark text-neutral-300 shadow-xl rounded-2xl overflow-hidden flex flex-col '
             >
               <a
                 href={service.link}
-                className='block bg-gray-100 border-b-2 border-ink-dark'
+                className='block bg-gray-100'
                 tabIndex={-1}
                 aria-hidden='true'
               >
@@ -59,25 +75,25 @@ const Services = () => {
                   alt={service.imageAlt}
                   width={800}
                   height={600}
-                  className='w-full aspect-[4/3] object-contain object-center p-3 md:p-4'
+                  className='w-full aspect-[4/3] object-cover '
                   loading='lazy'
                   decoding='async'
                 />
               </a>
 
-              <div className='p-5 md:p-6 flex flex-col flex-1'>
-                <h3 className='text-xl md:text-2xl font-bold text-gray-900 mb-2'>
+              <div className='p-5 md:p-6 flex flex-col flex-1 text-center'>
+                <h3 className='text-xl md:text-2xl font-bold text-neutral-300  mb-2'>
                   {service.title}
                 </h3>
-                <p className='text-sm md:text-base text-gray-600 leading-relaxed mb-5 flex-1'>
+                <p className='text-sm md:text-base text-neutral-300  leading-relaxed mb-5 flex-1'>
                   {service.description}
                 </p>
-                <a
+                {/* <a
                   href={service.link}
                   className='inline-flex self-start text-sm font-bold text-ink-dark border-2 border-ink-dark bg-accent px-4 py-2 rounded-lg shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
                 >
                   {service.cta}
-                </a>
+                </a> */}
               </div>
             </article>
           ))}

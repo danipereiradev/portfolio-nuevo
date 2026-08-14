@@ -30,15 +30,23 @@ const translations = {
   'hero.cta.portfolio': 'Ver trabajos',
 
   // Services
-  'services.title': 'Más de 12 años haciendo webs para negocios reales',
+  'services.title':
+    'Una agencia joven pero con más de una década de experiencia',
   'services.description':
-    'Tres cosas: web a medida, tienda online o mantenimiento. Eliges según lo que necesites ahora, no según un catálogo hinchado.',
-  'services.corporate.title': 'Web a Medida',
-  'services.corporate.desc':
+    'Nuestro equipo cuenta con profesionales del producto y marketing digital, el desarrollo de software y el diseño con una larga trayectoria. Colaborando con clientes de sectores como el bancario o retail.',
+  'services.webdesign.title': 'Diseño web a medida',
+  'services.webdesign.desc':
     'Cuando hace falta una estructura concreta, reservas, zona privada o conexión con lo que ya usas.',
-  'services.ecommerce.title': 'Tienda online',
+  'services.wordpress.title': 'Diseño web con wordpress',
+  'services.wordpress.desc':
+    'Cuando hace falta una estructura concreta, reservas, zona privada o conexión con lo que ya usas.',
+
+  'services.ecommerce.title': 'Tiendas online',
   'services.ecommerce.desc':
     'Catálogo, cobro con tarjeta, envíos y un panel para que tú subas productos y gestiones pedidos.',
+  'services.seo.title': 'Posicionamiento en Google',
+  'services.seo.desc':
+    'Actualizaciones, copias, cambios de textos y fotos, y soporte cuando algo se rompe.',
   'services.maintenance.title': 'Mantenimiento web',
   'services.maintenance.desc':
     'Actualizaciones, copias, cambios de textos y fotos, y soporte cuando algo se rompe.',
