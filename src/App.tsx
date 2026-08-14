@@ -3,7 +3,7 @@ import { LanguageProvider } from './contexts/LanguageContext';
 import { ContactModalProvider } from './contexts/ContactModalContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import WhatsAppButton from './components/WhatsAppButton';
+/* import WhatsAppButton from './components/WhatsAppButton'; */
 import BackToTopButton from './components/BackToTopButton';
 import MobileStickyCTA from './components/MobileStickyCTA';
 import ContactFormModal from './components/ContactFormModal';
@@ -65,9 +65,7 @@ function AppContent() {
         />
         <Route
           path='/politica-de-cookies'
-          element={
-            <LegalDocument page='cookies' path='/politica-de-cookies' />
-          }
+          element={<LegalDocument page='cookies' path='/politica-de-cookies' />}
         />
         <Route
           path='/aviso-legal'
@@ -143,7 +141,7 @@ function AppContent() {
 
       <Footer />
 
-      <WhatsAppButton />
+      {/* <WhatsAppButton /> */}
 
       <BackToTopButton />
 

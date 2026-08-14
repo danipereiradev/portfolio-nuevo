@@ -17,7 +17,7 @@ const packLandingAnchors = [
 ];
 
 const navLinkClass =
-  'relative font-bold text-md uppercase text-black transition-colors duration-200 hover:text-accent after:content-[""] after:absolute after:left-0 after:-bottom-1.5 after:h-[3px] after:w-0 after:bg-accent after:transition-all after:duration-200 hover:after:w-full';
+  'relative text-xl text-white uppercase transition-colors duration-200 hover:text-accent after:content-[""] after:absolute after:left-0 after:-bottom-1.5 after:h-[3px] after:w-0 after:bg-accent after:transition-all after:duration-200 hover:after:w-full';
 
 const mobileNavLinkClass =
   'block w-full text-left px-4 py-3 font-bold text-md uppercase text-black hover:bg-gray-100 hover:text-accent transition-colors duration-200';
@@ -56,7 +56,7 @@ const Header = ({ showNavMenu }: HeaderProps) => {
 
   const services = [
     {
-      name: 'Web profesional a medida',
+      name: 'Web a medida',
       path: '/web-profesional-a-medida',
       popular: true,
     },
@@ -72,11 +72,11 @@ const Header = ({ showNavMenu }: HeaderProps) => {
 
   const brand = (
     <span
-      className='text-xl md:text-2xl whitespace-nowrap font-extrabold flex items-center'
+      className='text-2xl md:text-3xl whitespace-nowrap font-extrabold flex items-center'
       style={{ fontFamily: "'Space Grotesk', sans-serif" }}
     >
       <span className='text-accent font-mono text-2xl md:text-3xl'>&gt;</span>
-      <span className='text-black font-mono tracking-tight ml-1'>
+      <span className='text-neutral-300 font-mono tracking-tight ml-1'>
         {hasTyped ? 'pereiraweb' : typedText.split(' ')[0]}
       </span>
       <span className='text-accent font-mono font-normal'>
@@ -100,7 +100,7 @@ const Header = ({ showNavMenu }: HeaderProps) => {
 
   return (
     <>
-      <header className='fixed w-full max-w-full top-0 z-50 bg-white shadow-[0_4px_16px_rgba(0,0,0,0.08)]'>
+      <header className='p-4 fixed w-[95%] mx-auto place-self-center mt-4 rounded-2xl top-0 z-50 bg-ink-dark shadow-[0_4px_16px_rgba(0,0,0,0.08)]'>
         <div className='mx-auto w-full max-w-screen-2xl px-6 py-4'>
           <div className='flex items-center justify-between relative'>
             {isPackLanding || !navEnabled ? (
@@ -117,7 +117,7 @@ const Header = ({ showNavMenu }: HeaderProps) => {
             )}
 
             {isPackLanding && (
-              <nav className='hidden md:flex items-center space-x-5 lg:space-x-7 absolute left-1/2 -translate-x-1/2'>
+              <nav className='text-white hidden md:flex items-center space-x-5 lg:space-x-7 absolute left-1/2 -translate-x-1/2'>
                 {packLandingAnchors.map((item) => (
                   <a
                     key={item.href}
@@ -135,24 +135,25 @@ const Header = ({ showNavMenu }: HeaderProps) => {
             )}
 
             {navEnabled && (
-              <nav className='hidden md:flex items-center space-x-8 absolute left-1/2 -translate-x-1/2'>
-                <a href='/' className={navLinkClass}>
-                  Inicio
+              <nav className='text-white hidden md:flex items-center space-x-8 absolute left-1/2 -translate-x-1/2'>
+                <a href='/sobre-el-estudio' className={navLinkClass}>
+                  {t('nav.about')}
                 </a>
-
                 <div
                   className='relative'
                   onMouseEnter={() => setIsServicesOpen(true)}
                   onMouseLeave={() => setIsServicesOpen(false)}
                 >
-                  <button className={`${navLinkClass} flex items-center gap-1`}>
+                  <button
+                    className={`${navLinkClass} flex items-center gap-1 text-white`}
+                  >
                     Servicios
                     <ChevronDown className='w-4 h-4' />
                   </button>
 
                   {isServicesOpen && (
                     <div className='absolute top-full left-0 pt-3 w-72 z-50'>
-                      <div className='bg-white rounded-lg border-2 border-ink-dark shadow-[6px_6px_0_0_#1a1a1a] py-2'>
+                      <div className='bg-ink-dark rounded-lg py-2 uppercase'>
                         {services.map((service) => (
                           <a
                             key={service.path}
@@ -161,14 +162,9 @@ const Header = ({ showNavMenu }: HeaderProps) => {
                             onClick={() => setIsServicesOpen(false)}
                           >
                             <div className='flex items-center justify-between'>
-                              <span className='text-gray-900 group-hover:text-white font-bold text-sm transition-colors'>
+                              <span className='text-white group-hover:text-white  text-lg transition-colors'>
                                 {service.name}
                               </span>
-                              {service.popular && (
-                                <span className='bg-accent text-ink-dark border-2 border-ink-dark text-xs font-bold px-2 py-0.5 rotate-[-2deg]'>
-                                  Popular
-                                </span>
-                              )}
                             </div>
                           </a>
                         ))}
@@ -177,16 +173,12 @@ const Header = ({ showNavMenu }: HeaderProps) => {
                   )}
                 </div>
 
-                <a href='/sobre-el-estudio' className={navLinkClass}>
-                  {t('nav.about')}
-                </a>
-
                 <a href='/contacto' className={navLinkClass}>
                   {t('nav.contact')}
                 </a>
 
-                <a href='/preguntas-frecuentes' className={navLinkClass}>
-                  Preguntas
+                <a href='/' className={navLinkClass}>
+                  {t('nav.blog')}
                 </a>
               </nav>
             )}
@@ -208,7 +200,10 @@ const Header = ({ showNavMenu }: HeaderProps) => {
             )}
 
             {isPackLanding && (
-              <div className='hidden md:block md:min-w-[200px]' aria-hidden='true' />
+              <div
+                className='hidden md:block md:min-w-[200px]'
+                aria-hidden='true'
+              />
             )}
 
             {navEnabled && (
@@ -220,7 +215,7 @@ const Header = ({ showNavMenu }: HeaderProps) => {
 
                 <div className='md:hidden flex items-center justify-end'>
                   <button
-                    className='p-2'
+                    className='p-2 text-white'
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
                     aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
                   >
@@ -236,7 +231,7 @@ const Header = ({ showNavMenu }: HeaderProps) => {
           </div>
 
           {isPackLanding && isMenuOpen && (
-            <nav className='md:hidden mt-4 pb-2 bg-white rounded-lg border-2 border-ink-dark shadow-[6px_6px_0_0_#1a1a1a] divide-y-2 divide-gray-100'>
+            <nav className='md:hidden mt-4 pb-2 bg-[#333333] text-white rounded-lg border-2 border-ink-dark shadow-[6px_6px_0_0_#1a1a1a] divide-y-2 divide-gray-100'>
               {packLandingAnchors.map((item) => (
                 <a
                   key={item.href}
@@ -254,7 +249,7 @@ const Header = ({ showNavMenu }: HeaderProps) => {
           )}
 
           {navEnabled && isMenuOpen && (
-            <nav className='md:hidden mt-4 pb-2 bg-white rounded-lg border-2 border-ink-dark shadow-[6px_6px_0_0_#1a1a1a] divide-y-2 divide-gray-100'>
+            <nav className='md:hidden mt-4 pb-2 bg-ink-dark text-white rounded-lg border-2 border-ink-dark shadow-[6px_6px_0_0_#1a1a1a] divide-y-2 divide-gray-100'>
               <a href='/' className={mobileNavLinkClass}>
                 Inicio
               </a>

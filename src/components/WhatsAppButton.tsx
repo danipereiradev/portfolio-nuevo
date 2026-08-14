@@ -3,10 +3,7 @@ import {
   trackWhatsAppClick,
   trackGoogleAdsWhatsAppConversion,
 } from '../utils/analytics';
-import {
-  buildWhatsAppUrl,
-  getWhatsAppMessageForPath,
-} from '../config/contact';
+import { buildWhatsAppUrl, getWhatsAppMessageForPath } from '../config/contact';
 
 const WhatsAppButton = () => {
   const { pathname } = useLocation();
@@ -22,7 +19,7 @@ const WhatsAppButton = () => {
         trackWhatsAppClick('FloatingButton');
         trackGoogleAdsWhatsAppConversion(whatsappUrl);
       }}
-      className='hidden md:block fixed bottom-6 left-6 z-50 bg-accent hover:bg-accent-hover text-white p-4 rounded-full border-2 border-ink-dark shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150 group'
+      className='hidden md:block fixed bottom-6 right-6 z-50 bg-accent hover:bg-accent-hover text-white p-4 rounded-full border-2 border-ink-dark shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150 group'
       aria-label='Contactar por WhatsApp'
     >
       <svg

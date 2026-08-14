@@ -12,11 +12,13 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
 const translations = {
   // Header
   'nav.home': 'Inicio',
-  'nav.about': 'Sobre el Estudio',
+  'nav.about': 'Pereiraweb',
   'nav.services': 'Servicios',
-  'nav.portfolio': 'Trabajos',
+  'nav.portfolio': 'Portfolio',
   'nav.clients': 'Clientes',
+  'nav.exito': 'Casos de éxito',
   'nav.contact': 'Contacto',
+  'nav.blog': 'Blog',
 
   // Hero
   'hero.title': 'Webs que explican lo que haces.',

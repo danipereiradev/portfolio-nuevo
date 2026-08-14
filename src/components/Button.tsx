@@ -19,7 +19,7 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
   variant = 'primary',
   type = 'button',
-  className = '',
+  className = 'mt-8',
   disabled = false,
   href,
   target,
@@ -28,15 +28,14 @@ const Button: React.FC<ButtonProps> = ({
   isLoading = false,
 }) => {
   const baseStyles =
-    'px-6 py-3 md:px-8 md:py-4 rounded-lg border-2 font-bold text-base md:text-lg transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed disabled:translate-x-0 disabled:translate-y-0 flex items-center justify-center gap-2 active:translate-x-[5px] active:translate-y-[5px] active:shadow-none';
+    'px-6 py-3 md:px-8 md:py-4 rounded-lg font-bold text-base md:text-lg transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed disabled:translate-x-0 disabled:translate-y-0 flex items-center justify-center gap-2 active:translate-x-[5px] active:translate-y-[5px] active:shadow-none';
 
   const variantStyles = {
-    primary:
-      'bg-accent text-white border-ink-dark shadow-[5px_5px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[3px] hover:translate-y-[3px]',
+    primary: 'bg-accent text-2xl text-ink-dark uppercase  ',
     secondary:
-      'border-white text-white hover:bg-white hover:text-black shadow-[5px_5px_0_0_rgba(255,255,255,0.35)] hover:shadow-[2px_2px_0_0_rgba(255,255,255,0.35)] hover:translate-x-[3px] hover:translate-y-[3px]',
+      'text-ink-dark uppercase hover:bg-white hover:text-black shadow-[5px_5px_0_0_rgba(255,255,255,0.35)] hover:shadow-[2px_2px_0_0_rgba(255,255,255,0.35)] ',
     ghost:
-      'bg-gray-200 text-gray-700 hover:bg-gray-300 border-ink-dark shadow-[5px_5px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[3px] hover:translate-y-[3px]',
+      'bg-gray-200 text-gray-700 hover:bg-gray-300 border-ink-dark   hover:translate-x-[3px] hover:translate-y-[3px]',
   };
 
   const widthStyles = fullWidth ? 'w-full' : '';
