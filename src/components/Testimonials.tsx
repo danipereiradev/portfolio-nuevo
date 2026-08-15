@@ -109,7 +109,7 @@ const Testimonials = ({
           <h2 className='text-4xl md:text-5xl font-extrabold text-gray-900 mb-4'>
             Lo que dicen clientes
           </h2>
-          <p className='text-xl text-gray-600 max-w-3xl mx-auto mb-6'>
+          <p className='text-xl text-gray-600    mx-auto mb-6'>
             Reseñas reales de gente que nos encargó su web o tienda.
           </p>
 

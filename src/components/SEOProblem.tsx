@@ -18,12 +18,12 @@ const SEOProblem = ({ title, subtitle, problems }: SEOProblemProps) => {
           <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4'>
             {title}
           </h2>
-          <p className='text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto'>
+          <p className='text-base md:text-lg lg:text-xl text-gray-600    mx-auto'>
             {subtitle}
           </p>
         </div>
 
-        <div className='max-w-4xl mx-auto grid md:grid-cols-2 gap-5'>
+        <div className='   mx-auto grid md:grid-cols-2 gap-5'>
           {problems.map((problem, index) => (
             <div
               key={index}

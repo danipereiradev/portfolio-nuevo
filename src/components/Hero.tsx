@@ -40,12 +40,12 @@ const Hero = () => {
       style={{
         backgroundImage: 'url("/img/hero-bg-texture.avif")',
       }}
-      className='relative bg-no-repeat bg-center bg-cover flex items-center overflow-hidden text-ink-dark pt-[var(--site-header-h)] pb-14 min-h-[70vh] md:pb-0 md:min-h-[100svh]'
+      className='relative bg-no-repeat bg-center bg-cover flex items-center md:justify-end overflow-hidden text-ink-dark pt-[var(--site-header-h)] pb-14 min-h-[70vh] md:pb-0 md:min-h-[100svh]'
     >
       <div className='bg-white opacity-50 absolute w-full inset-0'></div>
 
-      <div className='flex md:flex-row flex-col hero-container max-w-6xl mx-auto items-center text-center'>
-        <div className='mt-12 md:mt-0 pr-8 md:w-1/2 z-10 p-4 my-8'>
+      <div className='flex md:flex-row flex-col hero-container mx-auto md:justify-center items-center text-center md:text-start container px-8'>
+        <div className='mt-12 md:mt-0 md:w-1/2 z-10 p-4 my-8'>
           <h1 className='text-5xl md:text-6xl font-extrabold text-gray-900 mb-6'>
             Agencia de diseño web y marketing digital
           </h1>
@@ -54,12 +54,12 @@ const Hero = () => {
             quia veritatis voluptatibus, dicta id reprehenderit deserunt culpa
             corporis corrupti accusantium.
           </p>
-          <Button className='mx-auto mt-4'>LLÁMANOS</Button>
+          <Button className='mx-auto mt-4 md:mx-0'>LLÁMANOS</Button>
         </div>
 
-        <div className='flex justify-center items-center md:w-1/2 z-10 p-4'>
+        <div className='flex justify-end items-center md:w-1/2 z-10 '>
           <form
-            className='bg-ink-dark md:w-[470px] rounded-2xl justify-center p-8'
+            className='bg-ink-dark md:w-[470px] rounded-2xl justify-center p-12'
             action=''
           >
             <h2 className='text-3xl md:text-4xl font-extrabold text-neutral-300 text-center mt-4 mb-0'>
@@ -112,7 +112,7 @@ const Hero = () => {
                   handleInputChange('description', e.target.value)
                 } */
                 rows={3}
-                className='w-full p-4 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_#14b8a6] transition-all duration-150 text-md'
+                className='w-full p-4 border-2 rounded-lg bg-white focus:outline-none focus:border-accent transition-all duration-150 text-md'
                 placeholder='Cuentanos que crees que necesitas para aumentar las visitas o las ventas de tu negocio...'
                 maxLength={500}
               />

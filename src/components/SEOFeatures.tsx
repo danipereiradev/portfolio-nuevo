@@ -1,5 +1,3 @@
-import { Check } from 'lucide-react';
-
 interface Feature {
   title: string;
   description: string;
@@ -13,34 +11,28 @@ interface SEOFeaturesProps {
 
 const SEOFeatures = ({ title, subtitle, features }: SEOFeaturesProps) => {
   return (
-    <section className='py-20 bg-gray-50'>
+    <section className='py-20 bg-gray-50 md:min-h-[100vh] flex items-center'>
       <div className='container mx-auto px-6'>
         <div className='text-center mb-12 md:mb-16'>
-          <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4'>
+          <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-black mb-4'>
             {title}
           </h2>
           {subtitle && (
-            <p className='text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto'>
+            <p className='text-base md:text-lg lg:text-xl text-black mx-auto'>
               {subtitle}
             </p>
           )}
         </div>
 
-        <div className='max-w-5xl mx-auto grid md:grid-cols-2 gap-5'>
+        <div className='   mx-auto grid md:grid-cols-3 gap-5'>
           {features.map((feature, index) => (
-            <div
-              key={index}
-              className='bg-white p-4 md:p-6 rounded-lg border-2 border-ink-dark shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
-            >
-              <div className='flex items-start gap-3 md:gap-4'>
-                <div className='flex-shrink-0'>
-                  <Check className='w-5 h-5 md:w-6 md:h-6 text-accent' />
-                </div>
+            <div key={index} className='p-4 md:p-6 rounded-lg bg-ink-dark'>
+              <div className='flex items-center gap-3 md:gap-4 p-8 justify-center '>
                 <div>
-                  <h3 className='text-base md:text-lg lg:text-xl font-bold text-gray-900 mb-2'>
+                  <h3 className='text-center text-base md:text-xl uppercase lg:text-2xl font-bold text-neutral-300 mb-2'>
                     {feature.title}
                   </h3>
-                  <p className='text-sm md:text-base text-gray-600 leading-relaxed'>
+                  <p className='text-center text-sm md:text-base text-neutral-300 '>
                     {feature.description}
                   </p>
                 </div>

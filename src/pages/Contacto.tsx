@@ -30,7 +30,7 @@ const Contacto = () => {
     <>
       <section className='pt-[calc(var(--site-header-h)+2.5rem)] pb-20 bg-white'>
         <div className='container mx-auto px-6'>
-          <div className='max-w-3xl mx-auto mb-12 md:mb-16'>
+          <div className='   mx-auto mb-12 md:mb-16'>
             <p className='text-accent font-mono text-sm md:text-base font-semibold tracking-tight mb-3'>
               Contacto
             </p>
@@ -43,7 +43,7 @@ const Contacto = () => {
             </p>
           </div>
 
-          <div className='grid md:grid-cols-2 gap-12 max-w-6xl mx-auto mb-16'>
+          <div className='grid md:grid-cols-2 gap-12   mx-auto mb-16'>
             <div>
               <h2 className='text-3xl font-bold text-gray-900 mb-6'>
                 Cómo contactar
@@ -183,7 +183,7 @@ const Contacto = () => {
             </div>
           </div>
 
-          <div id='mapa' className='scroll-mt-24 max-w-6xl mx-auto'>
+          <div id='mapa' className='scroll-mt-24   mx-auto'>
             <div className='text-center mb-8 max-w-2xl mx-auto'>
               <h2 className='text-2xl md:text-3xl font-bold text-gray-900 mb-3'>
                 Encuéntranos en Google

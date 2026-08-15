@@ -12,14 +12,14 @@ const Services = () => {
       imageAlt: 'Mock de web a medida — Hoy Viajamos',
       cta: 'Ver web a medida',
     },
-    {
+    /* {
       title: t('services.wordpress.title'),
       description: t('services.wordpress.desc'),
       link: '/web-profesional-a-medida',
       image: '/img/fikret-tozak-rfNLa1HL7eY-unsplash.jpg',
       imageAlt: 'Mock de web a medida — Hoy Viajamos',
       cta: 'Ver web a medida',
-    },
+    }, */
     {
       title: t('services.ecommerce.title'),
       description: t('services.ecommerce.desc'),
@@ -47,18 +47,21 @@ const Services = () => {
   ];
 
   return (
-    <section id='services' className='relative py-20 md:py-24 bg-gray-50'>
-      <div className='container mx-auto px-6'>
-        <div className='max-w-3xl mx-auto text-center mb-12 md:mb-16'>
-          <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4 leading-tight'>
+    <section
+      id='services'
+      className='relative py-20 md:py-24 bg-gray-50 md:min-h-[100vh] flex items-center'
+    >
+      <div className='mx-auto px-6 md:px-12  container'>
+        <div className='   mx-auto text-center mb-12 md:mb-16'>
+          <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-12 leading-tight'>
             {t('services.title')}
           </h2>
-          <p className='text-xl md:text-2xl text-black leading-relaxed'>
+          <p className='text-xl md:text-2xl text-black leading-relaxed mb-12'>
             {t('services.description')}
           </p>
         </div>
-
-        <div className='grid md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto'>
+        <div className='spacer h-[100px]'></div>
+        <div className='grid md:grid-cols-4 gap-6 md:gap-8   mx-auto'>
           {mainServices.map((service) => (
             <article
               key={service.link}

@@ -32,7 +32,7 @@ const Faq = () => {
     <>
       <section className='pt-[calc(var(--site-header-h)+2.5rem)] pb-10 md:pb-12 bg-white border-b-2 border-ink-dark/10'>
         <div className='container mx-auto px-6'>
-          <div className='max-w-3xl mx-auto mb-10 md:mb-12'>
+          <div className='   mx-auto mb-10 md:mb-12'>
             <p className='text-accent font-mono text-sm md:text-base font-semibold tracking-tight mb-3'>
               Preguntas frecuentes
             </p>
@@ -45,7 +45,7 @@ const Faq = () => {
             </p>
           </div>
 
-          <div className='flex flex-wrap justify-center gap-2 md:gap-3 max-w-5xl mx-auto'>
+          <div className='flex flex-wrap justify-center gap-2 md:gap-3    mx-auto'>
             {faqCategories.map((category) => (
               <a
                 key={category.id}
@@ -74,7 +74,7 @@ const Faq = () => {
               <h2 className='text-2xl md:text-3xl lg:text-4xl font-extrabold mb-8 md:mb-10 text-center text-gray-900'>
                 {category.title}
               </h2>
-              <div className='max-w-3xl mx-auto space-y-3'>
+              <div className='   mx-auto space-y-3'>
                 {category.faqs.map((faq, index) => {
                   const key = `${category.id}-${index}`;
                   const isOpen = openKey === key;

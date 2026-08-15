@@ -40,7 +40,10 @@ interface TrustBarProps {
   hidePaymentPoint?: boolean;
 }
 
-const TrustBar = ({ deliveryText, hidePaymentPoint = false }: TrustBarProps) => {
+const TrustBar = ({
+  deliveryText,
+  hidePaymentPoint = false,
+}: TrustBarProps) => {
   const trustPoints = defaultTrustPoints
     .filter((point) => !(hidePaymentPoint && point.icon === Wallet))
     .map((point) =>
@@ -51,7 +54,7 @@ const TrustBar = ({ deliveryText, hidePaymentPoint = false }: TrustBarProps) => 
 
   return (
     <section className='relative overflow-hidden border-b-2 border-white/10 bg-black py-10 md:py-12'>
-      <div className='mx-auto w-full max-w-5xl px-6'>
+      <div className='mx-auto w-full    px-6'>
         {/* Móvil: 2 columnas, último centrado */}
         <div className='grid grid-cols-2 gap-3 md:hidden'>
           {trustPoints.map((point, index) => {
@@ -127,7 +130,7 @@ const TrustBar = ({ deliveryText, hidePaymentPoint = false }: TrustBarProps) => 
                   />
                 ))}
               </div>
-              <div className='mx-auto grid w-full max-w-3xl grid-cols-3 gap-4'>
+              <div className='mx-auto grid w-full    grid-cols-3 gap-4'>
                 {trustPoints.slice(4).map((point) => (
                   <TrustPointCard
                     key={point.text}

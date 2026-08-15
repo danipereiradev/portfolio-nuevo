@@ -189,15 +189,15 @@ Hay categorías (destinos, guías, tips, comida), galerías ligeras, mapas de si
       <section
         id='portfolio'
         ref={sectionRef}
-        className='relative py-20 bg-gray-50 overflow-hidden'
+        className='relative py-20 bg-gray-50 overflow-hidden md:min-h-[100vh] flex items-center'
       >
-        <div className='container mx-auto px-6 relative z-10'>
+        <div className=' mx-auto relative z-10 container px-6 md:px-12 '>
           <div className='text-center mb-16'>
             <h2 className='text-4xl md:text-5xl font-extrabold text-gray-900 mb-4'>
               {isPackLanding ? 'Trabajos reales' : t('portfolio.title')}
             </h2>
             {!isPackLanding && (
-              <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
+              <p className='text-xl text-gray-600    mx-auto'>
                 {t('portfolio.description')}
               </p>
             )}
@@ -206,10 +206,10 @@ Hay categorías (destinos, guías, tips, comida), galerías ligeras, mapas de si
           <div
             className={
               projects.length === 1
-                ? 'flex justify-center max-w-6xl mx-auto'
+                ? 'flex justify-center mx-auto'
                 : isPackLanding
-                  ? 'grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto'
-                  : 'grid md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto'
+                  ? 'grid md:grid-cols-4 lg:grid-cols-4 gap-6 md:gap-8   mx-auto'
+                  : 'grid md:grid-cols-4 gap-6 md:gap-8    mx-auto'
             }
           >
             {projects.map((project, index) => (
@@ -219,11 +219,47 @@ Hay categorías (destinos, guías, tips, comida), galerías ligeras, mapas de si
                 onMouseEnter={() =>
                   project.headerImage && preloadImage(project.headerImage)
                 }
-                className={`group cursor-pointer rounded-2xl border-2 border-ink-dark bg-white overflow-hidden shadow-[6px_6px_0_0_#1a1a1a] hover:shadow-[3px_3px_0_0_#1a1a1a] hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-200 ${
+                className={`group cursor-pointer rounded-2xl  bg-white overflow-hidden  ${
                   projects.length === 1 ? 'w-full max-w-md' : ''
                 }`}
               >
-                <div className='relative overflow-hidden bg-white border-b-2 border-ink-dark'>
+                <article
+                  key={project.title}
+                  className='bg-ink-dark text-neutral-300 shadow-xl rounded-2xl overflow-hidden flex flex-col '
+                >
+                  <a
+                    href={project.url}
+                    className='block bg-gray-100'
+                    tabIndex={-1}
+                    aria-hidden='true'
+                  >
+                    <img
+                      src={project.headerImage}
+                      alt={project.title}
+                      width={800}
+                      height={600}
+                      className='w-full aspect-[4/3] object-cover '
+                      loading='lazy'
+                      decoding='async'
+                    />
+                  </a>
+
+                  <div className='p-5 md:p-6 flex flex-col flex-1 text-center'>
+                    <h3 className='text-xl md:text-2xl font-bold text-neutral-300  mb-2'>
+                      {project.title}
+                    </h3>
+                    <p className='text-sm md:text-base text-neutral-300  leading-relaxed mb-5 flex-1'>
+                      {project.description}
+                    </p>
+                    {/* <a
+                  href={service.link}
+                  className='inline-flex self-start text-sm font-bold text-ink-dark border-2 border-ink-dark bg-accent px-4 py-2 rounded-lg shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
+                >
+                  {service.cta}
+                </a> */}
+                  </div>
+                </article>
+                {/* <div className='relative overflow-hidden bg-white border-b-2 border-ink-dark'>
                   <img
                     src={project.headerImage}
                     alt={project.title}
@@ -254,12 +290,12 @@ Hay categorías (destinos, guías, tips, comida), galerías ligeras, mapas de si
                   <span className='inline-block text-sm font-semibold text-accent mt-3 group-hover:underline'>
                     Ver caso completo
                   </span>
-                </div>
+                </div> */}
               </div>
             ))}
           </div>
 
-          <div className='max-w-3xl mx-auto mt-[100px] mb-[50px] bg-ink-dark border-2 border-ink-dark rounded-2xl p-8 text-center shadow-[6px_6px_0_0_rgba(20,184,166,0.5)]'>
+          <div className='   mx-auto mt-[100px] mb-[50px] bg-ink-dark border-2 border-ink-dark rounded-2xl p-8 text-center shadow-[6px_6px_0_0_rgba(20,184,166,0.5)]'>
             <h3 className='text-2xl md:text-3xl font-bold text-white mb-4'>
               ¿Quieres ver proyectos parecidos al que tienes en mente?
             </h3>
@@ -269,7 +305,6 @@ Hay categorías (destinos, guías, tips, comida), galerías ligeras, mapas de si
             </p>
             <div className='flex justify-center'>
               <Button onClick={handleWhatsAppClick} variant='primary'>
-                <MessageCircle className='w-4 h-4 md:w-5 md:h-5' />
                 Solicitar ejemplos
               </Button>
             </div>
@@ -319,7 +354,7 @@ Hay categorías (destinos, guías, tips, comida), galerías ligeras, mapas de si
                   </div>
                 )}
 
-                <div className='max-w-4xl mx-auto px-6 md:px-12 py-12 md:py-16'>
+                <div className='   mx-auto px-6 md:px-12 py-12 md:py-16'>
                   <h3 className='text-3xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6'>
                     {projects[selectedProject].title}
                   </h3>

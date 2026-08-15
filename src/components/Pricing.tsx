@@ -95,7 +95,7 @@ const Pricing = () => {
       className='relative py-20 bg-white overflow-hidden'
     >
       <div className='mx-auto w-full max-w-screen-2xl px-6 relative z-10'>
-        <div className='text-center mb-12 max-w-3xl mx-auto'>
+        <div className='text-center mb-12    mx-auto'>
           <h2 className='text-4xl md:text-5xl font-extrabold text-gray-900 mb-6'>
             Cuéntanos el proyecto y te pasamos números
           </h2>
@@ -197,7 +197,7 @@ const Pricing = () => {
           ))}
         </div>
 
-        <div className='mt-16 grid md:grid-cols-2 gap-8 max-w-6xl mx-auto items-stretch'>
+        <div className='mt-16 grid md:grid-cols-2 gap-8   mx-auto items-stretch'>
           <div className='bg-white border-2 border-ink-dark rounded-2xl p-8 text-center shadow-[6px_6px_0_0_#1a1a1a] flex flex-col'>
             <Wallet className='w-6 h-6 text-accent mx-auto mb-4' />
             <h3 className='text-2xl md:text-3xl font-bold text-gray-900 mb-4'>

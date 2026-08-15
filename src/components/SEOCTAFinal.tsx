@@ -20,9 +20,7 @@ const SEOCTAFinal = ({
   className = '',
 }: SEOCTAFinalProps) => {
   return (
-    <section
-      className={`relative py-20 overflow-hidden ${className}`.trim()}
-    >
+    <section className={`relative py-20 overflow-hidden ${className}`.trim()}>
       <div
         className='absolute inset-0 bg-cover bg-center bg-no-repeat'
         style={{ backgroundImage: "url('/img/cta-pereiraweb.webp')" }}
@@ -31,7 +29,7 @@ const SEOCTAFinal = ({
       <div className='absolute inset-0 bg-ink-dark/70' aria-hidden='true' />
 
       <div className='container mx-auto px-6 relative z-10'>
-        <div className='max-w-4xl mx-auto text-center'>
+        <div className='   mx-auto text-center'>
           <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6'>
             {title}
           </h2>

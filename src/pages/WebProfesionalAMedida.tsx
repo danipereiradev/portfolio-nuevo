@@ -256,7 +256,7 @@ const WebProfesionalAMedida = () => {
 
       <section className='py-20 bg-white'>
         <div className='container mx-auto px-6'>
-          <div className='text-center mb-12 max-w-3xl mx-auto'>
+          <div className='text-center mb-12    mx-auto'>
             <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4'>
               Si tu web no ayuda a conseguir clientes, sobra
             </h2>
@@ -264,7 +264,7 @@ const WebProfesionalAMedida = () => {
               Situaciones que vemos a menudo antes de arrancar un proyecto.
             </p>
           </div>
-          <div className='max-w-4xl mx-auto grid md:grid-cols-2 gap-5'>
+          <div className='   mx-auto grid md:grid-cols-2 gap-5'>
             {problems.map((problem) => (
               <div
                 key={problem}
@@ -282,7 +282,7 @@ const WebProfesionalAMedida = () => {
 
       <section className='py-20 bg-gray-50'>
         <div className='container mx-auto px-6'>
-          <div className='text-center mb-12 max-w-3xl mx-auto'>
+          <div className='text-center mb-12    mx-auto'>
             <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4'>
               ¿Para quién es?
             </h2>
@@ -291,7 +291,7 @@ const WebProfesionalAMedida = () => {
               trabajamos online.
             </p>
           </div>
-          <div className='max-w-5xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-5'>
+          <div className='   mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-5'>
             {sectors.map((sector) => {
               const Icon = sector.icon;
               return (
@@ -316,7 +316,7 @@ const WebProfesionalAMedida = () => {
         className='relative py-20 overflow-hidden scroll-mt-24 bg-white'
       >
         <div className='relative z-10 container mx-auto px-6'>
-          <div className='text-center mb-12 max-w-3xl mx-auto'>
+          <div className='text-center mb-12    mx-auto'>
             <h2 className='text-2xl md:text-4xl font-bold text-gray-900 mb-4'>
               Qué suele llevar la web
             </h2>
@@ -324,7 +324,7 @@ const WebProfesionalAMedida = () => {
               Lo básico para presentarte y que te contacten. Sin relleno.
             </p>
           </div>
-          <div className='max-w-5xl mx-auto grid md:grid-cols-2 gap-5'>
+          <div className='   mx-auto grid md:grid-cols-2 gap-5'>
             {features.map((feature) => (
               <div
                 key={feature.title}
@@ -349,7 +349,7 @@ const WebProfesionalAMedida = () => {
 
       <section className='py-20 bg-gray-50'>
         <div className='container mx-auto px-6'>
-          <div className='max-w-3xl mx-auto text-center mb-10'>
+          <div className='   mx-auto text-center mb-10'>
             <h2 className='text-2xl md:text-4xl font-bold text-gray-900 mb-4'>
               Qué tendrás al terminar
             </h2>
@@ -357,7 +357,7 @@ const WebProfesionalAMedida = () => {
               No entregamos solo un diseño. Dejamos la web online y funcionando.
             </p>
           </div>
-          <ul className='max-w-3xl mx-auto grid sm:grid-cols-2 gap-4'>
+          <ul className='   mx-auto grid sm:grid-cols-2 gap-4'>
             {deliverables.map((item) => (
               <li
                 key={item}
@@ -388,12 +388,12 @@ const WebProfesionalAMedida = () => {
 
       <section className='py-20 bg-white'>
         <div className='container mx-auto px-6'>
-          <div className='text-center mb-12 max-w-3xl mx-auto'>
+          <div className='text-center mb-12    mx-auto'>
             <h2 className='text-2xl md:text-4xl font-bold text-gray-900 mb-4'>
               Así será el proceso
             </h2>
           </div>
-          <div className='max-w-3xl mx-auto space-y-5'>
+          <div className='   mx-auto space-y-5'>
             {processSteps.map((step) => (
               <div
                 key={step.number}

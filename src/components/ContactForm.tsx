@@ -303,13 +303,13 @@ Fecha: ${new Date().toLocaleString('es-ES')}
         <h2 className='text-2xl md:text-3xl lg:text-4xl font-extrabold text-gray-900 mb-4'>
           Cuéntanos qué necesitas
         </h2>
-        <p className='text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto'>
+        <p className='text-base md:text-lg lg:text-xl text-gray-600    mx-auto'>
           Cuéntanos el caso. Si encaja, te mandamos propuesta. Si no, te lo
           decimos. Suele ir rápido.
         </p>
       </div>
 
-      <div className='max-w-4xl mx-auto'>
+      <div className='   mx-auto'>
         <div className='bg-white rounded-lg border-2 border-ink-dark shadow-[7px_7px_0_0_#1a1a1a] overflow-hidden'>
           <form onSubmit={handleSubmit} className='p-8 space-y-6'>
             <div className='grid md:grid-cols-2 gap-6'>

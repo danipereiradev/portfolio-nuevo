@@ -32,7 +32,7 @@ const SEOFAQ = ({ title, faqs, onFaqOpen }: SEOFAQProps) => {
           </h2>
         </div>
 
-        <div className='max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 items-start'>
+        <div className='   mx-auto grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 items-start'>
           {faqs.map((faq, index) => (
             <div
               key={index}
@@ -61,7 +61,9 @@ const SEOFAQ = ({ title, faqs, onFaqOpen }: SEOFAQProps) => {
                 }`}
               >
                 <div className='px-4 pb-4 md:px-6 md:pb-5'>
-                        <p className='text-sm md:text-base lg:text-lg text-gray-700 leading-relaxed'>{faq.answer}</p>
+                  <p className='text-sm md:text-base lg:text-lg text-gray-700 leading-relaxed'>
+                    {faq.answer}
+                  </p>
                 </div>
               </div>
             </div>

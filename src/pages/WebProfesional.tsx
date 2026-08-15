@@ -213,7 +213,7 @@ const WebProfesional = () => {
         <div id='planes' className='scroll-mt-24 h-0' aria-hidden='true' />
         <div className='container mx-auto px-6'>
           <RevealOnScroll>
-            <div className='text-center mb-12 max-w-3xl mx-auto'>
+            <div className='text-center mb-12    mx-auto'>
               <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4'>
                 Qué incluye
               </h2>
@@ -224,7 +224,7 @@ const WebProfesional = () => {
             </div>
           </RevealOnScroll>
 
-          <div className='max-w-5xl mx-auto grid lg:grid-cols-2 gap-8'>
+          <div className='   mx-auto grid lg:grid-cols-2 gap-8'>
             <RevealOnScroll delayMs={80}>
               <article className='bg-white rounded-2xl p-7 md:p-8 border-2 border-ink-dark shadow-[7px_7px_0_0_#1a1a1a] relative flex flex-col h-full'>
                 <span className='absolute -top-4 left-6 bg-accent text-ink-dark border-2 border-ink-dark text-xs font-bold uppercase tracking-wide px-3 py-1 rotate-[-2deg]'>
@@ -321,7 +321,7 @@ const WebProfesional = () => {
           </p>
 
           <RevealOnScroll delayMs={100} className='mt-10'>
-            <div className='max-w-3xl mx-auto bg-white border-2 border-ink-dark rounded-2xl p-6 md:p-8 shadow-[5px_5px_0_0_#1a1a1a]'>
+            <div className='   mx-auto bg-white border-2 border-ink-dark rounded-2xl p-6 md:p-8 shadow-[5px_5px_0_0_#1a1a1a]'>
               <h3 className='text-lg md:text-xl font-bold text-gray-900 mb-3 text-center'>
                 Empieza simple. Crece después.
               </h3>
@@ -339,7 +339,7 @@ const WebProfesional = () => {
       <section id='extras' className='scroll-mt-24 py-20 bg-white'>
         <div className='container mx-auto px-6'>
           <RevealOnScroll>
-            <div className='text-center mb-12 max-w-3xl mx-auto'>
+            <div className='text-center mb-12    mx-auto'>
               <h2 className='text-2xl md:text-4xl font-bold text-gray-900 mb-4'>
                 ¿Necesitas textos, fotos o logo?
               </h2>
@@ -348,7 +348,7 @@ const WebProfesional = () => {
               </p>
             </div>
           </RevealOnScroll>
-          <div className='max-w-5xl mx-auto grid md:grid-cols-3 gap-5'>
+          <div className='   mx-auto grid md:grid-cols-3 gap-5'>
             {extras.map((extra, index) => {
               const Icon = extra.icon;
               return (
@@ -376,7 +376,7 @@ const WebProfesional = () => {
       <section id='por-que' className='scroll-mt-24 py-20 bg-gray-50'>
         <div className='container mx-auto px-6'>
           <RevealOnScroll>
-            <div className='text-center mb-10 max-w-3xl mx-auto'>
+            <div className='text-center mb-10    mx-auto'>
               <h2 className='text-2xl md:text-4xl font-bold text-gray-900 mb-4'>
                 ¿Por qué PereiraWeb?
               </h2>
@@ -387,7 +387,7 @@ const WebProfesional = () => {
             </div>
           </RevealOnScroll>
           <RevealOnScroll delayMs={80}>
-            <div className='max-w-3xl mx-auto mb-10'>
+            <div className='   mx-auto mb-10'>
               <div className='bg-ink-dark text-white rounded-2xl border-2 border-ink-dark p-5 md:p-6 shadow-[5px_5px_0_0_#1a1a1a] text-center'>
                 <p className='text-sm md:text-base font-semibold leading-relaxed'>
                   Proyectos en entornos de{' '}
@@ -400,7 +400,7 @@ const WebProfesional = () => {
               </div>
             </div>
           </RevealOnScroll>
-          <div className='max-w-5xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-5'>
+          <div className='   mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-5'>
             {whyPoints.map((point, index) => {
               const Icon = point.icon;
               return (

@@ -228,7 +228,7 @@ const TiendasOnline = () => {
       />
       <div className='bg-white pt-6 pb-16 md:pt-8 md:pb-20'>
         <div className='container mx-auto px-6'>
-          <div className='max-w-3xl mx-auto text-center bg-gray-50 border-2 border-ink-dark rounded-2xl p-6 md:p-8 shadow-[5px_5px_0_0_#1a1a1a]'>
+          <div className='   mx-auto text-center bg-gray-50 border-2 border-ink-dark rounded-2xl p-6 md:p-8 shadow-[5px_5px_0_0_#1a1a1a]'>
             <p className='text-base md:text-lg text-gray-800 font-medium leading-relaxed'>
               La idea es una tienda que encaje con cómo vendes tú: precio
               cerrado, catálogo ordenado y panel usable. Sin letra pequeña.
@@ -264,7 +264,7 @@ const TiendasOnline = () => {
             </p>
           </div>
 
-          <div className='max-w-3xl mx-auto bg-white rounded-2xl p-8 md:p-10 border-2 border-ink-dark shadow-[7px_7px_0_0_#1a1a1a] relative'>
+          <div className='   mx-auto bg-white rounded-2xl p-8 md:p-10 border-2 border-ink-dark shadow-[7px_7px_0_0_#1a1a1a] relative'>
             <span className='absolute -top-4 left-8 bg-accent text-ink-dark border-2 border-ink-dark text-xs font-bold uppercase tracking-wide px-3 py-1 rotate-[-2deg]'>
               Tienda Online
             </span>
@@ -340,7 +340,7 @@ const TiendasOnline = () => {
           <h3 className='text-xl md:text-2xl font-bold text-gray-900 text-center mb-8'>
             También podemos ayudarte con
           </h3>
-          <div className='grid sm:grid-cols-3 gap-4 max-w-4xl mx-auto'>
+          <div className='grid sm:grid-cols-3 gap-4    mx-auto'>
             <a
               href='/web-profesional-a-medida'
               className='block bg-gray-50 border-2 border-ink-dark rounded-2xl p-5 text-center font-bold text-gray-900 shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'

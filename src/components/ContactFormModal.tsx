@@ -30,7 +30,7 @@ const ContactFormModal = () => {
       <div className='absolute inset-0 bg-black/70 backdrop-blur-sm hidden md:block' />
 
       <div
-        className='relative bg-white md:rounded-lg md:border-2 md:border-ink-dark md:shadow-[8px_8px_0_0_#1a1a1a] w-full md:max-w-4xl h-full md:h-auto md:max-h-[90vh] overflow-y-auto overscroll-contain'
+        className='relative bg-white md:rounded-lg md:border-2 md:border-ink-dark md:shadow-[8px_8px_0_0_#1a1a1a] w-full md:   h-full md:h-auto md:max-h-[90vh] overflow-y-auto overscroll-contain'
         onClick={(e) => e.stopPropagation()}
       >
         <button

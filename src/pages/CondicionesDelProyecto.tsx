@@ -31,8 +31,7 @@ const processSteps = [
   {
     number: '5',
     title: 'Pago final y publicación',
-    description:
-      'Pago restante, dominio conectado y web online.',
+    description: 'Pago restante, dominio conectado y web online.',
   },
 ];
 
@@ -67,14 +66,11 @@ const CondicionesDelProyecto = () => {
         </div>
       </section>
 
-      <SEOProcess
-        title='El proceso, paso a paso'
-        steps={processSteps}
-      />
+      <SEOProcess title='El proceso, paso a paso' steps={processSteps} />
 
       <section className='py-16 md:py-20 bg-gray-50 border-y-2 border-ink-dark/10'>
         <div className='container mx-auto px-6'>
-          <div className='max-w-3xl mx-auto'>
+          <div className='   mx-auto'>
             <h2 className='text-2xl md:text-4xl font-extrabold text-gray-900 mb-4 text-center'>
               Pagos
             </h2>
@@ -86,14 +82,18 @@ const CondicionesDelProyecto = () => {
               <li className='flex gap-3'>
                 <span className='text-accent font-bold flex-shrink-0'>·</span>
                 <span>
-                  <strong className='text-gray-900'>Pago inicial del 50%</strong>{' '}
+                  <strong className='text-gray-900'>
+                    Pago inicial del 50%
+                  </strong>{' '}
                   del presupuesto para arrancar el proyecto.
                 </span>
               </li>
               <li className='flex gap-3'>
                 <span className='text-accent font-bold flex-shrink-0'>·</span>
                 <span>
-                  <strong className='text-gray-900'>Segundo pago del 50%</strong>{' '}
+                  <strong className='text-gray-900'>
+                    Segundo pago del 50%
+                  </strong>{' '}
                   restante antes de la publicación definitiva.
                 </span>
               </li>
@@ -111,7 +111,7 @@ const CondicionesDelProyecto = () => {
 
       <section className='py-16 md:py-20 bg-white'>
         <div className='container mx-auto px-6'>
-          <div className='max-w-3xl mx-auto'>
+          <div className='   mx-auto'>
             <h2 className='text-2xl md:text-4xl font-extrabold text-gray-900 mb-4 text-center'>
               Revisiones y cambios
             </h2>
@@ -151,7 +151,7 @@ const CondicionesDelProyecto = () => {
 
       <section className='py-16 md:py-20 bg-gray-50 border-y-2 border-ink-dark/10'>
         <div className='container mx-auto px-6'>
-          <div className='max-w-3xl mx-auto'>
+          <div className='   mx-auto'>
             <h2 className='text-2xl md:text-4xl font-extrabold text-gray-900 mb-4 text-center'>
               Plazos y contenidos
             </h2>
@@ -189,7 +189,7 @@ const CondicionesDelProyecto = () => {
 
       <section className='py-16 md:py-20 bg-white'>
         <div className='container mx-auto px-6'>
-          <div className='max-w-3xl mx-auto'>
+          <div className='   mx-auto'>
             <h2 className='text-2xl md:text-4xl font-extrabold text-gray-900 mb-4 text-center'>
               Publicación
             </h2>

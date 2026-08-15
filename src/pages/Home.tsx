@@ -9,6 +9,38 @@ import SEOProcess from '../components/SEOProcess';
 import SEOFAQ from '../components/SEOFAQ';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { globalFaqs } from '../data/globalFaqs';
+import SEOBenefits from '../components/SEOBenefits';
+import SEOFeatures from '../components/SEOFeatures';
+import { TextImage } from '../components/TextImage';
+
+const features = [
+  {
+    title: 'Bien en cualquier pantalla',
+    description: 'La miramos en móvil, tablet y ordenador antes de publicar.',
+  },
+  {
+    title: 'Que no se eternice cargando',
+    description: 'Páginas e imágenes ligeras. Nadie espera 8 segundos.',
+  },
+  {
+    title: 'Lista para Google',
+    description:
+      'Títulos y estructura en orden para que el buscador la entienda.',
+  },
+  {
+    title: 'Formulario y WhatsApp',
+    description: 'El cliente elige cómo escribirte.',
+  },
+  {
+    title: 'HTTPS desde el día uno',
+    description: 'Publicación con conexión segura.',
+  },
+  {
+    title: 'Hosting y dominio incluidos',
+    description:
+      'Tu dominio, tu alojamiento. Sin subdominios raros ni marcas ajenas.',
+  },
+];
 
 const processSteps = [
   {
@@ -59,10 +91,18 @@ const Home = () => {
     <>
       <Hero />
       {/*  <Pricing /> */}
+      <TextImage />
       <Services />
-      <div id='proceso' className='scroll-mt-24'>
-        <SEOProcess title='Cómo solemos trabajar' steps={processSteps} />
+      <div id='proceso' className='scroll-mt-24 '>
+        <SEOProcess
+          title='Como es el proceso una vez te pones en contacto con nosotros'
+          steps={processSteps}
+        />
       </div>
+      <SEOFeatures
+        title='¿Por qué elegir a pereiraweb para el diseño de tu web o tienda online?'
+        features={features}
+      />
       <Portfolio />
       <Testimonials />
       <div id='faq' className='scroll-mt-24'>

@@ -22,7 +22,7 @@ const SobreElEstudio = () => {
   return (
     <section className='pt-[calc(var(--site-header-h)+2.5rem)] pb-20 bg-white'>
       <div className='container mx-auto px-6'>
-        <div className='max-w-3xl mx-auto mb-12 md:mb-14'>
+        <div className='   mx-auto mb-12 md:mb-14'>
           <p className='text-accent font-mono text-sm md:text-base font-semibold tracking-tight mb-3'>
             Sobre el estudio
           </p>
@@ -35,29 +35,27 @@ const SobreElEstudio = () => {
           </p>
         </div>
 
-        <div className='max-w-3xl mx-auto text-gray-700 leading-relaxed space-y-5 text-base md:text-lg'>
+        <div className='   mx-auto text-gray-700 leading-relaxed space-y-5 text-base md:text-lg'>
           <p>
             <strong className='text-gray-900'>PereiraWeb</strong> no es una
-            agencia de 40 personas. Montamos webs, tiendas y mantenimiento
-            para autónomos y empresas. Si el proyecto no encaja, te lo
-            decimos.
+            agencia de 40 personas. Montamos webs, tiendas y mantenimiento para
+            autónomos y empresas. Si el proyecto no encaja, te lo decimos.
           </p>
           <p>
-            Nos escribes por email, teléfono, WhatsApp o videollamada. En
-            Madrid también podemos vernos. No hay oficina abierta al público.
+            Nos escribes por email, teléfono, WhatsApp o videollamada. En Madrid
+            también podemos vernos. No hay oficina abierta al público.
           </p>
           <p>
             El estudio lo dirige{' '}
             <strong className='text-gray-900'>Dani Pereira</strong>,{' '}
-            desarrollador web senior con más de 12 años en esto. Ha trabajado
-            en proyectos para pequeños negocios y también en entornos de{' '}
+            desarrollador web senior con más de 12 años en esto. Ha trabajado en
+            proyectos para pequeños negocios y también en entornos de{' '}
             <strong className='text-gray-900'>retail y banca</strong>. Cuando
             hace falta, entra gente de diseño, contenido o soporte.
           </p>
           <p>
-            Trabajamos con propuesta por escrito antes de empezar: qué se
-            hace, cuánto cuesta y en cuánto tiempo. Sin misterio a mitad de
-            proyecto.
+            Trabajamos con propuesta por escrito antes de empezar: qué se hace,
+            cuánto cuesta y en cuánto tiempo. Sin misterio a mitad de proyecto.
           </p>
         </div>
 

@@ -21,13 +21,13 @@ const SEOBenefits = ({ title, subtitle, benefits }: SEOBenefitsProps) => {
             {title}
           </h2>
           {subtitle && (
-            <p className='text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto'>
+            <p className='text-base md:text-lg lg:text-xl text-gray-600    mx-auto'>
               {subtitle}
             </p>
           )}
         </div>
 
-        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto'>
+        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8   mx-auto'>
           {benefits.map((benefit, index) => {
             const Icon = benefit.icon;
             return (

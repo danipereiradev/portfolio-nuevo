@@ -244,7 +244,7 @@ const MantenimientoWeb = () => {
             </p>
           </div>
 
-          <div className='max-w-3xl mx-auto bg-white rounded-2xl p-8 md:p-10 border-2 border-ink-dark shadow-[7px_7px_0_0_#1a1a1a] relative'>
+          <div className='   mx-auto bg-white rounded-2xl p-8 md:p-10 border-2 border-ink-dark shadow-[7px_7px_0_0_#1a1a1a] relative'>
             <span className='absolute -top-4 left-8 bg-accent text-ink-dark border-2 border-ink-dark text-xs font-bold uppercase tracking-wide px-3 py-1 rotate-[-2deg]'>
               Mantenimiento Web
             </span>
@@ -308,7 +308,7 @@ const MantenimientoWeb = () => {
           <h3 className='text-xl md:text-2xl font-bold text-gray-900 text-center mb-8'>
             También podemos ayudarte con
           </h3>
-          <div className='grid sm:grid-cols-3 gap-4 max-w-4xl mx-auto'>
+          <div className='grid sm:grid-cols-3 gap-4    mx-auto'>
             <a
               href='/web-profesional-a-medida'
               className='block bg-gray-50 border-2 border-ink-dark rounded-2xl p-5 text-center font-bold text-gray-900 shadow-[4px_4px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
