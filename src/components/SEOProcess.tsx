@@ -35,12 +35,12 @@ const SEOProcess = ({ title, steps }: SEOProcessProps) => {
               >
                 {index !== steps.length - 1 && (
                   <span
-                    className='absolute left-[1.55rem] md:left-[2.05rem] top-12 md:top-16 bottom-0 w-1 bg-accent'
+                    className='absolute left-[1.55rem] md:left-[2.05rem] top-12 md:top-16 bottom-0 w-1 bg-ink-dark'
                     aria-hidden='true'
                   />
                 )}
                 <div className='relative flex-shrink-0 z-10'>
-                  <div className='w-12 h-12 md:w-16 md:h-16 rounded-full bg-ink-dark text-white flex items-center justify-center text-lg md:text-2xl font-bold border-2 border-ink-dark shadow-[4px_4px_0_0_#14b8a6]'>
+                  <div className='w-12 h-12 md:w-16 md:h-16 rounded-full bg-ink-dark text-white flex items-center justify-center text-lg md:text-2xl font-bold '>
                     {step.number}
                   </div>
                 </div>

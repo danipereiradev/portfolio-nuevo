@@ -4,7 +4,10 @@ export const TextImage = () => {
   return (
     <section className='container mx-auto flex flex-col md:flex-row-reverse md:gap-24 items-center justify-center md:px-12 px-6 py-20 md:py-24    '>
       <div className='md:w-1/2 p-4'>
-        <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-12 leading-tight '>
+        <span className='bg-accent text-white text-md py-2 px-4 rounded-2xl'>
+          CONÓCENOS
+        </span>
+        <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-12 leading-tight mt-4'>
           Desarrollamos webs pensado en la escalabilidad y el crecimiento de tu
           negocio.
         </h2>
@@ -25,7 +28,7 @@ export const TextImage = () => {
           marca mientras nosotros nos encargamos de que la tecnología sea tu
           mayor aliada.
         </p>
-        <Button>Saber más</Button>
+        <Button className='text-white mt-4'>Saber más</Button>
       </div>
       <div className='md:w-1/2'>
         <img

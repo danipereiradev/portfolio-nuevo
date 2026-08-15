@@ -65,7 +65,7 @@ const Services = () => {
           {mainServices.map((service) => (
             <article
               key={service.link}
-              className='bg-ink-dark text-neutral-300 shadow-xl rounded-2xl overflow-hidden flex flex-col '
+              className='bg-ink-dark text-white shadow-xl rounded-2xl overflow-hidden flex flex-col '
             >
               <a
                 href={service.link}
@@ -85,10 +85,10 @@ const Services = () => {
               </a>
 
               <div className='p-5 md:p-6 flex flex-col flex-1 text-center'>
-                <h3 className='text-xl md:text-2xl font-bold text-neutral-300  mb-2'>
+                <h3 className='text-xl md:text-2xl font-bold text-white  mb-2'>
                   {service.title}
                 </h3>
-                <p className='text-sm md:text-base text-neutral-300  leading-relaxed mb-5 flex-1'>
+                <p className='text-sm md:text-base text-white  leading-relaxed mb-5 flex-1'>
                   {service.description}
                 </p>
                 {/* <a
