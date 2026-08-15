@@ -11,7 +11,7 @@ interface SEOFeaturesProps {
 
 const SEOFeatures = ({ title, subtitle, features }: SEOFeaturesProps) => {
   return (
-    <section className='py-20 bg-gray-50 md:min-h-[100vh] flex items-center'>
+    <section className='py-20 bg-gray-50     flex items-center'>
       <div className='container mx-auto px-6'>
         <div className='text-center mb-12 md:mb-16'>
           <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-black mb-4'>

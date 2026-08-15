@@ -49,7 +49,7 @@ const Services = () => {
   return (
     <section
       id='services'
-      className='relative py-20 md:py-24 bg-gray-50 md:min-h-[100vh] flex items-center'
+      className='relative py-20 md:py-24 bg-gray-50     flex items-center'
     >
       <div className='mx-auto px-6 md:px-12  container'>
         <div className='   mx-auto text-center mb-12 md:mb-16'>

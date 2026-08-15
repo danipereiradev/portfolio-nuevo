@@ -15,7 +15,7 @@ const Hero = () => {
 
       <div className='flex md:flex-row flex-col hero-container mx-auto md:justify-center items-center text-center md:text-start container px-8'>
         <div className='mt-12 md:mt-0 md:w-1/2 z-10 p-4 my-8'>
-          <h1 className='text-5xl md:text-6xl font-extrabold text-gray-900 mb-6'>
+          <h1 className='text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 mb-6'>
             Agencia de diseño web y marketing digital
           </h1>
           <p className='text-xl md:text-2xl text-black'>

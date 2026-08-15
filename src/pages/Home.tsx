@@ -13,6 +13,7 @@ import SEOBenefits from '../components/SEOBenefits';
 import SEOFeatures from '../components/SEOFeatures';
 import { TextImage } from '../components/TextImage';
 import { CtaTextForm } from '../components/CtaTextForm';
+import { SuccessCases } from '../components/SuccessCases';
 
 const features = [
   {
@@ -100,13 +101,14 @@ const Home = () => {
           steps={processSteps}
         />
       </div>
+      <CtaTextForm />
       <SEOFeatures
         title='¿Por qué elegir a pereiraweb para el diseño de tu web o tienda online?'
         features={features}
       />
 
-      <CtaTextForm />
       <Portfolio />
+      <SuccessCases />
       <Testimonials />
       <div id='faq' className='scroll-mt-24'>
         <SEOFAQ title='Preguntas frecuentes' faqs={globalFaqs} />

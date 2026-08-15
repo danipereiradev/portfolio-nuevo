@@ -1,34 +1,16 @@
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
-interface HeaderProps {
-  showNavMenu?: boolean;
-}
-
-/* const packLandingAnchors = [
-  { href: '#incluye', label: 'Incluye' },
-  { href: '#proceso', label: 'Proceso' },
-  { href: '#por-que', label: 'Por qué' },
-  { href: '#portfolio', label: 'Trabajos' },
-  { href: '#valoraciones', label: 'Reseñas' },
-  { href: '#contacto', label: 'Contacto' },
-]; */
-
 const navLinkClass =
-  'relative text-xl text-white uppercase transition-colors duration-200 hover:text-accent after:content-[""] after:absolute after:left-0 after:-bottom-1.5 after:h-[3px] after:w-0 after:bg-accent after:transition-all after:duration-200 hover:after:w-full';
+  'w-[120px] text-center relative text-xl py-2 px-4 rounded-2xl text-white uppercase transition-colors duration-200 hover:text-accent after:content-[""] after:absolute after:left-0 after:-bottom-1.5 after:h-[3px] after:w-0 after:bg-accent after:transition-all after:duration-200 hover:after:w-full';
 
 const mobileNavLinkClass =
   'text-white block w-full text-left px-4 py-3 font-bold text-md uppercase text-black hover:bg-gray-100 hover:text-accent transition-colors duration-200';
 
-const Header = ({ showNavMenu }: HeaderProps) => {
+const Header = () => {
   const { t } = useLanguage();
-  const { pathname } = useLocation();
-  const normalizedPath =
-    pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
-  const isPackLanding = normalizedPath === '/web-profesional';
-  const navEnabled = showNavMenu;
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -218,11 +200,17 @@ const Header = ({ showNavMenu }: HeaderProps) => {
                 )}
               </div>
 
-              <a href='/contacto' className={navLinkClass}>
+              <a
+                href='/contacto'
+                className={`${navLinkClass} bg-accent text-neutral-300 roundex-2xl`}
+              >
                 {t('nav.contact')}
               </a>
 
-              <a href='/' className={navLinkClass}>
+              <a
+                href='/'
+                className={`${navLinkClass} bg-accent text-neutral-300 roundex-2xl`}
+              >
                 {t('nav.blog')}
               </a>
             </nav>

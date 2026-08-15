@@ -103,6 +103,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       const result = await response.json().catch(() => null);
 
       // Formspree confirma éxito con HTTP 2xx y { ok: true }.
+
       // Sin ambas condiciones no redirigimos ni disparamos conversión.
       if (!response.ok || !result || result.ok !== true) {
         throw new Error(
@@ -122,7 +123,17 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
-      setIsFormSent(false);
+      setTimeout(() => {
+        setIsFormSent(false);
+      }, 10000);
+
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        consent: false,
+        page,
+      });
     }
   };
 
@@ -183,7 +194,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
         className='bg-ink-dark rounded-2xl justify-center p-12 w-3/4'
         action=''
       >
-        <h2 className='text-3xl md:text-4xl font-extrabold text-neutral-300 text-center mt-4 mb-0'>
+        <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-neutral-300 text-center mt-4 mb-0'>
           {title}
         </h2>
         <p className='text-neutral-300 text-center text-lg'>{description}</p>
@@ -277,9 +288,9 @@ Fecha: ${new Date().toLocaleString('es-ES')}
           </div>
         )}
         {isFormSent && (
-          <span className='text-white text-xltext-center'>
-            ¡Hemos recibido tu mensaje y en breve nos pondremos en contacto!
-            Gracias.
+          <span className='text-white text-lg'>
+            Tus datos han sido enviados correctamente. Nos pondremos en contacto
+            en breve. ¡Gracias!
           </span>
         )}
       </form>
