@@ -32,6 +32,7 @@ const Header = ({ showNavMenu }: HeaderProps) => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [typedText, setTypedText] = useState('');
   const [hasTyped, setHasTyped] = useState(false);
 
@@ -67,6 +68,26 @@ const Header = ({ showNavMenu }: HeaderProps) => {
     {
       name: 'Mantenimiento Web',
       path: '/mantenimiento-web',
+    },
+  ];
+
+  const about = [
+    {
+      name: 'Quienes somos',
+      path: '/',
+      popular: true,
+    },
+    {
+      name: 'Casos de exito',
+      path: '/',
+    },
+    {
+      name: 'Testimonios de clientes',
+      path: '/',
+    },
+    {
+      name: 'Trabaja con nosotros',
+      path: '/',
     },
   ];
 
@@ -130,9 +151,39 @@ const Header = ({ showNavMenu }: HeaderProps) => {
               </div>
             </>
             <nav className='text-white hidden md:flex place-self-end space-x-8'>
-              <a href='/sobre-el-estudio' className={navLinkClass}>
-                {t('nav.about')}
-              </a>
+              <div
+                className='relative'
+                onMouseEnter={() => setIsAboutOpen(true)}
+                onMouseLeave={() => setIsAboutOpen(false)}
+              >
+                <button
+                  className={`${navLinkClass} flex items-center gap-1 text-white`}
+                >
+                  Pereiraweb
+                  <ChevronDown className='w-4 h-4' />
+                </button>
+
+                {isAboutOpen && (
+                  <div className='absolute top-full left-0 pt-3 w-72 z-50'>
+                    <div className='bg-ink-dark rounded-lg py-2 uppercase'>
+                      {about.map((item) => (
+                        <a
+                          key={item.path}
+                          href={item.path}
+                          className='group block px-4 py-3 hover:bg-accent transition-colors'
+                          onClick={() => setIsServicesOpen(false)}
+                        >
+                          <div className='flex items-center justify-between'>
+                            <span className='text-white group-hover:text-white  text-lg transition-colors'>
+                              {item.name}
+                            </span>
+                          </div>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
               <div
                 className='relative'
                 onMouseEnter={() => setIsServicesOpen(true)}

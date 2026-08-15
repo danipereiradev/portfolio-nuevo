@@ -12,6 +12,7 @@ import { globalFaqs } from '../data/globalFaqs';
 import SEOBenefits from '../components/SEOBenefits';
 import SEOFeatures from '../components/SEOFeatures';
 import { TextImage } from '../components/TextImage';
+import { CtaTextForm } from '../components/CtaTextForm';
 
 const features = [
   {
@@ -103,6 +104,8 @@ const Home = () => {
         title='¿Por qué elegir a pereiraweb para el diseño de tu web o tienda online?'
         features={features}
       />
+
+      <CtaTextForm />
       <Portfolio />
       <Testimonials />
       <div id='faq' className='scroll-mt-24'>
