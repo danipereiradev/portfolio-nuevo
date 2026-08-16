@@ -219,13 +219,13 @@ Hay categorías (destinos, guías, tips, comida), galerías ligeras, mapas de si
                 onMouseEnter={() =>
                   project.headerImage && preloadImage(project.headerImage)
                 }
-                className={`group cursor-pointer rounded-2xl  bg-white overflow-hidden  ${
+                className={`group cursor-pointer rounded-xl  bg-white overflow-hidden  ${
                   projects.length === 1 ? 'w-full max-w-md' : ''
                 }`}
               >
                 <article
                   key={project.title}
-                  className='bg-ink-dark text-neutral-300 shadow-xl rounded-2xl overflow-hidden flex flex-col '
+                  className='bg-[#141414] text-neutral-300 shadow-xl rounded-xl overflow-hidden flex flex-col '
                 >
                   <a
                     href={project.url}
@@ -295,7 +295,7 @@ Hay categorías (destinos, guías, tips, comida), galerías ligeras, mapas de si
             ))}
           </div>
 
-          <div className='   mx-auto mt-[100px] mb-[50px] bg-ink-dark border-2 border-ink-dark rounded-2xl p-8 text-center shadow-[6px_6px_0_0_rgba(20,184,166,0.5)]'>
+          <div className='   mx-auto mt-[100px] mb-[50px] bg-[#141414] border-2 border-ink-dark rounded-xl p-8 text-center shadow-[6px_6px_0_0_rgba(20,184,166,0.5)]'>
             <h3 className='text-2xl md:text-3xl font-bold text-white mb-4'>
               ¿Quieres ver proyectos parecidos al que tienes en mente?
             </h3>
@@ -466,7 +466,7 @@ Hay categorías (destinos, guías, tips, comida), galerías ligeras, mapas de si
                         href={projects[selectedProject].url}
                         target='_blank'
                         rel='noopener noreferrer'
-                        className='inline-flex items-center justify-center gap-2 md:gap-3 bg-accent text-white px-6 md:px-8 py-3 md:py-4 rounded-2xl border-2 border-ink-dark shadow-[5px_5px_0_0_#1a1a1a] hover:bg-accent-hover hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-150 text-base md:text-lg font-bold w-full sm:w-auto'
+                        className='inline-flex items-center justify-center gap-2 md:gap-3 bg-accent text-white px-6 md:px-8 py-3 md:py-4 rounded-xl border-2 border-ink-dark shadow-[5px_5px_0_0_#1a1a1a] hover:bg-accent-hover hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-150 text-base md:text-lg font-bold w-full sm:w-auto'
                       >
                         <ExternalLink className='w-5 h-5 md:w-6 md:h-6' />
                         Visitar sitio web

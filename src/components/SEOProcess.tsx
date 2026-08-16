@@ -22,7 +22,7 @@ const SEOProcess = ({ title, steps }: SEOProcessProps) => {
         <div className='flex flex-col md:flex-row gap-24 items-center justify-center'>
           <div className='md:w-1/2'>
             <img
-              className='rounded-2xl'
+              className='rounded-xl'
               src='/img/theme-photos-CGpifH3FjOA-unsplash.jpg'
               alt='charles-deluvio'
             />
@@ -35,12 +35,12 @@ const SEOProcess = ({ title, steps }: SEOProcessProps) => {
               >
                 {index !== steps.length - 1 && (
                   <span
-                    className='absolute left-[1.55rem] md:left-[2.05rem] top-12 md:top-16 bottom-0 w-1 bg-ink-dark'
+                    className='absolute left-[1.55rem] md:left-[2.05rem] top-12 md:top-16 bottom-0 w-1 bg-[#141414]'
                     aria-hidden='true'
                   />
                 )}
                 <div className='relative flex-shrink-0 z-10'>
-                  <div className='w-12 h-12 md:w-16 md:h-16 rounded-full bg-ink-dark text-white flex items-center justify-center text-lg md:text-2xl font-bold '>
+                  <div className='w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#141414] text-white flex items-center justify-center text-lg md:text-2xl font-bold '>
                     {step.number}
                   </div>
                 </div>

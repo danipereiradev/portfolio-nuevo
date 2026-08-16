@@ -419,7 +419,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                       key={option.value}
                       type='button'
                       onClick={() => handleInputChange('plan', option.value)}
-                      className={`p-5 text-left border-2 rounded-2xl transition-all duration-150 ${
+                      className={`p-5 text-left border-2 rounded-xl transition-all duration-150 ${
                         isSelected
                           ? 'border-accent bg-gray-50 shadow-[4px_4px_0_0_#14b8a6]'
                           : errors.plan

@@ -4,7 +4,7 @@ export const TextImage = () => {
   return (
     <section className='container mx-auto flex flex-col md:flex-row-reverse md:gap-24 items-center justify-center md:px-12 px-6 py-20 md:py-24    '>
       <div className='md:w-1/2 p-4'>
-        <span className='bg-accent text-white text-md py-2 px-4 rounded-2xl'>
+        <span className='bg-accent text-white text-md py-2 px-4 rounded-xl'>
           CONÓCENOS
         </span>
         <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-12 leading-tight mt-4'>
@@ -21,18 +21,12 @@ export const TextImage = () => {
           Como Agencia de Ecommerce, analizamos tu modelo de negocio para elegir
           la tecnología que mejor se adapte a tus necesidades, desde Shopify
           hasta desarrollos a medida.
-          <br />
-          <br />
-          ¡No nos andamos con rodeos! Creamos herramientas potentes y fáciles de
-          gestionar para que tú te centres en lo que importa: hacer crecer tu
-          marca mientras nosotros nos encargamos de que la tecnología sea tu
-          mayor aliada.
         </p>
         <Button className='text-white mt-4'>Saber más</Button>
       </div>
       <div className='md:w-1/2'>
         <img
-          className='rounded-2xl'
+          className='rounded-xl'
           src='/img/web-design-charlesdeluvio.webp'
           alt='charles-deluvio'
         />

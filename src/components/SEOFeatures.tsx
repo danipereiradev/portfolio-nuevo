@@ -26,7 +26,7 @@ const SEOFeatures = ({ title, subtitle, features }: SEOFeaturesProps) => {
 
         <div className='   mx-auto grid md:grid-cols-3 gap-5'>
           {features.map((feature, index) => (
-            <div key={index} className='p-4 md:p-6 rounded-lg bg-ink-dark'>
+            <div key={index} className='p-4 md:p-6 rounded-lg bg-[#141414]'>
               <div className='flex items-center gap-3 md:gap-4 p-8 justify-center '>
                 <div>
                   <h3 className='text-center text-base md:text-xl uppercase lg:text-2xl font-bold text-neutral-300 mb-2'>

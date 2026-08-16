@@ -4,7 +4,7 @@ export const SuccessCases = () => {
   return (
     <section className='container mx-auto flex flex-col md:flex-row-reverse md:gap-24 items-center justify-center md:px-12 px-6 py-20 md:py-24    '>
       <div className='md:w-1/2 p-4'>
-        <span className='bg-accent text-white text-md py-2 px-4 rounded-2xl'>
+        <span className='bg-accent text-white text-md py-2 px-4 rounded-xl'>
           CASOS DE EXITO
         </span>
         <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mt-4 mb-12 leading-tight '>
@@ -13,27 +13,16 @@ export const SuccessCases = () => {
           proyecto como pereiraweb
         </h2>
         <p className='text-xl md:text-2xl text-black leading-relaxed'>
-          En Pereiraweb somos directos: una web lenta o con errores es una fuga
-          constante de dinero. Por eso, nuestra metodología en el desarrollo de
-          tiendas online combina la arquitectura técnica más avanzada con un
-          enfoque obsesivo en la conversión (CRO).
-          <br />
-          <br />
-          Como Agencia de Ecommerce, analizamos tu modelo de negocio para elegir
-          la tecnología que mejor se adapte a tus necesidades, desde Shopify
-          hasta desarrollos a medida.
-          <br />
-          <br />
-          ¡No nos andamos con rodeos! Creamos herramientas potentes y fáciles de
-          gestionar para que tú te centres en lo que importa: hacer crecer tu
-          marca mientras nosotros nos encargamos de que la tecnología sea tu
-          mayor aliada.
+          Te mostramos las estadisticas de la tienda online de chicxsdelacalle
+          antes y después de montar su tienda online con pereiraweb. Desde sus
+          ventas anuales en los diferentes años y su tráfico orgánico en
+          google..
         </p>
         <Button className='text-white mt-4'>Ir al caso</Button>
       </div>
       <div className='md:w-1/2'>
         <img
-          className='rounded-2xl'
+          className='rounded-xl'
           src='/img/portfolio/mock-chicxs.png'
           alt='charles-deluvio'
         />

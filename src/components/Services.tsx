@@ -65,7 +65,7 @@ const Services = () => {
           {mainServices.map((service) => (
             <article
               key={service.link}
-              className='bg-ink-dark text-white shadow-xl rounded-2xl overflow-hidden flex flex-col '
+              className='bg-[#141414] text-white shadow-xl rounded-xl overflow-hidden flex flex-col '
             >
               <a
                 href={service.link}

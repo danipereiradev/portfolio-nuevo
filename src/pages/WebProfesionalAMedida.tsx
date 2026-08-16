@@ -30,6 +30,7 @@ import ContactForm from '../components/ContactForm';
 import Portfolio from '../components/Portfolio';
 import Testimonials from '../components/Testimonials';
 import Button from '../components/Button';
+import Hero from '../components/Hero';
 
 const WHATSAPP_URL = buildWhatsAppUrl(ADS_WHATSAPP_MESSAGE);
 const SITE_URL = 'https://pereiraweb.es';
@@ -238,7 +239,7 @@ const WebProfesionalAMedida = () => {
 
   return (
     <>
-      <SEOLandingHero
+      {/* <SEOLandingHero
         kicker='Web a medida'
         title='Tu web, hecha para que te escriban'
         subtitle='Estructura, móvil, formulario y WhatsApp. Con tu marca, no con una plantilla de moda.'
@@ -250,9 +251,13 @@ const WebProfesionalAMedida = () => {
         secondaryCTAAction={() => handleWhatsApp('LandingWebAMedidaHero')}
         secondaryCTAIcon='phone'
         ctaFootnote='Respondemos rápido · Preguntar no compromete'
+      /> */}
+      <Hero
+        title='Tu web, hecha para que te escriban'
+        description='Estructura, móvil, formulario y WhatsApp. Con tu marca, no con una plantilla de moda.'
+        buttonText='QUIERO EMPEZAR'
+        backgroundUrl='/img/theme-photos-CGpifH3FjOA-unsplash.jpg'
       />
-
-      <TrustBar />
 
       <section className='py-20 bg-white'>
         <div className='container mx-auto px-6'>
@@ -268,7 +273,7 @@ const WebProfesionalAMedida = () => {
             {problems.map((problem) => (
               <div
                 key={problem}
-                className='flex gap-4 p-5 md:p-6 bg-white rounded-2xl border-2 border-ink-dark shadow-[5px_5px_0_0_#1a1a1a]'
+                className='flex gap-4 p-5 md:p-6 bg-white rounded-xl border-2 border-ink-dark shadow-[5px_5px_0_0_#1a1a1a]'
               >
                 <span className='text-ink-dark font-black text-xl leading-none'>
                   !
@@ -297,7 +302,7 @@ const WebProfesionalAMedida = () => {
               return (
                 <div
                   key={sector.title}
-                  className='bg-white rounded-2xl border-2 border-ink-dark p-5 shadow-[4px_4px_0_0_#1a1a1a]'
+                  className='bg-white rounded-xl border-2 border-ink-dark p-5 shadow-[4px_4px_0_0_#1a1a1a]'
                 >
                   <Icon className='w-7 h-7 text-accent mb-3' />
                   <h3 className='text-lg font-bold text-gray-900 mb-1'>
@@ -328,7 +333,7 @@ const WebProfesionalAMedida = () => {
             {features.map((feature) => (
               <div
                 key={feature.title}
-                className='rounded-2xl border-2 border-ink-dark bg-white p-5 md:p-6 shadow-[4px_4px_0_0_#1a1a1a]'
+                className='rounded-xl border-2 border-ink-dark bg-white p-5 md:p-6 shadow-[4px_4px_0_0_#1a1a1a]'
               >
                 <div className='flex items-start gap-3'>
                   <Check className='w-5 h-5 text-accent flex-shrink-0 mt-0.5' />
@@ -397,9 +402,9 @@ const WebProfesionalAMedida = () => {
             {processSteps.map((step) => (
               <div
                 key={step.number}
-                className='flex gap-4 md:gap-6 bg-white border-2 border-ink-dark rounded-2xl p-5 md:p-6 shadow-[5px_5px_0_0_#1a1a1a]'
+                className='flex gap-4 md:gap-6 bg-white border-2 border-ink-dark rounded-xl p-5 md:p-6 shadow-[5px_5px_0_0_#1a1a1a]'
               >
-                <span className='flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-lg bg-ink-dark text-accent font-extrabold flex items-center justify-center text-lg'>
+                <span className='flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-lg bg-[#141414] text-accent font-extrabold flex items-center justify-center text-lg'>
                   {step.number}
                 </span>
                 <div>

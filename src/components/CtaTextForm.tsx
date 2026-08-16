@@ -33,7 +33,7 @@ export const CtaTextForm = () => {
 
           <div className='flex gap-4 mt-4'>
             <img
-              className='rounded-2xl'
+              className='rounded-xl'
               src='public/img/fikret-tozak-rfNLa1HL7eY-unsplash.jpg'
               alt='charles-deluvio'
             />

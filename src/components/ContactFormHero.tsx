@@ -191,10 +191,10 @@ Fecha: ${new Date().toLocaleString('es-ES')}
     <div className='flex justify-end items-center md:w-1/2 z-10 '>
       <form
         onSubmit={handleSubmit}
-        className='bg-ink-dark rounded-2xl justify-center p-12 w-3/4'
+        className='bg-[#141414] rounded-xl justify-center p-12 w-3/4'
         action=''
       >
-        <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-neutral-300 text-center mt-4 mb-0'>
+        <h2 className='text-2xl md:text-3xl lg:text-4xl font-extrabold text-neutral-300 text-center mt-4 mb-0'>
           {title}
         </h2>
         <p className='text-neutral-300 text-center text-lg'>{description}</p>
@@ -239,30 +239,32 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             inputMode='tel'
           />
           {errors.phone && <ErrorMessage error={errors.phone} />}
-          <label className='flex items-start gap-2 cursor-pointer' />
-          <span className='relative flex-shrink-0 text-neutral-300 flex items-center justify-center w-11 h-11 -ml-2 -mt-1 md:w-5 md:h-5 md:ml-0 md:mt-0.5'>
-            <input
-              type='checkbox'
-              required
-              checked={formData.consent}
-              onChange={(e) => {
-                setFormData((prev) => ({
-                  ...prev,
-                  consent: e.target.checked,
-                }));
-                if (errors.consent) {
-                  setErrors((prev) => ({ ...prev, consent: '' }));
-                }
-              }}
-              className='w-6 h-6 md:w-12 md:h-12 accent-accent border-2 border-ink-dark rounded'
-            />
-          </span>
-          <span className='text-xl italic text-neutral-300 leading-relaxed pt-2 md:pt-0 text-start'>
-            He leido y acepto la{' '}
-            <a href='/politica-de-privacidad' className='text-accent'>
-              política de privacidad
-            </a>
-          </span>
+
+          <div className='flex items-center gap-2'>
+            <span className='relative flex-shrink-0 text-neutral-300 flex items-center justify-center w-11 h-11 -ml-2 -mt-1 md:w-5 md:h-5 md:ml-0 md:mt-0.5'>
+              <input
+                type='checkbox'
+                required
+                checked={formData.consent}
+                onChange={(e) => {
+                  setFormData((prev) => ({
+                    ...prev,
+                    consent: e.target.checked,
+                  }));
+                  if (errors.consent) {
+                    setErrors((prev) => ({ ...prev, consent: '' }));
+                  }
+                }}
+                className='w-6 h-6 md:w-12 md:h-12 accent-accent border-2 border-ink-dark rounded'
+              />
+            </span>
+            <span className='text-xl italic text-neutral-300 leading-relaxed pt-2 md:pt-0 text-start'>
+              He leido y acepto la{' '}
+              <a href='/politica-de-privacidad' className='text-accent'>
+                política de privacidad
+              </a>
+            </span>
+          </div>
 
           <Button
             type='submit'

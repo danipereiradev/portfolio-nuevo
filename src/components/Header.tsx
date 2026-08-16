@@ -4,7 +4,7 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const navLinkClass =
-  'w-[120px] text-center relative text-xl py-2 px-4 rounded-2xl text-white uppercase transition-colors duration-200 hover:text-accent after:content-[""] after:absolute after:left-0 after:-bottom-1.5 after:h-[3px] after:w-0 after:bg-accent after:transition-all after:duration-200 hover:after:w-full';
+  'w-[120px] text-center relative text-xl py-2 px-4 rounded-xl text-white uppercase';
 
 const mobileNavLinkClass =
   'text-white block w-full text-left px-4 py-3 font-bold text-md uppercase text-black hover:bg-gray-100 hover:text-accent transition-colors duration-200';
@@ -44,11 +44,23 @@ const Header = () => {
       popular: true,
     },
     {
+      name: 'Web con wordpress',
+      path: '/mantenimiento-web',
+    },
+    {
       name: 'Tiendas Online',
       path: '/tiendas-online',
     },
     {
       name: 'Mantenimiento Web',
+      path: '/mantenimiento-web',
+    },
+    {
+      name: 'Posicionamiento SEO',
+      path: '/mantenimiento-web',
+    },
+    {
+      name: 'Publicidad google/redes',
       path: '/mantenimiento-web',
     },
   ];
@@ -65,7 +77,7 @@ const Header = () => {
     },
     {
       name: 'Testimonios de clientes',
-      path: '/',
+      path: '/testimonios-clientes',
     },
     {
       name: 'Trabaja con nosotros',
@@ -103,7 +115,7 @@ const Header = () => {
 
   return (
     <>
-      <header className='p-4 fixed  mx-auto place-self-center mt-4 rounded-2xl top-0 z-50 bg-ink-dark shadow-[0_4px_16px_rgba(0,0,0,0.08)] w-[95%]'>
+      <header className=' fixed  mx-auto place-self-center mt-4 rounded-xl top-0 z-50 bg-[#141414] shadow-[0_4px_16px_rgba(0,0,0,0.08)] w-[95%]'>
         <div className='mx-auto w-full px-6 py-4'>
           <div className='flex items-center justify-evenly w-full'>
             <a
@@ -146,8 +158,8 @@ const Header = () => {
                 </button>
 
                 {isAboutOpen && (
-                  <div className='absolute top-full left-0 pt-3 w-72 z-50'>
-                    <div className='bg-ink-dark rounded-lg py-2 uppercase'>
+                  <div className='absolute top-full left-0 pt-3 w-72 z-50 '>
+                    <div className='bg-[#141414] rounded-lg py-2 uppercase'>
                       {about.map((item) => (
                         <a
                           key={item.path}
@@ -179,8 +191,8 @@ const Header = () => {
                 </button>
 
                 {isServicesOpen && (
-                  <div className='absolute top-full left-0 pt-3 w-72 z-50'>
-                    <div className='bg-ink-dark rounded-lg py-2 uppercase'>
+                  <div className=' absolute top-full left-0 pt-3 w-72 z-50'>
+                    <div className='bg-[#141414] rounded-lg py-2 uppercase'>
                       {services.map((service) => (
                         <a
                           key={service.path}
@@ -217,7 +229,7 @@ const Header = () => {
           </div>
 
           {isMenuOpen && (
-            <nav className='md:hidden mt-4 pb-2 bg-ink-dark text-white rounded-lg border-2 border-ink-dark shadow-[6px_6px_0_0_#1a1a1a] divide-y-2 divide-gray-100'>
+            <nav className='md:hidden mt-4 pb-2 bg-[#141414] text-white rounded-lg border-2 border-ink-dark shadow-[6px_6px_0_0_#1a1a1a] divide-y-2 divide-gray-100'>
               <a href='/' className={mobileNavLinkClass}>
                 Inicio
               </a>

@@ -14,6 +14,8 @@ import SEOFeatures from '../components/SEOFeatures';
 import { TextImage } from '../components/TextImage';
 import { CtaTextForm } from '../components/CtaTextForm';
 import { SuccessCases } from '../components/SuccessCases';
+import { Sectors } from '../components/Sectors';
+import { Team } from '../components/Team';
 
 const features = [
   {
@@ -91,10 +93,18 @@ const Home = () => {
 
   return (
     <>
-      <Hero />
+      <Hero
+        title='Agencia de diseño web y marketing digital'
+        description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
+            quia veritatis voluptatibus, dicta id reprehenderit deserunt culpa
+            corporis corrupti accusantium.'
+        buttonText='LLÁMANOS'
+        backgroundUrl='public/img/web-design-charlesdeluvio.webp'
+      />
       {/*  <Pricing /> */}
       <TextImage />
       <Services />
+      {/*  <Sectors /> */}
       <div id='proceso' className='scroll-mt-24 '>
         <SEOProcess
           title='Como es el proceso una vez te pones en contacto con nosotros'
@@ -110,6 +120,7 @@ const Home = () => {
       <Portfolio />
       <SuccessCases />
       <Testimonials />
+      <Team />
       <div id='faq' className='scroll-mt-24'>
         <SEOFAQ title='Preguntas frecuentes' faqs={globalFaqs} />
       </div>

@@ -20,6 +20,7 @@ import Faq from './pages/Faq';
 import Gracias from './pages/Gracias';
 import LegalDocument from './pages/LegalDocument';
 import NotFound from './pages/NotFound';
+import { TestimonialsPage } from './pages/Testimonials';
 
 function AppContent() {
   // La navegación entre páginas se hace con <a> normales (recarga real),
@@ -37,6 +38,7 @@ function AppContent() {
         <Route path='/' element={<Home />} />
         <Route path='/tiendas-online' element={<TiendasOnline />} />
         <Route path='/mantenimiento-web' element={<MantenimientoWeb />} />
+        <Route path='/testimonios-clientes' element={<TestimonialsPage />} />
         <Route
           path='/web-profesional-a-medida'
           element={<WebProfesionalAMedida />}

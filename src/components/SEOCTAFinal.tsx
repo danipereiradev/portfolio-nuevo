@@ -26,7 +26,7 @@ const SEOCTAFinal = ({
         style={{ backgroundImage: "url('/img/cta-pereiraweb.webp')" }}
         aria-hidden='true'
       />
-      <div className='absolute inset-0 bg-ink-dark/70' aria-hidden='true' />
+      <div className='absolute inset-0 bg-[#141414]/70' aria-hidden='true' />
 
       <div className='container mx-auto px-6 relative z-10'>
         <div className='   mx-auto text-center'>
