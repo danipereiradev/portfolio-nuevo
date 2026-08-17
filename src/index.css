@@ -156,3 +156,9 @@ body {
 .swiper-pagination-horizontal.swiper-pagination-bullets {
   display: none;
 }
+
+.ti-widget[data-layout-id='27'][data-set-id='drop-shadow'] {
+  text-align: left !important;
+
+  margin-top: 1rem !important;
+}

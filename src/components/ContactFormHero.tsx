@@ -7,6 +7,7 @@ import {
 } from '../utils/analytics';
 import { markFormSubmissionSuccess } from '../config/formSubmission';
 import { AlertCircle } from 'lucide-react';
+import TestimonialsSingle from './TestimonialSingle';
 
 interface ContactHeroFormHeroProps {
   title: string;
@@ -269,6 +270,8 @@ Fecha: ${new Date().toLocaleString('es-ES')}
           >
             {isSubmitting ? 'Enviando...' : 'Enviar'}
           </Button>
+
+          <TestimonialsSingle />
         </div>
         {submitStatus === 'error' && (
           <div className='mt-2 p-4 bg-gray-50 border-2 border-ink-dark rounded-lg shadow-[4px_4px_0_0_#1a1a1a]'>

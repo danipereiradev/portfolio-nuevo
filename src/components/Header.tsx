@@ -115,7 +115,7 @@ const Header = () => {
 
   return (
     <>
-      <header className=' fixed  mx-auto place-self-center mt-4 rounded-2xl top-0 z-50 bg-[#141414] shadow-[0_4px_16px_rgba(0,0,0,0.08)] w-[95%]'>
+      <header className=' fixed mx-auto place-self-center mt-4 rounded-2xl top-0 z-50 bg-[#141414] shadow-[0_4px_16px_rgba(0,0,0,0.08)] w-[95%]'>
         <div className='mx-auto w-full px-6 py-4'>
           <div className='flex items-center justify-evenly w-full'>
             <a

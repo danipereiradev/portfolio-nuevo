@@ -2,6 +2,7 @@ import Button from './Button';
 
 import { ContactFormHero } from './ContactFormHero';
 import ReactPlayer from 'react-player';
+import TestimonialsBadge from './TestimonialsBadge';
 
 interface HeroProps {
   title: string;
@@ -15,6 +16,7 @@ interface HeroProps {
   formTitle: string;
   formDescription: string;
   formSectionInfo: string;
+  hasReviewBadge: boolean;
 }
 
 const Hero = ({
@@ -29,6 +31,7 @@ const Hero = ({
   formTitle,
   formDescription,
   formSectionInfo,
+  hasReviewBadge,
 }: HeroProps) => {
   console.log(backgroundUrl);
   return (
@@ -37,14 +40,14 @@ const Hero = ({
       style={{
         backgroundImage: `url(${hasBackground ? backgroundUrl : ''})`,
       }}
-      className='relative  bg-no-repeat bg-center bg-cover flex items-center justify-between overflow-hidden text-ink-dark pt-[var(--site-header-h)] pb-14  md:pb-0 md:min-h-[700px]'
+      className='relative  bg-no-repeat bg-center bg-cover flex items-center justify-between overflow-hidden text-ink-dark pt-[var(--site-header-h)] pb-14  md:pb-0 md:min-h-[90vh]'
     >
       {hasBackground ? (
         <div
           style={{
             backgroundImage: 'url("public/img/hero-bg-texture.avif")',
           }}
-          className='bg-no-repeat bg-center bg-cover opacity-70 absolute w-full inset-0'
+          className='bg-no-repeat bg-center bg-cover opacity-50 absolute w-full inset-0'
         ></div>
       ) : null}
 
@@ -58,6 +61,7 @@ const Hero = ({
           <p className='text-xl md:text-2xl text-black font-bold'>
             {description}
           </p>
+          {hasReviewBadge ? <TestimonialsBadge /> : null}
           {hasButton ? (
             <Button
               className={`mx-auto mt-4 md:mx-0 text-center ${heroType === 'clean' ? 'place-self-center' : ''}`}

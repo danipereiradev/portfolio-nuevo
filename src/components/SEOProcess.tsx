@@ -11,7 +11,7 @@ interface SEOProcessProps {
 
 const SEOProcess = ({ title, steps }: SEOProcessProps) => {
   return (
-    <section className='relative py-20 bg-white overflow-hidden     flex  items-center'>
+    <section className='relative py-20 h-[100vh] bg-gray-50 overflow-hidden flex items-center'>
       <div className='container mx-auto px-6 md:px-12 relative z-10'>
         <div className='text-center mb-12 md:mb-16'>
           <h2 className='text-2xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4'>

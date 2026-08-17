@@ -14,7 +14,7 @@ interface SEOBenefitsProps {
 
 const SEOBenefits = ({ title, subtitle, benefits }: SEOBenefitsProps) => {
   return (
-    <section className='py-20 bg-gray-50'>
+    <section className='py-20  h-[100vh] flex items-center'>
       <div className='container mx-auto px-6'>
         <div className='text-center mb-12 md:mb-16'>
           <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4'>
