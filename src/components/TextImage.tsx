@@ -4,7 +4,7 @@ export const TextImage = () => {
   return (
     <section className='container mx-auto flex flex-col md:flex-row-reverse md:gap-24 items-center justify-center md:px-12 px-6 py-20 md:py-24    '>
       <div className='md:w-1/2 p-4'>
-        <span className='bg-accent text-white text-md py-2 px-4 rounded-xl'>
+        <span className='bg-accent text-white text-md py-2 px-4 rounded-2xl'>
           CONÓCENOS
         </span>
         <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-12 leading-tight mt-4'>
@@ -26,7 +26,7 @@ export const TextImage = () => {
       </div>
       <div className='md:w-1/2'>
         <img
-          className='rounded-xl'
+          className='rounded-2xl'
           src='/img/web-design-charlesdeluvio.webp'
           alt='charles-deluvio'
         />

@@ -113,7 +113,7 @@ const Pricing = () => {
           {plans.map((plan) => (
             <div
               key={plan.id}
-              className={`rounded-xl p-8 border-2 flex flex-col relative transition-all duration-200 hover:translate-x-[3px] hover:translate-y-[3px] ${
+              className={`rounded-2xl p-8 border-2 flex flex-col relative transition-all duration-200 hover:translate-x-[3px] hover:translate-y-[3px] ${
                 plan.recommended
                   ? 'bg-[#141414] text-white border-accent shadow-[7px_7px_0_0_#0d9488] hover:shadow-[3px_3px_0_0_#0d9488]'
                   : 'bg-white border-ink-dark shadow-[7px_7px_0_0_#1a1a1a] hover:shadow-[3px_3px_0_0_#1a1a1a]'
@@ -198,7 +198,7 @@ const Pricing = () => {
         </div>
 
         <div className='mt-16 grid md:grid-cols-2 gap-8   mx-auto items-stretch'>
-          <div className='bg-white border-2 border-ink-dark rounded-xl p-8 text-center shadow-[6px_6px_0_0_#1a1a1a] flex flex-col'>
+          <div className='bg-white border-2 border-ink-dark rounded-2xl p-8 text-center shadow-[6px_6px_0_0_#1a1a1a] flex flex-col'>
             <Wallet className='w-6 h-6 text-accent mx-auto mb-4' />
             <h3 className='text-2xl md:text-3xl font-bold text-gray-900 mb-4'>
               Opciones de pago flexible
@@ -217,7 +217,7 @@ const Pricing = () => {
             </a>
           </div>
 
-          <div className='bg-[#141414] border-2 border-ink-dark rounded-xl p-8 text-center shadow-[6px_6px_0_0_rgba(20,184,166,0.5)] flex flex-col'>
+          <div className='bg-[#141414] border-2 border-ink-dark rounded-2xl p-8 text-center shadow-[6px_6px_0_0_rgba(20,184,166,0.5)] flex flex-col'>
             <h3 className='text-2xl md:text-3xl font-bold text-white mb-4'>
               ¿No sabes qué necesitas exactamente?
             </h3>

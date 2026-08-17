@@ -22,7 +22,7 @@ const SEOProcess = ({ title, steps }: SEOProcessProps) => {
         <div className='flex flex-col md:flex-row gap-24 items-center justify-center'>
           <div className='md:w-1/2'>
             <img
-              className='rounded-xl'
+              className='rounded-2xl'
               src='/img/theme-photos-CGpifH3FjOA-unsplash.jpg'
               alt='charles-deluvio'
             />

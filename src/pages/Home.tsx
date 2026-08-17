@@ -73,6 +73,21 @@ const processSteps = [
   },
 ];
 
+/* 
+HEADER 
+HERO
+ABOUT 
+CASO DE EXITO
+SERVICIOS
+PROCESO
+CTA (HERO FORM) 
+PORQUE PEREIRA WEB
+PORTFOLIO
+RESEÑAS
+EQUIPO
+CTA (HERO FORM) 
+*/
+
 const Home = () => {
   usePageMeta('/');
 
@@ -98,33 +113,37 @@ const Home = () => {
         description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
             quia veritatis voluptatibus, dicta id reprehenderit deserunt culpa
             corporis corrupti accusantium.'
-        buttonText='LLÁMANOS'
+        buttonText='CONTACTA AHORA'
         backgroundUrl='public/img/web-design-charlesdeluvio.webp'
+        heroType='clean'
+        hasButton
+        formTitle='Nosotros te llamamos'
+        formDescription='Déjanos tus datos y nos pondremos en contacto.'
+        formSectionInfo='Hero 1 Home'
+        hasBackground
       />
-      {/*  <Pricing /> */}
       <TextImage />
       <Services />
-      {/*  <Sectors /> */}
-      <div id='proceso' className='scroll-mt-24 '>
-        <SEOProcess
-          title='Como es el proceso una vez te pones en contacto con nosotros'
-          steps={processSteps}
-        />
-      </div>
-      <CtaTextForm />
-      <SEOFeatures
-        title='¿Por qué elegir a pereiraweb para el diseño de tu web o tienda online?'
-        features={features}
-      />
-
-      <Portfolio />
-      <SuccessCases />
-      <Testimonials />
       <Team />
+      <Testimonials />
+      <Portfolio />
       <div id='faq' className='scroll-mt-24'>
-        <SEOFAQ title='Preguntas frecuentes' faqs={globalFaqs} />
+        <SEOFAQ title='Te resolvemos todas tus dudas' faqs={globalFaqs} />
       </div>
-      {/* <ContactForm /> */}
+      <Hero
+        title='¿ Nos ponemos manos a la obra ?'
+        description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
+            quia veritatis voluptatibus, dicta id reprehenderit deserunt culpa
+            corporis corrupti accusantium.'
+        buttonText='TIENDAS ONLINE'
+        backgroundUrl='public/img/theme-photos-CGpifH3FjOA-unsplash.jpg'
+        heroType='form'
+        hasButton
+        formTitle='Nosotros te llamamos'
+        formDescription='Déjanos tus datos y nos pondremos en contacto.'
+        formSectionInfo='Hero CTA 2 Home'
+        hasBackground={false}
+      />
     </>
   );
 };

@@ -83,7 +83,7 @@ export const Sectors = () => {
             return (
               <div
                 key={sector.title}
-                className='bg-white rounded-xl border-2 border-ink-dark p-5 shadow-[4px_4px_0_0_#1a1a1a]'
+                className='bg-white rounded-2xl border-2 border-ink-dark p-5 shadow-[4px_4px_0_0_#1a1a1a]'
               >
                 <Icon className='w-7 h-7 text-accent mb-3' />
                 <h3 className='text-lg font-bold text-gray-900 mb-1'>

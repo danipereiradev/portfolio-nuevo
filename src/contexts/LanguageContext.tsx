@@ -52,9 +52,9 @@ const translations = {
     'Actualizaciones, copias, cambios de textos y fotos, y soporte cuando algo se rompe.',
 
   // Portfolio
-  'portfolio.title': 'Últimos trabajos en 2026',
+  'portfolio.title': 'Nuestros casos de éxito mas recientes',
   'portfolio.description':
-    'Más de 200 webs hechas. Aquí van algunas publicadas en los últimos meses.',
+    'Estos son algunos de nuestros trabajos como agencia, puedes ver mas en la sección de portfolio',
   'portfolio.upcoming.title': 'Próximamente',
   'portfolio.upcoming.description':
     'Proyectos que estamos terminando y publicaremos en breve.',
@@ -78,7 +78,7 @@ const translations = {
     'Web de audio profesional con catálogo de productos y servicios.',
   'portfolio.hoyviajamos.title': 'Hoy Viajamos',
   'portfolio.hoyviajamos.desc':
-    'Blog de viajes con galerías, categorías y afiliados.',
+    'Blog de viajes con galerías, categorías, afiliados y servicio de guías de viaje por suscripción.',
   'portfolio.sillysally.title': 'Silly Sally',
   'portfolio.sillysally.desc':
     'One-pager de una banda de Madrid: bio, Spotify, dossier, merch e Instagram.',

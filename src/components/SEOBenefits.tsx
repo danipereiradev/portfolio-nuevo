@@ -33,7 +33,7 @@ const SEOBenefits = ({ title, subtitle, benefits }: SEOBenefitsProps) => {
             return (
               <div
                 key={index}
-                className='bg-white p-6 md:p-8 rounded-xl border-2 border-ink-dark hover:border-accent shadow-[5px_5px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-200'
+                className='bg-white p-6 md:p-8 rounded-2xl border-2 border-ink-dark hover:border-accent shadow-[5px_5px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-200'
               >
                 <Icon className='w-7 h-7 md:w-8 md:h-8 text-accent mb-4 md:mb-6' />
                 <h3 className='text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4'>

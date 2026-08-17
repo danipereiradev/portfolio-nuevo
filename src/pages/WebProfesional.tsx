@@ -226,7 +226,7 @@ const WebProfesional = () => {
 
           <div className='   mx-auto grid lg:grid-cols-2 gap-8'>
             <RevealOnScroll delayMs={80}>
-              <article className='bg-white rounded-xl p-7 md:p-8 border-2 border-ink-dark shadow-[7px_7px_0_0_#1a1a1a] relative flex flex-col h-full'>
+              <article className='bg-white rounded-2xl p-7 md:p-8 border-2 border-ink-dark shadow-[7px_7px_0_0_#1a1a1a] relative flex flex-col h-full'>
                 <span className='absolute -top-4 left-6 bg-accent text-ink-dark border-2 border-ink-dark text-xs font-bold uppercase tracking-wide px-3 py-1 rotate-[-2deg]'>
                   1 página
                 </span>
@@ -269,7 +269,7 @@ const WebProfesional = () => {
             </RevealOnScroll>
 
             <RevealOnScroll delayMs={180}>
-              <article className='bg-white rounded-xl p-7 md:p-8 border-2 border-accent shadow-[7px_7px_0_0_#14b8a6] relative flex flex-col h-full'>
+              <article className='bg-white rounded-2xl p-7 md:p-8 border-2 border-accent shadow-[7px_7px_0_0_#14b8a6] relative flex flex-col h-full'>
                 <span className='absolute -top-4 left-6 bg-[#141414] text-accent border-2 border-ink-dark text-xs font-bold uppercase tracking-wide px-3 py-1 rotate-[-2deg]'>
                   3 páginas
                 </span>
@@ -321,7 +321,7 @@ const WebProfesional = () => {
           </p>
 
           <RevealOnScroll delayMs={100} className='mt-10'>
-            <div className='   mx-auto bg-white border-2 border-ink-dark rounded-xl p-6 md:p-8 shadow-[5px_5px_0_0_#1a1a1a]'>
+            <div className='   mx-auto bg-white border-2 border-ink-dark rounded-2xl p-6 md:p-8 shadow-[5px_5px_0_0_#1a1a1a]'>
               <h3 className='text-lg md:text-xl font-bold text-gray-900 mb-3 text-center'>
                 Empieza simple. Crece después.
               </h3>
@@ -353,7 +353,7 @@ const WebProfesional = () => {
               const Icon = extra.icon;
               return (
                 <RevealOnScroll key={extra.title} delayMs={index * 100}>
-                  <div className='bg-gray-50 rounded-xl border-2 border-ink-dark p-6 shadow-[4px_4px_0_0_#1a1a1a] h-full'>
+                  <div className='bg-gray-50 rounded-2xl border-2 border-ink-dark p-6 shadow-[4px_4px_0_0_#1a1a1a] h-full'>
                     <Icon className='w-7 h-7 text-accent mb-3' />
                     <h3 className='text-lg font-bold text-gray-900 mb-2'>
                       {extra.title}
@@ -388,7 +388,7 @@ const WebProfesional = () => {
           </RevealOnScroll>
           <RevealOnScroll delayMs={80}>
             <div className='   mx-auto mb-10'>
-              <div className='bg-[#141414] text-white rounded-xl border-2 border-ink-dark p-5 md:p-6 shadow-[5px_5px_0_0_#1a1a1a] text-center'>
+              <div className='bg-[#141414] text-white rounded-2xl border-2 border-ink-dark p-5 md:p-6 shadow-[5px_5px_0_0_#1a1a1a] text-center'>
                 <p className='text-sm md:text-base font-semibold leading-relaxed'>
                   Proyectos en entornos de{' '}
                   <span className='text-accent'>banca</span> y{' '}
@@ -405,7 +405,7 @@ const WebProfesional = () => {
               const Icon = point.icon;
               return (
                 <RevealOnScroll key={point.title} delayMs={(index % 3) * 90}>
-                  <div className='bg-white rounded-xl border-2 border-ink-dark p-6 shadow-[5px_5px_0_0_#1a1a1a] h-full'>
+                  <div className='bg-white rounded-2xl border-2 border-ink-dark p-6 shadow-[5px_5px_0_0_#1a1a1a] h-full'>
                     <Icon className='w-7 h-7 text-accent mb-3' />
                     <h3 className='text-lg font-bold text-gray-900 mb-2'>
                       {point.title}

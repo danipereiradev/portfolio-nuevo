@@ -191,7 +191,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
     <div className='flex justify-end items-center md:w-1/2 z-10 '>
       <form
         onSubmit={handleSubmit}
-        className='bg-[#141414] rounded-xl justify-center p-12 w-3/4'
+        className='bg-[#141414] rounded-2xl justify-center p-12 w-3/4'
         action=''
       >
         <h2 className='text-2xl md:text-3xl lg:text-4xl font-extrabold text-neutral-300 text-center mt-4 mb-0'>

@@ -4,7 +4,7 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const navLinkClass =
-  'w-[120px] text-center relative text-xl py-2 px-4 rounded-xl text-white uppercase';
+  ' text-center relative text-xl py-2 px-4 rounded-2xl text-white uppercase';
 
 const mobileNavLinkClass =
   'text-white block w-full text-left px-4 py-3 font-bold text-md uppercase text-black hover:bg-gray-100 hover:text-accent transition-colors duration-200';
@@ -73,7 +73,7 @@ const Header = () => {
     },
     {
       name: 'Casos de exito',
-      path: '/',
+      path: '/casos-de-exito',
     },
     {
       name: 'Testimonios de clientes',
@@ -115,7 +115,7 @@ const Header = () => {
 
   return (
     <>
-      <header className=' fixed  mx-auto place-self-center mt-4 rounded-xl top-0 z-50 bg-[#141414] shadow-[0_4px_16px_rgba(0,0,0,0.08)] w-[95%]'>
+      <header className=' fixed  mx-auto place-self-center mt-4 rounded-2xl top-0 z-50 bg-[#141414] shadow-[0_4px_16px_rgba(0,0,0,0.08)] w-[95%]'>
         <div className='mx-auto w-full px-6 py-4'>
           <div className='flex items-center justify-evenly w-full'>
             <a
@@ -211,19 +211,15 @@ const Header = () => {
                   </div>
                 )}
               </div>
+              <a href='/' className={navLinkClass}>
+                {t('nav.blog')}
+              </a>
 
               <a
                 href='/contacto'
                 className={`${navLinkClass} bg-accent text-neutral-300 roundex-2xl`}
               >
                 {t('nav.contact')}
-              </a>
-
-              <a
-                href='/'
-                className={`${navLinkClass} bg-accent text-neutral-300 roundex-2xl`}
-              >
-                {t('nav.blog')}
               </a>
             </nav>
           </div>

@@ -40,15 +40,15 @@ function Testimonials({ id = 'testimonials' }: TestimonialsProps) {
   return (
     <section
       id={id}
-      className='scroll-mt-24 py-20 text-gray-900  flex items-center'
+      className='scroll-mt-24 py-20 bg-gray-50 text-gray-900  flex items-center'
     >
       <div className='container mx-auto px-6'>
         <div className='mb-12 text-center md:mb-16'>
           <h2 className='mb-4 text-2xl font-extrabold text-gray-900 md:text-4xl lg:text-5xl'>
-            Lo que dicen clientes
+            Esto es lo que dicen nuestros clientes
           </h2>
           <p className='mx-auto text-base text-gray-600 md:text-xl'>
-            Reseñas reales de gente que nos encargó su web o tienda.
+            Valoraciones verificadas sacadas de nuestro perfil de google
           </p>
         </div>
         <div data-src={TRUSTINDEX_WIDGET_SRC} />
