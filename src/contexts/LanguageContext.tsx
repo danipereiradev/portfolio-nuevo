@@ -34,21 +34,27 @@ const translations = {
     'Una agencia joven pero con más de una década de experiencia',
   'services.description':
     'Nuestro equipo cuenta con profesionales del producto y marketing digital, el desarrollo de software y el diseño con una larga trayectoria. Colaborando con clientes de sectores como el bancario o retail.',
-  'services.webdesign.title': 'Diseño web a medida',
+  'services.webdesign.title': 'Web a medida',
   'services.webdesign.desc':
     'Cuando hace falta una estructura concreta, reservas, zona privada o conexión con lo que ya usas.',
-  'services.wordpress.title': 'Diseño web con wordpress',
+  'services.wordpress.title': 'Web con Wordpress',
   'services.wordpress.desc':
     'Cuando hace falta una estructura concreta, reservas, zona privada o conexión con lo que ya usas.',
 
-  'services.ecommerce.title': 'Tiendas online',
+  'services.ecommerce.title': 'E-commerce a medida',
   'services.ecommerce.desc':
     'Catálogo, cobro con tarjeta, envíos y un panel para que tú subas productos y gestiones pedidos.',
-  'services.seo.title': 'Posicionamiento en Google',
+  'services.ecommercePlantilla.title': 'Woocommerce o Shopify',
+  'services.ecommercePlantilla.desc':
+    'Catálogo, cobro con tarjeta, envíos y un panel para que tú subas productos y gestiones pedidos.',
+  'services.seo.title': 'Posicionamiento web',
   'services.seo.desc':
     'Actualizaciones, copias, cambios de textos y fotos, y soporte cuando algo se rompe.',
   'services.maintenance.title': 'Mantenimiento web',
   'services.maintenance.desc':
+    'Actualizaciones, copias, cambios de textos y fotos, y soporte cuando algo se rompe.',
+  'services.branding.title': 'Diseño gráfico y branding',
+  'services.branding.desc':
     'Actualizaciones, copias, cambios de textos y fotos, y soporte cuando algo se rompe.',
 
   // Portfolio

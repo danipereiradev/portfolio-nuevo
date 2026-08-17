@@ -31,7 +31,7 @@ const Button: React.FC<ButtonProps> = ({
     'px-6 py-3 md:px-8 md:py-4 rounded-lg font-bold text-base md:text-lg transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed disabled:translate-x-0 disabled:translate-y-0 flex items-center justify-center gap-2 active:translate-x-[5px] active:translate-y-[5px] active:shadow-none';
 
   const variantStyles = {
-    primary: 'bg-accent text-2xl text-ink-dark uppercase  ',
+    primary: 'bg-accent text-2xl text-white uppercase  ',
     secondary:
       'text-ink-dark uppercase hover:bg-white hover:text-white shadow-[5px_5px_0_0_rgba(255,255,255,0.35)] hover:shadow-[2px_2px_0_0_rgba(255,255,255,0.35)] ',
     ghost:

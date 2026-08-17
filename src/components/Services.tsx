@@ -12,18 +12,26 @@ const Services = () => {
       imageAlt: 'Mock de web a medida — Hoy Viajamos',
       cta: 'Ver web a medida',
     },
-    /* {
+    {
       title: t('services.wordpress.title'),
       description: t('services.wordpress.desc'),
       link: '/web-profesional-a-medida',
       image: '/img/fikret-tozak-rfNLa1HL7eY-unsplash.jpg',
       imageAlt: 'Mock de web a medida — Hoy Viajamos',
       cta: 'Ver web a medida',
-    }, */
+    },
     {
       title: t('services.ecommerce.title'),
       description: t('services.ecommerce.desc'),
       link: '/tiendas-online',
+      image: '/img/sumup-ShB9pI4mpRg-unsplash.jpg',
+      imageAlt: 'Mock de tienda online — Camisetas Ahora',
+      cta: 'Ver tiendas online',
+    },
+    {
+      title: t('services.ecommercePlantilla.title'),
+      description: t('services.ecommercePlantilla.desc'),
+      link: '/tiendas-online-woocommerce',
       image: '/img/sumup-ShB9pI4mpRg-unsplash.jpg',
       imageAlt: 'Mock de tienda online — Camisetas Ahora',
       cta: 'Ver tiendas online',
@@ -44,6 +52,14 @@ const Services = () => {
       imageAlt: 'Mock de web en mantenimiento — Carper Sonido',
       cta: 'Ver mantenimiento',
     },
+    {
+      title: t('services.branding.title'),
+      description: t('services.branding.desc'),
+      link: '/diseó-grafico-branding',
+      image: '/img/portfolio/mock-carper.webp',
+      imageAlt: 'Mock de web en mantenimiento — Carper Sonido',
+      cta: 'Ver mantenimiento',
+    },
   ];
 
   return (
@@ -60,12 +76,11 @@ const Services = () => {
             {t('services.description')}
           </p>
         </div>
-        <div className='spacer h-[100px]'></div>
         <div className='grid md:grid-cols-4 gap-6 md:gap-8   mx-auto'>
           {mainServices.map((service) => (
             <article
               key={service.link}
-              className='bg-[#141414] text-white shadow-xl rounded-2xl overflow-hidden flex flex-col '
+              className='bg-[#f4f4f4] shadow-xl rounded-2xl overflow-hidden flex flex-col hover:text-white hover:bg-accent transition duration-300 ease-in-out cursor-pointer'
             >
               <a
                 href={service.link}
@@ -84,11 +99,11 @@ const Services = () => {
                 />
               </a>
 
-              <div className='p-5 md:p-6 flex flex-col flex-1 text-center'>
-                <h3 className='text-xl md:text-2xl font-bold text-white  mb-2'>
+              <div className='p-5 md:p-6 flex flex-col flex-1 text-center gap-4'>
+                <h3 className='text-2xl md:text-3xl font-bold mb-2 flex-grow'>
                   {service.title}
                 </h3>
-                <p className='text-sm md:text-base text-white  leading-relaxed mb-5 flex-1'>
+                <p className='text-md md:text-lg leading-relaxed mb-5 flex-1'>
                   {service.description}
                 </p>
                 {/* <a

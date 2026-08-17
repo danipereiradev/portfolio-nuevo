@@ -1,4 +1,4 @@
-import { ThumbsUp } from 'lucide-react';
+import { Pointer } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useSectionView } from '../hooks/useSectionView';
 
@@ -174,7 +174,7 @@ Hay categorías (destinos, guías, tips, comida), galerías ligeras, mapas de si
               >
                 <article
                   key={project.title}
-                  className='bg-[#141414] text-neutral-300 shadow-xl rounded-2xl overflow-hidden flex flex-col '
+                  className='bg-[#f4f4f4] shadow-xl rounded-2xl overflow-hidden flex flex-col hover:text-white hover:bg-accent transition duration-300 ease-in-out cursor-pointer'
                 >
                   <a
                     className='block bg-gray-100'
@@ -193,16 +193,16 @@ Hay categorías (destinos, guías, tips, comida), galerías ligeras, mapas de si
                   </a>
 
                   <div className='p-5 md:p-6 flex flex-col flex-1 text-center'>
-                    <h3 className='text-xl md:text-2xl font-bold text-neutral-300  mb-2'>
+                    <h3 className='text-2xl md:text-3xl font-bold mb-2'>
                       {project.title}
                     </h3>
-                    <p className='text-sm md:text-base text-neutral-300  leading-relaxed mb-5 flex-1'>
+                    <p className='text-sm md:text-base leading-relaxed mb-5 flex-1'>
                       {project.description}
                     </p>
 
                     <div className='flex items-center justify-center gap-2'>
-                      <ThumbsUp width={20} className='text-accent' />
-                      <p className='text-accent text-md'>{project.exito}</p>
+                      <Pointer width={20} className='' />
+                      <p className='text-xl'>{project.exito}</p>
                     </div>
                   </div>
                 </article>

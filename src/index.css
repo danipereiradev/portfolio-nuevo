@@ -146,3 +146,13 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-accent-hover);
 }
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: black;
+}
+
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-horizontal.swiper-pagination-bullets {
+  display: none;
+}

@@ -142,14 +142,14 @@ Fecha: ${new Date().toLocaleString('es-ES')}
     return emailRegex.test(value);
   };
 
-  const validatePhone = (value: string): boolean => {
+  /*   const validatePhone = (value: string): boolean => {
     const cleanPhone = value.replace(/[\s\-().]/g, '');
     // España: móvil/fijo (6/7/8/9 + 8 dígitos), con o sin +34 / 0034 / 34
     const spanishPhone = /^(?:\+34|0034|34)?[6789]\d{8}$/;
     // Internacional: + y entre 8 y 15 dígitos en total
     const internationalPhone = /^\+[1-9]\d{7,14}$/;
     return spanishPhone.test(cleanPhone) || internationalPhone.test(cleanPhone);
-  };
+  }; */
 
   const validateName = (name: string): boolean => {
     const trimmedName = name.trim();
@@ -170,12 +170,6 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       newErrors.email = 'Introduce un email válido';
     }
 
-    const phoneValue = formData.phone.trim();
-    if (!phoneValue || !validatePhone(phoneValue)) {
-      newErrors.phone =
-        'Introduce un teléfono válido (ej: 600 000 000 o +34 600 000 000)';
-    }
-
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -191,13 +185,13 @@ Fecha: ${new Date().toLocaleString('es-ES')}
     <div className='flex justify-end items-center md:w-1/2 z-10 '>
       <form
         onSubmit={handleSubmit}
-        className='bg-[#141414] rounded-2xl justify-center p-12 w-3/4'
+        className='bg-[#f4f4f4] rounded-2xl justify-center p-12 w-3/4 shadow-xl'
         action=''
       >
-        <h2 className='text-2xl md:text-3xl lg:text-4xl font-extrabold text-neutral-300 text-center mt-4 mb-0'>
+        <h2 className='text-2xl md:text-3xl lg:text-4xl font-extrabold text-black text-center mt-4 mb-0'>
           {title}
         </h2>
-        <p className='text-neutral-300 text-center text-lg'>{description}</p>
+        <p className='text-gray-900 text-center text-lg'>{description}</p>
         <div className='form-fields flex flex-col gap-4 mt-12'>
           <input
             type='text'
@@ -206,7 +200,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             className={`text-2xl pl-4 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent transition-all duration-150 ${
               errors.name
                 ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
-                : 'border-ink-dark'
+                : 'border-gray-400'
             }`}
             placeholder='Tu nombre *'
             maxLength={50}
@@ -219,7 +213,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             className={`w-full text-2xl pl-4 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent transition-all duration-150 ${
               errors.name
                 ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
-                : 'border-ink-dark'
+                : 'border-gray-400'
             }`}
             placeholder='Tu email *'
             autoComplete='email'
@@ -232,9 +226,9 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             className={`w-full text-2xl pl-4 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent transition-all duration-150 ${
               errors.name
                 ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
-                : 'border-ink-dark'
+                : 'border-gray-400'
             }`}
-            placeholder='Tu teléfono *'
+            placeholder='Tu teléfono'
             autoComplete='tel'
             inputMode='tel'
           />
@@ -258,7 +252,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                 className='w-6 h-6 md:w-12 md:h-12 accent-accent border-2 border-ink-dark rounded'
               />
             </span>
-            <span className='text-xl italic text-neutral-300 leading-relaxed pt-2 md:pt-0 text-start'>
+            <span className='text-xl italic text-gray-900 leading-relaxed pt-2 md:pt-0 text-start'>
               He leido y acepto la{' '}
               <a href='/politica-de-privacidad' className='text-accent'>
                 política de privacidad
@@ -290,7 +284,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
           </div>
         )}
         {isFormSent && (
-          <span className='text-white text-lg'>
+          <span className='text-black font-bold text-lg'>
             Tus datos han sido enviados correctamente. Nos pondremos en contacto
             en breve. ¡Gracias!
           </span>

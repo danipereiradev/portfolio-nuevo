@@ -117,7 +117,7 @@ const Home = () => {
         backgroundUrl='public/img/web-design-charlesdeluvio.webp'
         heroType='clean'
         hasButton
-        formTitle='Nosotros te llamamos'
+        formTitle='Nosotros te contactámos'
         formDescription='Déjanos tus datos y nos pondremos en contacto.'
         formSectionInfo='Hero 1 Home'
         hasBackground
@@ -139,7 +139,7 @@ const Home = () => {
         backgroundUrl='public/img/theme-photos-CGpifH3FjOA-unsplash.jpg'
         heroType='form'
         hasButton
-        formTitle='Nosotros te llamamos'
+        formTitle='Nosotros te contactámos'
         formDescription='Déjanos tus datos y nos pondremos en contacto.'
         formSectionInfo='Hero CTA 2 Home'
         hasBackground={false}

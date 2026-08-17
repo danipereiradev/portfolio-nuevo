@@ -1,4 +1,12 @@
 import { Mail } from 'lucide-react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { EffectFade } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/effect-fade';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { useRef, useState } from 'react';
 
 interface Team {
   fullName: string;
@@ -13,16 +21,6 @@ type TeamMembers = Team[];
 
 export const Team = () => {
   const teamMembers: TeamMembers = [
-    /* {
-      fullName: 'Dani Pereira',
-      description:
-        '+12 años de experiencia en Web y SEO. Frontend con Typescript. Clientes como Inditex y Banco Santander.',
-      role: 'Desarrollo web y Marketing digital',
-      link: ['link1', 'link2'],
-      imageUrl: 'public/img/team/dani.png',
-      mail: 'dpereira@pereiraweb.es',
-    },
-     */
     {
       fullName: 'Sergi Cerdá',
       description:
@@ -30,7 +28,7 @@ export const Team = () => {
       role: 'Desarrollador web fullstack',
       link: ['link1', 'link2'],
       imageUrl: 'public/img/team/sergi.png',
-      mail: 'scerda@pereiraweb.es',
+      mail: 's.cerda@pereiraweb.es',
     },
     {
       fullName: 'Cristina Recio',
@@ -39,10 +37,19 @@ export const Team = () => {
       role: 'Diseñadora gráfica UX/UI',
       link: ['link1', 'link2'],
       imageUrl: 'public/img/team/cristina.jpg',
-      mail: 'trujillo@pereiraweb.es',
+      mail: 'c.recio@pereiraweb.es',
+    },
+    {
+      fullName: 'Dani Pereira',
+      description:
+        '+12 años de experiencia en Web y SEO. Frontend con Typescript. Clientes como Inditex y Banco Santander.',
+      role: 'Desarrollo web y Marketing digital',
+      link: ['link1', 'link2'],
+      imageUrl: 'public/img/team/dani.png',
+      mail: 'hola@pereiraweb.es',
     },
 
-    /* {
+    {
       fullName: 'Karen',
       description:
         '+12 años de experiencia en Web y SEO. Frontend con Typescript. Clientes como Inditex y Banco Santander.',
@@ -50,7 +57,7 @@ export const Team = () => {
       link: ['link1', 'link2'],
       imageUrl: 'public/img/team/cristina.jpg',
       mail: 'karen@pereiraweb.es',
-    }, */
+    },
   ];
 
   return (
@@ -60,8 +67,8 @@ export const Team = () => {
           CONOCE A TU FUTURO EQUIPO
         </span>
         <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-12 leading-tight mt-4'>
-          Desarrollamos webs pensado en la escalabilidad y el crecimiento de tu
-          negocio.
+          Una agencia joven pero con más de una década de experiencia y un
+          equipo top.
         </h2>
         <p className='text-xl md:text-2xl text-black leading-relaxed'>
           En Pereiraweb somos directos: una web lenta o con errores es una fuga
@@ -75,31 +82,53 @@ export const Team = () => {
           hasta desarrollos a medida.
         </p>
       </div>
-      <div className='grid grid-cols-2 mx-auto text-center justify-evenly md:w-1/2'>
-        {teamMembers.map((member: Team) => {
-          return (
-            <article key={member.fullName} className='max-w-[333px]'>
-              <img
-                className='rounded-t-xl grayscale h-[333px] w-full object-cover'
-                src={member.imageUrl}
-                alt='charles-deluvio'
-              />
+      <div className='md:w-1/2 scroll-smooth'>
+        <Swiper
+          autoplay={{
+            delay: 3500,
+            disableOnInteraction: false,
+          }}
+          spaceBetween={16}
+          speed={1000}
+          pagination={{
+            clickable: true,
+          }}
+          navigation={true}
+          modules={[Autoplay, Pagination, Navigation]}
+          slidesPerView={2}
+          onSlideChange={() => console.log('slide change')}
+          onSwiper={(swiper) => console.log(swiper)}
+        >
+          {teamMembers.map((member: Team) => {
+            return (
+              <SwiperSlide>
+                <article
+                  key={member.fullName}
+                  className=' cursor-grab text-center'
+                >
+                  <img
+                    className='rounded-t-xl grayscale h-[333px] w-full object-cover'
+                    src={member.imageUrl}
+                    alt='charles-deluvio'
+                  />
 
-              <div className='member-info bg-[#141414] p-4 text-white text-lg rounded-b-xl md:min-h-[200px]'>
-                <h3 className='text-2xl'>{member.fullName}</h3>
-                <span className='text-accent'>{member.role}</span>
-                <p className='text-base mt-4'>{member.description}</p>
-                {/* <span className='text-accent text-sm italic'>
+                  <div className='member-info bg-[#f4f4f4] p-4 text-black text-start text-lg rounded-b-xl md:min-h-[200px]'>
+                    <h3 className='text-2xl font-bold'>{member.fullName}</h3>
+                    <span className='text-accent font-bold'>{member.role}</span>
+                    <p className='text-base mt-4'>{member.description}</p>
+                    {/* <span className='text-accent text-sm italic'>
                   "Volvería a trabajar con el sin ninguna duda"
                 </span> */}
-                <div className='flex gap-2 justify-center items-center mt-4'>
-                  <Mail width={20} className='text-accent' />
-                  <a href='/'>{member.mail}</a>
-                </div>
-              </div>
-            </article>
-          );
-        })}
+                    <div className='flex gap-2 text-start items-center mt-4 font-bold'>
+                      <Mail width={20} className='text-accent' />
+                      <a href='/'>{member.mail}</a>
+                    </div>
+                  </div>
+                </article>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
       </div>
     </section>
   );
