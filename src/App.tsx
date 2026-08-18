@@ -147,7 +147,7 @@ function AppContent() {
 
       {/* <WhatsAppButton /> */}
 
-      <BackToTopButton />
+      {/* <BackToTopButton /> */}
 
       {/* <MobileStickyCTA /> */}
 
