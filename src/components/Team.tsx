@@ -65,7 +65,7 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
   ];
 
   return (
-    <section className=' mx-auto flex flex-col md:flex-row items-center text-center md:text-start gap-8 py-24 px-4 md:px-0 md:min-h-[100vh] md:px-8'>
+    <section className=' mx-auto flex flex-col md:flex-row items-center text-center md:text-start gap-8  py-8 px-4 md:px-0 md:min-h-[100vh] md:px-8'>
       <div className='md:w-1/2 flex flex-col items-center md:items-start gap-4'>
         <span className='text-accent font-extrabold underline text-md rounded-2xl'>
           {label}

@@ -52,7 +52,7 @@ const HeroCta = ({
       ) : null}
 
       <div
-        className={`flex md:flex-row flex-col hero-container mx-auto md:justify-center items-center text-center ${heroType === 'clean' ? '' : 'md:text-start'} container px-8 md:h-[100vh] text-center md:text-start gap-8 py-24 md:py-0 md:px-8`}
+        className={`flex md:flex-row flex-col hero-container mx-auto md:justify-center items-center text-center ${heroType === 'clean' ? '' : 'md:text-start'} container px-8 md:h-[100vh] text-center md:text-start gap-8  py-8 md:py-0 md:px-8`}
       >
         <div className='md:w-1/2 flex flex-col items-center md:items-start gap-4'>
           <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900'>

@@ -49,7 +49,7 @@ const NotFound = () => {
   }, []);
 
   return (
-    <section className='min-h-[70vh] flex items-center justify-center px-6 py-24 text-center content-container'>
+    <section className='min-h-[70vh] flex items-center justify-center px-6  py-8 text-center content-container'>
       <div className='max-w-lg mx-auto'>
         <span className='inline-block bg-accent text-ink-dark text-xs md:text-sm font-bold uppercase tracking-wide px-4 py-1.5 border-2 border-ink-dark mb-4'>
           Error 404
@@ -58,8 +58,8 @@ const NotFound = () => {
           Esta página no existe
         </h1>
         <p className='text-gray-600 mb-8'>
-          Puede que el enlace esté roto o que la página se haya movido.
-          Prueba a volver al inicio o pide presupuesto para tu proyecto.
+          Puede que el enlace esté roto o que la página se haya movido. Prueba a
+          volver al inicio o pide presupuesto para tu proyecto.
         </p>
         <div className='flex flex-col sm:flex-row gap-3 justify-center'>
           <Button href='/' variant='primary'>

@@ -40,7 +40,7 @@ function Testimonials({ id = 'testimonials' }: TestimonialsProps) {
   return (
     <section
       id={id}
-      className='flex items-center gap-8 py-24 px-4 md:h-[100vh] md:px-8'
+      className='flex items-center gap-8 py-8 px-4 md:h-[100vh] md:px-8'
     >
       <div className='mx-auto flex flex-col gap-12'>
         <div className='mx-auto text-center flex flex-col gap-8'>

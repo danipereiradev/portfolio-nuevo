@@ -18,7 +18,7 @@ export const SuccessCases = ({
 }: SuccessCasesProps) => {
   return (
     <section
-      className={`container mx-auto flex flex-col ${reverse ? 'md:flex-row-reverse' : 'md:flex-row'} md:gap-24 items-center justify-center md:px-12 px-6 py-20 md:py-24`}
+      className={`container mx-auto flex flex-col ${reverse ? 'md:flex-row-reverse' : 'md:flex-row'} md:gap-24 items-center justify-center md:px-12 px-6 py-20 md: py-8`}
     >
       <div className='md:w-1/2 p-4'>
         <span className='bg-accent text-white text-md py-2 px-4 rounded-2xl'>

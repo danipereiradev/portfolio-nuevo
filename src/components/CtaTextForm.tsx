@@ -9,7 +9,7 @@ export const CtaTextForm = () => {
       className='relative bg-no-repeat bg-center bg-cover'
     >
       <div className='bg-white opacity-50 absolute w-full inset-0'></div>
-      <section className='container  mx-auto flex flex-col md:flex-row md:gap-24 items-center justify-center md:px-12 px-6 py-20 md:py-24    '>
+      <section className='container  mx-auto flex flex-col md:flex-row md:gap-24 items-center justify-center md:px-12 px-6 py-20 md: py-8    '>
         <ContactFormHero
           title='¿Ponemos tu proyecto en marcha?'
           description='Déjanos tus datos y organizamos una reunión de 15/20 minutos'

@@ -66,7 +66,7 @@ const Services = () => {
   return (
     <section
       id='services'
-      className='bg-gray-50 flex items-center text-center md:text-start gap-8 py-24 px-4 md:min-h-[100vh] md:px-8'
+      className='bg-gray-50 flex items-center text-center md:text-start gap-8  py-8 px-4 md:min-h-[100vh] md:px-8'
     >
       <div className='mx-auto flex flex-col gap-12 container'>
         <div className='mx-auto text-center flex flex-col gap-8'>

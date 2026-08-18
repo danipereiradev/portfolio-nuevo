@@ -94,7 +94,7 @@ Hoy procesan cientos de pedidos al año.`,
       url: 'https://camisetas-ahora.com',
       testimonialName: 'Irene Ibáñez',
       exito:
-        'Incremento del 300% en ventas y mejora notable en velocidad de la tienda.',
+        'Incremento del 300% en ventas y mejora notable en velocidad de la tienda. Mejoría notable.',
     },
     {
       title: t('portfolio.hoyviajamos.title'),
@@ -140,7 +140,7 @@ Hay categorías (destinos, guías, tips, comida), galerías ligeras, mapas de si
       <section
         id='portfolio'
         ref={sectionRef}
-        className='flex items-center gap-8 py-24 px-4 md:h-[100vh] md:px-8'
+        className='flex items-center gap-8  py-8 px-4 md:h-[100vh] md:px-8'
       >
         <div className='mx-auto flex flex-col gap-12'>
           <div className='mx-auto text-center flex flex-col gap-8'>
@@ -182,11 +182,11 @@ Hay categorías (destinos, guías, tips, comida), galerías ligeras, mapas de si
                     />
                   </a>
 
-                  <div className='p-5 md:p-6 flex flex-col flex-1 text-center'>
+                  <div className='p-5 md:p-6 flex flex-col text-center'>
                     <h3 className='text-2xl md:text-3xl font-bold mb-2'>
                       {project.title}
                     </h3>
-                    <p className='text-sm md:text-base leading-relaxed mb-5 flex-1'>
+                    <p className='text-xl md:text-2xl leading-relaxed mb-5 flex-1'>
                       {project.exito}
                     </p>
                   </div>
