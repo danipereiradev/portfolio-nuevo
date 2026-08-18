@@ -1,4 +1,3 @@
-import { Pointer } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useSectionView } from '../hooks/useSectionView';
 
