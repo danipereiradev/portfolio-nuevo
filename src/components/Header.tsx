@@ -7,7 +7,7 @@ const navLinkClass =
   ' text-center relative text-xl py-2 px-4 rounded-2xl text-white uppercase';
 
 const mobileNavLinkClass =
-  'text-center text-white block w-full text-left px-4 py-4 text-md uppercase text-black hover:text-accent transition-colors duration-200';
+  'text-right text-white block w-full text-left px-4 py-4 text-md uppercase text-black hover:text-accent transition-colors duration-200';
 
 const Header = () => {
   const { t } = useLanguage();
@@ -60,7 +60,7 @@ const Header = () => {
       path: '/mantenimiento-web',
     },
     {
-      name: 'Publicidad google/redes',
+      name: 'Publicidad google',
       path: '/mantenimiento-web',
     },
   ];
@@ -225,7 +225,7 @@ const Header = () => {
           </div>
 
           {isMenuOpen && (
-            <nav className='lg:hidden mt-4 pb-2 bg-[#141414] text-white rounded-lg text-xl divide-y'>
+            <nav className='lg:hidden mt-4 pb-2 bg-[#141414] text-white rounded-lg text-2xl divide-y'>
               <a href='/' className={mobileNavLinkClass}>
                 Inicio
               </a>
@@ -233,11 +233,11 @@ const Header = () => {
               <div>
                 <button
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
-                  className='relative flex text-white items-center justify-center w-full px-4 py-4 text-md uppercase hover:text-accent transition-colors duration-200'
+                  className='relative flex text-white items-center gap-2 justify-end w-full px-4 py-4 text-md uppercase hover:text-accent transition-colors duration-200'
                 >
                   <span className='text-center'>Servicios</span>
                   <ChevronDown
-                    className={` absolute right-12 w-4 h-4 transition-transform ${
+                    className={`absolute right-[.5px] w-4 h-4 transition-transform ${
                       isServicesOpen ? 'rotate-180' : ''
                     }`}
                   />
@@ -255,7 +255,7 @@ const Header = () => {
                         }}
                         className='text-xl group block px-6 py-2.5 uppercase hover:bg-accent  hover:text-white transition-colors'
                       >
-                        <div className='flex items-center justify-center text-center py-2 divide-y-black'>
+                        <div className='flex items-center justify-end text-right py-2 divide-y-black'>
                           <span className='text-black font-bold  group-hover:text-accent transition-colors'>
                             {service.name}
                           </span>
