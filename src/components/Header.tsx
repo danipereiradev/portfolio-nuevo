@@ -201,7 +201,7 @@ const Header = () => {
                           onClick={() => setIsServicesOpen(false)}
                         >
                           <div className='flex items-center justify-between'>
-                            <span className='text-white group-hover:text-white  text-lg transition-colors'>
+                            <span className='text-white group-hover:text-white text-lg transition-colors'>
                               {service.name}
                             </span>
                           </div>
@@ -225,7 +225,7 @@ const Header = () => {
           </div>
 
           {isMenuOpen && (
-            <nav className='lg:hidden mt-4 pb-2 bg-[#141414] text-white rounded-lg text-2xl divide-y'>
+            <nav className='lg:hidden mt-4 pb-2 bg-[#141414] text-white rounded-lg text-md divide-y'>
               <a href='/' className={mobileNavLinkClass}>
                 Inicio
               </a>
@@ -253,7 +253,7 @@ const Header = () => {
                           setIsMenuOpen(false);
                           setIsServicesOpen(false);
                         }}
-                        className='text-xl group block px-6 py-2.5 uppercase hover:bg-accent  hover:text-white transition-colors'
+                        className='text-sm group block px-6 py-2.5 uppercase hover:bg-accent  hover:text-white transition-colors'
                       >
                         <div className='flex items-center justify-end text-right py-2 divide-y-black'>
                           <span className='text-black font-bold  group-hover:text-white transition-colors'>
