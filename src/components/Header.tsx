@@ -256,7 +256,7 @@ const Header = () => {
                         className='text-xl group block px-6 py-2.5 uppercase hover:bg-accent  hover:text-white transition-colors'
                       >
                         <div className='flex items-center justify-end text-right py-2 divide-y-black'>
-                          <span className='text-black font-bold  group-hover:text-accent transition-colors'>
+                          <span className='text-black font-bold  group-hover:text-white transition-colors'>
                             {service.name}
                           </span>
                         </div>
