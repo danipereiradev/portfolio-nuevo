@@ -141,10 +141,10 @@ Hay categorías (destinos, guías, tips, comida), galerías ligeras, mapas de si
       <section
         id='portfolio'
         ref={sectionRef}
-        className='flex items-center gap-8  py-8 px-4 md:h-[100vh] md:px-8'
+        className='flex items-center gap-8 py-8 px-4 md:px-8 md:py-24 lg:py-24'
       >
-        <div className='mx-auto flex flex-col gap-12'>
-          <div className='mx-auto text-center flex flex-col gap-8'>
+        <div className='mx-auto flex flex-col gap-12 justify-evenly'>
+          <div className='mx-auto text-center flex flex-col gap-8 md:max-w-[75%]'>
             <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900'>
               {t('portfolio.title')}
             </h2>
@@ -155,7 +155,7 @@ Hay categorías (destinos, guías, tips, comida), galerías ligeras, mapas de si
             )}
           </div>
 
-          <div className='grid md:grid-cols-4 gap-12 md:gap-12 mx-auto md:pt-24'>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-12 mx-auto md:pt-24'>
             {projects.map((project, index) => (
               <div
                 key={index}

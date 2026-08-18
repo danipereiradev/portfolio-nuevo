@@ -7,7 +7,7 @@ const navLinkClass =
   ' text-center relative text-xl py-2 px-4 rounded-2xl text-white uppercase';
 
 const mobileNavLinkClass =
-  'text-white block w-full text-left px-4 py-3 font-bold text-md uppercase text-black hover:bg-gray-100 hover:text-accent transition-colors duration-200';
+  'text-center text-white block w-full text-left px-4 py-4 text-md uppercase text-black hover:text-accent transition-colors duration-200';
 
 const Header = () => {
   const { t } = useLanguage();
@@ -130,7 +130,7 @@ const Header = () => {
                 aria-hidden='true'
               />
 
-              <div className='md:hidden flex items-center justify-end'>
+              <div className='lg:hidden flex items-center justify-end'>
                 <button
                   className='p-2 text-white'
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -144,7 +144,7 @@ const Header = () => {
                 </button>
               </div>
             </>
-            <nav className='text-white hidden md:flex place-self-end space-x-8'>
+            <nav className='text-white hidden lg:flex place-self-end space-x-8'>
               <div
                 className='relative'
                 onMouseEnter={() => setIsAboutOpen(true)}
@@ -225,7 +225,7 @@ const Header = () => {
           </div>
 
           {isMenuOpen && (
-            <nav className='md:hidden mt-4 pb-2 bg-[#141414] text-white rounded-lg border-2 border-ink-dark shadow-[6px_6px_0_0_#1a1a1a] divide-y-2 divide-gray-100'>
+            <nav className='lg:hidden mt-4 pb-2 bg-[#141414] text-white rounded-lg text-2xl divide-y'>
               <a href='/' className={mobileNavLinkClass}>
                 Inicio
               </a>
@@ -233,18 +233,18 @@ const Header = () => {
               <div>
                 <button
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
-                  className='flex text-white items-center justify-between w-full px-4 py-3 font-bold text-md uppercase  hover:bg-gray-100 hover:text-accent transition-colors duration-200'
+                  className='relative flex text-white items-center justify-center w-full px-4 py-4 text-md uppercase hover:text-accent transition-colors duration-200'
                 >
-                  <span>Servicios</span>
+                  <span className='text-center'>Servicios</span>
                   <ChevronDown
-                    className={`w-4 h-4 transition-transform ${
+                    className={` absolute right-12 w-4 h-4 transition-transform ${
                       isServicesOpen ? 'rotate-180' : ''
                     }`}
                   />
                 </button>
 
                 {isServicesOpen && (
-                  <div className='bg-gray-50 border-t-2 border-gray-100'>
+                  <div className='bg-[#fff] rounded-2xl divide-y divide-ink-dark'>
                     {services.map((service) => (
                       <a
                         key={service.path}
@@ -253,17 +253,12 @@ const Header = () => {
                           setIsMenuOpen(false);
                           setIsServicesOpen(false);
                         }}
-                        className='group block px-6 py-2.5 text-sm hover:bg-accent transition-colors'
+                        className='text-xl group block px-6 py-2.5 uppercase hover:bg-accent transition-colors'
                       >
-                        <div className='flex items-center justify-between'>
-                          <span className='text-gray-600 group-hover:text-white font-semibold transition-colors'>
+                        <div className='flex items-center justify-center text-center py-2 divide-y-black'>
+                          <span className='text-black font-bold  group-hover:text-accent transition-colors'>
                             {service.name}
                           </span>
-                          {service.popular && (
-                            <span className='bg-accent text-ink-dark border-2 border-ink-dark text-xs font-bold px-2 py-0.5 rotate-[-2deg]'>
-                              Popular
-                            </span>
-                          )}
                         </div>
                       </a>
                     ))}

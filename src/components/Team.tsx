@@ -53,7 +53,7 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
       mail: 'hola@pereiraweb.es',
     },
 
-    {
+    /* {
       fullName: 'Karen',
       description:
         '+12 años de experiencia en Web y SEO. Frontend con Typescript. Clientes como Inditex y Banco Santander.',
@@ -61,12 +61,12 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
       link: ['link1', 'link2'],
       imageUrl: '/img/team/cristina.jpg',
       mail: 'karen@pereiraweb.es',
-    },
+    }, */
   ];
 
   return (
-    <section className='mx-auto flex flex-col md:flex-row items-center text-center md:text-start gap-8  py-8 px-4 md:min-h-[100vh] md:px-8'>
-      <div className='md:w-1/2 flex flex-col items-center md:items-start gap-4 md:pr-8'>
+    <section className='mx-auto flex flex-col justify-evenly lg:flex-row items-center text-center lg:text-start gap-8 md:py-24 lg:py-0  py-8 px-4 md:min-h-[100vh] md:px-8'>
+      <div className='lg:w-1/2 flex flex-col items-center lg:items-start gap-4 md:pr-8'>
         <span className='text-accent font-extrabold underline text-md rounded-2xl'>
           {label}
         </span>
@@ -75,13 +75,13 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
         </h2>
         {paragraphs?.map((para: string) => {
           return (
-            <p className='text-lg md:text-xl text-black md:text-justify'>
+            <p className='text-lg md:text-xl text-black lg:text-justify'>
               {para}
             </p>
           );
         })}
       </div>
-      <div className='md:w-1/2 scroll-smooth w-full'>
+      <div className='lg:w-1/2 scroll-smooth w-full'>
         <Swiper
           autoplay={{
             delay: 2000,
@@ -94,6 +94,7 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
           }}
           modules={[Autoplay, Pagination, Navigation]}
           slidesPerView={1}
+          loop
           breakpoints={{
             480: {
               slidesPerView: 2,

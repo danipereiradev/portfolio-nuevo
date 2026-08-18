@@ -66,10 +66,10 @@ const Services = () => {
   return (
     <section
       id='services'
-      className='bg-gray-50 flex items-center text-center md:text-start gap-8  py-8 px-4 md:min-h-[100vh] md:px-8'
+      className='bg-gray-50 md:py-24 flex items-center  text-center lg:text-start gap-8 py-8 px-4 lg:min-h-[100vh] lg:px-8'
     >
-      <div className='mx-auto flex flex-col gap-12 container'>
-        <div className='mx-auto text-center flex flex-col gap-8'>
+      <div className='mx-auto flex flex-col gap-12 container justify-evenly'>
+        <div className='mx-auto text-center flex flex-col gap-8 md:max-w-[75%]'>
           <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900'>
             {t('services.title')}
           </h2>
@@ -77,7 +77,7 @@ const Services = () => {
             {t('services.description')}
           </p>
         </div>
-        <div className='grid md:grid-cols-4 gap-12 md:gap-12 mx-auto md:pt-24'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-12 mx-auto md:pt-24'>
           {mainServices.map((service) => (
             <article
               key={service.link}

@@ -9,6 +9,7 @@ import Testimonials from '../components/Testimonials';
 import { TextImage } from '../components/TextImage';
 import TrustBar from '../components/TrustBar';
 import SEOProcess from '../components/SEOProcess';
+import HeroCta from '../components/HeroCta';
 
 const WebProfesionalAMedida = () => {
   /* const problems = [
@@ -136,6 +137,62 @@ const WebProfesionalAMedida = () => {
     },
   ]; */
 
+  /*  const features = [
+    {
+      title: 'Bien en cualquier pantalla',
+      description: 'La miramos en móvil, tablet y ordenador antes de publicar.',
+    },
+    {
+      title: 'Que no se eternice cargando',
+      description: 'Páginas e imágenes ligeras. Nadie espera 8 segundos.',
+    },
+    {
+      title: 'Lista para Google',
+      description:
+        'Títulos y estructura en orden para que el buscador la entienda.',
+    },
+    {
+      title: 'Formulario y WhatsApp',
+      description: 'El cliente elige cómo escribirte.',
+    },
+    {
+      title: 'HTTPS desde el día uno',
+      description: 'Publicación con conexión segura.',
+    },
+    {
+      title: 'Hosting y dominio incluidos',
+      description:
+        'Tu dominio, tu alojamiento. Sin subdominios raros ni marcas ajenas.',
+    },
+  ]; */
+
+  /*  const processSteps = [
+    {
+      number: '1',
+      title: 'Nos cuentas qué necesitas',
+      description:
+        'WhatsApp, email, llamada o videollamada. Si estás en Madrid, también podemos vernos. Nos dices qué haces y qué te falta.',
+    },
+    {
+      number: '2',
+      title: 'Te enviamos una propuesta',
+      description:
+        'Alcance, plazos, precio y cómo se paga. Por escrito, antes de empezar.',
+    },
+    {
+      number: '3',
+      title: 'Montamos la web o la tienda',
+      description:
+        'Estructura, textos, móvil y lo que hayas pedido. Sin agencia de 40 personas en medio.',
+    },
+    {
+      number: '4',
+      title: 'Publicamos y te dejamos usándola',
+      description:
+        'Dominio, hosting y un repaso contigo. Si quieres, luego hay mantenimiento mensual.',
+    },
+  ]; */
+
   const processSteps = [
     {
       number: '1',
@@ -222,7 +279,7 @@ const WebProfesionalAMedida = () => {
 
   return (
     <>
-      <Hero
+      <HeroCta
         title='La página web a medida que siempre has necesitado'
         description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
       quia veritatis voluptatibus, dicta id reprehenderit deserunt culpa
@@ -236,6 +293,7 @@ const WebProfesionalAMedida = () => {
         formSectionInfo='Hero 1 Home'
         hasBackground
         hasReviewBadge
+        isTopHero
       />
       <TrustBar />
       <SEOBenefits
@@ -248,7 +306,7 @@ const WebProfesionalAMedida = () => {
         steps={processSteps}
       />
 
-      <Hero
+      <HeroCta
         title='¿ Nos ponemos manos a la obra ?'
         description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
       quia veritatis voluptatibus, dicta id reprehenderit deserunt culpa
@@ -264,14 +322,21 @@ const WebProfesionalAMedida = () => {
         hasReviewBadge={false}
       />
 
-      <Team />
+      <Team
+        label={'TUS EXPERTOS EN DISEÑO WEB'}
+        title='Desarrollamos webs pensado en la escalabilidad y el crecimiento de tu
+          negocio.'
+        paragraphs={[
+          'En Pereiraweb somos directos: una web lenta o con errores es una fuga constante de dinero. Por eso, nuestra metodología en el desarrollo de tiendas online.',
+        ]}
+      />
       <Portfolio />
       <Testimonials />
 
       <div id='faq' className='scroll-mt-24'>
         <SEOFAQ title='Te resolvemos todas tus dudas' faqs={faqs} />
       </div>
-      <Hero
+      <HeroCta
         title='¿ Nos ponemos manos a la obra ?'
         description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
       quia veritatis voluptatibus, dicta id reprehenderit deserunt culpa

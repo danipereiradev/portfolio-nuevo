@@ -48,19 +48,19 @@ function TestimonialsSingle() {
   }, []);
 
   return (
-    <blockquote className='relative mt-2 min-h-[11rem] rounded-xl py-5 pl-7 pr-5 text-left'>
+    <blockquote className='relative mt-2 min-h-[7.5rem] w-full min-w-0 overflow-hidden rounded-xl text-left'>
       <div
-        className={`transition-all duration-500 ease-in-out ${
+        className={`w-full min-w-0 transition-all duration-500 ease-in-out ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
         }`}
       >
-        <p className='mt-2 text-lg font-semibold italic leading-snug text-gray-900'>
+        <p className='mt-2 w-full break-words text-lg font-semibold italic leading-snug text-gray-900'>
           {snippet.text}
         </p>
 
-        <footer className='mt-2 flex items-center gap-3'>
-          <span className='h-px w-6 bg-accent' aria-hidden='true' />
-          <cite className='not-italic text-sm font-semibold text-gray-600'>
+        <footer className='mt-2 flex min-w-0 items-center gap-3'>
+          <span className='h-px w-6 shrink-0 bg-accent' aria-hidden='true' />
+          <cite className='min-w-0 break-words not-italic text-sm font-semibold text-gray-600'>
             {snippet.name}
           </cite>
         </footer>
