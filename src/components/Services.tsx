@@ -66,7 +66,7 @@ const Services = () => {
   return (
     <section
       id='services'
-      className='bg-gray-50 flex items-center text-center md:text-start gap-8 py-24 px-4 md:px-0 md:h-[100vh]'
+      className='bg-gray-50 flex items-center text-center md:text-start gap-8 py-24 px-4 md:min-h-[100vh] md:px-8'
     >
       <div className='mx-auto flex flex-col gap-12 container'>
         <div className='mx-auto text-center flex flex-col gap-8'>
@@ -81,7 +81,7 @@ const Services = () => {
           {mainServices.map((service) => (
             <article
               key={service.link}
-              className='bg-[#f4f4f4] shadow-xl rounded-2xl overflow-hidden flex flex-col hover:text-white hover:bg-accent transition duration-300 ease-in-out cursor-pointer'
+              className='bg-[#f4f4f4] shadow-xl rounded-2xl overflow-hidden flex flex-col'
             >
               <a
                 href={service.link}
@@ -107,17 +107,11 @@ const Services = () => {
                 <p className='text-md md:text-lg leading-relaxed mb-5 flex-1'>
                   {service.description}
                 </p>
-                {/* <a
-                  href={service.link}
-                  className='inline-flex self-start text-sm font-bold text-ink-dark border-2 border-ink-dark bg-accent px-4 py-2 rounded-lg shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
-                >
-                  {service.cta}
-                </a> */}
+                <Button className='place-self-center'>Ver mas</Button>
               </div>
             </article>
           ))}
         </div>
-        <Button className='place-self-center'>Ver mas</Button>
       </div>
     </section>
   );

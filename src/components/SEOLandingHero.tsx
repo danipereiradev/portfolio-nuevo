@@ -34,7 +34,7 @@ const SEOLandingHero = ({
   backgroundImage = '/img/web-design-charlesdeluvio.webp',
 }: SEOLandingHeroProps) => {
   return (
-    <section className='relative flex items-center justify-center overflow-hidden pt-[var(--site-header-h)] pb-14 min-h-[70vh] md:pb-0 md:min-h-[100svh]'>
+    <section className='relative flex items-center justify-center overflow-hidden   pb-14 min-h-[70vh] md:pb-0 md:min-h-[100svh]'>
       <div
         className='absolute inset-0 bg-cover bg-center bg-no-repeat'
         style={{ backgroundImage: `url('${backgroundImage}')` }}

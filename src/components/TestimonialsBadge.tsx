@@ -38,11 +38,10 @@ function TestimonialsBadge({ id = 'testimonials' }: TestimonialsProps) {
   }, []);
 
   return (
-    <div
-      id={id}
-      data-src={TRUSTINDEX_WIDGET_SRC}
-      className='w-1/3 bg-blue-300'
-    />
+    <>
+      <div id={id} data-src={TRUSTINDEX_WIDGET_SRC} className='w-1/3' />
+      <div className='spacer'></div>
+    </>
   );
 }
 

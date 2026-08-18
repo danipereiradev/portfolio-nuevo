@@ -40,14 +40,14 @@ function Testimonials({ id = 'testimonials' }: TestimonialsProps) {
   return (
     <section
       id={id}
-      className=' bg-gray-50 text-gray-900 flex items-center md:h-[100vh] text-center md:text-start gap-8 py-24 px-4 md:px-0 md:py-0'
+      className='flex items-center gap-8 py-24 px-4 md:h-[100vh] md:px-8'
     >
-      <div className='container mx-auto px-6'>
-        <div className='mb-12 text-center md:mb-16'>
-          <h2 className='mb-4 text-2xl font-extrabold text-gray-900 md:text-4xl lg:text-5xl'>
+      <div className='mx-auto flex flex-col gap-12'>
+        <div className='mx-auto text-center flex flex-col gap-8'>
+          <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900'>
             Esto es lo que dicen nuestros clientes
           </h2>
-          <p className='mx-auto text-base text-gray-600 md:text-xl'>
+          <p className='text-xl md:text-2xl text-black'>
             Valoraciones verificadas sacadas de nuestro perfil de google
           </p>
         </div>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import Button from './Button';
 
 interface FAQItem {
   question: string;
@@ -24,10 +25,10 @@ const SEOFAQ = ({ title, faqs, onFaqOpen }: SEOFAQProps) => {
   };
 
   return (
-    <section className='py-20 '>
-      <div className='container mx-auto px-6'>
+    <section className='md:min-h-[100vh] gap-8 py-24 px-4 md:py-0 md:px-8 flex items-center justify-center'>
+      <div className='flex flex-col justify-center items-center gap-8'>
         <div className='text-center mb-12 md:mb-16'>
-          <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4'>
+          <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900'>
             {title}
           </h2>
         </div>
@@ -65,6 +66,7 @@ const SEOFAQ = ({ title, faqs, onFaqOpen }: SEOFAQProps) => {
             </div>
           ))}
         </div>
+        <Button>¿Mas preguntas?</Button>
       </div>
     </section>
   );

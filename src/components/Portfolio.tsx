@@ -39,7 +39,8 @@ Una URL con todo lo que necesitan salas y público.`,
       productHref: '/web-profesional-a-medida',
       publishedAt: '3 agosto 2026',
       url: 'https://sillysallyband.com',
-      exito: 'Primer resultado en google en +100 palabras clave',
+      exito:
+        'Primer resultado en google en +100 palabras clave aumento del 400% en llamadas a la empresa',
     },
     /* {
       title: t('portfolio.core.title'),
@@ -93,7 +94,8 @@ Hoy procesan cientos de pedidos al año.`,
       publishedAt: '18 junio 2026',
       url: 'https://camisetas-ahora.com',
       testimonialName: 'Irene Ibáñez',
-      exito: 'Incremento del 300% en ventas',
+      exito:
+        'Incremento del 300% en ventas y mejora notable en velocidad de la tienda.',
     },
     {
       title: t('portfolio.hoyviajamos.title'),
@@ -109,7 +111,8 @@ Hay categorías (destinos, guías, tips, comida), galerías ligeras, mapas de si
       publishedAt: '24 junio 2026',
       url: 'https://hoyviajamosweb.com',
       testimonialName: 'Juanvi Raga',
-      exito: 'Nuevos suscriptores en newsletter.',
+      exito:
+        'Nuevos suscriptores en newsletter y mejora en la optimización y carga del blog.',
     },
   ];
 
@@ -138,43 +141,31 @@ Hay categorías (destinos, guías, tips, comida), galerías ligeras, mapas de si
       <section
         id='portfolio'
         ref={sectionRef}
-        className='relative py-20 overflow-hidden flex items-center'
+        className='flex items-center gap-8 py-24 px-4 md:h-[100vh] md:px-8'
       >
-        <div className=' mx-auto relative z-10 container px-6 md:px-12 '>
-          <div className='text-center mb-16'>
-            <h2 className='text-4xl md:text-5xl font-extrabold text-gray-900 mb-4'>
+        <div className='mx-auto flex flex-col gap-12'>
+          <div className='mx-auto text-center flex flex-col gap-8'>
+            <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900'>
               {t('portfolio.title')}
             </h2>
             {!isPackLanding && (
-              <p className='text-xl text-gray-600    mx-auto'>
+              <p className='text-xl md:text-2xl text-black'>
                 {t('portfolio.description')}
               </p>
             )}
           </div>
 
-          <div
-            className={
-              projects.length === 1
-                ? 'flex justify-center mx-auto'
-                : isPackLanding
-                  ? 'grid md:grid-cols-3 lg:grid-cols-3 gap-6 md:gap-8   mx-auto'
-                  : 'grid md:grid-cols-3 gap-6 md:gap-8    mx-auto'
-            }
-          >
+          <div className='grid md:grid-cols-4 gap-12 md:gap-12 mx-auto md:pt-24'>
             {projects.map((project, index) => (
               <div
                 key={index}
-                /* onClick={() => openProjectModal(index)}
-                onMouseEnter={() =>
-                  project.headerImage && preloadImage(project.headerImage)
-                } */
                 className={`group cursor-pointer rounded-2xl  bg-white overflow-hidden  ${
                   projects.length === 1 ? 'w-full max-w-md' : ''
                 }`}
               >
                 <article
                   key={project.title}
-                  className='bg-[#f4f4f4] shadow-xl rounded-2xl overflow-hidden flex flex-col hover:text-white hover:bg-accent transition duration-300 ease-in-out cursor-pointer'
+                  className='bg-[#f4f4f4] shadow-xl rounded-2xl overflow-hidden flex flex-col cursor-pointer'
                 >
                   <a
                     className='block bg-gray-100'
@@ -197,13 +188,8 @@ Hay categorías (destinos, guías, tips, comida), galerías ligeras, mapas de si
                       {project.title}
                     </h3>
                     <p className='text-sm md:text-base leading-relaxed mb-5 flex-1'>
-                      {project.description}
+                      {project.exito}
                     </p>
-
-                    <div className='flex items-center justify-center gap-2'>
-                      <Pointer width={20} className='' />
-                      <p className='text-xl'>{project.exito}</p>
-                    </div>
                   </div>
                 </article>
               </div>
