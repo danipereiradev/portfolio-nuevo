@@ -107,7 +107,7 @@ const Services = () => {
                 <p className='text-md md:text-lg leading-relaxed mb-5 flex-1'>
                   {service.description}
                 </p>
-                <Button className='place-self-center'>Ver mas</Button>
+                <Button>Ver mas</Button>
               </div>
             </article>
           ))}

@@ -183,10 +183,10 @@ Fecha: ${new Date().toLocaleString('es-ES')}
   );
 
   return (
-    <div className='flex justify-end items-center md:w-1/2 z-10 '>
+    <div className='flex justify-center items-center md:w-1/2 z-10 '>
       <form
         onSubmit={handleSubmit}
-        className='bg-[#f4f4f4] rounded-2xl justify-center p-12 w-3/4 shadow-xl'
+        className='bg-[#f4f4f4] rounded-2xl justify-center md:w-3/4 shadow-xl p-4 md:p-8'
         action=''
       >
         <h2 className='text-2xl md:text-3xl lg:text-4xl font-extrabold text-black text-center mt-4 mb-0'>
@@ -253,7 +253,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                 className='w-6 h-6 md:w-12 md:h-12 accent-accent border-2 border-ink-dark rounded'
               />
             </span>
-            <span className='text-xl italic text-gray-900 leading-relaxed pt-2 md:pt-0 text-start'>
+            <span className='text-md md:text-xl italic text-gray-900 leading-relaxed pt-2 md:pt-0 text-start'>
               He leido y acepto la{' '}
               <a href='/politica-de-privacidad' className='text-accent'>
                 política de privacidad

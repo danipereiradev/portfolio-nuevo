@@ -1,4 +1,4 @@
-import { Mail } from 'lucide-react';
+import { GithubIcon, LinkedinIcon, Mail } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
@@ -65,8 +65,8 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
   ];
 
   return (
-    <section className=' mx-auto flex flex-col md:flex-row items-center text-center md:text-start gap-8  py-8 px-4 md:px-0 md:min-h-[100vh] md:px-8'>
-      <div className='md:w-1/2 flex flex-col items-center md:items-start gap-4'>
+    <section className='mx-auto flex flex-col md:flex-row items-center text-center md:text-start gap-8  py-8 px-4 md:px-0 md:min-h-[100vh] md:px-8'>
+      <div className='md:w-1/2 flex flex-col items-center md:items-start gap-4 pr-8'>
         <span className='text-accent font-extrabold underline text-md rounded-2xl'>
           {label}
         </span>
@@ -123,9 +123,12 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
                     {/* <span className='text-accent text-sm italic'>
                   "Volvería a trabajar con el sin ninguna duda"
                 </span> */}
-                    <div className='flex gap-2 text-start items-center mt-4 font-bold'>
+                    <div className='flex gap-4 items-start mt-4'>
                       <Mail width={20} className='text-accent' />
-                      <a href='/'>{member.mail}</a>
+
+                      <LinkedinIcon width={20} className='text-accent' />
+
+                      <GithubIcon width={20} className='text-accent' />
                     </div>
                   </div>
                 </article>

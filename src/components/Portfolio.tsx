@@ -2,6 +2,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { useSectionView } from '../hooks/useSectionView';
 
 import { trackViewPortfolioSection } from '../utils/analytics';
+import Button from './Button';
 
 interface PortfolioProps {
   /** En /web-profesional: badges de packs y sin proyectos de tienda online. */
@@ -182,13 +183,14 @@ Hay categorías (destinos, guías, tips, comida), galerías ligeras, mapas de si
                     />
                   </a>
 
-                  <div className='p-5 md:p-6 flex flex-col text-center'>
-                    <h3 className='text-2xl md:text-3xl font-bold mb-2'>
+                  <div className='p-5 md:p-6 flex flex-col flex-1 text-center gap-4'>
+                    <h3 className='text-2xl md:text-3xl font-bold mb-2 flex-grow'>
                       {project.title}
                     </h3>
-                    <p className='text-xl md:text-2xl leading-relaxed mb-5 flex-1'>
+                    <p className='text-md md:text-lg leading-relaxed mb-5 flex-1'>
                       {project.exito}
                     </p>
+                    <Button>Ver mas</Button>
                   </div>
                 </article>
               </div>
