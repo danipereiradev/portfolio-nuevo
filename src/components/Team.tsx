@@ -81,10 +81,10 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
           );
         })}
       </div>
-      <div className='md:w-1/2 scroll-smooth'>
+      <div className='md:w-1/2 scroll-smooth w-full'>
         <Swiper
           autoplay={{
-            delay: 3500,
+            delay: 2000,
             disableOnInteraction: false,
           }}
           spaceBetween={16}
@@ -94,6 +94,12 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
           }}
           modules={[Autoplay, Pagination, Navigation]}
           slidesPerView={1}
+          breakpoints={{
+            480: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+          }}
           onSlideChange={() => console.log('slide change')}
           onSwiper={(swiper) => console.log(swiper)}
         >
