@@ -87,10 +87,10 @@ const Header = () => {
 
   const brand = (
     <span
-      className='text-2xl md:text-3xl whitespace-nowrap font-extrabold flex items-center'
+      className='text-xl md:text-3xl whitespace-nowrap font-extrabold flex items-center'
       style={{ fontFamily: "'Space Grotesk', sans-serif" }}
     >
-      <span className='text-accent font-mono text-2xl md:text-3xl'>&gt;</span>
+      <span className='text-accent font-mono text-xl md:text-3xl'>&gt;</span>
       <span className='text-neutral-300 font-mono tracking-tight ml-1'>
         {hasTyped ? 'pereiraweb' : typedText.split(' ')[0]}
       </span>
@@ -101,7 +101,7 @@ const Header = () => {
             ? ' ' + typedText.split(' ')[1]
             : ''}
       </span>
-      <span className='text-accent font-mono text-xl md:text-2xl animate-pulse ml-0'>
+      <span className='text-accent font-mono text-xl md:text-xl animate-pulse ml-0'>
         _
       </span>
     </span>
@@ -225,7 +225,7 @@ const Header = () => {
           </div>
 
           {isMenuOpen && (
-            <nav className='lg:hidden mt-4 pb-2 bg-[#141414] text-white rounded-lg text-2xl divide-y'>
+            <nav className='lg:hidden mt-4 pb-2 bg-[#141414] text-white rounded-lg text-xl divide-y'>
               <a href='/' className={mobileNavLinkClass}>
                 Inicio
               </a>
