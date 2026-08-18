@@ -31,7 +31,7 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
         '+5 años construyendo software, su meta en los próximos 5 es dar forma contigo a las herramientas que funcionen.',
       role: 'Desarrollador web fullstack',
       link: ['link1', 'link2'],
-      imageUrl: 'public/img/team/sergi.png',
+      imageUrl: '/img/team/sergi.png',
       mail: 's.cerda@pereiraweb.es',
     },
     {
@@ -40,7 +40,7 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
         '+10 años en diseño gráfico y dirección de arte especializada en branding. Combina pensamiento estratégico con sensibilidad visual.',
       role: 'Diseñadora gráfica UX/UI',
       link: ['link1', 'link2'],
-      imageUrl: 'public/img/team/cristina.jpg',
+      imageUrl: '/img/team/cristina.jpg',
       mail: 'c.recio@pereiraweb.es',
     },
     {
@@ -49,7 +49,7 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
         '+12 años de experiencia en Web y SEO. Frontend con Typescript. Clientes como Inditex y Banco Santander.',
       role: 'Desarrollo web y Marketing digital',
       link: ['link1', 'link2'],
-      imageUrl: 'public/img/team/dani.png',
+      imageUrl: '/img/team/dani.png',
       mail: 'hola@pereiraweb.es',
     },
 
@@ -59,7 +59,7 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
         '+12 años de experiencia en Web y SEO. Frontend con Typescript. Clientes como Inditex y Banco Santander.',
       role: 'Diseño web wordpress',
       link: ['link1', 'link2'],
-      imageUrl: 'public/img/team/cristina.jpg',
+      imageUrl: '/img/team/cristina.jpg',
       mail: 'karen@pereiraweb.es',
     },
   ];

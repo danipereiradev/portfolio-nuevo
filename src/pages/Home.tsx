@@ -113,7 +113,7 @@ const Home = () => {
         title='Agencia de diseño web y marketing digital'
         description='Lorem ipsum dolor sit amet consectetur adipisicing elit.'
         buttonText='CONTACTA AHORA'
-        backgroundUrl='public/img/web-design-charlesdeluvio.webp'
+        backgroundUrl='/img/web-design-charlesdeluvio.webp'
         heroType='clean'
         hasButton
         formTitle='Nosotros te contactámos'
@@ -155,7 +155,7 @@ const Home = () => {
             quia veritatis voluptatibus, dicta id reprehenderit deserunt culpa
             corporis corrupti accusantium.'
         buttonText='TIENDAS ONLINE'
-        backgroundUrl='public/img/theme-photos-CGpifH3FjOA-unsplash.jpg'
+        backgroundUrl='/img/theme-photos-CGpifH3FjOA-unsplash.jpg'
         heroType='form'
         hasButton
         formTitle='Nosotros te contactámos'

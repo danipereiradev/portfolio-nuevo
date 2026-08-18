@@ -228,7 +228,7 @@ const WebProfesionalAMedida = () => {
       quia veritatis voluptatibus, dicta id reprehenderit deserunt culpa
       corporis corrupti accusantium.'
         buttonText='CONTACTA AHORA'
-        backgroundUrl='public/img/theme-photos-CGpifH3FjOA-unsplash.jpg'
+        backgroundUrl='/img/theme-photos-CGpifH3FjOA-unsplash.jpg'
         heroType='form'
         hasButton
         formTitle='Nosotros te contactámos'
@@ -254,7 +254,7 @@ const WebProfesionalAMedida = () => {
       quia veritatis voluptatibus, dicta id reprehenderit deserunt culpa
       corporis corrupti accusantium.'
         buttonText='TIENDAS ONLINE'
-        backgroundUrl='public/img/theme-photos-CGpifH3FjOA-unsplash.jpg'
+        backgroundUrl='/img/theme-photos-CGpifH3FjOA-unsplash.jpg'
         heroType='form'
         hasButton
         formTitle='Nosotros te contactámos'
@@ -277,7 +277,7 @@ const WebProfesionalAMedida = () => {
       quia veritatis voluptatibus, dicta id reprehenderit deserunt culpa
       corporis corrupti accusantium.'
         buttonText='TIENDAS ONLINE'
-        backgroundUrl='public/img/theme-photos-CGpifH3FjOA-unsplash.jpg'
+        backgroundUrl='/img/theme-photos-CGpifH3FjOA-unsplash.jpg'
         heroType='form'
         hasButton
         formTitle='Nosotros te contactámos'

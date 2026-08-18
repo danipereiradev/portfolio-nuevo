@@ -45,7 +45,7 @@ const Hero = ({
       {hasBackground ? (
         <div
           style={{
-            backgroundImage: 'url("public/img/hero-bg-texture.avif")',
+            backgroundImage: 'url("/img/hero-bg-texture.avif")',
           }}
           className='bg-no-repeat bg-center bg-cover opacity-80 absolute w-full inset-0'
         ></div>
