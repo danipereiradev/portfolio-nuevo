@@ -253,7 +253,7 @@ const Header = () => {
                           setIsMenuOpen(false);
                           setIsServicesOpen(false);
                         }}
-                        className='text-xl group block px-6 py-2.5 uppercase hover:bg-accent transition-colors'
+                        className='text-xl group block px-6 py-2.5 uppercase hover:bg-accent  hover:text-white transition-colors'
                       >
                         <div className='flex items-center justify-center text-center py-2 divide-y-black'>
                           <span className='text-black font-bold  group-hover:text-accent transition-colors'>
