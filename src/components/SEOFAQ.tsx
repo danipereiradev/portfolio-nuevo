@@ -24,7 +24,7 @@ const SEOFAQ = ({ title, faqs, onFaqOpen }: SEOFAQProps) => {
   };
 
   return (
-    <section className='py-20 bg-gray-50'>
+    <section className='py-20 '>
       <div className='container mx-auto px-6'>
         <div className='text-center mb-12 md:mb-16'>
           <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4'>
@@ -32,21 +32,17 @@ const SEOFAQ = ({ title, faqs, onFaqOpen }: SEOFAQProps) => {
           </h2>
         </div>
 
-        <div className='   mx-auto grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 items-start'>
+        <div className='mx-auto grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 items-start'>
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className={`bg-white rounded-lg border-2 overflow-hidden transition-all duration-200 ${
-                openIndex === index
-                  ? 'border-accent shadow-[4px_4px_0_0_#0d9488]'
-                  : 'border-ink-dark shadow-[4px_4px_0_0_#1a1a1a]'
-              }`}
+              className={` rounded-lg overflow-hidden transition-all duration-200`}
             >
               <button
                 onClick={() => toggleFAQ(index)}
-                className='w-full px-4 py-4 md:px-6 md:py-5 flex items-center justify-between text-left hover:bg-gray-50 transition-colors'
+                className='w-full bg-gray-50 px-4 py-4 md:px-6 md:py-5 flex items-center justify-between text-left hover:bg-gray-50 transition-colors'
               >
-                <h3 className='text-sm md:text-base lg:text-lg font-bold text-gray-900 pr-3 md:pr-4'>
+                <h3 className='text-lg md:xl lg:text-2xl font-bold text-gray-900 pr-3 md:pr-4'>
                   {faq.question}
                 </h3>
                 <ChevronDown

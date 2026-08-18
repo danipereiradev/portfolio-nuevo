@@ -50,7 +50,7 @@ const Faq = () => {
               <a
                 key={category.id}
                 href={`#${category.id}`}
-                className='text-sm md:text-base font-semibold text-gray-800 bg-gray-50 border-2 border-ink-dark px-3 py-2 rounded-lg shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
+                className='text-sm md:text-base font-semibold text-gray-800 bg-gray-50 border-2 border-ink-dark px-3 py-2 rounded-lg'
               >
                 {category.title}
               </a>
@@ -82,11 +82,7 @@ const Faq = () => {
                   return (
                     <div
                       key={key}
-                      className={`bg-white rounded-lg border-2 overflow-hidden transition-all duration-200 ${
-                        isOpen
-                          ? 'border-ink-dark shadow-[4px_4px_0_0_#0d9488]'
-                          : 'border-ink-dark shadow-[4px_4px_0_0_#1a1a1a]'
-                      }`}
+                      className={`bg-white rounded-lg border-2 overflow-hidden transition-all duration-200`}
                     >
                       <button
                         type='button'

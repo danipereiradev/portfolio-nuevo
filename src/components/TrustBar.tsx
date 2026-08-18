@@ -8,9 +8,9 @@ import {
 
 const defaultTrustPoints: { icon: LucideIcon; text: string }[] = [
   { icon: Award, text: '100% de clientes satisfechos' },
-  { icon: Building2, text: 'Soporte y trato directo 1-a-1' },
-  { icon: FileCheck, text: 'Proyectos enfocados en vender' },
-  { icon: Lightbulb, text: 'Consultoría inicial estratégica incluida' },
+  { icon: Building2, text: 'Soporte y Trato 1-a-1' },
+  { icon: FileCheck, text: 'Proyectos enfocados a vender' },
+  { icon: Lightbulb, text: 'Consultoría inicial incluida' },
 ];
 
 const RenderIcon = (Icon: LucideIcon) => {
@@ -19,12 +19,12 @@ const RenderIcon = (Icon: LucideIcon) => {
 
 const TrustBar = () => {
   return (
-    <section className=' text-black grid grid-cols-2 md:grid-cols-4 border-b-2 border-b-gay-500 min-h-[10vh]'>
+    <section className=' text-black grid grid-cols-1 md:grid-cols-4 md:min-h-[10vh] min-h-[20vh]'>
       {defaultTrustPoints.map((point) => {
         return (
           <div
             key={point.text}
-            className='flex items-center py-4 px-2 border-r border-r-gray-300 justify-center text-xl'
+            className='flex items-center md:justify-center  border-b border-b-gray-300 md:border-r md:border-r-gray-300  text-xl p-4'
           >
             {RenderIcon(point.icon)}
             {point.text}

@@ -33,7 +33,7 @@ const translations = {
   'services.title':
     'Una agencia joven pero con más de una década de experiencia',
   'services.description':
-    'Nuestro equipo cuenta con profesionales del producto y marketing digital, el desarrollo de software y el diseño con una larga trayectoria. Colaborando con clientes de sectores como el bancario o retail.',
+    'Nuestro equipo cuenta con profesionales del producto y marketing digital, el desarrollo de software y el diseño con una larga trayectoria.',
   'services.webdesign.title': 'Web a medida',
   'services.webdesign.desc':
     'Cuando hace falta una estructura concreta, reservas, zona privada o conexión con lo que ya usas.',

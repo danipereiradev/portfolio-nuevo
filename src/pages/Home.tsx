@@ -16,6 +16,7 @@ import { CtaTextForm } from '../components/CtaTextForm';
 import { SuccessCases } from '../components/SuccessCases';
 import { Sectors } from '../components/Sectors';
 import { Team } from '../components/Team';
+import TrustBar from '../components/TrustBar';
 
 const features = [
   {
@@ -110,9 +111,7 @@ const Home = () => {
     <>
       <Hero
         title='Agencia de diseño web y marketing digital'
-        description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
-            quia veritatis voluptatibus, dicta id reprehenderit deserunt culpa
-            corporis corrupti accusantium.'
+        description='Lorem ipsum dolor sit amet consectetur adipisicing elit.'
         buttonText='CONTACTA AHORA'
         backgroundUrl='public/img/web-design-charlesdeluvio.webp'
         heroType='clean'
@@ -121,10 +120,30 @@ const Home = () => {
         formDescription='Déjanos tus datos y nos pondremos en contacto.'
         formSectionInfo='Hero 1 Home'
         hasBackground
+        hasReviewBadge={false}
       />
-      <TextImage />
+      <TrustBar />
+      <TextImage
+        label={'PEREIRAWEB'}
+        title='Desarrollamos webs pensado en la escalabilidad y el crecimiento de tu
+          negocio.'
+        paragraphs={[
+          'En Pereiraweb somos directos: una web lenta o con errores es una fuga constante de dinero. Por eso, nuestra metodología en el desarrollo de tiendas online combina la arquitectura técnica más avanzada con un enfoque obsesivo en la conversión',
+          'Como Agencia de Ecommerce, analizamos tu modelo de negocio para elegir la tecnología que mejor se adapte a tus necesidades, desde Shopify hasta desarrollos a medida',
+          'En Pereiraweb somos directos: una web lenta o con errores es una fuga constante de dinero. Por eso, nuestra metodología en el desarrollo de tiendas online combina la arquitectura técnica más avanzada con un enfoque obsesivo en la conversión',
+        ]}
+      />
       <Services />
-      <Team />
+      <Team
+        label={'CONOCE A TU FUTURO EQUIPO'}
+        title='Desarrollamos webs pensado en la escalabilidad y el crecimiento de tu
+          negocio.'
+        paragraphs={[
+          'En Pereiraweb somos directos: una web lenta o con errores es una fuga constante de dinero. Por eso, nuestra metodología en el desarrollo de tiendas online combina la arquitectura técnica más avanzada con un enfoque obsesivo en la conversión',
+          'Como Agencia de Ecommerce, analizamos tu modelo de negocio para elegir la tecnología que mejor se adapte a tus necesidades, desde Shopify hasta desarrollos a medida',
+          'En Pereiraweb somos directos: una web lenta o con errores es una fuga constante de dinero. Por eso, nuestra metodología en el desarrollo de tiendas online combina la arquitectura técnica más avanzada con un enfoque obsesivo en la conversión',
+        ]}
+      />
       <Testimonials />
       <Portfolio />
       <div id='faq' className='scroll-mt-24'>
@@ -143,6 +162,7 @@ const Home = () => {
         formDescription='Déjanos tus datos y nos pondremos en contacto.'
         formSectionInfo='Hero CTA 2 Home'
         hasBackground={false}
+        hasReviewBadge
       />
     </>
   );

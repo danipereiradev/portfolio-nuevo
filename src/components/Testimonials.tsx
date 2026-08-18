@@ -40,7 +40,7 @@ function Testimonials({ id = 'testimonials' }: TestimonialsProps) {
   return (
     <section
       id={id}
-      className='scroll-mt-24 py-20 bg-gray-50 text-gray-900  flex items-center'
+      className=' bg-gray-50 text-gray-900 flex items-center md:h-[100vh] text-center md:text-start gap-8 py-24 px-4 md:px-0 md:py-0'
     >
       <div className='container mx-auto px-6'>
         <div className='mb-12 text-center md:mb-16'>

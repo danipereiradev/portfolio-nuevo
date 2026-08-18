@@ -3,23 +3,23 @@ import { useEffect, useState } from 'react';
 const snippets = [
   {
     text: '"Se nota que disfrutan lo que hacen y que se implican de verdad en cada proyecto"',
-    name: 'Juanvi Raga de hoyviajamosweb.com',
+    name: 'Juanvi Raga | hoyviajamosweb.com',
   },
   {
     text: '"Profesional… muy profesional. Un trabajo bien hecho en toda su extensión"',
-    name: 'Victor Raposo de casa rural oalicornio.com',
+    name: 'Victor Raposo | oalicornio.com',
   },
   {
     text: '"Siempre que necesito algo, me atiende al momento. Nunca me he quedado tirada"',
-    name: 'Irene Ibáñez de camisetas-ahora.com',
+    name: 'Irene Ibáñez | camisetas-ahora.com',
   },
   {
     text: '"Estoy muy contento con el resultado. Volvería a trabajar con él sin ninguna duda"',
-    name: 'Bruno Tomás de elviajedeloselefantes.com',
+    name: 'Bruno Tomás | elviajedeloselefantes.com',
   },
   {
     text: '"Profesionalidad y eficacia siempre. Muchas gracias"',
-    name: 'Ingrid Martín-Macho de flamingoplugs',
+    name: 'Ingrid Martín-Macho | flamingoplugs',
   },
 ];
 

@@ -149,7 +149,7 @@ function AppContent() {
 
       <BackToTopButton />
 
-      <MobileStickyCTA />
+      {/* <MobileStickyCTA /> */}
 
       <ContactFormModal />
 

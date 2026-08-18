@@ -1,4 +1,5 @@
 import { useLanguage } from '../contexts/LanguageContext';
+import Button from './Button';
 
 const Services = () => {
   const { t } = useLanguage();
@@ -36,7 +37,7 @@ const Services = () => {
       imageAlt: 'Mock de tienda online — Camisetas Ahora',
       cta: 'Ver tiendas online',
     },
-    {
+    /* {
       title: t('services.seo.title'),
       description: t('services.seo.desc'),
       link: '/web-profesional-a-medida',
@@ -59,24 +60,24 @@ const Services = () => {
       image: '/img/portfolio/mock-carper.webp',
       imageAlt: 'Mock de web en mantenimiento — Carper Sonido',
       cta: 'Ver mantenimiento',
-    },
+    }, */
   ];
 
   return (
     <section
       id='services'
-      className='relative py-20 md:py-24 bg-gray-50     flex items-center'
+      className='bg-gray-50 flex items-center text-center md:text-start gap-8 py-24 px-4 md:px-0 md:h-[100vh]'
     >
-      <div className='mx-auto px-6 md:px-12  container'>
-        <div className='   mx-auto text-center mb-12 md:mb-16'>
-          <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-12 leading-tight'>
+      <div className='mx-auto flex flex-col gap-12 container'>
+        <div className='mx-auto text-center flex flex-col gap-8'>
+          <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900'>
             {t('services.title')}
           </h2>
-          <p className='text-xl md:text-2xl text-black leading-relaxed mb-12'>
+          <p className='text-xl md:text-2xl text-black'>
             {t('services.description')}
           </p>
         </div>
-        <div className='grid md:grid-cols-4 gap-6 md:gap-8   mx-auto'>
+        <div className='grid md:grid-cols-4 gap-12 md:gap-12 mx-auto md:pt-24'>
           {mainServices.map((service) => (
             <article
               key={service.link}
@@ -116,6 +117,7 @@ const Services = () => {
             </article>
           ))}
         </div>
+        <Button className='place-self-center'>Ver mas</Button>
       </div>
     </section>
   );
