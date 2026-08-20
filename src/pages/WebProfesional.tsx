@@ -269,7 +269,7 @@ const WebProfesional = () => {
             </RevealOnScroll>
 
             <RevealOnScroll delayMs={180}>
-              <article className='bg-white rounded-2xl p-7 md:p-8 border-2 border-accent shadow-[7px_7px_0_0_#14b8a6] relative flex flex-col h-full'>
+              <article className='bg-white rounded-2xl p-7 md:p-8 border-2 border-accent shadow-[7px_7px_0_0_var(--color-accent)] relative flex flex-col h-full'>
                 <span className='absolute -top-4 left-6 bg-[#141414] text-accent border-2 border-ink-dark text-xs font-bold uppercase tracking-wide px-3 py-1 rotate-[-2deg]'>
                   3 páginas
                 </span>

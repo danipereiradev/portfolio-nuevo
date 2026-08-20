@@ -186,7 +186,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
     <div className='z-10 flex w-full justify-center md:w-1/2'>
       <form
         onSubmit={handleSubmit}
-        className='w-full rounded-2xl bg-[#f4f4f4] p-content-pad shadow-xl md:w-3/4'
+        className='w-full rounded-2xl bg-surface-muted p-content-pad shadow-xl md:w-3/4'
         action=''
       >
         <div className='page-title-block text-center'>
@@ -202,7 +202,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             onChange={(e) => handleInputChange('name', e.target.value)}
             className={`text-2xl pl-4 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent transition-all duration-150 ${
               errors.name
-                ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
                 : 'border-gray-400'
             }`}
             placeholder='Tu nombre *'
@@ -215,7 +215,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             onChange={(e) => handleInputChange('email', e.target.value)}
             className={`w-full text-2xl pl-4 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent transition-all duration-150 ${
               errors.name
-                ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
                 : 'border-gray-400'
             }`}
             placeholder='Tu email *'
@@ -228,7 +228,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             onChange={(e) => handleInputChange('phone', e.target.value)}
             className={`w-full text-2xl pl-4 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent transition-all duration-150 ${
               errors.name
-                ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
                 : 'border-gray-400'
             }`}
             placeholder='Tu teléfono'
@@ -268,7 +268,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             disabled={isSubmitting}
             isLoading={isSubmitting}
             variant='primary'
-            className='px-8 py-3 text-base w-full sm:w-auto'
+            className='mx-auto'
           >
             {isSubmitting ? 'Enviando...' : 'Enviar'}
           </Button>

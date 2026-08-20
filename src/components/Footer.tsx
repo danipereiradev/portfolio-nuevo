@@ -34,10 +34,10 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className='bg-[#141414] text-white '>
+    <footer className='bg-surface-muted text-ink-medium'>
       <div className='container mx-auto px-6 py-16'>
         <div
-          className={`grid gap-10 lg:gap-6 xl:gap-8 lg:divide-x-2 lg:divide-white/10 md:grid-cols-2 ${
+          className={`grid gap-10 lg:gap-6 xl:gap-8 lg:divide-x-2 lg:divide-ink-light md:grid-cols-2 ${
             isMinimalChrome ? 'lg:grid-cols-3' : 'lg:grid-cols-5'
           }`}
         >
@@ -47,29 +47,29 @@ const Footer = () => {
                 className='text-sm md:text-base whitespace-nowrap font-extrabold flex items-center gap-1'
                 style={{ fontFamily: "'Space Grotesk', sans-serif" }}
               >
-                <span className='text-white font-mono text-base md:text-lg'>
+                <span className='text-ink-dark font-mono text-base md:text-lg'>
                   &gt;
                 </span>
-                <span className='text-white font-mono tracking-tight'>
+                <span className='text-ink-dark font-mono tracking-tight'>
                   pereiraweb
                 </span>
-                <span className='text-white font-mono font-normal'> .es</span>
-                <span className='text-white font-mono text-sm md:text-base animate-pulse'>
+                <span className='text-ink-dark font-mono font-normal'> .es</span>
+                <span className='text-ink-dark font-mono text-sm md:text-base animate-pulse'>
                   _
                 </span>
               </span>
             </div>
-            <p className='text-accent font-semibold text-sm mb-3'>
+            <p className='text-ink-dark font-semibold text-sm mb-3'>
               Estudio de diseño y desarrollo web
             </p>
-            <p className='text-gray-300 mb-6 leading-relaxed'>
+            <p className='text-ink-medium mb-6 leading-relaxed'>
               {t('footer.description')}
             </p>
             <div className='flex space-x-4 justify-center md:justify-start'>
               <a
                 href='mailto:hola@pereiraweb.es'
                 onClick={() => trackEmailClick('FooterIcon')}
-                className='bg-accent hover:bg-accent-hover p-3 rounded-lg border-2 border-white/80 shadow-[3px_3px_0_0_rgba(255,255,255,0.4)] hover:shadow-[1px_1px_0_0_rgba(255,255,255,0.4)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
+                className='bg-accent hover:bg-accent-hover p-3 rounded-lg text-white transition-colors duration-150'
               >
                 <Mail className='w-5 h-5' />
               </a>
@@ -78,7 +78,7 @@ const Footer = () => {
                 href='https://www.instagram.com/pereiraweb.es/'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='bg-accent hover:bg-accent-hover p-3 rounded-lg border-2 border-white/80 shadow-[3px_3px_0_0_rgba(255,255,255,0.4)] hover:shadow-[1px_1px_0_0_rgba(255,255,255,0.4)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150'
+                className='bg-accent hover:bg-accent-hover p-3 rounded-lg text-white transition-colors duration-150'
               >
                 <Instagram className='w-5 h-5' />
               </a>
@@ -87,15 +87,15 @@ const Footer = () => {
 
           {!isMinimalChrome && (
             <div className='text-center md:text-left lg:px-6 xl:px-8'>
-              <h3 className='text-xl md:text-2xl font-bold mb-1 text-accent'>
+              <h3 className='text-xl md:text-2xl font-bold mb-1 text-ink-medium'>
                 Servicios
               </h3>
-              <span className='block w-10 h-1 bg-accent mb-6 mx-auto md:mx-0' />
-              <ul className='space-y-3 text-gray-300'>
+              <span className='block w-10 h-1 bg-brand mb-6 mx-auto md:mx-0' />
+              <ul className='space-y-3 text-ink-dark'>
                 <li>
                   <a
                     href='/web-profesional-a-medida'
-                    className='hover:text-white transition-colors duration-200'
+                    className='hover:text-link transition-colors duration-200'
                   >
                     Web profesional a medida
                   </a>
@@ -103,7 +103,7 @@ const Footer = () => {
                 <li>
                   <a
                     href='/tiendas-online'
-                    className='hover:text-white transition-colors duration-200'
+                    className='hover:text-link transition-colors duration-200'
                   >
                     Tiendas Online
                   </a>
@@ -111,7 +111,7 @@ const Footer = () => {
                 <li>
                   <a
                     href='/mantenimiento-web'
-                    className='hover:text-white transition-colors duration-200'
+                    className='hover:text-link transition-colors duration-200'
                   >
                     Mantenimiento Web
                   </a>
@@ -122,15 +122,15 @@ const Footer = () => {
 
           {!isMinimalChrome && (
             <div className='text-center md:text-left lg:px-6 xl:px-8'>
-              <h3 className='text-xl md:text-2xl font-bold mb-1 text-accent'>
+              <h3 className='text-xl md:text-2xl font-bold mb-1 text-ink-medium'>
                 Estudio
               </h3>
-              <span className='block w-10 h-1 bg-accent mb-6 mx-auto md:mx-0' />
-              <ul className='space-y-3 text-gray-300'>
+              <span className='block w-10 h-1 bg-brand mb-6 mx-auto md:mx-0' />
+              <ul className='space-y-3 text-ink-dark'>
                 <li>
                   <a
                     href='/'
-                    className='hover:text-white transition-colors duration-200'
+                    className='hover:text-link transition-colors duration-200'
                   >
                     Inicio
                   </a>
@@ -138,7 +138,7 @@ const Footer = () => {
                 <li>
                   <a
                     href='/sobre-el-estudio'
-                    className='hover:text-white transition-colors duration-200'
+                    className='hover:text-link transition-colors duration-200'
                   >
                     Sobre el Estudio
                   </a>
@@ -146,7 +146,7 @@ const Footer = () => {
                 <li>
                   <a
                     href='/contacto'
-                    className='hover:text-white transition-colors duration-200'
+                    className='hover:text-link transition-colors duration-200'
                   >
                     Contacto
                   </a>
@@ -156,16 +156,16 @@ const Footer = () => {
           )}
 
           <div className='text-center md:text-left lg:px-6 xl:px-8'>
-            <h3 className='text-xl md:text-2xl font-bold mb-1 text-accent'>
+            <h3 className='text-xl md:text-2xl font-bold mb-1 text-ink-medium'>
               Info
             </h3>
-            <span className='block w-10 h-1 bg-accent mb-6 mx-auto md:mx-0' />
-            <ul className='space-y-3 text-gray-300'>
+            <span className='block w-10 h-1 bg-brand mb-6 mx-auto md:mx-0' />
+            <ul className='space-y-3 text-ink-dark'>
               {infoLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className='hover:text-white transition-colors duration-200'
+                    className='hover:text-link transition-colors duration-200'
                   >
                     {link.label}
                   </a>
@@ -175,19 +175,19 @@ const Footer = () => {
           </div>
 
           <div className='text-center md:text-left lg:pl-6 xl:pl-8'>
-            <h3 className='text-xl md:text-2xl font-bold mb-1 text-accent'>
+            <h3 className='text-xl md:text-2xl font-bold mb-1 text-ink-medium'>
               {t('footer.contact_title')}
             </h3>
-            <span className='block w-10 h-1 bg-accent mb-6 mx-auto md:mx-0' />
-            <ul className='space-y-4 text-gray-300'>
+            <span className='block w-10 h-1 bg-brand mb-6 mx-auto md:mx-0' />
+            <ul className='space-y-4 text-ink-dark'>
               <li className='flex flex-col items-center md:flex-row md:items-start gap-3 md:justify-start'>
                 <Mail className='w-5 h-5 text-accent flex-shrink-0' />
                 <div className='text-center md:text-left'>
-                  <p className='font-medium'>Email</p>
+                  <p className='font-medium text-ink-medium'>Email</p>
                   <a
                     href='mailto:hola@pereiraweb.es'
                     onClick={() => trackEmailClick('FooterList')}
-                    className='hover:text-white transition-colors duration-200 break-all'
+                    className='hover:text-link transition-colors duration-200 break-all'
                   >
                     hola@pereiraweb.es
                   </a>
@@ -196,11 +196,11 @@ const Footer = () => {
               <li className='flex flex-col items-center md:flex-row md:items-start gap-3 md:justify-start'>
                 <Phone className='w-5 h-5 text-accent flex-shrink-0' />
                 <div className='text-center md:text-left'>
-                  <p className='font-medium'>Teléfono</p>
+                  <p className='font-medium text-ink-medium'>Teléfono</p>
                   <a
                     href={PHONE_TEL_LINK}
                     onClick={() => trackPhoneClick('FooterList')}
-                    className='hover:text-white transition-colors duration-200'
+                    className='hover:text-link transition-colors duration-200'
                   >
                     {PHONE_DISPLAY}
                   </a>
@@ -209,7 +209,7 @@ const Footer = () => {
               <li className='flex flex-col items-center md:flex-row md:items-start gap-3 md:justify-start'>
                 <MessageCircle className='w-5 h-5 text-accent flex-shrink-0' />
                 <div className='text-center md:text-left'>
-                  <p className='font-medium'>WhatsApp</p>
+                  <p className='font-medium text-ink-medium'>WhatsApp</p>
                   <a
                     href={FOOTER_WHATSAPP_URL}
                     target='_blank'
@@ -219,7 +219,7 @@ const Footer = () => {
                       trackWhatsAppClick('FooterList');
                       trackGoogleAdsWhatsAppConversion(FOOTER_WHATSAPP_URL);
                     }}
-                    className='hover:text-white transition-colors duration-200'
+                    className='hover:text-link transition-colors duration-200'
                   >
                     Escríbenos por WhatsApp
                   </a>
@@ -230,9 +230,9 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className='border-t-2 border-white/15'>
+      <div className='border-t border-ink-light'>
         <div className='container mx-auto px-6 py-6'>
-          <p className='text-gray-400 text-sm text-center'>
+          <p className='text-ink-medium text-sm text-center'>
             © {currentYear} {t('footer.copyright')}
           </p>
         </div>

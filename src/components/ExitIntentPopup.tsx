@@ -652,7 +652,6 @@ const ExitIntentPopup = () => {
                   rel='noopener noreferrer'
                   variant='primary'
                   fullWidth
-                  className='px-8 py-3 text-base'
                   onClick={() =>
                     trackExitIntentPopupCalendlyClick(
                       triggerRef.current ?? undefined,
@@ -707,9 +706,9 @@ const ExitIntentPopup = () => {
                         onChange={(e) =>
                           handleInputChange('name', e.target.value)
                         }
-                        className={`w-full pl-10 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_#14b8a6] transition-all duration-150 ${
+                        className={`w-full pl-10 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_var(--color-accent)] transition-all duration-150 ${
                           errors.name
-                            ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                            ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
                             : 'border-ink-dark'
                         }`}
                         placeholder='Tu nombre'
@@ -737,9 +736,9 @@ const ExitIntentPopup = () => {
                         onChange={(e) =>
                           handleInputChange('email', e.target.value)
                         }
-                        className={`w-full pl-10 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_#14b8a6] transition-all duration-150 ${
+                        className={`w-full pl-10 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_var(--color-accent)] transition-all duration-150 ${
                           errors.email
-                            ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                            ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
                             : 'border-ink-dark'
                         }`}
                         placeholder='tu@email.com'
@@ -792,7 +791,6 @@ const ExitIntentPopup = () => {
                       isLoading={isSubmitting}
                       variant='primary'
                       fullWidth
-                      className='px-8 py-3 text-base'
                     >
                       {isSubmitting ? 'Enviando...' : 'Enviarme la guía gratis'}
                       {!isSubmitting && <Check className='w-4 h-4' />}

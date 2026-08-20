@@ -64,7 +64,7 @@ const Services = () => {
   ];
 
   return (
-    <section id='services' className='page-section bg-gray-50'>
+    <section id='services' className='page-section bg-surface-muted'>
       <div className='container mx-auto flex flex-col gap-page-gap'>
         <div className='page-title-block mx-auto max-w-3xl text-center'>
           <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900'>
@@ -78,7 +78,7 @@ const Services = () => {
           {mainServices.map((service) => (
             <article
               key={service.link}
-              className='bg-[#f4f4f4] shadow-xl rounded-2xl overflow-hidden flex flex-col'
+              className='bg-surface-muted shadow-xl rounded-2xl overflow-hidden flex flex-col'
             >
               <a
                 href={service.link}

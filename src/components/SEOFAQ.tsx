@@ -41,7 +41,7 @@ const SEOFAQ = ({ title, faqs, onFaqOpen }: SEOFAQProps) => {
             >
               <button
                 onClick={() => toggleFAQ(index)}
-                className='flex w-full items-center justify-between bg-gray-50 px-content-pad py-content-pad text-left transition-colors hover:bg-gray-50'
+                className='flex w-full items-center justify-between bg-surface-muted px-content-pad py-content-pad text-left transition-colors hover:bg-surface-muted'
               >
                 <h3 className='pr-title-gap text-lg font-bold text-gray-900 md:text-xl lg:text-2xl'>
                   {faq.question}

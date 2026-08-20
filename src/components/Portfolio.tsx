@@ -165,7 +165,7 @@ Hay categorías (destinos, guías, tips, comida), galerías ligeras, mapas de si
               >
                 <article
                   key={project.title}
-                  className='bg-[#f4f4f4] shadow-xl rounded-2xl overflow-hidden flex flex-col cursor-pointer'
+                  className='bg-surface-muted shadow-xl rounded-2xl overflow-hidden flex flex-col cursor-pointer'
                 >
                   <a
                     className='block bg-gray-100'

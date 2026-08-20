@@ -40,7 +40,6 @@ const SEOCTAFinal = ({
             <Button
               onClick={onButtonClick}
               variant='primary'
-              className='text-sm md:text-base'
             >
               {buttonText}
             </Button>
@@ -48,7 +47,6 @@ const SEOCTAFinal = ({
               <Button
                 onClick={onSecondaryButtonClick}
                 variant='secondary'
-                className='text-sm md:text-base'
               >
                 {secondaryButtonText}
               </Button>

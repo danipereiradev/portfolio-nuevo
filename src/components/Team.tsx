@@ -118,7 +118,7 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
                     alt='charles-deluvio'
                   />
 
-                  <div className='member-info rounded-b-xl bg-[#f4f4f4] p-content-pad text-start text-lg text-black md:min-h-[200px]'>
+                  <div className='member-info rounded-b-xl bg-surface-muted p-content-pad text-start text-lg text-black md:min-h-[200px]'>
                     <h3 className='text-2xl font-bold'>{member.fullName}</h3>
                     <span className='font-bold text-accent'>{member.role}</span>
                     <p className='mt-heading-gap text-base'>

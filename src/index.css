@@ -8,8 +8,11 @@
 @tailwind utilities;
 
 :root {
-  --color-accent: #14b8a6;
-  --color-accent-hover: #0d9488;
+  --color-accent: #8c1dc3;
+  --color-accent-hover: #6f179b;
+  --color-brand: #b1d004;
+  --color-brand-light: #e1f56e;
+  --button-width: 15rem;
   /* Header fijo: py-4 + logo ≈ 6rem (coincide con scroll-mt-24 / pt-24) */
   --site-header-h: 6rem;
 

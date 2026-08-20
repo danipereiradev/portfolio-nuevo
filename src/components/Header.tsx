@@ -4,10 +4,10 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const navLinkClass =
-  ' text-center relative text-xl py-2 px-4 rounded-2xl text-white uppercase';
+  ' text-center relative text-xl py-2 px-4 rounded-2xl text-ink-dark uppercase font-bold';
 
 const mobileNavLinkClass =
-  'text-right text-white block w-full text-left px-4 py-4 text-md uppercase text-black hover:text-accent transition-colors duration-200';
+  'text-right text-ink-dark block w-full text-left px-4 py-4 text-md uppercase font-bold hover:text-accent transition-colors duration-200';
 
 const Header = () => {
   const { t } = useLanguage();
@@ -90,18 +90,18 @@ const Header = () => {
       className='text-xl md:text-3xl whitespace-nowrap font-extrabold flex items-center'
       style={{ fontFamily: "'Space Grotesk', sans-serif" }}
     >
-      <span className='text-accent font-mono text-xl md:text-3xl'>&gt;</span>
-      <span className='text-neutral-300 font-mono tracking-tight ml-1'>
+      <span className='text-ink-dark font-mono text-xl md:text-3xl'>&gt;</span>
+      <span className='text-ink-dark font-mono tracking-tight ml-1'>
         {hasTyped ? 'pereiraweb' : typedText.split(' ')[0]}
       </span>
-      <span className='text-accent font-mono font-normal'>
+      <span className='text-ink-dark font-mono font-normal'>
         {hasTyped
           ? ' .es'
           : typedText.includes(' .')
             ? ' ' + typedText.split(' ')[1]
             : ''}
       </span>
-      <span className='text-accent font-mono text-xl md:text-xl animate-pulse ml-0'>
+      <span className='text-ink-dark font-mono text-xl md:text-xl animate-pulse ml-0'>
         _
       </span>
     </span>
@@ -115,7 +115,7 @@ const Header = () => {
 
   return (
     <div className='w-full flex justify-center'>
-      <header className=' fixed mx-auto place-self-center mt-4 rounded-2xl top-0 z-50 bg-[#141414] shadow-[0_4px_16px_rgba(0,0,0,0.08)] w-[95%]'>
+      <header className=' fixed mx-auto place-self-center mt-4 rounded-2xl top-0 z-50 bg-brand-light shadow-[0_4px_16px_rgba(0,0,0,0.08)] w-[95%]'>
         <div className='mx-auto w-full px-6 py-4'>
           <div className='flex items-center justify-evenly w-full'>
             <a
@@ -132,26 +132,26 @@ const Header = () => {
 
               <div className='lg:hidden flex items-center justify-end'>
                 <button
-                  className='p-2 text-white'
+                  className='p-2 text-ink-dark'
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
                   aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
                 >
                   {isMenuOpen ? (
-                    <X className='w-6 h-6 text-neutral-300' />
+                    <X className='w-6 h-6 text-ink-dark' />
                   ) : (
-                    <Menu className='w-6 h-6 text-neutral-300' />
+                    <Menu className='w-6 h-6 text-ink-dark' />
                   )}
                 </button>
               </div>
             </>
-            <nav className='text-white hidden lg:flex place-self-end space-x-8'>
+            <nav className='text-ink-dark hidden lg:flex place-self-end space-x-8'>
               <div
                 className='relative'
                 onMouseEnter={() => setIsAboutOpen(true)}
                 onMouseLeave={() => setIsAboutOpen(false)}
               >
                 <button
-                  className={`${navLinkClass} flex items-center gap-1 text-white`}
+                  className={`${navLinkClass} flex items-center gap-1 text-ink-dark`}
                 >
                   Pereiraweb
                   <ChevronDown className='w-4 h-4' />
@@ -159,7 +159,7 @@ const Header = () => {
 
                 {isAboutOpen && (
                   <div className='absolute top-full left-0 pt-3 w-72 z-50 '>
-                    <div className='bg-[#141414] rounded-lg py-2 uppercase'>
+                    <div className='bg-white rounded-lg py-2 uppercase shadow-[0_8px_24px_rgba(20,20,20,0.12)]'>
                       {about.map((item) => (
                         <a
                           key={item.path}
@@ -168,7 +168,7 @@ const Header = () => {
                           onClick={() => setIsServicesOpen(false)}
                         >
                           <div className='flex items-center justify-between'>
-                            <span className='text-white group-hover:text-white  text-lg transition-colors'>
+                            <span className='text-ink-dark group-hover:text-white  text-lg transition-colors'>
                               {item.name}
                             </span>
                           </div>
@@ -184,7 +184,7 @@ const Header = () => {
                 onMouseLeave={() => setIsServicesOpen(false)}
               >
                 <button
-                  className={`${navLinkClass} flex items-center gap-1 text-white`}
+                  className={`${navLinkClass} flex items-center gap-1 text-ink-dark`}
                 >
                   Servicios
                   <ChevronDown className='w-4 h-4' />
@@ -192,7 +192,7 @@ const Header = () => {
 
                 {isServicesOpen && (
                   <div className=' absolute top-full left-0 pt-3 w-72 z-50'>
-                    <div className='bg-[#141414] rounded-lg py-2 uppercase'>
+                    <div className='bg-white rounded-lg py-2 uppercase shadow-[0_8px_24px_rgba(20,20,20,0.12)]'>
                       {services.map((service) => (
                         <a
                           key={service.path}
@@ -201,7 +201,7 @@ const Header = () => {
                           onClick={() => setIsServicesOpen(false)}
                         >
                           <div className='flex items-center justify-between'>
-                            <span className='text-white group-hover:text-white text-lg transition-colors'>
+                            <span className='text-ink-dark group-hover:text-white text-lg transition-colors'>
                               {service.name}
                             </span>
                           </div>
@@ -215,17 +215,14 @@ const Header = () => {
                 {t('nav.blog')}
               </a>
 
-              <a
-                href='/contacto'
-                className={`${navLinkClass} bg-accent text-neutral-300 roundex-2xl`}
-              >
+              <a href='/contacto' className={`${navLinkClass} !text-accent`}>
                 {t('nav.contact')}
               </a>
             </nav>
           </div>
 
           {isMenuOpen && (
-            <nav className='lg:hidden mt-4 pb-2 bg-[#141414] text-white rounded-lg text-md divide-y'>
+            <nav className='lg:hidden mt-4 pb-2 bg-white text-ink-dark rounded-lg text-md divide-y divide-ink-light'>
               <a href='/' className={mobileNavLinkClass}>
                 Inicio
               </a>
@@ -233,7 +230,7 @@ const Header = () => {
               <div>
                 <button
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
-                  className='relative flex text-white items-center gap-2 justify-end w-full px-4 py-4 text-md uppercase hover:text-accent transition-colors duration-200'
+                  className='relative flex text-ink-dark items-center gap-2 justify-end w-full px-4 py-4 text-md uppercase hover:text-accent transition-colors duration-200'
                 >
                   <span className='text-center'>Servicios</span>
                   <ChevronDown
@@ -270,7 +267,7 @@ const Header = () => {
                 {t('nav.about')}
               </a>
 
-              <a href='/contacto' className={mobileNavLinkClass}>
+              <a href='/contacto' className={`${mobileNavLinkClass} !text-accent`}>
                 {t('nav.contact')}
               </a>
 

@@ -74,7 +74,6 @@ const SEOLandingHero = ({
             <Button
               onClick={onCTAClick}
               variant='primary'
-              className='sm:min-w-[220px]'
             >
               {ctaText}
             </Button>
@@ -82,7 +81,6 @@ const SEOLandingHero = ({
               <Button
                 onClick={secondaryCTAAction}
                 variant='secondary'
-                className='sm:min-w-[200px]'
               >
                 {secondaryCTAIcon === 'phone' && <Phone className='w-4 h-4' />}
                 {secondaryCTAText}

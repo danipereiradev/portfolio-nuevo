@@ -323,9 +323,9 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                     type='text'
                     value={formData.name}
                     onChange={(e) => handleInputChange('name', e.target.value)}
-                    className={`w-full pl-10 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_#14b8a6] transition-all duration-150 ${
+                    className={`w-full pl-10 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_var(--color-accent)] transition-all duration-150 ${
                       errors.name
-                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                        ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
                         : 'border-ink-dark'
                     }`}
                     placeholder='Tu nombre completo'
@@ -345,9 +345,9 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                     type='email'
                     value={formData.email}
                     onChange={(e) => handleInputChange('email', e.target.value)}
-                    className={`w-full pl-10 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_#14b8a6] transition-all duration-150 ${
+                    className={`w-full pl-10 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_var(--color-accent)] transition-all duration-150 ${
                       errors.email
-                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                        ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
                         : 'border-ink-dark'
                     }`}
                     placeholder='tu@email.com'
@@ -367,9 +367,9 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                     type='tel'
                     value={formData.phone}
                     onChange={(e) => handleInputChange('phone', e.target.value)}
-                    className={`w-full pl-10 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_#14b8a6] transition-all duration-150 ${
+                    className={`w-full pl-10 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_var(--color-accent)] transition-all duration-150 ${
                       errors.phone
-                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                        ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
                         : 'border-ink-dark'
                     }`}
                     placeholder='600 000 000'
@@ -392,9 +392,9 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                     onChange={(e) =>
                       handleInputChange('businessType', e.target.value)
                     }
-                    className={`w-full pl-10 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_#14b8a6] transition-all duration-150 ${
+                    className={`w-full pl-10 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_var(--color-accent)] transition-all duration-150 ${
                       errors.businessType
-                        ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                        ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
                         : 'border-ink-dark'
                     }`}
                     placeholder='Ej: veterinaria, asesoría, tienda de ropa...'
@@ -421,9 +421,9 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                       onClick={() => handleInputChange('plan', option.value)}
                       className={`p-5 text-left border-2 rounded-2xl transition-all duration-150 ${
                         isSelected
-                          ? 'border-accent bg-gray-50 shadow-[4px_4px_0_0_#14b8a6]'
+                          ? 'border-accent bg-gray-50 shadow-[4px_4px_0_0_var(--color-accent)]'
                           : errors.plan
-                            ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                            ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
                             : 'border-ink-dark shadow-[3px_3px_0_0_#1a1a1a] hover:shadow-[1px_1px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px]'
                       }`}
                     >
@@ -458,9 +458,9 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                   handleInputChange('description', e.target.value)
                 }
                 rows={3}
-                className={`w-full p-4 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_#14b8a6] transition-all duration-150 ${
+                className={`w-full p-4 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_var(--color-accent)] transition-all duration-150 ${
                   errors.description
-                    ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                    ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
                     : 'border-ink-dark'
                 }`}
                 placeholder='Cuéntanos brevemente qué necesitas...'
@@ -487,9 +487,9 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                 type='text'
                 value={antiSpamAnswer}
                 onChange={(e) => setAntiSpamAnswer(e.target.value)}
-                className={`w-full px-4 py-2 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_#14b8a6] transition-all duration-150 ${
+                className={`w-full px-4 py-2 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_var(--color-accent)] transition-all duration-150 ${
                   errors.antiSpam
-                    ? 'border-accent shadow-[3px_3px_0_0_#14b8a6]'
+                    ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
                     : 'border-ink-dark'
                 }`}
                 placeholder='Tu respuesta...'
@@ -504,7 +504,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                 disabled={isSubmitting}
                 isLoading={isSubmitting}
                 variant='primary'
-                className='px-8 py-3 text-base w-full sm:w-auto'
+                className='mx-auto'
               >
                 {isSubmitting ? 'Enviando...' : 'Enviar Solicitud'}
                 {!isSubmitting && <Check className='w-4 h-4' />}

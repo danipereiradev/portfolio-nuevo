@@ -115,7 +115,7 @@ const Pricing = () => {
               key={plan.id}
               className={`rounded-2xl p-8 border-2 flex flex-col relative transition-all duration-200 hover:translate-x-[3px] hover:translate-y-[3px] ${
                 plan.recommended
-                  ? 'bg-[#141414] text-white border-accent shadow-[7px_7px_0_0_#0d9488] hover:shadow-[3px_3px_0_0_#0d9488]'
+                  ? 'bg-[#141414] text-white border-accent shadow-[7px_7px_0_0_var(--color-accent-hover)] hover:shadow-[3px_3px_0_0_var(--color-accent-hover)]'
                   : 'bg-white border-ink-dark shadow-[7px_7px_0_0_#1a1a1a] hover:shadow-[3px_3px_0_0_#1a1a1a]'
               }`}
             >

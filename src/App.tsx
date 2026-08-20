@@ -32,7 +32,7 @@ function AppContent() {
   // scroll porque ya llegan desde una carga de página completa.
 
   return (
-    <div className='min-h-screen bg-white overflow-x-hidden pb-16 md:pb-0'>
+    <div className='min-h-screen bg-surface-base overflow-x-hidden pb-16 md:pb-0'>
       <Header />
 
       <Routes>

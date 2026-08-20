@@ -5,23 +5,40 @@ export default {
     extend: {
       colors: {
         accent: {
-          DEFAULT: '#14b8a6', // teal-500 (verde turquesa)
-          hover: '#0d9488', // teal-600 (verde turquesa oscuro)
+          DEFAULT: '#8c1dc3', // violeta con un giro hacia magenta
+          hover: '#6f179b',
+          light: '#f3e5ff',
+        },
+        brand: {
+          DEFAULT: '#b1d004', // lima 40
+          light: '#e1f56e', // lima 30 — fondos de marca
+          lighter: '#edfca2',
+          dark: '#839906',
         },
         ink: {
-          dark: '#252525',
-          gray: '#545454',
-          medium: '#7D7D7D',
-          light: '#CFCFCF',
+          dark: '#141414',
+          gray: '#4d4d4c',
+          medium: '#6f6f6d',
+          light: '#cbccc7',
         },
         primary: {
-          DEFAULT: '#252525',
-          dark: '#1a1a1a',
-          light: '#545454',
+          DEFAULT: '#141414',
+          dark: '#141414',
+          light: '#4d4d4c',
         },
         secondary: {
-          DEFAULT: '#7D7D7D',
-          light: '#CFCFCF',
+          DEFAULT: '#6f6f6d',
+          light: '#cbccc7',
+        },
+        surface: {
+          DEFAULT: '#ffffff',
+          muted: '#f4f5f2',
+          base: '#fafbf9',
+          page: '#e5e6e1',
+        },
+        link: {
+          DEFAULT: '#145bc7',
+          hover: '#093a8f',
         },
       },
       animation: {
