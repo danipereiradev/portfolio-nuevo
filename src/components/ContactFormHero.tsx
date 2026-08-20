@@ -183,17 +183,19 @@ Fecha: ${new Date().toLocaleString('es-ES')}
   );
 
   return (
-    <div className='flex justify-center items-center md:w-1/2 z-10 '>
+    <div className='z-10 flex w-full justify-center md:w-1/2'>
       <form
         onSubmit={handleSubmit}
-        className='bg-[#f4f4f4] rounded-2xl justify-center md:w-3/4 shadow-xl p-4 md:p-8'
+        className='w-full rounded-2xl bg-[#f4f4f4] p-content-pad shadow-xl md:w-3/4'
         action=''
       >
-        <h2 className='text-2xl md:text-3xl lg:text-4xl font-extrabold text-black text-center mt-4 mb-0'>
-          {title}
-        </h2>
-        <p className='text-gray-900 text-center text-lg'>{description}</p>
-        <div className='form-fields flex flex-col gap-4 mt-12'>
+        <div className='page-title-block text-center'>
+          <h2 className='text-2xl font-extrabold text-black md:text-3xl lg:text-4xl'>
+            {title}
+          </h2>
+          <p className='text-center text-lg text-gray-900'>{description}</p>
+        </div>
+        <div className='form-fields mt-page-gap flex flex-col gap-content-gap'>
           <input
             type='text'
             value={formData.name}

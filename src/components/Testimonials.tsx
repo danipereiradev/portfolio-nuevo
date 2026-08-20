@@ -38,19 +38,18 @@ function Testimonials({ id = 'testimonials' }: TestimonialsProps) {
   }, []);
 
   return (
-    <section
-      id={id}
-      className='flex flex-col gap-8 py-8 md:py-24 lg:py-0 px-4 md:min-h-[100vh]'
-    >
-      <div className='mx-auto text-center flex flex-col gap-8 md:max-w-[75%] pb-24'>
-        <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900'>
-          Esto es lo que dicen nuestros clientes
-        </h2>
-        <p className='text-xl md:text-2xl text-black'>
-          Valoraciones verificadas sacadas de nuestro perfil de google
-        </p>
+    <section id={id} className='page-section'>
+      <div className='container mx-auto flex flex-col gap-page-gap'>
+        <div className='page-title-block mx-auto max-w-3xl text-center'>
+          <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900'>
+            Esto es lo que dicen nuestros clientes
+          </h2>
+          <p className='text-xl md:text-2xl text-black'>
+            Valoraciones verificadas sacadas de nuestro perfil de google
+          </p>
+        </div>
+        <div data-src={TRUSTINDEX_WIDGET_SRC} />
       </div>
-      <div className='pt-24' data-src={TRUSTINDEX_WIDGET_SRC} />
     </section>
   );
 }

@@ -17,7 +17,7 @@ interface HeroCtaProps {
   formDescription: string;
   formSectionInfo: string;
   hasReviewBadge: boolean;
-  isTopHero: boolean;
+  isTopHero?: boolean;
 }
 
 const HeroCta = ({
@@ -33,7 +33,7 @@ const HeroCta = ({
   formDescription,
   formSectionInfo,
   hasReviewBadge,
-  isTopHero,
+  isTopHero = false,
 }: HeroCtaProps) => {
   console.log(backgroundUrl);
   return (
@@ -42,7 +42,7 @@ const HeroCta = ({
       style={{
         backgroundImage: `url(${hasBackground ? backgroundUrl : ''})`,
       }}
-      className={`${isTopHero ? 'md:pt-12' : ''} relative bg-no-repeat bg-center bg-cover flex items-center justify-between overflow-hidden text-ink-dark`}
+      className={`${isTopHero ? 'page-hero' : 'page-section'} relative bg-no-repeat bg-center bg-cover overflow-hidden text-ink-dark ${isTopHero ? '' : 'flex items-center'}`}
     >
       {hasBackground ? (
         <div
@@ -54,15 +54,17 @@ const HeroCta = ({
       ) : null}
 
       <div
-        className={`flex md:flex-row flex-col hero-container mx-auto md:justify-center items-center text-center ${heroType === 'clean' ? '' : 'md:text-start'} container px-8 md:h-[100vh] text-center md:text-start gap-8  py-8 md:py-0 md:px-8 z-30`}
+        className={`container relative z-30 mx-auto flex flex-col items-center gap-page-gap text-center md:flex-row md:justify-center ${heroType === 'clean' ? '' : 'md:text-start'}`}
       >
-        <div className='md:w-1/2 flex flex-col items-center md:items-start gap-4'>
-          <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900'>
-            {title}
-          </h2>
-          <p className='text-lg md:text-xl text-black md:text-justify'>
-            {description}
-          </p>
+        <div className='flex w-full min-w-0 flex-col items-center gap-page-gap md:w-1/2 md:items-start'>
+          <div className='page-title-block'>
+            <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900'>
+              {title}
+            </h2>
+            <p className='text-lg md:text-xl text-black md:text-justify'>
+              {description}
+            </p>
+          </div>
           {hasReviewBadge ? <TestimonialsBadge /> : null}
           {hasButton ? (
             <Button className='mx-auto md:mx-0 place-self-start m-0'>

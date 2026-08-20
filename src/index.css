@@ -12,6 +12,83 @@
   --color-accent-hover: #0d9488;
   /* Header fijo: py-4 + logo ≈ 6rem (coincide con scroll-mt-24 / pt-24) */
   --site-header-h: 6rem;
+
+  /* Ritmo de página (móvil). Home y landings usan las mismas variables. */
+  --page-px: 1rem; /* px-4 */
+  --page-py: 4rem; /* py-16 */
+  --page-gap: 2rem; /* gap-8 */
+  --page-py-compact: 2rem; /* TrustBar */
+  --page-hero-offset: 1.5rem;
+
+  /* Títulos, textos y bloques de contenido */
+  --title-gap: 1rem; /* título ↔ subtítulo */
+  --heading-gap: 0.5rem; /* h3 ↔ párrafo */
+  --text-gap: 1rem; /* párrafo ↔ CTA */
+  --content-pad: 1.25rem; /* padding de cards */
+  --content-gap: 1rem; /* stack interno de card */
+  --item-gap: 0.75rem; /* listas / FAQ */
+}
+
+@media (min-width: 768px) {
+  :root {
+    --page-px: 2rem; /* px-8 */
+    --page-py: 6rem; /* py-24 */
+    --page-gap: 2rem;
+    --page-py-compact: 2rem;
+    --title-gap: 1rem;
+    --heading-gap: 0.75rem;
+    --text-gap: 1.25rem;
+    --content-pad: 1.5rem;
+    --content-gap: 1rem;
+    --item-gap: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --page-px: 2rem;
+    --page-py: 6rem;
+    --page-gap: 2rem;
+    --page-py-compact: 2rem;
+    --title-gap: 1.25rem;
+    --heading-gap: 1rem;
+    --text-gap: 1.5rem;
+    --content-pad: 2rem;
+    --content-gap: 1rem;
+    --item-gap: 1rem;
+  }
+}
+
+@layer components {
+  .page-section {
+    width: 100%;
+    padding: var(--page-py) var(--page-px);
+  }
+
+  .page-hero {
+    position: relative;
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    align-items: center;
+    overflow: hidden;
+    padding: calc(var(--site-header-h) + var(--page-hero-offset)) var(--page-px)
+      var(--page-py);
+  }
+
+  .page-title-block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--title-gap);
+  }
+
+  .page-card-body {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: var(--content-gap);
+    padding: var(--content-pad);
+  }
 }
 
 .animation-delay-2000 {

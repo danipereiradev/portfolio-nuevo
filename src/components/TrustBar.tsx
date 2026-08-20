@@ -19,18 +19,24 @@ const RenderIcon = (Icon: LucideIcon) => {
 
 const TrustBar = () => {
   return (
-    <section className=' bg-gray-50 border-b border-b-gray-300 text-black grid grid-cols-1 md:grid-cols-4 md:min-h-[10vh] min-h-[20vh]'>
-      {defaultTrustPoints.map((point, index) => {
-        return (
-          <div
-            key={point.text}
-            className={`flex flex-col my-auto items-center text-center gap-1 justify-start ${index === defaultTrustPoints.length - 1 ? '' : 'border-r border-r-gray-300'}  text-xl p-4`}
-          >
-            {RenderIcon(point.icon)}
-            {point.text}
-          </div>
-        );
-      })}
+    <section className='border-b border-b-gray-300 bg-gray-50 px-page-x text-black'>
+      <div className='container mx-auto grid grid-cols-1 md:grid-cols-4'>
+        {defaultTrustPoints.map((point, index) => {
+          return (
+            <div
+              key={point.text}
+              className={`flex flex-col items-center justify-center gap-1 py-page-compact text-center text-xl ${
+                index === defaultTrustPoints.length - 1
+                  ? ''
+                  : 'border-b border-gray-300 md:border-b-0 md:border-r'
+              }`}
+            >
+              {RenderIcon(point.icon)}
+              {point.text}
+            </div>
+          );
+        })}
+      </div>
     </section>
   );
 };

@@ -25,15 +25,15 @@ const SEOFAQ = ({ title, faqs, onFaqOpen }: SEOFAQProps) => {
   };
 
   return (
-    <section className='md:min-h-[100vh] gap-8  py-8 px-4 md:py-0 md:px-8 flex items-center justify-center'>
-      <div className='flex flex-col justify-center items-center gap-8'>
-        <div className='text-center mb-12 md:mb-16 md:max-w-[75%]'>
+    <section className='page-section flex items-center justify-center'>
+      <div className='container mx-auto flex flex-col items-center gap-page-gap'>
+        <div className='page-title-block max-w-3xl text-center'>
           <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900'>
             {title}
           </h2>
         </div>
 
-        <div className='mx-auto grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 items-start'>
+        <div className='mx-auto grid grid-cols-1 items-start gap-item-gap md:grid-cols-2'>
           {faqs.map((faq, index) => (
             <div
               key={index}
@@ -41,9 +41,9 @@ const SEOFAQ = ({ title, faqs, onFaqOpen }: SEOFAQProps) => {
             >
               <button
                 onClick={() => toggleFAQ(index)}
-                className='w-full bg-gray-50 px-4 py-4 md:px-6 md:py-5 flex items-center justify-between text-left hover:bg-gray-50 transition-colors'
+                className='flex w-full items-center justify-between bg-gray-50 px-content-pad py-content-pad text-left transition-colors hover:bg-gray-50'
               >
-                <h3 className='text-lg md:xl lg:text-2xl font-bold text-gray-900 pr-3 md:pr-4'>
+                <h3 className='pr-title-gap text-lg font-bold text-gray-900 md:text-xl lg:text-2xl'>
                   {faq.question}
                 </h3>
                 <ChevronDown
@@ -57,7 +57,7 @@ const SEOFAQ = ({ title, faqs, onFaqOpen }: SEOFAQProps) => {
                   openIndex === index ? 'max-h-96' : 'max-h-0'
                 }`}
               >
-                <div className='px-4 pb-4 md:px-6 md:pb-5'>
+                <div className='px-content-pad pb-content-pad'>
                   <p className='text-sm md:text-base lg:text-lg text-gray-700 leading-relaxed'>
                     {faq.answer}
                   </p>

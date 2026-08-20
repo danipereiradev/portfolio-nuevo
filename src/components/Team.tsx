@@ -65,8 +65,9 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
   ];
 
   return (
-    <section className='mx-auto flex flex-col justify-evenly lg:flex-row items-center text-center lg:text-start gap-8 md:py-24 lg:py-0  py-8 px-4 md:min-h-[100vh] md:px-8'>
-      <div className='lg:w-1/2 flex flex-col items-center lg:items-start gap-4 md:pr-8'>
+    <section className='page-section'>
+      <div className='container mx-auto flex flex-col items-center gap-page-gap text-center lg:flex-row lg:text-start'>
+        <div className='page-title-block w-full items-center lg:w-1/2 lg:items-start'>
         <span className='text-accent font-extrabold underline text-md rounded-2xl'>
           {label}
         </span>
@@ -81,7 +82,7 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
           );
         })}
       </div>
-      <div className='lg:w-1/2 scroll-smooth w-full'>
+      <div className='w-full lg:w-1/2'>
         <Swiper
           autoplay={{
             delay: 2000,
@@ -117,14 +118,13 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
                     alt='charles-deluvio'
                   />
 
-                  <div className='member-info bg-[#f4f4f4] p-4 text-black text-start text-lg rounded-b-xl md:min-h-[200px]'>
+                  <div className='member-info rounded-b-xl bg-[#f4f4f4] p-content-pad text-start text-lg text-black md:min-h-[200px]'>
                     <h3 className='text-2xl font-bold'>{member.fullName}</h3>
-                    <span className='text-accent font-bold'>{member.role}</span>
-                    <p className='text-base mt-4'>{member.description}</p>
-                    {/* <span className='text-accent text-sm italic'>
-                  "Volvería a trabajar con el sin ninguna duda"
-                </span> */}
-                    <div className='flex gap-4 items-start mt-4'>
+                    <span className='font-bold text-accent'>{member.role}</span>
+                    <p className='mt-heading-gap text-base'>
+                      {member.description}
+                    </p>
+                    <div className='mt-text-gap flex items-start gap-content-gap'>
                       <Mail width={20} className='text-accent' />
 
                       <LinkedinIcon width={20} className='text-accent' />
@@ -137,6 +137,7 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
             );
           })}
         </Swiper>
+      </div>
       </div>
     </section>
   );

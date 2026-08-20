@@ -14,29 +14,29 @@ interface SEOBenefitsProps {
 
 const SEOBenefits = ({ title, subtitle, benefits }: SEOBenefitsProps) => {
   return (
-    <section className='py-20  h-[100vh] flex items-center'>
-      <div className='container mx-auto px-6'>
-        <div className='text-center mb-12 md:mb-16'>
-          <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4'>
+    <section className='page-section'>
+      <div className='container mx-auto flex flex-col gap-page-gap'>
+        <div className='page-title-block text-center'>
+          <h2 className='text-2xl font-bold text-gray-900 md:text-4xl lg:text-5xl'>
             {title}
           </h2>
           {subtitle && (
-            <p className='text-base md:text-lg lg:text-xl text-gray-600    mx-auto'>
+            <p className='mx-auto text-base text-gray-600 md:text-lg lg:text-xl'>
               {subtitle}
             </p>
           )}
         </div>
 
-        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8   mx-auto'>
+        <div className='mx-auto grid w-full gap-page-gap md:grid-cols-2 lg:grid-cols-3'>
           {benefits.map((benefit, index) => {
             const Icon = benefit.icon;
             return (
               <div
                 key={index}
-                className='bg-white p-6 md:p-8 rounded-2xl border-2 border-ink-dark hover:border-accent shadow-[5px_5px_0_0_#1a1a1a] hover:shadow-[2px_2px_0_0_#1a1a1a] hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-200'
+                className='rounded-2xl border-2 border-ink-dark bg-white p-content-pad shadow-[5px_5px_0_0_#1a1a1a] transition-all duration-200 hover:translate-x-[3px] hover:translate-y-[3px] hover:border-accent hover:shadow-[2px_2px_0_0_#1a1a1a]'
               >
-                <Icon className='w-7 h-7 md:w-8 md:h-8 text-accent mb-4 md:mb-6' />
-                <h3 className='text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4'>
+                <Icon className='mb-title-gap h-7 w-7 text-accent md:h-8 md:w-8' />
+                <h3 className='mb-heading-gap text-lg font-bold text-gray-900 md:text-xl'>
                   {benefit.title}
                 </h3>
                 <p className='text-sm md:text-base text-gray-700 leading-relaxed'>
