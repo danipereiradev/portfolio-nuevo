@@ -28,7 +28,7 @@ const SEOFAQ = ({ title, faqs, onFaqOpen }: SEOFAQProps) => {
     <section className='page-section flex items-center justify-center'>
       <div className='container mx-auto flex flex-col items-center gap-page-gap'>
         <div className='page-title-block max-w-3xl text-center'>
-          <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900'>
+          <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark'>
             {title}
           </h2>
         </div>
@@ -43,11 +43,11 @@ const SEOFAQ = ({ title, faqs, onFaqOpen }: SEOFAQProps) => {
                 onClick={() => toggleFAQ(index)}
                 className='flex w-full items-center justify-between bg-surface-muted px-content-pad py-content-pad text-left transition-colors hover:bg-surface-muted'
               >
-                <h3 className='pr-title-gap text-lg font-bold text-gray-900 md:text-xl lg:text-2xl'>
+                <h3 className='pr-title-gap text-lg font-bold text-ink-dark md:text-xl lg:text-2xl'>
                   {faq.question}
                 </h3>
                 <ChevronDown
-                  className={`w-4 h-4 md:w-5 md:h-5 text-gray-500 flex-shrink-0 transition-transform ${
+                  className={`w-4 h-4 md:w-5 md:h-5 text-ink-medium flex-shrink-0 transition-transform ${
                     openIndex === index ? 'rotate-180' : ''
                   }`}
                 />
@@ -58,7 +58,7 @@ const SEOFAQ = ({ title, faqs, onFaqOpen }: SEOFAQProps) => {
                 }`}
               >
                 <div className='px-content-pad pb-content-pad'>
-                  <p className='text-sm md:text-base lg:text-lg text-gray-700 leading-relaxed'>
+                  <p className='text-sm md:text-base lg:text-lg text-ink-gray leading-relaxed'>
                     {faq.answer}
                   </p>
                 </div>

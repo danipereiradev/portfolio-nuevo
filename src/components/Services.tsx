@@ -67,10 +67,10 @@ const Services = () => {
     <section id='services' className='page-section bg-surface-muted'>
       <div className='container mx-auto flex flex-col gap-page-gap'>
         <div className='page-title-block mx-auto max-w-3xl text-center'>
-          <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900'>
+          <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark'>
             {t('services.title')}
           </h2>
-          <p className='text-xl md:text-2xl text-black'>
+          <p className='text-xl md:text-2xl text-ink-dark'>
             {t('services.description')}
           </p>
         </div>
@@ -82,7 +82,7 @@ const Services = () => {
             >
               <a
                 href={service.link}
-                className='block bg-gray-100'
+                className='block bg-surface-page'
                 tabIndex={-1}
                 aria-hidden='true'
               >

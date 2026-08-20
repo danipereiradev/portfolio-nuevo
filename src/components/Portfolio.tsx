@@ -145,11 +145,11 @@ Hay categorías (destinos, guías, tips, comida), galerías ligeras, mapas de si
       >
         <div className='container mx-auto flex flex-col gap-page-gap'>
           <div className='page-title-block mx-auto max-w-3xl text-center'>
-            <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900'>
+            <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark'>
               {t('portfolio.title')}
             </h2>
             {!isPackLanding && (
-              <p className='text-xl md:text-2xl text-black'>
+              <p className='text-xl md:text-2xl text-ink-dark'>
                 {t('portfolio.description')}
               </p>
             )}
@@ -159,7 +159,7 @@ Hay categorías (destinos, guías, tips, comida), galerías ligeras, mapas de si
             {projects.map((project, index) => (
               <div
                 key={index}
-                className={`group cursor-pointer rounded-2xl  bg-white overflow-hidden  ${
+                className={`group cursor-pointer rounded-2xl bg-surface overflow-hidden  ${
                   projects.length === 1 ? 'w-full max-w-md' : ''
                 }`}
               >
@@ -168,7 +168,7 @@ Hay categorías (destinos, guías, tips, comida), galerías ligeras, mapas de si
                   className='bg-surface-muted shadow-xl rounded-2xl overflow-hidden flex flex-col cursor-pointer'
                 >
                   <a
-                    className='block bg-gray-100'
+                    className='block bg-surface-page'
                     tabIndex={-1}
                     aria-hidden='true'
                   >

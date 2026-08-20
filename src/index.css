@@ -8,8 +8,8 @@
 @tailwind utilities;
 
 :root {
-  --color-accent: #8c1dc3;
-  --color-accent-hover: #6f179b;
+  --color-accent: #3346c1;
+  --color-accent-hover: #2b3ba1;
   --color-brand: #b1d004;
   --color-brand-light: #e1f56e;
   --button-width: 15rem;
@@ -89,6 +89,7 @@
     display: flex;
     flex: 1 1 auto;
     flex-direction: column;
+    align-items: center;
     gap: var(--content-gap);
     padding: var(--content-pad);
   }

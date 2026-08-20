@@ -31,7 +31,7 @@ export const SuccessCases = ({
         <p className='text-xl md:text-2xl text-black leading-relaxed'>
           {description}
         </p>
-        <Button className='text-white mt-4'>Ir al caso</Button>
+        <Button className='mt-4'>Ir al caso</Button>
       </div>
       <div className='md:w-1/2'>
         <img className='rounded-2xl' src={images[0]} alt='charles-deluvio' />

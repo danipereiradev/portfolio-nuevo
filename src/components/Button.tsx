@@ -28,14 +28,13 @@ const Button: React.FC<ButtonProps> = ({
   isLoading = false,
 }) => {
   const baseStyles =
-    'box-border inline-flex items-center justify-center w-[var(--button-width)] max-w-full min-h-[3.5rem] px-6 py-4 rounded-2xl font-bold text-base md:text-lg uppercase text-center leading-tight whitespace-normal transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed disabled:translate-x-0 disabled:translate-y-0 gap-2 active:translate-x-[5px] active:translate-y-[5px] active:shadow-none';
+    'box-border mx-auto inline-flex items-center justify-center w-[var(--button-width)] max-w-full min-h-[3.5rem] px-6 py-4 rounded-2xl font-extrabold text-base md:text-lg uppercase text-center leading-tight whitespace-normal transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed gap-2';
 
   const variantStyles = {
-    primary: 'bg-accent text-white',
+    primary: 'bg-accent text-white hover:bg-accent-hover',
     secondary:
-      'text-ink-dark hover:bg-white hover:text-white shadow-[5px_5px_0_0_rgba(255,255,255,0.35)] hover:shadow-[2px_2px_0_0_rgba(255,255,255,0.35)]',
-    ghost:
-      'bg-gray-200 text-gray-700 hover:bg-gray-300 border-ink-dark hover:translate-x-[3px] hover:translate-y-[3px]',
+      'bg-transparent text-white border-2 border-white hover:bg-white hover:text-ink-dark',
+    ghost: 'bg-surface-muted text-ink-dark hover:bg-ink-light',
   };
 
   const widthStyles = fullWidth ? 'mx-auto' : '';

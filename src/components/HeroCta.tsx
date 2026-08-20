@@ -58,10 +58,10 @@ const HeroCta = ({
       >
         <div className='flex w-full min-w-0 flex-col items-center gap-page-gap md:w-1/2 md:items-start'>
           <div className='page-title-block'>
-            <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900'>
+            <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark'>
               {title}
             </h2>
-            <p className='text-lg md:text-xl text-black md:text-justify'>
+            <p className='text-lg md:text-xl text-ink-dark md:text-justify'>
               {description}
             </p>
           </div>

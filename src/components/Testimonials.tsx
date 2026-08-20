@@ -41,10 +41,10 @@ function Testimonials({ id = 'testimonials' }: TestimonialsProps) {
     <section id={id} className='page-section'>
       <div className='container mx-auto flex flex-col gap-page-gap'>
         <div className='page-title-block mx-auto max-w-3xl text-center'>
-          <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900'>
+          <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark'>
             Esto es lo que dicen nuestros clientes
           </h2>
-          <p className='text-xl md:text-2xl text-black'>
+          <p className='text-xl md:text-2xl text-ink-dark'>
             Valoraciones verificadas sacadas de nuestro perfil de google
           </p>
         </div>

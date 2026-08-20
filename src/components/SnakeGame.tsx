@@ -9,7 +9,7 @@ const GRID_SIZE = 16;
 const TICK_MS = 180;
 // Color de la serpiente. Debe coincidir con el "accent" de
 // tailwind.config.js (verde corporativo) para mantener la identidad visual.
-const SNAKE_COLOR = '#8c1dc3';
+const SNAKE_COLOR = '#3346c1';
 // Color de la comida (negro, tal y como se pidió).
 const FOOD_COLOR = '#111827';
 // Fondo del tablero de juego.

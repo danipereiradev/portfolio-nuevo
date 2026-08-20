@@ -71,12 +71,12 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
         <span className='text-accent font-extrabold underline text-md rounded-2xl'>
           {label}
         </span>
-        <h2 className='text-2xl md:text-4xl lg:text-5xl font-extrabold text-gray-900'>
+        <h2 className='text-2xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark'>
           {title}
         </h2>
         {paragraphs?.map((para: string) => {
           return (
-            <p className='text-lg md:text-xl text-black lg:text-justify'>
+            <p className='text-lg md:text-xl text-ink-dark lg:text-justify'>
               {para}
             </p>
           );
@@ -118,9 +118,11 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
                     alt='charles-deluvio'
                   />
 
-                  <div className='member-info rounded-b-xl bg-surface-muted p-content-pad text-start text-lg text-black md:min-h-[200px]'>
-                    <h3 className='text-2xl font-bold'>{member.fullName}</h3>
-                    <span className='font-bold text-accent'>{member.role}</span>
+                  <div className='member-info rounded-b-xl bg-surface-muted p-content-pad text-start text-lg text-ink-dark md:min-h-[200px]'>
+                    <h3 className='text-2xl font-bold text-accent'>
+                      {member.fullName}
+                    </h3>
+                    <span className='font-bold text-ink-dark'>{member.role}</span>
                     <p className='mt-heading-gap text-base'>
                       {member.description}
                     </p>

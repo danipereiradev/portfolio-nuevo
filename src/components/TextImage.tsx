@@ -14,17 +14,17 @@ export const TextImage = ({ label, title, paragraphs }: TextImageProps) => {
           <span className='text-md rounded-2xl font-extrabold text-accent underline'>
             {label}
           </span>
-          <h2 className='text-2xl font-extrabold text-gray-900 md:text-4xl lg:text-5xl'>
+          <h2 className='text-2xl font-extrabold text-ink-dark md:text-4xl lg:text-5xl'>
             {title}
           </h2>
           {paragraphs?.map((para: string) => {
             return (
-              <p className='text-lg text-black md:text-xl lg:text-justify'>
+              <p className='text-lg text-ink-dark md:text-xl lg:text-justify'>
                 {para}
               </p>
             );
           })}
-          <Button className='mt-text-gap text-white'>Saber más</Button>
+          <Button className='mt-text-gap lg:mx-0'>Saber más</Button>
         </div>
         <div className='w-full lg:w-1/2'>
           <img

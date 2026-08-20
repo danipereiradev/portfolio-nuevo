@@ -268,7 +268,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             disabled={isSubmitting}
             isLoading={isSubmitting}
             variant='primary'
-            className='mx-auto'
+            className='self-start !mx-0'
           >
             {isSubmitting ? 'Enviando...' : 'Enviar'}
           </Button>

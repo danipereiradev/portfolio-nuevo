@@ -5,9 +5,9 @@ export default {
     extend: {
       colors: {
         accent: {
-          DEFAULT: '#8c1dc3', // violeta con un giro hacia magenta
-          hover: '#6f179b',
-          light: '#f3e5ff',
+          DEFAULT: '#3346c1', // azul periwinkle, contraste AA
+          hover: '#2b3ba1',
+          light: '#edeff7',
         },
         brand: {
           DEFAULT: '#b1d004', // lima 40

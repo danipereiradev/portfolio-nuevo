@@ -92,18 +92,18 @@ const Pricing = () => {
     <section
       id='pricing'
       ref={sectionRef}
-      className='relative py-20 bg-white overflow-hidden'
+      className='relative py-20 bg-surface overflow-hidden'
     >
       <div className='mx-auto w-full max-w-screen-2xl px-6 relative z-10'>
         <div className='text-center mb-12    mx-auto'>
-          <h2 className='text-4xl md:text-5xl font-extrabold text-gray-900 mb-6'>
+          <h2 className='text-4xl md:text-5xl font-extrabold text-ink-dark mb-6'>
             Cuéntanos el proyecto y te pasamos números
           </h2>
-          <p className='text-lg md:text-xl text-gray-700 font-medium mb-3'>
+          <p className='text-lg md:text-xl text-ink-gray font-medium mb-3'>
             No hay tarifa única en la web: depende de páginas, funciones y
             contenidos. Primero entendemos qué necesitas.
           </p>
-          <p className='text-base text-gray-500'>
+          <p className='text-base text-ink-medium'>
             Luego te llega una propuesta con plazos, lo incluido y el precio. Si
             no encaja, te lo decimos.
           </p>
@@ -115,8 +115,8 @@ const Pricing = () => {
               key={plan.id}
               className={`rounded-2xl p-8 border-2 flex flex-col relative transition-all duration-200 hover:translate-x-[3px] hover:translate-y-[3px] ${
                 plan.recommended
-                  ? 'bg-[#141414] text-white border-accent shadow-[7px_7px_0_0_var(--color-accent-hover)] hover:shadow-[3px_3px_0_0_var(--color-accent-hover)]'
-                  : 'bg-white border-ink-dark shadow-[7px_7px_0_0_#1a1a1a] hover:shadow-[3px_3px_0_0_#1a1a1a]'
+                  ? 'bg-ink-dark text-white border-accent shadow-[7px_7px_0_0_var(--color-accent-hover)] hover:shadow-[3px_3px_0_0_var(--color-accent-hover)]'
+                  : 'bg-surface border-ink-dark shadow-[7px_7px_0_0_#1a1a1a] hover:shadow-[3px_3px_0_0_#1a1a1a]'
               }`}
             >
               {plan.recommended && (
@@ -127,7 +127,7 @@ const Pricing = () => {
 
               <div className='mb-6'>
                 <h3
-                  className={`text-2xl font-bold mb-2 ${plan.recommended ? 'text-white' : 'text-gray-900'}`}
+                  className={`text-2xl font-bold mb-2 ${plan.recommended ? 'text-white' : 'text-ink-dark'}`}
                 >
                   {plan.name}
                 </h3>
@@ -135,20 +135,20 @@ const Pricing = () => {
                   Ideal si: {plan.idealFor}
                 </p>
                 <p
-                  className={`text-base mb-4 ${plan.recommended ? 'text-white/80' : 'text-gray-700'}`}
+                  className={`text-base mb-4 ${plan.recommended ? 'text-white/80' : 'text-ink-gray'}`}
                 >
                   {plan.description}
                 </p>
                 <p
                   className={`text-sm font-medium ${
-                    plan.recommended ? 'text-white/50' : 'text-gray-500'
+                    plan.recommended ? 'text-white/50' : 'text-ink-medium'
                   }`}
                 >
                   {plan.deliveryTime}
                 </p>
                 <p
                   className={`mt-3 text-lg font-extrabold ${
-                    plan.recommended ? 'text-accent' : 'text-gray-900'
+                    plan.recommended ? 'text-accent' : 'text-ink-dark'
                   }`}
                 >
                   Presupuesto a medida
@@ -160,7 +160,7 @@ const Pricing = () => {
                   <li key={featureIndex} className='flex items-start gap-3'>
                     <Check className='w-5 h-5 text-accent flex-shrink-0 mt-0.5' />
                     <span
-                      className={`text-base ${plan.recommended ? 'text-white/90' : 'text-gray-800'}`}
+                      className={`text-base ${plan.recommended ? 'text-white/90' : 'text-ink-gray'}`}
                     >
                       {feature}
                     </span>
@@ -168,16 +168,11 @@ const Pricing = () => {
                 ))}
               </ul>
 
-              <div className='mt-auto space-y-3'>
+              <div className='mt-auto flex flex-col items-center space-y-3'>
                 <Button
                   onClick={() => handleQuoteCta(plan.formPlanName, plan.cta)}
                   variant='primary'
                   fullWidth
-                  className={
-                    plan.recommended
-                      ? '!bg-accent !text-ink-dark'
-                      : '!bg-[#141414] !text-white hover:!bg-accent hover:!text-ink-dark'
-                  }
                 >
                   {plan.cta}
                 </Button>
@@ -187,7 +182,7 @@ const Pricing = () => {
                     trackPricingCtaClick(plan.name, 'Ver más detalles')
                   }
                   className={`block text-center text-sm font-semibold hover:underline ${
-                    plan.recommended ? 'text-accent' : 'text-gray-600'
+                    plan.recommended ? 'text-accent' : 'text-ink-medium'
                   }`}
                 >
                   Ver más detalles
@@ -198,12 +193,12 @@ const Pricing = () => {
         </div>
 
         <div className='mt-16 grid md:grid-cols-2 gap-8   mx-auto items-stretch'>
-          <div className='bg-white border-2 border-ink-dark rounded-2xl p-8 text-center shadow-[6px_6px_0_0_#1a1a1a] flex flex-col'>
+          <div className='bg-surface border-2 border-ink-dark rounded-2xl p-8 text-center shadow-[6px_6px_0_0_#1a1a1a] flex flex-col'>
             <Wallet className='w-6 h-6 text-accent mx-auto mb-4' />
-            <h3 className='text-2xl md:text-3xl font-bold text-gray-900 mb-4'>
+            <h3 className='text-2xl md:text-3xl font-bold text-ink-dark mb-4'>
               Opciones de pago flexible
             </h3>
-            <p className='text-lg text-gray-700 font-medium max-w-2xl mx-auto mb-4'>
+            <p className='text-lg text-ink-gray font-medium max-w-2xl mx-auto mb-4'>
               Puedes pagar el proyecto de una vez o dividirlo en varios pagos,
               según el tipo de web. Antes de empezar dejaremos por escrito
               cuánto vas a pagar, cuándo se realiza cada pago y qué incluye el
@@ -217,7 +212,7 @@ const Pricing = () => {
             </a>
           </div>
 
-          <div className='bg-[#141414] border-2 border-ink-dark rounded-2xl p-8 text-center shadow-[6px_6px_0_0_rgba(20,184,166,0.5)] flex flex-col'>
+          <div className='bg-ink-dark border-2 border-ink-dark rounded-2xl p-8 text-center shadow-[6px_6px_0_0_var(--color-accent)] flex flex-col'>
             <h3 className='text-2xl md:text-3xl font-bold text-white mb-4'>
               ¿No sabes qué necesitas exactamente?
             </h3>
