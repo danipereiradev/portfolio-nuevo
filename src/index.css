@@ -333,6 +333,32 @@ img {
   }
 }
 
+@media (min-width: 1024px) {
+  .page-section {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+  }
+
+  .page-hero-compact {
+    min-height: 100vh;
+  }
+
+  /* Móvil deja text-lg (~18px). En desk el html al 80% dejaba los
+     párrafos más pequeños; aquí vuelven a escala de lectura. */
+  .page-title-block > p {
+    font-size: 1.5rem;
+    line-height: 1.65;
+  }
+
+  .blog-prose p,
+  .blog-prose li {
+    font-size: 1.375rem;
+  }
+}
+
 html {
   scroll-behavior: smooth;
   font-size: 100%;

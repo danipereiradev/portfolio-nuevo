@@ -6,6 +6,7 @@ import {
   unlockGoogleAdsFormConversion,
 } from '../utils/analytics';
 import { markFormSubmissionSuccess } from '../config/formSubmission';
+import { BUSINESS_HOURS_LABEL } from '../config/contact';
 import { AlertCircle } from 'lucide-react';
 import TestimonialsSingle from './TestimonialSingle';
 
@@ -218,6 +219,9 @@ Fecha: ${new Date().toLocaleString('es-ES')}
           <h2 className='text-2xl font-extrabold text-black md:text-3xl lg:text-4xl'>
             {title}
           </h2>
+          <span className='block text-sm font-extrabold uppercase tracking-wide text-accent'>
+            {BUSINESS_HOURS_LABEL}
+          </span>
           <p className='text-center text-lg text-gray-900'>{description}</p>
         </div>
         <div className='form-fields mt-page-gap flex flex-col gap-content-gap'>

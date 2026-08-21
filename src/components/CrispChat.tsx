@@ -12,7 +12,7 @@ import {
 
 const DESKTOP_MQ = '(min-width: 768px)';
 const SCRIPT_ID = 'crisp-js';
-const PROACTIVE_ENGAGED_KEY = 'crisp-proactive-engaged';
+const PROACTIVE_SHOWN_KEY = 'crisp-proactive-shown';
 
 declare global {
   interface Window {
@@ -31,9 +31,11 @@ const setChatVisible = (visible: boolean) => {
   pushCrisp('do', visible ? 'chat:show' : 'chat:hide');
 };
 
-const hasEngaged = () => sessionStorage.getItem(PROACTIVE_ENGAGED_KEY) === '1';
+const hasShownProactive = () =>
+  sessionStorage.getItem(PROACTIVE_SHOWN_KEY) === '1';
 
-const markEngaged = () => sessionStorage.setItem(PROACTIVE_ENGAGED_KEY, '1');
+const markProactiveShown = () =>
+  sessionStorage.setItem(PROACTIVE_SHOWN_KEY, '1');
 
 let onChatClosed: (() => void) | null = null;
 
@@ -52,7 +54,7 @@ const loadCrisp = () => {
   pushCrisp('config', 'container:index', [40]);
   pushCrisp('on', 'chat:opened', [
     () => {
-      markEngaged();
+      markProactiveShown();
       trackCrispChatOpened();
     },
   ]);
@@ -94,15 +96,19 @@ const CrispChat = () => {
     };
 
     const showProactiveMessage = () => {
-      if (hasEngaged() || !mq.matches) return;
-      if (window.$crisp?.is?.('chat:opened')) return;
+      if (hasShownProactive() || !mq.matches) return;
+      if (window.$crisp?.is?.('chat:opened')) {
+        markProactiveShown();
+        return;
+      }
 
+      markProactiveShown();
       pushCrisp('do', 'chat:show');
       pushCrisp('do', 'message:show', ['text', CRISP_PROACTIVE_TEXT]);
     };
 
     const scheduleProactiveMessage = () => {
-      if (proactiveTimer || hasEngaged() || !mq.matches) return;
+      if (proactiveTimer || hasShownProactive() || !mq.matches) return;
 
       proactiveTimer = window.setTimeout(() => {
         proactiveTimer = undefined;
@@ -119,9 +125,8 @@ const CrispChat = () => {
     };
 
     onChatClosed = () => {
-      if (hasEngaged()) return;
+      markProactiveShown();
       clearProactiveTimer();
-      scheduleProactiveMessage();
     };
 
     const sync = () => {

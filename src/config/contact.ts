@@ -3,6 +3,7 @@
 export const PHONE_NUMBER = '34644669828';
 export const PHONE_DISPLAY = '+34 644 669 828';
 export const PHONE_TEL_LINK = `tel:+${PHONE_NUMBER}`;
+export const BUSINESS_HOURS_LABEL = 'Horario: L-V de 9:00h a 18:00h';
 
 // Ficha oficial de Google Maps (Pereira Web) para el mapa embebido en /contacto.
 export const GOOGLE_MAPS_EMBED_URL =
