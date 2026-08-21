@@ -17,6 +17,8 @@
     { "source": "/web-start/", "destination": "/landing-diseño-web", "permanent": true },
     { "source": "/tienda-online", "destination": "/tiendas-online", "permanent": true },
     { "source": "/tienda-online/", "destination": "/tiendas-online", "permanent": true },
+    { "source": "/landing-tienda-online", "destination": "/landing-tiendas-online", "permanent": true },
+    { "source": "/landing-tienda-online/", "destination": "/landing-tiendas-online", "permanent": true },
     { "source": "/web-profesional", "destination": "/landing-diseño-web", "permanent": true },
     { "source": "/mantenimiento-web", "destination": "/landing-diseño-web", "permanent": true },
     { "source": "/about", "destination": "/landing-diseño-web", "permanent": true },
@@ -44,6 +46,10 @@
     {
       "source": "/landing-diseño-web",
       "destination": "/landing-diseño-web/index.html"
+    },
+    {
+      "source": "/landing-tiendas-online",
+      "destination": "/landing-tiendas-online/index.html"
     },
     {
       "source": "/tiendas-online",

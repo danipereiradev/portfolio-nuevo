@@ -82,7 +82,7 @@ const faqs = [
   {
     question: '¿Sois una agencia de diseño web solo de Madrid?',
     answer:
-      'Estudio de diseño web en Madrid; trabajamos en remoto con autónomos y empresas de toda España. Si estás en Madrid, también podemos vernos.',
+      'Agencia de diseño web y marketing digital en Madrid; trabajamos en remoto con autónomos y empresas de toda España. Si estás en Madrid, también podemos vernos.',
   },
 ];
 
@@ -232,34 +232,31 @@ const DisenoWeb = () => {
   return (
     <>
       <HeroCta
-          title='Diseño web a medida para empresas y autónomos'
-          description='Diseño de páginas web profesionales: claras, rápidas y hechas para que te escriban. Estudio en Madrid, proyectos en toda España. Precio y plazos por escrito antes de empezar.'
-          buttonText='PEDIR PROPUESTA'
-          buttonHref='#contacto'
-          backgroundUrl='/img/web-design-charlesdeluvio.webp'
-          heroType='form'
-          hasButton={false}
-          formTitle='Presupuesto de diseño web'
-          formDescription='Propuesta en 24–48 h. Sin compromiso.'
-          formSectionInfo='DisenoWeb Hero'
-          hasBackground
-          hasReviewBadge
-          isTopHero
-          breadcrumb={
-            <ServiceBreadcrumb
-              items={[
-                { label: 'Inicio', href: '/' },
-                { label: 'Diseño web' },
-              ]}
-            />
-          }
-        />
+        title='Diseño web a medida para empresas y autónomos'
+        description='Diseño de páginas web profesionales: claras, rápidas y hechas para que te escriban. Estudio en Madrid, proyectos en toda España. Precio y plazos por escrito antes de empezar.'
+        buttonText='PEDIR PROPUESTA'
+        buttonHref='#contacto'
+        backgroundUrl='/img/web-design-charlesdeluvio.webp'
+        heroType='form'
+        hasButton={false}
+        formTitle='Presupuesto de diseño web'
+        formDescription='Propuesta en 24–48 h. Sin compromiso.'
+        formSectionInfo='DisenoWeb Hero'
+        hasBackground
+        hasReviewBadge
+        isTopHero
+        breadcrumb={
+          <ServiceBreadcrumb
+            items={[{ label: 'Inicio', href: '/' }, { label: 'Diseño web' }]}
+          />
+        }
+      />
 
       <TextImage
-        label='ESTUDIO DE DISEÑO WEB'
+        label='AGENCIA DE DISEÑO WEB'
         title='Diseño y desarrollo web, con quien monta la página'
         paragraphs={[
-          'PereiraWeb es un estudio de diseño web en Madrid. Más de 12 años haciendo páginas web para autónomos, pymes y empresas de toda España. No hay un comercial que luego desaparece: hablas con el equipo que diseña y desarrolla.',
+          'PereiraWeb es una agencia de diseño web y marketing digital en Madrid. Más de 12 años haciendo páginas web para autónomos, pymes y empresas de toda España. No hay un comercial que luego desaparece: hablas con el equipo que diseña y desarrolla.',
           'Una página web lenta, confusa o que no se ve en el móvil te cuesta clientes. Por eso el diseño web a medida aquí es claro, rápido y se publica con tu dominio.',
         ]}
         imageSrc='/img/portfolio/mock-carper.png'

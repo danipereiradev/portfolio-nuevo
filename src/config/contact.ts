@@ -19,6 +19,9 @@ export const DEFAULT_WHATSAPP_MESSAGE =
 export const ADS_WHATSAPP_MESSAGE =
   'Hola, vengo de Google y quiero información para una web profesional a medida.';
 
+export const ADS_SHOP_WHATSAPP_MESSAGE =
+  'Hola, vengo de Google y quiero información para una tienda online.';
+
 // Mensaje para el botón de WhatsApp de /web-profesional (landing de packs).
 export const WEB_PROFESIONAL_WHATSAPP_MESSAGE =
   'Hola, quiero información sobre la web profesional (249 € / 349 €).';
@@ -73,10 +76,18 @@ export const SITE_SHOP_LABEL = 'Tiendas online';
 export const ADS_LANDING_PATH = '/landing-diseño-web';
 export const ADS_LANDING_PATH_ASCII = '/landing-diseno-web';
 
-export const isAdsLandingPath = (pathname: string): boolean => {
+export const ADS_SHOP_LANDING_PATH = '/landing-tiendas-online';
+
+export const isAdsWebLandingPath = (pathname: string): boolean => {
   const path = normalizePath(pathname);
   return path === ADS_LANDING_PATH || path === ADS_LANDING_PATH_ASCII;
 };
+
+export const isAdsShopLandingPath = (pathname: string): boolean =>
+  normalizePath(pathname) === ADS_SHOP_LANDING_PATH;
+
+export const isAdsLandingPath = (pathname: string): boolean =>
+  isAdsWebLandingPath(pathname) || isAdsShopLandingPath(pathname);
 
 export const isSiteWebPath = (pathname: string): boolean => {
   const path = normalizePath(pathname);
@@ -88,9 +99,13 @@ export const isSiteWebPath = (pathname: string): boolean => {
 // el visitante está mirando en cada página.
 export const getWhatsAppMessageForPath = (pathname: string): string => {
   const path = normalizePath(pathname);
-  if (isAdsLandingPath(path)) return ADS_WHATSAPP_MESSAGE;
+  if (isAdsShopLandingPath(path) || path === SITE_SHOP_PATH) {
+    return path === SITE_SHOP_PATH
+      ? ECOMMERCE_WHATSAPP_MESSAGE
+      : ADS_SHOP_WHATSAPP_MESSAGE;
+  }
+  if (isAdsWebLandingPath(path)) return ADS_WHATSAPP_MESSAGE;
   if (path === '/web-profesional') return WEB_PROFESIONAL_WHATSAPP_MESSAGE;
-  if (path === SITE_SHOP_PATH) return ECOMMERCE_WHATSAPP_MESSAGE;
   if (path === '/mantenimiento-web') return MAINTENANCE_WHATSAPP_MESSAGE;
   return DEFAULT_WHATSAPP_MESSAGE;
 };

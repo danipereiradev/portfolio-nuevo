@@ -7,6 +7,7 @@ import ContactFormModal from './components/ContactFormModal';
 import ExitIntentPopup from './components/ExitIntentPopup';
 import CrispChat from './components/CrispChat';
 import LandingWeb from './pages/LandingWeb';
+import LandingShop from './pages/LandingShop';
 import DisenoWeb from './pages/DisenoWeb';
 import TiendasOnline from './pages/TiendasOnline';
 import Blog from './pages/Blog';
@@ -21,6 +22,7 @@ import {
 import {
   ADS_LANDING_PATH,
   ADS_LANDING_PATH_ASCII,
+  ADS_SHOP_LANDING_PATH,
   SITE_SHOP_PATH,
   SITE_WEB_PATH,
   SITE_WEB_PATH_ASCII,
@@ -50,6 +52,11 @@ function AppContent() {
         <Route
           path={ADS_LANDING_PATH_ASCII}
           element={<Navigate to={ADS_LANDING_PATH} replace />}
+        />
+        <Route path={ADS_SHOP_LANDING_PATH} element={<LandingShop />} />
+        <Route
+          path='/landing-tienda-online'
+          element={<Navigate to={ADS_SHOP_LANDING_PATH} replace />}
         />
         <Route
           path='/politica-de-privacidad'

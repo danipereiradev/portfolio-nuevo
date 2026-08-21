@@ -22,6 +22,8 @@
 /auditoria-ecommerce   /tiendas-online   301!
 /tienda-online     /tiendas-online   301!
 /tienda-online/    /tiendas-online   301!
+/landing-tienda-online   /landing-tiendas-online   301!
+/landing-tienda-online/  /landing-tiendas-online   301!
 /web-profesional   /landing-diseño-web   301!
 /mantenimiento-web /landing-diseño-web   301!
 /about             /landing-diseño-web   301!
@@ -39,6 +41,7 @@
 
 /diseño-web                     /diseño-web/index.html                     200
 /landing-diseño-web             /landing-diseño-web/index.html             200
+/landing-tiendas-online         /landing-tiendas-online/index.html         200
 /tiendas-online                 /tiendas-online/index.html                 200
 /blog                           /blog/index.html                           200
 /blog/cuanto-cuesta-una-pagina-web-profesional  /blog/cuanto-cuesta-una-pagina-web-profesional/index.html  200

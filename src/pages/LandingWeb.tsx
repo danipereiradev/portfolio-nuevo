@@ -180,7 +180,6 @@ const LandingWeb = () => {
         hasBackground
         hasReviewBadge
         isTopHero
-        showProjectType
         highlights={[
           'Desde 400 € + IVA. Cerrado en la propuesta.',
           'Plazo por escrito. Suele ser 3–8 semanas.',
@@ -213,7 +212,6 @@ const LandingWeb = () => {
         formSectionInfo='LandingWeb CTA medio'
         hasBackground={false}
         hasReviewBadge={false}
-        showProjectType
       />
 
       <Team
@@ -246,7 +244,6 @@ const LandingWeb = () => {
         formSectionInfo='LandingWeb CTA final'
         hasBackground={false}
         hasReviewBadge
-        showProjectType
         formId='contacto-final'
       />
     </>

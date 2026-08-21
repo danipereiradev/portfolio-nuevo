@@ -15,13 +15,17 @@
     "title": "Diseño web | PereiraWeb",
     "description": "Te montamos la web de tu negocio: estructura, diseño, móvil, formulario y WhatsApp. Te decimos precio y plazos antes de cobrar nada."
   },
+  "/landing-tiendas-online": {
+    "title": "Tiendas online | PereiraWeb",
+    "description": "Te montamos la tienda online: catálogo, pagos, envíos y móvil. WooCommerce, Shopify o a medida. Te decimos precio y plazos antes de cobrar nada."
+  },
   "/blog": {
     "title": "Blog de diseño web y tiendas online | PereiraWeb",
     "description": "Artículos sobre diseño web, tecnologías para crear una página web, tiendas online y precios. Estudio en Madrid, toda España."
   },
   "/blog/cuanto-cuesta-una-pagina-web-profesional": {
-    "title": "Cuánto cuesta una página web profesional | PereiraWeb",
-    "description": "Una página web profesional suele ir de 400 € a 3.000 € + IVA. Qué entra en el precio, qué no, y cómo pedir presupuesto sin compromiso.",
+    "title": "Cuánto cuesta una página web profesional en 2026 | PereiraWeb",
+    "description": "En 2026 una página web profesional suele ir de 400 € a 3.000 € + IVA. Qué entra en el precio, qué no, y cómo pedir presupuesto sin compromiso.",
     "ogType": "article"
   },
   "/blog/tecnologias-para-crear-una-pagina-web": {

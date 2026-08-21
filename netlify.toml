@@ -57,6 +57,12 @@
   force = true
 
 [[redirects]]
+  from = "/landing-tienda-online"
+  to = "/landing-tiendas-online"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/about"
   to = "/sobre-el-estudio"
   status = 301
@@ -140,6 +146,11 @@
 [[redirects]]
   from = "/landing-diseño-web"
   to = "/landing-diseño-web/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/landing-tiendas-online"
+  to = "/landing-tiendas-online/index.html"
   status = 200
 
 [[redirects]]
