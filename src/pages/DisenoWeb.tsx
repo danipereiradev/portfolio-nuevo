@@ -294,7 +294,6 @@ const DisenoWeb = () => {
       />
 
       <SEOBenefits
-        variant='plain'
         title='Para quién es este diseño web'
         subtitle='Páginas web para autónomos y empresas que necesitan verse profesionales y recibir consultas.'
         benefits={audiences}

@@ -292,7 +292,6 @@ const TiendasOnline = () => {
       />
 
       <SEOBenefits
-        variant='plain'
         title='Para quién es esta tienda online'
         subtitle='Ecommerce para marcas y negocios que necesitan vender online con un proceso de compra claro.'
         benefits={audiences}
