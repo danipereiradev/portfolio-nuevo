@@ -28,7 +28,7 @@ const SEOCTAFinal = ({
       />
       <div className='absolute inset-0 bg-[#141414]/70' aria-hidden='true' />
 
-      <div className='container mx-auto px-6 relative z-10'>
+      <div className='container mx-auto relative z-10'>
         <div className='   mx-auto text-center'>
           <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6'>
             {title}

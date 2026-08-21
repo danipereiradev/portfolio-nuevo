@@ -7,6 +7,8 @@ import ContactFormModal from './components/ContactFormModal';
 import ExitIntentPopup from './components/ExitIntentPopup';
 import CrispChat from './components/CrispChat';
 import LandingWeb from './pages/LandingWeb';
+import DisenoWeb from './pages/DisenoWeb';
+import TiendasOnline from './pages/TiendasOnline';
 import Home from './pages/Home';
 import LegalDocument from './pages/LegalDocument';
 import Maintenance from './pages/Maintenance';
@@ -14,7 +16,13 @@ import {
   isMaintenanceActive,
   isMaintenancePreviewPath,
 } from './config/maintenance';
-import { ADS_LANDING_PATH, SITE_WEB_PATH } from './config/contact';
+import {
+  ADS_LANDING_PATH,
+  ADS_LANDING_PATH_ASCII,
+  SITE_SHOP_PATH,
+  SITE_WEB_PATH,
+  SITE_WEB_PATH_ASCII,
+} from './config/contact';
 
 function AppContent() {
   return (
@@ -23,11 +31,21 @@ function AppContent() {
 
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path={SITE_WEB_PATH} element={<DisenoWeb />} />
         <Route
-          path={SITE_WEB_PATH}
-          element={<LandingWeb variant='site' />}
+          path={SITE_WEB_PATH_ASCII}
+          element={<Navigate to={SITE_WEB_PATH} replace />}
         />
-        <Route path={ADS_LANDING_PATH} element={<LandingWeb variant='ads' />} />
+        <Route path={SITE_SHOP_PATH} element={<TiendasOnline />} />
+        <Route
+          path='/tienda-online'
+          element={<Navigate to={SITE_SHOP_PATH} replace />}
+        />
+        <Route path={ADS_LANDING_PATH} element={<LandingWeb />} />
+        <Route
+          path={ADS_LANDING_PATH_ASCII}
+          element={<Navigate to={ADS_LANDING_PATH} replace />}
+        />
         <Route
           path='/politica-de-privacidad'
           element={

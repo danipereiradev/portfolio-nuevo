@@ -564,7 +564,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
   return (
     <section id='contact' className='py-20 bg-white'>
-      <div className='container mx-auto px-6'>{formContent}</div>
+      <div className='container mx-auto'>{formContent}</div>
     </section>
   );
 };

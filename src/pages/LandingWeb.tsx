@@ -19,7 +19,7 @@ import HeroCta from '../components/HeroCta';
 import CompareVsAi from '../components/CompareVsAi';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
-import { ADS_LANDING_PATH, SITE_WEB_PATH } from '../config/contact';
+import { ADS_LANDING_PATH } from '../config/contact';
 
 const landingTrustPoints = [
   { icon: Wallet, text: 'Desde 400 € + IVA' },
@@ -143,13 +143,8 @@ const faqs = [
   },
 ];
 
-interface LandingWebProps {
-  variant?: 'ads' | 'site';
-}
-
-const LandingWeb = ({ variant = 'ads' }: LandingWebProps) => {
-  const isAds = variant === 'ads';
-  usePageMeta(isAds ? ADS_LANDING_PATH : SITE_WEB_PATH);
+const LandingWeb = () => {
+  usePageMeta(ADS_LANDING_PATH);
 
   const faqJsonLd = useMemo(
     () => ({
@@ -177,15 +172,15 @@ const LandingWeb = ({ variant = 'ads' }: LandingWebProps) => {
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
         backgroundUrl='/img/web-design-charlesdeluvio.webp'
-        heroType={isAds ? 'form' : 'clean'}
-        hasButton={!isAds}
+        heroType='form'
+        hasButton={false}
         formTitle='Te llamamos'
         formDescription='Propuesta en 24–48 h. Sin compromiso.'
-        formSectionInfo={isAds ? 'LandingWeb Hero' : 'WebAMedida Hero'}
+        formSectionInfo='LandingWeb Hero'
         hasBackground
         hasReviewBadge
         isTopHero
-        showProjectType={isAds}
+        showProjectType
         highlights={[
           'Desde 400 € + IVA. Cerrado en la propuesta.',
           'Plazo por escrito. Suele ser 3–8 semanas.',
@@ -215,11 +210,10 @@ const LandingWeb = ({ variant = 'ads' }: LandingWebProps) => {
         hasButton={false}
         formTitle='Te llamamos'
         formDescription='Propuesta en 24–48 h. Sin compromiso.'
-        formSectionInfo={isAds ? 'LandingWeb CTA medio' : 'WebAMedida CTA medio'}
+        formSectionInfo='LandingWeb CTA medio'
         hasBackground={false}
         hasReviewBadge={false}
         showProjectType
-        formId={isAds ? undefined : 'contacto'}
       />
 
       <Team
@@ -237,7 +231,7 @@ const LandingWeb = ({ variant = 'ads' }: LandingWebProps) => {
           title='Te resolvemos todas tus dudas'
           faqs={faqs}
           ctaText='PEDIR PROPUESTA'
-          ctaHref={isAds ? '#contacto-final' : '#contacto'}
+          ctaHref='#contacto-final'
         />
       </div>
       <HeroCta
@@ -249,7 +243,7 @@ const LandingWeb = ({ variant = 'ads' }: LandingWebProps) => {
         hasButton={false}
         formTitle='Te llamamos'
         formDescription='Propuesta en 24–48 h. Sin compromiso.'
-        formSectionInfo={isAds ? 'LandingWeb CTA final' : 'WebAMedida CTA final'}
+        formSectionInfo='LandingWeb CTA final'
         hasBackground={false}
         hasReviewBadge
         showProjectType

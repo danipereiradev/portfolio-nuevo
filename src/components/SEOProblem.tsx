@@ -13,7 +13,7 @@ interface SEOProblemProps {
 const SEOProblem = ({ title, subtitle, problems }: SEOProblemProps) => {
   return (
     <section className='py-20 bg-white'>
-      <div className='container mx-auto px-6'>
+      <div className='container mx-auto'>
         <div className='text-center mb-12 md:mb-16'>
           <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4'>
             {title}

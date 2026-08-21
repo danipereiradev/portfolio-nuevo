@@ -1,4 +1,5 @@
 import { useLanguage } from '../contexts/LanguageContext';
+import { SITE_SHOP_PATH, SITE_WEB_PATH } from '../config/contact';
 
 const Services = () => {
   const { t } = useLanguage();
@@ -6,25 +7,25 @@ const Services = () => {
   const mainServices = [
     {
       title: t('services.webdesign.title'),
-      link: '/web-profesional-a-medida',
+      link: SITE_WEB_PATH,
       image: '/img/theme-photos-CGpifH3FjOA-unsplash.jpg',
       imageAlt: 'Mock de web a medida — Hoy Viajamos',
     },
     {
       title: t('services.wordpress.title'),
-      link: '/web-profesional-a-medida',
+      link: SITE_WEB_PATH,
       image: '/img/fikret-tozak-rfNLa1HL7eY-unsplash.jpg',
       imageAlt: 'Mock de web a medida — Hoy Viajamos',
     },
     {
       title: t('services.ecommerce.title'),
-      link: '/tiendas-online',
+      link: SITE_SHOP_PATH,
       image: '/img/sumup-ShB9pI4mpRg-unsplash.jpg',
       imageAlt: 'Mock de tienda online — Camisetas Ahora',
     },
     {
       title: t('services.ecommercePlantilla.title'),
-      link: '/tiendas-online-woocommerce',
+      link: SITE_SHOP_PATH,
       image: '/img/sumup-ShB9pI4mpRg-unsplash.jpg',
       imageAlt: 'Mock de tienda online — Camisetas Ahora',
     },
@@ -53,7 +54,7 @@ const Services = () => {
                 alt={service.imageAlt}
                 width={800}
                 height={600}
-                className='aspect-[4/3] w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110'
+                className='aspect-[4/3] w-full object-cover'
                 loading='lazy'
                 decoding='async'
               />

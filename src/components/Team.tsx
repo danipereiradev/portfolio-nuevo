@@ -122,11 +122,13 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
                     className=' cursor-grab text-center'
                   >
                     {member.imageUrl ? (
-                      <img
-                        className='h-[333px] w-full rounded-t-xl object-cover grayscale'
-                        src={member.imageUrl}
-                        alt={member.fullName}
-                      />
+                      <div className='overflow-hidden rounded-t-xl'>
+                        <img
+                          className='h-[333px] w-full object-cover grayscale'
+                          src={member.imageUrl}
+                          alt={member.fullName}
+                        />
+                      </div>
                     ) : (
                       <div
                         className='flex h-[333px] w-full items-center justify-center rounded-t-xl bg-accent-light'

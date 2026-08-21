@@ -5,6 +5,7 @@ import {
   trackPortfolioClick,
   trackViewPortfolioSection,
 } from '../utils/analytics';
+import { SITE_WEB_PATH, SITE_WEB_LABEL } from '../config/contact';
 
 interface PortfolioProps {
   /** En /web-profesional: badges de packs y sin proyectos de tienda online. */
@@ -29,8 +30,8 @@ Montamos estructura clara, fichas de producto y una base para Google. Hoy aparec
       image: '/img/portfolio/mock-carper.png',
       headerImage: '/img/portfolio/mock-carper.png',
       tech: ['React', 'Vite', 'TypeScript', 'Tailwind CSS'],
-      product: 'Web a Medida',
-      productHref: '/web-profesional-a-medida',
+      product: SITE_WEB_LABEL,
+      productHref: SITE_WEB_PATH,
       publishedAt: '3 agosto 2026',
       url: 'https://carpersonido.com',
       exito: '1º en Google en +30 búsquedas. +400% llamadas.',
@@ -60,8 +61,8 @@ Hay categorías, galerías ligeras y newsletter.`,
       image: '/img/portfolio/hoyviajamos.png',
       headerImage: '/img/portfolio/mock-viajamos.png',
       tech: ['HTML5', 'CSS3', 'JavaScript', 'PHP'],
-      product: 'Web a Medida',
-      productHref: '/web-profesional-a-medida',
+      product: SITE_WEB_LABEL,
+      productHref: SITE_WEB_PATH,
       publishedAt: '24 junio 2026',
       url: 'https://hoyviajamosweb.com',
       testimonialName: 'Juanvi Raga',
@@ -117,7 +118,7 @@ Hay categorías, galerías ligeras y newsletter.`,
                   alt={project.title}
                   width={800}
                   height={600}
-                  className='aspect-[4/3] w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110'
+                  className='aspect-[4/3] w-full object-cover'
                   loading='lazy'
                   decoding='async'
                 />

@@ -831,7 +831,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
 
   return (
     <main className='pt-28 pb-20 bg-white min-h-screen'>
-      <div className='container mx-auto px-6'>
+      <div className='container mx-auto'>
         <div className='   mx-auto'>{getPageContent()}</div>
       </div>
     </main>

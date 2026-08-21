@@ -3,12 +3,16 @@
     "title": "Webs para negocios | PereiraWeb",
     "description": "Hacemos webs y tiendas online desde Madrid para autónomos y empresas de toda España. Precio por escrito antes de empezar. Llevamos más de 12 años en esto."
   },
-  "/web-a-medida": {
-    "title": "Web a medida | PereiraWeb",
-    "description": "Te montamos la web de tu negocio: estructura, diseño, móvil, formulario y WhatsApp. Te decimos precio y plazos antes de cobrar nada."
+  "/diseño-web": {
+    "title": "Diseño web a medida para empresas | PereiraWeb",
+    "description": "Diseño de páginas web a medida para autónomos y empresas. Estudio en Madrid, proyectos en toda España. Presupuesto y plazos por escrito. Más de 12 años."
   },
-  "/web-profesional-a-medida": {
-    "title": "Web a medida | PereiraWeb",
+  "/tiendas-online": {
+    "title": "Diseño de tiendas online y ecommerce | PereiraWeb",
+    "description": "Creamos tiendas online: WooCommerce, Shopify o a medida. Catálogo, pagos y envíos. Estudio en Madrid, toda España. Presupuesto y plazos por escrito."
+  },
+  "/landing-diseño-web": {
+    "title": "Diseño web | PereiraWeb",
     "description": "Te montamos la web de tu negocio: estructura, diseño, móvil, formulario y WhatsApp. Te decimos precio y plazos antes de cobrar nada."
   },
   "/politica-de-privacidad": {

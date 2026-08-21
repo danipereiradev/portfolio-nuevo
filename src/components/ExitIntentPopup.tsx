@@ -18,7 +18,7 @@ import {
   type ExitIntentCloseMethod,
   type ExitIntentNotShownReason,
 } from '../utils/analytics';
-import { ADS_LANDING_PATH } from '../config/contact';
+import { isAdsLandingPath } from '../config/contact';
 
 const STORAGE_CLAIMED = 'exit-intent-guide-claimed';
 const STORAGE_NOT_INTERESTED = 'exit-intent-not-interested';
@@ -51,7 +51,6 @@ const EXCLUDED_PATHS = new Set([
   '/terminos-y-condiciones',
   '/politica-de-cookies',
   '/aviso-legal',
-  ADS_LANDING_PATH,
 ]);
 
 const normalizePath = (pathname: string) =>
@@ -112,7 +111,8 @@ const ExitIntentPopup = () => {
     consent: false,
   });
 
-  const isExcludedPage = EXCLUDED_PATHS.has(normalizedPath);
+  const isExcludedPage =
+    EXCLUDED_PATHS.has(normalizedPath) || isAdsLandingPath(normalizedPath);
 
   const hasTriggeredRef = useRef(false);
   const isOpenRef = useRef(false);

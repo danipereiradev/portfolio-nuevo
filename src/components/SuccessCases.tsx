@@ -33,8 +33,12 @@ export const SuccessCases = ({
         </p>
         <Button className='mt-4'>Ir al caso</Button>
       </div>
-      <div className='md:w-1/2'>
-        <img className='rounded-2xl' src={images[0]} alt='charles-deluvio' />
+      <div className='overflow-hidden rounded-2xl md:w-1/2'>
+        <img
+          className='aspect-[4/3] w-full object-cover'
+          src={images[0]}
+          alt='charles-deluvio'
+        />
       </div>
     </section>
   );

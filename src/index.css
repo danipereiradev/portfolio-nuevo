@@ -16,6 +16,9 @@
   /* Header fijo: py-4 + logo ≈ 6rem (coincide con scroll-mt-24 / pt-24) */
   --site-header-h: 6rem;
 
+  /* Ancho de lectura del layout (header, secciones y footer). */
+  --page-max: 1248px;
+
   /* Ritmo de página (móvil). Home y landings usan las mismas variables. */
   --page-px: 1rem; /* px-4 */
   --page-py: 4rem; /* py-16 */
@@ -65,7 +68,8 @@
 @layer components {
   .page-section {
     width: 100%;
-    padding: var(--page-py) var(--page-px);
+    padding-block: var(--page-py);
+    padding-inline: 0;
   }
 
   .page-hero {
@@ -75,7 +79,7 @@
     width: 100%;
     align-items: center;
     overflow: hidden;
-    padding: calc(var(--site-header-h) + var(--page-hero-offset)) var(--page-px)
+    padding: calc(var(--site-header-h) + var(--page-hero-offset)) 0
       var(--page-py);
   }
 
@@ -96,6 +100,32 @@
 
   .site-header {
     background: color-mix(in srgb, var(--color-brand) 18%, #ebfd85 82%);
+  }
+}
+
+/* Mismo eje que el header flotante: 95% y tope 1248px en pantallas grandes. */
+.container {
+  width: 95%;
+  max-width: var(--page-max);
+}
+
+/* Zoom suave en fotos de contenido; el recorte lo hace el padre
+   (overflow-hidden). .group:hover cubre cards con overlay encima. */
+img {
+  object-fit: cover;
+  transition: transform 0.5s ease-out;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  img:hover,
+  .group:hover img {
+    transform: scale(1.1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  img {
+    transition: none;
   }
 }
 

@@ -11,6 +11,9 @@ import {
   PHONE_DISPLAY,
   PHONE_TEL_LINK,
   SITE_WEB_PATH,
+  SITE_WEB_LABEL,
+  SITE_SHOP_PATH,
+  SITE_SHOP_LABEL,
   buildWhatsAppUrl,
   getWhatsAppMessageForPath,
   isAdsLandingPath,
@@ -50,7 +53,7 @@ const Footer = () => {
 
   return (
     <footer className='bg-surface-muted text-ink-medium'>
-      <div className='container mx-auto px-6 py-16'>
+      <div className='container mx-auto py-16'>
         <div
           className={`grid gap-10 lg:gap-6 xl:gap-8 lg:divide-x-2 lg:divide-ink-light md:grid-cols-2 ${
             isAdsLanding
@@ -118,7 +121,15 @@ const Footer = () => {
                     href={SITE_WEB_PATH}
                     className='hover:text-link transition-colors duration-200'
                   >
-                    Web a medida
+                    {SITE_WEB_LABEL}
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={SITE_SHOP_PATH}
+                    className='hover:text-link transition-colors duration-200'
+                  >
+                    {SITE_SHOP_LABEL}
                   </a>
                 </li>
               </ul>
@@ -236,7 +247,7 @@ const Footer = () => {
       </div>
 
       <div className='border-t border-ink-light'>
-        <div className='container mx-auto px-6 py-6'>
+        <div className='container mx-auto py-6'>
           <p className='text-ink-medium text-sm text-center'>
             © {currentYear} {t('footer.copyright')}
           </p>

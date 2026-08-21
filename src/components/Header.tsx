@@ -11,6 +11,9 @@ import {
   PHONE_DISPLAY,
   PHONE_TEL_LINK,
   SITE_WEB_PATH,
+  SITE_WEB_LABEL,
+  SITE_SHOP_PATH,
+  SITE_SHOP_LABEL,
   buildWhatsAppUrl,
   getWhatsAppMessageForPath,
   isAdsLandingPath,
@@ -64,7 +67,10 @@ const Header = () => {
     return () => clearInterval(typingInterval);
   }, [hasTyped]);
 
-  const services = [{ name: 'Web a medida', path: SITE_WEB_PATH }];
+  const services = [
+    { name: SITE_WEB_LABEL, path: SITE_WEB_PATH },
+    { name: SITE_SHOP_LABEL, path: SITE_SHOP_PATH },
+  ];
 
   const about = [
     { name: 'Quienes somos', path: '/' },
@@ -97,8 +103,8 @@ const Header = () => {
 
   return (
     <div className='flex w-full justify-center'>
-      <header className='site-header fixed top-0 z-50 mx-auto mt-4 w-[95%] rounded-2xl shadow-[0_4px_16px_rgba(0,0,0,0.08)]'>
-        <div className='mx-auto w-full px-4 py-4 md:px-6'>
+      <header className='site-header fixed top-0 z-50 mx-auto mt-4 w-[95%] max-w-page rounded-2xl shadow-[0_4px_16px_rgba(0,0,0,0.08)]'>
+        <div className='mx-auto w-full px-page-x py-4'>
           <div className='flex w-full items-center justify-between gap-3'>
             <a
               href={isAdsLanding ? '#hero' : '/'}

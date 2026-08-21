@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import Button from './Button';
 
 import { ContactFormHero } from './ContactFormHero';
@@ -22,6 +23,7 @@ interface HeroCtaProps {
   showProjectType?: boolean;
   highlights?: string[];
   formId?: string;
+  breadcrumb?: ReactNode;
 }
 
 const HeroCta = ({
@@ -42,6 +44,7 @@ const HeroCta = ({
   showProjectType = false,
   highlights,
   formId,
+  breadcrumb,
 }: HeroCtaProps) => {
   const TitleTag = isTopHero ? 'h1' : 'h2';
 
@@ -68,9 +71,11 @@ const HeroCta = ({
         ></div>
       ) : null}
 
-      <div
-        className={`container relative z-30 mx-auto flex flex-col items-center gap-page-gap text-center md:flex-row md:justify-center ${heroType === 'clean' ? '' : 'md:text-start'}`}
-      >
+      <div className='container relative z-30 mx-auto flex flex-col items-center gap-3 md:gap-4'>
+        {breadcrumb}
+        <div
+          className={`flex w-full flex-col items-center gap-page-gap text-center md:flex-row md:justify-center ${heroType === 'clean' ? '' : 'md:text-start'}`}
+        >
         <div
           className={`flex w-full min-w-0 flex-col items-center gap-page-gap md:items-start ${
             heroType === 'clean' ? '' : 'md:w-1/2'
@@ -122,6 +127,7 @@ const HeroCta = ({
             </div>
           )
         ) : null}
+        </div>
       </div>
     </section>
   );

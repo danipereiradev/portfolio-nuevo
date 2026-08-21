@@ -10,43 +10,43 @@
 
 [[redirects]]
   from = "/landing-express"
-  to = "/web-profesional-a-medida"
+  to = "/landing-diseño-web"
   status = 301
   force = true
 
 [[redirects]]
   from = "/web-autonomos-pymes"
-  to = "/web-profesional-a-medida"
+  to = "/landing-diseño-web"
   status = 301
   force = true
 
 [[redirects]]
   from = "/web-profesional-360"
-  to = "/web-profesional-a-medida"
+  to = "/landing-diseño-web"
   status = 301
   force = true
 
 [[redirects]]
   from = "/web-profesional-360/"
-  to = "/web-profesional-a-medida"
+  to = "/landing-diseño-web"
   status = 301
   force = true
 
 [[redirects]]
   from = "/web-profesional-negocios"
-  to = "/web-profesional-a-medida"
+  to = "/landing-diseño-web"
   status = 301
   force = true
 
 [[redirects]]
   from = "/web-start"
-  to = "/web-profesional-a-medida"
+  to = "/landing-diseño-web"
   status = 301
   force = true
 
 [[redirects]]
   from = "/web-start/"
-  to = "/web-profesional-a-medida"
+  to = "/landing-diseño-web"
   status = 301
   force = true
 
@@ -82,19 +82,19 @@
 
 [[redirects]]
   from = "/paginas-web-empresas"
-  to = "/web-profesional-a-medida"
+  to = "/landing-diseño-web"
   status = 301
   force = true
 
 [[redirects]]
   from = "/diseno-web"
-  to = "/web-profesional-a-medida"
+  to = "/diseño-web"
   status = 301
   force = true
 
 [[redirects]]
   from = "/desarrollo-aplicaciones-web"
-  to = "/web-profesional-a-medida"
+  to = "/landing-diseño-web"
   status = 301
   force = true
 
@@ -116,12 +116,30 @@
 # index.html genérico de la home.
 [[redirects]]
   from = "/web-a-medida"
-  to = "/web-a-medida/index.html"
-  status = 200
+  to = "/diseño-web"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/web-profesional-a-medida"
-  to = "/web-profesional-a-medida/index.html"
+  to = "/landing-diseño-web"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/landing-diseno-web"
+  to = "/landing-diseño-web"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/diseño-web"
+  to = "/diseño-web/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/landing-diseño-web"
+  to = "/landing-diseño-web/index.html"
   status = 200
 
 [[redirects]]

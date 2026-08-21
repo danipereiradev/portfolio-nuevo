@@ -2,6 +2,7 @@ import { Check, Wallet } from 'lucide-react';
 import { useContactModal } from '../contexts/ContactModalContext';
 import { useSectionView } from '../hooks/useSectionView';
 import { trackPricingCtaClick, trackViewPricing } from '../utils/analytics';
+import { SITE_WEB_PATH, SITE_WEB_LABEL } from '../config/contact';
 import Button from './Button';
 
 const Pricing = () => {
@@ -11,12 +12,12 @@ const Pricing = () => {
   const plans = [
     {
       id: 'webpage',
-      name: 'Web a Medida',
-      formPlanName: 'Web a Medida',
+      name: SITE_WEB_LABEL,
+      formPlanName: SITE_WEB_LABEL,
       idealFor: 'si tu negocio necesita más que una página de visita.',
       description:
         'Reservas, calculadoras, zona de clientes, conexión con lo que ya usas… lo montamos a tu medida.',
-      path: '/web-profesional-a-medida',
+      path: SITE_WEB_PATH,
       deliveryTime: 'El plazo lo marcamos según el alcance',
       cta: 'Solicitar presupuesto',
       features: [
@@ -94,7 +95,7 @@ const Pricing = () => {
       ref={sectionRef}
       className='relative py-20 bg-surface overflow-hidden'
     >
-      <div className='mx-auto w-full max-w-screen-2xl px-6 relative z-10'>
+      <div className='container relative z-10 mx-auto'>
         <div className='text-center mb-12    mx-auto'>
           <h2 className='text-4xl md:text-5xl font-extrabold text-ink-dark mb-6'>
             Cuéntanos el proyecto y te pasamos números

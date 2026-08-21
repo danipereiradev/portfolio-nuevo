@@ -21,7 +21,7 @@ interface TrustBarProps {
 
 const TrustBar = ({ points = defaultTrustPoints }: TrustBarProps) => {
   return (
-    <section className='border-y border-ink-light bg-surface-muted px-page-x'>
+    <section className='border-y border-ink-light bg-surface-muted'>
       <div className='container mx-auto grid grid-cols-1 md:grid-cols-4 md:divide-x-2 md:divide-ink-light'>
         {points.map((point) => {
           const Icon = point.icon;

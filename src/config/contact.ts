@@ -15,7 +15,7 @@ export const DEFAULT_WHATSAPP_MESSAGE =
   'Hola, quiero información para un proyecto web.';
 
 // Mensaje específico para el tráfico de campañas de Google Ads que llega a
-// la landing /web-profesional-a-medida.
+// la landing /landing-diseño-web.
 export const ADS_WHATSAPP_MESSAGE =
   'Hola, vengo de Google y quiero información para una web profesional a medida.';
 
@@ -49,25 +49,48 @@ export const buildWhatsAppUrl = (
 
 // Quita la barra final de una ruta (salvo si es la raíz "/"), para que las
 // comparaciones exactas de pathname no fallen si la URL llega con "/" al
-// final (p. ej. "/web-profesional-a-medida/" servida directamente como
-// carpeta por el hosting, o enlazada así desde fuera).
-const normalizePath = (pathname: string): string =>
-  pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
+// final (p. ej. "/landing-diseño-web/" servida como carpeta).
+const normalizePath = (pathname: string): string => {
+  const trimmed =
+    pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
+  try {
+    return decodeURIComponent(trimmed);
+  } catch {
+    return trimmed;
+  }
+};
 
-export const ADS_LANDING_PATH = '/web-profesional-a-medida';
-export const SITE_WEB_PATH = '/web-a-medida';
+/** Página de servicio (orgánica). Menú Servicios → Diseño web. */
+export const SITE_WEB_PATH = '/diseño-web';
+export const SITE_WEB_PATH_ASCII = '/diseno-web';
+export const SITE_WEB_LABEL = 'Diseño web';
 
-export const isAdsLandingPath = (pathname: string): boolean =>
-  normalizePath(pathname) === ADS_LANDING_PATH;
+/** Página de servicio (orgánica). Menú Servicios → Tiendas online. */
+export const SITE_SHOP_PATH = '/tiendas-online';
+export const SITE_SHOP_LABEL = 'Tiendas online';
+
+/** Landing de Ads de este servicio. Futuros servicios: /landing-{slug}. */
+export const ADS_LANDING_PATH = '/landing-diseño-web';
+export const ADS_LANDING_PATH_ASCII = '/landing-diseno-web';
+
+export const isAdsLandingPath = (pathname: string): boolean => {
+  const path = normalizePath(pathname);
+  return path === ADS_LANDING_PATH || path === ADS_LANDING_PATH_ASCII;
+};
+
+export const isSiteWebPath = (pathname: string): boolean => {
+  const path = normalizePath(pathname);
+  return path === SITE_WEB_PATH || path === SITE_WEB_PATH_ASCII;
+};
 
 // Devuelve el mensaje de WhatsApp más adecuado según la ruta actual, para
 // que el botón flotante / sticky de móvil hable del servicio concreto que
 // el visitante está mirando en cada página.
 export const getWhatsAppMessageForPath = (pathname: string): string => {
   const path = normalizePath(pathname);
-  if (path === '/web-profesional-a-medida') return ADS_WHATSAPP_MESSAGE;
+  if (isAdsLandingPath(path)) return ADS_WHATSAPP_MESSAGE;
   if (path === '/web-profesional') return WEB_PROFESIONAL_WHATSAPP_MESSAGE;
-  if (path === '/tiendas-online') return ECOMMERCE_WHATSAPP_MESSAGE;
+  if (path === SITE_SHOP_PATH) return ECOMMERCE_WHATSAPP_MESSAGE;
   if (path === '/mantenimiento-web') return MAINTENANCE_WHATSAPP_MESSAGE;
   return DEFAULT_WHATSAPP_MESSAGE;
 };

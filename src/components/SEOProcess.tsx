@@ -8,9 +8,17 @@ interface SEOProcessProps {
   title: string;
   subtitle?: string;
   steps: Step[];
+  imageSrc?: string;
+  imageAlt?: string;
 }
 
-const SEOProcess = ({ title, subtitle, steps }: SEOProcessProps) => {
+const SEOProcess = ({
+  title,
+  subtitle,
+  steps,
+  imageSrc = '/img/theme-photos-CGpifH3FjOA-unsplash.jpg',
+  imageAlt = 'Proceso de trabajo de PereiraWeb',
+}: SEOProcessProps) => {
   return (
     <section className='page-section relative overflow-hidden bg-surface-muted'>
       <div className='container relative z-10 mx-auto flex flex-col gap-page-gap'>
@@ -26,11 +34,11 @@ const SEOProcess = ({ title, subtitle, steps }: SEOProcessProps) => {
         </div>
 
         <div className='flex flex-col items-center justify-center gap-page-gap md:flex-row'>
-          <div className='md:w-1/2'>
+          <div className='group aspect-[4/3] w-full overflow-hidden rounded-2xl md:w-1/2'>
             <img
-              className='w-full rounded-2xl'
-              src='/img/theme-photos-CGpifH3FjOA-unsplash.jpg'
-              alt='charles-deluvio'
+              className='h-full w-full object-cover'
+              src={imageSrc}
+              alt={imageAlt}
             />
           </div>
           <div className='mx-auto md:w-1/2'>

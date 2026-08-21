@@ -2,7 +2,22 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: '1rem',
+        md: '2rem',
+      },
+      screens: {
+        lg: '1248px',
+        xl: '1248px',
+        '2xl': '1248px',
+      },
+    },
     extend: {
+      maxWidth: {
+        page: '1248px',
+      },
       colors: {
         accent: {
           DEFAULT: '#3346c1', // azul periwinkle, contraste AA
