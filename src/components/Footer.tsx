@@ -40,8 +40,7 @@ const Footer = () => {
   const normalizedPath =
     pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
   const isAdsLanding = isAdsLandingPath(pathname);
-  const isMinimalChrome =
-    normalizedPath === '/web-profesional' || isAdsLanding;
+  const isMinimalChrome = normalizedPath === '/web-profesional' || isAdsLanding;
   const footerWhatsAppUrl = buildWhatsAppUrl(
     getWhatsAppMessageForPath(pathname),
   );
@@ -61,55 +60,58 @@ const Footer = () => {
           }`}
         >
           {!isAdsLanding && (
-          <div className='lg:col-span-1 text-center md:text-left lg:pr-6 xl:pr-8'>
-            <div className='flex items-center mb-6 justify-center md:justify-start'>
-              <span
-                className='text-sm md:text-base whitespace-nowrap font-extrabold flex items-center gap-1'
-                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-              >
-                <span className='text-ink-dark font-mono text-base md:text-lg'>
-                  &gt;
+            <div className='lg:col-span-1 text-center md:text-left lg:pr-6 xl:pr-8'>
+              <div className='flex items-center mb-6 justify-center md:justify-start'>
+                <span
+                  className='text-sm md:text-base whitespace-nowrap font-extrabold flex items-center gap-1'
+                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                >
+                  <span className='text-ink-dark font-mono text-base md:text-lg'>
+                    &gt;
+                  </span>
+                  <span className='text-ink-dark font-mono tracking-tight'>
+                    pereiraweb
+                  </span>
+                  <span className='text-ink-dark font-mono font-normal'>
+                    {' '}
+                    .es
+                  </span>
+                  <span className='text-ink-dark font-mono text-sm md:text-base animate-pulse'>
+                    _
+                  </span>
                 </span>
-                <span className='text-ink-dark font-mono tracking-tight'>
-                  pereiraweb
-                </span>
-                <span className='text-ink-dark font-mono font-normal'> .es</span>
-                <span className='text-ink-dark font-mono text-sm md:text-base animate-pulse'>
-                  _
-                </span>
-              </span>
-            </div>
-            <p className='text-ink-dark font-semibold text-sm mb-3'>
-              Estudio de diseño y desarrollo web
-            </p>
-            <p className='text-ink-medium mb-6 leading-relaxed'>
-              {t('footer.description')}
-            </p>
-            <div className='flex space-x-4 justify-center md:justify-start'>
-              <a
-                href='mailto:hola@pereiraweb.es'
-                onClick={() => trackEmailClick('FooterIcon')}
-                className='bg-accent hover:bg-accent-hover p-3 rounded-lg text-white transition-colors duration-150'
-              >
-                <Mail className='w-5 h-5' />
-              </a>
+              </div>
+              <p className='text-ink-dark font-semibold text-sm mb-3'>
+                Agencia de diseño web y marketing digital
+              </p>
+              <p className='text-ink-medium mb-6 leading-relaxed'>
+                {t('footer.description')}
+              </p>
+              <div className='flex space-x-4 justify-center md:justify-start'>
+                <a
+                  href='mailto:hola@pereiraweb.es'
+                  onClick={() => trackEmailClick('FooterIcon')}
+                  className='bg-accent hover:bg-accent-hover p-3 rounded-lg text-white transition-colors duration-150'
+                >
+                  <Mail className='w-5 h-5' />
+                </a>
 
-              <a
-                href='https://www.instagram.com/pereiraweb.es/'
-                target='_blank'
-                rel='noopener noreferrer'
-                className='bg-accent hover:bg-accent-hover p-3 rounded-lg text-white transition-colors duration-150'
-              >
-                <Instagram className='w-5 h-5' />
-              </a>
+                <a
+                  href='https://www.instagram.com/pereiraweb.es/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='bg-accent hover:bg-accent-hover p-3 rounded-lg text-white transition-colors duration-150'
+                >
+                  <Instagram className='w-5 h-5' />
+                </a>
+              </div>
             </div>
-          </div>
           )}
 
           {!isMinimalChrome && (
             <div className='text-center md:text-left lg:px-6 xl:px-8'>
               <h3 className='text-xl md:text-2xl font-bold mb-1 text-ink-medium'>
-                Estudio
+                Pereiraweb
               </h3>
               <span className='block w-10 h-1 bg-brand mb-6 mx-auto md:mx-0' />
               <ul className='space-y-3 text-ink-dark'>

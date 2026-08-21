@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
-import { ServiceBreadcrumb } from '../components/ServiceOnPage';
+import Hero from '../components/Hero';
 import { BlogPostCard } from '../components/BlogPostCard';
 import HeroCta from '../components/HeroCta';
 import { BLOG_PATH, getPostPath, posts } from '../blog/posts';
@@ -53,25 +53,19 @@ const Blog = () => {
 
   return (
     <>
-      <section className='page-section pt-[calc(var(--site-header-h)+var(--page-hero-offset)+1rem)]'>
-        <div className='container mx-auto flex flex-col gap-page-gap'>
-          <ServiceBreadcrumb
-            items={[
-              { label: 'Inicio', href: '/' },
-              { label: 'Blog' },
-            ]}
-          />
+      <Hero
+        title='Blog'
+        description='Diseño web, tecnologías para crear una página y lo que cuesta montarla. Sin plantillas de 79 € ni humo.'
+        buttonText='CONTACTA AHORA'
+        buttonHref='#contacto'
+        backgroundUrl='/img/web-design-charlesdeluvio.webp'
+        hasButton
+        hasBackground
+        hasReviewBadge={false}
+      />
 
-          <div className='page-title-block mx-auto max-w-3xl text-center'>
-            <h1 className='text-3xl font-extrabold text-ink-dark md:text-4xl lg:text-5xl'>
-              Blog
-            </h1>
-            <p className='text-lg text-ink-dark md:text-xl'>
-              Diseño web, tecnologías para crear una página y lo que cuesta
-              montarla. Sin plantillas de 79 € ni humo.
-            </p>
-          </div>
-
+      <section className='page-section'>
+        <div className='container mx-auto'>
           <div className='mx-auto grid w-full grid-cols-1 gap-page-gap lg:grid-cols-3'>
             {posts.map((post) => (
               <BlogPostCard key={post.slug} post={post} />

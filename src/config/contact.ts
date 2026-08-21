@@ -73,7 +73,7 @@ export const SITE_SHOP_PATH = '/tiendas-online';
 export const SITE_SHOP_LABEL = 'Tiendas online';
 
 export const ABOUT_PATH = '/nosotros';
-export const ABOUT_LABEL = 'Nosotros';
+export const ABOUT_LABEL = 'La Agencia';
 
 /** Landing de Ads de este servicio. Futuros servicios: /landing-{slug}. */
 export const ADS_LANDING_PATH = '/landing-diseño-web';

@@ -8,7 +8,7 @@ import { Team } from '../components/Team';
 import Portfolio from '../components/Portfolio';
 import Testimonials from '../components/Testimonials';
 import HeroCta from '../components/HeroCta';
-import { ABOUT_PATH, SITE_WEB_PATH } from '../config/contact';
+import { ABOUT_LABEL, ABOUT_PATH, SITE_WEB_PATH } from '../config/contact';
 
 const SITE_URL = 'https://pereiraweb.es';
 
@@ -31,14 +31,14 @@ const Nosotros = () => {
             {
               '@type': 'ListItem',
               position: 2,
-              name: 'Nosotros',
+              name: ABOUT_LABEL,
               item: `${SITE_URL}${ABOUT_PATH}/`,
             },
           ],
         },
         {
           '@type': 'AboutPage',
-          name: 'Nosotros | PereiraWeb',
+          name: `${ABOUT_LABEL} | PereiraWeb`,
           url: `${SITE_URL}${ABOUT_PATH}/`,
           description:
             'Agencia de diseño web y marketing digital en Madrid. Más de 12 años montando webs y tiendas online para negocios de toda España.',
@@ -59,7 +59,7 @@ const Nosotros = () => {
   return (
     <>
       <Hero
-        title='Nosotros'
+        title={ABOUT_LABEL}
         description='Agencia de diseño web y marketing digital en Madrid. Más de 12 años. Hablas con quien monta la página.'
         buttonText='CONTACTA AHORA'
         buttonHref='#contacto'
@@ -113,7 +113,7 @@ const Nosotros = () => {
         hasButton={false}
         formTitle='Te llamamos'
         formDescription='Propuesta en 24–48 h. Sin compromiso.'
-        formSectionInfo='Nosotros CTA'
+        formSectionInfo='La Agencia CTA'
         hasBackground={false}
         hasReviewBadge
         formId='contacto'
