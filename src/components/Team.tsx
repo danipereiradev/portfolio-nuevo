@@ -63,7 +63,7 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
     },
 
     {
-      fullName: 'Karen',
+      fullName: 'Karen Montero',
       description:
         'Diseñadora web con y sin cms. Un largo recorrido en el desarrollo con wordpress y una gran sensibilidad en diseño UX/UI',
       role: 'Desarrollo Web',

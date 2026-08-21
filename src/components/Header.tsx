@@ -153,9 +153,6 @@ const Header = () => {
                   className='hidden shrink-0 items-center gap-1 text-ink-dark lg:flex xl:gap-4'
                   aria-label='Principal'
                 >
-                  <a href={ABOUT_PATH} className={navLinkClass}>
-                    {ABOUT_LABEL}
-                  </a>
                   <div
                     className='relative'
                     onMouseEnter={() => setIsServicesOpen(true)}
@@ -188,6 +185,9 @@ const Header = () => {
                       </div>
                     ) : null}
                   </div>
+                  <a href={ABOUT_PATH} className={navLinkClass}>
+                    {ABOUT_LABEL}
+                  </a>
                   <a href={BLOG_PATH} className={navLinkClass}>
                     Blog
                   </a>
@@ -207,13 +207,6 @@ const Header = () => {
               className='mt-2 divide-y divide-ink-dark/15 lg:hidden'
               aria-label='Principal'
             >
-              <a
-                href={ABOUT_PATH}
-                onClick={() => setIsMenuOpen(false)}
-                className={mobileNavLinkClass}
-              >
-                {ABOUT_LABEL}
-              </a>
               <div>
                 <button
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
@@ -245,6 +238,13 @@ const Header = () => {
                   </div>
                 ) : null}
               </div>
+              <a
+                href={ABOUT_PATH}
+                onClick={() => setIsMenuOpen(false)}
+                className={mobileNavLinkClass}
+              >
+                {ABOUT_LABEL}
+              </a>
               <a
                 href={BLOG_PATH}
                 onClick={() => setIsMenuOpen(false)}
