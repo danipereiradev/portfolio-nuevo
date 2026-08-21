@@ -93,6 +93,23 @@
     gap: var(--content-gap);
     padding: var(--content-pad);
   }
+
+  .site-header {
+    background: color-mix(in srgb, var(--color-brand) 18%, #ebfd85 82%);
+  }
+}
+
+/* Globo de Crisp: mismo lima que el header; icono oscuro para contraste */
+.crisp-client .cc-1yy0g,
+.crisp-client .cc-unoo {
+  background-color: var(--color-brand-light) !important;
+}
+
+.crisp-client .cc-1yy0g svg,
+.crisp-client .cc-unoo svg,
+.crisp-client .cc-1yy0g path,
+.crisp-client .cc-unoo path {
+  fill: #141414 !important;
 }
 
 .animation-delay-2000 {

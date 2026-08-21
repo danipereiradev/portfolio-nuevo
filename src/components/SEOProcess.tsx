@@ -6,17 +6,23 @@ interface Step {
 
 interface SEOProcessProps {
   title: string;
+  subtitle?: string;
   steps: Step[];
 }
 
-const SEOProcess = ({ title, steps }: SEOProcessProps) => {
+const SEOProcess = ({ title, subtitle, steps }: SEOProcessProps) => {
   return (
     <section className='page-section relative overflow-hidden bg-surface-muted'>
       <div className='container relative z-10 mx-auto flex flex-col gap-page-gap'>
         <div className='page-title-block text-center'>
-          <h2 className='text-2xl font-extrabold text-gray-900 md:text-4xl lg:text-5xl'>
+          <h2 className='text-2xl font-extrabold text-ink-dark md:text-4xl lg:text-5xl'>
             {title}
           </h2>
+          {subtitle ? (
+            <p className='mx-auto text-base text-ink-medium md:text-lg lg:text-xl'>
+              {subtitle}
+            </p>
+          ) : null}
         </div>
 
         <div className='flex flex-col items-center justify-center gap-page-gap md:flex-row'>
@@ -35,7 +41,7 @@ const SEOProcess = ({ title, steps }: SEOProcessProps) => {
               >
                 {index !== steps.length - 1 && (
                   <span
-                    className='absolute left-[1.55rem] md:left-[2.05rem] top-12 md:top-16 bottom-0 w-1 bg-[#141414]'
+                    className='absolute left-[1.55rem] md:left-[2.05rem] top-12 md:top-16 bottom-0 w-1 bg-accent'
                     aria-hidden='true'
                   />
                 )}

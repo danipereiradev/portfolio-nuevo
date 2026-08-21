@@ -4,14 +4,15 @@ import { ContactModalProvider } from './contexts/ContactModalContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
 /* import WhatsAppButton from './components/WhatsAppButton'; */
-import BackToTopButton from './components/BackToTopButton';
-import MobileStickyCTA from './components/MobileStickyCTA';
+/* import BackToTopButton from './components/BackToTopButton'; */
+/* import MobileStickyCTA from './components/MobileStickyCTA'; */
 import ContactFormModal from './components/ContactFormModal';
 import ExitIntentPopup from './components/ExitIntentPopup';
+import CrispChat from './components/CrispChat';
 import Home from './pages/Home';
 import TiendasOnline from './pages/TiendasOnline';
 import MantenimientoWeb from './pages/MantenimientoWeb';
-import WebProfesionalAMedida from './pages/WebProfesionalAMedida';
+import LandingWeb from './pages/LandingWeb';
 import WebProfesional from './pages/WebProfesional';
 import Contacto from './pages/Contacto';
 import SobreElEstudio from './pages/SobreElEstudio';
@@ -32,7 +33,7 @@ function AppContent() {
   // scroll porque ya llegan desde una carga de página completa.
 
   return (
-    <div className='min-h-screen bg-surface-base overflow-x-hidden pb-16 md:pb-0'>
+    <div className='relative min-h-screen overflow-x-hidden bg-surface-base pb-16 md:pb-0'>
       <Header />
 
       <Routes>
@@ -41,10 +42,7 @@ function AppContent() {
         <Route path='/mantenimiento-web' element={<MantenimientoWeb />} />
         <Route path='/testimonios-clientes' element={<TestimonialsPage />} />
         <Route path='/casos-de-exito' element={<SuccessPage />} />
-        <Route
-          path='/web-profesional-a-medida'
-          element={<WebProfesionalAMedida />}
-        />
+        <Route path='/web-profesional-a-medida' element={<LandingWeb />} />
         <Route path='/web-profesional' element={<WebProfesional />} />
         <Route path='/contacto' element={<Contacto />} />
         <Route path='/sobre-el-estudio' element={<SobreElEstudio />} />
@@ -154,6 +152,8 @@ function AppContent() {
       <ContactFormModal />
 
       <ExitIntentPopup />
+
+      <CrispChat />
     </div>
   );
 }

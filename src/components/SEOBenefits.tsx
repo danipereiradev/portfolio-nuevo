@@ -27,7 +27,11 @@ const SEOBenefits = ({ title, subtitle, benefits }: SEOBenefitsProps) => {
           )}
         </div>
 
-        <div className='mx-auto grid w-full gap-page-gap md:grid-cols-2 lg:grid-cols-3'>
+        <div
+          className={`mx-auto grid w-full gap-page-gap md:grid-cols-2 ${
+            benefits.length === 4 ? '' : 'lg:grid-cols-3'
+          }`}
+        >
           {benefits.map((benefit, index) => {
             const Icon = benefit.icon;
             return (

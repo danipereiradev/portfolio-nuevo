@@ -38,18 +38,26 @@ const HeroCta = ({
   console.log(backgroundUrl);
   return (
     <section
-      id='hero'
-      style={{
-        backgroundImage: `url(${hasBackground ? backgroundUrl : ''})`,
-      }}
-      className={`${isTopHero ? 'page-hero' : 'page-section'} relative bg-no-repeat bg-center bg-cover overflow-hidden text-ink-dark ${isTopHero ? '' : 'flex items-center'}`}
+      id={isTopHero ? 'hero' : undefined}
+      style={
+        hasBackground && backgroundUrl
+          ? { backgroundImage: `url(${backgroundUrl})` }
+          : undefined
+      }
+      className={`${isTopHero ? 'page-hero' : 'page-section'} relative overflow-hidden text-ink-dark ${
+        isTopHero ? '' : 'flex items-center'
+      } ${
+        hasBackground
+          ? 'bg-no-repeat bg-center bg-cover'
+          : 'bg-accent-light'
+      }`}
     >
       {hasBackground ? (
         <div
           style={{
             backgroundImage: 'url("/img/hero-bg-texture.avif")',
           }}
-          className='bg-no-repeat bg-center bg-cover opacity-80 absolute w-full inset-0'
+          className='absolute inset-0 w-full bg-cover bg-center bg-no-repeat opacity-80'
         ></div>
       ) : null}
 

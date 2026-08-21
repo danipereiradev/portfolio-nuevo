@@ -1,4 +1,4 @@
-import { Clock, Laptop, ShieldCheck, Wrench } from 'lucide-react';
+import { FileCheck, Handshake, LayoutTemplate } from 'lucide-react';
 import Hero from '../components/Hero';
 import Portfolio from '../components/Portfolio';
 import SEOBenefits from '../components/SEOBenefits';
@@ -11,7 +11,7 @@ import TrustBar from '../components/TrustBar';
 import SEOProcess from '../components/SEOProcess';
 import HeroCta from '../components/HeroCta';
 
-const WebProfesionalAMedida = () => {
+const LandingWeb = () => {
   /* const problems = [
     'Solo redes: cuando Instagram cambia el algoritmo, desapareces.',
     'Web vieja o confusa: el cliente entra y se va en diez segundos.',
@@ -198,46 +198,46 @@ const WebProfesionalAMedida = () => {
       number: '1',
       title: 'Nos cuentas el caso',
       description:
-        'Qué haces, a quién te diriges y qué quieres que haga la web.',
+        'Formulario, WhatsApp o llamada. Qué haces y qué tiene que hacer la web. Aún no hay nada que pagar.',
     },
     {
       number: '2',
       title: 'Te mandamos la propuesta',
-      description: 'Precio, plazos, lo incluido. Por escrito.',
+      description:
+        'Precio, plazos y qué entra. Por escrito. Si no encaja, lo dices y no pasa nada.',
     },
     {
       number: '3',
       title: 'La montamos',
       description:
-        'Con tu marca, tus textos y tus fotos (o te ayudamos a ordenarlos).',
+        'Con tu marca, tus textos y tus fotos. Si falta algo, te decimos qué necesitamos. Tú revisas.',
     },
     {
       number: '4',
-      title: 'Revisas y sale online',
-      description: 'Afinamos, conectamos el dominio y listo.',
+      title: 'Se publica y queda tuya',
+      description:
+        'Conectamos el dominio, se ve bien en el móvil y te pueden escribir. La web es tuya.',
     },
   ];
 
-  const targetAudience = [
+  const problems = [
     {
-      icon: Laptop,
-      title: 'Ya tienes web',
-      description: 'Está publicada y quieres que no se quede abandonada.',
+      icon: FileCheck,
+      title: 'Precio y plazos, por escrito',
+      description:
+        'Antes de empezar: qué entra, cuánto sale y cuándo está. Sin packs hinchados ni “ya te digo”.',
     },
     {
-      icon: Wrench,
-      title: 'Cambios del día a día',
-      description: 'Textos, fotos, horarios… sin abrir un ticket eterno.',
+      icon: LayoutTemplate,
+      title: 'Una web tuya, no una plantilla',
+      description:
+        'Diseño a medida con tu marca, tus textos y tus fotos. Si buscas la de 79 € igual para todos, no somos eso.',
     },
     {
-      icon: ShieldCheck,
-      title: 'Copias y seguridad',
-      description: 'Por si un día hay que recuperar o parar un susto.',
-    },
-    {
-      icon: Clock,
-      title: 'Alguien al otro lado',
-      description: 'Cuando algo falla, escribes y te contestan.',
+      icon: Handshake,
+      title: 'Hablas con quien la monta',
+      description:
+        'Estudio pequeño. Te atiende el equipo que diseña y desarrolla, no un comercial que luego desaparece.',
     },
   ];
 
@@ -297,12 +297,13 @@ const WebProfesionalAMedida = () => {
       />
       <TrustBar />
       <SEOBenefits
-        title='Explica los 3 o 4 problemas que resuelves y cómo mejoras la vida del cliente de forma directa'
-        subtitle='como mejoramos tu presencia en internet y te ayudamos a vender mas'
-        benefits={targetAudience}
+        title='Si estás contratando una web, esto es lo que te llevas'
+        subtitle='Precio cerrado, diseño a medida y trato directo. Lo que buscas cuando escribes “agencia de diseño web”.'
+        benefits={problems}
       />
       <SEOProcess
-        title='Detalla el proceso paso a paso (por ejemplo: 1. Contratas, 2. Diseñamos, 3. Lanzamos) para eliminar dudas y miedos.'
+        title='Así se contrata la web'
+        subtitle='Cuatro pasos. Sabes precio y plazos antes de empezar, y la web queda a tu nombre.'
         steps={processSteps}
       />
 
@@ -312,7 +313,6 @@ const WebProfesionalAMedida = () => {
       quia veritatis voluptatibus, dicta id reprehenderit deserunt culpa
       corporis corrupti accusantium.'
         buttonText='TIENDAS ONLINE'
-        backgroundUrl='public/img/theme-photos-CGpifH3FjOA-unsplash.jpg'
         heroType='form'
         hasButton
         formTitle='Nosotros te contactámos'
@@ -330,7 +330,7 @@ const WebProfesionalAMedida = () => {
           'En Pereiraweb somos directos: una web lenta o con errores es una fuga constante de dinero. Por eso, nuestra metodología en el desarrollo de tiendas online.',
         ]}
       />
-      <Portfolio />
+      <Portfolio contained />
       <Testimonials />
 
       <div id='faq' className='scroll-mt-24'>
@@ -342,7 +342,6 @@ const WebProfesionalAMedida = () => {
       quia veritatis voluptatibus, dicta id reprehenderit deserunt culpa
       corporis corrupti accusantium.'
         buttonText='TIENDAS ONLINE'
-        backgroundUrl='public/img/theme-photos-CGpifH3FjOA-unsplash.jpg'
         heroType='form'
         hasButton
         formTitle='Nosotros te contactámos'
@@ -355,4 +354,4 @@ const WebProfesionalAMedida = () => {
   );
 };
 
-export default WebProfesionalAMedida;
+export default LandingWeb;

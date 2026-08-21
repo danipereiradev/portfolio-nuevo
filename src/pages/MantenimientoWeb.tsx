@@ -334,7 +334,7 @@ const MantenimientoWeb = () => {
 
       {/* 9. Portfolio o trabajos reales */}
       <div id='portfolio' className='scroll-mt-24'>
-        <Portfolio />
+        <Portfolio contained />
       </div>
 
       {/* 10. Valoraciones de clientes */}

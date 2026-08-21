@@ -2,18 +2,23 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { useSectionView } from '../hooks/useSectionView';
 
 import { trackViewPortfolioSection } from '../utils/analytics';
-import Button from './Button';
 
 interface PortfolioProps {
   /** En /web-profesional: badges de packs y sin proyectos de tienda online. */
   variant?: 'default' | 'web-profesional';
+  /** Landings de ads: el caso de éxito se lee en la card y no se sale de la página. */
+  contained?: boolean;
 }
 
-const Portfolio = ({ variant = 'default' }: PortfolioProps) => {
+const Portfolio = ({
+  variant = 'default',
+  contained = false,
+}: PortfolioProps) => {
   const { t } = useLanguage();
 
   const sectionRef = useSectionView<HTMLElement>(trackViewPortfolioSection);
   const isPackLanding = variant === 'web-profesional';
+  const stayOnPage = contained || isPackLanding;
 
   const projectsRaw = [
     {
@@ -156,45 +161,55 @@ Hay categorías (destinos, guías, tips, comida), galerías ligeras, mapas de si
           </div>
 
           <div className='mx-auto grid grid-cols-1 gap-page-gap md:grid-cols-2 lg:grid-cols-3'>
-            {projects.map((project, index) => (
-              <div
-                key={index}
-                className={`group cursor-pointer rounded-2xl bg-surface overflow-hidden  ${
-                  projects.length === 1 ? 'w-full max-w-md' : ''
-                }`}
-              >
-                <article
-                  key={project.title}
-                  className='bg-surface-muted shadow-xl rounded-2xl overflow-hidden flex flex-col cursor-pointer'
-                >
-                  <a
-                    className='block bg-surface-page'
-                    tabIndex={-1}
-                    aria-hidden='true'
-                  >
-                    <img
-                      src={project.headerImage}
-                      alt={project.title}
-                      width={800}
-                      height={600}
-                      className='w-full aspect-[4/3] object-cover '
-                      loading='lazy'
-                      decoding='async'
-                    />
-                  </a>
-
-                  <div className='page-card-body text-center'>
-                    <h3 className='flex-grow text-2xl font-bold md:text-3xl'>
+            {projects.map((project) => {
+              const cardClass = `group relative block overflow-hidden rounded-2xl shadow-xl ${
+                projects.length === 1 ? 'w-full max-w-md' : ''
+              }`;
+              const cardBody = (
+                <>
+                  <img
+                    src={project.headerImage}
+                    alt={project.title}
+                    width={800}
+                    height={600}
+                    className='aspect-[4/3] w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110'
+                    loading='lazy'
+                    decoding='async'
+                  />
+                  <div className='absolute inset-0 bg-ink-dark/60 transition-colors duration-300 group-hover:bg-ink-dark/85' />
+                  <div className='absolute inset-x-4 bottom-6 z-10 text-center'>
+                    <h3 className='text-2xl font-extrabold text-white md:text-3xl'>
                       {project.title}
                     </h3>
-                    <p className='flex-1 text-md leading-relaxed md:text-lg'>
-                      {project.exito}
-                    </p>
-                    <Button>Ver mas</Button>
+                    {stayOnPage ? (
+                      <p className='mt-2 text-sm font-medium leading-snug text-white/90 md:text-base'>
+                        {project.exito}
+                      </p>
+                    ) : null}
                   </div>
-                </article>
-              </div>
-            ))}
+                </>
+              );
+
+              if (stayOnPage) {
+                return (
+                  <article key={project.title} className={cardClass}>
+                    {cardBody}
+                  </article>
+                );
+              }
+
+              return (
+                <a
+                  key={project.title}
+                  href={project.url}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className={cardClass}
+                >
+                  {cardBody}
+                </a>
+              );
+            })}
           </div>
         </div>
       </section>

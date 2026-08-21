@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 const TRUSTINDEX_WIDGET_SRC =
-  'https://cdn.trustindex.io/loader.js?07adb3e7960a3043bb66acee792';
+  'https://cdn.trustindex.io/loader.js?7268074797d8717b3c668cae8f6';
 
 declare global {
   interface Window {
