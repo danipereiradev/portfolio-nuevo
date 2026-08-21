@@ -11,9 +11,17 @@ interface SEOFAQProps {
   title: string;
   faqs: FAQItem[];
   onFaqOpen?: (question: string) => void;
+  ctaText?: string;
+  ctaHref?: string;
 }
 
-const SEOFAQ = ({ title, faqs, onFaqOpen }: SEOFAQProps) => {
+const SEOFAQ = ({
+  title,
+  faqs,
+  onFaqOpen,
+  ctaText = '¿Mas preguntas?',
+  ctaHref,
+}: SEOFAQProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
@@ -66,7 +74,7 @@ const SEOFAQ = ({ title, faqs, onFaqOpen }: SEOFAQProps) => {
             </div>
           ))}
         </div>
-        <Button>¿Mas preguntas?</Button>
+        <Button href={ctaHref}>{ctaText}</Button>
       </div>
     </section>
   );

@@ -25,7 +25,7 @@ const Hero = ({
     <section
       id='hero'
       style={{
-        backgroundImage: `url(${hasBackground ? backgroundUrl : ''})`,
+        background: `white`,
       }}
       className='page-hero bg-no-repeat bg-center bg-cover text-ink-dark'
     >

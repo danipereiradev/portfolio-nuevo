@@ -54,6 +54,12 @@ export const buildWhatsAppUrl = (
 const normalizePath = (pathname: string): string =>
   pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
 
+export const ADS_LANDING_PATH = '/web-profesional-a-medida';
+export const SITE_WEB_PATH = '/web-a-medida';
+
+export const isAdsLandingPath = (pathname: string): boolean =>
+  normalizePath(pathname) === ADS_LANDING_PATH;
+
 // Devuelve el mensaje de WhatsApp más adecuado según la ruta actual, para
 // que el botón flotante / sticky de móvil hable del servicio concreto que
 // el visitante está mirando en cada página.

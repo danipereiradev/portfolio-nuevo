@@ -21,18 +21,6 @@
   force = true
 
 [[redirects]]
-  from = "/web-a-medida"
-  to = "/web-profesional-a-medida"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/web-a-medida/"
-  to = "/web-profesional-a-medida"
-  status = 301
-  force = true
-
-[[redirects]]
   from = "/web-profesional-360"
   to = "/web-profesional-a-medida"
   status = 301
@@ -126,6 +114,11 @@
 # title/description/canonical/OG/Twitter propios), generado por
 # scripts/prerender-meta.mjs tras el build, en lugar de caer en el
 # index.html genérico de la home.
+[[redirects]]
+  from = "/web-a-medida"
+  to = "/web-a-medida/index.html"
+  status = 200
+
 [[redirects]]
   from = "/web-profesional-a-medida"
   to = "/web-profesional-a-medida/index.html"

@@ -10,11 +10,11 @@ import {
 import {
   PHONE_DISPLAY,
   PHONE_TEL_LINK,
-  DEFAULT_WHATSAPP_MESSAGE,
+  SITE_WEB_PATH,
   buildWhatsAppUrl,
+  getWhatsAppMessageForPath,
+  isAdsLandingPath,
 } from '../config/contact';
-
-const FOOTER_WHATSAPP_URL = buildWhatsAppUrl(DEFAULT_WHATSAPP_MESSAGE);
 
 const infoLinks = [
   { href: '/preguntas-frecuentes', label: 'Preguntas frecuentes' },
@@ -25,22 +25,42 @@ const infoLinks = [
   { href: '/aviso-legal', label: 'Aviso Legal' },
 ];
 
+const legalLinks = infoLinks.filter((link) =>
+  [
+    '/politica-de-privacidad',
+    '/terminos-y-condiciones',
+    '/politica-de-cookies',
+    '/aviso-legal',
+  ].includes(link.href),
+);
+
 const Footer = () => {
   const { t } = useLanguage();
   const { pathname } = useLocation();
   const normalizedPath =
     pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
-  const isMinimalChrome = normalizedPath === '/web-profesional';
+  const isAdsLanding = isAdsLandingPath(pathname);
+  const isMinimalChrome =
+    normalizedPath === '/web-profesional' || isAdsLanding;
+  const footerWhatsAppUrl = buildWhatsAppUrl(
+    getWhatsAppMessageForPath(pathname),
+  );
   const currentYear = new Date().getFullYear();
+  const footerInfoLinks = isAdsLanding ? legalLinks : infoLinks;
 
   return (
     <footer className='bg-surface-muted text-ink-medium'>
       <div className='container mx-auto px-6 py-16'>
         <div
           className={`grid gap-10 lg:gap-6 xl:gap-8 lg:divide-x-2 lg:divide-ink-light md:grid-cols-2 ${
-            isMinimalChrome ? 'lg:grid-cols-3' : 'lg:grid-cols-5'
+            isAdsLanding
+              ? 'lg:grid-cols-2'
+              : isMinimalChrome
+                ? 'lg:grid-cols-3'
+                : 'lg:grid-cols-5'
           }`}
         >
+          {!isAdsLanding && (
           <div className='lg:col-span-1 text-center md:text-left lg:pr-6 xl:pr-8'>
             <div className='flex items-center mb-6 justify-center md:justify-start'>
               <span
@@ -84,6 +104,7 @@ const Footer = () => {
               </a>
             </div>
           </div>
+          )}
 
           {!isMinimalChrome && (
             <div className='text-center md:text-left lg:px-6 xl:px-8'>
@@ -94,26 +115,10 @@ const Footer = () => {
               <ul className='space-y-3 text-ink-dark'>
                 <li>
                   <a
-                    href='/web-profesional-a-medida'
+                    href={SITE_WEB_PATH}
                     className='hover:text-link transition-colors duration-200'
                   >
-                    Web profesional a medida
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='/tiendas-online'
-                    className='hover:text-link transition-colors duration-200'
-                  >
-                    Tiendas Online
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='/mantenimiento-web'
-                    className='hover:text-link transition-colors duration-200'
-                  >
-                    Mantenimiento Web
+                    Web a medida
                   </a>
                 </li>
               </ul>
@@ -157,11 +162,11 @@ const Footer = () => {
 
           <div className='text-center md:text-left lg:px-6 xl:px-8'>
             <h3 className='text-xl md:text-2xl font-bold mb-1 text-ink-medium'>
-              Info
+              {isAdsLanding ? 'Legal' : 'Info'}
             </h3>
             <span className='block w-10 h-1 bg-brand mb-6 mx-auto md:mx-0' />
             <ul className='space-y-3 text-ink-dark'>
-              {infoLinks.map((link) => (
+              {footerInfoLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
@@ -211,13 +216,13 @@ const Footer = () => {
                 <div className='text-center md:text-left'>
                   <p className='font-medium text-ink-medium'>WhatsApp</p>
                   <a
-                    href={FOOTER_WHATSAPP_URL}
+                    href={footerWhatsAppUrl}
                     target='_blank'
                     rel='noopener noreferrer'
                     onClick={(e) => {
                       e.preventDefault();
                       trackWhatsAppClick('FooterList');
-                      trackGoogleAdsWhatsAppConversion(FOOTER_WHATSAPP_URL);
+                      trackGoogleAdsWhatsAppConversion(footerWhatsAppUrl);
                     }}
                     className='hover:text-link transition-colors duration-200'
                   >

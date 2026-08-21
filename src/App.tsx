@@ -1,58 +1,33 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { ContactModalProvider } from './contexts/ContactModalContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
-/* import WhatsAppButton from './components/WhatsAppButton'; */
-/* import BackToTopButton from './components/BackToTopButton'; */
-/* import MobileStickyCTA from './components/MobileStickyCTA'; */
 import ContactFormModal from './components/ContactFormModal';
 import ExitIntentPopup from './components/ExitIntentPopup';
 import CrispChat from './components/CrispChat';
-import Home from './pages/Home';
-import TiendasOnline from './pages/TiendasOnline';
-import MantenimientoWeb from './pages/MantenimientoWeb';
 import LandingWeb from './pages/LandingWeb';
-import WebProfesional from './pages/WebProfesional';
-import Contacto from './pages/Contacto';
-import SobreElEstudio from './pages/SobreElEstudio';
-import CondicionesDelProyecto from './pages/CondicionesDelProyecto';
-import Faq from './pages/Faq';
-import Gracias from './pages/Gracias';
+import Home from './pages/Home';
 import LegalDocument from './pages/LegalDocument';
-import NotFound from './pages/NotFound';
-import { TestimonialsPage } from './pages/Testimonials';
-import { SuccessPage } from './pages/SuccessPage';
+import Maintenance from './pages/Maintenance';
+import {
+  isMaintenanceActive,
+  isMaintenancePreviewPath,
+} from './config/maintenance';
+import { ADS_LANDING_PATH, SITE_WEB_PATH } from './config/contact';
 
 function AppContent() {
-  // La navegación entre páginas se hace con <a> normales (recarga real),
-  // así que el navegador ya coloca el scroll donde corresponde (arriba, o
-  // en el ancla si la URL lleva "#id") sin necesidad de forzarlo con JS.
-  // Esto solo sigue afectando a las redirecciones internas de rutas
-  // antiguas (<Navigate>) y a la página 404, que no necesitan reset de
-  // scroll porque ya llegan desde una carga de página completa.
-
   return (
     <div className='relative min-h-screen overflow-x-hidden bg-surface-base pb-16 md:pb-0'>
       <Header />
 
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/tiendas-online' element={<TiendasOnline />} />
-        <Route path='/mantenimiento-web' element={<MantenimientoWeb />} />
-        <Route path='/testimonios-clientes' element={<TestimonialsPage />} />
-        <Route path='/casos-de-exito' element={<SuccessPage />} />
-        <Route path='/web-profesional-a-medida' element={<LandingWeb />} />
-        <Route path='/web-profesional' element={<WebProfesional />} />
-        <Route path='/contacto' element={<Contacto />} />
-        <Route path='/sobre-el-estudio' element={<SobreElEstudio />} />
         <Route
-          path='/condiciones-del-proyecto'
-          element={<CondicionesDelProyecto />}
+          path={SITE_WEB_PATH}
+          element={<LandingWeb variant='site' />}
         />
-        <Route path='/preguntas-frecuentes' element={<Faq />} />
-        <Route path='/ia' element={<Navigate to='/' replace />} />
-        <Route path='/gracias' element={<Gracias />} />
+        <Route path={ADS_LANDING_PATH} element={<LandingWeb variant='ads' />} />
         <Route
           path='/politica-de-privacidad'
           element={
@@ -73,92 +48,24 @@ function AppContent() {
           path='/aviso-legal'
           element={<LegalDocument page='legal' path='/aviso-legal' />}
         />
-
-        {/* Redirecciones de URLs antiguas/duplicadas a la ruta canónica */}
-        <Route
-          path='/web-profesional-360'
-          element={<Navigate to='/web-profesional-a-medida' replace />}
-        />
-        <Route
-          path='/web-profesional-negocios'
-          element={<Navigate to='/web-profesional-a-medida' replace />}
-        />
-        <Route
-          path='/web-a-medida'
-          element={<Navigate to='/web-profesional-a-medida' replace />}
-        />
-        <Route
-          path='/web-autonomos-pymes'
-          element={<Navigate to='/web-profesional-a-medida' replace />}
-        />
-        <Route
-          path='/landing-express'
-          element={<Navigate to='/web-profesional-a-medida' replace />}
-        />
-        <Route
-          path='/web-start'
-          element={<Navigate to='/web-profesional-a-medida' replace />}
-        />
-        <Route
-          path='/paginas-web-empresas'
-          element={<Navigate to='/web-profesional-a-medida' replace />}
-        />
-        <Route
-          path='/diseno-web'
-          element={<Navigate to='/web-profesional-a-medida' replace />}
-        />
-        <Route
-          path='/desarrollo-aplicaciones-web'
-          element={<Navigate to='/web-profesional-a-medida' replace />}
-        />
-        <Route
-          path='/posicionamiento-web-seo'
-          element={<Navigate to='/' replace />}
-        />
-        <Route
-          path='/auditoria-ecommerce'
-          element={<Navigate to='/tiendas-online' replace />}
-        />
-        <Route
-          path='/tienda-online'
-          element={<Navigate to='/tiendas-online' replace />}
-        />
-        <Route
-          path='/about'
-          element={<Navigate to='/sobre-el-estudio' replace />}
-        />
-        <Route
-          path='/about-me'
-          element={<Navigate to='/sobre-el-estudio' replace />}
-        />
-        <Route
-          path='/sobre-mi'
-          element={<Navigate to='/sobre-el-estudio' replace />}
-        />
-        <Route path='/contact' element={<Navigate to='/contacto' replace />} />
-
-        {/* Cualquier otra ruta no existente devuelve una 404 real */}
-        <Route path='*' element={<NotFound />} />
+        <Route path='*' element={<Navigate to='/' replace />} />
       </Routes>
 
       <Footer />
-
-      {/* <WhatsAppButton /> */}
-
-      {/* <BackToTopButton /> */}
-
-      {/* <MobileStickyCTA /> */}
-
       <ContactFormModal />
-
       <ExitIntentPopup />
-
       <CrispChat />
     </div>
   );
 }
 
 function App() {
+  const { pathname } = useLocation();
+
+  if (isMaintenanceActive || isMaintenancePreviewPath(pathname)) {
+    return <Maintenance />;
+  }
+
   return (
     <LanguageProvider>
       <ContactModalProvider>

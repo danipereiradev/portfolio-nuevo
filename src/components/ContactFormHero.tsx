@@ -9,28 +9,44 @@ import { markFormSubmissionSuccess } from '../config/formSubmission';
 import { AlertCircle } from 'lucide-react';
 import TestimonialsSingle from './TestimonialSingle';
 
+const PROJECT_TYPES = [
+  'Web nueva',
+  'Rediseñar la que ya tengo',
+  'Tienda online',
+  'Aplicación movil',
+  'Mantenimiento web',
+  'Todavía no lo tengo claro',
+] as const;
+
+const emptyForm = (page: string) => ({
+  name: '',
+  email: '',
+  phone: '',
+  projectType: '',
+  consent: false,
+  page,
+});
+
 interface ContactHeroFormHeroProps {
   title: string;
   description: string;
   page: string;
+  id?: string;
+  showProjectType?: boolean;
 }
 
 export const ContactFormHero = ({
   title,
   description,
   page,
+  id,
+  showProjectType = false,
 }: ContactHeroFormHeroProps) => {
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isFormSent, setIsFormSent] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'error'>('idle');
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    consent: false,
-    page,
-  });
+  const [formData, setFormData] = useState(() => emptyForm(page));
 
   const sanitizeText = (text: string): string => {
     return text
@@ -86,11 +102,15 @@ export const ContactFormHero = ({
 Nombre: ${formData.name}
 Email: ${formData.email}
 Teléfono: ${formData.phone}
-consent: ${formData.consent}
+${showProjectType ? `Qué necesita: ${formData.projectType}\n` : ''}consent: ${formData.consent}
 page: ${page}
 Fecha: ${new Date().toLocaleString('es-ES')}
         `,
       };
+
+      if (showProjectType) {
+        formDataToSend.projectType = formData.projectType;
+      }
 
       const response = await fetch(formspreeEndpoint, {
         method: 'POST',
@@ -128,13 +148,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
         setIsFormSent(false);
       }, 10000);
 
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        consent: false,
-        page,
-      });
+      setFormData(emptyForm(page));
     }
   };
 
@@ -143,14 +157,12 @@ Fecha: ${new Date().toLocaleString('es-ES')}
     return emailRegex.test(value);
   };
 
-  /*   const validatePhone = (value: string): boolean => {
+  const validatePhone = (value: string): boolean => {
     const cleanPhone = value.replace(/[\s\-().]/g, '');
-    // España: móvil/fijo (6/7/8/9 + 8 dígitos), con o sin +34 / 0034 / 34
     const spanishPhone = /^(?:\+34|0034|34)?[6789]\d{8}$/;
-    // Internacional: + y entre 8 y 15 dígitos en total
     const internationalPhone = /^\+[1-9]\d{7,14}$/;
     return spanishPhone.test(cleanPhone) || internationalPhone.test(cleanPhone);
-  }; */
+  };
 
   const validateName = (name: string): boolean => {
     const trimmedName = name.trim();
@@ -171,6 +183,10 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       newErrors.email = 'Introduce un email válido';
     }
 
+    if (!formData.phone.trim() || !validatePhone(formData.phone)) {
+      newErrors.phone = 'Introduce un teléfono válido';
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -183,7 +199,10 @@ Fecha: ${new Date().toLocaleString('es-ES')}
   );
 
   return (
-    <div className='z-10 flex w-full justify-center md:w-1/2'>
+    <div
+      id={id}
+      className={`z-10 flex w-full justify-center md:w-1/2 ${id ? 'scroll-mt-28' : ''}`}
+    >
       <form
         onSubmit={handleSubmit}
         className='w-full rounded-2xl bg-surface-muted p-content-pad shadow-xl md:w-3/4'
@@ -214,12 +233,12 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             value={formData.email}
             onChange={(e) => handleInputChange('email', e.target.value)}
             className={`w-full text-2xl pl-4 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent transition-all duration-150 ${
-              errors.name
+              errors.email
                 ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
                 : 'border-gray-400'
             }`}
-            placeholder='Tu email *'
             autoComplete='email'
+            placeholder='tu email *'
           />
           {errors.email && <ErrorMessage error={errors.email} />}
           <input
@@ -227,15 +246,35 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             value={formData.phone}
             onChange={(e) => handleInputChange('phone', e.target.value)}
             className={`w-full text-2xl pl-4 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent transition-all duration-150 ${
-              errors.name
+              errors.phone
                 ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
                 : 'border-gray-400'
             }`}
-            placeholder='Tu teléfono'
+            placeholder='Tu teléfono *'
             autoComplete='tel'
             inputMode='tel'
           />
           {errors.phone && <ErrorMessage error={errors.phone} />}
+          {showProjectType ? (
+            <>
+              <select
+                value={formData.projectType}
+                onChange={(e) =>
+                  handleInputChange('projectType', e.target.value)
+                }
+                className={`w-full border-2 rounded-lg bg-white py-3 pl-4 pr-4 text-xl transition-all duration-150 focus:outline-none focus:border-accent md:text-2xl border-gray-400 ${
+                  formData.projectType ? 'text-ink-dark' : 'text-gray-400'
+                }`}
+              >
+                <option value=''>Qué necesitas</option>
+                {PROJECT_TYPES.map((type) => (
+                  <option key={type} value={type}>
+                    {type}
+                  </option>
+                ))}
+              </select>
+            </>
+          ) : null}
 
           <div className='flex items-center gap-2'>
             <span className='relative flex-shrink-0 text-neutral-300 flex items-center justify-center w-11 h-11 -ml-2 -mt-1 md:w-5 md:h-5 md:ml-0 md:mt-0.5'>

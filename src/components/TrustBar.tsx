@@ -13,11 +13,17 @@ const defaultTrustPoints: { icon: LucideIcon; text: string }[] = [
   { icon: MessagesSquare, text: 'Consultoría incluida' },
 ];
 
-const TrustBar = () => {
+interface TrustBarProps {
+  points?: { icon: LucideIcon; text: string }[];
+  deliveryText?: string;
+  hidePaymentPoint?: boolean;
+}
+
+const TrustBar = ({ points = defaultTrustPoints }: TrustBarProps) => {
   return (
     <section className='border-y border-ink-light bg-surface-muted px-page-x'>
       <div className='container mx-auto grid grid-cols-1 md:grid-cols-4 md:divide-x-2 md:divide-ink-light'>
-        {defaultTrustPoints.map((point) => {
+        {points.map((point) => {
           const Icon = point.icon;
           return (
             <div

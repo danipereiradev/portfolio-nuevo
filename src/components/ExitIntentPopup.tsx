@@ -18,7 +18,7 @@ import {
   type ExitIntentCloseMethod,
   type ExitIntentNotShownReason,
 } from '../utils/analytics';
-import Button from './Button';
+import { ADS_LANDING_PATH } from '../config/contact';
 
 const STORAGE_CLAIMED = 'exit-intent-guide-claimed';
 const STORAGE_NOT_INTERESTED = 'exit-intent-not-interested';
@@ -51,6 +51,7 @@ const EXCLUDED_PATHS = new Set([
   '/terminos-y-condiciones',
   '/politica-de-cookies',
   '/aviso-legal',
+  ADS_LANDING_PATH,
 ]);
 
 const normalizePath = (pathname: string) =>

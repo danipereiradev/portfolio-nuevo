@@ -3,38 +3,13 @@
     "title": "Webs para negocios | PereiraWeb",
     "description": "Hacemos webs y tiendas online desde Madrid para autónomos y empresas de toda España. Precio por escrito antes de empezar. Llevamos más de 12 años en esto."
   },
-  "/web-profesional-a-medida": {
+  "/web-a-medida": {
     "title": "Web a medida | PereiraWeb",
     "description": "Te montamos la web de tu negocio: estructura, diseño, móvil, formulario y WhatsApp. Te decimos precio y plazos antes de cobrar nada."
   },
-  "/web-profesional": {
-    "title": "Web profesional desde 249 € + IVA | PereiraWeb",
-    "description": "Una página desde 249 € + IVA o web de 3 páginas por 349 € + IVA. Entrega en 72 horas, hosting incluido y publicación con tu dominio.",
-    "robots": "noindex, nofollow"
-  },
-  "/tiendas-online": {
-    "title": "Tiendas online | PereiraWeb",
-    "description": "Montamos tiendas con catálogo, pagos con tarjeta, envíos y panel para que gestiones pedidos tú. Plazo habitual: 4 a 6 semanas."
-  },
-  "/mantenimiento-web": {
-    "title": "Mantenimiento web | PereiraWeb",
-    "description": "Plan mensual: actualizaciones, copias, cambios de textos y fotos, y alguien a quien escribir cuando algo falla."
-  },
-  "/contacto": {
-    "title": "Contacto | PereiraWeb",
-    "description": "Escríbenos por WhatsApp, email, teléfono o el formulario. Respondemos pronto. Si estás en Madrid, también podemos vernos."
-  },
-  "/sobre-el-estudio": {
-    "title": "Sobre el estudio | PereiraWeb",
-    "description": "PereiraWeb lo dirige Dani Pereira. Más de 12 años haciendo webs; también ha trabajado en proyectos de banca y retail."
-  },
-  "/condiciones-del-proyecto": {
-    "title": "Condiciones del proyecto | PereiraWeb",
-    "description": "Pagos, rondas de cambios, plazos, textos e imágenes y publicación. Cómo trabajamos, sin letra pequeña."
-  },
-  "/preguntas-frecuentes": {
-    "title": "Preguntas frecuentes | PereiraWeb",
-    "description": "Precios orientativos, plazos, hosting, SEO básico, tiendas y mantenimiento. Lo que suele preguntar la gente antes de pedir presupuesto."
+  "/web-profesional-a-medida": {
+    "title": "Web a medida | PereiraWeb",
+    "description": "Te montamos la web de tu negocio: estructura, diseño, móvil, formulario y WhatsApp. Te decimos precio y plazos antes de cobrar nada."
   },
   "/politica-de-privacidad": {
     "title": "Política de Privacidad | PereiraWeb",
