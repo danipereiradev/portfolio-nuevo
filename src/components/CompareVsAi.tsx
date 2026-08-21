@@ -45,7 +45,7 @@ const CompareVsAi = () => {
           </p>
         </div>
 
-        <div className='hidden overflow-hidden rounded-2xl border-2 border-ink-dark md:block'>
+        <div className='hidden overflow-hidden rounded-lg border-2 border-ink-dark md:block'>
           <table className='w-full text-left'>
             <thead>
               <tr className='bg-accent text-white'>
@@ -88,7 +88,7 @@ const CompareVsAi = () => {
           {rows.map((row) => (
             <article
               key={row.label}
-              className='rounded-2xl border-2 border-ink-dark bg-white p-content-pad'
+              className='rounded-lg border-2 border-ink-dark bg-white p-content-pad'
             >
               <h3 className='text-lg font-extrabold text-ink-dark'>
                 {row.label}

@@ -153,6 +153,21 @@
   status = 200
 
 [[redirects]]
+  from = "/blog"
+  to = "/blog/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/cuanto-cuesta-una-pagina-web-profesional"
+  to = "/blog/cuanto-cuesta-una-pagina-web-profesional/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/tecnologias-para-crear-una-pagina-web"
+  to = "/blog/tecnologias-para-crear-una-pagina-web/index.html"
+  status = 200
+
+[[redirects]]
   from = "/mantenimiento-web"
   to = "/mantenimiento-web/index.html"
   status = 200

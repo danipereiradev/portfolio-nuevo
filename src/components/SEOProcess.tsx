@@ -34,7 +34,7 @@ const SEOProcess = ({
         </div>
 
         <div className='flex flex-col items-center justify-center gap-page-gap md:flex-row'>
-          <div className='group aspect-[4/3] w-full overflow-hidden rounded-2xl md:w-1/2'>
+          <div className='group aspect-[4/3] w-full overflow-hidden rounded-lg md:w-1/2'>
             <img
               className='h-full w-full object-cover'
               src={imageSrc}

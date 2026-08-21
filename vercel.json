@@ -50,6 +50,18 @@
       "destination": "/tiendas-online/index.html"
     },
     {
+      "source": "/blog",
+      "destination": "/blog/index.html"
+    },
+    {
+      "source": "/blog/cuanto-cuesta-una-pagina-web-profesional",
+      "destination": "/blog/cuanto-cuesta-una-pagina-web-profesional/index.html"
+    },
+    {
+      "source": "/blog/tecnologias-para-crear-una-pagina-web",
+      "destination": "/blog/tecnologias-para-crear-una-pagina-web/index.html"
+    },
+    {
       "source": "/politica-de-privacidad",
       "destination": "/politica-de-privacidad/index.html"
     },

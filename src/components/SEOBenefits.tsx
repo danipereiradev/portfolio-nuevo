@@ -45,8 +45,8 @@ const SEOBenefits = ({
                 key={index}
                 className={
                   isPlain
-                    ? 'rounded-2xl border-2 border-ink-dark bg-white p-content-pad'
-                    : 'rounded-2xl border-2 border-ink-dark bg-white p-content-pad shadow-[5px_5px_0_0_#1a1a1a] transition-all duration-200 hover:translate-x-[3px] hover:translate-y-[3px] hover:border-accent hover:shadow-[2px_2px_0_0_#1a1a1a]'
+                    ? 'rounded-lg border-2 border-ink-dark bg-white p-content-pad'
+                    : 'rounded-lg border-2 border-ink-dark bg-white p-content-pad shadow-[5px_5px_0_0_#1a1a1a] transition-all duration-200 hover:translate-x-[3px] hover:translate-y-[3px] hover:border-accent hover:shadow-[2px_2px_0_0_#1a1a1a]'
                 }
               >
                 <Icon className='mb-title-gap h-7 w-7 text-accent md:h-8 md:w-8' />

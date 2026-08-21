@@ -31,7 +31,7 @@ export const CtaTextForm = () => {
             ¿Empezamos a montar tu proyecto?
           </h2>
 
-          <div className='mt-4 overflow-hidden rounded-2xl'>
+          <div className='mt-4 overflow-hidden rounded-lg'>
             <img
               className='aspect-[4/3] w-full object-cover'
               src='/img/fikret-tozak-rfNLa1HL7eY-unsplash.jpg'

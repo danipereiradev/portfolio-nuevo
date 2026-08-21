@@ -1,38 +1,31 @@
 import { useLanguage } from '../contexts/LanguageContext';
-import { SITE_SHOP_PATH, SITE_WEB_PATH } from '../config/contact';
+import {
+  SITE_SHOP_LABEL,
+  SITE_SHOP_PATH,
+  SITE_WEB_LABEL,
+  SITE_WEB_PATH,
+} from '../config/contact';
 
 const Services = () => {
   const { t } = useLanguage();
 
   const mainServices = [
     {
-      title: t('services.webdesign.title'),
+      title: SITE_WEB_LABEL,
       link: SITE_WEB_PATH,
       image: '/img/theme-photos-CGpifH3FjOA-unsplash.jpg',
-      imageAlt: 'Mock de web a medida — Hoy Viajamos',
+      imageAlt: 'Diseño web a medida',
     },
     {
-      title: t('services.wordpress.title'),
-      link: SITE_WEB_PATH,
-      image: '/img/fikret-tozak-rfNLa1HL7eY-unsplash.jpg',
-      imageAlt: 'Mock de web a medida — Hoy Viajamos',
-    },
-    {
-      title: t('services.ecommerce.title'),
+      title: SITE_SHOP_LABEL,
       link: SITE_SHOP_PATH,
       image: '/img/sumup-ShB9pI4mpRg-unsplash.jpg',
-      imageAlt: 'Mock de tienda online — Camisetas Ahora',
-    },
-    {
-      title: t('services.ecommercePlantilla.title'),
-      link: SITE_SHOP_PATH,
-      image: '/img/sumup-ShB9pI4mpRg-unsplash.jpg',
-      imageAlt: 'Mock de tienda online — Camisetas Ahora',
+      imageAlt: 'Tienda online',
     },
   ];
 
   return (
-    <section id='services' className='page-section bg-surface-muted'>
+    <section id='services' className='page-section scroll-mt-24 bg-surface-muted'>
       <div className='container mx-auto flex flex-col gap-page-gap'>
         <div className='page-title-block mx-auto max-w-3xl text-center'>
           <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark'>
@@ -42,12 +35,12 @@ const Services = () => {
             {t('services.description')}
           </p>
         </div>
-        <div className='mx-auto grid grid-cols-1 gap-page-gap md:grid-cols-2 lg:grid-cols-4'>
+        <div className='mx-auto grid w-full grid-cols-1 gap-page-gap md:max-w-4xl md:grid-cols-2'>
           {mainServices.map((service) => (
             <a
               key={service.title}
               href={service.link}
-              className='group relative block overflow-hidden rounded-2xl shadow-xl'
+              className='group relative block overflow-hidden rounded-lg shadow-xl'
             >
               <img
                 src={service.image}

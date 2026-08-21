@@ -10,14 +10,11 @@ import {
 import {
   PHONE_DISPLAY,
   PHONE_TEL_LINK,
-  SITE_WEB_PATH,
-  SITE_WEB_LABEL,
-  SITE_SHOP_PATH,
-  SITE_SHOP_LABEL,
   buildWhatsAppUrl,
   getWhatsAppMessageForPath,
   isAdsLandingPath,
 } from '../config/contact';
+import { FOOTER_NAV } from '../config/nav';
 
 const infoLinks = [
   { href: '/preguntas-frecuentes', label: 'Preguntas frecuentes' },
@@ -60,7 +57,7 @@ const Footer = () => {
               ? 'lg:grid-cols-2'
               : isMinimalChrome
                 ? 'lg:grid-cols-3'
-                : 'lg:grid-cols-5'
+                : 'lg:grid-cols-4'
           }`}
         >
           {!isAdsLanding && (
@@ -112,61 +109,20 @@ const Footer = () => {
           {!isMinimalChrome && (
             <div className='text-center md:text-left lg:px-6 xl:px-8'>
               <h3 className='text-xl md:text-2xl font-bold mb-1 text-ink-medium'>
-                Servicios
-              </h3>
-              <span className='block w-10 h-1 bg-brand mb-6 mx-auto md:mx-0' />
-              <ul className='space-y-3 text-ink-dark'>
-                <li>
-                  <a
-                    href={SITE_WEB_PATH}
-                    className='hover:text-link transition-colors duration-200'
-                  >
-                    {SITE_WEB_LABEL}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={SITE_SHOP_PATH}
-                    className='hover:text-link transition-colors duration-200'
-                  >
-                    {SITE_SHOP_LABEL}
-                  </a>
-                </li>
-              </ul>
-            </div>
-          )}
-
-          {!isMinimalChrome && (
-            <div className='text-center md:text-left lg:px-6 xl:px-8'>
-              <h3 className='text-xl md:text-2xl font-bold mb-1 text-ink-medium'>
                 Estudio
               </h3>
               <span className='block w-10 h-1 bg-brand mb-6 mx-auto md:mx-0' />
               <ul className='space-y-3 text-ink-dark'>
-                <li>
-                  <a
-                    href='/'
-                    className='hover:text-link transition-colors duration-200'
-                  >
-                    Inicio
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='/sobre-el-estudio'
-                    className='hover:text-link transition-colors duration-200'
-                  >
-                    Sobre el Estudio
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='/contacto'
-                    className='hover:text-link transition-colors duration-200'
-                  >
-                    Contacto
-                  </a>
-                </li>
+                {FOOTER_NAV.map((item) => (
+                  <li key={item.href}>
+                    <a
+                      href={item.href}
+                      className='hover:text-link transition-colors duration-200'
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
           )}

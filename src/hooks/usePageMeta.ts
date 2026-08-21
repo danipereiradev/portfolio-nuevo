@@ -8,6 +8,7 @@ type PageMetaEntry = {
   description: string;
   robots?: string;
   canonical?: string;
+  ogType?: string;
 };
 
 type PagesMeta = Record<string, PageMetaEntry>;
@@ -48,7 +49,7 @@ export const usePageMeta = (path: string) => {
   useEffect(() => {
     const meta =
       (pagesMeta as PagesMeta)[path] ?? (pagesMeta as PagesMeta)['/'];
-    const { title, description, robots, canonical } = meta;
+    const { title, description, robots, canonical, ogType } = meta;
 
     document.title = title;
     setMetaByAttr('name', 'description', description);
@@ -82,7 +83,7 @@ export const usePageMeta = (path: string) => {
     setMetaByAttr('property', 'og:title', title);
     setMetaByAttr('property', 'og:description', description);
     setMetaByAttr('property', 'og:url', canonicalUrl);
-    setMetaByAttr('property', 'og:type', 'website');
+    setMetaByAttr('property', 'og:type', ogType ?? 'website');
 
     // Twitter Card
     setMetaByAttr('name', 'twitter:title', title);

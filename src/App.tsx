@@ -9,6 +9,8 @@ import CrispChat from './components/CrispChat';
 import LandingWeb from './pages/LandingWeb';
 import DisenoWeb from './pages/DisenoWeb';
 import TiendasOnline from './pages/TiendasOnline';
+import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
 import Home from './pages/Home';
 import LegalDocument from './pages/LegalDocument';
 import Maintenance from './pages/Maintenance';
@@ -23,6 +25,7 @@ import {
   SITE_WEB_PATH,
   SITE_WEB_PATH_ASCII,
 } from './config/contact';
+import { BLOG_PATH } from './blog/posts';
 
 function AppContent() {
   return (
@@ -41,6 +44,8 @@ function AppContent() {
           path='/tienda-online'
           element={<Navigate to={SITE_SHOP_PATH} replace />}
         />
+        <Route path={BLOG_PATH} element={<Blog />} />
+        <Route path={`${BLOG_PATH}/:slug`} element={<BlogPost />} />
         <Route path={ADS_LANDING_PATH} element={<LandingWeb />} />
         <Route
           path={ADS_LANDING_PATH_ASCII}

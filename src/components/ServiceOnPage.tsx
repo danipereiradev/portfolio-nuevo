@@ -3,9 +3,19 @@ export type BreadcrumbItem = {
   href?: string;
 };
 
-export const ServiceBreadcrumb = ({ items }: { items: BreadcrumbItem[] }) => (
+export const ServiceBreadcrumb = ({
+  items,
+  align = 'center',
+}: {
+  items: BreadcrumbItem[];
+  align?: 'center' | 'start';
+}) => (
   <nav aria-label='Migas de pan' className='w-full'>
-    <ol className='flex flex-wrap items-center justify-center gap-2 text-sm text-ink-medium md:justify-start'>
+    <ol
+      className={`flex flex-wrap items-center gap-2 text-sm text-ink-medium ${
+        align === 'start' ? 'justify-start' : 'justify-center md:justify-start'
+      }`}
+    >
       {items.map((item, index) => {
         const isLast = index === items.length - 1;
         return (
@@ -51,7 +61,7 @@ export const ServiceIncludes = ({
         {items.map((item) => (
           <article
             key={item.title}
-            className='rounded-2xl border-2 border-ink-dark bg-white p-content-pad'
+            className='rounded-lg border-2 border-ink-dark bg-white p-content-pad'
           >
             <h3 className='mb-heading-gap text-lg font-bold text-ink-dark md:text-xl'>
               {item.title}
@@ -65,4 +75,3 @@ export const ServiceIncludes = ({
     </div>
   </section>
 );
-

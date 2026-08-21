@@ -22,14 +22,19 @@ const Home = () => {
   // nativo del navegador no funciona de forma fiable en esta SPA porque el
   // elemento con ese id todavía no existe cuando la página carga.
   useEffect(() => {
-    const hash = window.location.hash.replace('#', '');
-    if (!hash) return;
+    const scrollToHash = () => {
+      const id = window.location.hash.replace('#', '');
+      if (!id) return;
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    };
 
-    const timeoutId = setTimeout(() => {
-      document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' });
-    }, 100);
+    const timeoutId = setTimeout(scrollToHash, 100);
+    window.addEventListener('hashchange', scrollToHash);
 
-    return () => clearTimeout(timeoutId);
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener('hashchange', scrollToHash);
+    };
   }, []);
 
   return (
@@ -69,21 +74,23 @@ const Home = () => {
       <div id='faq' className='scroll-mt-24'>
         <SEOFAQ title='Te resolvemos todas tus dudas' faqs={globalFaqs} />
       </div>
-      <HeroCta
-        title='Nos ponemos manos a la obra.'
-        description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
+      <div id='contacto' className='scroll-mt-24'>
+        <HeroCta
+          title='Nos ponemos manos a la obra.'
+          description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
             quia veritatis voluptatibus, dicta id reprehenderit deserunt culpa
             corporis corrupti accusantium.'
-        buttonText='TIENDAS ONLINE'
-        backgroundUrl='/img/theme-photos-CGpifH3FjOA-unsplash.jpg'
-        heroType='form'
-        hasButton={false}
-        formTitle='Nosotros te contactámos'
-        formDescription='Déjanos tus datos y nos pondremos en contacto.'
-        formSectionInfo='Hero CTA 2 Home'
-        hasBackground={false}
-        hasReviewBadge
-      />
+          buttonText='TIENDAS ONLINE'
+          backgroundUrl='/img/theme-photos-CGpifH3FjOA-unsplash.jpg'
+          heroType='form'
+          hasButton={false}
+          formTitle='Nosotros te contactámos'
+          formDescription='Déjanos tus datos y nos pondremos en contacto.'
+          formSectionInfo='Hero CTA 2 Home'
+          hasBackground={false}
+          hasReviewBadge
+        />
+      </div>
     </>
   );
 };

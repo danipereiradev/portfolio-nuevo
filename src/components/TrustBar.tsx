@@ -22,19 +22,25 @@ interface TrustBarProps {
 const TrustBar = ({ points = defaultTrustPoints }: TrustBarProps) => {
   return (
     <section className='border-y border-ink-light bg-surface-muted'>
-      <div className='container mx-auto grid grid-cols-1 md:grid-cols-4 md:divide-x-2 md:divide-ink-light'>
-        {points.map((point) => {
+      <div className='container mx-auto grid grid-cols-2 md:grid-cols-4 md:divide-x-2 md:divide-ink-light'>
+        {points.map((point, index) => {
           const Icon = point.icon;
           return (
             <div
               key={point.text}
-              className='flex flex-col items-center justify-center gap-3 border-b border-ink-light py-page-compact text-center last:border-b-0 md:border-b-0'
+              className={`flex flex-col items-center justify-center gap-2 px-3 py-6 text-center md:gap-3 md:py-page-compact ${
+                index % 2 === 0
+                  ? 'border-r border-ink-light md:border-r-0'
+                  : ''
+              } ${
+                index < 2 ? 'border-b border-ink-light md:border-b-0' : ''
+              }`}
             >
-              <span className='rounded-lg bg-accent p-3 text-white'>
+              <span className='rounded-lg bg-accent p-2.5 text-white md:p-3'>
                 <Icon className='h-5 w-5' />
               </span>
-              <span className='block h-1 w-10 bg-brand' />
-              <p className='text-base font-bold text-ink-dark md:text-lg'>
+              <span className='block h-1 w-8 bg-brand md:w-10' />
+              <p className='max-w-[11rem] text-sm font-bold leading-snug text-ink-dark sm:text-base md:max-w-none md:text-lg'>
                 {point.text}
               </p>
             </div>

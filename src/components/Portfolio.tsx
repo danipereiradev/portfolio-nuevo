@@ -109,7 +109,7 @@ Hay categorías, galerías ligeras y newsletter.`,
             {projects.map((project) => (
               <article
                 key={project.title}
-                className={`group relative overflow-hidden rounded-2xl shadow-xl ${
+                className={`group relative overflow-hidden rounded-lg shadow-xl ${
                   projects.length === 1 ? 'w-full max-w-md' : ''
                 }`}
               >

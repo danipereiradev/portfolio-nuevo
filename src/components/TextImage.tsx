@@ -34,7 +34,7 @@ export const TextImage = ({
         className={`container mx-auto flex flex-col-reverse items-center gap-page-gap text-center ${rowClass}`}
       >
         <div className='page-title-block w-full items-center lg:w-1/2 lg:items-start'>
-          <span className='text-md rounded-2xl font-extrabold text-accent underline'>
+          <span className='text-md rounded-lg font-extrabold text-accent underline'>
             {label}
           </span>
           <h2 className='text-2xl font-extrabold text-ink-dark md:text-4xl lg:text-5xl'>
@@ -55,7 +55,7 @@ export const TextImage = ({
           ) : null}
         </div>
         <div className='w-full shrink-0 lg:w-1/2'>
-          <div className='group relative aspect-[4/3] w-full overflow-hidden rounded-2xl'>
+          <div className='group relative aspect-[4/3] w-full overflow-hidden rounded-lg'>
             <img
               className='absolute inset-0 h-full w-full object-cover'
               src={imageSrc}

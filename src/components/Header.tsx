@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, Phone } from 'lucide-react';
-import { useLanguage } from '../contexts/LanguageContext';
 import {
   trackGoogleAdsWhatsAppConversion,
   trackPhoneClick,
@@ -10,20 +9,18 @@ import {
 import {
   PHONE_DISPLAY,
   PHONE_TEL_LINK,
-  SITE_WEB_PATH,
-  SITE_WEB_LABEL,
-  SITE_SHOP_PATH,
-  SITE_SHOP_LABEL,
   buildWhatsAppUrl,
   getWhatsAppMessageForPath,
   isAdsLandingPath,
 } from '../config/contact';
+import { SERVICE_NAV } from '../config/nav';
+import { BLOG_PATH } from '../blog/types';
 
 const navLinkClass =
-  'relative shrink-0 text-center text-sm xl:text-xl py-2 px-2 xl:px-4 rounded-2xl text-ink-dark uppercase font-bold';
+  'relative shrink-0 text-center text-sm xl:text-xl py-2 px-2 xl:px-4 rounded-lg text-ink-dark uppercase font-bold';
 
 const mobileNavLinkClass =
-  'text-right text-ink-dark block w-full text-left px-4 py-4 text-md uppercase font-bold hover:text-accent transition-colors duration-200';
+  'flex w-full items-center justify-end px-4 py-4 pr-10 text-md uppercase font-bold text-ink-dark transition-colors duration-200 hover:text-accent';
 
 const WhatsAppIcon = () => (
   <svg
@@ -37,14 +34,12 @@ const WhatsAppIcon = () => (
 );
 
 const Header = () => {
-  const { t } = useLanguage();
   const { pathname } = useLocation();
   const isAdsLanding = isAdsLandingPath(pathname);
   const whatsappUrl = buildWhatsAppUrl(getWhatsAppMessageForPath(pathname));
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [typedText, setTypedText] = useState('');
   const [hasTyped, setHasTyped] = useState(false);
 
@@ -66,18 +61,6 @@ const Header = () => {
 
     return () => clearInterval(typingInterval);
   }, [hasTyped]);
-
-  const services = [
-    { name: SITE_WEB_LABEL, path: SITE_WEB_PATH },
-    { name: SITE_SHOP_LABEL, path: SITE_SHOP_PATH },
-  ];
-
-  const about = [
-    { name: 'Quienes somos', path: '/' },
-    { name: 'Casos de exito', path: '/casos-de-exito' },
-    { name: 'Testimonios de clientes', path: '/testimonios-clientes' },
-    { name: 'Trabaja con nosotros', path: '/' },
-  ];
 
   const brand = (
     <span
@@ -103,7 +86,7 @@ const Header = () => {
 
   return (
     <div className='flex w-full justify-center'>
-      <header className='site-header fixed top-0 z-50 mx-auto mt-4 w-[95%] max-w-page rounded-2xl shadow-[0_4px_16px_rgba(0,0,0,0.08)]'>
+      <header className='site-header fixed top-0 z-50 mx-auto mt-4 w-[95%] max-w-page rounded-lg shadow-[0_4px_16px_rgba(0,0,0,0.08)]'>
         <div className='mx-auto w-full px-page-x py-4'>
           <div className='flex w-full items-center justify-between gap-3'>
             <a
@@ -148,7 +131,12 @@ const Header = () => {
                 <div className='flex items-center justify-end lg:hidden'>
                   <button
                     className='p-2 text-ink-dark'
-                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    onClick={() => {
+                      setIsMenuOpen((open) => {
+                        if (open) setIsServicesOpen(false);
+                        return !open;
+                      });
+                    }}
                     aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
                   >
                     {isMenuOpen ? (
@@ -159,38 +147,13 @@ const Header = () => {
                   </button>
                 </div>
 
-                <nav className='hidden shrink-0 items-center gap-1 text-ink-dark lg:flex xl:gap-4'>
-                  <div
-                    className='relative'
-                    onMouseEnter={() => setIsAboutOpen(true)}
-                    onMouseLeave={() => setIsAboutOpen(false)}
-                  >
-                    <button
-                      className={`${navLinkClass} flex items-center gap-1 text-ink-dark`}
-                    >
-                      Pereiraweb
-                      <ChevronDown className='h-4 w-4' />
-                    </button>
-                    {isAboutOpen ? (
-                      <div className='absolute left-0 top-full z-50 w-72 pt-3'>
-                        <div className='rounded-lg bg-white py-2 uppercase shadow-[0_8px_24px_rgba(20,20,20,0.12)]'>
-                          {about.map((item) => (
-                            <a
-                              key={item.name}
-                              href={item.path}
-                              className='group block px-4 py-3 transition-colors hover:bg-accent'
-                              onClick={() => setIsAboutOpen(false)}
-                            >
-                              <span className='text-lg text-ink-dark transition-colors group-hover:text-white'>
-                                {item.name}
-                              </span>
-                            </a>
-                          ))}
-                        </div>
-                      </div>
-                    ) : null}
-                  </div>
-
+                <nav
+                  className='hidden shrink-0 items-center gap-1 text-ink-dark lg:flex xl:gap-4'
+                  aria-label='Principal'
+                >
+                  <a href='/#nosotros' className={navLinkClass}>
+                    Nosotros
+                  </a>
                   <div
                     className='relative'
                     onMouseEnter={() => setIsServicesOpen(true)}
@@ -198,6 +161,8 @@ const Header = () => {
                   >
                     <button
                       className={`${navLinkClass} flex items-center gap-1 text-ink-dark`}
+                      aria-expanded={isServicesOpen}
+                      aria-haspopup='true'
                     >
                       Servicios
                       <ChevronDown className='h-4 w-4' />
@@ -205,15 +170,15 @@ const Header = () => {
                     {isServicesOpen ? (
                       <div className='absolute left-0 top-full z-50 w-72 pt-3'>
                         <div className='rounded-lg bg-white py-2 uppercase shadow-[0_8px_24px_rgba(20,20,20,0.12)]'>
-                          {services.map((service) => (
+                          {SERVICE_NAV.map((service) => (
                             <a
-                              key={service.path}
-                              href={service.path}
+                              key={service.href}
+                              href={service.href}
                               className='group block px-4 py-3 transition-colors hover:bg-accent'
                               onClick={() => setIsServicesOpen(false)}
                             >
                               <span className='text-lg text-ink-dark transition-colors group-hover:text-white'>
-                                {service.name}
+                                {service.label}
                               </span>
                             </a>
                           ))}
@@ -221,15 +186,14 @@ const Header = () => {
                       </div>
                     ) : null}
                   </div>
-
-                  <a href='/' className={navLinkClass}>
-                    {t('nav.blog')}
+                  <a href={BLOG_PATH} className={navLinkClass}>
+                    Blog
                   </a>
                   <a
-                    href='/contacto'
+                    href='/#contacto'
                     className={`${navLinkClass} !text-accent`}
                   >
-                    {t('nav.contact')}
+                    Contacto
                   </a>
                 </nav>
               </>
@@ -237,59 +201,61 @@ const Header = () => {
           </div>
 
           {!isAdsLanding && isMenuOpen ? (
-            <nav className='mt-4 divide-y divide-ink-light rounded-lg bg-white pb-2 text-md text-ink-dark lg:hidden'>
-              <a href='/' className={mobileNavLinkClass}>
-                Inicio
+            <nav
+              className='mt-2 divide-y divide-ink-dark/15 lg:hidden'
+              aria-label='Principal'
+            >
+              <a
+                href='/#nosotros'
+                onClick={() => setIsMenuOpen(false)}
+                className={mobileNavLinkClass}
+              >
+                Nosotros
               </a>
               <div>
                 <button
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
-                  className='relative flex w-full items-center justify-end gap-2 px-4 py-4 text-md uppercase text-ink-dark transition-colors duration-200 hover:text-accent'
+                  className={`${mobileNavLinkClass} relative`}
+                  aria-expanded={isServicesOpen}
                 >
-                  <span className='text-center'>Servicios</span>
+                  Servicios
                   <ChevronDown
-                    className={`absolute right-[.5px] h-4 w-4 transition-transform ${
+                    className={`absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 transition-transform duration-200 ${
                       isServicesOpen ? 'rotate-180' : ''
                     }`}
                   />
                 </button>
                 {isServicesOpen ? (
-                  <div className='divide-y divide-ink-dark rounded-2xl bg-white'>
-                    {services.map((service) => (
+                  <div className='divide-y divide-ink-dark/15'>
+                    {SERVICE_NAV.map((service) => (
                       <a
-                        key={service.path}
-                        href={service.path}
+                        key={service.href}
+                        href={service.href}
                         onClick={() => {
                           setIsMenuOpen(false);
                           setIsServicesOpen(false);
                         }}
-                        className='group block px-6 py-2.5 text-sm uppercase transition-colors hover:bg-accent hover:text-white'
+                        className={`${mobileNavLinkClass} pr-16`}
                       >
-                        <div className='flex items-center justify-end py-2 text-right'>
-                          <span className='font-bold text-black transition-colors group-hover:text-white'>
-                            {service.name}
-                          </span>
-                        </div>
+                        {service.label}
                       </a>
                     ))}
                   </div>
                 ) : null}
               </div>
-              <a href='/sobre-el-estudio' className={mobileNavLinkClass}>
-                {t('nav.about')}
-              </a>
               <a
-                href='/contacto'
-                className={`${mobileNavLinkClass} !text-accent`}
-              >
-                {t('nav.contact')}
-              </a>
-              <a
-                href='/preguntas-frecuentes'
+                href={BLOG_PATH}
                 onClick={() => setIsMenuOpen(false)}
                 className={mobileNavLinkClass}
               >
-                Preguntas
+                Blog
+              </a>
+              <a
+                href='/#contacto'
+                onClick={() => setIsMenuOpen(false)}
+                className={`${mobileNavLinkClass} !text-accent`}
+              >
+                Contacto
               </a>
             </nav>
           ) : null}

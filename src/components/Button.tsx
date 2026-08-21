@@ -28,7 +28,7 @@ const Button: React.FC<ButtonProps> = ({
   isLoading = false,
 }) => {
   const baseStyles =
-    'box-border mx-auto inline-flex items-center justify-center w-[var(--button-width)] max-w-full min-h-[3.5rem] px-6 py-4 rounded-2xl font-extrabold text-base md:text-lg uppercase text-center leading-tight whitespace-normal transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed gap-2';
+    'box-border mx-auto inline-flex items-center justify-center w-[var(--button-width)] max-w-full min-h-[3.5rem] px-6 py-4 rounded-lg font-extrabold text-base md:text-lg uppercase text-center leading-tight whitespace-normal transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed gap-2';
 
   const variantStyles = {
     primary: 'bg-accent text-white hover:bg-accent-hover',
