@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
 import Portfolio from '../components/Portfolio';
@@ -11,31 +10,10 @@ import { globalFaqs } from '../data/globalFaqs';
 import { TextImage } from '../components/TextImage';
 
 import { Team } from '../components/Team';
-import TrustBar from '../components/TrustBar';
 import HeroCta from '../components/HeroCta';
 
 const Home = () => {
   usePageMeta('/');
-
-  // Permite llegar directamente a una sección vía ancla en la URL
-  // (ej. /#portfolio desde un enlace del footer en otra página). El scroll
-  // nativo del navegador no funciona de forma fiable en esta SPA porque el
-  // elemento con ese id todavía no existe cuando la página carga.
-  useEffect(() => {
-    const scrollToHash = () => {
-      const id = window.location.hash.replace('#', '');
-      if (!id) return;
-      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-    };
-
-    const timeoutId = setTimeout(scrollToHash, 100);
-    window.addEventListener('hashchange', scrollToHash);
-
-    return () => {
-      clearTimeout(timeoutId);
-      window.removeEventListener('hashchange', scrollToHash);
-    };
-  }, []);
 
   return (
     <>
@@ -48,7 +26,6 @@ const Home = () => {
         hasBackground
         hasReviewBadge={false}
       />
-      <TrustBar />
       <TextImage
         label={'PEREIRAWEB'}
         title='Desarrollamos webs pensado en la escalabilidad y el crecimiento de tu
@@ -74,23 +51,22 @@ const Home = () => {
       <div id='faq' className='scroll-mt-24'>
         <SEOFAQ title='Te resolvemos todas tus dudas' faqs={globalFaqs} />
       </div>
-      <div id='contacto' className='scroll-mt-24'>
-        <HeroCta
-          title='Nos ponemos manos a la obra.'
-          description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
+      <HeroCta
+        title='Nos ponemos manos a la obra.'
+        description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
             quia veritatis voluptatibus, dicta id reprehenderit deserunt culpa
             corporis corrupti accusantium.'
-          buttonText='TIENDAS ONLINE'
-          backgroundUrl='/img/theme-photos-CGpifH3FjOA-unsplash.jpg'
-          heroType='form'
-          hasButton={false}
-          formTitle='Nosotros te contactámos'
-          formDescription='Déjanos tus datos y nos pondremos en contacto.'
-          formSectionInfo='Hero CTA 2 Home'
-          hasBackground={false}
-          hasReviewBadge
-        />
-      </div>
+        buttonText='TIENDAS ONLINE'
+        backgroundUrl='/img/theme-photos-CGpifH3FjOA-unsplash.jpg'
+        heroType='form'
+        hasButton={false}
+        formTitle='Nosotros te contactámos'
+        formDescription='Déjanos tus datos y nos pondremos en contacto.'
+        formSectionInfo='Hero CTA 2 Home'
+        hasBackground={false}
+        hasReviewBadge
+        formId='contacto'
+      />
     </>
   );
 };

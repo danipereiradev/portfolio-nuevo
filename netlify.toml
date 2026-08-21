@@ -164,6 +164,11 @@
   status = 200
 
 [[redirects]]
+  from = "/nosotros"
+  to = "/nosotros/index.html"
+  status = 200
+
+[[redirects]]
   from = "/blog"
   to = "/blog/index.html"
   status = 200

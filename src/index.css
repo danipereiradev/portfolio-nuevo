@@ -83,6 +83,16 @@
       var(--page-py);
   }
 
+  .page-hero-compact {
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    overflow: hidden;
+    padding: calc(var(--site-header-h) + var(--page-hero-offset) + 1.5rem) 0
+      3.5rem;
+  }
+
   .page-title-block {
     display: flex;
     flex-direction: column;
@@ -313,6 +323,13 @@ img {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .page-hero-compact {
+    padding-top: calc(var(--site-header-h) + var(--page-hero-offset) + 2.5rem + 50px);
+    padding-bottom: calc(5rem + 50px);
   }
 }
 

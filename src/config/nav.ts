@@ -1,5 +1,7 @@
 import { BLOG_PATH } from '../blog/types';
 import {
+  ABOUT_LABEL,
+  ABOUT_PATH,
   SITE_SHOP_LABEL,
   SITE_SHOP_PATH,
   SITE_WEB_LABEL,
@@ -12,16 +14,16 @@ export const SERVICE_NAV = [
 ] as const;
 
 export const MAIN_NAV = [
-  { href: '/#nosotros', label: 'Nosotros' },
+  { href: ABOUT_PATH, label: ABOUT_LABEL },
   { href: BLOG_PATH, label: 'Blog' },
-  { href: '/#contacto', label: 'Contacto' },
+  { href: '#contacto', label: 'Contacto' },
 ] as const;
 
 export const FOOTER_NAV = [
-  { href: '/#nosotros', label: 'Nosotros' },
+  { href: ABOUT_PATH, label: ABOUT_LABEL },
   ...SERVICE_NAV,
   { href: BLOG_PATH, label: 'Blog' },
-  { href: '/#contacto', label: 'Contacto' },
+  { href: '#contacto', label: 'Contacto' },
   {
     href: 'mailto:hola@pereiraweb.es?subject=Trabaja%20con%20nosotros',
     label: 'Trabaja con nosotros',

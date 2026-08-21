@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { useScrollToHash } from './hooks/useScrollToHash';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { ContactModalProvider } from './contexts/ContactModalContext';
 import Header from './components/Header';
@@ -13,6 +14,7 @@ import TiendasOnline from './pages/TiendasOnline';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import Home from './pages/Home';
+import Nosotros from './pages/Nosotros';
 import LegalDocument from './pages/LegalDocument';
 import Maintenance from './pages/Maintenance';
 import {
@@ -23,6 +25,7 @@ import {
   ADS_LANDING_PATH,
   ADS_LANDING_PATH_ASCII,
   ADS_SHOP_LANDING_PATH,
+  ABOUT_PATH,
   SITE_SHOP_PATH,
   SITE_WEB_PATH,
   SITE_WEB_PATH_ASCII,
@@ -30,12 +33,15 @@ import {
 import { BLOG_PATH } from './blog/posts';
 
 function AppContent() {
+  useScrollToHash();
+
   return (
     <div className='relative min-h-screen overflow-x-hidden bg-surface-base pb-16 md:pb-0'>
       <Header />
 
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path={ABOUT_PATH} element={<Nosotros />} />
         <Route path={SITE_WEB_PATH} element={<DisenoWeb />} />
         <Route
           path={SITE_WEB_PATH_ASCII}

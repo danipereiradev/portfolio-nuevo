@@ -3,7 +3,9 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { ServiceBreadcrumb } from '../components/ServiceOnPage';
 import { BlogPostCard } from '../components/BlogPostCard';
+import HeroCta from '../components/HeroCta';
 import { BLOG_PATH, getPostPath, posts } from '../blog/posts';
+import { SITE_WEB_PATH } from '../config/contact';
 
 const SITE_URL = 'https://pereiraweb.es';
 
@@ -50,32 +52,49 @@ const Blog = () => {
   useJsonLd('jsonld-blog', jsonLd);
 
   return (
-    <section className='page-section pt-[calc(var(--site-header-h)+var(--page-hero-offset)+1rem)]'>
-      <div className='container mx-auto flex flex-col gap-page-gap'>
-        <ServiceBreadcrumb
-          items={[
-            { label: 'Inicio', href: '/' },
-            { label: 'Blog' },
-          ]}
-        />
+    <>
+      <section className='page-section pt-[calc(var(--site-header-h)+var(--page-hero-offset)+1rem)]'>
+        <div className='container mx-auto flex flex-col gap-page-gap'>
+          <ServiceBreadcrumb
+            items={[
+              { label: 'Inicio', href: '/' },
+              { label: 'Blog' },
+            ]}
+          />
 
-        <div className='page-title-block mx-auto max-w-3xl text-center'>
-          <h1 className='text-3xl font-extrabold text-ink-dark md:text-4xl lg:text-5xl'>
-            Blog
-          </h1>
-          <p className='text-lg text-ink-dark md:text-xl'>
-            Diseño web, tecnologías para crear una página y lo que cuesta
-            montarla. Sin plantillas de 79 € ni humo.
-          </p>
-        </div>
+          <div className='page-title-block mx-auto max-w-3xl text-center'>
+            <h1 className='text-3xl font-extrabold text-ink-dark md:text-4xl lg:text-5xl'>
+              Blog
+            </h1>
+            <p className='text-lg text-ink-dark md:text-xl'>
+              Diseño web, tecnologías para crear una página y lo que cuesta
+              montarla. Sin plantillas de 79 € ni humo.
+            </p>
+          </div>
 
-        <div className='mx-auto grid w-full grid-cols-1 gap-page-gap lg:grid-cols-3'>
-          {posts.map((post) => (
-            <BlogPostCard key={post.slug} post={post} />
-          ))}
+          <div className='mx-auto grid w-full grid-cols-1 gap-page-gap lg:grid-cols-3'>
+            {posts.map((post) => (
+              <BlogPostCard key={post.slug} post={post} />
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <HeroCta
+        title='Pide presupuesto de diseño web'
+        description='Cuéntanos qué haces y qué tiene que hacer la página. Te devolvemos propuesta en 24–48 h, con precio y plazos. Si no encaja, lo dices y no pasa nada.'
+        buttonText='VER DISEÑO WEB'
+        buttonHref={SITE_WEB_PATH}
+        heroType='form'
+        hasButton={false}
+        formTitle='Presupuesto de diseño web'
+        formDescription='Propuesta en 24–48 h. Sin compromiso.'
+        formSectionInfo='Blog índice CTA'
+        hasBackground={false}
+        hasReviewBadge
+        formId='contacto'
+      />
+    </>
   );
 };
 

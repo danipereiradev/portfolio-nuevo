@@ -50,7 +50,7 @@ const HeroCta = ({
 
   return (
     <section
-      id={isTopHero ? 'hero' : undefined}
+      id={isTopHero ? 'hero' : formId}
       style={
         hasBackground && backgroundUrl
           ? { backgroundImage: `url(${backgroundUrl})` }
@@ -58,7 +58,7 @@ const HeroCta = ({
       }
       className={`${isTopHero ? 'page-hero' : 'page-section'} relative overflow-hidden text-ink-dark ${
         isTopHero ? '' : 'flex items-center'
-      } ${
+      } ${formId === 'contacto' ? 'scroll-mt-24' : ''} ${
         hasBackground ? 'bg-no-repeat bg-center bg-cover' : 'bg-accent-light'
       }`}
     >
@@ -115,7 +115,6 @@ const HeroCta = ({
         {heroType !== 'clean' ? (
           heroType === 'form' ? (
             <ContactFormHero
-              id={isTopHero ? 'contacto' : formId}
               title={formTitle}
               description={formDescription}
               page={formSectionInfo}

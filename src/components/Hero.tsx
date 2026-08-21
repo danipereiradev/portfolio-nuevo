@@ -5,6 +5,7 @@ interface HeroProps {
   title: string;
   description: string;
   buttonText: string;
+  buttonHref?: string;
   backgroundUrl?: string;
   hasButton: boolean;
   hasBackground: boolean;
@@ -15,26 +16,26 @@ const Hero = ({
   title,
   description,
   buttonText,
+  buttonHref,
   backgroundUrl,
   hasButton,
   hasBackground,
   hasReviewBadge,
 }: HeroProps) => {
-  console.log(backgroundUrl);
   return (
     <section
       id='hero'
       style={{
-        background: `white`,
+        backgroundImage: `url(${hasBackground ? backgroundUrl : ''})`,
       }}
-      className='page-hero bg-no-repeat bg-center bg-cover text-ink-dark'
+      className='page-hero-compact bg-cover bg-center bg-no-repeat text-ink-dark'
     >
       {hasBackground ? (
         <div
           style={{
             backgroundImage: 'url("/img/hero-bg-texture.avif")',
           }}
-          className='bg-no-repeat bg-center bg-cover opacity-80 absolute w-full inset-0'
+          className='absolute inset-0 w-full bg-cover bg-center bg-no-repeat opacity-70'
         ></div>
       ) : null}
 
@@ -50,7 +51,10 @@ const Hero = ({
           </div>
           {hasReviewBadge ? <TestimonialsBadge /> : null}
           {hasButton ? (
-            <Button className='mx-auto md:mx-0 text-center place-self-center'>
+            <Button
+              className='mx-auto md:mx-0 text-center place-self-center'
+              href={buttonHref}
+            >
               {buttonText}
             </Button>
           ) : null}

@@ -9,6 +9,8 @@ import {
 import {
   PHONE_DISPLAY,
   PHONE_TEL_LINK,
+  ABOUT_PATH,
+  ABOUT_LABEL,
   buildWhatsAppUrl,
   getWhatsAppMessageForPath,
   isAdsLandingPath,
@@ -151,8 +153,8 @@ const Header = () => {
                   className='hidden shrink-0 items-center gap-1 text-ink-dark lg:flex xl:gap-4'
                   aria-label='Principal'
                 >
-                  <a href='/#nosotros' className={navLinkClass}>
-                    Nosotros
+                  <a href={ABOUT_PATH} className={navLinkClass}>
+                    {ABOUT_LABEL}
                   </a>
                   <div
                     className='relative'
@@ -190,7 +192,7 @@ const Header = () => {
                     Blog
                   </a>
                   <a
-                    href='/#contacto'
+                    href='#contacto'
                     className={`${navLinkClass} !text-accent`}
                   >
                     Contacto
@@ -206,11 +208,11 @@ const Header = () => {
               aria-label='Principal'
             >
               <a
-                href='/#nosotros'
+                href={ABOUT_PATH}
                 onClick={() => setIsMenuOpen(false)}
                 className={mobileNavLinkClass}
               >
-                Nosotros
+                {ABOUT_LABEL}
               </a>
               <div>
                 <button
@@ -251,7 +253,7 @@ const Header = () => {
                 Blog
               </a>
               <a
-                href='/#contacto'
+                href='#contacto'
                 onClick={() => setIsMenuOpen(false)}
                 className={`${mobileNavLinkClass} !text-accent`}
               >

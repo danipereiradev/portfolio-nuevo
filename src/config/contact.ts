@@ -72,6 +72,9 @@ export const SITE_WEB_LABEL = 'Diseño web';
 export const SITE_SHOP_PATH = '/tiendas-online';
 export const SITE_SHOP_LABEL = 'Tiendas online';
 
+export const ABOUT_PATH = '/nosotros';
+export const ABOUT_LABEL = 'Nosotros';
+
 /** Landing de Ads de este servicio. Futuros servicios: /landing-{slug}. */
 export const ADS_LANDING_PATH = '/landing-diseño-web';
 export const ADS_LANDING_PATH_ASCII = '/landing-diseno-web';
@@ -106,6 +109,7 @@ export const getWhatsAppMessageForPath = (pathname: string): string => {
   }
   if (isAdsWebLandingPath(path)) return ADS_WHATSAPP_MESSAGE;
   if (path === '/web-profesional') return WEB_PROFESIONAL_WHATSAPP_MESSAGE;
+  if (path === ABOUT_PATH) return ABOUT_PAGE_WHATSAPP_MESSAGE;
   if (path === '/mantenimiento-web') return MAINTENANCE_WHATSAPP_MESSAGE;
   return DEFAULT_WHATSAPP_MESSAGE;
 };

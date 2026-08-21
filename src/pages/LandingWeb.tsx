@@ -176,7 +176,7 @@ const LandingWeb = () => {
         hasButton={false}
         formTitle='Te llamamos'
         formDescription='Propuesta en 24–48 h. Sin compromiso.'
-        formSectionInfo='LandingWeb Hero'
+        formSectionInfo='Landing diseño web — Hero'
         hasBackground
         hasReviewBadge
         isTopHero
@@ -209,7 +209,7 @@ const LandingWeb = () => {
         hasButton={false}
         formTitle='Te llamamos'
         formDescription='Propuesta en 24–48 h. Sin compromiso.'
-        formSectionInfo='LandingWeb CTA medio'
+        formSectionInfo='Landing diseño web — CTA medio'
         hasBackground={false}
         hasReviewBadge={false}
       />
@@ -229,7 +229,7 @@ const LandingWeb = () => {
           title='Te resolvemos todas tus dudas'
           faqs={faqs}
           ctaText='PEDIR PROPUESTA'
-          ctaHref='#contacto-final'
+          ctaHref='#contacto'
         />
       </div>
       <HeroCta
@@ -241,10 +241,10 @@ const LandingWeb = () => {
         hasButton={false}
         formTitle='Te llamamos'
         formDescription='Propuesta en 24–48 h. Sin compromiso.'
-        formSectionInfo='LandingWeb CTA final'
+        formSectionInfo='Landing diseño web — CTA final'
         hasBackground={false}
         hasReviewBadge
-        formId='contacto-final'
+        formId='contacto'
       />
     </>
   );

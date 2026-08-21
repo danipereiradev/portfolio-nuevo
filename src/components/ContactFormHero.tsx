@@ -88,22 +88,28 @@ export const ContactFormHero = ({
     try {
       const formspreeEndpoint = 'https://formspree.io/f/movlevkj';
 
+      const origen = page;
+      const pagina = window.location.pathname;
+
       const formDataToSend: Record<string, string | boolean> = {
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
-        page,
+        origen,
+        page: origen,
+        pagina,
         consent: formData.consent,
 
         submissionDate: new Date().toLocaleString('es-ES'),
-        _subject: `Nueva Solicitud de Presupuesto - ${formData.name}`,
+        _subject: `[${origen}] Nueva solicitud — ${formData.name}`,
         _replyto: formData.email,
         message: `
+Origen: ${origen}
+Página: ${pagina}
 Nombre: ${formData.name}
 Email: ${formData.email}
 Teléfono: ${formData.phone}
 ${showProjectType ? `Qué necesita: ${formData.projectType}\n` : ''}consent: ${formData.consent}
-page: ${page}
 Fecha: ${new Date().toLocaleString('es-ES')}
         `,
       };

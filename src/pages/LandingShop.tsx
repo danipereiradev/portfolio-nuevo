@@ -175,7 +175,7 @@ const LandingShop = () => {
         hasButton={false}
         formTitle='Te llamamos'
         formDescription='Propuesta en 24–48 h. Sin compromiso.'
-        formSectionInfo='LandingShop Hero'
+        formSectionInfo='Landing tiendas online — Hero'
         hasBackground
         hasReviewBadge
         isTopHero
@@ -208,7 +208,7 @@ const LandingShop = () => {
         hasButton={false}
         formTitle='Te llamamos'
         formDescription='Propuesta en 24–48 h. Sin compromiso.'
-        formSectionInfo='LandingShop CTA medio'
+        formSectionInfo='Landing tiendas online — CTA medio'
         hasBackground={false}
         hasReviewBadge={false}
       />
@@ -228,7 +228,7 @@ const LandingShop = () => {
           title='Te resolvemos todas tus dudas'
           faqs={faqs}
           ctaText='PEDIR PROPUESTA'
-          ctaHref='#contacto-final'
+          ctaHref='#contacto'
         />
       </div>
       <HeroCta
@@ -240,10 +240,10 @@ const LandingShop = () => {
         hasButton={false}
         formTitle='Te llamamos'
         formDescription='Propuesta en 24–48 h. Sin compromiso.'
-        formSectionInfo='LandingShop CTA final'
+        formSectionInfo='Landing tiendas online — CTA final'
         hasBackground={false}
         hasReviewBadge
-        formId='contacto-final'
+        formId='contacto'
       />
     </>
   );
