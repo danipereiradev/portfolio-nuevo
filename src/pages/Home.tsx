@@ -59,8 +59,8 @@ const Home = () => {
           </>,
         ]}
         imageAlt='Equipo de PereiraWeb trabajando en diseño y desarrollo web'
-        buttonText='PEDIR PROPUESTA'
-        buttonHref='#contacto'
+        buttonText='LEER MÁS'
+        buttonHref='/sobre-pereiraweb#about2'
         imageSrc='/img/fikret-tozak-rfNLa1HL7eY-unsplash.jpg'
       />
       <Services />
