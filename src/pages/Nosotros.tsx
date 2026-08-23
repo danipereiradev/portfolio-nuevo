@@ -60,7 +60,7 @@ const Nosotros = () => {
     <>
       <Hero
         title={'Conoce nuestra agencia'}
-        description='Somos una agencia de diseño web y marketing digital joven. Te contamos un poco más abajo.'
+        description='Somos una agencia de diseño web y marketing digital joven. Te contamos quiénes somos y cómo trabajamos.'
         buttonText='CONTACTA AHORA'
         buttonHref='#contacto'
         backgroundUrl='/img/web-design-charlesdeluvio.webp'
@@ -71,11 +71,31 @@ const Nosotros = () => {
 
       <TextImage
         label='¿QUÉ ES PEREIRAWEB?'
-        title='Agencia de diseño web y marketing digital online.'
+        title='Agencia de diseño web y marketing digital con atención directa.'
         paragraphs={[
-          'Somos una agencia 100% online que ofrece un servicio de atención 1 a 1, es decir, no te atiende un comercial con el que luego no vuelves a tratar. Tendrás contacto directo en todo momento con la persona encargada de tu proyecto a través de correo, teléfono, videollamada o de forma presencial (si te encuentras en Madrid, Galicia o Valencia).',
-          'Creemos que una de las cosas más importantes que nos diferencia de muchas otras empresas es que tocamos todos los palos:',
-          'Desarrollo web con WordPress, desarrollo web a medida con lenguajes de programación modernos, aplicaciones móviles, posicionamiento SEO y branding. Todo en función de lo que realmente necesitas.',
+          <>
+            Somos una agencia{' '}
+            <strong className='font-extrabold'>100% online</strong> y trabajamos
+            contigo de forma directa. Tendrás{' '}
+            <strong className='font-extrabold'>
+              contacto directo en todo momento con quien lleva tu proyecto
+            </strong>
+            : correo, teléfono, videollamada o presencial (si estás en Madrid,
+            Galicia o Valencia).
+          </>,
+          <>
+            <strong className='font-extrabold'>Tocamos todos los palos</strong>,
+            y eso nos permite elegir la mejor solución para cada proyecto:
+          </>,
+          <>
+            Desarrollo web con{' '}
+            <strong className='font-extrabold'>WordPress</strong>, desarrollo{' '}
+            <strong className='font-extrabold'>a medida</strong>,{' '}
+            <strong className='font-extrabold'>aplicaciones móviles</strong>,{' '}
+            <strong className='font-extrabold'>SEO</strong> y{' '}
+            <strong className='font-extrabold'>branding</strong>. Todo en función
+            de <strong className='font-extrabold'>lo que realmente necesitas</strong>.
+          </>,
         ]}
         imageAlt='Equipo de PereiraWeb trabajando en diseño y desarrollo web'
         buttonText='PEDIR PROPUESTA'
@@ -86,10 +106,32 @@ const Nosotros = () => {
       <TextSection
         id='about2'
         label='QUEREMOS SER TU FUTURO EQUIPO'
-        title='Una agencia joven con más de una década diseñando y desarrollando software.'
+        title='Una agencia joven formada por profesionales con más de una década de experiencia.'
         paragraphs={[
-          'PereiraWeb lo formamos un equipo de profesionales del sector del diseño y desarrollo de software. Contamos con experiencia tanto en grandes consultoras y clientes como en startups modernas, así que somos un equipo todoterreno. Cubrimos diseño web, desarrollo de tiendas online, desarrollo de aplicaciones web y móviles y diseño gráfico.',
-          'Desarrollamos páginas web y tiendas online a medida o, si lo necesitas por plazos y comodidad, con plantillas de WordPress, WooCommerce o Shopify. Todo en función de lo que necesites y quieras invertir. Tú tienes la última palabra.',
+          <>
+            Detrás de PereiraWeb hay diseñadores y desarrolladores que venimos
+            de{' '}
+            <strong className='font-extrabold'>
+              grandes consultoras, startups y proyectos reales
+            </strong>
+            . Somos un{' '}
+            <strong className='font-extrabold'>equipo todoterreno</strong>:
+            cubrimos diseño web, tiendas online, aplicaciones web y móviles y
+            diseño gráfico.
+          </>,
+          <>
+            Desarrollamos páginas web y tiendas online{' '}
+            <strong className='font-extrabold'>a medida</strong> o, cuando tiene
+            más sentido por presupuesto, plazos o facilidad de gestión, con{' '}
+            <strong className='font-extrabold'>
+              WordPress, WooCommerce o Shopify
+            </strong>
+            .
+          </>,
+          <>
+            Te explicamos las opciones, sus ventajas y sus límites.{' '}
+            <strong className='font-extrabold'>Después decides tú.</strong>
+          </>,
         ]}
       />
 
@@ -97,7 +139,20 @@ const Nosotros = () => {
         label='¿QUIÉN ESTÁ DETRÁS DE PEREIRAWEB?'
         title='Estas somos las personas que vamos a encargarnos de tu proyecto.'
         paragraphs={[
-          'Queremos que nos pongas caras. Que puedas ver nuestros portfolios y repositorios o contactar con nosotros para lo que necesites: siempre contestamos. Sobre todo, que sientas seguridad al confiarnos la parte digital de tu negocio. Estás en buenas manos. 12 años de experiencia nos avalan.',
+          <>
+            Queremos que nos pongas caras. Que puedas ver nuestros portfolios y
+            contactar con nosotros para lo que necesites:{' '}
+            <strong className='font-extrabold'>siempre contestamos</strong>.
+            Sobre todo, que sientas{' '}
+            <strong className='font-extrabold'>
+              seguridad al confiarnos la parte digital de tu negocio
+            </strong>
+            . Aunque PereiraWeb acaba de empezar,{' '}
+            <strong className='font-extrabold'>
+              nosotros llevamos años trabajando en esto
+            </strong>
+            .
+          </>,
         ]}
       />
 
@@ -106,7 +161,20 @@ const Nosotros = () => {
 
       <HeroCta
         title='¿Necesitas que te contemos más?'
-        description='Déjanos tu email y teléfono y nosotros mismos nos ponemos en contacto contigo en menos que canta un gallo. Podemos conocernos y charlar un poco sobre tu idea, tu proyecto o resolverte cualquier duda.'
+        description={
+          <>
+            Déjanos tu email y teléfono y{' '}
+            <strong className='font-extrabold'>
+              nosotros mismos nos ponemos en contacto contigo
+            </strong>{' '}
+            en menos que canta un gallo. Podemos conocernos y charlar un poco
+            sobre tu proyecto o resolverte cualquier duda{' '}
+            <strong className='font-extrabold'>
+              antes de que decidas nada
+            </strong>
+            .
+          </>
+        }
         buttonText='PEDIR PROPUESTA'
         buttonHref={SITE_WEB_PATH}
         heroType='form'

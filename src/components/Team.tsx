@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { GithubIcon, LinkedinIcon, Mail } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
@@ -29,7 +30,7 @@ type TeamMembers = Team[];
 interface TeamProps {
   label: string;
   title: string;
-  paragraphs: string[];
+  paragraphs: ReactNode[];
 }
 
 export const Team = ({ label, title, paragraphs }: TeamProps) => {
@@ -37,7 +38,7 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
     {
       fullName: 'Sergio Cerdá',
       description:
-        '+5 años construyendo software. Su meta en los próximos 5 es dar forma contigo a las herramientas que funcionen.',
+        'Más de 5 años desarrollando software, aplicaciones web y móviles. Convierte ideas en herramientas digitales pensadas para funcionar de verdad.',
       role: 'Desarrollo Web y App',
       link: ['link1', 'link2'],
       imageUrl: '/img/team/sergi.png',
@@ -46,7 +47,7 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
     {
       fullName: 'Cristina Recio',
       description:
-        '+10 años en diseño gráfico y dirección de arte especializada en branding. Combina pensamiento estratégico con sensibilidad visual.',
+        'Más de 10 años en diseño gráfico y dirección de arte especializada en branding. Combina pensamiento estratégico con sensibilidad visual.',
       role: 'Diseñadora gráfica UX/UI',
       link: ['link1', 'link2'],
       imageUrl: '/img/team/cristina.jpg',
@@ -55,7 +56,7 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
     {
       fullName: 'Dani Pereira',
       description:
-        '+12 años de experiencia en web y SEO. Frontend con TypeScript. Clientes como Inditex y Banco Santander.',
+        'Más de 12 años de experiencia en web y SEO. Frontend con TypeScript. Clientes como Inditex y Banco Santander.',
       role: 'Desarrollo Web y Marketing digital',
       link: ['link1', 'link2'],
       imageUrl: '/img/team/dani.png',
@@ -65,7 +66,7 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
     {
       fullName: 'Karen Montero',
       description:
-        'Diseñadora web con y sin CMS. Un largo recorrido en el desarrollo con WordPress y una gran sensibilidad en diseño UX/UI.',
+        'Especializada en diseño y desarrollo web con WordPress, con especial atención a la experiencia de usuario y al diseño UX/UI.',
       role: 'Desarrollo Web',
       link: ['link1', 'link2'],
       imageUrl: '',
@@ -83,13 +84,14 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
           <h2 className='text-2xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark'>
             {title}
           </h2>
-          {paragraphs?.map((para: string) => {
-            return (
-              <p className='text-lg md:text-xl text-ink-dark lg:text-justify'>
-                {para}
-              </p>
-            );
-          })}
+          {paragraphs?.map((para, index) => (
+            <p
+              key={index}
+              className='text-lg md:text-xl text-ink-dark lg:text-justify'
+            >
+              {para}
+            </p>
+          ))}
         </div>
         <div className='w-full lg:w-1/2'>
           <Swiper

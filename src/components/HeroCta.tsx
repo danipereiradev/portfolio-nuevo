@@ -7,7 +7,7 @@ import TestimonialsBadge from './TestimonialsBadge';
 
 interface HeroCtaProps {
   title: string;
-  description: string;
+  description: ReactNode;
   buttonText: string;
   buttonHref?: string;
   backgroundUrl?: string;
