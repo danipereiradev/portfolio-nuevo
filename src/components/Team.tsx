@@ -37,7 +37,7 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
     {
       fullName: 'Sergio Cerdá',
       description:
-        '+5 años construyendo software, su meta en los próximos 5 es dar forma contigo a las herramientas que funcionen.',
+        '+5 años construyendo software. Su meta en los próximos 5 es dar forma contigo a las herramientas que funcionen.',
       role: 'Desarrollo Web y App',
       link: ['link1', 'link2'],
       imageUrl: '/img/team/sergi.png',
@@ -55,7 +55,7 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
     {
       fullName: 'Dani Pereira',
       description:
-        '+12 años de experiencia en Web y SEO. Frontend con Typescript. Clientes como Inditex y Banco Santander.',
+        '+12 años de experiencia en web y SEO. Frontend con TypeScript. Clientes como Inditex y Banco Santander.',
       role: 'Desarrollo Web y Marketing digital',
       link: ['link1', 'link2'],
       imageUrl: '/img/team/dani.png',
@@ -65,7 +65,7 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
     {
       fullName: 'Karen Montero',
       description:
-        'Diseñadora web con y sin cms. Un largo recorrido en el desarrollo con wordpress y una gran sensibilidad en diseño UX/UI',
+        'Diseñadora web con y sin CMS. Un largo recorrido en el desarrollo con WordPress y una gran sensibilidad en diseño UX/UI.',
       role: 'Desarrollo Web',
       link: ['link1', 'link2'],
       imageUrl: '',

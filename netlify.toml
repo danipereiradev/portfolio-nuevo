@@ -164,8 +164,8 @@
   status = 200
 
 [[redirects]]
-  from = "/nosotros"
-  to = "/nosotros/index.html"
+  from = "/sobre-pereiraweb"
+  to = "/sobre-pereiraweb/index.html"
   status = 200
 
 [[redirects]]

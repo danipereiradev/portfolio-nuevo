@@ -71,7 +71,7 @@ export const SITE_WEB_LABEL = 'Diseño web';
 export const SITE_SHOP_PATH = '/tiendas-online';
 export const SITE_SHOP_LABEL = 'Tiendas online';
 
-export const ABOUT_PATH = '/nosotros';
+export const ABOUT_PATH = '/sobre-pereiraweb';
 export const ABOUT_LABEL = 'pereiraweb';
 
 /** Landing de Ads de este servicio. Futuros servicios: /landing-{slug}. */

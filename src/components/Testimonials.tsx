@@ -42,11 +42,11 @@ function Testimonials({ id = 'testimonials' }: TestimonialsProps) {
       <div className='container mx-auto flex flex-col gap-page-gap'>
         <div className='page-title-block mx-auto max-w-5xl text-center'>
           <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark'>
-            Nuestros clientes están contentos con como lo hacemos
+            Nuestros clientes están contentos con cómo lo hacemos
           </h2>
           <p className='text-xl md:text-2xl text-ink-dark'>
-            Estás son valoraciones sacadas de nuestro perfil oficial de google
-            con certificación trustindex.
+            Estas son valoraciones sacadas de nuestro perfil oficial de Google
+            con certificación Trustindex.
           </p>
         </div>
         <div data-src={TRUSTINDEX_WIDGET_SRC} />

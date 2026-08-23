@@ -61,7 +61,7 @@ const translations = {
   'portfolio.title':
     'Nuestros primeros proyectos ya han empezado a dar su fruto',
   'portfolio.description':
-    'Estos son nuestros últimos casos de éxito en diseño web y posicionamiento SEO que han triplicado visitas e ingresos en apenas pocos meses.',
+    'Estos son nuestros últimos casos de éxito en diseño web y posicionamiento SEO que han triplicado visitas e ingresos en apenas unos meses.',
   'portfolio.upcoming.title': 'Próximamente',
   'portfolio.upcoming.description':
     'Proyectos que estamos terminando y publicaremos en breve.',

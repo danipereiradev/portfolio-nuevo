@@ -27,14 +27,17 @@ const Home = () => {
         hasReviewBadge={false}
       />
       <TextImage
-        label={'PEREIRAWEB'}
-        title='Desarrollamos webs pensado en la escalabilidad y el crecimiento de tu
-          negocio.'
+        label='¿QUE ES PEREIRAWEB?'
+        title='Agencia de diseño web y marketing digital online.'
         paragraphs={[
-          'En Pereiraweb somos directos: una web lenta o con errores es una fuga constante de dinero. Por eso, nuestra metodología en el desarrollo de tiendas online combina la arquitectura técnica más avanzada con un enfoque obsesivo en la conversión',
-          'Como Agencia de Ecommerce, analizamos tu modelo de negocio para elegir la tecnología que mejor se adapte a tus necesidades, desde Shopify hasta desarrollos a medida',
-          'En Pereiraweb somos directos: una web lenta o con errores es una fuga constante de dinero. Por eso, nuestra metodología en el desarrollo de tiendas online combina la arquitectura técnica más avanzada con un enfoque obsesivo en la conversión',
+          'Somos una agencia 100% online que ofrece un servicio de atención 1 a 1, es decir, no te atiende un comercial con el que luego no vuelves a tratar. Tendrás contacto directo en todo momento con la persona encargada de tu proyecto a través de mail, teléfono, videollamada o presencial (Si te encuentras en Madrid, Galicia o Valencia).',
+          'Creemos que una de las cosas mas importantes que nos diferencia de muchas otras empresas es que tocamos todos los palos:',
+          'Desarrollo web con wordpress, desarrollo web a medida con lenguajes de programación moderno, aplicaciones moviles, Posicionamiento SEO y branding. Todo en función de lo que realmente necesitas.',
         ]}
+        imageAlt='Equipo de PereiraWeb trabajando en diseño y desarrollo web'
+        buttonText='Leer más'
+        buttonHref='/sobre-pereiraweb#about2'
+        imageSrc='/img/fikret-tozak-rfNLa1HL7eY-unsplash.jpg'
       />
       <Services />
       <Team

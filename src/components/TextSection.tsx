@@ -5,6 +5,7 @@ interface TextSectionProps {
   title: string;
   paragraphs: ReactNode[];
   muted?: boolean;
+  id?: string;
 }
 
 export const TextSection = ({
@@ -12,8 +13,12 @@ export const TextSection = ({
   title,
   paragraphs,
   muted = false,
+  id,
 }: TextSectionProps) => (
-  <section className={`page-section ${muted ? 'bg-surface-muted' : ''}`}>
+  <section
+    id={id}
+    className={`page-section ${muted ? 'bg-surface-muted' : ''} ${id ? 'scroll-mt-24' : ''}`}
+  >
     <div className='container mx-auto'>
       <div className='page-title-block mx-auto max-w-5xl text-center'>
         {label ? (

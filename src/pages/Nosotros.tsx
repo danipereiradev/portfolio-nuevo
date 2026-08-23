@@ -60,7 +60,7 @@ const Nosotros = () => {
     <>
       <Hero
         title={'Conoce nuestra agencia'}
-        description='Somos una agencia de diseño web y marketing digital joven. Te contamos un poco más abajo'
+        description='Somos una agencia de diseño web y marketing digital joven. Te contamos un poco más abajo.'
         buttonText='CONTACTA AHORA'
         buttonHref='#contacto'
         backgroundUrl='/img/web-design-charlesdeluvio.webp'
@@ -70,12 +70,12 @@ const Nosotros = () => {
       />
 
       <TextImage
-        label='¿QUE ES PEREIRAWEB?'
+        label='¿QUÉ ES PEREIRAWEB?'
         title='Agencia de diseño web y marketing digital online.'
         paragraphs={[
-          'Somos una agencia 100% online que ofrece un servicio de atención 1 a 1, es decir, no te atiende un comercial con el que luego no vuelves a tratar. Tendrás contacto directo en todo momento con la persona encargada de tu proyecto a través de mail, teléfono, videollamada o presencial (Si te encuentras en Madrid, Galicia o Valencia).',
-          'Creemos que una de las cosas mas importantes que nos diferencia del resto de agencias es que tocamos todos los palos:',
-          'Desarrollo web con wordpress, desarrollo web a medida con lenguajes de programación moderno, aplicaciones moviles, Posicionamiento SEO y branding. Todo en función de lo que realmente necesitas.',
+          'Somos una agencia 100% online que ofrece un servicio de atención 1 a 1, es decir, no te atiende un comercial con el que luego no vuelves a tratar. Tendrás contacto directo en todo momento con la persona encargada de tu proyecto a través de correo, teléfono, videollamada o de forma presencial (si te encuentras en Madrid, Galicia o Valencia).',
+          'Creemos que una de las cosas más importantes que nos diferencia de muchas otras empresas es que tocamos todos los palos:',
+          'Desarrollo web con WordPress, desarrollo web a medida con lenguajes de programación modernos, aplicaciones móviles, posicionamiento SEO y branding. Todo en función de lo que realmente necesitas.',
         ]}
         imageAlt='Equipo de PereiraWeb trabajando en diseño y desarrollo web'
         buttonText='PEDIR PROPUESTA'
@@ -84,19 +84,20 @@ const Nosotros = () => {
       />
 
       <TextSection
+        id='about2'
         label='QUEREMOS SER TU FUTURO EQUIPO'
-        title='Una agencia joven con mas de una década diseñando y desarrollando software.'
+        title='Una agencia joven con más de una década diseñando y desarrollando software.'
         paragraphs={[
-          'Pereiraweb lo formamos un equipo de profesionales del sector del diseño y desarrollo de software. Contamos con experiencia en grandes consultoras y clientes como en startups modernas así que somos un equipo todo-terreno. Cubrimos diseño web, desarrollo de tiendas online, desarrollo de aplicaciones web y aplicaciones móviles y diseño gráfico',
-          'Desarrollamos páginas web y tiendas online a medida o si lo necesitas por plazos y comodidad con plantillas de wordpress, woocommerce o shopify. Todo en función de lo que necesites y quieras invertir. Tu tienes la última palabra.',
+          'PereiraWeb lo formamos un equipo de profesionales del sector del diseño y desarrollo de software. Contamos con experiencia tanto en grandes consultoras y clientes como en startups modernas, así que somos un equipo todoterreno. Cubrimos diseño web, desarrollo de tiendas online, desarrollo de aplicaciones web y móviles y diseño gráfico.',
+          'Desarrollamos páginas web y tiendas online a medida o, si lo necesitas por plazos y comodidad, con plantillas de WordPress, WooCommerce o Shopify. Todo en función de lo que necesites y quieras invertir. Tú tienes la última palabra.',
         ]}
       />
 
       <Team
-        label='¿QUIEN ESTÁ DETRÁS DE PEREIRAWEB?'
-        title='Estás somos las personas que vamos a encargarnos de tu proyecto.'
+        label='¿QUIÉN ESTÁ DETRÁS DE PEREIRAWEB?'
+        title='Estas somos las personas que vamos a encargarnos de tu proyecto.'
         paragraphs={[
-          'Queremos que nos pongas caras. Que puedas ver nuestros portfolios y repositorios o contactar con nosotros para lo que necesites, siempre contestamos, pero sobretodo que sientas seguridad en confiarnos la parte digital de tu negocio. Estás en buenas manos. 12 años de experiencia nos avalan.',
+          'Queremos que nos pongas caras. Que puedas ver nuestros portfolios y repositorios o contactar con nosotros para lo que necesites: siempre contestamos. Sobre todo, que sientas seguridad al confiarnos la parte digital de tu negocio. Estás en buenas manos. 12 años de experiencia nos avalan.',
         ]}
       />
 
@@ -104,8 +105,8 @@ const Nosotros = () => {
       <Testimonials />
 
       <HeroCta
-        title='¿Necesitas que te contemos mas?'
-        description='Déjanos tu email y teléfono y nosotros mismos nos ponemos en contacto contigo en menos que canta un gallo. Podemos conocernos y charlar un poco de tu idea, tu proyecto o resolverte cualquier duda.'
+        title='¿Necesitas que te contemos más?'
+        description='Déjanos tu email y teléfono y nosotros mismos nos ponemos en contacto contigo en menos que canta un gallo. Podemos conocernos y charlar un poco sobre tu idea, tu proyecto o resolverte cualquier duda.'
         buttonText='PEDIR PROPUESTA'
         buttonHref={SITE_WEB_PATH}
         heroType='form'
