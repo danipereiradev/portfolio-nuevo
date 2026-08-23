@@ -299,7 +299,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
   const formContent = (
     <>
-      <div className='text-center mb-12 md:mb-16'>
+      <div className='mx-auto mb-12 max-w-5xl text-center md:mb-16'>
         <h2 className='text-2xl md:text-3xl lg:text-4xl font-extrabold text-gray-900 mb-4'>
           Cuéntanos qué necesitas
         </h2>

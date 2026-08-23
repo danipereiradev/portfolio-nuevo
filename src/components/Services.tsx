@@ -27,7 +27,7 @@ const Services = () => {
   return (
     <section id='services' className='page-section scroll-mt-24 bg-surface-muted'>
       <div className='container mx-auto flex flex-col gap-page-gap'>
-        <div className='page-title-block mx-auto max-w-3xl text-center'>
+        <div className='page-title-block mx-auto max-w-5xl text-center'>
           <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark'>
             {t('services.title')}
           </h2>

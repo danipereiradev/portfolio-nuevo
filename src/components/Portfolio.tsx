@@ -94,7 +94,7 @@ Hay categorías, galerías ligeras y newsletter.`,
     <>
       <section id='portfolio' ref={sectionRef} className='page-section'>
         <div className='container mx-auto flex flex-col gap-page-gap'>
-          <div className='page-title-block mx-auto max-w-3xl text-center'>
+          <div className='page-title-block mx-auto max-w-5xl text-center'>
             <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark'>
               {t('portfolio.title')}
             </h2>

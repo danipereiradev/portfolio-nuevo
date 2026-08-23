@@ -15,7 +15,7 @@ export const TextSection = ({
 }: TextSectionProps) => (
   <section className={`page-section ${muted ? 'bg-surface-muted' : ''}`}>
     <div className='container mx-auto'>
-      <div className='page-title-block mx-auto max-w-3xl text-center lg:text-start'>
+      <div className='page-title-block mx-auto max-w-5xl text-center'>
         {label ? (
           <span className='text-md rounded-lg font-extrabold text-accent underline'>
             {label}
@@ -25,10 +25,7 @@ export const TextSection = ({
           {title}
         </h2>
         {paragraphs.map((para, index) => (
-          <p
-            key={index}
-            className='text-lg text-ink-dark md:text-xl lg:text-justify'
-          >
+          <p key={index} className='text-lg text-ink-dark md:text-xl'>
             {para}
           </p>
         ))}

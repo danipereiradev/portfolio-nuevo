@@ -39,8 +39,8 @@ const Hero = ({
         ></div>
       ) : null}
 
-      <div className='container mx-auto flex flex-col items-center text-center md:flex-row md:justify-center'>
-        <div className='z-10 flex flex-col gap-page-gap md:w-1/2'>
+      <div className='mx-auto flex w-[95%] max-w-5xl flex-col items-center text-center'>
+        <div className='z-10 flex w-full flex-col items-center gap-page-gap'>
           <div className='page-title-block'>
             <h1 className='text-5xl md:text-6xl lg:text-7xl font-extrabold text-ink-dark'>
               {title}
@@ -51,10 +51,7 @@ const Hero = ({
           </div>
           {hasReviewBadge ? <TestimonialsBadge /> : null}
           {hasButton ? (
-            <Button
-              className='mx-auto md:mx-0 text-center place-self-center'
-              href={buttonHref}
-            >
+            <Button className='mx-auto text-center' href={buttonHref}>
               {buttonText}
             </Button>
           ) : null}

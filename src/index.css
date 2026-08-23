@@ -334,18 +334,6 @@ img {
 }
 
 @media (min-width: 1024px) {
-  .page-section {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
-  }
-
-  .page-hero-compact {
-    min-height: 100vh;
-  }
-
   .blog-prose p,
   .blog-prose li {
     font-size: 1.375rem;

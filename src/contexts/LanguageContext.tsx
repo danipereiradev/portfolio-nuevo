@@ -58,9 +58,10 @@ const translations = {
     'Actualizaciones, copias, cambios de textos y fotos, y soporte cuando algo se rompe.',
 
   // Portfolio
-  'portfolio.title': 'Nuestros casos de éxito mas recientes',
+  'portfolio.title':
+    'Nuestros primeros proyectos ya han empezado a dar su fruto',
   'portfolio.description':
-    'Estos son algunos de nuestros trabajos como agencia, puedes ver mas en la sección de portfolio',
+    'Estos son nuestros últimos casos de éxito en diseño web y posicionamiento SEO que han triplicado visitas e ingresos en apenas pocos meses.',
   'portfolio.upcoming.title': 'Próximamente',
   'portfolio.upcoming.description':
     'Proyectos que estamos terminando y publicaremos en breve.',

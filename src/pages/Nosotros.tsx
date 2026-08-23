@@ -59,8 +59,8 @@ const Nosotros = () => {
   return (
     <>
       <Hero
-        title={ABOUT_LABEL}
-        description='Agencia de diseño web y marketing digital en Madrid. Más de 12 años. Hablas con quien monta la página.'
+        title={'Conoce nuestra agencia'}
+        description='Somos una agencia de diseño web y marketing digital joven. Te contamos un poco más abajo'
         buttonText='CONTACTA AHORA'
         buttonHref='#contacto'
         backgroundUrl='/img/web-design-charlesdeluvio.webp'
@@ -70,34 +70,33 @@ const Nosotros = () => {
       />
 
       <TextImage
-        label='EL ESTUDIO'
-        title='Una agencia joven, con más de una década de experiencia'
+        label='¿QUE ES PEREIRAWEB?'
+        title='Agencia de diseño web y marketing digital online.'
         paragraphs={[
-          'PereiraWeb es un estudio pequeño en Madrid. Montamos webs y tiendas online para autónomos y empresas de toda España. Sin comercial de por medio: te atiende el equipo que diseña y desarrolla.',
-          'Una web lenta o un checkout confuso te cuesta clientes. Por eso el trabajo aquí es claro, con precio y plazos por escrito antes de arrancar. El 50% al aceptar; el resto, al publicar.',
+          'Somos una agencia 100% online que ofrece un servicio de atención 1 a 1, es decir, no te atiende un comercial con el que luego no vuelves a tratar. Tendrás contacto directo en todo momento con la persona encargada de tu proyecto a través de mail, teléfono, videollamada o presencial (Si te encuentras en Madrid, Galicia o Valencia).',
+          'Creemos que una de las cosas mas importantes que nos diferencia del resto de agencias es que tocamos todos los palos:',
+          'Desarrollo web con wordpress, desarrollo web a medida con lenguajes de programación moderno, aplicaciones moviles, Posicionamiento SEO y branding. Todo en función de lo que realmente necesitas.',
         ]}
-        imageSrc='/img/fikret-tozak-rfNLa1HL7eY-unsplash.jpg'
         imageAlt='Equipo de PereiraWeb trabajando en diseño y desarrollo web'
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
+        imageSrc='/img/fikret-tozak-rfNLa1HL7eY-unsplash.jpg'
       />
 
       <TextSection
-        label='CÓMO TRABAJAMOS'
-        title='Pocos proyectos a la vez. Precio y plazos por escrito.'
-        muted
+        label='QUEREMOS SER TU FUTURO EQUIPO'
+        title='Una agencia joven con mas de una década diseñando y desarrollando software.'
         paragraphs={[
-          'Llevamos más de 12 años haciendo páginas web y tiendas online. Seguimos siendo un estudio pequeño a propósito: así no desaparece quien te atendió el primer día. La propuesta llega en 24–48 h laborables, con lo que entra y cuándo está.',
-          'El mercado está lleno de plantillas baratas y de agencias que te pasan de un comercial a otro. Aquí diseña y desarrolla el mismo equipo. WordPress o a medida, según el caso. Si lo que necesitas es una plantilla genérica a bajo precio, este no es el servicio.',
-          'Madrid es la sede. Los clientes están en toda España. WhatsApp, llamada o el formulario; si estás en Madrid, también podemos vernos.',
+          'Pereiraweb lo formamos un equipo de profesionales del sector del diseño y desarrollo de software. Contamos con experiencia en grandes consultoras y clientes como en startups modernas así que somos un equipo todo-terreno. Cubrimos diseño web, desarrollo de tiendas online, desarrollo de aplicaciones web y aplicaciones móviles y diseño gráfico',
+          'Desarrollamos páginas web y tiendas online a medida o si lo necesitas por plazos y comodidad con plantillas de wordpress, woocommerce o shopify. Todo en función de lo que necesites y quieras invertir. Tu tienes la última palabra.',
         ]}
       />
 
       <Team
-        label='EL EQUIPO'
-        title='La montamos nosotros. Tú hablas con quien la hace.'
+        label='¿QUIEN ESTÁ DETRÁS DE PEREIRAWEB?'
+        title='Estás somos las personas que vamos a encargarnos de tu proyecto.'
         paragraphs={[
-          'Diseño, desarrollo y publicación. Estudio en Madrid, proyectos en remoto con negocios de toda España. Si estás en Madrid, también podemos vernos.',
+          'Queremos que nos pongas caras. Que puedas ver nuestros portfolios y repositorios o contactar con nosotros para lo que necesites, siempre contestamos, pero sobretodo que sientas seguridad en confiarnos la parte digital de tu negocio. Estás en buenas manos. 12 años de experiencia nos avalan.',
         ]}
       />
 
@@ -105,8 +104,8 @@ const Nosotros = () => {
       <Testimonials />
 
       <HeroCta
-        title='Cuéntanos el caso'
-        description='Nos cuentas qué haces y qué tiene que hacer la web o la tienda. Te devolvemos propuesta en 24–48 h, con precio y plazos. Si no encaja, lo dices y no pasa nada.'
+        title='¿Necesitas que te contemos mas?'
+        description='Déjanos tu email y teléfono y nosotros mismos nos ponemos en contacto contigo en menos que canta un gallo. Podemos conocernos y charlar un poco de tu idea, tu proyecto o resolverte cualquier duda.'
         buttonText='PEDIR PROPUESTA'
         buttonHref={SITE_WEB_PATH}
         heroType='form'

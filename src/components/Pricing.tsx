@@ -96,7 +96,7 @@ const Pricing = () => {
       className='relative py-20 bg-surface overflow-hidden'
     >
       <div className='container relative z-10 mx-auto'>
-        <div className='text-center mb-12    mx-auto'>
+        <div className='mx-auto mb-12 max-w-5xl text-center'>
           <h2 className='text-4xl md:text-5xl font-extrabold text-ink-dark mb-6'>
             Cuéntanos el proyecto y te pasamos números
           </h2>

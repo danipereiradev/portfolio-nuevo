@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { AlertCircle, Calendar, Check, Mail, User, X } from 'lucide-react';
 import { useContactModal } from '../contexts/ContactModalContext';
 import { useBodyScrollLock } from '../hooks/useBodyScrollLock';
+import Button from './Button';
 import {
   trackFormError,
   trackGuideSubscribe,

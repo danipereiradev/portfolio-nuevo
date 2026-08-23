@@ -22,7 +22,7 @@ const SEOProcess = ({
   return (
     <section className='page-section relative overflow-hidden bg-surface-muted'>
       <div className='container relative z-10 mx-auto flex flex-col gap-page-gap'>
-        <div className='page-title-block text-center'>
+        <div className='page-title-block mx-auto max-w-5xl text-center'>
           <h2 className='text-2xl font-extrabold text-ink-dark md:text-4xl lg:text-5xl'>
             {title}
           </h2>

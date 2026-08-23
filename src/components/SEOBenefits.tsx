@@ -15,7 +15,7 @@ interface SEOBenefitsProps {
 const SEOBenefits = ({ title, subtitle, benefits }: SEOBenefitsProps) => (
   <section className='page-section'>
     <div className='container mx-auto flex flex-col gap-page-gap'>
-      <div className='page-title-block mx-auto max-w-3xl text-center'>
+      <div className='page-title-block mx-auto max-w-5xl text-center'>
         <h2 className='text-2xl font-extrabold text-ink-dark md:text-4xl lg:text-5xl'>
           {title}
         </h2>

@@ -47,16 +47,14 @@ export const ABOUT_PAGE_WHATSAPP_MESSAGE =
 export const PORTFOLIO_WHATSAPP_MESSAGE =
   'Hola, he visto tu portfolio y me gustaría ver más ejemplos de proyectos similares al que necesito.';
 
-export const buildWhatsAppUrl = (
-  message: string = DEFAULT_WHATSAPP_MESSAGE,
-) => `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`;
+export const buildWhatsAppUrl = (message: string = DEFAULT_WHATSAPP_MESSAGE) =>
+  `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`;
 
 // Quita la barra final de una ruta (salvo si es la raíz "/"), para que las
 // comparaciones exactas de pathname no fallen si la URL llega con "/" al
 // final (p. ej. "/landing-diseño-web/" servida como carpeta).
 const normalizePath = (pathname: string): string => {
-  const trimmed =
-    pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
+  const trimmed = pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
   try {
     return decodeURIComponent(trimmed);
   } catch {
@@ -74,7 +72,7 @@ export const SITE_SHOP_PATH = '/tiendas-online';
 export const SITE_SHOP_LABEL = 'Tiendas online';
 
 export const ABOUT_PATH = '/nosotros';
-export const ABOUT_LABEL = 'La Agencia';
+export const ABOUT_LABEL = 'pereiraweb';
 
 /** Landing de Ads de este servicio. Futuros servicios: /landing-{slug}. */
 export const ADS_LANDING_PATH = '/landing-diseño-web';
