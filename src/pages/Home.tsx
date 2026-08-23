@@ -27,16 +27,40 @@ const Home = () => {
         hasReviewBadge={false}
       />
       <TextImage
-        label='¿QUE ES PEREIRAWEB?'
-        title='Agencia de diseño web y marketing digital online.'
+        label='¿QUÉ ES PEREIRAWEB?'
+        title='Agencia de diseño web y marketing digital con atención directa.'
         paragraphs={[
-          'Somos una agencia 100% online que ofrece un servicio de atención 1 a 1, es decir, no te atiende un comercial con el que luego no vuelves a tratar. Tendrás contacto directo en todo momento con la persona encargada de tu proyecto a través de mail, teléfono, videollamada o presencial (Si te encuentras en Madrid, Galicia o Valencia).',
-          'Creemos que una de las cosas mas importantes que nos diferencia de muchas otras empresas es que tocamos todos los palos:',
-          'Desarrollo web con wordpress, desarrollo web a medida con lenguajes de programación moderno, aplicaciones moviles, Posicionamiento SEO y branding. Todo en función de lo que realmente necesitas.',
+          <>
+            Somos una agencia{' '}
+            <strong className='font-extrabold'>100% online</strong> y trabajamos
+            contigo de forma directa. Tendrás{' '}
+            <strong className='font-extrabold'>
+              contacto directo en todo momento con quien lleva tu proyecto
+            </strong>
+            : correo, teléfono, videollamada o presencial (si estás en Madrid,
+            Galicia o Valencia).
+          </>,
+          <>
+            <strong className='font-extrabold'>Tocamos todos los palos</strong>,
+            y eso nos permite elegir la mejor solución para cada proyecto:
+          </>,
+          <>
+            Desarrollo web con{' '}
+            <strong className='font-extrabold'>WordPress</strong>, desarrollo{' '}
+            <strong className='font-extrabold'>a medida</strong>,{' '}
+            <strong className='font-extrabold'>aplicaciones móviles</strong>,{' '}
+            <strong className='font-extrabold'>SEO</strong> y{' '}
+            <strong className='font-extrabold'>branding</strong>. Todo en
+            función de{' '}
+            <strong className='font-extrabold'>
+              lo que realmente necesitas
+            </strong>
+            .
+          </>,
         ]}
         imageAlt='Equipo de PereiraWeb trabajando en diseño y desarrollo web'
-        buttonText='Leer más'
-        buttonHref='/sobre-pereiraweb#about2'
+        buttonText='PEDIR PROPUESTA'
+        buttonHref='#contacto'
         imageSrc='/img/fikret-tozak-rfNLa1HL7eY-unsplash.jpg'
       />
       <Services />
