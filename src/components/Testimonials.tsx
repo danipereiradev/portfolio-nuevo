@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import VideoTestimonial from './VideoTestimonial';
 
 const TRUSTINDEX_WIDGET_SRC =
   'https://cdn.trustindex.io/loader.js?7268074797d8717b3c668cae8f6';
@@ -11,9 +12,13 @@ declare global {
 
 interface TestimonialsProps {
   id?: string;
+  hasVideo?: boolean;
 }
 
-function Testimonials({ id = 'testimonials' }: TestimonialsProps) {
+function Testimonials({
+  id = 'testimonials',
+  hasVideo = false,
+}: TestimonialsProps) {
   useEffect(() => {
     let cancelled = false;
     let intervalId = 0;
@@ -52,6 +57,7 @@ function Testimonials({ id = 'testimonials' }: TestimonialsProps) {
             con certificación Trustindex.
           </p>
         </div>
+        {hasVideo ? <VideoTestimonial /> : null}
         <div data-src={TRUSTINDEX_WIDGET_SRC} />
       </div>
     </section>

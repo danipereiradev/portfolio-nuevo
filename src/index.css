@@ -402,3 +402,17 @@ body {
 
   margin-top: 1rem !important;
 }
+
+.video-testimonial img,
+.video-testimonial img:hover,
+.group:hover .video-testimonial img {
+  transform: none;
+}
+
+.video-testimonial video::cue {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  color: #fff;
+  background-color: rgba(20, 20, 20, 0.78);
+}

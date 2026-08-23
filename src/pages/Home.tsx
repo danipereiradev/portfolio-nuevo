@@ -41,11 +41,23 @@ const Home = () => {
       />
       <Services />
       <Team
-        label={'CONOCE A TU FUTURO EQUIPO'}
-        title='Desarrollamos webs pensado en la escalabilidad y el crecimiento de tu
-          negocio.'
+        label='¿QUIÉN ESTÁ DETRÁS DE PEREIRAWEB?'
+        title='Estas somos las personas que vamos a encargarnos de tu proyecto.'
         paragraphs={[
-          'En Pereiraweb somos directos: una web lenta o con errores es una fuga constante de dinero. Por eso, nuestra metodología en el desarrollo de tiendas online.',
+          <>
+            Queremos que nos pongas caras. Que puedas ver nuestros portfolios y
+            contactar con nosotros para lo que necesites:{' '}
+            <strong className='font-extrabold'>siempre contestamos</strong>.
+            Sobre todo, que sientas{' '}
+            <strong className='font-extrabold'>
+              seguridad al confiarnos la parte digital de tu negocio
+            </strong>
+            . Aunque PereiraWeb acaba de empezar,{' '}
+            <strong className='font-extrabold'>
+              nosotros llevamos años trabajando en esto
+            </strong>
+            .
+          </>,
         ]}
       />
       <Portfolio />

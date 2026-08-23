@@ -222,7 +222,7 @@ const LandingWeb = () => {
         ]}
       />
       <Portfolio contained />
-      <Testimonials />
+      <Testimonials hasVideo />
 
       <div id='faq' className='scroll-mt-24'>
         <SEOFAQ
