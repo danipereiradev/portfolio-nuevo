@@ -109,7 +109,7 @@
   }
 
   .site-header {
-    background: color-mix(in srgb, var(--color-brand) 18%, #ebfd85 82%);
+    background: var(--color-brand-light);
   }
 }
 
@@ -297,7 +297,7 @@ img {
 }
 
 .blog-prose thead {
-  background: #3346c1;
+  background: var(--color-accent);
   color: #fff;
 }
 
