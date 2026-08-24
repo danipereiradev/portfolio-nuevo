@@ -1,9 +1,10 @@
+import { ReactNode } from 'react';
 import Button from './Button';
 import TestimonialsBadge from './TestimonialsBadge';
 
 interface HeroProps {
   title: string;
-  description: string;
+  description: ReactNode;
   buttonText: string;
   buttonHref?: string;
   backgroundUrl?: string;
@@ -45,9 +46,7 @@ const Hero = ({
             <h1 className='text-5xl md:text-6xl lg:text-7xl font-extrabold text-ink-dark'>
               {title}
             </h1>
-            <p className='text-xl md:text-2xl text-ink-dark font-bold'>
-              {description}
-            </p>
+            <p className='text-xl md:text-2xl text-ink-dark'>{description}</p>
           </div>
           {hasReviewBadge ? <TestimonialsBadge /> : null}
           {hasButton ? (

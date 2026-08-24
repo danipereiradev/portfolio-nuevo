@@ -30,10 +30,9 @@ const translations = {
   'hero.cta.portfolio': 'Ver trabajos',
 
   // Services
-  'services.title':
-    'Una agencia joven pero con más de una década de experiencia',
+  'services.title': 'Diseño y desarrollo según lo que necesites',
   'services.description':
-    'Nuestro equipo cuenta con profesionales del producto y marketing digital, el desarrollo de software y el diseño con una larga trayectoria.',
+    'Desde una web corporativa hasta una tienda online o una solución a medida. Elegimos las herramientas y la estrategia en función de lo que necesite tu proyecto.',
   'services.webdesign.title': 'Diseño web',
   'services.webdesign.desc':
     'Cuando hace falta una estructura concreta, reservas, zona privada o conexión con lo que ya usas.',

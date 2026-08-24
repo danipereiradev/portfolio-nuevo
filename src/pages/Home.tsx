@@ -19,8 +19,21 @@ const Home = () => {
     <>
       <Hero
         title='Agencia de diseño web y marketing digital'
-        description='Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+        description={
+          <>
+            Creamos{' '}
+            <strong className='font-extrabold'>
+              páginas web, tiendas online y aplicaciones a medida
+            </strong>
+            . También te ayudamos con{' '}
+            <strong className='font-extrabold'>
+              SEO, branding y estrategia digital
+            </strong>{' '}
+            para hacer crecer tu proyecto.
+          </>
+        }
         buttonText='CONTACTA AHORA'
+        buttonHref='#contacto'
         backgroundUrl='/img/web-design-charlesdeluvio.webp'
         hasButton
         hasBackground
@@ -49,8 +62,10 @@ const Home = () => {
             <strong className='font-extrabold'>WordPress</strong>, desarrollo{' '}
             <strong className='font-extrabold'>a medida</strong>,{' '}
             <strong className='font-extrabold'>aplicaciones móviles</strong>,{' '}
-            <strong className='font-extrabold'>SEO</strong> y{' '}
-            <strong className='font-extrabold'>branding</strong>. Todo en
+            <strong className='font-extrabold'>
+              Posicionamiento en Google
+            </strong>{' '}
+            y <strong className='font-extrabold'>branding</strong>. Todo en
             función de{' '}
             <strong className='font-extrabold'>
               lo que realmente necesitas
@@ -63,7 +78,18 @@ const Home = () => {
         buttonHref='/sobre-pereiraweb#about2'
         imageSrc='/img/fikret-tozak-rfNLa1HL7eY-unsplash.jpg'
       />
-      <Services />
+      <Services
+        description={
+          <>
+            Desde una{' '}
+            <strong className='font-extrabold'>web corporativa</strong> hasta
+            una <strong className='font-extrabold'>tienda online</strong> o una{' '}
+            <strong className='font-extrabold'>solución a medida</strong>.
+            Elegimos las herramientas y la estrategia en función de lo que
+            necesite tu proyecto.
+          </>
+        }
+      />
       <Team
         label='¿QUIÉN ESTÁ DETRÁS DE PEREIRAWEB?'
         title='Estas somos las personas que vamos a encargarnos de tu proyecto.'
@@ -88,20 +114,30 @@ const Home = () => {
       <Testimonials />
 
       <div id='faq' className='scroll-mt-24'>
-        <SEOFAQ title='Te resolvemos todas tus dudas' faqs={globalFaqs} />
+        <SEOFAQ title='No te quedes con la duda' faqs={globalFaqs} />
       </div>
       <HeroCta
-        title='Nos ponemos manos a la obra.'
-        description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
-            quia veritatis voluptatibus, dicta id reprehenderit deserunt culpa
-            corporis corrupti accusantium.'
-        buttonText='TIENDAS ONLINE'
-        backgroundUrl='/img/theme-photos-CGpifH3FjOA-unsplash.jpg'
+        label='Te lo ponemos fácil'
+        title='¿Necesitas que te contemos más?'
+        description={
+          <>
+            Déjanos tu email y teléfono y{' '}
+            <strong className='font-extrabold'>
+              nosotros mismos nos ponemos en contacto contigo
+            </strong>{' '}
+            en menos que canta un gallo. Podemos conocernos y charlar un poco
+            sobre tu proyecto o resolverte cualquier duda{' '}
+            <strong className='font-extrabold'>
+              antes de que decidas nada
+            </strong>
+            .
+          </>
+        }
         heroType='form'
         hasButton={false}
-        formTitle='Nosotros te contactámos'
-        formDescription='Déjanos tus datos y nos pondremos en contacto.'
-        formSectionInfo='Hero CTA 2 Home'
+        formTitle='Te llamamos'
+        formDescription='Propuesta en 24–48 h. Sin compromiso.'
+        formSectionInfo='La Agencia CTA'
         hasBackground={false}
         hasReviewBadge
         formId='contacto'

@@ -11,7 +11,8 @@ interface Team {
   fullName: string;
   description: string;
   role: string;
-  link: string[];
+  linkedin?: string;
+  github?: string;
   imageUrl?: string;
   mail: string;
 }
@@ -40,7 +41,8 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
       description:
         'Más de 5 años desarrollando software, aplicaciones web y móviles. Convierte ideas en herramientas digitales pensadas para funcionar de verdad.',
       role: 'Desarrollo Web y App',
-      link: ['link1', 'link2'],
+      linkedin: 'https://www.linkedin.com/in/sergio-cerda-hervas/',
+      github: 'https://github.com/sergio-cravas',
       imageUrl: '/img/team/sergi.png',
       mail: 's.cerda@pereiraweb.es',
     },
@@ -49,7 +51,7 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
       description:
         'Más de 10 años en diseño gráfico y dirección de arte especializada en branding. Combina pensamiento estratégico con sensibilidad visual.',
       role: 'Diseñadora gráfica UX/UI',
-      link: ['link1', 'link2'],
+      linkedin: 'https://www.linkedin.com/in/cristina-recio/',
       imageUrl: '/img/team/cristina.jpg',
       mail: 'c.recio@pereiraweb.es',
     },
@@ -58,7 +60,7 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
       description:
         'Más de 12 años de experiencia en web y SEO. Frontend con TypeScript. Clientes como Inditex y Banco Santander.',
       role: 'Desarrollo Web y Marketing digital',
-      link: ['link1', 'link2'],
+      github: 'https://github.com/danipereiradev',
       imageUrl: '/img/team/dani.png',
       mail: 'hola@pereiraweb.es',
     },
@@ -68,7 +70,7 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
       description:
         'Especializada en diseño y desarrollo web con WordPress, con especial atención a la experiencia de usuario y al diseño UX/UI.',
       role: 'Desarrollo Web',
-      link: ['link1', 'link2'],
+      linkedin: 'https://www.linkedin.com/in/karenmonrose/',
       imageUrl: '',
       mail: 'k.montero@pereiraweb.es',
     },
@@ -153,11 +155,35 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
                         {member.description}
                       </p>
                       <div className='mt-text-gap flex items-start gap-content-gap'>
-                        <Mail width={20} className='text-accent' />
-
-                        <LinkedinIcon width={20} className='text-accent' />
-
-                        <GithubIcon width={20} className='text-accent' />
+                        <a
+                          href={`mailto:${member.mail}`}
+                          aria-label={`Enviar email a ${member.fullName}`}
+                          className='text-accent transition-colors hover:text-accent-hover'
+                        >
+                          <Mail width={20} />
+                        </a>
+                        {member.linkedin ? (
+                          <a
+                            href={member.linkedin}
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            aria-label={`LinkedIn de ${member.fullName}`}
+                            className='text-accent transition-colors hover:text-accent-hover'
+                          >
+                            <LinkedinIcon width={20} />
+                          </a>
+                        ) : null}
+                        {member.github ? (
+                          <a
+                            href={member.github}
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            aria-label={`GitHub de ${member.fullName}`}
+                            className='text-accent transition-colors hover:text-accent-hover'
+                          >
+                            <GithubIcon width={20} />
+                          </a>
+                        ) : null}
                       </div>
                     </div>
                   </article>

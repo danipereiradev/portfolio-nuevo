@@ -36,6 +36,9 @@ const SEOFAQ = ({
     <section className='page-section flex items-center justify-center'>
       <div className='container mx-auto flex flex-col items-center gap-page-gap'>
         <div className='page-title-block mx-auto max-w-5xl text-center'>
+          <span className='text-md uppercase rounded-lg font-extrabold text-accent underline'>
+            ¿Tienes mas preguntas?
+          </span>
           <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark'>
             {title}
           </h2>
@@ -61,9 +64,9 @@ const SEOFAQ = ({
                 />
               </button>
               <div
-              className={`overflow-hidden transition-all duration-300 ${
-                openIndex === index ? 'max-h-[32rem]' : 'max-h-0'
-              }`}
+                className={`overflow-hidden transition-all duration-300 ${
+                  openIndex === index ? 'max-h-[32rem]' : 'max-h-0'
+                }`}
               >
                 <div className='px-content-pad pb-content-pad'>
                   <p className='text-sm md:text-base lg:text-lg text-ink-gray leading-relaxed'>

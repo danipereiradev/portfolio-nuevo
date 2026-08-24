@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import {
   SITE_SHOP_LABEL,
@@ -6,7 +7,11 @@ import {
   SITE_WEB_PATH,
 } from '../config/contact';
 
-const Services = () => {
+interface ServicesProps {
+  description: ReactNode;
+}
+
+const Services = ({ description }: ServicesProps) => {
   const { t } = useLanguage();
 
   const mainServices = [
@@ -25,15 +30,19 @@ const Services = () => {
   ];
 
   return (
-    <section id='services' className='page-section scroll-mt-24 bg-surface-muted'>
+    <section
+      id='services'
+      className='page-section scroll-mt-24 bg-surface-muted'
+    >
       <div className='container mx-auto flex flex-col gap-page-gap'>
         <div className='page-title-block mx-auto max-w-5xl text-center'>
+          <span className='text-md uppercase rounded-lg font-extrabold text-accent underline'>
+            En que podemos ayudarte
+          </span>
           <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark'>
             {t('services.title')}
           </h2>
-          <p className='text-xl md:text-2xl text-ink-dark'>
-            {t('services.description')}
-          </p>
+          <p className='text-xl md:text-2xl text-ink-dark'>{description}</p>
         </div>
         <div className='mx-auto grid w-full grid-cols-1 gap-page-gap md:max-w-4xl md:grid-cols-2'>
           {mainServices.map((service) => (

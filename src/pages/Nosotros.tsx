@@ -93,8 +93,12 @@ const Nosotros = () => {
             <strong className='font-extrabold'>a medida</strong>,{' '}
             <strong className='font-extrabold'>aplicaciones móviles</strong>,{' '}
             <strong className='font-extrabold'>SEO</strong> y{' '}
-            <strong className='font-extrabold'>branding</strong>. Todo en función
-            de <strong className='font-extrabold'>lo que realmente necesitas</strong>.
+            <strong className='font-extrabold'>branding</strong>. Todo en
+            función de{' '}
+            <strong className='font-extrabold'>
+              lo que realmente necesitas
+            </strong>
+            .
           </>,
         ]}
         imageAlt='Equipo de PereiraWeb trabajando en diseño y desarrollo web'
@@ -160,6 +164,7 @@ const Nosotros = () => {
       <Testimonials />
 
       <HeroCta
+        label='Te lo ponemos fácil'
         title='¿Necesitas que te contemos más?'
         description={
           <>

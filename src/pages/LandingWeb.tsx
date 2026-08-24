@@ -114,8 +114,7 @@ const faqs = [
   },
   {
     question: '¿Puedo usar mi dominio?',
-    answer:
-      'Sí, es tuyo. Lo configuramos o te ayudamos a registrar uno nuevo.',
+    answer: 'Sí, es tuyo. Lo configuramos o te ayudamos a registrar uno nuevo.',
   },
   {
     question: '¿El hosting está incluido?',
@@ -226,7 +225,7 @@ const LandingWeb = () => {
 
       <div id='faq' className='scroll-mt-24'>
         <SEOFAQ
-          title='Te resolvemos todas tus dudas'
+          title='No te vayas quedándote con dudas'
           faqs={faqs}
           ctaText='PEDIR PROPUESTA'
           ctaHref='#contacto'
