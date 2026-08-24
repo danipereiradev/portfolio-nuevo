@@ -16,91 +16,193 @@ import Testimonials from '../components/Testimonials';
 import TrustBar from '../components/TrustBar';
 import SEOProcess from '../components/SEOProcess';
 import HeroCta from '../components/HeroCta';
-import CompareVsAi from '../components/CompareVsAi';
+import { ServiceIncludes } from '../components/ServiceOnPage';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { ADS_LANDING_PATH } from '../config/contact';
 
 const landingTrustPoints = [
-  { icon: Wallet, text: 'Desde 400 € + IVA' },
+  { icon: Wallet, text: 'Desde 400 €' },
   { icon: Clock, text: 'Propuesta en 24–48 h' },
   { icon: ShieldCheck, text: 'Hosting incluido' },
   { icon: BadgeCheck, text: 'La web es tuya' },
+];
+
+const includes = [
+  {
+    title: 'Diseño a tu medida',
+    description: (
+      <>
+        No hacemos la misma web para todo el mundo. La hacemos con tu marca, tus
+        textos y tus fotos.{' '}
+        <strong className='font-extrabold'>
+          Cada web es distinta porque cada negocio lo es
+        </strong>
+        .
+      </>
+    ),
+  },
+  {
+    title: 'Se ve bien en el móvil',
+    description: (
+      <>
+        La mayor parte de tus visitas llegan del teléfono. La página tiene que
+        leerse y{' '}
+        <strong className='font-extrabold'>
+          dejar que te escriban desde ahí
+        </strong>
+        .
+      </>
+    ),
+  },
+  {
+    title: 'Formulario o WhatsApp',
+    description: (
+      <>
+        Si no pueden contactarte, la web no sirve. Dejamos{' '}
+        <strong className='font-extrabold'>
+          un formulario o un botón de WhatsApp
+        </strong>{' '}
+        a la vista.
+      </>
+    ),
+  },
+  {
+    title: 'Preparada para Google y para cargar rápido',
+    description: (
+      <>
+        Títulos, encabezados, URLs limpias y una página rápida.{' '}
+        <strong className='font-extrabold'>
+          Google y tus clientes lo notan
+        </strong>
+        .
+      </>
+    ),
+  },
+  {
+    title: 'Hosting, dominio y panel',
+    description: (
+      <>
+        Un año de hosting para arrancar, tu dominio y un panel sencillo para
+        textos y fotos.{' '}
+        <strong className='font-extrabold'>La web queda a tu nombre</strong>.
+      </>
+    ),
+  },
+];
+
+const whyUs = [
+  {
+    icon: FileCheck,
+    title: 'Precio y plazo, por escrito',
+    description: (
+      <>
+        Antes de empezar sabes qué entra, cuánto sale y cuándo está.{' '}
+        <strong className='font-extrabold'>
+          Sin packs hinchados ni “ya te digo”
+        </strong>
+        .
+      </>
+    ),
+  },
+  {
+    icon: Handshake,
+    title: 'Trato directo',
+    description: (
+      <>
+        Hablas con quien la diseña y la desarrolla. Estudio pequeño.{' '}
+        <strong className='font-extrabold'>Siempre contestamos</strong>.
+      </>
+    ),
+  },
+  {
+    icon: LayoutTemplate,
+    title: 'Diseño adaptado a ti',
+    description: (
+      <>
+        A tu marca y a lo que necesitas de verdad. Si con 4 páginas vale,{' '}
+        <strong className='font-extrabold'>no te vendemos 12</strong>.
+      </>
+    ),
+  },
 ];
 
 const processSteps = [
   {
     number: '1',
     title: 'Nos cuentas el caso',
-    description:
-      'Formulario, WhatsApp o llamada. Qué haces y qué tiene que hacer la web. Aún no hay nada que pagar.',
+    description: (
+      <>
+        Formulario, WhatsApp o llamada. Qué haces y qué tiene que hacer la web.{' '}
+        <strong className='font-extrabold'>Aún no hay nada que pagar</strong>.
+      </>
+    ),
   },
   {
     number: '2',
     title: 'Te mandamos la propuesta',
-    description:
-      'En 24–48 h laborables: precio, plazos y qué entra, por escrito. Si encaja, el 50% al aceptar y arrancamos. Si no, lo dices y no pasa nada.',
+    description: (
+      <>
+        En 24–48 h laborables: precio, plazos y qué entra, por escrito. Si
+        encaja, el 50% al aceptar y arrancamos.{' '}
+        <strong className='font-extrabold'>
+          Si no, lo dices y no pasa nada
+        </strong>
+        .
+      </>
+    ),
   },
   {
     number: '3',
     title: 'La montamos',
-    description:
-      'Con tu marca, tus textos y tus fotos. Si falta algo, te decimos qué necesitamos. Tú revisas.',
+    description: (
+      <>
+        Con tu marca, tus textos y tus fotos. Si falta algo, te lo decimos. Tú
+        revisas.{' '}
+        <strong className='font-extrabold'>
+          Hablas con quien la está haciendo
+        </strong>
+        .
+      </>
+    ),
   },
   {
     number: '4',
     title: 'Se publica y queda tuya',
-    description:
-      'Conectamos el dominio, se ve bien en el móvil y te pueden escribir. La web es tuya.',
-  },
-];
-
-const problems = [
-  {
-    icon: FileCheck,
-    title: 'Precio y plazos, por escrito',
-    description:
-      'Antes de empezar: qué entra, cuánto sale y cuándo está. Sin packs hinchados ni “ya te digo”.',
-  },
-  {
-    icon: LayoutTemplate,
-    title: 'Una web tuya, no una plantilla',
-    description:
-      'Diseño a medida con tu marca, tus textos y tus fotos. Si buscas la de 79 € igual para todos, no somos eso.',
-  },
-  {
-    icon: Handshake,
-    title: 'Hablas con quien la monta',
-    description:
-      'Estudio pequeño. Te atiende el equipo que diseña y desarrolla, no un comercial que luego desaparece.',
+    description: (
+      <>
+        Conectamos el dominio, se ve bien en el móvil y te pueden escribir.{' '}
+        <strong className='font-extrabold'>La web es tuya</strong>.
+      </>
+    ),
   },
 ];
 
 const faqs = [
   {
-    question: '¿Es una plantilla igual para todos?',
-    answer:
-      'No. Se adapta a tu imagen, textos y fotos. Si solo quieres una plantilla barata, hay sitios mejores para eso.',
-  },
-  {
     question: '¿Cuánto cuesta?',
     answer:
-      'Presupuesto según alcance, no hay un pack fijo. Tras hablar te mandamos un número concreto por escrito. Orientación: muchas webs quedan entre 400 € y 3.000 € + IVA. El presupuesto es gratis.',
+      'Depende del alcance, no hay un pack fijo. Orientación: muchas webs quedan entre 400 € y 3.000 € + IVA. Tras hablar te mandamos un número concreto, por escrito. Pedirlo es gratis.',
   },
   {
-    question: '¿Hay que pagar para que me deis precio?',
+    question: '¿Cuánto tarda?',
     answer:
-      'No. Primero hablamos, te mandamos la propuesta en 24–48 h laborables y decides. El 50% se paga al aceptar y arrancar; el resto, al publicar.',
+      'El plazo va por escrito en la propuesta. Suele ser de 3 a 8 semanas cuando tenemos textos y fotos. Cuenta desde el arranque pagado, no desde el primer “hola”.',
   },
   {
-    question: '¿Montáis WordPress, a medida o plantilla?',
+    question: '¿Qué incluye?',
     answer:
-      'Lo que pida el caso. A medida cuando hace falta, WordPress u otra base si encaja mejor. No hay un stack único: te lo decimos en la propuesta, sin venderte lo más caro por sistema.',
+      'Diseño a medida, versión móvil, formulario o WhatsApp, SEO de base, panel para textos y fotos, y publicación con tu dominio. Hosting para arrancar. Lo concreto de tu caso va en la propuesta, antes de cobrar nada.',
   },
   {
-    question: '¿Puedo editar la web yo después?',
+    question: '¿WordPress o a medida?',
     answer:
-      'Sí. Te dejamos un panel sencillo para textos, fotos y cosas de día a día. Si prefieres no tocarla, el mantenimiento mensual es opcional.',
+      'Lo que pida el caso. WordPress si encaja; a medida u otra base si hace falta. Te lo decimos en la propuesta, sin venderte lo más caro por sistema.',
+  },
+  {
+    question: '¿Puedo editarla yo después?',
+    answer:
+      'Sí. Te dejamos un panel sencillo para textos, fotos y cambios de día a día. Si prefieres no tocarla, el mantenimiento mensual es opcional.',
   },
   {
     question: '¿Me rehacéis la web que ya tengo?',
@@ -108,37 +210,9 @@ const faqs = [
       'Sí. Partimos de tu marca, textos, fotos y dominio, y montamos la nueva. No es un parche sobre la vieja.',
   },
   {
-    question: '¿Quién prepara textos e imágenes?',
+    question: '¿El hosting está incluido? ¿De quién es la web?',
     answer:
-      'Tú nos mandas lo que tengas. Lo ordenamos y lo metemos en la web. Redactar todo desde cero se valora aparte.',
-  },
-  {
-    question: '¿Puedo usar mi dominio?',
-    answer: 'Sí, es tuyo. Lo configuramos o te ayudamos a registrar uno nuevo.',
-  },
-  {
-    question: '¿El hosting está incluido?',
-    answer: 'Sí, para publicar la web. Lo confirmamos en la propuesta.',
-  },
-  {
-    question: '¿Cuánto tarda?',
-    answer:
-      'El plazo va por escrito en la propuesta. En webs como estas suele ser de 3 a 8 semanas cuando tenemos textos y fotos. Cuenta desde el arranque pagado, no desde el primer “hola”.',
-  },
-  {
-    question: '¿Trabajáis solo en Madrid?',
-    answer:
-      'No. Trabajamos en remoto con clientes de toda España. Si estás en Madrid, también podemos vernos.',
-  },
-  {
-    question: '¿Qué pasa cuando la web está online?',
-    answer:
-      'Te la entregamos funcionando: dominio, móvil, formulario o WhatsApp. El mantenimiento mensual es opcional.',
-  },
-  {
-    question: '¿Y si quiero vender productos?',
-    answer:
-      'Eso es una tienda online, otro tipo de proyecto. Lo vemos en la conversación y te decimos si encaja o si hay que plantearlo aparte.',
+      'Hosting para publicar, sí. El dominio es tuyo. Archivos y accesos a tu nombre. La web es tuya desde el día que se publica.',
   },
 ];
 
@@ -166,80 +240,111 @@ const LandingWeb = () => {
   return (
     <>
       <HeroCta
-        title='Web a medida para tu negocio. Precio y plazos por escrito.'
-        description='Diseño propio, no plantilla. Hablas con quien la monta. Te decimos qué entra, cuánto sale y cuándo está, antes de cobrar nada.'
+        title='Te hacemos una web para captar clientes. Precio y plazo, por escrito.'
+        description={
+          <>
+            Cuéntanos qué haces. En 24–48 h te mandamos una propuesta con lo que
+            entra, lo que cuesta y cuándo está.{' '}
+            <strong className='font-extrabold'>
+              Hablas con nosotros, no con un comercial
+            </strong>
+            . Si no encaja, lo dices y no pasa nada.
+          </>
+        }
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
         backgroundUrl='/img/web-design-charlesdeluvio.webp'
         heroType='form'
         hasButton={false}
-        formTitle='Te llamamos'
-        formDescription='Propuesta en 24–48 h. Sin compromiso.'
+        formTitle='Pide tu propuesta'
+        formDescription='En 24–48 h. Sin compromiso.'
         formSectionInfo='Landing diseño web — Hero'
         hasBackground
         hasReviewBadge
         isTopHero
-        highlights={[
-          'Desde 400 € + IVA. Cerrado en la propuesta.',
-          'Plazo por escrito. Suele ser 3–8 semanas.',
-          'Propuesta en 24–48 h laborables.',
-          'Hosting incluido. La web es tuya.',
-        ]}
       />
+
       <TrustBar points={landingTrustPoints} />
-      <SEOBenefits
-        title='Si estás contratando una web, esto es lo que te llevas'
-        subtitle='Precio cerrado, diseño a medida y trato directo. Lo que buscas cuando escribes “agencia de diseño web”.'
-        benefits={problems}
+
+      <ServiceIncludes
+        title='Qué incluye la web'
+        intro={
+          <>
+            Esto entra en todas. El resto lo cerramos en la propuesta,{' '}
+            <strong className='font-extrabold'>antes de cobrar nada</strong>.
+          </>
+        }
+        items={includes}
       />
-      <CompareVsAi />
+
+      <SEOBenefits
+        title='Por qué encargárnosla a nosotros'
+        subtitle={
+          <>
+            Tres cosas claras:{' '}
+            <strong className='font-extrabold'>el precio</strong>,{' '}
+            <strong className='font-extrabold'>con quién hablas</strong> y{' '}
+            <strong className='font-extrabold'>cómo queda la web</strong>.
+          </>
+        }
+        benefits={whyUs}
+      />
+
+      <Portfolio contained />
+
       <SEOProcess
-        title='Así se contrata la web'
-        subtitle='Cuatro pasos. Sabes precio y plazos antes de empezar, y la web queda a tu nombre.'
+        title='Así se hace'
+        subtitle={
+          <>
+            <strong className='font-extrabold'>Cuatro pasos.</strong> Sabes
+            precio y plazo antes de empezar, y la web queda a tu nombre.
+          </>
+        }
         steps={processSteps}
       />
 
-      <HeroCta
-        title='¿Hablamos de tu web?'
-        description='Cuéntanos qué haces y qué tiene que hacer la página. Te devolvemos propuesta en 24–48 h, con precio y plazos. Si no encaja, lo dices y no pasa nada.'
-        buttonText='PEDIR PROPUESTA'
-        buttonHref='#contacto'
-        heroType='form'
-        hasButton={false}
-        formTitle='Te llamamos'
-        formDescription='Propuesta en 24–48 h. Sin compromiso.'
-        formSectionInfo='Landing diseño web — CTA medio'
-        hasBackground={false}
-        hasReviewBadge={false}
-      />
+      <Testimonials hasVideo />
 
       <Team
-        label={'TUS EXPERTOS EN DISEÑO WEB'}
-        title='La montamos nosotros. Tú hablas con el equipo, no con un comercial.'
+        label='EL EQUIPO'
+        title='Somos las personas que te vamos a hacer la web.'
+        compact
         paragraphs={[
-          'Estudio pequeño en Madrid. Diseño, desarrollo y publicación con tu dominio. Una web lenta o confusa te cuesta clientes; por eso la hacemos clara, rápida y lista para que te escriban.',
+          <>
+            Nos pones cara, ves el portfolio y nos escribes si quieres.{' '}
+            <strong className='font-extrabold'>Contestamos nosotros</strong>.
+          </>,
         ]}
       />
-      <Portfolio contained />
-      <Testimonials hasVideo />
 
       <div id='faq' className='scroll-mt-24'>
         <SEOFAQ
-          title='No te vayas quedándote con dudas'
+          title='Lo que suele preguntar la gente'
           faqs={faqs}
           ctaText='PEDIR PROPUESTA'
           ctaHref='#contacto'
         />
       </div>
+
       <HeroCta
-        title='Cuando quieras, empezamos'
-        description='Formulario, WhatsApp o llamada. Te devolvemos precio y plazos por escrito en 24–48 h. El 50% al aceptar; el resto, al publicar. La web queda a tu nombre.'
+        title='Cuando quieras, lo vemos'
+        description={
+          <>
+            Déjanos nombre y teléfono. Te devolvemos propuesta en{' '}
+            <strong className='font-extrabold'>24–48 h</strong>, con precio y
+            plazos.{' '}
+            <strong className='font-extrabold'>
+              Si no cuadra, no pasa nada
+            </strong>
+            .
+          </>
+        }
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
         heroType='form'
         hasButton={false}
-        formTitle='Te llamamos'
-        formDescription='Propuesta en 24–48 h. Sin compromiso.'
+        formTitle='Pide tu propuesta'
+        formDescription='En 24–48 h. Sin compromiso.'
         formSectionInfo='Landing diseño web — CTA final'
         hasBackground={false}
         hasReviewBadge

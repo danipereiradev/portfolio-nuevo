@@ -36,10 +36,10 @@ const CompareVsAi = () => {
     <section className='page-section bg-surface'>
       <div className='container mx-auto flex flex-col gap-page-gap'>
         <div className='page-title-block mx-auto max-w-5xl text-center'>
-          <h2 className='text-2xl font-extrabold text-ink-dark md:text-4xl lg:text-5xl'>
+          <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark'>
             Con nosotros o con una IA
           </h2>
-          <p className='text-base text-ink-medium md:text-lg lg:text-xl'>
+          <p className='text-xl md:text-2xl text-ink-dark'>
             La IA vale para probar. No es una chapuza: es otra herramienta. Si
             la web tiene que traerte clientes, hace falta alguien que responda.
           </p>

@@ -25,13 +25,11 @@ const SEOProcess = ({
     <section className='page-section relative overflow-hidden bg-surface-muted'>
       <div className='container relative z-10 mx-auto flex flex-col gap-page-gap'>
         <div className='page-title-block mx-auto max-w-5xl text-center'>
-          <h2 className='text-2xl font-extrabold text-ink-dark md:text-4xl lg:text-5xl'>
+          <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark'>
             {title}
           </h2>
           {subtitle ? (
-            <p className='mx-auto text-base text-ink-medium md:text-lg lg:text-xl'>
-              {subtitle}
-            </p>
+            <p className='text-xl md:text-2xl text-ink-dark'>{subtitle}</p>
           ) : null}
         </div>
 
@@ -61,10 +59,10 @@ const SEOProcess = ({
                   </div>
                 </div>
                 <div className='flex-1'>
-                  <h3 className='mb-heading-gap text-lg font-bold text-gray-900 md:text-xl lg:text-2xl'>
+                  <h3 className='mb-heading-gap text-lg font-bold text-ink-dark md:text-xl lg:text-2xl'>
                     {step.title}
                   </h3>
-                  <p className='text-base md:text-lg lg:text-xl text-gray-700 font-medium leading-relaxed'>
+                  <p className='text-base md:text-lg lg:text-xl text-ink-dark font-medium leading-relaxed'>
                     {step.description}
                   </p>
                 </div>

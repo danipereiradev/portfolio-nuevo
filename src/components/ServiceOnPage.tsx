@@ -54,10 +54,10 @@ export const ServiceIncludes = ({
   <section className='page-section bg-surface-muted'>
     <div className='container mx-auto flex flex-col gap-page-gap'>
       <div className='page-title-block mx-auto max-w-5xl text-center'>
-        <h2 className='text-2xl font-extrabold text-ink-dark md:text-4xl lg:text-5xl'>
+        <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark'>
           {title}
         </h2>
-        <p className='text-lg text-ink-dark md:text-xl'>{intro}</p>
+        <p className='text-xl md:text-2xl text-ink-dark'>{intro}</p>
       </div>
       <div className='grid gap-page-gap md:grid-cols-2 lg:grid-cols-3'>
         {items.map((item) => (
@@ -65,10 +65,10 @@ export const ServiceIncludes = ({
             key={item.title}
             className='rounded-lg border-2 border-ink-dark bg-white p-content-pad'
           >
-            <h3 className='mb-heading-gap text-lg font-bold text-ink-dark md:text-xl'>
+            <h3 className='mb-heading-gap text-xl font-bold text-ink-dark md:text-2xl'>
               {item.title}
             </h3>
-            <p className='text-base leading-relaxed text-ink-medium md:text-lg'>
+            <p className='text-base leading-relaxed text-ink-dark md:text-lg'>
               {item.description}
             </p>
           </article>

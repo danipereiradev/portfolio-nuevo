@@ -69,7 +69,7 @@ const SEOFAQ = ({
                 }`}
               >
                 <div className='px-content-pad pb-content-pad'>
-                  <p className='text-sm md:text-base lg:text-lg text-ink-gray leading-relaxed'>
+                  <p className='text-sm md:text-base lg:text-lg text-ink-dark leading-relaxed'>
                     {faq.answer}
                   </p>
                 </div>

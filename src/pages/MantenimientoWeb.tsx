@@ -14,25 +14,35 @@ import {
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { SITE_MAINTENANCE_PATH, SITE_WEB_PATH } from '../config/contact';
-import { Headphones, RefreshCw, ShieldCheck, Wrench } from 'lucide-react';
+import { Headphones, ShieldCheck, Wrench } from 'lucide-react';
 
 const SITE_URL = 'https://36web.es';
 
 const faqs = [
   {
-    question: '¿Qué incluye el mantenimiento web?',
+    question: '¿Cuánto cuesta el mantenimiento web?',
     answer:
-      'Actualizaciones, copias, que la web siga online, cambios pequeños de textos y fotos, y soporte cuando algo falla. El detalle de cada plan va en la propuesta, antes de cobrar nada.',
+      'El mantenimiento es una cuota mensual. Orientación: muchos planes quedan entre 60 € y 100 € + IVA al mes. Tras hablar te mandamos un presupuesto concreto, con lo que entra y desde cuándo.',
   },
   {
-    question: '¿Cuánto cuesta el mantenimiento de una página web?',
+    question: '¿Cuándo arranca?',
     answer:
-      'Es una cuota mensual según el tamaño de la web y los cambios que haga falta. No hay un pack único en la web. Tras hablar te mandamos un número concreto. Pedirlo es gratis.',
+      'Primero hablamos y te mandamos la propuesta en 24–48 h laborables. Si encaja, activamos el plan. No hay que pagar para pedir precio.',
   },
   {
-    question: '¿Hay que pagar para pedir presupuesto de mantenimiento?',
+    question: '¿Qué incluye?',
     answer:
-      'No. Primero hablamos, te mandamos la propuesta en 24–48 h laborables y decides. Si encaja, arrancamos el plan. Si no, lo dices y no pasa nada.',
+      'Actualizaciones, copias, que la web siga online, cambios pequeños de textos y fotos, y soporte cuando algo falla. El detalle de cada plan va por escrito en la propuesta, antes de cobrar nada.',
+  },
+  {
+    question: '¿Mantenéis WordPress, tiendas y webs a medida?',
+    answer:
+      'Sí. WordPress, WooCommerce, Shopify u otra base si encaja. Primero vemos el caso; luego te decimos si podemos cogerla, sin venderte lo más caro por sistema.',
+  },
+  {
+    question: '¿Puedo pedir cambios cada mes?',
+    answer:
+      'Sí. Entran los cambios pequeños del plan: un texto, una foto, un teléfono, un horario. Páginas nuevas o un rediseño van aparte, con precio antes de hacerlos.',
   },
   {
     question: '¿Mantenéis webs que no hicisteis vosotros?',
@@ -40,104 +50,139 @@ const faqs = [
       'Sí, en muchos casos. Primero miramos cómo está: hosting, actualizaciones, plugins, copias. Si tiene sentido, te lo decimos. Si es un pozo, también.',
   },
   {
-    question: '¿El mantenimiento web es obligatorio?',
-    answer:
-      'No. Recomendable, pero opcional. Sin él la web sigue siendo tuya y puede seguir online. Dejas de tener actualizaciones, copias, soporte y los cambios del plan.',
-  },
-  {
-    question: '¿Qué pasa si cancelo el mantenimiento?',
-    answer:
-      'La web no se apaga. Te dejamos accesos y copias. A partir de ahí, las actualizaciones y el soporte corren de tu cuenta.',
-  },
-  {
-    question: '¿Cuántos cambios de textos y fotos entran al mes?',
-    answer:
-      'Los del plan. Cambios pequeños: un texto, una foto, un teléfono. Páginas nuevas o un rediseño van aparte, con precio antes de hacerlos.',
-  },
-  {
-    question: '¿Mantenéis WordPress, tiendas y webs a medida?',
-    answer:
-      'Sí. WordPress, WooCommerce, Shopify u otra base si encaja. Primero vemos el caso; luego te decimos si podemos cogerla.',
-  },
-  {
-    question: '¿El hosting y el dominio van incluidos?',
+    question: '¿El hosting y el dominio están incluidos?',
     answer:
       'Depende del plan. El dominio es tuyo. Si el hosting entra o lo gestionamos en tu cuenta, lo aclaramos en la propuesta.',
   },
   {
-    question: '¿En cuánto tiempo respondéis si la web se cae?',
+    question: '¿Qué pasa si cancelo? ¿De quién es la web?',
     answer:
-      'En horario laboral, pronto. No prometemos un SLA de gran corporación. Si está caída, es lo primero. El detalle queda por escrito en el plan.',
-  },
-  {
-    question: '¿Hacéis mantenimiento web solo en Madrid?',
-    answer:
-      'Estudio en Madrid; mantenemos webs en remoto para negocios de toda España. Si estás en Madrid, también podemos vernos.',
-  },
-  {
-    question: '¿Y si lo que necesito es una web nueva, no mantenimiento?',
-    answer:
-      'Eso es otro proyecto: diseño web a medida. Lo vemos en la conversación y te decimos si encaja o si hay que plantearlo aparte.',
+      'La web es tuya. Si cancelas, no se apaga. Te dejamos accesos y copias. A partir de ahí, las actualizaciones y el soporte corren de tu cuenta. El mantenimiento no es obligatorio.',
   },
 ];
 
 const includes = [
   {
     title: 'Actualizaciones de seguridad',
-    description:
-      'CMS, plugins y lo que toque para que no se quede desfasada. Una web sin actualizar es un problema esperando.',
+    description: (
+      <>
+        CMS, plugins y lo que toque para que no se quede desfasada.{' '}
+        <strong className='font-extrabold'>
+          Una web sin actualizar es un problema esperando
+        </strong>
+        .
+      </>
+    ),
   },
   {
     title: 'Copias periódicas',
-    description:
-      'Por si un día falla un plugin, un hackeo o un clic de más. Poder volver atrás no es un lujo.',
+    description: (
+      <>
+        Por si un día falla un plugin, un hackeo o un clic de más.{' '}
+        <strong className='font-extrabold'>
+          Poder volver atrás no es un lujo
+        </strong>
+        .
+      </>
+    ),
   },
   {
     title: 'Que siga online',
-    description:
-      'Revisamos que carga, que el certificado no caduca y que el formulario o el WhatsApp siguen mandando.',
+    description: (
+      <>
+        Revisamos que carga, que el certificado no caduca y que el formulario o
+        el WhatsApp siguen mandando.{' '}
+        <strong className='font-extrabold'>
+          Una web caída te cuesta clientes
+        </strong>
+        .
+      </>
+    ),
   },
   {
     title: 'Cambios pequeños',
-    description:
-      'Textos, fotos, un teléfono, un horario. Lo de día a día, sin abrir un proyecto nuevo cada vez.',
+    description: (
+      <>
+        Textos, fotos, un teléfono, un horario.{' '}
+        <strong className='font-extrabold'>
+          Lo de día a día, sin abrir un proyecto nuevo cada vez
+        </strong>
+        .
+      </>
+    ),
   },
   {
     title: 'Soporte cuando falla algo',
-    description:
-      'WhatsApp, correo o el chat. Te atiende quien conoce la web, no un ticket que da vueltas.',
+    description: (
+      <>
+        WhatsApp, correo o el chat, en horario laboral.{' '}
+        <strong className='font-extrabold'>
+          Te atiende quien conoce la web, no un ticket que da vueltas
+        </strong>
+        .
+      </>
+    ),
   },
   {
     title: 'Resumen de lo hecho',
-    description:
-      'Al mes te contamos qué se actualizó, qué se cambió y si hubo algún susto. Sin jerga innecesaria.',
+    description: (
+      <>
+        Al mes te contamos qué se actualizó, qué se cambió y si hubo algún
+        susto.{' '}
+        <strong className='font-extrabold'>Sin jerga innecesaria</strong>.
+      </>
+    ),
   },
 ];
 
 const processSteps = [
   {
     number: '1',
-    title: 'Cuentas la web',
-    description:
-      'Qué tienes ahora, si la hicimos nosotros o no, y qué te preocupa: caídas, copias, cambios, plugins.',
+    title: 'Nos cuentas tu web',
+    description: (
+      <>
+        En esta charla inicial nos hablas de qué tienes ahora, si la hicimos
+        nosotros o no, y qué te preocupa, para poder hacerte{' '}
+        <strong className='font-extrabold'>la mejor propuesta posible</strong>.
+      </>
+    ),
   },
   {
     number: '2',
-    title: 'Presupuesto del plan',
-    description:
-      'En 24–48 h laborables te mandamos qué entra, la cuota y desde cuándo. Sin pagar por pedir precio.',
+    title: 'En 24–48 h te enviamos la propuesta',
+    description: (
+      <>
+        Con toda la info que nos has dado, estudiamos tu caso y preparamos un{' '}
+        <strong className='font-extrabold'>presupuesto cerrado</strong> con la
+        cuota, lo que entra y desde cuándo. Sin pagar por pedir precio.
+      </>
+    ),
   },
   {
     number: '3',
     title: 'Activamos el mantenimiento',
-    description:
-      'Miramos hosting, copias y actualizaciones. Te decimos si hay algo urgente antes de dejarlo en piloto automático.',
+    description: (
+      <>
+        Cuando aceptas, miramos hosting, copias y actualizaciones. Empiezas a
+        tratar{' '}
+        <strong className='font-extrabold'>
+          directamente con quien cuida tu web
+        </strong>
+        . Si hay algo urgente, te lo decimos antes.
+      </>
+    ),
   },
   {
     number: '4',
     title: 'Mes a mes',
-    description:
-      'Actualizamos, copiamos, cambiamos lo del plan y respondemos cuando algo falla. Cancelas cuando quieras.',
+    description: (
+      <>
+        Actualizamos, copiamos, cambiamos lo del plan y respondemos cuando algo
+        falla.{' '}
+        <strong className='font-extrabold'>Cancelas cuando quieras</strong>. La
+        web sigue siendo tuya.
+      </>
+    ),
   },
 ];
 
@@ -145,26 +190,39 @@ const audiences = [
   {
     icon: ShieldCheck,
     title: 'Webs que ya montamos',
-    description:
-      'Si la hicimos nosotros, conocemos el código y el hosting. El mantenimiento es la continuación lógica.',
+    description: (
+      <>
+        Si la hicimos nosotros, conocemos el código y el hosting.{' '}
+        <strong className='font-extrabold'>
+          El mantenimiento es la continuación lógica
+        </strong>
+        .
+      </>
+    ),
   },
   {
     icon: Wrench,
     title: 'Webs de otros',
-    description:
-      'WordPress, tienda o a medida. Primero la miramos. Si se puede mantener bien, te lo decimos; si no, también.',
-  },
-  {
-    icon: RefreshCw,
-    title: 'Sin ganas de pelearte con plugins',
-    description:
-      'Actualizar, copiar y que no se rompa no tiene que ser tu trabajo. Por eso existe el plan mensual.',
+    description: (
+      <>
+        WordPress, tienda o a medida. Primero la miramos.{' '}
+        <strong className='font-extrabold'>
+          Si se puede mantener bien, te lo decimos; si no, también
+        </strong>
+        .
+      </>
+    ),
   },
   {
     icon: Headphones,
     title: 'Alguien a quien escribir',
-    description:
-      'Cuando el formulario no llega o la web va lenta, hace falta una persona, no un tutorial.',
+    description: (
+      <>
+        Cuando el formulario no llega o la web va lenta, hace falta una persona,
+        no un tutorial.{' '}
+        <strong className='font-extrabold'>Siempre contestamos</strong>.
+      </>
+    ),
   },
 ];
 
@@ -227,8 +285,17 @@ const MantenimientoWeb = () => {
   return (
     <>
       <HeroCta
-        title='Mantenimiento web para que no se rompa sola'
-        description='Actualizaciones, copias, cambios de textos y fotos, y alguien a quien escribir cuando falla algo. Estudio en Madrid, webs en toda España. Cuota y alcance por escrito antes de empezar.'
+        title='Un mantenimiento web con todo lo necesario para que no se rompa sola'
+        description={
+          <>
+            Actualizaciones, copias, cambios de textos y fotos, y{' '}
+            <strong className='font-extrabold'>
+              alguien a quien escribir cuando falla algo
+            </strong>
+            . Cuota mensual, alcance por escrito y puedes cancelar cuando
+            quieras.
+          </>
+        }
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
         backgroundUrl='/img/justin-morgan-wordpress.jpg'
@@ -251,11 +318,30 @@ const MantenimientoWeb = () => {
       />
 
       <TextImage
-        label='MANTENIMIENTO WEB'
-        title='Que la web siga online, actualizada y con alguien al otro lado'
+        label='¿Por qué el mantenimiento con 36web?'
+        title='Cuidamos tu web para que siga online y con alguien al otro lado.'
         paragraphs={[
-          '36web es una agencia de diseño web y marketing digital en Madrid. Más de 12 años montando y cuidando páginas web para autónomos y empresas de toda España. El mantenimiento no es un extra escondido: es un plan mensual, con lo que entra por escrito.',
-          'Una web sin copias, sin actualizar o con un formulario muerto te cuesta consultas. Por eso el mantenimiento aquí es actualizaciones, copias, cambios pequeños y soporte. No un “ya lo miramos”.',
+          <>
+            Llevamos mucho tiempo en esto. Una web sin copias, sin actualizar o
+            con un formulario muerto te cuesta consultas. Por eso el
+            mantenimiento aquí es{' '}
+            <strong className='font-extrabold'>
+              actualizaciones, copias, cambios pequeños y soporte
+            </strong>
+            . No un “ya lo miramos”.
+          </>,
+          <>
+            Tendremos muy en cuenta{' '}
+            <strong className='font-extrabold'>
+              tus necesidades y presupuesto
+            </strong>
+            . Si la web la montamos nosotros, el plan encaja directo. Si la hizo
+            otro, primero la miramos. Siempre vamos a aconsejarte{' '}
+            <strong className='font-extrabold'>
+              lo mejor para ti, no lo más caro
+            </strong>
+            .
+          </>,
         ]}
         imageSrc='/img/fikret-tozak-rfNLa1HL7eY-unsplash.jpg'
         imageAlt='Equipo de 36web trabajando en mantenimiento web'
@@ -264,24 +350,51 @@ const MantenimientoWeb = () => {
       />
 
       <ServiceIncludes
-        title='Qué incluye el mantenimiento de una web'
-        intro='Esto es lo que entra en un plan típico. El detalle exacto —cuántos cambios, qué hosting, qué CMS— va en la propuesta.'
+        title='Qué incluimos en el mantenimiento de tu web'
+        intro={
+          <>
+            Esta es la base de un plan típico. El detalle exacto —cuántos
+            cambios, qué hosting, qué CMS— irá especificado en la propuesta
+            final.{' '}
+            <strong className='font-extrabold'>Sin sorpresas.</strong>
+          </>
+        }
         items={includes}
       />
 
       <TextImage
-        label='WEB PROPIA O DE OTROS'
+        label='WEB NUESTRA O DE OTROS'
         title='Mantenemos la que hicimos y, en muchos casos, la que ya tienes'
         paragraphs={[
-          'Si la web la montamos nosotros, el plan encaja directo: conocemos el código, el hosting y cómo se edita. Si la hizo otro, primero la miramos. WordPress, tienda o a medida: te decimos si se puede mantener bien o si conviene otra cosa.',
-          'No cogemos un pozo a ciegas. Si hay que actualizar 40 plugins o rehacer medio sitio, te lo decimos antes de la cuota, no a mitad de mes.',
+          <>
+            Si la web la montamos nosotros, conocemos el código, el hosting y
+            cómo se edita.{' '}
+            <strong className='font-extrabold'>El plan encaja directo</strong>.
+          </>,
+          <>
+            Si la hizo otro, primero la miramos. WordPress, tienda o a medida:
+            te decimos si se puede mantener bien o si conviene otra cosa.{' '}
+            <strong className='font-extrabold'>
+              No cogemos un pozo a ciegas
+            </strong>
+            . Si hay que actualizar 40 plugins o rehacer medio sitio, te lo
+            decimos antes de la cuota, no a mitad de mes.
+          </>,
+          <>
+            Además, te atiende{' '}
+            <strong className='font-extrabold'>
+              quien conoce la web, no un comercial
+            </strong>
+            .
+          </>,
           <>
             Si lo que necesitas no es cuidar la web, sino hacerla de nuevo, mira
             el{' '}
             <a href={SITE_WEB_PATH} className='font-bold text-link underline'>
               diseño web a medida
             </a>
-            . No es el mismo servicio.
+            .{' '}
+            <strong className='font-extrabold'>No es el mismo servicio</strong>.
           </>,
         ]}
         imageSrc='/img/portfolio/mock-core.png'
@@ -292,14 +405,27 @@ const MantenimientoWeb = () => {
       />
 
       <SEOBenefits
-        title='Para quién es este mantenimiento web'
-        subtitle='Planes mensuales para autónomos y empresas que ya tienen web y no quieren pelearse con ella.'
+        title='Un mantenimiento distinto según lo que necesite tu web.'
+        subtitle={
+          <>
+            Hacemos planes mensuales para{' '}
+            <strong className='font-extrabold'>webs que ya montamos</strong>,{' '}
+            <strong className='font-extrabold'>webs de otros</strong> y para
+            quien no quiere pelearse con plugins.
+          </>
+        }
         benefits={audiences}
       />
 
       <SEOProcess
-        title='Cómo se contrata el mantenimiento web'
-        subtitle='Cuatro pasos. Sabes la cuota y lo que entra antes de pagar. Cancelas cuando quieras.'
+        title='Cómo es el proceso de contratación'
+        subtitle={
+          <>
+            <strong className='font-extrabold'>Cuatro sencillos pasos.</strong>{' '}
+            Nos dejas tus datos, charlamos y nos cuentas tu web. Te pasamos una
+            propuesta personalizada. Aceptas y empezamos a cuidarla.
+          </>
+        }
         steps={processSteps}
         imageSrc='/img/justin-morgan-wordpress.jpg'
         imageAlt='Proceso de mantenimiento de una página web'
@@ -309,9 +435,28 @@ const MantenimientoWeb = () => {
         label='PRESUPUESTO'
         title='Precio del mantenimiento web'
         paragraphs={[
-          'No hay una cuota única en la web. Depende del CMS, del hosting, de si hay tienda y de cuántos cambios mensuales quieres.',
-          'En 24–48 h laborables te mandamos un número concreto, con lo que entra y desde cuándo. Pedir presupuesto de mantenimiento web es gratis y no te compromete.',
-          'La cuota es mensual. El mantenimiento no es obligatorio: si lo cancelas, la web no se apaga. Dejas de tener actualizaciones, copias y soporte del plan.',
+          <>
+            <strong className='font-extrabold'>
+              No tenemos un pack cerrado
+            </strong>
+            . La cuota depende del CMS, del hosting, de si hay tienda y de
+            cuántos cambios mensuales quieres.
+          </>,
+          <>
+            Muchos planes quedan entre{' '}
+            <strong className='font-extrabold'>
+              60 € y 100 € + IVA al mes
+            </strong>
+            . En 24–48 h laborables te mandamos un número concreto, con lo que
+            entra y desde cuándo. Pedirlo es gratis y no te compromete.
+          </>,
+          <>
+            El mantenimiento{' '}
+            <strong className='font-extrabold'>no es obligatorio</strong>. Si lo
+            cancelas, la web no se apaga. En 36web recomendamos el plan que{' '}
+            <strong className='font-extrabold'>realmente necesitas</strong>, no
+            el más caro.
+          </>,
         ]}
         imageSrc='/img/portfolio/mock-delish.png'
         imageAlt='Mock de página web con plan de mantenimiento'
@@ -323,16 +468,26 @@ const MantenimientoWeb = () => {
       <Portfolio contained />
       <Testimonials />
       <Team
-        label='EQUIPO DE MANTENIMIENTO WEB'
-        title='La web la cuidamos nosotros'
+        label='CONOCE A TU FUTURO EQUIPO DE MANTENIMIENTO WEB'
+        title='Estas somos las personas que vamos a encargarnos de cuidar tu web.'
         paragraphs={[
-          'Actualizaciones, copias y soporte. Hablas con el equipo, no con un comercial. Una web caída o un formulario mudo te cuesta clientes; por eso hay alguien al otro lado.',
+          <>
+            Queremos que nos pongas caras. Que puedas ver nuestros portfolios y
+            contactar con nosotros para lo que necesites:{' '}
+            <strong className='font-extrabold'>siempre contestamos</strong>.
+            Sobre todo, que sientas{' '}
+            <strong className='font-extrabold'>
+              seguridad al confiarnos la parte digital de tu negocio
+            </strong>
+            . Una web caída o un formulario mudo te cuesta clientes; por eso hay{' '}
+            <strong className='font-extrabold'>alguien al otro lado</strong>.
+          </>,
         ]}
       />
 
       <div id='faq' className='scroll-mt-24'>
         <SEOFAQ
-          title='Preguntas frecuentes sobre mantenimiento web'
+          title='No queremos que te quedes con dudas'
           faqs={faqs}
           ctaText='PEDIR PROPUESTA'
           ctaHref='#contacto'
@@ -343,7 +498,15 @@ const MantenimientoWeb = () => {
         label='TAMBIÉN HACEMOS'
         title='¿Necesitas una página web nueva, no mantenimiento?'
         paragraphs={[
-          'Si la web actual no da más de sí, el servicio es diseño web a medida: la montamos de nuevo, con tu dominio.',
+          <>
+            Si la web actual no da más de sí, el servicio es{' '}
+            <strong className='font-extrabold'>diseño web a medida</strong>: la
+            montamos de nuevo, con tu dominio.{' '}
+            <strong className='font-extrabold'>
+              No es lo mismo que un plan mensual
+            </strong>
+            .
+          </>,
         ]}
         imageSrc='/img/portfolio/mock-carper.png'
         imageAlt='Mock de página web de Carper Sonido'
@@ -353,7 +516,17 @@ const MantenimientoWeb = () => {
 
       <HeroCta
         title='Pide presupuesto de mantenimiento web'
-        description='Cuéntanos qué web tienes y qué te preocupa. Te devolvemos propuesta en 24–48 h, con cuota y lo que entra. Si no encaja, lo dices y no pasa nada.'
+        description={
+          <>
+            Cuéntanos qué web tienes y qué te preocupa. Te devolvemos propuesta
+            en <strong className='font-extrabold'>24–48 h</strong>, con cuota y
+            lo que entra.{' '}
+            <strong className='font-extrabold'>
+              Si no encaja, lo dices y no pasa nada
+            </strong>
+            .
+          </>
+        }
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
         heroType='form'

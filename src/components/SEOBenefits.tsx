@@ -17,11 +17,11 @@ const SEOBenefits = ({ title, subtitle, benefits }: SEOBenefitsProps) => (
   <section className='page-section'>
     <div className='container mx-auto flex flex-col gap-page-gap'>
       <div className='page-title-block mx-auto max-w-5xl text-center'>
-        <h2 className='text-2xl font-extrabold text-ink-dark md:text-4xl lg:text-5xl'>
+        <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark'>
           {title}
         </h2>
         {subtitle && (
-          <p className='text-lg text-ink-dark md:text-xl'>{subtitle}</p>
+          <p className='text-xl md:text-2xl text-ink-dark'>{subtitle}</p>
         )}
       </div>
 
@@ -38,10 +38,10 @@ const SEOBenefits = ({ title, subtitle, benefits }: SEOBenefitsProps) => (
               className='rounded-lg border-2 border-ink-dark bg-white p-content-pad'
             >
               <Icon className='mb-title-gap h-7 w-7 text-accent md:h-8 md:w-8' />
-              <h3 className='mb-heading-gap text-lg font-bold text-ink-dark md:text-xl'>
+              <h3 className='mb-heading-gap text-xl font-bold text-ink-dark md:text-2xl'>
                 {benefit.title}
               </h3>
-              <p className='text-base leading-relaxed text-ink-medium md:text-lg'>
+              <p className='text-base leading-relaxed text-ink-dark md:text-lg'>
                 {benefit.description}
               </p>
             </div>

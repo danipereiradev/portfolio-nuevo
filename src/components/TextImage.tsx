@@ -37,13 +37,13 @@ export const TextImage = ({
           <span className='text-md uppercase rounded-lg font-extrabold text-accent underline'>
             {label}
           </span>
-          <h2 className='text-2xl font-extrabold text-ink-dark md:text-4xl lg:text-5xl'>
+          <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark'>
             {title}
           </h2>
           {paragraphs.map((para, index) => (
             <p
               key={index}
-              className='text-lg text-ink-dark md:text-xl lg:text-justify'
+              className='text-xl md:text-2xl text-ink-dark lg:text-justify'
             >
               {para}
             </p>

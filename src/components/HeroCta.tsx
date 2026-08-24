@@ -90,7 +90,7 @@ const HeroCta = ({
               <TitleTag className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark'>
                 {title}
               </TitleTag>
-              <p className='text-lg md:text-xl text-ink-dark md:text-justify'>
+              <p className='text-xl md:text-2xl text-ink-dark md:text-justify'>
                 {description}
               </p>
             </div>

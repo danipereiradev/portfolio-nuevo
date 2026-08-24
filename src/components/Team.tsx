@@ -32,9 +32,29 @@ interface TeamProps {
   label: string;
   title: string;
   paragraphs: ReactNode[];
+  compact?: boolean;
 }
 
-export const Team = ({ label, title, paragraphs }: TeamProps) => {
+const compactRoles: Record<string, string> = {
+  'Cristina Recio': 'Diseño UX/UI y branding',
+  'Dani Pereira': 'Desarrollo web y SEO',
+  'Karen Montero': 'WordPress y UX/UI',
+  'Sergio Cerdá': 'Desarrollo web y aplicaciones',
+};
+
+const compactOrder = [
+  'Cristina Recio',
+  'Dani Pereira',
+  'Karen Montero',
+  'Sergio Cerdá',
+];
+
+export const Team = ({
+  label,
+  title,
+  paragraphs,
+  compact = false,
+}: TeamProps) => {
   const teamMembers: TeamMembers = [
     {
       fullName: 'Sergio Cerdá',
@@ -83,13 +103,13 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
           <span className='text-accent font-extrabold underline text-md rounded-lg'>
             {label}
           </span>
-          <h2 className='text-2xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark'>
+          <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark'>
             {title}
           </h2>
           {paragraphs?.map((para, index) => (
             <p
               key={index}
-              className='text-lg md:text-xl text-ink-dark lg:text-justify'
+              className='text-xl md:text-2xl text-ink-dark lg:text-justify'
             >
               {para}
             </p>
@@ -115,20 +135,29 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
                 spaceBetween: 20,
               },
             }}
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}
           >
-            {teamMembers.map((member: Team) => {
+            {(compact
+              ? [...teamMembers].sort(
+                  (a, b) =>
+                    compactOrder.indexOf(a.fullName) -
+                    compactOrder.indexOf(b.fullName),
+                )
+              : teamMembers
+            ).map((member: Team) => {
+              const displayName = compact
+                ? member.fullName.split(' ')[0]
+                : member.fullName;
+              const displayRole = compact
+                ? (compactRoles[member.fullName] ?? member.role)
+                : member.role;
+
               return (
-                <SwiperSlide>
-                  <article
-                    key={member.fullName}
-                    className=' cursor-grab text-center'
-                  >
+                <SwiperSlide key={member.fullName}>
+                  <article className='cursor-grab text-center'>
                     {member.imageUrl ? (
                       <div className='overflow-hidden rounded-t-xl'>
                         <img
-                          className='h-[333px] w-full object-cover grayscale'
+                          className='h-[333px] w-full object-cover object-top grayscale'
                           src={member.imageUrl}
                           alt={member.fullName}
                         />
@@ -144,47 +173,55 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
                       </div>
                     )}
 
-                    <div className='member-info rounded-b-xl bg-surface-muted p-content-pad text-start text-lg text-ink-dark md:min-h-[200px]'>
+                    <div
+                      className={`member-info rounded-b-xl bg-surface-muted p-content-pad text-start text-lg text-ink-dark ${
+                        compact ? '' : 'md:min-h-[200px]'
+                      }`}
+                    >
                       <h3 className='text-2xl font-bold text-accent'>
-                        {member.fullName}
+                        {displayName}
                       </h3>
                       <span className='font-bold text-ink-dark'>
-                        {member.role}
+                        {displayRole}
                       </span>
-                      <p className='mt-heading-gap text-base'>
-                        {member.description}
-                      </p>
-                      <div className='mt-text-gap flex items-start gap-content-gap'>
-                        <a
-                          href={`mailto:${member.mail}`}
-                          aria-label={`Enviar email a ${member.fullName}`}
-                          className='text-accent transition-colors hover:text-accent-hover'
-                        >
-                          <Mail width={20} />
-                        </a>
-                        {member.linkedin ? (
-                          <a
-                            href={member.linkedin}
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            aria-label={`LinkedIn de ${member.fullName}`}
-                            className='text-accent transition-colors hover:text-accent-hover'
-                          >
-                            <LinkedinIcon width={20} />
-                          </a>
-                        ) : null}
-                        {member.github ? (
-                          <a
-                            href={member.github}
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            aria-label={`GitHub de ${member.fullName}`}
-                            className='text-accent transition-colors hover:text-accent-hover'
-                          >
-                            <GithubIcon width={20} />
-                          </a>
-                        ) : null}
-                      </div>
+                      {compact ? null : (
+                        <>
+                          <p className='mt-heading-gap text-base'>
+                            {member.description}
+                          </p>
+                          <div className='mt-text-gap flex items-start gap-content-gap'>
+                            <a
+                              href={`mailto:${member.mail}`}
+                              aria-label={`Enviar email a ${member.fullName}`}
+                              className='text-accent transition-colors hover:text-accent-hover'
+                            >
+                              <Mail width={20} />
+                            </a>
+                            {member.linkedin ? (
+                              <a
+                                href={member.linkedin}
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                aria-label={`LinkedIn de ${member.fullName}`}
+                                className='text-accent transition-colors hover:text-accent-hover'
+                              >
+                                <LinkedinIcon width={20} />
+                              </a>
+                            ) : null}
+                            {member.github ? (
+                              <a
+                                href={member.github}
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                aria-label={`GitHub de ${member.fullName}`}
+                                className='text-accent transition-colors hover:text-accent-hover'
+                              >
+                                <GithubIcon width={20} />
+                              </a>
+                            ) : null}
+                          </div>
+                        </>
+                      )}
                     </div>
                   </article>
                 </SwiperSlide>
