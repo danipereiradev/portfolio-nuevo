@@ -6,10 +6,10 @@ import ReactPlayer from 'react-player';
 import TestimonialsBadge from './TestimonialsBadge';
 
 interface HeroCtaProps {
-  label: string;
+  label?: string;
   title: string;
   description: ReactNode;
-  buttonText: string;
+  buttonText?: string;
   buttonHref?: string;
   backgroundUrl?: string;
   heroType?: 'form' | 'video' | 'clean';

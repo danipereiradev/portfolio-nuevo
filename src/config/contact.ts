@@ -78,7 +78,7 @@ export const SITE_MAINTENANCE_PATH = '/mantenimiento-web';
 export const SITE_MAINTENANCE_LABEL = 'Mantenimiento web';
 
 export const ABOUT_PATH = '/sobre-36web';
-export const ABOUT_LABEL = 'Nuestra agencia';
+export const ABOUT_LABEL = 'nuestra agencia';
 
 /** Landing de Ads de este servicio. Futuros servicios: /landing-{slug}. */
 export const ADS_LANDING_PATH = '/landing-diseño-web';

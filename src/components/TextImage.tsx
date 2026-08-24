@@ -34,7 +34,7 @@ export const TextImage = ({
         className={`container mx-auto flex flex-col-reverse items-center gap-page-gap text-center ${rowClass}`}
       >
         <div className='page-title-block page-title-block--plain w-full items-center lg:w-1/2 lg:items-start'>
-          <span className='text-md rounded-lg font-extrabold text-accent underline'>
+          <span className='text-md uppercase rounded-lg font-extrabold text-accent underline'>
             {label}
           </span>
           <h2 className='text-2xl font-extrabold text-ink-dark md:text-4xl lg:text-5xl'>

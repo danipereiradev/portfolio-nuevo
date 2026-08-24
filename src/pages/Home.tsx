@@ -114,7 +114,11 @@ const Home = () => {
       <Testimonials />
 
       <div id='faq' className='scroll-mt-24'>
-        <SEOFAQ title='No te quedes con la duda' faqs={globalFaqs} />
+        <SEOFAQ
+          title='No te quedes con la duda'
+          faqs={globalFaqs}
+          ctaHref='#contacto'
+        />
       </div>
       <HeroCta
         label='Te lo ponemos fácil'

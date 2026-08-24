@@ -59,7 +59,7 @@ const Nosotros = () => {
   return (
     <>
       <Hero
-        title={'Conoce nuestra agencia'}
+        title={'Nuestra Agencia'}
         description='Somos una agencia de diseño web y marketing digital joven. Te contamos quiénes somos y cómo trabajamos.'
         buttonText='CONTACTA AHORA'
         buttonHref='#contacto'

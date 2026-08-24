@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react';
+
 export type BreadcrumbItem = {
   label: string;
   href?: string;
@@ -37,7 +39,7 @@ export const ServiceBreadcrumb = ({
 
 type IncludeItem = {
   title: string;
-  description: string;
+  description: ReactNode;
 };
 
 export const ServiceIncludes = ({
@@ -46,7 +48,7 @@ export const ServiceIncludes = ({
   items,
 }: {
   title: string;
-  intro: string;
+  intro: ReactNode;
   items: IncludeItem[];
 }) => (
   <section className='page-section bg-surface-muted'>

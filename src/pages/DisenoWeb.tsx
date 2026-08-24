@@ -14,162 +14,240 @@ import {
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { SITE_SHOP_PATH, SITE_WEB_PATH } from '../config/contact';
-import { Briefcase, Building2, RefreshCw, Store } from 'lucide-react';
+import { Briefcase, Building2, RefreshCw } from 'lucide-react';
 
 const SITE_URL = 'https://36web.es';
 
 const faqs = [
-  {
-    question: '¿Qué incluye un proyecto de diseño web?',
-    answer:
-      'Diseño de la página web, estructura, versión móvil, formulario o WhatsApp, base de SEO técnico y publicación con tu dominio. Hosting para arrancar. Precio y plazos van por escrito en la propuesta, antes de cobrar nada.',
-  },
   {
     question: '¿Cuánto cuesta una página web profesional?',
     answer:
       'El precio de una página web depende del alcance. Orientación: muchas webs a medida quedan entre 400 € y 3.000 € + IVA. Tras hablar te mandamos un presupuesto concreto, con lo que entra y el plazo.',
   },
   {
-    question: '¿Hay que pagar para pedir presupuesto de diseño web?',
-    answer:
-      'No. Primero hablamos, te mandamos la propuesta en 24–48 h laborables y decides. El 50% se paga al aceptar y arrancar; el resto, al publicar.',
-  },
-  {
-    question: '¿Cuánto tarda el diseño y desarrollo de una web?',
+    question: '¿Cuánto tarda?',
     answer:
       'El plazo va por escrito en la propuesta. Una página web de negocio suele estar en 3 a 8 semanas cuando tenemos textos y fotos. Cuenta desde el arranque pagado, no desde el primer contacto.',
   },
   {
-    question: '¿Hacéis diseño web a medida o usáis plantillas?',
+    question: '¿Qué incluye?',
     answer:
-      'Diseño web a medida. Se adapta a tu marca, textos y fotos. Si solo quieres una plantilla barata igual para todos, hay sitios mejores para eso.',
+      'Diseño de la página web, estructura, versión móvil, formulario o WhatsApp, base de SEO técnico, editor de contenidos y publicación con tu dominio. Hosting para arrancar. Precio y plazos van por escrito en la propuesta, antes de cobrar nada.',
   },
   {
-    question: '¿Montáis WordPress o desarrollo a medida?',
+    question: '¿WordPress o desarrollo a medida?',
     answer:
       'Lo que pida el caso. WordPress si encaja; desarrollo a medida u otra base si hace falta. Te lo decimos en la propuesta, sin venderte lo más caro por sistema.',
   },
   {
-    question: '¿La página web es responsive y se ve bien en el móvil?',
-    answer:
-      'Sí. La revisamos en móvil, tablet y escritorio antes de publicar. Una web que no se lee en el teléfono te cuesta consultas.',
-  },
-  {
-    question: '¿Incluís SEO en el diseño web?',
-    answer:
-      'Incluimos una base de SEO on-page: títulos, encabezados, URLs limpias cuando aplica y que la página cargue. El posicionamiento mes a mes no va en el precio de la web; si lo quieres, lo valoramos aparte.',
-  },
-  {
-    question: '¿Puedo editar la web yo después?',
+    question: '¿Puedo editarla después?',
     answer:
       'Sí. Te dejamos un panel sencillo para textos, fotos y cambios de día a día. Si prefieres no tocarla, el mantenimiento web mensual es opcional.',
   },
   {
-    question: '¿Rediseñáis una web antigua?',
+    question: '¿Rediseñáis webs existentes?',
     answer:
       'Sí. Partimos de tu marca, textos, fotos y dominio, y montamos la nueva página web. No es un parche sobre la vieja.',
   },
   {
-    question: '¿El hosting está incluido? ¿Puedo usar mi dominio?',
+    question: '¿El hosting y dominio están incluidos?',
     answer:
       'Sí a las dos. El dominio es tuyo. Lo configuramos o te ayudamos a registrar uno nuevo. El hosting para publicar lo confirmamos en la propuesta.',
   },
   {
-    question: '¿De quién es la web cuando está online?',
+    question: '¿De quién es la web?',
     answer:
       'Tuya. Te la entregamos funcionando: dominio, móvil, formulario o WhatsApp. Archivos y accesos a tu nombre. El mantenimiento mensual es opcional.',
-  },
-  {
-    question: '¿Sois una agencia de diseño web solo de Madrid?',
-    answer:
-      'Agencia de diseño web y marketing digital en Madrid; trabajamos en remoto con autónomos y empresas de toda España. Si estás en Madrid, también podemos vernos.',
   },
 ];
 
 const includes = [
   {
     title: 'Diseño web a medida',
-    description:
-      'Estructura, textos y aspecto pensados para tu negocio. No reutilizamos la misma plantilla para todos los clientes.',
+    description: (
+      <>
+        Estructura, textos y estilo pensados para tu proyecto.{' '}
+        <strong className='font-extrabold'>
+          No reutilizamos diseños entre clientes
+        </strong>
+        . Cada página web es diferente.
+      </>
+    ),
   },
   {
     title: 'Página web responsive',
-    description:
-      'Se lee y se usa bien en el móvil, la tablet y el ordenador. La mayor parte de las visitas llegan del teléfono.',
+    description: (
+      <>
+        Tu página web se verá bien en móvil, tablet y ordenador. Hoy en día{' '}
+        <strong className='font-extrabold'>
+          más del 80% de las visitas vienen de un smartphone
+        </strong>
+        .
+      </>
+    ),
   },
   {
-    title: 'Formulario o WhatsApp',
-    description:
-      'La web tiene que servir para que te escriban. Dejamos el contacto a la vista, sin rodeos.',
+    title: 'Imágenes y textos',
+    description: (
+      <>
+        Tu logo oficial, textos personalizados e imágenes profesionales. Si no
+        cuentas con ello, nuestro departamento de{' '}
+        <strong className='font-extrabold'>diseño gráfico y copywriting</strong>{' '}
+        puede encargarse de crearlos. Consúltanos.
+      </>
+    ),
   },
   {
-    title: 'SEO on-page de base',
-    description:
-      'Títulos, encabezados, meta description y URLs limpias. Una página web lenta o mal marcada no posiciona.',
+    title: 'Todas las secciones que necesites',
+    description: (
+      <>
+        Páginas web escalables.{' '}
+        <strong className='font-extrabold'>
+          No hay límite de secciones ni contenidos
+        </strong>
+        . Tenemos en cuenta que tu negocio puede crecer y añadir servicios o
+        departamentos, sin necesidad de crear una nueva página web.
+      </>
+    ),
   },
   {
-    title: 'Dominio y publicación',
-    description:
-      'Publicamos con tu dominio. El hosting para arrancar lo confirmamos en la propuesta. La web queda a tu nombre.',
+    title: 'Formulario, WhatsApp o chat',
+    description: (
+      <>
+        Un formulario de contacto con los campos necesarios para que puedan
+        escribirte desde la web y un botón de{' '}
+        <strong className='font-extrabold'>WhatsApp</strong> para que no pierdas
+        ningún cliente.
+      </>
+    ),
   },
   {
-    title: 'Panel para editar',
-    description:
-      'Puedes cambiar textos y fotos sin pedir cita. Si no quieres tocarla, el mantenimiento es opcional.',
+    title: 'Posicionamiento SEO base',
+    description: (
+      <>
+        Títulos, encabezados, descripciones y URLs limpias. Una página web lenta
+        o mal marcada no le gusta a Google: no se posiciona. Ofrecemos{' '}
+        <strong className='font-extrabold'>SEO continuo</strong>. Consúltanos.
+      </>
+    ),
+  },
+  {
+    title: 'Hosting, dominio y publicación',
+    description: (
+      <>
+        Incluimos{' '}
+        <strong className='font-extrabold'>
+          un año de hosting, dominio y publicación
+        </strong>
+        . La web siempre estará a tu nombre y podrás llevarla al hosting que tú
+        quieras.
+      </>
+    ),
+  },
+  {
+    title: 'Editor de contenidos',
+    description: (
+      <>
+        Podrás cambiar cualquier imagen, texto o estilo de la página web.
+        Nosotros te enseñamos. Si no, puedes contratar un mantenimiento con
+        nosotros por{' '}
+        <strong className='font-extrabold'>
+          un 35% menos que el precio al público
+        </strong>
+        .
+      </>
+    ),
   },
 ];
 
 const processSteps = [
   {
     number: '1',
-    title: 'Cuentas el caso',
-    description:
-      'Qué haces, a quién te diriges y qué tiene que hacer la página web: consultas, citas, marca o información.',
+    title: 'Nos cuentas tu proyecto',
+    description: (
+      <>
+        En esta charla inicial nos hablas de tu proyecto, tus necesidades y tu
+        presupuesto para poder hacerte{' '}
+        <strong className='font-extrabold'>la mejor propuesta posible</strong>.
+      </>
+    ),
   },
   {
     number: '2',
-    title: 'Presupuesto de diseño web',
-    description:
-      'En 24–48 h laborables te mandamos qué entra, cuánto sale y cuándo está. Sin pagar por pedir precio.',
+    title: 'En 24–48 h te enviamos la propuesta',
+    description: (
+      <>
+        Con toda la info que nos has dado, estudiamos tu caso y preparamos un{' '}
+        <strong className='font-extrabold'>presupuesto cerrado</strong> donde te
+        explicamos todo lo que entra.
+      </>
+    ),
   },
   {
     number: '3',
-    title: 'Diseño y desarrollo',
-    description:
-      'Montamos la web con tu marca, textos y fotos. Tú revisas. Corregimos antes de publicar.',
+    title: 'Empezamos a diseñar tu página web',
+    description: (
+      <>
+        Cuando aceptas la propuesta, empiezas a trabajar{' '}
+        <strong className='font-extrabold'>
+          directamente con quien diseña y desarrolla tu proyecto
+        </strong>
+        .
+      </>
+    ),
   },
   {
     number: '4',
-    title: 'Publicación',
-    description:
-      'La página web sale con tu dominio, en móvil y con formulario o WhatsApp. Accesos a tu nombre.',
+    title: 'Tu página publicada',
+    description: (
+      <>
+        Tras las revisiones necesarias por tu parte y la confirmación de que
+        todo está a tu gusto,{' '}
+        <strong className='font-extrabold'>
+          publicamos la página web y la ponemos en marcha
+        </strong>
+        . Ya tienes tu página web.
+      </>
+    ),
   },
 ];
 
 const audiences = [
   {
     icon: Briefcase,
-    title: 'Autónomos',
-    description:
-      'Una página web profesional para que te encuentren y te escriban, sin un departamento de marketing.',
+    title: 'Trabajadores autónomos',
+    description: (
+      <>
+        Una página web profesional para que te encuentren, ofrezcas tus
+        servicios, <strong className='font-extrabold'>captes clientes</strong> y
+        des una buena imagen.
+      </>
+    ),
   },
   {
     icon: Building2,
-    title: 'Pymes y empresas',
-    description:
-      'Diseño de páginas web de empresa: servicios, equipo, casos y un contacto que se usa de verdad.',
+    title: 'Pequeñas y medianas empresas',
+    description: (
+      <>
+        Páginas web con servicios, clientes, un portfolio de trabajos,{' '}
+        <strong className='font-extrabold'>
+          área privada para clientes y empleados
+        </strong>{' '}
+        y mucho más.
+      </>
+    ),
   },
   {
     icon: RefreshCw,
-    title: 'Rediseño web',
-    description:
-      'Si la web actual es lenta, antigua o no se ve en el móvil, la hacemos de nuevo. No la parcheamos.',
-  },
-  {
-    icon: Store,
-    title: 'Negocios en toda España',
-    description:
-      'Estudio en Madrid y trabajo en remoto. Da igual la ciudad: el proceso es el mismo.',
+    title: 'Empresas que ya tienen web',
+    description: (
+      <>
+        Si tu web actual es lenta o no obtiene suficientes visitas, el diseño
+        puede estar obsoleto.{' '}
+        <strong className='font-extrabold'>Realizamos rediseños</strong>. Puedes
+        ver nuestro portfolio.
+      </>
+    ),
   },
 ];
 
@@ -232,8 +310,17 @@ const DisenoWeb = () => {
   return (
     <>
       <HeroCta
-        title='Diseño web a medida para empresas y autónomos'
-        description='Diseño de páginas web profesionales: claras, rápidas y hechas para que te escriban. Estudio en Madrid, proyectos en toda España. Precio y plazos por escrito antes de empezar.'
+        title='Una página web con todo lo necesario para captar nuevos clientes'
+        description={
+          <>
+            Diseñamos páginas web claras, rápidas y pensadas para{' '}
+            <strong className='font-extrabold'>
+              convertir visitas en clientes
+            </strong>
+            . Todo lo necesario para que puedas empezar a trabajar{' '}
+            <strong className='font-extrabold'>desde el primer día</strong>.
+          </>
+        }
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
         backgroundUrl='/img/web-design-charlesdeluvio.webp'
@@ -253,11 +340,34 @@ const DisenoWeb = () => {
       />
 
       <TextImage
-        label='AGENCIA DE DISEÑO WEB'
-        title='Diseño y desarrollo web, con quien monta la página'
+        label='¿Por qué una página con 36web?'
+        title='Diseñamos páginas web pensadas para conseguir resultados.'
         paragraphs={[
-          '36web es una agencia de diseño web y marketing digital en Madrid. Más de 12 años haciendo páginas web para autónomos, pymes y empresas de toda España. No hay un comercial que luego desaparece: hablas con el equipo que diseña y desarrolla.',
-          'Una página web lenta, confusa o que no se ve en el móvil te cuesta clientes. Por eso el diseño web a medida aquí es claro, rápido y se publica con tu dominio.',
+          <>
+            Llevamos mucho tiempo en esto y tenemos las claves para que tu web{' '}
+            <strong className='font-extrabold'>
+              le guste tanto a Google como a tus clientes
+            </strong>
+            . Por eso te ofrecemos una página que{' '}
+            <strong className='font-extrabold'>
+              cargue rápido, pese poco y sea sencilla de entender
+            </strong>
+            .
+          </>,
+          <>
+            Tendremos muy en cuenta{' '}
+            <strong className='font-extrabold'>
+              tus necesidades y presupuesto
+            </strong>{' '}
+            a la hora de elegir las tecnologías para diseñar tu página web.
+            Podemos crearte una web original y sencilla con 3 o 4 secciones, o
+            una web con funcionalidades complejas (citas, reservas, calendario,
+            mensajería automática, etc.). Siempre vamos a aconsejarte{' '}
+            <strong className='font-extrabold'>
+              lo mejor para ti, no lo más caro
+            </strong>
+            .
+          </>,
         ]}
         imageSrc='/img/portfolio/mock-carper.png'
         imageAlt='Mock de página web de Carper Sonido'
@@ -266,24 +376,54 @@ const DisenoWeb = () => {
       />
 
       <ServiceIncludes
-        title='Qué incluye el diseño de una página web'
-        intro='Esto es lo que entra en un proyecto de diseño web típico. El detalle exacto va en la propuesta, según el caso.'
+        title='Qué incluimos en el diseño de tu página web'
+        intro={
+          <>
+            Esta es la base de todas nuestras páginas web. Todo el resto irá
+            especificado en la propuesta final.{' '}
+            <strong className='font-extrabold'>Sin sorpresas.</strong>
+          </>
+        }
         items={includes}
       />
 
       <TextImage
-        label='WORDPRESS O A MEDIDA'
-        title='Diseño web a medida, WordPress o desarrollo'
+        label='DISEÑO WEB CON WORDPRESS'
+        title='Diseño de páginas web con WordPress'
         paragraphs={[
-          'No hay una única forma correcta de hacer una página web. WordPress encaja cuando quieres editar contenido con facilidad. El desarrollo a medida entra cuando la web tiene que hacer algo que una plantilla no resuelve bien.',
-          'En la propuesta te decimos qué base usamos y por qué. Sin venderte lo más caro por sistema. Si lo que necesitas es una plantilla genérica a bajo precio, este no es el servicio.',
           <>
-            Si lo que quieres es vender productos con catálogo, pagos y envíos,
-            eso es una{' '}
+            Contamos con expertos en{' '}
+            <strong className='font-extrabold'>WordPress</strong> y sus
+            lenguajes de programación.
+          </>,
+          <>
+            Entendemos que WordPress puede ser una solución{' '}
+            <strong className='font-extrabold'>rápida y potente</strong> a la
+            hora de crear una página web, sobre todo para quien ya conoce su
+            ecosistema y su panel de control.
+          </>,
+          <>
+            Trabajamos con WordPress cuando es{' '}
+            <strong className='font-extrabold'>
+              la opción que mejor encaja con el proyecto
+            </strong>
+            . Podemos partir de un diseño propio o personalizar una base
+            existente, siempre adaptándola a tu marca y necesidades.
+          </>,
+          <>
+            Además, dejamos el panel preparado para que puedas{' '}
+            <strong className='font-extrabold'>
+              gestionar tus propios contenidos sin depender de nosotros
+            </strong>
+            .
+          </>,
+          <>
+            Si lo que necesitas es un catálogo de productos con pasarela de pago
+            y envíos, te ofrecemos una{' '}
             <a href={SITE_SHOP_PATH} className='font-bold text-link underline'>
-              tienda online
+              tienda online profesional
             </a>
-            , no una web corporativa. Lo vemos en la conversación.
+            .
           </>,
         ]}
         imageSrc='/img/portfolio/mock-viajamos.png'
@@ -294,26 +434,61 @@ const DisenoWeb = () => {
       />
 
       <SEOBenefits
-        title='Para quién es este diseño web'
-        subtitle='Páginas web para autónomos y empresas que necesitan verse profesionales y recibir consultas.'
+        title='Una página web distinta según lo que necesite tu negocio.'
+        subtitle={
+          <>
+            Hacemos páginas web para{' '}
+            <strong className='font-extrabold'>trabajadores autónomos</strong>,{' '}
+            <strong className='font-extrabold'>
+              pequeñas y medianas empresas
+            </strong>
+            , equipos deportivos, asociaciones de todo tipo y mucho más.
+          </>
+        }
         benefits={audiences}
       />
 
       <SEOProcess
-        title='Cómo se contrata el diseño web'
-        subtitle='Cuatro pasos. Sabes precio y plazos antes de pagar. La página web queda a tu nombre.'
+        title='Cómo es el proceso de contratación'
+        subtitle={
+          <>
+            <strong className='font-extrabold'>Cuatro sencillos pasos.</strong>{' '}
+            Nos dejas tus datos, charlamos y nos cuentas tu proyecto. Te pasamos
+            una propuesta personalizada. Aceptas y empezamos a trabajar.
+          </>
+        }
         steps={processSteps}
         imageSrc='/img/fikret-tozak-rfNLa1HL7eY-unsplash.jpg'
         imageAlt='Proceso de diseño y desarrollo de una página web'
       />
 
       <TextImage
-        label='PRESUPUESTO'
-        title='Precio de una página web profesional'
+        label='DISEÑO WEB A MEDIDA'
+        title='Diseño de páginas web a medida'
         paragraphs={[
-          'No hay un pack cerrado de diseño web. El presupuesto depende de páginas, contenidos, idioma y si hay que migrar una web antigua.',
-          'Orientación: muchas páginas web a medida quedan entre 400 € y 3.000 € + IVA. En 24–48 h laborables te mandamos un número concreto, con lo que entra y el plazo. Pedir presupuesto de diseño web es gratis y no te compromete.',
-          'El 50% se paga al aceptar y arrancar. El resto, al publicar. Hosting para empezar y dominio tuyo. El mantenimiento mensual, si lo quieres, es aparte.',
+          <>
+            <strong className='font-extrabold'>
+              No tenemos un pack cerrado
+            </strong>{' '}
+            de diseño web. El presupuesto depende de{' '}
+            <strong className='font-extrabold'>
+              páginas, contenidos, idioma y las horas de dedicación
+            </strong>
+            .
+          </>,
+          <>
+            Muchas páginas web a medida quedan entre{' '}
+            <strong className='font-extrabold'>400 € y 3.000 € + IVA</strong>,
+            según las necesidades del proyecto y su complejidad.
+          </>,
+          <>
+            En 36web recomendamos empezar por{' '}
+            <strong className='font-extrabold'>
+              lo que realmente necesitas
+            </strong>{' '}
+            e ir escalando según{' '}
+            <strong className='font-extrabold'>tu negocio va creciendo</strong>.
+          </>,
         ]}
         imageSrc='/img/portfolio/mock-delish.png'
         imageAlt='Mock de página web profesional'
@@ -325,16 +500,29 @@ const DisenoWeb = () => {
       <Portfolio contained />
       <Testimonials />
       <Team
-        label='EQUIPO DE DISEÑO WEB'
-        title='La página web la montamos nosotros'
+        label='CONOCE A TU FUTURO EQUIPO DE DISEÑO WEB'
+        title='Estas somos las personas que vamos a encargarnos de diseñar tu página web.'
         paragraphs={[
-          'Diseño web, desarrollo y publicación. Hablas con el equipo, no con un comercial. Una web lenta o confusa te cuesta clientes; por eso la hacemos clara, rápida y lista para que te escriban.',
+          <>
+            Queremos que nos pongas caras. Que puedas ver nuestros portfolios y
+            contactar con nosotros para lo que necesites:{' '}
+            <strong className='font-extrabold'>siempre contestamos</strong>.
+            Sobre todo, que sientas{' '}
+            <strong className='font-extrabold'>
+              seguridad al confiarnos la parte digital de tu negocio
+            </strong>
+            . Aunque 36web acaba de empezar,{' '}
+            <strong className='font-extrabold'>
+              nosotros llevamos años trabajando en esto
+            </strong>
+            .
+          </>,
         ]}
       />
 
       <div id='faq' className='scroll-mt-24'>
         <SEOFAQ
-          title='Preguntas frecuentes sobre diseño web'
+          title='No queremos que te quedes con dudas'
           faqs={faqs}
           ctaText='PEDIR PROPUESTA'
           ctaHref='#contacto'
@@ -345,7 +533,15 @@ const DisenoWeb = () => {
         label='TAMBIÉN HACEMOS'
         title='¿Necesitas una tienda online?'
         paragraphs={[
-          'Si vendes productos, el proyecto es un ecommerce: catálogo, pagos y envíos. No es lo mismo que una página web de empresa.',
+          <>
+            Si vendes productos, el proyecto es un{' '}
+            <strong className='font-extrabold'>ecommerce</strong>: catálogo,
+            pagos y envíos.{' '}
+            <strong className='font-extrabold'>
+              No es lo mismo que una página web de empresa
+            </strong>
+            .
+          </>,
         ]}
         imageSrc='/img/portfolio/mock-chicxs.png'
         imageAlt='Mock de tienda online de Chicxs de la Calle'
@@ -355,7 +551,17 @@ const DisenoWeb = () => {
 
       <HeroCta
         title='Pide presupuesto de diseño web'
-        description='Cuéntanos qué haces y qué tiene que hacer la página. Te devolvemos propuesta en 24–48 h, con precio y plazos. Si no encaja, lo dices y no pasa nada.'
+        description={
+          <>
+            Cuéntanos qué haces y qué tiene que hacer la página. Te devolvemos
+            propuesta en <strong className='font-extrabold'>24–48 h</strong>,
+            con precio y plazos.{' '}
+            <strong className='font-extrabold'>
+              Si no encaja, lo dices y no pasa nada
+            </strong>
+            .
+          </>
+        }
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
         heroType='form'

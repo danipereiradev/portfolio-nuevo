@@ -1,12 +1,14 @@
+import type { ReactNode } from 'react';
+
 interface Step {
   number: string;
   title: string;
-  description: string;
+  description: ReactNode;
 }
 
 interface SEOProcessProps {
   title: string;
-  subtitle?: string;
+  subtitle?: ReactNode;
   steps: Step[];
   imageSrc?: string;
   imageAlt?: string;

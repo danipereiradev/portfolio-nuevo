@@ -37,7 +37,7 @@ const SEOFAQ = ({
       <div className='container mx-auto flex flex-col items-center gap-page-gap'>
         <div className='page-title-block mx-auto max-w-5xl text-center'>
           <span className='text-md uppercase rounded-lg font-extrabold text-accent underline'>
-            ¿Tienes mas preguntas?
+            Preguntas frecuentes
           </span>
           <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark'>
             {title}

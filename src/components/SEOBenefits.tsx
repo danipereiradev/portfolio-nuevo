@@ -1,14 +1,15 @@
+import type { ReactNode } from 'react';
 import { LucideIcon } from 'lucide-react';
 
 interface Benefit {
   icon: LucideIcon;
   title: string;
-  description: string;
+  description: ReactNode;
 }
 
 interface SEOBenefitsProps {
   title: string;
-  subtitle?: string;
+  subtitle?: ReactNode;
   benefits: Benefit[];
 }
 
