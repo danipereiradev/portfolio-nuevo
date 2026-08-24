@@ -21,7 +21,7 @@ export const CtaTextForm = () => {
             tu negocio.
           </h2>
           <p className='text-xl md:text-2xl text-black leading-relaxed'>
-            En Pereiraweb somos directos: una web lenta o con errores es una
+            En 36web somos directos: una web lenta o con errores es una
             fuga constante de dinero. Por eso, nuestra metodología en el
             desarrollo de tiendas online combina la arquitectura técnica más
             avanzada con un enfoque obsesivo en la conversión (CRO).

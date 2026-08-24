@@ -1,64 +1,64 @@
 {
   "/": {
-    "title": "Webs para negocios | PereiraWeb",
+    "title": "Webs para negocios | 36web",
     "description": "Hacemos webs y tiendas online desde Madrid para autónomos y empresas de toda España. Precio por escrito antes de empezar. Llevamos más de 12 años en esto."
   },
   "/diseño-web": {
-    "title": "Diseño web a medida para empresas | PereiraWeb",
+    "title": "Diseño web a medida para empresas | 36web",
     "description": "Diseño de páginas web a medida para autónomos y empresas. Estudio en Madrid, proyectos en toda España. Presupuesto y plazos por escrito. Más de 12 años."
   },
   "/tiendas-online": {
-    "title": "Diseño de tiendas online y ecommerce | PereiraWeb",
+    "title": "Diseño de tiendas online y ecommerce | 36web",
     "description": "Creamos tiendas online: WooCommerce, Shopify o a medida. Catálogo, pagos y envíos. Estudio en Madrid, toda España. Presupuesto y plazos por escrito."
   },
   "/mantenimiento-web": {
-    "title": "Mantenimiento web mensual | PereiraWeb",
+    "title": "Mantenimiento web mensual | 36web",
     "description": "Mantenimiento de páginas web: actualizaciones, copias, cambios pequeños y soporte. Webs propias o de otros. Estudio en Madrid, toda España."
   },
   "/landing-diseño-web": {
-    "title": "Diseño web | PereiraWeb",
+    "title": "Diseño web | 36web",
     "description": "Te montamos la web de tu negocio: estructura, diseño, móvil, formulario y WhatsApp. Te decimos precio y plazos antes de cobrar nada."
   },
   "/landing-tiendas-online": {
-    "title": "Tiendas online | PereiraWeb",
+    "title": "Tiendas online | 36web",
     "description": "Te montamos la tienda online: catálogo, pagos, envíos y móvil. WooCommerce, Shopify o a medida. Te decimos precio y plazos antes de cobrar nada."
   },
   "/landing-mantenimiento-web": {
-    "title": "Mantenimiento web | PereiraWeb",
+    "title": "Mantenimiento web | 36web",
     "description": "Que tu web no se rompa: actualizaciones, copias, cambios de textos y alguien a quien escribir. Te decimos qué entra y la cuota, antes de cobrar nada."
   },
   "/blog": {
-    "title": "Blog de diseño web y tiendas online | PereiraWeb",
+    "title": "Blog de diseño web y tiendas online | 36web",
     "description": "Artículos sobre diseño web, tecnologías para crear una página web, tiendas online y precios. Estudio en Madrid, toda España."
   },
   "/sobre-pereiraweb": {
-    "title": "La Agencia | Estudio de diseño web en Madrid | PereiraWeb",
-    "description": "PereiraWeb es una agencia de diseño web y marketing digital en Madrid. Más de 12 años montando webs y tiendas online. Hablas con quien las hace."
+    "title": "La Agencia | Estudio de diseño web en Madrid | 36web",
+    "description": "36web es una agencia de diseño web y marketing digital en Madrid. Más de 12 años montando webs y tiendas online. Hablas con quien las hace."
   },
   "/blog/cuanto-cuesta-una-pagina-web-profesional": {
-    "title": "Cuánto cuesta una página web profesional en 2026 | PereiraWeb",
+    "title": "Cuánto cuesta una página web profesional en 2026 | 36web",
     "description": "En 2026 una página web profesional suele ir de 400 € a 3.000 € + IVA. Qué entra en el precio, qué no, y cómo pedir presupuesto sin compromiso.",
     "ogType": "article"
   },
   "/blog/tecnologias-para-crear-una-pagina-web": {
-    "title": "Tecnologías para crear una página web | PereiraWeb",
+    "title": "Tecnologías para crear una página web | 36web",
     "description": "HTML, CSS, JavaScript, WordPress, React y más. Qué lenguajes, CMS y frameworks usar para crear una página web, y cuándo encaja cada uno.",
     "ogType": "article"
   },
   "/politica-de-privacidad": {
-    "title": "Política de Privacidad | PereiraWeb",
-    "description": "Consulta cómo PereiraWeb trata tus datos personales, con qué finalidades y cuáles son tus derechos según el RGPD."
+    "title": "Política de Privacidad | 36web",
+    "description": "Consulta cómo 36web trata tus datos personales, con qué finalidades y cuáles son tus derechos según el RGPD."
   },
   "/terminos-y-condiciones": {
-    "title": "Términos y Condiciones | PereiraWeb",
-    "description": "Condiciones de uso del sitio web y de contratación de los servicios de diseño y desarrollo web de PereiraWeb."
+    "title": "Términos y Condiciones | 36web",
+    "description": "Condiciones de uso del sitio web y de contratación de los servicios de diseño y desarrollo web de 36web."
   },
   "/politica-de-cookies": {
-    "title": "Política de Cookies | PereiraWeb",
+    "title": "Política de Cookies | 36web",
     "description": "Información sobre las cookies utilizadas en pereiraweb.es y cómo puedes gestionarlas en tu navegador."
   },
   "/aviso-legal": {
-    "title": "Aviso Legal | PereiraWeb",
-    "description": "Aviso legal e información del titular del sitio web PereiraWeb: datos identificativos, condiciones de uso y responsabilidad."
+    "title": "Aviso Legal | 36web",
+    "description": "Aviso legal e información del titular del sitio web 36web: datos identificativos, condiciones de uso y responsabilidad."
   }
 }

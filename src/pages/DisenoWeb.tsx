@@ -207,7 +207,7 @@ const DisenoWeb = () => {
           areaServed: { '@type': 'Country', name: 'España' },
           provider: {
             '@type': 'ProfessionalService',
-            name: 'PereiraWeb',
+            name: '36web',
             url: `${SITE_URL}/`,
           },
         },
@@ -256,7 +256,7 @@ const DisenoWeb = () => {
         label='AGENCIA DE DISEÑO WEB'
         title='Diseño y desarrollo web, con quien monta la página'
         paragraphs={[
-          'PereiraWeb es una agencia de diseño web y marketing digital en Madrid. Más de 12 años haciendo páginas web para autónomos, pymes y empresas de toda España. No hay un comercial que luego desaparece: hablas con el equipo que diseña y desarrolla.',
+          '36web es una agencia de diseño web y marketing digital en Madrid. Más de 12 años haciendo páginas web para autónomos, pymes y empresas de toda España. No hay un comercial que luego desaparece: hablas con el equipo que diseña y desarrolla.',
           'Una página web lenta, confusa o que no se ve en el móvil te cuesta clientes. Por eso el diseño web a medida aquí es claro, rápido y se publica con tu dominio.',
         ]}
         imageSrc='/img/portfolio/mock-carper.png'

@@ -67,7 +67,7 @@ const BlogPost = () => {
           },
           publisher: {
             '@type': 'ProfessionalService',
-            name: 'PereiraWeb',
+            name: '36web',
             url: `${SITE_URL}/`,
           },
           mainEntityOfPage: url,

@@ -202,7 +202,7 @@ const TiendasOnline = () => {
           areaServed: { '@type': 'Country', name: 'España' },
           provider: {
             '@type': 'ProfessionalService',
-            name: 'PereiraWeb',
+            name: '36web',
             url: `${SITE_URL}/`,
           },
         },
@@ -254,7 +254,7 @@ const TiendasOnline = () => {
         label='ECOMMERCE A MEDIDA'
         title='Diseño y desarrollo de tiendas online, con quien las monta'
         paragraphs={[
-          'PereiraWeb es un estudio en Madrid con más de 12 años montando tiendas online para marcas y negocios de toda España. No hay un comercial que luego desaparece: hablas con el equipo que diseña y desarrolla el ecommerce.',
+          '36web es un estudio en Madrid con más de 12 años montando tiendas online para marcas y negocios de toda España. No hay un comercial que luego desaparece: hablas con el equipo que diseña y desarrolla el ecommerce.',
           'Una tienda online lenta o un checkout confuso te cuesta pedidos. Por eso el diseño de tienda online aquí es claro, rápido y queda listo para cobrar con tu dominio.',
         ]}
         imageSrc='/img/portfolio/mock-chicxs.png'

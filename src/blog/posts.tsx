@@ -6,7 +6,7 @@ const cuantoCuesta: BlogPost = {
   slug: 'cuanto-cuesta-una-pagina-web-profesional',
   title: 'Cuánto cuesta una página web profesional en 2026',
   description:
-    'En 2026 una página web profesional en España suele ir de 400 € a 3.000 € + IVA, según alcance. Qué entra en el precio, qué no, y cómo pedimos presupuesto en PereiraWeb.',
+    'En 2026 una página web profesional en España suele ir de 400 € a 3.000 € + IVA, según alcance. Qué entra en el precio, qué no, y cómo pedimos presupuesto en 36web.',
   date: '2026-08-21',
   author: 'Dani Pereira',
   image: '/img/portfolio/mock-delish.png',
@@ -30,7 +30,7 @@ const cuantoCuesta: BlogPost = {
         No hay un pack cerrado que valga para todos. Quien te da un precio único
         sin preguntar o te está vendiendo una plantilla, o te lo inventa. Aquí
         te dejamos orientación de verdad, y cómo lo presupuestamos en
-        PereiraWeb.
+        36web.
       </p>
 
       <h2>Qué marca el precio de una página web en 2026</h2>
@@ -178,7 +178,7 @@ const cuantoCuesta: BlogPost = {
 
       <h2>¿Cuánto cuesta una página web en Madrid en 2026?</h2>
       <p>
-        PereiraWeb es una agencia de diseño web y marketing digital en Madrid.
+        36web es una agencia de diseño web y marketing digital en Madrid.
         El precio no cambia por código postal: trabajamos en remoto con
         autónomos y empresas de toda España. Si estás en Madrid, también podemos
         vernos. Lo que cambia el precio es el alcance del proyecto, no la

@@ -38,13 +38,13 @@ const Nosotros = () => {
         },
         {
           '@type': 'AboutPage',
-          name: `${ABOUT_LABEL} | PereiraWeb`,
+          name: `${ABOUT_LABEL} | 36web`,
           url: `${SITE_URL}${ABOUT_PATH}/`,
           description:
             'Agencia de diseño web y marketing digital en Madrid. Más de 12 años montando webs y tiendas online para negocios de toda España.',
           mainEntity: {
             '@type': 'ProfessionalService',
-            name: 'PereiraWeb',
+            name: '36web',
             url: `${SITE_URL}/`,
             areaServed: { '@type': 'Country', name: 'España' },
           },
@@ -70,7 +70,7 @@ const Nosotros = () => {
       />
 
       <TextImage
-        label='¿QUÉ ES PEREIRAWEB?'
+        label='¿QUÉ ES 36WEB?'
         title='Agencia de diseño web y marketing digital con atención directa.'
         paragraphs={[
           <>
@@ -101,7 +101,7 @@ const Nosotros = () => {
             .
           </>,
         ]}
-        imageAlt='Equipo de PereiraWeb trabajando en diseño y desarrollo web'
+        imageAlt='Equipo de 36web trabajando en diseño y desarrollo web'
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
         imageSrc='/img/fikret-tozak-rfNLa1HL7eY-unsplash.jpg'
@@ -113,7 +113,7 @@ const Nosotros = () => {
         title='Una agencia joven formada por profesionales con más de una década de experiencia.'
         paragraphs={[
           <>
-            Detrás de PereiraWeb hay diseñadores y desarrolladores que venimos
+            Detrás de 36web hay diseñadores y desarrolladores que venimos
             de{' '}
             <strong className='font-extrabold'>
               grandes consultoras, startups y proyectos reales
@@ -140,7 +140,7 @@ const Nosotros = () => {
       />
 
       <Team
-        label='¿QUIÉN ESTÁ DETRÁS DE PEREIRAWEB?'
+        label='¿QUIÉN ESTÁ DETRÁS DE 36WEB?'
         title='Estas somos las personas que vamos a encargarnos de tu proyecto.'
         paragraphs={[
           <>
@@ -151,7 +151,7 @@ const Nosotros = () => {
             <strong className='font-extrabold'>
               seguridad al confiarnos la parte digital de tu negocio
             </strong>
-            . Aunque PereiraWeb acaba de empezar,{' '}
+            . Aunque 36web acaba de empezar,{' '}
             <strong className='font-extrabold'>
               nosotros llevamos años trabajando en esto
             </strong>

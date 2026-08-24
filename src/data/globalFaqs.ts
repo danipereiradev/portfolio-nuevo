@@ -1,4 +1,4 @@
-// FAQ global de PereiraWeb.
+// FAQ global de 36web.
 export interface GlobalFaqItem {
   question: string;
   answer: string;

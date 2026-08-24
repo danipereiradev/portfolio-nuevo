@@ -202,7 +202,7 @@ const MantenimientoWeb = () => {
           areaServed: { '@type': 'Country', name: 'España' },
           provider: {
             '@type': 'ProfessionalService',
-            name: 'PereiraWeb',
+            name: '36web',
             url: `${SITE_URL}/`,
           },
         },
@@ -254,11 +254,11 @@ const MantenimientoWeb = () => {
         label='MANTENIMIENTO WEB'
         title='Que la web siga online, actualizada y con alguien al otro lado'
         paragraphs={[
-          'PereiraWeb es una agencia de diseño web y marketing digital en Madrid. Más de 12 años montando y cuidando páginas web para autónomos y empresas de toda España. El mantenimiento no es un extra escondido: es un plan mensual, con lo que entra por escrito.',
+          '36web es una agencia de diseño web y marketing digital en Madrid. Más de 12 años montando y cuidando páginas web para autónomos y empresas de toda España. El mantenimiento no es un extra escondido: es un plan mensual, con lo que entra por escrito.',
           'Una web sin copias, sin actualizar o con un formulario muerto te cuesta consultas. Por eso el mantenimiento aquí es actualizaciones, copias, cambios pequeños y soporte. No un “ya lo miramos”.',
         ]}
         imageSrc='/img/fikret-tozak-rfNLa1HL7eY-unsplash.jpg'
-        imageAlt='Equipo de PereiraWeb trabajando en mantenimiento web'
+        imageAlt='Equipo de 36web trabajando en mantenimiento web'
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
       />

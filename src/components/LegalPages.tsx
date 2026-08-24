@@ -307,7 +307,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                   3. Servicios
                 </h2>
                 <p className='mb-4'>
-                  PereiraWeb ofrece los siguientes servicios:
+                  36web ofrece los siguientes servicios:
                 </p>
                 <ul className='list-disc pl-6 space-y-2'>
                   <li>Desarrollo de páginas web corporativas</li>
@@ -388,12 +388,12 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                     abonado íntegramente
                   </li>
                   <li>
-                    PereiraWeb se reserva el derecho a mostrar el proyecto en su
+                    36web se reserva el derecho a mostrar el proyecto en su
                     portfolio
                   </li>
                   <li>
                     El código fuente y las metodologías desarrolladas son
-                    propiedad de PereiraWeb
+                    propiedad de 36web
                   </li>
                 </ul>
               </section>
@@ -420,8 +420,8 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                   9. Limitación de Responsabilidad
                 </h2>
                 <p>
-                  La responsabilidad de PereiraWeb se limita al importe del
-                  proyecto contratado. PereiraWeb no será responsable de daños
+                  La responsabilidad de 36web se limita al importe del
+                  proyecto contratado. 36web no será responsable de daños
                   indirectos o lucro cesante.
                 </p>
               </section>

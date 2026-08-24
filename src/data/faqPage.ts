@@ -15,7 +15,7 @@ export const faqCategories: FaqCategory[] = [
     title: 'General',
     faqs: [
       {
-        question: '¿Qué es PereiraWeb?',
+        question: '¿Qué es 36web?',
         answer:
           'Un estudio pequeño de diseño y desarrollo web. Hacemos webs, tiendas y mantenimiento. Trabajamos online con clientes de toda España. Precio por escrito antes de empezar.',
       },
@@ -219,7 +219,7 @@ export const faqCategories: FaqCategory[] = [
       {
         question: '¿La web es mía al terminar?',
         answer:
-          'Con el pago íntegro adquieres los derechos de uso. Código y metodologías: según términos de contratación (propiedad de PereiraWeb).',
+          'Con el pago íntegro adquieres los derechos de uso. Código y metodologías: según términos de contratación (propiedad de 36web).',
       },
       {
         question: '¿Podéis enseñar el proyecto en el portfolio?',

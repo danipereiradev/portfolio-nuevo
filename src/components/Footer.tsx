@@ -70,7 +70,7 @@ const Footer = () => {
                     &gt;
                   </span>
                   <span className='text-ink-dark font-mono tracking-tight'>
-                    pereiraweb
+                    36web
                   </span>
                   <span className='text-ink-dark font-mono font-normal'>
                     {' '}
@@ -111,7 +111,7 @@ const Footer = () => {
           {!isMinimalChrome && (
             <div className='text-center md:text-left lg:px-6 xl:px-8'>
               <h3 className='text-xl md:text-2xl font-bold mb-1 text-ink-medium'>
-                Pereiraweb
+                36web
               </h3>
               <span className='block w-10 h-1 bg-brand mb-6 mx-auto md:mx-0' />
               <ul className='space-y-3 text-ink-dark'>

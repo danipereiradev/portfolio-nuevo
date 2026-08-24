@@ -45,7 +45,13 @@ const Header = () => {
   const [typedText, setTypedText] = useState('');
   const [hasTyped, setHasTyped] = useState(false);
 
-  const fullText = 'pereiraweb .es';
+  const fullText = '36web .es';
+  const namePart = hasTyped ? '36web' : typedText.split(' ')[0];
+  const domainPart = hasTyped
+    ? '.es'
+    : typedText.includes(' .')
+      ? typedText.split(' ')[1]
+      : '';
 
   useEffect(() => {
     if (hasTyped) return undefined;
@@ -71,15 +77,13 @@ const Header = () => {
     >
       <span className='font-mono text-xl text-ink-dark md:text-3xl'>&gt;</span>
       <span className='ml-1 font-mono tracking-tight text-ink-dark'>
-        {hasTyped ? '36Web' : typedText.split(' ')[0]}
+        {namePart}
       </span>
-      <span className='font-mono font-normal text-ink-dark'>
-        {hasTyped
-          ? ' .es'
-          : typedText.includes(' .')
-            ? ` ${typedText.split(' ')[1]}`
-            : ''}
-      </span>
+      {domainPart ? (
+        <span className='ml-[0.15em] font-mono font-normal text-ink-dark'>
+          {domainPart}
+        </span>
+      ) : null}
       <span className='ml-0 animate-pulse font-mono text-xl text-ink-dark'>
         _
       </span>

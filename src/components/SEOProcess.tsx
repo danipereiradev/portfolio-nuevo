@@ -17,7 +17,7 @@ const SEOProcess = ({
   subtitle,
   steps,
   imageSrc = '/img/theme-photos-CGpifH3FjOA-unsplash.jpg',
-  imageAlt = 'Proceso de trabajo de PereiraWeb',
+  imageAlt = 'Proceso de trabajo de 36web',
 }: SEOProcessProps) => {
   return (
     <section className='page-section relative overflow-hidden bg-surface-muted'>

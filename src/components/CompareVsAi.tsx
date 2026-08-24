@@ -53,7 +53,7 @@ const CompareVsAi = () => {
                   <span className='sr-only'>Criterio</span>
                 </th>
                 <th className='w-[41%] px-content-pad py-content-pad text-lg font-extrabold'>
-                  Pereiraweb
+                  36web
                 </th>
                 <th className='w-[41%] px-content-pad py-content-pad text-lg font-extrabold'>
                   Una web con IA
@@ -95,7 +95,7 @@ const CompareVsAi = () => {
               </h3>
               <span className='mb-content-gap mt-2 block h-1 w-10 bg-brand' />
               <p className='mb-heading-gap text-sm font-bold uppercase tracking-wide text-accent'>
-                Pereiraweb
+                36web
               </p>
               <p className='mb-content-gap text-base font-medium text-ink-dark'>
                 {row.us}

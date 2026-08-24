@@ -12,7 +12,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
 const translations = {
   // Header
   'nav.home': 'Inicio',
-  'nav.about': 'Pereiraweb',
+  'nav.about': '36web',
   'nav.services': 'Servicios',
   'nav.portfolio': 'Portfolio',
   'nav.clients': 'Clientes',
@@ -115,7 +115,7 @@ const translations = {
   'footer.contact_title': 'Contacto',
   'footer.areas_title': 'Áreas de Servicio',
   'footer.areas_desc': 'Proyectos en toda España',
-  'footer.copyright': 'PereiraWeb. Todos los derechos reservados.',
+  'footer.copyright': '36web. Todos los derechos reservados.',
   'footer.privacy': 'Política de Privacidad',
   'footer.terms': 'Términos de Servicio',
   'footer.cookies': 'Cookies',

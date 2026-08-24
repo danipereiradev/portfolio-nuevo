@@ -35,7 +35,7 @@ const Blog = () => {
         },
         {
           '@type': 'Blog',
-          name: 'Blog de PereiraWeb',
+          name: 'Blog de 36web',
           url: `${SITE_URL}${BLOG_PATH}/`,
           blogPost: posts.map((post) => ({
             '@type': 'BlogPosting',

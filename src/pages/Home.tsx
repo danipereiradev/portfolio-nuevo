@@ -40,7 +40,7 @@ const Home = () => {
         hasReviewBadge={false}
       />
       <TextImage
-        label='¿QUÉ ES PEREIRAWEB?'
+        label='¿QUÉ ES 36WEB?'
         title='Agencia de diseño web y marketing digital con atención directa.'
         paragraphs={[
           <>
@@ -73,7 +73,7 @@ const Home = () => {
             .
           </>,
         ]}
-        imageAlt='Equipo de PereiraWeb trabajando en diseño y desarrollo web'
+        imageAlt='Equipo de 36web trabajando en diseño y desarrollo web'
         buttonText='LEER MÁS'
         buttonHref='/sobre-pereiraweb#about2'
         imageSrc='/img/fikret-tozak-rfNLa1HL7eY-unsplash.jpg'
@@ -91,7 +91,7 @@ const Home = () => {
         }
       />
       <Team
-        label='¿QUIÉN ESTÁ DETRÁS DE PEREIRAWEB?'
+        label='¿QUIÉN ESTÁ DETRÁS DE 36WEB?'
         title='Estas somos las personas que vamos a encargarnos de tu proyecto.'
         paragraphs={[
           <>
@@ -102,7 +102,7 @@ const Home = () => {
             <strong className='font-extrabold'>
               seguridad al confiarnos la parte digital de tu negocio
             </strong>
-            . Aunque PereiraWeb acaba de empezar,{' '}
+            . Aunque 36web acaba de empezar,{' '}
             <strong className='font-extrabold'>
               nosotros llevamos años trabajando en esto
             </strong>

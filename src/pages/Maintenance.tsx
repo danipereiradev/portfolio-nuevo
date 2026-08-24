@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 const Maintenance = () => {
   useEffect(() => {
-    const title = 'Web en mantenimiento | PereiraWeb';
+    const title = 'Web en mantenimiento | 36web';
     const description = 'Estamos actualizando la web. Volvemos en un rato.';
 
     document.title = title;
@@ -42,7 +42,7 @@ const Maintenance = () => {
         >
           <span className='font-mono text-brand-light'>&gt;</span>
           <span className='ml-1 font-mono tracking-tight text-white'>
-            pereiraweb
+            36web
           </span>
           <span className='font-mono font-normal text-ink-light'> .es</span>
           <span className='ml-0 animate-pulse font-mono text-brand'>_</span>
