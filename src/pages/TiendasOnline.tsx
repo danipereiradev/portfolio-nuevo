@@ -16,7 +16,7 @@ import { useJsonLd } from '../hooks/useJsonLd';
 import { SITE_SHOP_PATH, SITE_WEB_PATH } from '../config/contact';
 import { CreditCard, Package, RefreshCw, Smartphone } from 'lucide-react';
 
-const SITE_URL = 'https://pereiraweb.es';
+const SITE_URL = 'https://36web.es';
 
 const faqs = [
   {
@@ -227,28 +227,28 @@ const TiendasOnline = () => {
   return (
     <>
       <HeroCta
-          title='Diseño de tiendas online y ecommerce'
-          description='Creamos tiendas online para vender: catálogo, pagos, envíos y móvil. WooCommerce, Shopify o a medida, según el caso. Estudio en Madrid, proyectos en toda España. Precio y plazos por escrito.'
-          buttonText='PEDIR PROPUESTA'
-          buttonHref='#contacto'
-          backgroundUrl='/img/sumup-ShB9pI4mpRg-unsplash.jpg'
-          heroType='form'
-          hasButton={false}
-          formTitle='Presupuesto de tienda online'
-          formDescription='Propuesta en 24–48 h. Sin compromiso.'
-          formSectionInfo='TiendasOnline Hero'
-          hasBackground
-          hasReviewBadge
-          isTopHero
-          breadcrumb={
-            <ServiceBreadcrumb
-              items={[
-                { label: 'Inicio', href: '/' },
-                { label: 'Tiendas online' },
-              ]}
-            />
-          }
-        />
+        title='Diseño de tiendas online y ecommerce'
+        description='Creamos tiendas online para vender: catálogo, pagos, envíos y móvil. WooCommerce, Shopify o a medida, según el caso. Estudio en Madrid, proyectos en toda España. Precio y plazos por escrito.'
+        buttonText='PEDIR PROPUESTA'
+        buttonHref='#contacto'
+        backgroundUrl='/img/sumup-ShB9pI4mpRg-unsplash.jpg'
+        heroType='form'
+        hasButton={false}
+        formTitle='Presupuesto de tienda online'
+        formDescription='Propuesta en 24–48 h. Sin compromiso.'
+        formSectionInfo='TiendasOnline Hero'
+        hasBackground
+        hasReviewBadge
+        isTopHero
+        breadcrumb={
+          <ServiceBreadcrumb
+            items={[
+              { label: 'Inicio', href: '/' },
+              { label: 'Tiendas online' },
+            ]}
+          />
+        }
+      />
 
       <TextImage
         label='ECOMMERCE A MEDIDA'

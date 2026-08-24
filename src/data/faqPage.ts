@@ -32,7 +32,7 @@ export const faqCategories: FaqCategory[] = [
       {
         question: '¿Cómo os contacto?',
         answer:
-          'hola@pereiraweb.es, teléfono, WhatsApp o videollamada. En Madrid también podemos vernos. Respondemos pronto.',
+          'hola@36web.es, teléfono, WhatsApp o videollamada. En Madrid también podemos vernos. Respondemos pronto.',
       },
     ],
   },

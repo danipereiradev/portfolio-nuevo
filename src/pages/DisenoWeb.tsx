@@ -16,7 +16,7 @@ import { useJsonLd } from '../hooks/useJsonLd';
 import { SITE_SHOP_PATH, SITE_WEB_PATH } from '../config/contact';
 import { Briefcase, Building2, RefreshCw, Store } from 'lucide-react';
 
-const SITE_URL = 'https://pereiraweb.es';
+const SITE_URL = 'https://36web.es';
 
 const faqs = [
   {

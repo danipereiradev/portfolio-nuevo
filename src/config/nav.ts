@@ -28,7 +28,7 @@ export const FOOTER_NAV = [
   { href: BLOG_PATH, label: 'Blog' },
   { href: '#contacto', label: 'Contacto' },
   {
-    href: 'mailto:hola@pereiraweb.es?subject=Trabaja%20con%20nosotros',
+    href: 'mailto:hola@36web.es?subject=Trabaja%20con%20nosotros',
     label: 'Trabaja con nosotros',
   },
 ] as const;

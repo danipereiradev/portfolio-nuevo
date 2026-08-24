@@ -23,7 +23,7 @@ const SEOCTAFinal = ({
     <section className={`relative py-20 overflow-hidden ${className}`.trim()}>
       <div
         className='absolute inset-0 bg-cover bg-center bg-no-repeat'
-        style={{ backgroundImage: "url('/img/cta-pereiraweb.webp')" }}
+        style={{ backgroundImage: "url('/img/cta-36web.webp')" }}
         aria-hidden='true'
       />
       <div className='absolute inset-0 bg-[#141414]/70' aria-hidden='true' />

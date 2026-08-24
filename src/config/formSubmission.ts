@@ -3,8 +3,8 @@
 // token; sin él redirige a inicio. Así evitamos que visitas directas,
 // bots o recargas cuenten como conversión por URL de destino.
 
-export const FORM_SUCCESS_SESSION_KEY = 'pereiraweb_form_success';
-const THANK_YOU_TRACKED_KEY = 'pereiraweb_thank_you_tracked';
+export const FORM_SUCCESS_SESSION_KEY = '36web_form_success';
+const THANK_YOU_TRACKED_KEY = '36web_thank_you_tracked';
 
 export const markFormSubmissionSuccess = () => {
   try {

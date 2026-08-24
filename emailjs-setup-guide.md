@@ -53,7 +53,7 @@ Fecha: {{submission_date}}
 🚨 Urgencia: {{urgency}}
 
 ---
-Este email fue enviado desde el formulario de contacto de pereiraweb.es
+Este email fue enviado desde el formulario de contacto de 36web.es
 ```
 
 4. Guarda el template y copia el **Template ID**

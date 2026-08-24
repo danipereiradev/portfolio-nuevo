@@ -38,8 +38,7 @@ const MOBILE_EARLY_MS = 8000;
 /** Móvil: si no llegó a precios/scroll, se muestra igual. */
 const MOBILE_GUARANTEED_MS = 18000;
 
-const CALENDLY_URL =
-  'https://calendly.com/hola-pereiraweb/sesion-gratuita-pereiraweb';
+const CALENDLY_URL = 'https://calendly.com/hola-36web/sesion-gratuita-36web';
 
 const PRICING_SECTION_IDS = ['packs', 'pricing', 'precios', 'planes'];
 
@@ -814,7 +813,7 @@ const ExitIntentPopup = () => {
                         <p className='font-medium'>Error al enviar</p>
                       </div>
                       <p className='text-gray-700 text-sm mt-1'>
-                        Inténtalo de nuevo o escríbenos a hola@pereiraweb.es
+                        Inténtalo de nuevo o escríbenos a hola@36web.es
                       </p>
                     </div>
                   )}

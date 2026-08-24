@@ -75,7 +75,7 @@ const Home = () => {
         ]}
         imageAlt='Equipo de 36web trabajando en diseño y desarrollo web'
         buttonText='LEER MÁS'
-        buttonHref='/sobre-pereiraweb#about2'
+        buttonHref='/sobre-36web#about2'
         imageSrc='/img/fikret-tozak-rfNLa1HL7eY-unsplash.jpg'
       />
       <Services

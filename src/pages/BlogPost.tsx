@@ -13,7 +13,7 @@ import {
 } from '../blog/posts';
 import { SITE_WEB_PATH } from '../config/contact';
 
-const SITE_URL = 'https://pereiraweb.es';
+const SITE_URL = 'https://36web.es';
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();

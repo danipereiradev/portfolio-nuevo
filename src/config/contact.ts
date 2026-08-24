@@ -77,7 +77,7 @@ export const SITE_SHOP_LABEL = 'Tiendas online';
 export const SITE_MAINTENANCE_PATH = '/mantenimiento-web';
 export const SITE_MAINTENANCE_LABEL = 'Mantenimiento web';
 
-export const ABOUT_PATH = '/sobre-pereiraweb';
+export const ABOUT_PATH = '/sobre-36web';
 export const ABOUT_LABEL = 'Nuestra agencia';
 
 /** Landing de Ads de este servicio. Futuros servicios: /landing-{slug}. */
@@ -120,7 +120,8 @@ export const getWhatsAppMessageForPath = (pathname: string): string => {
       : ADS_SHOP_WHATSAPP_MESSAGE;
   }
   if (isAdsWebLandingPath(path)) return ADS_WHATSAPP_MESSAGE;
-  if (isAdsMaintenanceLandingPath(path)) return ADS_MAINTENANCE_WHATSAPP_MESSAGE;
+  if (isAdsMaintenanceLandingPath(path))
+    return ADS_MAINTENANCE_WHATSAPP_MESSAGE;
   if (path === '/web-profesional') return WEB_PROFESIONAL_WHATSAPP_MESSAGE;
   if (path === ABOUT_PATH) return ABOUT_PAGE_WHATSAPP_MESSAGE;
   if (path === SITE_MAINTENANCE_PATH) return MAINTENANCE_WHATSAPP_MESSAGE;

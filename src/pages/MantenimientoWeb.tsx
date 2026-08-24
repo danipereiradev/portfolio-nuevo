@@ -16,7 +16,7 @@ import { useJsonLd } from '../hooks/useJsonLd';
 import { SITE_MAINTENANCE_PATH, SITE_WEB_PATH } from '../config/contact';
 import { Headphones, RefreshCw, ShieldCheck, Wrench } from 'lucide-react';
 
-const SITE_URL = 'https://pereiraweb.es';
+const SITE_URL = 'https://36web.es';
 
 const faqs = [
   {

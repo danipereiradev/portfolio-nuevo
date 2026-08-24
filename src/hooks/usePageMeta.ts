@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import pagesMeta from '../seo/pagesMeta.json';
 
-const SITE_URL = 'https://pereiraweb.es';
+const SITE_URL = 'https://36web.es';
 
 type PageMetaEntry = {
   title: string;

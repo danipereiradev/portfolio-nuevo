@@ -10,7 +10,7 @@ import Testimonials from '../components/Testimonials';
 import HeroCta from '../components/HeroCta';
 import { ABOUT_LABEL, ABOUT_PATH, SITE_WEB_PATH } from '../config/contact';
 
-const SITE_URL = 'https://pereiraweb.es';
+const SITE_URL = 'https://36web.es';
 
 const Nosotros = () => {
   usePageMeta(ABOUT_PATH);
@@ -113,8 +113,7 @@ const Nosotros = () => {
         title='Una agencia joven formada por profesionales con más de una década de experiencia.'
         paragraphs={[
           <>
-            Detrás de 36web hay diseñadores y desarrolladores que venimos
-            de{' '}
+            Detrás de 36web hay diseñadores y desarrolladores que venimos de{' '}
             <strong className='font-extrabold'>
               grandes consultoras, startups y proyectos reales
             </strong>

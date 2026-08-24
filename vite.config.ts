@@ -12,7 +12,7 @@ export default defineConfig({
     // En local, reenvía las functions a producción para poder probar el popup.
     proxy: {
       '/.netlify/functions': {
-        target: 'https://pereiraweb.es',
+        target: 'https://36web.es',
         changeOrigin: true,
       },
     },

@@ -89,7 +89,7 @@ const Footer = () => {
               </p>
               <div className='flex space-x-4 justify-center md:justify-start'>
                 <a
-                  href='mailto:hola@pereiraweb.es'
+                  href='mailto:hola@36web.es'
                   onClick={() => trackEmailClick('FooterIcon')}
                   className='bg-accent hover:bg-accent-hover p-3 rounded-lg text-white transition-colors duration-150'
                 >
@@ -97,7 +97,7 @@ const Footer = () => {
                 </a>
 
                 <a
-                  href='https://www.instagram.com/pereiraweb.es/'
+                  href='https://www.instagram.com/36web.es/'
                   target='_blank'
                   rel='noopener noreferrer'
                   className='bg-accent hover:bg-accent-hover p-3 rounded-lg text-white transition-colors duration-150'
@@ -159,11 +159,11 @@ const Footer = () => {
                 <div className='text-center md:text-left'>
                   <p className='font-medium text-ink-medium'>Email</p>
                   <a
-                    href='mailto:hola@pereiraweb.es'
+                    href='mailto:hola@36web.es'
                     onClick={() => trackEmailClick('FooterList')}
                     className='hover:text-link transition-colors duration-200 break-all'
                   >
-                    hola@pereiraweb.es
+                    hola@36web.es
                   </a>
                 </div>
               </li>

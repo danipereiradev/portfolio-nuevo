@@ -7,7 +7,7 @@ import HeroCta from '../components/HeroCta';
 import { BLOG_PATH, getPostPath, posts } from '../blog/posts';
 import { SITE_WEB_PATH } from '../config/contact';
 
-const SITE_URL = 'https://pereiraweb.es';
+const SITE_URL = 'https://36web.es';
 
 const Blog = () => {
   usePageMeta(BLOG_PATH);

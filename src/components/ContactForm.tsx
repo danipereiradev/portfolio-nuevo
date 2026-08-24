@@ -519,7 +519,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                 </div>
                 <p className='text-gray-700 text-sm mt-1'>
                   Por favor, inténtalo de nuevo o contáctanos directamente por
-                  email: hola@pereiraweb.es
+                  email: hola@36web.es
                 </p>
               </div>
             )}
@@ -531,12 +531,12 @@ Fecha: ${new Date().toLocaleString('es-ES')}
         <p className='text-gray-600 mb-4'>¿Prefieres contactar directamente?</p>
         <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
           <a
-            href='mailto:hola@pereiraweb.es'
+            href='mailto:hola@36web.es'
             onClick={() => trackEmailClick('ContactFormBottom')}
             className='flex items-center gap-2 text-accent hover:text-accent-hover font-medium'
           >
             <Mail className='w-5 h-5' />
-            hola@pereiraweb.es
+            hola@36web.es
           </a>
           <span className='hidden sm:block text-gray-300'>|</span>
           <a

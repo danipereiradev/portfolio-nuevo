@@ -44,7 +44,7 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
       linkedin: 'https://www.linkedin.com/in/sergio-cerda-hervas/',
       github: 'https://github.com/sergio-cravas',
       imageUrl: '/img/team/sergi.png',
-      mail: 's.cerda@pereiraweb.es',
+      mail: 's.cerda@36web.es',
     },
     {
       fullName: 'Cristina Recio',
@@ -53,7 +53,7 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
       role: 'Diseñadora gráfica UX/UI',
       linkedin: 'https://www.linkedin.com/in/cristina-recio/',
       imageUrl: '/img/team/cristina.jpg',
-      mail: 'c.recio@pereiraweb.es',
+      mail: 'c.recio@36web.es',
     },
     {
       fullName: 'Dani Pereira',
@@ -62,7 +62,7 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
       role: 'Desarrollo Web y Marketing digital',
       github: 'https://github.com/danipereiradev',
       imageUrl: '/img/team/dani.png',
-      mail: 'hola@pereiraweb.es',
+      mail: 'hola@36web.es',
     },
 
     {
@@ -72,7 +72,7 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
       role: 'Desarrollo Web',
       linkedin: 'https://www.linkedin.com/in/karenmonrose/',
       imageUrl: '',
-      mail: 'k.montero@pereiraweb.es',
+      mail: 'k.montero@36web.es',
     },
   ];
 

@@ -46,7 +46,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                     Dirección fiscal. No atendemos visitas presenciales.
                   </p>
                   <p>
-                    <strong>Email:</strong> hola@pereiraweb.es
+                    <strong>Email:</strong> hola@36web.es
                   </p>
                   <p>
                     <strong>Teléfono:</strong> {PHONE_DISPLAY}
@@ -80,8 +80,8 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                     usuario
                   </li>
                   <li>
-                    <strong>Chat:</strong> Mensajes que nos envías por el chat de
-                    la web (Crisp), junto con datos técnicos de la sesión
+                    <strong>Chat:</strong> Mensajes que nos envías por el chat
+                    de la web (Crisp), junto con datos técnicos de la sesión
                   </li>
                 </ul>
               </section>
@@ -177,7 +177,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                 </ul>
                 <p className='mt-4'>
                   Para ejercer estos derechos, contacta con nosotros en:
-                  hola@pereiraweb.es
+                  hola@36web.es
                 </p>
               </section>
 
@@ -226,7 +226,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                 </p>
                 <div className='bg-gray-50 p-4 rounded-lg mt-4'>
                   <p>
-                    <strong>Email:</strong> hola@pereiraweb.es
+                    <strong>Email:</strong> hola@36web.es
                   </p>
                   <p>
                     <strong>Teléfono:</strong> {PHONE_DISPLAY}
@@ -279,7 +279,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                     Dirección fiscal. No atendemos visitas presenciales.
                   </p>
                   <p>
-                    <strong>Email:</strong> hola@pereiraweb.es
+                    <strong>Email:</strong> hola@36web.es
                   </p>
                   <p>
                     <strong>Teléfono:</strong> {PHONE_DISPLAY}
@@ -306,9 +306,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                 <h2 className='text-2xl font-bold text-gray-900 mb-4'>
                   3. Servicios
                 </h2>
-                <p className='mb-4'>
-                  36web ofrece los siguientes servicios:
-                </p>
+                <p className='mb-4'>36web ofrece los siguientes servicios:</p>
                 <ul className='list-disc pl-6 space-y-2'>
                   <li>Desarrollo de páginas web corporativas</li>
                   <li>Desarrollo de tiendas online (e-commerce)</li>
@@ -420,9 +418,9 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                   9. Limitación de Responsabilidad
                 </h2>
                 <p>
-                  La responsabilidad de 36web se limita al importe del
-                  proyecto contratado. 36web no será responsable de daños
-                  indirectos o lucro cesante.
+                  La responsabilidad de 36web se limita al importe del proyecto
+                  contratado. 36web no será responsable de daños indirectos o
+                  lucro cesante.
                 </p>
               </section>
 
@@ -614,7 +612,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                 </p>
                 <div className='bg-gray-50 p-4 rounded-lg mt-4'>
                   <p>
-                    <strong>Email:</strong> hola@pereiraweb.es
+                    <strong>Email:</strong> hola@36web.es
                   </p>
                   <p>
                     <strong>Teléfono:</strong> {PHONE_DISPLAY}
@@ -657,13 +655,13 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                     </div>
                     <div>
                       <p>
-                        <strong>Email:</strong> hola@pereiraweb.es
+                        <strong>Email:</strong> hola@36web.es
                       </p>
                       <p>
                         <strong>Teléfono:</strong> {PHONE_DISPLAY}
                       </p>
                       <p>
-                        <strong>Sitio web:</strong> pereiraweb.es
+                        <strong>Sitio web:</strong> 36web.es
                       </p>
                       <p>
                         <strong>Actividad:</strong> Desarrollo y diseño web
@@ -678,9 +676,9 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                   2. Objeto
                 </h2>
                 <p>
-                  El presente aviso legal regula el uso del sitio web
-                  pereiraweb.es (en adelante, "el sitio web"), del que es
-                  titular Daniel Pereira Gesteiro.
+                  El presente aviso legal regula el uso del sitio web 36web.es
+                  (en adelante, "el sitio web"), del que es titular Daniel
+                  Pereira Gesteiro.
                 </p>
                 <p className='mt-4'>
                   La navegación por el sitio web atribuye la condición de
@@ -806,7 +804,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                 </p>
                 <div className='bg-gray-50 p-4 rounded-lg mt-4'>
                   <p>
-                    <strong>Email:</strong> hola@pereiraweb.es
+                    <strong>Email:</strong> hola@36web.es
                   </p>
                   <p>
                     <strong>Teléfono:</strong> {PHONE_DISPLAY}

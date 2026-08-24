@@ -333,7 +333,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             </div>
             <p className='text-gray-700 text-sm mt-1'>
               Por favor, inténtalo de nuevo o contáctanos directamente por
-              email: hola@pereiraweb.es. Disculpa las molestias.
+              email: hola@36web.es. Disculpa las molestias.
             </p>
           </div>
         )}
