@@ -55,11 +55,20 @@ const Blog = () => {
     <>
       <Hero
         title='Blog'
-        description='Diseño web, tecnologías para crear una página y lo que cuesta montarla. Sin plantillas de 79 € ni humo.'
+        description={
+          <>
+            <strong className='font-bold'>Ideas</strong>,{' '}
+            <strong className='font-bold'>Novedades</strong> y{' '}
+            <strong className='font-bold'>Guias</strong> sobre desarrollo web,{' '}
+            <strong className='font-bold'>Posicionamiento SEO</strong> y{' '}
+            <strong className='font-bold'>Marketing digital</strong> para
+            ayudarte con tu proyecto.
+          </>
+        }
         buttonText='CONTACTA AHORA'
         buttonHref='#contacto'
         backgroundUrl='/img/web-design-charlesdeluvio.webp'
-        hasButton
+        hasButton={false}
         hasBackground
         hasReviewBadge={false}
       />

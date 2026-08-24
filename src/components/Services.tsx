@@ -1,6 +1,8 @@
 import type { ReactNode } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import {
+  SITE_MAINTENANCE_LABEL,
+  SITE_MAINTENANCE_PATH,
   SITE_SHOP_LABEL,
   SITE_SHOP_PATH,
   SITE_WEB_LABEL,
@@ -27,6 +29,12 @@ const Services = ({ description }: ServicesProps) => {
       image: '/img/sumup-ShB9pI4mpRg-unsplash.jpg',
       imageAlt: 'Tienda online',
     },
+    {
+      title: SITE_MAINTENANCE_LABEL,
+      link: SITE_MAINTENANCE_PATH,
+      image: '/img/sumup-ShB9pI4mpRg-unsplash.jpg',
+      imageAlt: 'Mantenimiento web',
+    },
   ];
 
   return (
@@ -44,7 +52,7 @@ const Services = ({ description }: ServicesProps) => {
           </h2>
           <p className='text-xl md:text-2xl text-ink-dark'>{description}</p>
         </div>
-        <div className='mx-auto grid w-full grid-cols-1 gap-page-gap md:max-w-4xl md:grid-cols-2'>
+        <div className='mx-auto grid w-full grid-cols-1 gap-page-gap md:grid-cols-3'>
           {mainServices.map((service) => (
             <a
               key={service.title}

@@ -42,7 +42,7 @@ const Hero = ({
 
       <div className='mx-auto flex w-[95%] max-w-5xl flex-col items-center text-center'>
         <div className='z-10 flex w-full flex-col items-center gap-page-gap'>
-          <div className='page-title-block'>
+          <div className='page-title-block md:max-w-4xl'>
             <h1 className='text-5xl md:text-6xl lg:text-7xl font-extrabold text-ink-dark'>
               {title}
             </h1>

@@ -47,7 +47,7 @@ function Testimonials({
       <div className='container mx-auto flex flex-col gap-page-gap'>
         <div className='page-title-block mx-auto max-w-5xl text-center'>
           <span className='text-md rounded-lg font-extrabold text-accent underline'>
-            7 proyectos. 7 reseñas de 5 estrellas
+            9 proyectos. 9 reseñas de 5 estrellas
           </span>
           <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark'>
             Nuestros clientes están contentos con cómo lo hacemos

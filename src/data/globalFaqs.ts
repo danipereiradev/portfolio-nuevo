@@ -6,19 +6,9 @@ export interface GlobalFaqItem {
 
 export const globalFaqs: GlobalFaqItem[] = [
   {
-    question: '¿Qué tipo de webs hacéis?',
-    answer:
-      'Webs de negocio, tiendas online, rediseños, mantenimiento y, si hace falta, piezas a medida (reservas, paneles, integraciones). No vendemos plantillas con el logo cambiado.',
-  },
-  {
     question: '¿Cuánto cuesta una página web?',
     answer:
       'No hay tarifa fija pública. Orientación: muchas webs quedan entre 400 € y 3.000 € + IVA, según páginas y funciones. Tras hablarte, te enviamos un número concreto con plazos y lo incluido.',
-  },
-  {
-    question: '¿Se puede pagar a plazos?',
-    answer:
-      'Sí, en muchos proyectos. Lo dejamos escrito en la propuesta: pago único o fraccionado.',
   },
   {
     question: '¿Cuánto tarda?',
@@ -26,14 +16,9 @@ export const globalFaqs: GlobalFaqItem[] = [
       'Una web estándar, pocas semanas desde que tenemos textos e imágenes. Una tienda suele ir a 4–6 semanas. El reloj empieza cuando nos llega lo necesario, no el día del “ok”.',
   },
   {
-    question: '¿Hacéis diseño y desarrollo?',
+    question: '¿Qué incluye el desarrollo de la web?',
     answer:
-      'Sí, las dos cosas. La idea es que se vea bien y que funcione: móvil, velocidad, formulario y WhatsApp sin dramas.',
-  },
-  {
-    question: '¿Se ve bien en el móvil?',
-    answer:
-      'Sí. La revisamos en móvil, tablet y escritorio antes de publicar.',
+      'Diseño a medida, versión móvil, formulario o WhatsApp, base de SEO on-page, publicación con tu dominio y hosting para arrancar. Panel para textos y fotos. Reservas, paneles o integraciones, si hacen falta, van en la propuesta.',
   },
   {
     question: '¿Incluís SEO?',

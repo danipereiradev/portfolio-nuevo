@@ -65,14 +65,17 @@ const normalizePath = (pathname: string): string => {
 /** Página de servicio (orgánica). Menú Servicios → Diseño web. */
 export const SITE_WEB_PATH = '/diseño-web';
 export const SITE_WEB_PATH_ASCII = '/diseno-web';
-export const SITE_WEB_LABEL = 'Diseño web';
+export const SITE_WEB_LABEL = 'Páginas web';
 
 /** Página de servicio (orgánica). Menú Servicios → Tiendas online. */
 export const SITE_SHOP_PATH = '/tiendas-online';
 export const SITE_SHOP_LABEL = 'Tiendas online';
 
+export const SITE_MAINTENANCE_PATH = '/mantenimiento-web';
+export const SITE_MAINTENANCE_LABEL = 'Mantenimiento web';
+
 export const ABOUT_PATH = '/sobre-pereiraweb';
-export const ABOUT_LABEL = 'pereiraweb';
+export const ABOUT_LABEL = 'Nuestra agencia';
 
 /** Landing de Ads de este servicio. Futuros servicios: /landing-{slug}. */
 export const ADS_LANDING_PATH = '/landing-diseño-web';
