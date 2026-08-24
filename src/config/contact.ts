@@ -23,6 +23,9 @@ export const ADS_WHATSAPP_MESSAGE =
 export const ADS_SHOP_WHATSAPP_MESSAGE =
   'Hola, vengo de Google y quiero información para una tienda online.';
 
+export const ADS_MAINTENANCE_WHATSAPP_MESSAGE =
+  'Hola, vengo de Google y quiero información sobre mantenimiento web.';
+
 // Mensaje para el botón de WhatsApp de /web-profesional (landing de packs).
 export const WEB_PROFESIONAL_WHATSAPP_MESSAGE =
   'Hola, quiero información sobre la web profesional (249 € / 349 €).';
@@ -83,6 +86,8 @@ export const ADS_LANDING_PATH_ASCII = '/landing-diseno-web';
 
 export const ADS_SHOP_LANDING_PATH = '/landing-tiendas-online';
 
+export const ADS_MAINTENANCE_LANDING_PATH = '/landing-mantenimiento-web';
+
 export const isAdsWebLandingPath = (pathname: string): boolean => {
   const path = normalizePath(pathname);
   return path === ADS_LANDING_PATH || path === ADS_LANDING_PATH_ASCII;
@@ -91,8 +96,13 @@ export const isAdsWebLandingPath = (pathname: string): boolean => {
 export const isAdsShopLandingPath = (pathname: string): boolean =>
   normalizePath(pathname) === ADS_SHOP_LANDING_PATH;
 
+export const isAdsMaintenanceLandingPath = (pathname: string): boolean =>
+  normalizePath(pathname) === ADS_MAINTENANCE_LANDING_PATH;
+
 export const isAdsLandingPath = (pathname: string): boolean =>
-  isAdsWebLandingPath(pathname) || isAdsShopLandingPath(pathname);
+  isAdsWebLandingPath(pathname) ||
+  isAdsShopLandingPath(pathname) ||
+  isAdsMaintenanceLandingPath(pathname);
 
 export const isSiteWebPath = (pathname: string): boolean => {
   const path = normalizePath(pathname);
@@ -110,8 +120,9 @@ export const getWhatsAppMessageForPath = (pathname: string): string => {
       : ADS_SHOP_WHATSAPP_MESSAGE;
   }
   if (isAdsWebLandingPath(path)) return ADS_WHATSAPP_MESSAGE;
+  if (isAdsMaintenanceLandingPath(path)) return ADS_MAINTENANCE_WHATSAPP_MESSAGE;
   if (path === '/web-profesional') return WEB_PROFESIONAL_WHATSAPP_MESSAGE;
   if (path === ABOUT_PATH) return ABOUT_PAGE_WHATSAPP_MESSAGE;
-  if (path === '/mantenimiento-web') return MAINTENANCE_WHATSAPP_MESSAGE;
+  if (path === SITE_MAINTENANCE_PATH) return MAINTENANCE_WHATSAPP_MESSAGE;
   return DEFAULT_WHATSAPP_MESSAGE;
 };

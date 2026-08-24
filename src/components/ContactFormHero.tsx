@@ -206,13 +206,13 @@ Fecha: ${new Date().toLocaleString('es-ES')}
   );
 
   return (
-    <div
-      id={id}
-      className={`z-10 flex w-full justify-center md:w-1/2 ${id ? 'scroll-mt-28' : ''}`}
-    >
+    <div className='z-10 flex w-full justify-center md:w-1/2'>
       <form
+        id={id}
         onSubmit={handleSubmit}
-        className='w-full rounded-lg bg-surface-muted p-content-pad shadow-xl md:w-3/4'
+        className={`w-full rounded-lg bg-surface-muted p-content-pad shadow-xl md:w-3/4 ${
+          id ? 'scroll-mt-[calc(var(--site-header-h)+1rem)]' : ''
+        }`}
         action=''
       >
         <div className='page-title-block text-center'>

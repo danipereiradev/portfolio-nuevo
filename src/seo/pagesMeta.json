@@ -11,6 +11,10 @@
     "title": "Diseño de tiendas online y ecommerce | PereiraWeb",
     "description": "Creamos tiendas online: WooCommerce, Shopify o a medida. Catálogo, pagos y envíos. Estudio en Madrid, toda España. Presupuesto y plazos por escrito."
   },
+  "/mantenimiento-web": {
+    "title": "Mantenimiento web mensual | PereiraWeb",
+    "description": "Mantenimiento de páginas web: actualizaciones, copias, cambios pequeños y soporte. Webs propias o de otros. Estudio en Madrid, toda España."
+  },
   "/landing-diseño-web": {
     "title": "Diseño web | PereiraWeb",
     "description": "Te montamos la web de tu negocio: estructura, diseño, móvil, formulario y WhatsApp. Te decimos precio y plazos antes de cobrar nada."
@@ -18,6 +22,10 @@
   "/landing-tiendas-online": {
     "title": "Tiendas online | PereiraWeb",
     "description": "Te montamos la tienda online: catálogo, pagos, envíos y móvil. WooCommerce, Shopify o a medida. Te decimos precio y plazos antes de cobrar nada."
+  },
+  "/landing-mantenimiento-web": {
+    "title": "Mantenimiento web | PereiraWeb",
+    "description": "Que tu web no se rompa: actualizaciones, copias, cambios de textos y alguien a quien escribir. Te decimos qué entra y la cuota, antes de cobrar nada."
   },
   "/blog": {
     "title": "Blog de diseño web y tiendas online | PereiraWeb",

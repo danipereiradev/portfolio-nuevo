@@ -196,8 +196,16 @@
       "destination": "/landing-tiendas-online/index.html"
     },
     {
+      "source": "/landing-mantenimiento-web",
+      "destination": "/landing-mantenimiento-web/index.html"
+    },
+    {
       "source": "/tiendas-online",
       "destination": "/tiendas-online/index.html"
+    },
+    {
+      "source": "/mantenimiento-web",
+      "destination": "/mantenimiento-web/index.html"
     },
     {
       "source": "/sobre-pereiraweb",

@@ -9,8 +9,10 @@ import ExitIntentPopup from './components/ExitIntentPopup';
 import CrispChat from './components/CrispChat';
 import LandingWeb from './pages/LandingWeb';
 import LandingShop from './pages/LandingShop';
+import LandingMaintenance from './pages/LandingMaintenance';
 import DisenoWeb from './pages/DisenoWeb';
 import TiendasOnline from './pages/TiendasOnline';
+import MantenimientoWeb from './pages/MantenimientoWeb';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import Home from './pages/Home';
@@ -24,8 +26,10 @@ import {
 import {
   ADS_LANDING_PATH,
   ADS_LANDING_PATH_ASCII,
+  ADS_MAINTENANCE_LANDING_PATH,
   ADS_SHOP_LANDING_PATH,
   ABOUT_PATH,
+  SITE_MAINTENANCE_PATH,
   SITE_SHOP_PATH,
   SITE_WEB_PATH,
   SITE_WEB_PATH_ASCII,
@@ -52,6 +56,7 @@ function AppContent() {
           path='/tienda-online'
           element={<Navigate to={SITE_SHOP_PATH} replace />}
         />
+        <Route path={SITE_MAINTENANCE_PATH} element={<MantenimientoWeb />} />
         <Route path={BLOG_PATH} element={<Blog />} />
         <Route path={`${BLOG_PATH}/:slug`} element={<BlogPost />} />
         <Route path={ADS_LANDING_PATH} element={<LandingWeb />} />
@@ -63,6 +68,10 @@ function AppContent() {
         <Route
           path='/landing-tienda-online'
           element={<Navigate to={ADS_SHOP_LANDING_PATH} replace />}
+        />
+        <Route
+          path={ADS_MAINTENANCE_LANDING_PATH}
+          element={<LandingMaintenance />}
         />
         <Route
           path='/politica-de-privacidad'

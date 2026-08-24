@@ -32,7 +32,7 @@ const Services = ({ description }: ServicesProps) => {
     {
       title: SITE_MAINTENANCE_LABEL,
       link: SITE_MAINTENANCE_PATH,
-      image: '/img/sumup-ShB9pI4mpRg-unsplash.jpg',
+      image: '/img/justin-morgan-wordpress.jpg',
       imageAlt: 'Mantenimiento web',
     },
   ];

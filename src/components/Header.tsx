@@ -71,7 +71,7 @@ const Header = () => {
     >
       <span className='font-mono text-xl text-ink-dark md:text-3xl'>&gt;</span>
       <span className='ml-1 font-mono tracking-tight text-ink-dark'>
-        {hasTyped ? 'pereiraweb' : typedText.split(' ')[0]}
+        {hasTyped ? '36Web' : typedText.split(' ')[0]}
       </span>
       <span className='font-mono font-normal text-ink-dark'>
         {hasTyped

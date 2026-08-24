@@ -154,6 +154,11 @@
   status = 200
 
 [[redirects]]
+  from = "/landing-mantenimiento-web"
+  to = "/landing-mantenimiento-web/index.html"
+  status = 200
+
+[[redirects]]
   from = "/web-profesional"
   to = "/web-profesional/index.html"
   status = 200
