@@ -96,7 +96,7 @@ export const ContactFormHero = ({
 
       const formDataToSend: Record<string, string | boolean> = {
         name: formData.name,
-        email: formData.email,
+        // email: formData.email,
         phone: formData.phone,
         origen,
         page: origen,
@@ -105,13 +105,12 @@ export const ContactFormHero = ({
 
         submissionDate: new Date().toLocaleString('es-ES'),
         _subject: `[${origen}] Nueva solicitud — ${formData.name}`,
-        _replyto: formData.email,
+        // _replyto: formData.email,
         _cc: CONTACT_EMAIL,
         message: `
 Origen: ${origen}
 Página: ${pagina}
 Nombre: ${formData.name}
-Email: ${formData.email}
 Teléfono: ${formData.phone}
 ${showProjectType ? `Qué necesita: ${formData.projectType}\n` : ''}consent: ${formData.consent}
 Fecha: ${new Date().toLocaleString('es-ES')}
@@ -162,10 +161,10 @@ Fecha: ${new Date().toLocaleString('es-ES')}
     }
   };
 
-  const validateEmail = (value: string): boolean => {
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return emailRegex.test(value);
-  };
+  // const validateEmail = (value: string): boolean => {
+  //   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  //   return emailRegex.test(value);
+  // };
 
   const validatePhone = (value: string): boolean => {
     const cleanPhone = value.replace(/[\s\-().]/g, '');
@@ -188,10 +187,10 @@ Fecha: ${new Date().toLocaleString('es-ES')}
         'El nombre debe contener solo letras y tener entre 2-50 caracteres';
     }
 
-    const emailValue = formData.email.trim();
-    if (!emailValue || !validateEmail(emailValue)) {
-      newErrors.email = 'Introduce un email válido';
-    }
+    // const emailValue = formData.email.trim();
+    // if (!emailValue || !validateEmail(emailValue)) {
+    //   newErrors.email = 'Introduce un email válido';
+    // }
 
     if (!formData.phone.trim() || !validatePhone(formData.phone)) {
       newErrors.phone = 'Introduce un teléfono válido';
@@ -245,7 +244,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             maxLength={50}
           />
           {errors.name && <ErrorMessage error={errors.name} />}
-          <input
+          {/* <input
             type='email'
             value={formData.email}
             onChange={(e) => handleInputChange('email', e.target.value)}
@@ -257,7 +256,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             autoComplete='email'
             placeholder='tu email *'
           />
-          {errors.email && <ErrorMessage error={errors.email} />}
+          {errors.email && <ErrorMessage error={errors.email} />} */}
           <input
             type='tel'
             value={formData.phone}

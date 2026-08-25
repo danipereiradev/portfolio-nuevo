@@ -151,11 +151,7 @@ const processSteps = [
     description: (
       <>
         En 24–48 h laborables: precio, plazos y qué entra, por escrito. Si
-        encaja, el 50% al aceptar y arrancamos.{' '}
-        <strong className='font-extrabold'>
-          Si no, lo dices y no pasa nada
-        </strong>
-        .
+        encaja, el 50% al aceptar y arrancamos.
       </>
     ),
   },
@@ -342,10 +338,7 @@ const LandingWeb = () => {
             Déjanos nombre y teléfono. Te devolvemos propuesta en{' '}
             <strong className='font-extrabold'>24–48 h</strong>, con precio y
             plazos.{' '}
-            <strong className='font-extrabold'>
-              Si no cuadra, no pasa nada
-            </strong>
-            .
+            <strong className='font-extrabold'>Sin compromiso.</strong>
           </>
         }
         buttonText='PEDIR PROPUESTA'
