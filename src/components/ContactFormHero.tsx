@@ -6,7 +6,7 @@ import {
   unlockGoogleAdsFormConversion,
 } from '../utils/analytics';
 import { markFormSubmissionSuccess } from '../config/formSubmission';
-import { BUSINESS_HOURS_LABEL, CONTACT_EMAIL } from '../config/contact';
+import { BUSINESS_HOURS_LABEL, FORM_CC_EMAIL } from '../config/contact';
 import { AlertCircle } from 'lucide-react';
 import TestimonialsSingle from './TestimonialSingle';
 
@@ -106,7 +106,7 @@ export const ContactFormHero = ({
         submissionDate: new Date().toLocaleString('es-ES'),
         _subject: `[${origen}] Nueva solicitud — ${formData.name}`,
         // _replyto: formData.email,
-        _cc: CONTACT_EMAIL,
+        _cc: FORM_CC_EMAIL,
         message: `
 Origen: ${origen}
 Página: ${pagina}

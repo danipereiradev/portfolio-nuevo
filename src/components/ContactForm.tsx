@@ -14,7 +14,7 @@ import {
 import { useContactModal } from '../contexts/ContactModalContext';
 import {
   buildWhatsAppUrl,
-  CONTACT_EMAIL,
+  FORM_CC_EMAIL,
   getWhatsAppMessageForPath,
 } from '../config/contact';
 import { markFormSubmissionSuccess } from '../config/formSubmission';
@@ -186,7 +186,7 @@ const ContactForm = ({
         submissionDate: new Date().toLocaleString('es-ES'),
         _subject: `Nueva Solicitud de Presupuesto - ${formData.name} - ${formData.plan}`,
         _replyto: formData.email,
-        _cc: CONTACT_EMAIL,
+        _cc: FORM_CC_EMAIL,
         message: `
 Nombre: ${formData.name}
 Email: ${formData.email}

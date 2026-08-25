@@ -4,6 +4,8 @@ export const PHONE_NUMBER = '34644669828';
 export const PHONE_DISPLAY = '+34 644 669 828';
 export const PHONE_TEL_LINK = `tel:+${PHONE_NUMBER}`;
 export const CONTACT_EMAIL = 'hola@36web.es';
+// Formspree ya entrega a CONTACT_EMAIL; el CC tiene que ser otra dirección.
+export const FORM_CC_EMAIL = 'info.danipereira@gmail.com';
 export const BUSINESS_HOURS_LABEL = 'Horario: L-V de 9:00h a 18:00h';
 
 // Ficha oficial de Google Maps (Pereira Web) para el mapa embebido en /contacto.

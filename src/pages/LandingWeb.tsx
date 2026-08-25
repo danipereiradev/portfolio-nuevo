@@ -188,6 +188,11 @@ const faqs = [
       'Depende del alcance, no hay un pack fijo. Orientación: muchas webs quedan entre 400 € y 3.000 € + IVA. Tras hablar te mandamos un número concreto, por escrito. Pedirlo es gratis.',
   },
   {
+    question: '¿Qué web cuesta 400 €?',
+    answer:
+      'Los 400 € son para proyectos web sencillos: pocas secciones y pocas funciones. Si hace falta más, el número sube. Antes de empezar te mandamos un presupuesto cerrado, según lo que necesites.',
+  },
+  {
     question: '¿Cuánto tarda?',
     answer:
       'El plazo va por escrito en la propuesta. Suele ser de 3 a 8 semanas cuando tenemos textos y fotos. Cuenta desde el arranque pagado, no desde el primer “hola”.',

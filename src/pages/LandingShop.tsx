@@ -135,6 +135,11 @@ const faqs = [
       'Depende del alcance, no hay un pack fijo. Orientación: muchas tiendas quedan entre 900 € y 3.000 € + IVA. Tras hablar te mandamos un número concreto, por escrito. Pedirlo es gratis.',
   },
   {
+    question: '¿Qué tienda cuesta 900 €?',
+    answer:
+      'Los 900 € son para tiendas sencillas: catálogo contenido y lo justo para vender. Si hace falta más productos, integraciones o funciones, el número sube. Antes de empezar te mandamos un presupuesto cerrado, según lo que necesites.',
+  },
+  {
     question: '¿Cuánto tarda?',
     answer:
       'El plazo va por escrito en la propuesta. Suele ser de 4 a 8 semanas cuando tenemos productos, fotos y textos. Cuenta desde el arranque pagado, no desde el primer “hola”.',
