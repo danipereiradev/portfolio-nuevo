@@ -130,9 +130,9 @@ const processSteps = [
 
 const faqs = [
   {
-    question: '¿Cuánto cuesta?',
+    question: '¿Cuánto cuesta y cómo se paga?',
     answer:
-      'Depende del alcance, no hay un pack fijo. Orientación: muchas tiendas quedan entre 900 € y 3.000 € + IVA. Tras hablar te mandamos un número concreto, por escrito. Pedirlo es gratis.',
+      'Depende del alcance, no hay un pack fijo. Orientación: muchas tiendas quedan entre 900 € y 3.000 € + IVA. Tras hablar te mandamos un número concreto, por escrito. Pedirlo es gratis. El 50% se paga al aceptar y arrancar. El resto, al publicar.',
   },
   {
     question: '¿Qué tienda cuesta 900 €?',
