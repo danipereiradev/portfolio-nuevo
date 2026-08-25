@@ -26,6 +26,13 @@ import {
   shopIncludesTitle,
 } from '../data/shopIncludes';
 
+const shopProjectTypes = [
+  'Crear tienda desde cero',
+  'Mejorar tienda existente',
+  'Migrar mi tienda',
+  'Todavía no lo tengo claro',
+] as const;
+
 const landingTrustPoints = [
   { icon: Wallet, text: 'Desde 900 €' },
   { icon: Clock, text: 'Propuesta en 24–48 h' },

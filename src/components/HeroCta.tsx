@@ -22,6 +22,7 @@ interface HeroCtaProps {
   hasReviewBadge: boolean;
   isTopHero?: boolean;
   showProjectType?: boolean;
+  projectTypes?: readonly string[];
   highlights?: string[];
   formId?: string;
   breadcrumb?: ReactNode;
@@ -44,6 +45,7 @@ const HeroCta = ({
   hasReviewBadge,
   isTopHero = false,
   showProjectType = false,
+  projectTypes,
   highlights,
   formId,
   breadcrumb,
@@ -125,6 +127,7 @@ const HeroCta = ({
                 description={formDescription}
                 page={formSectionInfo}
                 showProjectType={showProjectType}
+                projectTypes={projectTypes}
               />
             ) : (
               <div className='flex justify-end items-center md:w-1/2 z-10 '>

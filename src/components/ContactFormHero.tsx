@@ -43,6 +43,7 @@ export const ContactFormHero = ({
   page,
   id,
   showProjectType = false,
+  projectTypes = PROJECT_TYPES,
 }: ContactHeroFormHeroProps) => {
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -196,6 +197,10 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       newErrors.phone = 'Introduce un teléfono válido';
     }
 
+    if (showProjectType && !formData.projectType) {
+      newErrors.projectType = 'Elige qué necesitas';
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -274,17 +279,24 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                 onChange={(e) =>
                   handleInputChange('projectType', e.target.value)
                 }
-                className={`w-full border-2 rounded-lg bg-white py-3 pl-4 pr-4 text-xl transition-all duration-150 focus:outline-none focus:border-accent md:text-2xl border-gray-400 ${
-                  formData.projectType ? 'text-ink-dark' : 'text-gray-400'
-                }`}
+                aria-label='Qué necesitas'
+                required
+                className={`w-full border-2 rounded-lg bg-white py-3 pl-4 pr-4 text-xl transition-all duration-150 focus:outline-none focus:border-accent md:text-2xl ${
+                  errors.projectType
+                    ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
+                    : 'border-gray-400'
+                } ${formData.projectType ? 'text-ink-dark' : 'text-gray-400'}`}
               >
-                <option value=''>Qué necesitas</option>
-                {PROJECT_TYPES.map((type) => (
+                <option value=''>¿Qué necesitas?</option>
+                {projectTypes.map((type) => (
                   <option key={type} value={type}>
                     {type}
                   </option>
                 ))}
               </select>
+              {errors.projectType && (
+                <ErrorMessage error={errors.projectType} />
+              )}
             </>
           ) : null}
 
