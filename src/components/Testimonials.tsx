@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import RevealOnScroll from './RevealOnScroll';
 import VideoTestimonial from './VideoTestimonial';
 
 const TRUSTINDEX_WIDGET_SRC =
@@ -45,7 +46,7 @@ function Testimonials({
   return (
     <section id={id} className='page-section'>
       <div className='container mx-auto flex flex-col gap-page-gap'>
-        <div className='page-title-block mx-auto max-w-5xl text-center'>
+        <RevealOnScroll className='page-title-block mx-auto max-w-5xl text-center'>
           <span className='text-md uppercase rounded-lg font-extrabold text-accent underline'>
             9 proyectos. 9 reseñas de 5 estrellas
           </span>
@@ -56,8 +57,12 @@ function Testimonials({
             Estas son valoraciones sacadas de nuestro perfil oficial de Google
             con certificación Trustindex.
           </p>
-        </div>
-        {hasVideo ? <VideoTestimonial /> : null}
+        </RevealOnScroll>
+        {hasVideo ? (
+          <RevealOnScroll delayMs={90}>
+            <VideoTestimonial />
+          </RevealOnScroll>
+        ) : null}
         <div data-src={TRUSTINDEX_WIDGET_SRC} />
       </div>
     </section>

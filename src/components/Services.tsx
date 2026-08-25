@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import RevealOnScroll from './RevealOnScroll';
 import {
   SITE_MAINTENANCE_LABEL,
   SITE_MAINTENANCE_PATH,
@@ -52,27 +53,32 @@ const Services = ({ description }: ServicesProps) => {
           </h2>
           <p className='text-xl md:text-2xl text-ink-dark'>{description}</p>
         </div>
-        <div className='mx-auto grid w-full grid-cols-1 gap-page-gap md:grid-cols-3'>
-          {mainServices.map((service) => (
-            <a
+        <div className='mx-auto grid w-full grid-cols-1 items-stretch gap-page-gap md:grid-cols-3'>
+          {mainServices.map((service, index) => (
+            <RevealOnScroll
               key={service.title}
-              href={service.link}
-              className='group relative block overflow-hidden rounded-lg shadow-xl'
+              className='h-full'
+              delayMs={index * 90}
             >
-              <img
-                src={service.image}
-                alt={service.imageAlt}
-                width={800}
-                height={600}
-                className='aspect-[4/3] w-full object-cover'
-                loading='lazy'
-                decoding='async'
-              />
-              <div className='absolute inset-0 bg-ink-dark/55 transition-colors duration-300 group-hover:bg-ink-dark/40' />
-              <h3 className='absolute inset-x-4 bottom-6 z-10 text-center text-2xl font-extrabold text-white md:text-3xl'>
-                {service.title}
-              </h3>
-            </a>
+              <a
+                href={service.link}
+                className='group relative block h-full overflow-hidden rounded-lg shadow-xl'
+              >
+                <img
+                  src={service.image}
+                  alt={service.imageAlt}
+                  width={800}
+                  height={600}
+                  className='aspect-[4/3] w-full object-cover'
+                  loading='lazy'
+                  decoding='async'
+                />
+                <div className='absolute inset-0 bg-ink-dark/55 transition-colors duration-300 group-hover:bg-ink-dark/40' />
+                <h3 className='absolute inset-x-4 bottom-6 z-10 text-center text-2xl font-extrabold text-white md:text-3xl'>
+                  {service.title}
+                </h3>
+              </a>
+            </RevealOnScroll>
           ))}
         </div>
       </div>

@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import RevealOnScroll from './RevealOnScroll';
 
 export type BreadcrumbItem = {
   label: string;
@@ -46,10 +47,12 @@ export const ServiceIncludes = ({
   title,
   intro,
   items,
+  stagger = true,
 }: {
   title: string;
   intro: ReactNode;
   items: IncludeItem[];
+  stagger?: boolean;
 }) => (
   <section className='page-section bg-surface-muted'>
     <div className='container mx-auto flex flex-col gap-page-gap'>
@@ -59,20 +62,37 @@ export const ServiceIncludes = ({
         </h2>
         <p className='text-xl md:text-2xl text-ink-dark'>{intro}</p>
       </div>
-      <div className='grid gap-page-gap md:grid-cols-2 lg:grid-cols-3'>
-        {items.map((item) => (
-          <article
-            key={item.title}
-            className='rounded-lg border-2 border-ink-dark bg-white p-content-pad'
-          >
-            <h3 className='mb-heading-gap text-xl font-bold text-ink-dark md:text-2xl'>
-              {item.title}
-            </h3>
-            <p className='text-base leading-relaxed text-ink-dark md:text-lg'>
-              {item.description}
-            </p>
-          </article>
-        ))}
+      <div className='grid items-stretch gap-page-gap md:grid-cols-2 lg:grid-cols-3'>
+        {items.map((item, index) => {
+          const card = (
+            <article className='flex h-full flex-col rounded-lg border-2 border-ink-dark bg-white p-content-pad'>
+              <h3 className='mb-heading-gap text-xl font-bold text-ink-dark md:text-2xl'>
+                {item.title}
+              </h3>
+              <p className='text-base leading-relaxed text-ink-dark md:text-lg'>
+                {item.description}
+              </p>
+            </article>
+          );
+
+          if (!stagger) {
+            return (
+              <div key={item.title} className='h-full'>
+                {card}
+              </div>
+            );
+          }
+
+          return (
+            <RevealOnScroll
+              key={item.title}
+              className='h-full'
+              delayMs={index * 90}
+            >
+              {card}
+            </RevealOnScroll>
+          );
+        })}
       </div>
     </div>
   </section>

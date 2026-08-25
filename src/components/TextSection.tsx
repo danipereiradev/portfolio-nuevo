@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import RevealOnScroll from './RevealOnScroll';
 
 interface TextSectionProps {
   label?: string;
@@ -20,7 +21,7 @@ export const TextSection = ({
     className={`page-section ${muted ? 'bg-surface-muted' : ''} ${id ? 'scroll-mt-24' : ''}`}
   >
     <div className='container mx-auto'>
-      <div className='page-title-block mx-auto max-w-5xl text-center'>
+      <RevealOnScroll className='page-title-block mx-auto max-w-5xl text-center'>
         {label ? (
           <span className='text-md rounded-lg font-extrabold text-accent underline'>
             {label}
@@ -34,7 +35,7 @@ export const TextSection = ({
             {para}
           </p>
         ))}
-      </div>
+      </RevealOnScroll>
     </div>
   </section>
 );

@@ -33,6 +33,7 @@ interface ContactHeroFormHeroProps {
   description: string;
   page: string;
   id?: string;
+  className?: string;
   showProjectType?: boolean;
   showEmail?: boolean;
   projectTypes?: readonly string[];
@@ -43,6 +44,7 @@ export const ContactFormHero = ({
   description,
   page,
   id,
+  className = '',
   showProjectType = false,
   showEmail = false,
   projectTypes = PROJECT_TYPES,
@@ -219,7 +221,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
   );
 
   return (
-    <div className='z-10 flex w-full justify-center md:w-1/2'>
+    <div className={`z-10 flex w-full justify-center md:w-1/2 ${className}`.trim()}>
       <form
         id={id}
         onSubmit={handleSubmit}

@@ -85,7 +85,7 @@ const Hero = ({
       ) : null}
 
       <div className='relative z-10 mx-auto flex w-[95%] max-w-5xl flex-col items-center text-center'>
-        <div className='flex w-full flex-col items-center gap-page-gap'>
+        <div className='hero-cta-enter hero-cta-enter--from-top flex w-full flex-col items-center gap-page-gap'>
           {titleOnly ? (
             <h1 className='whitespace-nowrap text-[clamp(0.7rem,2.2vw,1.35rem)] font-bold tracking-[0.28em] text-white'>
               {title}
@@ -93,15 +93,19 @@ const Hero = ({
           ) : (
             <div className='page-title-block md:max-w-4xl'>
               <h1
-                className={`text-5xl md:text-6xl lg:text-7xl font-extrabold ${
+                className={`hero-cta-title text-5xl md:text-6xl lg:text-7xl font-extrabold ${
                   overlayTone === 'black' ? 'text-white' : 'text-ink-dark'
                 }`}
               >
                 {title}
               </h1>
+              <span
+                className='hero-cta-underline mx-auto h-1 w-16 bg-brand'
+                aria-hidden='true'
+              />
               {description ? (
                 <p
-                  className={`text-xl md:text-2xl md:max-w-2xl md:mx-auto ${
+                  className={`hero-cta-desc text-xl md:text-2xl md:max-w-2xl md:mx-auto ${
                     overlayTone === 'black' ? 'text-white' : 'text-ink-dark'
                   }`}
                 >
@@ -110,11 +114,17 @@ const Hero = ({
               ) : null}
             </div>
           )}
-          {!titleOnly && hasReviewBadge ? <TestimonialsBadge /> : null}
+          {!titleOnly && hasReviewBadge ? (
+            <div className='hero-cta-badge'>
+              <TestimonialsBadge />
+            </div>
+          ) : null}
           {!titleOnly && hasButton && buttonText ? (
-            <Button className='mx-auto text-center' href={buttonHref}>
-              {buttonText}
-            </Button>
+            <div className='hero-cta-badge'>
+              <Button className='mx-auto text-center' href={buttonHref}>
+                {buttonText}
+              </Button>
+            </div>
           ) : null}
         </div>
       </div>

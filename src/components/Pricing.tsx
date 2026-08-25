@@ -110,11 +110,11 @@ const Pricing = () => {
           </p>
         </div>
 
-        <div className='grid md:grid-cols-2 xl:grid-cols-3 gap-8 md:gap-10 pt-4'>
+        <div className='grid md:grid-cols-2 xl:grid-cols-3 items-stretch gap-8 md:gap-10 pt-4'>
           {plans.map((plan) => (
             <div
               key={plan.id}
-              className={`rounded-lg p-8 border-2 flex flex-col relative transition-all duration-200 hover:translate-x-[3px] hover:translate-y-[3px] ${
+              className={`h-full rounded-lg p-8 border-2 flex flex-col relative transition-all duration-200 hover:translate-x-[3px] hover:translate-y-[3px] ${
                 plan.recommended
                   ? 'bg-ink-dark text-white border-accent shadow-[7px_7px_0_0_var(--color-accent-hover)] hover:shadow-[3px_3px_0_0_var(--color-accent-hover)]'
                   : 'bg-surface border-ink-dark shadow-[7px_7px_0_0_#1a1a1a] hover:shadow-[3px_3px_0_0_#1a1a1a]'

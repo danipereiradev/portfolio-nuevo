@@ -199,6 +199,186 @@ img {
   }
 }
 
+/* Landing diseño web: entradas del hero y bloques */
+@keyframes hero-from-left {
+  from {
+    opacity: 0;
+    transform: translateX(-2.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hero-from-right {
+  from {
+    opacity: 0;
+    transform: translateX(2.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hero-from-up {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hero-from-top {
+  from {
+    opacity: 0;
+    transform: translateY(-2.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hero-rule {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes trust-pop {
+  from {
+    opacity: 0;
+    transform: translateY(1.1rem) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes process-pop {
+  from {
+    transform: scale(0.6);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.hero-cta-pending .hero-cta-label,
+.hero-cta-pending .hero-cta-title,
+.hero-cta-pending .hero-cta-desc,
+.hero-cta-pending .hero-cta-underline,
+.hero-cta-pending .hero-cta-badge,
+.hero-cta-pending .hero-cta-form,
+.hero-cta-pending .hero-cta-highlights {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-cta-enter .hero-cta-label {
+    animation: hero-from-left 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-cta-enter .hero-cta-title {
+    animation: hero-from-left 0.65s 0.06s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-cta-enter .hero-cta-desc {
+    animation: hero-from-left 0.65s 0.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-cta-enter .hero-cta-underline {
+    transform-origin: left;
+    animation: hero-rule 0.5s 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .page-hero-compact .hero-cta-enter .hero-cta-underline {
+    transform-origin: center;
+  }
+
+  .hero-cta-enter .hero-cta-badge {
+    animation: hero-from-up 0.55s 0.22s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-cta-enter .hero-cta-highlights {
+    animation: hero-from-left 0.65s 0.16s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-cta-enter .hero-cta-form {
+    animation: hero-from-right 0.7s 0.12s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .trustbar-enter > div {
+    animation: trust-pop 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .trustbar-enter > div:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+  .trustbar-enter > div:nth-child(2) {
+    animation-delay: 0.14s;
+  }
+  .trustbar-enter > div:nth-child(3) {
+    animation-delay: 0.23s;
+  }
+  .trustbar-enter > div:nth-child(4) {
+    animation-delay: 0.32s;
+  }
+
+  .reveal-on-scroll.is-visible .process-step-num {
+    animation: process-pop 0.45s 0.08s cubic-bezier(0.34, 1.4, 0.64, 1) both;
+  }
+
+  .hero-cta-enter--from-top .hero-cta-title {
+    animation: hero-from-top 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-cta-enter--from-top .hero-cta-desc {
+    animation: hero-from-top 0.7s 0.12s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-cta-enter--from-top .hero-cta-underline {
+    transform-origin: center;
+    animation: hero-from-top 0.55s 0.08s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-cta-enter--from-top .hero-cta-badge {
+    animation: hero-from-top 0.6s 0.22s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-cta-pending .hero-cta-label,
+  .hero-cta-pending .hero-cta-title,
+  .hero-cta-pending .hero-cta-desc,
+  .hero-cta-pending .hero-cta-underline,
+  .hero-cta-pending .hero-cta-badge,
+  .hero-cta-pending .hero-cta-form,
+  .hero-cta-pending .hero-cta-highlights {
+    opacity: 1;
+  }
+
+  .hero-cta-enter .hero-cta-label,
+  .hero-cta-enter .hero-cta-title,
+  .hero-cta-enter .hero-cta-desc,
+  .hero-cta-enter .hero-cta-underline,
+  .hero-cta-enter .hero-cta-badge,
+  .hero-cta-enter .hero-cta-form,
+  .hero-cta-enter .hero-cta-highlights,
+  .trustbar-enter > div {
+    animation: none;
+  }
+}
+
 @keyframes scroll-infinite {
   0% {
     transform: translateX(0);

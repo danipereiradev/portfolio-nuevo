@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import Button from './Button';
+import RevealOnScroll from './RevealOnScroll';
 
 interface TextImageProps {
   label: string;
@@ -33,7 +34,7 @@ export const TextImage = ({
       <div
         className={`container mx-auto flex flex-col-reverse items-center gap-page-gap text-center ${rowClass}`}
       >
-        <div className='page-title-block page-title-block--plain w-full items-center lg:w-1/2 lg:items-start'>
+        <RevealOnScroll className='page-title-block page-title-block--plain w-full items-center lg:w-1/2 lg:items-start'>
           <span className='text-md uppercase rounded-lg font-extrabold text-accent underline'>
             {label}
           </span>
@@ -53,8 +54,8 @@ export const TextImage = ({
               {buttonText}
             </Button>
           ) : null}
-        </div>
-        <div className='w-full shrink-0 lg:w-1/2'>
+        </RevealOnScroll>
+        <RevealOnScroll className='w-full shrink-0 lg:w-1/2' delayMs={120}>
           <div className='group relative aspect-[4/3] w-full overflow-hidden rounded-lg'>
             <img
               className='absolute inset-0 h-full w-full object-cover'
@@ -62,7 +63,7 @@ export const TextImage = ({
               alt={imageAlt}
             />
           </div>
-        </div>
+        </RevealOnScroll>
       </div>
     </section>
   );

@@ -17,12 +17,20 @@ interface TrustBarProps {
   points?: { icon: LucideIcon; text: string }[];
   deliveryText?: string;
   hidePaymentPoint?: boolean;
+  animate?: boolean;
 }
 
-const TrustBar = ({ points = defaultTrustPoints }: TrustBarProps) => {
+const TrustBar = ({
+  points = defaultTrustPoints,
+  animate = true,
+}: TrustBarProps) => {
   return (
     <section className='border-y border-ink-light bg-surface-muted'>
-      <div className='container mx-auto grid grid-cols-2 md:grid-cols-4 md:divide-x-2 md:divide-ink-light'>
+      <div
+        className={`container mx-auto grid grid-cols-2 md:grid-cols-4 md:divide-x-2 md:divide-ink-light ${
+          animate ? 'trustbar-enter' : ''
+        }`}
+      >
         {points.map((point, index) => {
           const Icon = point.icon;
           return (

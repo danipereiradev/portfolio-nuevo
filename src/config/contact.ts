@@ -1,7 +1,7 @@
 // Datos de contacto centralizados. Cambiar el número aquí actualiza toda la
 // web (enlaces de WhatsApp, tel: y texto visible) desde un único sitio.
-export const PHONE_NUMBER = '34644669828';
-export const PHONE_DISPLAY = '+34 644 669 828';
+export const PHONE_NUMBER = '34644665352';
+export const PHONE_DISPLAY = '+34 644 665 352';
 export const PHONE_TEL_LINK = `tel:+${PHONE_NUMBER}`;
 export const CONTACT_EMAIL = 'hola@36web.es';
 // Formspree ya entrega a CONTACT_EMAIL; el CC tiene que ser otra dirección.

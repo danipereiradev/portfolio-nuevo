@@ -4,6 +4,7 @@ import { useJsonLd } from '../hooks/useJsonLd';
 import Hero from '../components/Hero';
 import { BlogPostCard } from '../components/BlogPostCard';
 import HeroCta from '../components/HeroCta';
+import RevealOnScroll from '../components/RevealOnScroll';
 import { BLOG_PATH, getPostPath, posts } from '../blog/posts';
 import { SITE_WEB_PATH } from '../config/contact';
 
@@ -75,9 +76,11 @@ const Blog = () => {
 
       <section className='page-section'>
         <div className='container mx-auto'>
-          <div className='mx-auto grid w-full grid-cols-1 gap-page-gap lg:grid-cols-3'>
-            {posts.map((post) => (
-              <BlogPostCard key={post.slug} post={post} />
+          <div className='mx-auto grid w-full grid-cols-1 items-stretch gap-page-gap lg:grid-cols-3'>
+            {posts.map((post, index) => (
+              <RevealOnScroll key={post.slug} className='h-full' delayMs={index * 90}>
+                <BlogPostCard post={post} />
+              </RevealOnScroll>
             ))}
           </div>
         </div>

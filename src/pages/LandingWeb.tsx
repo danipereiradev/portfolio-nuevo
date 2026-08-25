@@ -316,16 +316,16 @@ const LandingWeb = () => {
       <Testimonials hasVideo />
 
       <Team
-        label='EL EQUIPO'
-        title='Somos las personas que te vamos a hacer la web.'
-        compact
-        paragraphs={[
-          <>
-            Nos pones cara, ves el portfolio y nos escribes si quieres.{' '}
-            <strong className='font-extrabold'>Contestamos nosotros</strong>.
-          </>,
-        ]}
-      />
+          label='EL EQUIPO'
+          title='Somos las personas que te vamos a hacer la web.'
+          compact
+          paragraphs={[
+            <>
+              Nos pones cara, ves el portfolio y nos escribes si quieres.{' '}
+              <strong className='font-extrabold'>Contestamos nosotros</strong>.
+            </>,
+          ]}
+        />
 
       <div id='faq' className='scroll-mt-24'>
         <SEOFAQ

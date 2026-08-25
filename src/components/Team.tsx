@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { GithubIcon, LinkedinIcon, Mail } from 'lucide-react';
+import RevealOnScroll from './RevealOnScroll';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
@@ -99,7 +100,7 @@ export const Team = ({
   return (
     <section className='page-section'>
       <div className='container mx-auto flex flex-col items-center gap-page-gap text-center lg:flex-row lg:text-start'>
-        <div className='page-title-block w-full items-center lg:w-1/2 lg:items-start'>
+        <RevealOnScroll className='page-title-block w-full items-center lg:w-1/2 lg:items-start'>
           <span className='text-accent font-extrabold underline text-md rounded-lg'>
             {label}
           </span>
@@ -114,8 +115,8 @@ export const Team = ({
               {para}
             </p>
           ))}
-        </div>
-        <div className='w-full lg:w-1/2'>
+        </RevealOnScroll>
+        <RevealOnScroll className='w-full lg:w-1/2' delayMs={120}>
           <Swiper
             autoplay={{
               delay: 2000,
@@ -174,8 +175,8 @@ export const Team = ({
                     )}
 
                     <div
-                      className={`member-info rounded-b-xl bg-surface-muted p-content-pad text-start text-lg text-ink-dark ${
-                        compact ? '' : 'md:min-h-[200px]'
+                      className={`member-info flex flex-col rounded-b-xl bg-surface-muted p-content-pad text-start text-lg text-ink-dark ${
+                        compact ? 'min-h-[7.25rem]' : 'min-h-[13.5rem]'
                       }`}
                     >
                       <h3 className='text-2xl font-bold text-accent'>
@@ -228,7 +229,7 @@ export const Team = ({
               );
             })}
           </Swiper>
-        </div>
+        </RevealOnScroll>
       </div>
     </section>
   );

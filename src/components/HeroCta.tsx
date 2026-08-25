@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { type ReactNode, useEffect, useRef, useState } from 'react';
 import Button from './Button';
 
 import { ContactFormHero } from './ContactFormHero';
@@ -27,6 +27,7 @@ interface HeroCtaProps {
   highlights?: string[];
   formId?: string;
   breadcrumb?: ReactNode;
+  animateEntrance?: boolean;
 }
 
 const HeroCta = ({
@@ -51,11 +52,42 @@ const HeroCta = ({
   highlights,
   formId,
   breadcrumb,
+  animateEntrance = true,
 }: HeroCtaProps) => {
   const TitleTag = isTopHero ? 'h1' : 'h2';
+  const sectionRef = useRef<HTMLElement>(null);
+  const [entered, setEntered] = useState(isTopHero);
+
+  useEffect(() => {
+    if (!animateEntrance) return undefined;
+
+    if (
+      isTopHero ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
+      setEntered(true);
+      return undefined;
+    }
+
+    const node = sectionRef.current;
+    if (!node) return undefined;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        setEntered(true);
+        observer.disconnect();
+      },
+      { threshold: 0.28, rootMargin: '0px 0px -48px 0px' },
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [animateEntrance, isTopHero]);
 
   return (
     <section
+      ref={sectionRef}
       id={isTopHero ? 'hero' : undefined}
       style={
         hasBackground && backgroundUrl
@@ -66,6 +98,8 @@ const HeroCta = ({
         isTopHero ? '' : 'flex items-center'
       } ${
         hasBackground ? 'bg-no-repeat bg-center bg-cover' : 'bg-accent-light'
+      } ${
+        animateEntrance ? (entered ? 'hero-cta-enter' : 'hero-cta-pending') : ''
       }`}
     >
       {hasBackground ? (
@@ -83,23 +117,31 @@ const HeroCta = ({
           className={`flex w-full flex-col items-center gap-page-gap text-center md:flex-row md:justify-center ${heroType === 'clean' ? '' : 'md:text-start'}`}
         >
           <div
-            className={`flex w-full min-w-0 flex-col items-center gap-page-gap md:items-start ${
+            className={`hero-cta-copy flex w-full min-w-0 flex-col items-center gap-page-gap md:items-start ${
               heroType === 'clean' ? '' : 'md:w-1/2'
             }`}
           >
             <div className='page-title-block'>
-              <span className='text-md uppercase rounded-lg font-extrabold text-accent underline'>
-                {label}
-              </span>
-              <TitleTag className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark'>
+              {label ? (
+                <span className='hero-cta-label text-md uppercase rounded-lg font-extrabold text-accent underline'>
+                  {label}
+                </span>
+              ) : null}
+              <TitleTag className='hero-cta-title text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark'>
                 {title}
               </TitleTag>
-              <p className='text-xl md:text-2xl text-ink-dark md:text-justify'>
+              {animateEntrance ? (
+                <span
+                  className='hero-cta-underline h-1 w-16 bg-brand'
+                  aria-hidden='true'
+                />
+              ) : null}
+              <p className='hero-cta-desc text-xl md:text-2xl text-ink-dark md:text-justify'>
                 {description}
               </p>
             </div>
             {highlights && highlights.length > 0 ? (
-              <ul className='grid w-full grid-cols-1 gap-item-gap text-left md:grid-cols-2'>
+              <ul className='hero-cta-highlights grid w-full grid-cols-1 gap-item-gap text-left md:grid-cols-2'>
                 {highlights.map((item) => (
                   <li
                     key={item}
@@ -111,10 +153,14 @@ const HeroCta = ({
                 ))}
               </ul>
             ) : null}
-            {hasReviewBadge ? <TestimonialsBadge /> : null}
+            {hasReviewBadge ? (
+              <div className='hero-cta-badge'>
+                <TestimonialsBadge />
+              </div>
+            ) : null}
             {hasButton ? (
               <Button
-                className='mx-auto md:mx-0 place-self-start m-0'
+                className='hero-cta-badge mx-auto md:mx-0 place-self-start m-0'
                 href={buttonHref}
               >
                 {buttonText}
@@ -131,6 +177,7 @@ const HeroCta = ({
                 showProjectType={showProjectType}
                 showEmail={showEmail}
                 projectTypes={projectTypes}
+                className={animateEntrance ? 'hero-cta-form' : undefined}
               />
             ) : (
               <div className='flex justify-end items-center md:w-1/2 z-10 '>

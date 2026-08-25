@@ -1,5 +1,6 @@
 import { useLanguage } from '../contexts/LanguageContext';
 import { useSectionView } from '../hooks/useSectionView';
+import RevealOnScroll from './RevealOnScroll';
 
 import {
   trackPortfolioClick,
@@ -145,7 +146,7 @@ const Portfolio = ({
       }
     : variant === 'web' || variant === 'tiendas'
       ? {
-          label: 'Hemos empezado fuerte',
+          label: 'Proyectos que ya están dando resultados',
           title: t('portfolio.title'),
           description: t('portfolio.description'),
         }
@@ -172,49 +173,54 @@ const Portfolio = ({
             </p>
           </div>
 
-          <div className='mx-auto grid grid-cols-1 gap-page-gap md:grid-cols-2 lg:grid-cols-3'>
-            {projects.map((project) => (
-              <article
+          <div className='mx-auto grid grid-cols-1 items-stretch gap-page-gap md:grid-cols-2 lg:grid-cols-3'>
+            {projects.map((project, index) => (
+              <RevealOnScroll
                 key={project.title}
-                className={`group relative overflow-hidden rounded-lg shadow-xl ${
-                  projects.length === 1 ? 'w-full max-w-md' : ''
-                }`}
+                className='h-full'
+                delayMs={index * 90}
               >
-                <img
-                  src={project.image}
-                  alt={`Mock de ${project.title}`}
-                  width={800}
-                  height={600}
-                  className='aspect-[4/3] w-full object-cover'
-                  loading='lazy'
-                  decoding='async'
-                />
-                <div className='absolute inset-0 bg-gradient-to-t from-ink-dark via-ink-dark/75 to-ink-dark/25' />
-                <div className='absolute inset-x-4 bottom-5 z-10 flex flex-col items-center text-center'>
-                  <h3 className='text-2xl font-extrabold text-white md:text-3xl'>
-                    {project.title}
-                  </h3>
-                  <span className='mt-2 block h-1 w-10 bg-brand' />
-                  <p className='mt-3 text-base font-bold leading-snug text-white md:text-lg'>
-                    {isCasos ? project.exito : project.description}
-                  </p>
-                  {project.url ? (
-                    <a
-                      href={project.url}
-                      target='_blank'
-                      rel='noopener noreferrer'
-                      onClick={() => trackPortfolioClick(project.title)}
-                      className='mt-3 inline-block text-sm font-extrabold uppercase tracking-wide text-brand-light underline decoration-2 underline-offset-4 hover:text-white md:text-base'
-                    >
-                      Ver la web
-                    </a>
-                  ) : project.urlSoon ? (
-                    <span className='mt-3 inline-block cursor-default text-sm font-extrabold uppercase tracking-wide text-brand-light underline decoration-2 underline-offset-4 md:text-base'>
-                      Ver la web
-                    </span>
-                  ) : null}
-                </div>
-              </article>
+                <article
+                  className={`group relative flex h-full flex-col overflow-hidden rounded-lg shadow-xl ${
+                    projects.length === 1 ? 'w-full max-w-md' : ''
+                  }`}
+                >
+                  <img
+                    src={project.image}
+                    alt={`Mock de ${project.title}`}
+                    width={800}
+                    height={600}
+                    className='aspect-[4/3] w-full object-cover'
+                    loading='lazy'
+                    decoding='async'
+                  />
+                  <div className='absolute inset-0 bg-gradient-to-t from-ink-dark via-ink-dark/75 to-ink-dark/25' />
+                  <div className='absolute inset-x-4 bottom-5 z-10 flex flex-col items-center text-center'>
+                    <h3 className='text-2xl font-extrabold text-white md:text-3xl'>
+                      {project.title}
+                    </h3>
+                    <span className='mt-2 block h-1 w-10 bg-brand' />
+                    <p className='mt-3 text-base font-bold leading-snug text-white md:text-lg'>
+                      {isCasos ? project.exito : project.description}
+                    </p>
+                    {project.url ? (
+                      <a
+                        href={project.url}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        onClick={() => trackPortfolioClick(project.title)}
+                        className='mt-3 inline-block text-sm font-extrabold uppercase tracking-wide text-brand-light underline decoration-2 underline-offset-4 hover:text-white md:text-base'
+                      >
+                        Ver la web
+                      </a>
+                    ) : project.urlSoon ? (
+                      <span className='mt-3 inline-block cursor-default text-sm font-extrabold uppercase tracking-wide text-brand-light underline decoration-2 underline-offset-4 md:text-base'>
+                        Ver la web
+                      </span>
+                    ) : null}
+                  </div>
+                </article>
+              </RevealOnScroll>
             ))}
           </div>
         </div>

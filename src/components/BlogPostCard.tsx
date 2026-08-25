@@ -3,7 +3,7 @@ import { formatPostDate, getPostPath, type BlogPost } from '../blog/posts';
 export const BlogPostCard = ({ post }: { post: BlogPost }) => (
   <a
     href={getPostPath(post.slug)}
-    className='group relative block overflow-hidden rounded-lg shadow-xl'
+    className='group relative block h-full overflow-hidden rounded-lg shadow-xl'
   >
     <img
       src={post.image}

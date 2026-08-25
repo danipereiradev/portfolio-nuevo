@@ -5,6 +5,7 @@ import { useJsonLd } from '../hooks/useJsonLd';
 import { BlogArticle } from '../components/BlogArticle';
 import { BlogPostCard } from '../components/BlogPostCard';
 import HeroCta from '../components/HeroCta';
+import RevealOnScroll from '../components/RevealOnScroll';
 import {
   BLOG_PATH,
   getPostBySlug,
@@ -95,9 +96,11 @@ const BlogPost = () => {
                 Otras entradas que podrían interesarte
               </h2>
             </div>
-            <div className='grid grid-cols-1 gap-page-gap lg:grid-cols-3'>
-              {related.map((item) => (
-                <BlogPostCard key={item.slug} post={item} />
+            <div className='grid grid-cols-1 items-stretch gap-page-gap lg:grid-cols-3'>
+              {related.map((item, index) => (
+                <RevealOnScroll key={item.slug} className='h-full' delayMs={index * 90}>
+                  <BlogPostCard post={item} />
+                </RevealOnScroll>
               ))}
             </div>
           </div>
