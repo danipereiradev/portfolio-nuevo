@@ -6,7 +6,7 @@ const cuantoCuesta: BlogPost = {
   slug: 'cuanto-cuesta-una-pagina-web-profesional',
   title: 'Cuánto cuesta una página web profesional en 2026',
   description:
-    'En 2026 una página web profesional en España suele ir de 400 € a 3.000 € + IVA, según alcance. Qué entra en el precio, qué no, y cómo pedimos presupuesto en 36web.',
+    'En 2026 una página web profesional en España suele ir de 600 € a 3.000 € + IVA, según alcance. Qué entra en el precio, qué no, y cómo pedimos presupuesto en 36web.',
   date: '2026-08-21',
   author: 'Dani Pereira',
   image: '/img/portfolio/mock-delish.png',
@@ -16,7 +16,7 @@ const cuantoCuesta: BlogPost = {
     <>
       <p>
         Una página web profesional en España en 2026 suele costar entre{' '}
-        <strong>400 € y 3.000 € + IVA</strong>. El número concreto depende de
+        <strong>600 € y 3.000 € + IVA</strong>. El número concreto depende de
         cuántas páginas hace falta, si hay que migrar una web antigua, los
         idiomas y lo que tenga que hacer el sitio: que te escriban, que reserven
         o que informen.
@@ -79,7 +79,7 @@ const cuantoCuesta: BlogPost = {
           <tbody>
             <tr>
               <td>Web sencilla (home, servicios, contacto)</td>
-              <td>400 € – 900 € + IVA</td>
+              <td>600 € – 900 € + IVA</td>
             </tr>
             <tr>
               <td>Web de empresa o autónomo con más páginas</td>
@@ -97,7 +97,7 @@ const cuantoCuesta: BlogPost = {
         </table>
       </div>
       <p>
-        Muchas de las páginas web que montamos caen en esa horquilla de 400 € a
+        Muchas de las páginas web que montamos caen en esa horquilla de 600 € a
         3.000 €. Si el caso se sale, te lo decimos antes de empezar, no a mitad
         de obra.
       </p>

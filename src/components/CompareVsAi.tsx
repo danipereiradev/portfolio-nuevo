@@ -1,7 +1,7 @@
 const rows = [
   {
     label: 'Precio',
-    us: 'Desde 400 € + IVA. El número concreto va por escrito, según alcance.',
+    us: 'Desde 600 € + IVA. El número concreto va por escrito, según alcance.',
     ia: 'Más barato, a veces gratis. Sale rápido y sirve para probar.',
   },
   {

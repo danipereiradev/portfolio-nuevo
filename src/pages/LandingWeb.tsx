@@ -29,7 +29,7 @@ const webProjectTypes = [
 ] as const;
 
 const landingTrustPoints = [
-  { icon: Wallet, text: 'Desde 400 €' },
+  { icon: Wallet, text: 'Desde 600 €' },
   { icon: Clock, text: 'Propuesta en 24–48 h' },
   { icon: ShieldCheck, text: 'Hosting incluido' },
   { icon: BadgeCheck, text: 'La web es tuya' },
@@ -185,12 +185,12 @@ const faqs = [
   {
     question: '¿Cuánto cuesta y cómo se paga?',
     answer:
-      'Depende del alcance, no hay un pack fijo. Orientación: muchas webs quedan entre 400 € y 3.000 € + IVA. Tras hablar te mandamos un número concreto, por escrito. Pedirlo es gratis. El 50% se paga al aceptar y arrancar. El resto, al publicar.',
+      'Depende del alcance, no hay un pack fijo. Orientación: muchas webs quedan entre 600 € y 3.000 € + IVA. Tras hablar te mandamos un número concreto, por escrito. Pedirlo es gratis. El 50% se paga al aceptar y arrancar. El resto, al publicar.',
   },
   {
-    question: '¿Qué web cuesta 400 €?',
+    question: '¿Qué web cuesta 600 €?',
     answer:
-      'Los 400 € son para proyectos web sencillos: pocas secciones y pocas funciones. Si hace falta más, el número sube. Antes de empezar te mandamos un presupuesto cerrado, según lo que necesites.',
+      'Los 600 € son para proyectos web profesional sencillos con 4-5 secciones. Si hace falta más, el número sube. Antes de empezar te mandamos un presupuesto cerrado, según lo que necesites.',
   },
   {
     question: '¿Cuánto tarda?',
@@ -342,8 +342,7 @@ const LandingWeb = () => {
           <>
             Déjanos nombre y teléfono. Te devolvemos propuesta en{' '}
             <strong className='font-extrabold'>24–48 h</strong>, con precio y
-            plazos.{' '}
-            <strong className='font-extrabold'>Sin compromiso.</strong>
+            plazos. <strong className='font-extrabold'>Sin compromiso.</strong>
           </>
         }
         buttonText='PEDIR PROPUESTA'
