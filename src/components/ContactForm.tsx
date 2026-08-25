@@ -12,7 +12,11 @@ import {
   trackWebProfesionalFormSubmit,
 } from '../utils/analytics';
 import { useContactModal } from '../contexts/ContactModalContext';
-import { buildWhatsAppUrl, getWhatsAppMessageForPath } from '../config/contact';
+import {
+  buildWhatsAppUrl,
+  CONTACT_EMAIL,
+  getWhatsAppMessageForPath,
+} from '../config/contact';
 import { markFormSubmissionSuccess } from '../config/formSubmission';
 import Button from './Button';
 
@@ -182,6 +186,7 @@ const ContactForm = ({
         submissionDate: new Date().toLocaleString('es-ES'),
         _subject: `Nueva Solicitud de Presupuesto - ${formData.name} - ${formData.plan}`,
         _replyto: formData.email,
+        _cc: CONTACT_EMAIL,
         message: `
 Nombre: ${formData.name}
 Email: ${formData.email}
