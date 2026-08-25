@@ -18,6 +18,13 @@ import { Briefcase, Building2, RefreshCw } from 'lucide-react';
 
 const SITE_URL = 'https://36web.es';
 
+const webProjectTypes = [
+  'Web nueva',
+  'Rediseñar mi web',
+  'Landing page',
+  'No lo tengo claro',
+] as const;
+
 const faqs = [
   {
     question: '¿Cuánto cuesta una página web profesional?',
@@ -332,6 +339,8 @@ const DisenoWeb = () => {
         hasBackground
         hasReviewBadge
         isTopHero
+        showProjectType
+        projectTypes={webProjectTypes}
         breadcrumb={
           <ServiceBreadcrumb
             items={[{ label: 'Inicio', href: '/' }, { label: 'Diseño web' }]}
@@ -572,6 +581,8 @@ const DisenoWeb = () => {
         hasBackground={false}
         hasReviewBadge
         formId='contacto'
+        showProjectType
+        projectTypes={webProjectTypes}
       />
     </>
   );

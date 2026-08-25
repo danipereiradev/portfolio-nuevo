@@ -18,6 +18,12 @@ import { Headphones, ShieldCheck, Wrench } from 'lucide-react';
 
 const SITE_URL = 'https://36web.es';
 
+const maintenanceProjectTypes = [
+  'La web la hicisteis vosotros',
+  'La web la hizo otro',
+  'Todavía no lo tengo claro',
+] as const;
+
 const faqs = [
   {
     question: '¿Cuánto cuesta el mantenimiento web?',
@@ -307,6 +313,8 @@ const MantenimientoWeb = () => {
         hasBackground
         hasReviewBadge
         isTopHero
+        showProjectType
+        projectTypes={maintenanceProjectTypes}
         breadcrumb={
           <ServiceBreadcrumb
             items={[
@@ -537,6 +545,8 @@ const MantenimientoWeb = () => {
         hasBackground={false}
         hasReviewBadge
         formId='contacto'
+        showProjectType
+        projectTypes={maintenanceProjectTypes}
       />
     </>
   );

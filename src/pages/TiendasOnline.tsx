@@ -23,6 +23,13 @@ import { CreditCard, Package, RefreshCw } from 'lucide-react';
 
 const SITE_URL = 'https://36web.es';
 
+const shopProjectTypes = [
+  'Crear tienda desde cero',
+  'Mejorar tienda existente',
+  'Migrar mi tienda',
+  'Todavía no lo tengo claro',
+] as const;
+
 const faqs = [
   {
     question: '¿Cuánto cuesta una tienda online profesional?',
@@ -242,6 +249,8 @@ const TiendasOnline = () => {
         hasBackground
         hasReviewBadge
         isTopHero
+        showProjectType
+        projectTypes={shopProjectTypes}
         breadcrumb={
           <ServiceBreadcrumb
             items={[
@@ -478,6 +487,8 @@ const TiendasOnline = () => {
         hasBackground={false}
         hasReviewBadge
         formId='contacto'
+        showProjectType
+        projectTypes={shopProjectTypes}
       />
     </>
   );
