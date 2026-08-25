@@ -201,7 +201,7 @@ const LandingShop = () => {
             Cuéntanos qué vendes. En 24–48 h te mandamos una propuesta con lo
             que entra, lo que cuesta y cuándo está.{' '}
             <strong className='font-extrabold'>
-              Hablas con quien te va a hacer la tienda,, no con un comercial
+              Hablas con quien te va a hacer la tienda, no con un comercial
             </strong>
             . Si no encaja, lo dices y no pasa nada.
           </>
@@ -287,8 +287,7 @@ const LandingShop = () => {
           <>
             Déjanos nombre y teléfono. Te devolvemos propuesta en{' '}
             <strong className='font-extrabold'>24–48 h</strong>, con precio y
-            plazos.{' '}
-            <strong className='font-extrabold'>Sin compromiso.</strong>
+            plazos. <strong className='font-extrabold'>Sin compromiso.</strong>
           </>
         }
         buttonText='PEDIR PROPUESTA'
