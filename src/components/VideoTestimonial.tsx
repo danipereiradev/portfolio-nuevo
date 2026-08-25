@@ -4,7 +4,6 @@ import { trackPlayReviewVideo } from '../utils/analytics';
 
 const VIDEO_SRC = '/video/juanvi-testimonio.mp4';
 const POSTER_SRC = '/video/juanvi-testimonio.jpg';
-const CAPTIONS_SRC = '/video/juanvi-testimonio.es.vtt';
 const SITE_URL = 'https://hoyviajamosweb.com';
 
 function VideoTestimonial() {
@@ -48,13 +47,6 @@ function VideoTestimonial() {
           onEnded={() => setShowOverlay(true)}
         >
           <source src={VIDEO_SRC} type='video/mp4' />
-          <track
-            kind='captions'
-            srcLang='es'
-            label='Español'
-            src={CAPTIONS_SRC}
-            default
-          />
         </video>
 
         {showOverlay ? (

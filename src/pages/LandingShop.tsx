@@ -2,10 +2,11 @@ import { useMemo } from 'react';
 import {
   BadgeCheck,
   Clock,
-  CreditCard,
+  FileCheck,
   Handshake,
   LayoutTemplate,
   ShieldCheck,
+  Wallet,
 } from 'lucide-react';
 import Portfolio from '../components/Portfolio';
 import SEOBenefits from '../components/SEOBenefits';
@@ -15,91 +16,140 @@ import Testimonials from '../components/Testimonials';
 import TrustBar from '../components/TrustBar';
 import SEOProcess from '../components/SEOProcess';
 import HeroCta from '../components/HeroCta';
-import CompareVsAi from '../components/CompareVsAi';
+import { ServiceIncludes } from '../components/ServiceOnPage';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { ADS_SHOP_LANDING_PATH } from '../config/contact';
+import {
+  shopIncludes,
+  shopIncludesIntro,
+  shopIncludesTitle,
+} from '../data/shopIncludes';
 
 const landingTrustPoints = [
-  { icon: CreditCard, text: 'Pagos y envíos' },
+  { icon: Wallet, text: 'Desde 400 €' },
   { icon: Clock, text: 'Propuesta en 24–48 h' },
   { icon: ShieldCheck, text: 'Hosting incluido' },
   { icon: BadgeCheck, text: 'La tienda es tuya' },
 ];
 
+const whyUs = [
+  {
+    icon: FileCheck,
+    title: 'Precio y plazo, por escrito',
+    description: (
+      <>
+        No hay un pack cerrado. En 24–48 h laborables te mandamos qué entra,
+        cuánto sale y cuándo está.{' '}
+        <strong className='font-extrabold'>
+          Pedir presupuesto es gratis y no te compromete
+        </strong>
+        .
+      </>
+    ),
+  },
+  {
+    icon: Handshake,
+    title: 'Trato directo',
+    description: (
+      <>
+        Hablas con quien diseña y desarrolla la tienda. Estudio pequeño.{' '}
+        <strong className='font-extrabold'>Siempre contestamos</strong>.
+      </>
+    ),
+  },
+  {
+    icon: LayoutTemplate,
+    title: 'Lo mejor para ti, no lo más caro',
+    description: (
+      <>
+        WooCommerce, Shopify u otra plataforma si encaja. A medida solo cuando
+        hace falta.{' '}
+        <strong className='font-extrabold'>
+          Te lo decimos en la propuesta, sin venderte lo más caro por sistema
+        </strong>
+        .
+      </>
+    ),
+  },
+];
+
 const processSteps = [
   {
     number: '1',
-    title: 'Cuentas qué vendes',
-    description:
-      'Formulario, WhatsApp o llamada. Catálogo, cómo cobras y cómo envías. Aún no hay nada que pagar.',
+    title: 'Nos cuentas qué vendes',
+    description: (
+      <>
+        Formulario, WhatsApp o llamada. Catálogo, cómo cobras, cómo envías y si
+        ya tienes tienda.{' '}
+        <strong className='font-extrabold'>Aún no hay nada que pagar</strong>.
+      </>
+    ),
   },
   {
     number: '2',
     title: 'Te mandamos la propuesta',
-    description:
-      'En 24–48 h laborables: precio, plazos y qué entra, por escrito. Si encaja, el 50% al aceptar y arrancamos. Si no, lo dices y no pasa nada.',
+    description: (
+      <>
+        En 24–48 h laborables: precio, plazos y qué entra, por escrito. Si
+        encaja, el 50% al aceptar y arrancamos.{' '}
+        <strong className='font-extrabold'>
+          Si no, lo dices y no pasa nada
+        </strong>
+        .
+      </>
+    ),
   },
   {
     number: '3',
     title: 'La montamos',
-    description:
-      'Catálogo, pagos, envíos y móvil, con tu marca. Si falta algo, te decimos qué necesitamos. Tú revisas.',
+    description: (
+      <>
+        Catálogo, pagos, envíos y móvil, con tu marca. Tú revisas.{' '}
+        <strong className='font-extrabold'>
+          Hablas con quien la está haciendo
+        </strong>
+        .
+      </>
+    ),
   },
   {
     number: '4',
     title: 'Se publica y queda tuya',
-    description:
-      'Conectamos el dominio, se cobra bien en el móvil y gestionas pedidos. La tienda es tuya.',
-  },
-];
-
-const problems = [
-  {
-    icon: LayoutTemplate,
-    title: 'Precio y plazos, por escrito',
-    description:
-      'Antes de empezar: qué entra, cuánto sale y cuándo está. Sin packs hinchados ni “ya te digo”.',
-  },
-  {
-    icon: CreditCard,
-    title: 'Una tienda para vender, no una plantilla',
-    description:
-      'Catálogo, checkout, pagos y envíos. WooCommerce, Shopify o a medida, según el caso. Si buscas la de 79 €, no somos eso.',
-  },
-  {
-    icon: Handshake,
-    title: 'Hablas con quien la monta',
-    description:
-      'Estudio pequeño. Te atiende el equipo que diseña y desarrolla el ecommerce, no un comercial que luego desaparece.',
+    description: (
+      <>
+        Sale con tu dominio, se cobra bien en el móvil y gestionas pedidos.{' '}
+        <strong className='font-extrabold'>La tienda es tuya</strong>.
+      </>
+    ),
   },
 ];
 
 const faqs = [
   {
-    question: '¿Es una plantilla igual para todos?',
+    question: '¿Cuánto cuesta?',
     answer:
-      'No. Se adapta a tu marca, catálogo y forma de cobrar. Si solo quieres una plantilla barata, hay sitios mejores para eso.',
+      'Depende del alcance, no hay un pack fijo. Orientación: muchas tiendas quedan entre 400 € y 3.000 € + IVA. Tras hablar te mandamos un número concreto, por escrito. Pedirlo es gratis.',
   },
   {
-    question: '¿Cuánto cuesta una tienda online?',
+    question: '¿Cuánto tarda?',
     answer:
-      'Presupuesto según catálogo, pasarelas y envíos. No hay un pack fijo. Tras hablar te mandamos un número concreto por escrito. El presupuesto es gratis.',
+      'El plazo va por escrito en la propuesta. Suele ser de 4 a 8 semanas cuando tenemos productos, fotos y textos. Cuenta desde el arranque pagado, no desde el primer “hola”.',
   },
   {
-    question: '¿Hay que pagar para que me deis precio?',
+    question: '¿Qué incluye?',
     answer:
-      'No. Primero hablamos, te mandamos la propuesta en 24–48 h laborables y decides. El 50% se paga al aceptar y arrancar; el resto, al publicar.',
+      'Catálogo, fichas, carrito, pagos (tarjeta, Bizum, PayPal…), envíos, versión móvil, panel para pedidos y stock, formación de 1 h y publicación con tu dominio. Hosting para arrancar. Lo concreto de tu caso va en la propuesta, antes de cobrar nada.',
   },
   {
-    question: '¿Montáis WooCommerce, Shopify o a medida?',
+    question: '¿WooCommerce, Shopify o a medida?',
     answer:
-      'Lo que pida el caso. WooCommerce, Shopify u otra base si encaja mejor. A medida cuando el proceso de compra lo necesita. Te lo decimos en la propuesta, sin venderte lo más caro por sistema.',
+      'Lo que pida el caso. Con una plataforma tú llevas el control de la tienda. A medida también, con más curva de aprendizaje: suele ser para empresas más grandes. Te lo decimos en la propuesta, sin venderte lo más caro por sistema.',
   },
   {
     question: '¿Puedo gestionar yo el catálogo después?',
     answer:
-      'Sí. Te dejamos un panel para productos, stock, fotos y pedidos. Si prefieres no tocarla, el mantenimiento mensual es opcional.',
+      'Sí. Te dejamos un panel para productos, stock, fotos y pedidos, y una formación de 1 h. La mayoría de clientes se quedan ellos al mando. Si prefieres no tocarla, el mantenimiento mensual es opcional.',
   },
   {
     question: '¿Me rehacéis la tienda que ya tengo?',
@@ -107,38 +157,9 @@ const faqs = [
       'Sí. Partimos de tu marca, catálogo, fotos y dominio, y montamos el ecommerce de nuevo. No es un parche sobre la vieja.',
   },
   {
-    question: '¿Quién prepara textos e imágenes de producto?',
+    question: '¿El hosting está incluido? ¿De quién es la tienda?',
     answer:
-      'Tú nos mandas lo que tengas. Lo ordenamos y lo metemos en la tienda. Redactar o fotografiar todo desde cero se valora aparte.',
-  },
-  {
-    question: '¿Puedo usar mi dominio?',
-    answer:
-      'Sí, es tuyo. Lo configuramos o te ayudamos a registrar uno nuevo.',
-  },
-  {
-    question: '¿El hosting está incluido?',
-    answer: 'Sí, para publicar la tienda. Lo confirmamos en la propuesta.',
-  },
-  {
-    question: '¿Cuánto tarda?',
-    answer:
-      'El plazo va por escrito en la propuesta. Montar un ecommerce suele ser de 4 a 8 semanas cuando tenemos productos, fotos y textos. Cuenta desde el arranque pagado, no desde el primer “hola”.',
-  },
-  {
-    question: '¿Trabajáis solo en Madrid?',
-    answer:
-      'No. Trabajamos en remoto con clientes de toda España. Si estás en Madrid, también podemos vernos.',
-  },
-  {
-    question: '¿Qué pasa cuando la tienda está online?',
-    answer:
-      'Te la entregamos funcionando: dominio, móvil, pagos y pedidos. El mantenimiento mensual es opcional.',
-  },
-  {
-    question: '¿Y si no vendo productos, solo quiero una web?',
-    answer:
-      'Eso es una web de empresa, otro tipo de proyecto. Lo vemos en la conversación y te decimos si encaja o si hay que plantearlo aparte.',
+      'Hosting para publicar, sí. El dominio es tuyo. Archivos y accesos a tu nombre. La tienda es tuya desde el día que se publica.',
   },
 ];
 
@@ -166,80 +187,109 @@ const LandingShop = () => {
   return (
     <>
       <HeroCta
-        title='Tienda online para tu negocio. Precio y plazos por escrito.'
-        description='Catálogo, pagos y envíos. WooCommerce, Shopify o a medida. Hablas con quien la monta. Te decimos qué entra, cuánto sale y cuándo está, antes de cobrar nada.'
+        title='Te hacemos una tienda online que vende. Precio y plazos, por escrito.'
+        description={
+          <>
+            Cuéntanos qué vendes. En 24–48 h te mandamos una propuesta con lo
+            que entra, lo que cuesta y cuándo está.{' '}
+            <strong className='font-extrabold'>
+              Hablas con nosotros, no con un comercial
+            </strong>
+            . Si no encaja, lo dices y no pasa nada.
+          </>
+        }
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
         backgroundUrl='/img/sumup-ShB9pI4mpRg-unsplash.jpg'
         heroType='form'
         hasButton={false}
-        formTitle='Te llamamos'
-        formDescription='Propuesta en 24–48 h. Sin compromiso.'
+        formTitle='Pide tu propuesta'
+        formDescription='En 24–48 h. Sin compromiso.'
         formSectionInfo='Landing tiendas online — Hero'
         hasBackground
         hasReviewBadge
         isTopHero
-        highlights={[
-          'Precio cerrado en la propuesta.',
-          'Plazo por escrito. Suele ser 4–8 semanas.',
-          'Propuesta en 24–48 h laborables.',
-          'Hosting incluido. La tienda es tuya.',
-        ]}
       />
+
       <TrustBar points={landingTrustPoints} />
-      <SEOBenefits
-        title='Si estás contratando una tienda online, esto es lo que te llevas'
-        subtitle='Precio cerrado, ecommerce a medida y trato directo. Lo que buscas cuando escribes “agencia de tiendas online”.'
-        benefits={problems}
+
+      <ServiceIncludes
+        title={shopIncludesTitle}
+        intro={shopIncludesIntro}
+        items={shopIncludes}
       />
-      <CompareVsAi />
+
+      <SEOBenefits
+        title='Por qué encargárnosla a nosotros'
+        subtitle={
+          <>
+            Tres cosas claras:{' '}
+            <strong className='font-extrabold'>el precio</strong>,{' '}
+            <strong className='font-extrabold'>con quién hablas</strong> y{' '}
+            <strong className='font-extrabold'>
+              que no te vendemos de más
+            </strong>
+            .
+          </>
+        }
+        benefits={whyUs}
+      />
+
+      <Portfolio casos contained />
+
       <SEOProcess
-        title='Así se contrata la tienda'
-        subtitle='Cuatro pasos. Sabes precio y plazos antes de empezar, y el ecommerce queda a tu nombre.'
+        title='Así se hace'
+        subtitle={
+          <>
+            <strong className='font-extrabold'>Cuatro pasos.</strong> Sabes
+            precio y plazos antes de empezar, y la tienda queda a tu nombre.
+          </>
+        }
         steps={processSteps}
       />
 
-      <HeroCta
-        title='¿Hablamos de tu tienda?'
-        description='Cuéntanos qué vendes y qué tiene que hacer el ecommerce. Te devolvemos propuesta en 24–48 h, con precio y plazos. Si no encaja, lo dices y no pasa nada.'
-        buttonText='PEDIR PROPUESTA'
-        buttonHref='#contacto'
-        heroType='form'
-        hasButton={false}
-        formTitle='Te llamamos'
-        formDescription='Propuesta en 24–48 h. Sin compromiso.'
-        formSectionInfo='Landing tiendas online — CTA medio'
-        hasBackground={false}
-        hasReviewBadge={false}
-      />
+      <Testimonials hasVideo />
 
       <Team
-        label={'TUS EXPERTOS EN TIENDAS ONLINE'}
-        title='La montamos nosotros. Tú hablas con el equipo, no con un comercial.'
+        label='EL EQUIPO'
+        title='Somos las personas que te vamos a montar la tienda.'
+        compact
         paragraphs={[
-          'Estudio pequeño en Madrid. Diseño, desarrollo y publicación con tu dominio. Una tienda lenta o un checkout confuso te cuesta pedidos; por eso la hacemos clara, rápida y lista para cobrar.',
+          <>
+            Nos pones cara, ves el portfolio y nos escribes si quieres.{' '}
+            <strong className='font-extrabold'>Contestamos nosotros</strong>.
+          </>,
         ]}
       />
-      <Portfolio casos contained />
-      <Testimonials hasVideo />
 
       <div id='faq' className='scroll-mt-24'>
         <SEOFAQ
-          title='Te resolvemos todas tus dudas'
+          title='Lo que suele preguntar la gente'
           faqs={faqs}
           ctaText='PEDIR PROPUESTA'
           ctaHref='#contacto'
         />
       </div>
+
       <HeroCta
-        title='Cuando quieras, empezamos'
-        description='Formulario, WhatsApp o llamada. Te devolvemos precio y plazos por escrito en 24–48 h. El 50% al aceptar; el resto, al publicar. La tienda queda a tu nombre.'
+        title='Cuando quieras, lo vemos'
+        description={
+          <>
+            Déjanos nombre y teléfono. Te devolvemos propuesta en{' '}
+            <strong className='font-extrabold'>24–48 h</strong>, con precio y
+            plazos.{' '}
+            <strong className='font-extrabold'>
+              Si no cuadra, no pasa nada
+            </strong>
+            .
+          </>
+        }
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
         heroType='form'
         hasButton={false}
-        formTitle='Te llamamos'
-        formDescription='Propuesta en 24–48 h. Sin compromiso.'
+        formTitle='Pide tu propuesta'
+        formDescription='En 24–48 h. Sin compromiso.'
         formSectionInfo='Landing tiendas online — CTA final'
         hasBackground={false}
         hasReviewBadge

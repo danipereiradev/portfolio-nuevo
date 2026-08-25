@@ -25,7 +25,7 @@ import {
 } from './config/maintenance';
 import {
   ADS_LANDING_PATH,
-  ADS_LANDING_PATH_ASCII,
+  ADS_LANDING_PATH_N,
   ADS_MAINTENANCE_LANDING_PATH,
   ADS_SHOP_LANDING_PATH,
   ABOUT_PATH,
@@ -61,7 +61,7 @@ function AppContent() {
         <Route path={`${BLOG_PATH}/:slug`} element={<BlogPost />} />
         <Route path={ADS_LANDING_PATH} element={<LandingWeb />} />
         <Route
-          path={ADS_LANDING_PATH_ASCII}
+          path={ADS_LANDING_PATH_N}
           element={<Navigate to={ADS_LANDING_PATH} replace />}
         />
         <Route path={ADS_SHOP_LANDING_PATH} element={<LandingShop />} />

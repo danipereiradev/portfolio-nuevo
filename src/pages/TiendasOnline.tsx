@@ -14,6 +14,11 @@ import {
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { SITE_SHOP_PATH, SITE_WEB_PATH } from '../config/contact';
+import {
+  shopIncludes,
+  shopIncludesIntro,
+  shopIncludesTitle,
+} from '../data/shopIncludes';
 import { CreditCard, Package, RefreshCw } from 'lucide-react';
 
 const SITE_URL = 'https://36web.es';
@@ -22,7 +27,7 @@ const faqs = [
   {
     question: '¿Cuánto cuesta una tienda online profesional?',
     answer:
-      'El precio de una tienda online depende del catálogo, las pasarelas y lo que tenga que hacer el ecommerce. No hay un pack fijo. Tras hablar te mandamos un presupuesto concreto. Pedirlo es gratis.',
+      'El precio de una tienda online depende del alcance. Orientación: muchas tiendas quedan entre 400 € y 3.000 € + IVA. Tras hablar te mandamos un presupuesto concreto. Pedirlo es gratis.',
   },
   {
     question: '¿Cuánto tarda?',
@@ -58,98 +63,6 @@ const faqs = [
     question: '¿De quién es la tienda?',
     answer:
       'Tuya. Te la entregamos funcionando: dominio, móvil, pagos y pedidos. Archivos y accesos a tu nombre. El mantenimiento mensual es opcional.',
-  },
-];
-
-const includes = [
-  {
-    title: 'Tienda online responsive',
-    description: (
-      <>
-        La tienda online se ve bien en todos los dispositivos y tamaños de
-        pantalla.{' '}
-        <strong className='font-extrabold'>
-          La gran mayoría de las compras se hacen desde un smartphone
-        </strong>
-        .
-      </>
-    ),
-  },
-  {
-    title: 'Catálogo y productos',
-    description: (
-      <>
-        Carga de las primeras 10 categorías y 10 productos.{' '}
-        <strong className='font-extrabold'>
-          Luego te enseñamos a añadir categorías, productos, editar precios y
-          descripciones
-        </strong>
-        .
-      </>
-    ),
-  },
-  {
-    title: 'Carrito y proceso de pago rápido',
-    description: (
-      <>
-        Un proceso de pago en pocos pasos, visual y sencillo aumentará tus
-        ventas.{' '}
-        <strong className='font-extrabold'>
-          Si el proceso de compra es largo o confuso, los clientes se van
-        </strong>
-        .
-      </>
-    ),
-  },
-  {
-    title: 'Pasarelas de pago',
-    description: (
-      <>
-        Pago con <strong>tarjeta, PayPal, Bizum, transferencia bancaria</strong>{' '}
-        o contrarreembolso. Queda configurada con los parámetros de{' '}
-        <strong className='font-extrabold'>
-          tu transportista de confianza
-        </strong>
-        .
-      </>
-    ),
-  },
-  {
-    title: 'Envíos y gastos de envío',
-    description: (
-      <>
-        Precio por zonas de envío y mensajes claros antes de pagar.{' '}
-        <strong className='font-extrabold'>
-          Envíos gratis al pasar del importe que tú quieras
-        </strong>
-        . Todo es configurable.
-      </>
-    ),
-  },
-  {
-    title: 'Hosting, dominio y publicación incluidos',
-    description: (
-      <>
-        Incluimos{' '}
-        <strong className='font-extrabold'>
-          el hosting para arrancar la tienda online con el dominio que tú elijas
-        </strong>
-        . El hosting y el dominio siempre son tuyos.
-      </>
-    ),
-  },
-  {
-    title: 'Panel para pedidos y stock',
-    description: (
-      <>
-        Te enseñamos a gestionar toda la parte del panel para que lleves la
-        tienda de forma completamente autónoma.{' '}
-        <strong className='font-extrabold'>
-          Si no quieres tocarla, nosotros llevaremos tu tienda online encantados
-        </strong>
-        .
-      </>
-    ),
   },
 ];
 
@@ -311,9 +224,11 @@ const TiendasOnline = () => {
             <strong className='font-extrabold'>
               convertir visitas en ventas de verdad
             </strong>
-            : catálogo, pasarela de pagos por tarjeta, Bizum y PayPal, zonas de
-            envío y todo lo necesario para que puedas empezar a vender{' '}
+            : catálogo, pagos y envíos, listas para vender{' '}
             <strong className='font-extrabold'>desde el primer día</strong>.
+            Desde{' '}
+            <strong className='font-extrabold'>400 € + IVA</strong>, según el
+            alcance.
           </>
         }
         buttonText='PEDIR PROPUESTA'
@@ -372,15 +287,9 @@ const TiendasOnline = () => {
       />
 
       <ServiceIncludes
-        title='Qué incluimos en tu tienda online'
-        intro={
-          <>
-            Esta es la base de todas nuestras tiendas online. Todo el resto irá
-            especificado en la propuesta final.{' '}
-            <strong className='font-extrabold'>Sin sorpresas.</strong>
-          </>
-        }
-        items={includes}
+        title={shopIncludesTitle}
+        intro={shopIncludesIntro}
+        items={shopIncludes}
       />
 
       <TextImage
@@ -468,7 +377,10 @@ const TiendasOnline = () => {
             .
           </>,
           <>
-            No publicamos un precio único porque no sería cierto. En{' '}
+            No publicamos un precio único porque no sería cierto. Orientación:
+            muchas tiendas quedan entre{' '}
+            <strong className='font-extrabold'>400 € y 3.000 € + IVA</strong>,
+            según el alcance. En{' '}
             <strong className='font-extrabold'>24–48 h laborables</strong> te
             mandamos un precio cerrado, con lo que entra y el plazo. Pedir
             presupuesto de tienda online es gratis y no te compromete.

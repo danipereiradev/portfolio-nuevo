@@ -22,57 +22,57 @@
     },
     {
       "source": "/web-profesional-a-medida",
-      "destination": "/landing-diseño-web",
+      "destination": "/landing-diseno-web",
       "permanent": true
     },
     {
       "source": "/web-profesional-a-medida/",
-      "destination": "/landing-diseño-web",
+      "destination": "/landing-diseno-web",
       "permanent": true
     },
     {
-      "source": "/landing-diseno-web",
-      "destination": "/landing-diseño-web",
+      "source": "/landing-diseño-web",
+      "destination": "/landing-diseno-web",
       "permanent": true
     },
     {
-      "source": "/landing-diseno-web/",
-      "destination": "/landing-diseño-web",
+      "source": "/landing-diseño-web/",
+      "destination": "/landing-diseno-web",
       "permanent": true
     },
     {
       "source": "/landing-express",
-      "destination": "/landing-diseño-web",
+      "destination": "/landing-diseno-web",
       "permanent": true
     },
     {
       "source": "/web-autonomos-pymes",
-      "destination": "/landing-diseño-web",
+      "destination": "/landing-diseno-web",
       "permanent": true
     },
     {
       "source": "/web-profesional-360",
-      "destination": "/landing-diseño-web",
+      "destination": "/landing-diseno-web",
       "permanent": true
     },
     {
       "source": "/web-profesional-360/",
-      "destination": "/landing-diseño-web",
+      "destination": "/landing-diseno-web",
       "permanent": true
     },
     {
       "source": "/web-profesional-negocios",
-      "destination": "/landing-diseño-web",
+      "destination": "/landing-diseno-web",
       "permanent": true
     },
     {
       "source": "/web-start",
-      "destination": "/landing-diseño-web",
+      "destination": "/landing-diseno-web",
       "permanent": true
     },
     {
       "source": "/web-start/",
-      "destination": "/landing-diseño-web",
+      "destination": "/landing-diseno-web",
       "permanent": true
     },
     {
@@ -97,82 +97,82 @@
     },
     {
       "source": "/web-profesional",
-      "destination": "/landing-diseño-web",
+      "destination": "/landing-diseno-web",
       "permanent": true
     },
     {
       "source": "/mantenimiento-web",
-      "destination": "/landing-diseño-web",
+      "destination": "/landing-diseno-web",
       "permanent": true
     },
     {
       "source": "/about",
-      "destination": "/landing-diseño-web",
+      "destination": "/landing-diseno-web",
       "permanent": true
     },
     {
       "source": "/about-me",
-      "destination": "/landing-diseño-web",
+      "destination": "/landing-diseno-web",
       "permanent": true
     },
     {
       "source": "/sobre-mi",
-      "destination": "/landing-diseño-web",
+      "destination": "/landing-diseno-web",
       "permanent": true
     },
     {
       "source": "/sobre-el-estudio",
-      "destination": "/landing-diseño-web",
+      "destination": "/landing-diseno-web",
       "permanent": true
     },
     {
       "source": "/contact",
-      "destination": "/landing-diseño-web",
+      "destination": "/landing-diseno-web",
       "permanent": true
     },
     {
       "source": "/contacto",
-      "destination": "/landing-diseño-web",
+      "destination": "/landing-diseno-web",
       "permanent": true
     },
     {
       "source": "/preguntas-frecuentes",
-      "destination": "/landing-diseño-web",
+      "destination": "/landing-diseno-web",
       "permanent": true
     },
     {
       "source": "/condiciones-del-proyecto",
-      "destination": "/landing-diseño-web",
+      "destination": "/landing-diseno-web",
       "permanent": true
     },
     {
       "source": "/casos-de-exito",
-      "destination": "/landing-diseño-web",
+      "destination": "/landing-diseno-web",
       "permanent": true
     },
     {
       "source": "/testimonios-clientes",
-      "destination": "/landing-diseño-web",
+      "destination": "/landing-diseno-web",
       "permanent": true
     },
     {
       "source": "/gracias",
-      "destination": "/landing-diseño-web",
+      "destination": "/landing-diseno-web",
       "permanent": true
     },
     {
       "source": "/paginas-web-empresas",
-      "destination": "/landing-diseño-web",
+      "destination": "/landing-diseno-web",
       "permanent": true
     },
     {
       "source": "/desarrollo-aplicaciones-web",
-      "destination": "/landing-diseño-web",
+      "destination": "/landing-diseno-web",
       "permanent": true
     },
     {
       "source": "/posicionamiento-web-seo",
-      "destination": "/landing-diseño-web",
+      "destination": "/landing-diseno-web",
       "permanent": true
     },
     {
@@ -180,7 +180,7 @@
       "destination": "/tiendas-online",
       "permanent": true
     },
-    { "source": "/ia", "destination": "/landing-diseño-web", "permanent": true }
+    { "source": "/ia", "destination": "/landing-diseno-web", "permanent": true }
   ],
   "rewrites": [
     {
@@ -188,8 +188,8 @@
       "destination": "/diseño-web/index.html"
     },
     {
-      "source": "/landing-diseño-web",
-      "destination": "/landing-diseño-web/index.html"
+      "source": "/landing-diseno-web",
+      "destination": "/landing-diseno-web/index.html"
     },
     {
       "source": "/landing-tiendas-online",

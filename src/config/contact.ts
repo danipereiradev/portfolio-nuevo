@@ -17,7 +17,7 @@ export const DEFAULT_WHATSAPP_MESSAGE =
   'Hola, quiero información para un proyecto web.';
 
 // Mensaje específico para el tráfico de campañas de Google Ads que llega a
-// la landing /landing-diseño-web.
+// la landing /landing-diseno-web.
 export const ADS_WHATSAPP_MESSAGE =
   'Hola, vengo de Google y quiero información para una web profesional a medida.';
 
@@ -56,7 +56,7 @@ export const buildWhatsAppUrl = (message: string = DEFAULT_WHATSAPP_MESSAGE) =>
 
 // Quita la barra final de una ruta (salvo si es la raíz "/"), para que las
 // comparaciones exactas de pathname no fallen si la URL llega con "/" al
-// final (p. ej. "/landing-diseño-web/" servida como carpeta).
+// final (p. ej. "/landing-diseno-web/" servida como carpeta).
 const normalizePath = (pathname: string): string => {
   const trimmed = pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
   try {
@@ -82,8 +82,8 @@ export const ABOUT_PATH = '/sobre-36web';
 export const ABOUT_LABEL = 'nuestra agencia';
 
 /** Landing de Ads de este servicio. Futuros servicios: /landing-{slug}. */
-export const ADS_LANDING_PATH = '/landing-diseño-web';
-export const ADS_LANDING_PATH_ASCII = '/landing-diseno-web';
+export const ADS_LANDING_PATH = '/landing-diseno-web';
+export const ADS_LANDING_PATH_N = '/landing-diseño-web';
 
 export const ADS_SHOP_LANDING_PATH = '/landing-tiendas-online';
 
@@ -91,7 +91,7 @@ export const ADS_MAINTENANCE_LANDING_PATH = '/landing-mantenimiento-web';
 
 export const isAdsWebLandingPath = (pathname: string): boolean => {
   const path = normalizePath(pathname);
-  return path === ADS_LANDING_PATH || path === ADS_LANDING_PATH_ASCII;
+  return path === ADS_LANDING_PATH || path === ADS_LANDING_PATH_N;
 };
 
 export const isAdsShopLandingPath = (pathname: string): boolean =>

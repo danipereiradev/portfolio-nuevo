@@ -10,43 +10,43 @@
 
 [[redirects]]
   from = "/landing-express"
-  to = "/landing-diseño-web"
+  to = "/landing-diseno-web"
   status = 301
   force = true
 
 [[redirects]]
   from = "/web-autonomos-pymes"
-  to = "/landing-diseño-web"
+  to = "/landing-diseno-web"
   status = 301
   force = true
 
 [[redirects]]
   from = "/web-profesional-360"
-  to = "/landing-diseño-web"
+  to = "/landing-diseno-web"
   status = 301
   force = true
 
 [[redirects]]
   from = "/web-profesional-360/"
-  to = "/landing-diseño-web"
+  to = "/landing-diseno-web"
   status = 301
   force = true
 
 [[redirects]]
   from = "/web-profesional-negocios"
-  to = "/landing-diseño-web"
+  to = "/landing-diseno-web"
   status = 301
   force = true
 
 [[redirects]]
   from = "/web-start"
-  to = "/landing-diseño-web"
+  to = "/landing-diseno-web"
   status = 301
   force = true
 
 [[redirects]]
   from = "/web-start/"
-  to = "/landing-diseño-web"
+  to = "/landing-diseno-web"
   status = 301
   force = true
 
@@ -88,7 +88,7 @@
 
 [[redirects]]
   from = "/paginas-web-empresas"
-  to = "/landing-diseño-web"
+  to = "/landing-diseno-web"
   status = 301
   force = true
 
@@ -100,7 +100,7 @@
 
 [[redirects]]
   from = "/desarrollo-aplicaciones-web"
-  to = "/landing-diseño-web"
+  to = "/landing-diseno-web"
   status = 301
   force = true
 
@@ -128,13 +128,13 @@
 
 [[redirects]]
   from = "/web-profesional-a-medida"
-  to = "/landing-diseño-web"
+  to = "/landing-diseno-web"
   status = 301
   force = true
 
 [[redirects]]
-  from = "/landing-diseno-web"
-  to = "/landing-diseño-web"
+  from = "/landing-diseño-web"
+  to = "/landing-diseno-web"
   status = 301
   force = true
 
@@ -144,8 +144,8 @@
   status = 200
 
 [[redirects]]
-  from = "/landing-diseño-web"
-  to = "/landing-diseño-web/index.html"
+  from = "/landing-diseno-web"
+  to = "/landing-diseno-web/index.html"
   status = 200
 
 [[redirects]]
