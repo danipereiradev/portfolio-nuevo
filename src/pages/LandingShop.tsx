@@ -216,6 +216,8 @@ const LandingShop = () => {
         hasBackground
         hasReviewBadge
         isTopHero
+        showProjectType
+        projectTypes={shopProjectTypes}
       />
 
       <TrustBar points={landingTrustPoints} />
@@ -301,6 +303,8 @@ const LandingShop = () => {
         hasBackground={false}
         hasReviewBadge
         formId='contacto'
+        showProjectType
+        projectTypes={shopProjectTypes}
       />
     </>
   );
