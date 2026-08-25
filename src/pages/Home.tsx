@@ -11,6 +11,11 @@ import { TextImage } from '../components/TextImage';
 
 import { Team } from '../components/Team';
 import HeroCta from '../components/HeroCta';
+import {
+  SITE_MAINTENANCE_LABEL,
+  SITE_SHOP_LABEL,
+  SITE_WEB_LABEL,
+} from '../config/contact';
 
 const Home = () => {
   usePageMeta('/');
@@ -34,7 +39,9 @@ const Home = () => {
         }
         buttonText='CONTACTA AHORA'
         buttonHref='#contacto'
-        backgroundUrl='/img/web-design-charlesdeluvio.webp'
+        backgroundUrl='/img/hero-home-poster.jpg'
+        videoUrl='/video/8523640-hd_1920_1080_25fps.mp4'
+        overlay='black'
         hasButton
         hasBackground
         hasReviewBadge={false}
@@ -139,6 +146,14 @@ const Home = () => {
         }
         heroType='form'
         hasButton={false}
+        showEmail
+        showProjectType
+        projectTypes={[
+          SITE_WEB_LABEL,
+          SITE_SHOP_LABEL,
+          SITE_MAINTENANCE_LABEL,
+          'Todavía no lo tengo claro',
+        ]}
         formTitle='Te llamamos'
         formDescription='Propuesta en 24–48 h. Sin compromiso.'
         formSectionInfo='La Agencia CTA'

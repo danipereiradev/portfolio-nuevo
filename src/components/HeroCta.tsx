@@ -22,6 +22,7 @@ interface HeroCtaProps {
   hasReviewBadge: boolean;
   isTopHero?: boolean;
   showProjectType?: boolean;
+  showEmail?: boolean;
   projectTypes?: readonly string[];
   highlights?: string[];
   formId?: string;
@@ -45,6 +46,7 @@ const HeroCta = ({
   hasReviewBadge,
   isTopHero = false,
   showProjectType = false,
+  showEmail = false,
   projectTypes,
   highlights,
   formId,
@@ -127,6 +129,7 @@ const HeroCta = ({
                 description={formDescription}
                 page={formSectionInfo}
                 showProjectType={showProjectType}
+                showEmail={showEmail}
                 projectTypes={projectTypes}
               />
             ) : (

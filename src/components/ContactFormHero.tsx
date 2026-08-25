@@ -34,6 +34,7 @@ interface ContactHeroFormHeroProps {
   page: string;
   id?: string;
   showProjectType?: boolean;
+  showEmail?: boolean;
   projectTypes?: readonly string[];
 }
 
@@ -43,6 +44,7 @@ export const ContactFormHero = ({
   page,
   id,
   showProjectType = false,
+  showEmail = false,
   projectTypes = PROJECT_TYPES,
 }: ContactHeroFormHeroProps) => {
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
@@ -96,7 +98,6 @@ export const ContactFormHero = ({
 
       const formDataToSend: Record<string, string | boolean> = {
         name: formData.name,
-        // email: formData.email,
         phone: formData.phone,
         origen,
         page: origen,
@@ -105,17 +106,21 @@ export const ContactFormHero = ({
 
         submissionDate: new Date().toLocaleString('es-ES'),
         _subject: `[${origen}] Nueva solicitud — ${formData.name}`,
-        // _replyto: formData.email,
         _cc: FORM_CC_EMAIL,
         message: `
 Origen: ${origen}
 Página: ${pagina}
 Nombre: ${formData.name}
-Teléfono: ${formData.phone}
+${showEmail ? `Email: ${formData.email}\n` : ''}Teléfono: ${formData.phone}
 ${showProjectType ? `Qué necesita: ${formData.projectType}\n` : ''}consent: ${formData.consent}
 Fecha: ${new Date().toLocaleString('es-ES')}
         `,
       };
+
+      if (showEmail) {
+        formDataToSend.email = formData.email;
+        formDataToSend._replyto = formData.email;
+      }
 
       if (showProjectType) {
         formDataToSend.projectType = formData.projectType;
@@ -161,10 +166,10 @@ Fecha: ${new Date().toLocaleString('es-ES')}
     }
   };
 
-  // const validateEmail = (value: string): boolean => {
-  //   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  //   return emailRegex.test(value);
-  // };
+  const validateEmail = (value: string): boolean => {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(value);
+  };
 
   const validatePhone = (value: string): boolean => {
     const cleanPhone = value.replace(/[\s\-().]/g, '');
@@ -187,10 +192,12 @@ Fecha: ${new Date().toLocaleString('es-ES')}
         'El nombre debe contener solo letras y tener entre 2-50 caracteres';
     }
 
-    // const emailValue = formData.email.trim();
-    // if (!emailValue || !validateEmail(emailValue)) {
-    //   newErrors.email = 'Introduce un email válido';
-    // }
+    if (showEmail) {
+      const emailValue = formData.email.trim();
+      if (!emailValue || !validateEmail(emailValue)) {
+        newErrors.email = 'Introduce un email válido';
+      }
+    }
 
     if (!formData.phone.trim() || !validatePhone(formData.phone)) {
       newErrors.phone = 'Introduce un teléfono válido';
@@ -244,19 +251,23 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             maxLength={50}
           />
           {errors.name && <ErrorMessage error={errors.name} />}
-          {/* <input
-            type='email'
-            value={formData.email}
-            onChange={(e) => handleInputChange('email', e.target.value)}
-            className={`w-full text-2xl pl-4 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent transition-all duration-150 ${
-              errors.email
-                ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
-                : 'border-gray-400'
-            }`}
-            autoComplete='email'
-            placeholder='tu email *'
-          />
-          {errors.email && <ErrorMessage error={errors.email} />} */}
+          {showEmail ? (
+            <>
+              <input
+                type='email'
+                value={formData.email}
+                onChange={(e) => handleInputChange('email', e.target.value)}
+                className={`w-full text-2xl pl-4 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent transition-all duration-150 ${
+                  errors.email
+                    ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
+                    : 'border-gray-400'
+                }`}
+                autoComplete='email'
+                placeholder='Tu email *'
+              />
+              {errors.email && <ErrorMessage error={errors.email} />}
+            </>
+          ) : null}
           <input
             type='tel'
             value={formData.phone}

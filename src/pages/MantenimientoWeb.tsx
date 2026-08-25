@@ -343,8 +343,8 @@ const MantenimientoWeb = () => {
             .
           </>,
         ]}
-        imageSrc='/img/fikret-tozak-rfNLa1HL7eY-unsplash.jpg'
-        imageAlt='Equipo de 36web trabajando en mantenimiento web'
+        imageSrc='/img/portfolio/silly-sally-mock.webp'
+        imageAlt='Mock de página web de Silly Sally'
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
       />
@@ -427,8 +427,8 @@ const MantenimientoWeb = () => {
           </>
         }
         steps={processSteps}
-        imageSrc='/img/justin-morgan-wordpress.jpg'
-        imageAlt='Proceso de mantenimiento de una página web'
+        imageSrc='/img/portfolio/mock-core.png'
+        imageAlt='Mock de página web de Core Generator'
       />
 
       <TextImage
@@ -459,7 +459,7 @@ const MantenimientoWeb = () => {
           </>,
         ]}
         imageSrc='/img/portfolio/mock-delish.png'
-        imageAlt='Mock de página web con plan de mantenimiento'
+        imageAlt='Mock de tienda online de Delish Vegan'
         imageLeft
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'

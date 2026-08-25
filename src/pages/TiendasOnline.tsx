@@ -357,8 +357,8 @@ const TiendasOnline = () => {
           </>
         }
         steps={processSteps}
-        imageSrc='/img/sumup-ShB9pI4mpRg-unsplash.jpg'
-        imageAlt='Proceso de diseño y desarrollo de una tienda online'
+        imageSrc='/img/portfolio/mock-camisetas.png'
+        imageAlt='Mock de tienda online de Camisetas Ahora'
       />
 
       <TextImage
@@ -395,8 +395,8 @@ const TiendasOnline = () => {
             online.
           </>,
         ]}
-        imageSrc='/img/portfolio/camisetas-ahora.png'
-        imageAlt='Mock de ecommerce de Camisetas Ahora'
+        imageSrc='/img/portfolio/resilience-mock.webp'
+        imageAlt='Mock de tienda online de Resilience'
         imageLeft
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'

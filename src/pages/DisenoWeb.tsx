@@ -458,8 +458,8 @@ const DisenoWeb = () => {
           </>
         }
         steps={processSteps}
-        imageSrc='/img/fikret-tozak-rfNLa1HL7eY-unsplash.jpg'
-        imageAlt='Proceso de diseño y desarrollo de una página web'
+        imageSrc='/img/portfolio/mock-viajamos.png'
+        imageAlt='Mock de página web de Hoy Viajamos'
       />
 
       <TextImage
@@ -490,8 +490,8 @@ const DisenoWeb = () => {
             <strong className='font-extrabold'>tu negocio va creciendo</strong>.
           </>,
         ]}
-        imageSrc='/img/portfolio/mock-delish.png'
-        imageAlt='Mock de página web profesional'
+        imageSrc='/img/portfolio/hatena-mock.webp'
+        imageAlt='Mock de página web de Clínica Veterinaria Hatena'
         imageLeft
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
