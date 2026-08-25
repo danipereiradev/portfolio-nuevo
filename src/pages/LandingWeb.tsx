@@ -290,7 +290,7 @@ const LandingWeb = () => {
         benefits={whyUs}
       />
 
-      <Portfolio contained />
+      <Portfolio casos contained />
 
       <SEOProcess
         title='Así se hace'

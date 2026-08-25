@@ -5,70 +5,121 @@ import {
   trackPortfolioClick,
   trackViewPortfolioSection,
 } from '../utils/analytics';
-import { SITE_WEB_PATH, SITE_WEB_LABEL } from '../config/contact';
+import {
+  SITE_SHOP_LABEL,
+  SITE_SHOP_PATH,
+  SITE_WEB_LABEL,
+  SITE_WEB_PATH,
+} from '../config/contact';
+
+type ProjectId =
+  | 'carper'
+  | 'chicxs'
+  | 'hoyviajamos'
+  | 'camisetas'
+  | 'resilience'
+  | 'hatena';
 
 interface PortfolioProps {
   /** En /web-profesional: badges de packs y sin proyectos de tienda online. */
-  variant?: 'default' | 'web-profesional';
+  variant?: 'default' | 'web-profesional' | 'web' | 'tiendas';
+  /** Landings de ads: casos de éxito con métricas. */
+  casos?: boolean;
   /** Landings de ads: la card no es un enlace; hay un «Ver la web» en pestaña nueva. */
   contained?: boolean;
 }
 
-const Portfolio = ({ variant = 'default' }: PortfolioProps) => {
+const CASOS_ORDER: ProjectId[] = ['carper', 'chicxs', 'hoyviajamos'];
+const WEB_ORDER: ProjectId[] = ['hoyviajamos', 'carper', 'hatena'];
+const SHOP_ORDER: ProjectId[] = ['chicxs', 'camisetas', 'resilience'];
+const DEFAULT_ORDER: ProjectId[] = ['carper', 'chicxs', 'hoyviajamos'];
+
+const Portfolio = ({
+  variant = 'default',
+  casos = false,
+}: PortfolioProps) => {
   const { t } = useLanguage();
 
   const sectionRef = useSectionView<HTMLElement>(trackViewPortfolioSection);
   const isPackLanding = variant === 'web-profesional';
+  const isCasos = casos || isPackLanding;
 
-  const projectsRaw = [
+  const projectsById: Record<
+    ProjectId,
     {
+      title: string;
+      description: string;
+      image: string;
+      product: string;
+      productHref: string;
+      url?: string;
+      urlSoon?: boolean;
+      exito: string;
+    }
+  > = {
+    carper: {
       title: t('portfolio.carper.title'),
       description: t('portfolio.carper.desc'),
-      longDescription: `Carper Sonido vende audio profesional. La web tiene que mostrar catálogo y servicios y que quien busca les llame.
-
-Montamos estructura clara, fichas de producto y una base para Google. Hoy aparecen los primeros en un montón de búsquedas y el teléfono suena más.`,
       image: '/img/portfolio/mock-carper.png',
-      headerImage: '/img/portfolio/mock-carper.png',
-      tech: ['React', 'Vite', 'TypeScript', 'Tailwind CSS'],
       product: SITE_WEB_LABEL,
       productHref: SITE_WEB_PATH,
-      publishedAt: '3 agosto 2026',
       url: 'https://carpersonido.com',
       exito: '1º en Google en +30 búsquedas. +400% llamadas.',
     },
-    {
+    chicxs: {
       title: t('portfolio.chicxs.title'),
       description: t('portfolio.chicxs.desc'),
-      longDescription: `Chicxs de la Calle es moda urbana con catálogo que cambia. Hacía falta filtrar, ver stock y pedir sin líos.
-
-Hoy procesan cientos de pedidos al año y la tienda va más rápida.`,
-      image: '/img/portfolio/chicxs.png',
-      headerImage: '/img/portfolio/mock-chicxs.png',
-      tech: ['WordPress', 'WooCommerce', 'jQuery', 'CSS3'],
-      product: 'Tienda Online',
-      productHref: '/tiendas-online',
-      publishedAt: '18 junio 2026',
+      image: '/img/portfolio/mock-chicxs.png',
+      product: SITE_SHOP_LABEL,
+      productHref: SITE_SHOP_PATH,
       url: 'https://chicxsdelacalle.com',
-      testimonialName: 'Irene Ibáñez',
       exito: '+300% ventas. La tienda carga más rápido.',
     },
-    {
+    hoyviajamos: {
       title: t('portfolio.hoyviajamos.title'),
       description: t('portfolio.hoyviajamos.desc'),
-      longDescription: `Hoy Viajamos es el blog de una pareja que cuenta viajes. Prioridad: que se lean las historias y se vean las fotos sin que la página se arrastre.
-
-Hay categorías, galerías ligeras y newsletter.`,
-      image: '/img/portfolio/hoyviajamos.png',
-      headerImage: '/img/portfolio/mock-viajamos.png',
-      tech: ['HTML5', 'CSS3', 'JavaScript', 'PHP'],
+      image: '/img/portfolio/mock-viajamos.png',
       product: SITE_WEB_LABEL,
       productHref: SITE_WEB_PATH,
-      publishedAt: '24 junio 2026',
       url: 'https://hoyviajamosweb.com',
-      testimonialName: 'Juanvi Raga',
       exito: 'Más suscriptores. El blog carga de verdad.',
     },
-  ];
+    camisetas: {
+      title: t('portfolio.camisetas.title'),
+      description: t('portfolio.camisetas.desc'),
+      image: '/img/portfolio/mock-camisetas.png',
+      product: SITE_SHOP_LABEL,
+      productHref: SITE_SHOP_PATH,
+      url: 'https://camisetas-ahora.com',
+      exito: t('portfolio.camisetas.desc'),
+    },
+    resilience: {
+      title: t('portfolio.resilience.title'),
+      description: t('portfolio.resilience.desc'),
+      image: '/img/portfolio/resilience-mock.webp',
+      product: SITE_SHOP_LABEL,
+      productHref: SITE_SHOP_PATH,
+      url: 'https://shopresilience.es/',
+      exito: t('portfolio.resilience.desc'),
+    },
+    hatena: {
+      title: t('portfolio.hatena.title'),
+      description: t('portfolio.hatena.desc'),
+      image: '/img/portfolio/hatena-mock.webp',
+      product: SITE_WEB_LABEL,
+      productHref: SITE_WEB_PATH,
+      urlSoon: true,
+      exito: t('portfolio.hatena.desc'),
+    },
+  };
+
+  const order = isCasos
+    ? CASOS_ORDER
+    : variant === 'web' || variant === 'web-profesional'
+      ? WEB_ORDER
+      : variant === 'tiendas'
+        ? SHOP_ORDER
+        : DEFAULT_ORDER;
 
   const mapPackBadge = <
     T extends { product: string; productHref: string; url?: string },
@@ -84,11 +135,26 @@ Hay categorías, galerías ligeras y newsletter.`,
     };
   };
 
-  const projects = (
-    isPackLanding
-      ? projectsRaw.filter((project) => project.product !== 'Tienda Online')
-      : projectsRaw
-  ).map(mapPackBadge);
+  const projects = order.map((id) => mapPackBadge(projectsById[id]));
+
+  const heading = isCasos
+    ? {
+        label: 'Casos de éxito',
+        title: t('portfolio.title'),
+        description: t('portfolio.description'),
+      }
+    : variant === 'web' || variant === 'tiendas'
+      ? {
+          label: 'Hemos empezado fuerte',
+          title: t('portfolio.title'),
+          description: t('portfolio.description'),
+        }
+      : {
+          label: 'Trabajos',
+          title: 'Algunos proyectos que hemos publicado',
+          description:
+            'Webs y tiendas. Entras, las ves y te haces una idea.',
+        };
 
   return (
     <>
@@ -96,16 +162,14 @@ Hay categorías, galerías ligeras y newsletter.`,
         <div className='container mx-auto flex flex-col gap-page-gap'>
           <div className='page-title-block mx-auto max-w-5xl text-center'>
             <span className='text-md uppercase rounded-lg font-extrabold text-accent underline'>
-              Hemos empezado fuerte
+              {heading.label}
             </span>
             <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark'>
-              {t('portfolio.title')}
+              {heading.title}
             </h2>
-            {!isPackLanding && (
-              <p className='text-xl md:text-2xl text-ink-dark'>
-                {t('portfolio.description')}
-              </p>
-            )}
+            <p className='text-xl md:text-2xl text-ink-dark'>
+              {heading.description}
+            </p>
           </div>
 
           <div className='mx-auto grid grid-cols-1 gap-page-gap md:grid-cols-2 lg:grid-cols-3'>
@@ -117,8 +181,8 @@ Hay categorías, galerías ligeras y newsletter.`,
                 }`}
               >
                 <img
-                  src={project.headerImage}
-                  alt={project.title}
+                  src={project.image}
+                  alt={`Mock de ${project.title}`}
                   width={800}
                   height={600}
                   className='aspect-[4/3] w-full object-cover'
@@ -132,7 +196,7 @@ Hay categorías, galerías ligeras y newsletter.`,
                   </h3>
                   <span className='mt-2 block h-1 w-10 bg-brand' />
                   <p className='mt-3 text-base font-bold leading-snug text-white md:text-lg'>
-                    {project.exito}
+                    {isCasos ? project.exito : project.description}
                   </p>
                   {project.url ? (
                     <a
@@ -144,6 +208,10 @@ Hay categorías, galerías ligeras y newsletter.`,
                     >
                       Ver la web
                     </a>
+                  ) : project.urlSoon ? (
+                    <span className='mt-3 inline-block cursor-default text-sm font-extrabold uppercase tracking-wide text-brand-light underline decoration-2 underline-offset-4 md:text-base'>
+                      Ver la web
+                    </span>
                   ) : null}
                 </div>
               </article>

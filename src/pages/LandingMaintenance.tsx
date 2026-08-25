@@ -215,7 +215,7 @@ const LandingMaintenance = () => {
           'Estudio pequeño en Madrid. Actualizaciones, copias y soporte. Una web caída o un formulario mudo te cuesta clientes; por eso hay alguien al otro lado.',
         ]}
       />
-      <Portfolio contained />
+      <Portfolio casos contained />
       <Testimonials hasVideo />
 
       <div id='faq' className='scroll-mt-24'>

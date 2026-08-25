@@ -497,7 +497,7 @@ const DisenoWeb = () => {
         buttonHref='#contacto'
       />
 
-      <Portfolio contained />
+      <Portfolio variant='web' contained />
       <Testimonials />
       <Team
         label='CONOCE A TU FUTURO EQUIPO DE DISEÑO WEB'

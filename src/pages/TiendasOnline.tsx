@@ -37,7 +37,7 @@ const faqs = [
   {
     question: '¿WooCommerce, Shopify o a medida?',
     answer:
-      'Lo que pida el caso. WooCommerce, Shopify u otra base si encaja mejor. Ecommerce a medida cuando el catálogo o el proceso de compra lo necesitan. Te lo decimos en la propuesta, sin venderte lo más caro por sistema.',
+      'Lo que pida el caso. Con una plataforma (WooCommerce, Shopify u otra) tú llevas el control de la tienda. A medida también, con más curva de aprendizaje: suele ser para empresas más grandes y el presupuesto puede ir a 6.000 € + IVA. Te lo decimos en la propuesta, sin venderte lo más caro por sistema.',
   },
   {
     question: '¿Puedo editarla después?',
@@ -63,24 +63,39 @@ const faqs = [
 
 const includes = [
   {
-    title: 'Catálogo y fichas de producto',
+    title: 'Tienda online responsive',
     description: (
       <>
-        Estructura del catálogo, variantes, fotos y textos.{' '}
+        La tienda online se ve bien en todos los dispositivos y tamaños de
+        pantalla.{' '}
         <strong className='font-extrabold'>
-          El cliente tiene que entender qué compra sin pedir ayuda
+          La gran mayoría de las compras se hacen desde un smartphone
         </strong>
         .
       </>
     ),
   },
   {
-    title: 'Carrito y proceso de compra',
+    title: 'Catálogo y productos',
     description: (
       <>
-        Un checkout claro en el móvil.{' '}
+        Carga de las primeras 10 categorías y 10 productos.{' '}
         <strong className='font-extrabold'>
-          Si el proceso de compra es largo o confuso, se pierden pedidos
+          Luego te enseñamos a añadir categorías, productos, editar precios y
+          descripciones
+        </strong>
+        .
+      </>
+    ),
+  },
+  {
+    title: 'Carrito y proceso de pago rápido',
+    description: (
+      <>
+        Un proceso de pago en pocos pasos, visual y sencillo aumentará tus
+        ventas.{' '}
+        <strong className='font-extrabold'>
+          Si el proceso de compra es largo o confuso, los clientes se van
         </strong>
         .
       </>
@@ -90,11 +105,12 @@ const includes = [
     title: 'Pasarelas de pago',
     description: (
       <>
-        Redsys, Stripe, PayPal, Bizum u otras.{' '}
+        Pago con <strong>tarjeta, PayPal, Bizum, transferencia bancaria</strong>{' '}
+        o contrarreembolso. Queda configurada con los parámetros de{' '}
         <strong className='font-extrabold'>
-          Lo cerramos según cómo cobras hoy
+          tu transportista de confianza
         </strong>
-        , no según lo que nos convenga a nosotros.
+        .
       </>
     ),
   },
@@ -102,23 +118,23 @@ const includes = [
     title: 'Envíos y gastos de envío',
     description: (
       <>
-        Zonas, tarifas y mensajes claros antes de pagar.{' '}
+        Precio por zonas de envío y mensajes claros antes de pagar.{' '}
         <strong className='font-extrabold'>
-          Menos abandonos en el carrito
+          Envíos gratis al pasar del importe que tú quieras
         </strong>
-        .
+        . Todo es configurable.
       </>
     ),
   },
   {
-    title: 'Tienda online responsive',
+    title: 'Hosting, dominio y publicación incluidos',
     description: (
       <>
-        El ecommerce se usa bien con el pulgar.{' '}
+        Incluimos{' '}
         <strong className='font-extrabold'>
-          La mayor parte de las ventas empiezan o acaban en el teléfono
+          el hosting para arrancar la tienda online con el dominio que tú elijas
         </strong>
-        .
+        . El hosting y el dominio siempre son tuyos.
       </>
     ),
   },
@@ -126,24 +142,12 @@ const includes = [
     title: 'Panel para pedidos y stock',
     description: (
       <>
-        Gestionas productos, pedidos y fotos.{' '}
+        Te enseñamos a gestionar toda la parte del panel para que lleves la
+        tienda de forma completamente autónoma.{' '}
         <strong className='font-extrabold'>
-          Si no quieres tocarla, el mantenimiento es opcional
+          Si no quieres tocarla, nosotros llevaremos tu tienda online encantados
         </strong>
         .
-      </>
-    ),
-  },
-  {
-    title: 'Hosting, dominio y publicación',
-    description: (
-      <>
-        Incluimos{' '}
-        <strong className='font-extrabold'>
-          hosting para arrancar y publicación con tu dominio
-        </strong>
-        . El dominio es tuyo. Lo configuramos o te ayudamos a registrar uno
-        nuevo.
       </>
     ),
   },
@@ -227,11 +231,15 @@ const audiences = [
   },
   {
     icon: RefreshCw,
-    title: 'Ecommerce que hay que rehacer',
+    title: 'Tienda que hay que rehacer',
     description: (
       <>
-        Si la tienda actual es lenta, no cobra bien o no se usa en el móvil,{' '}
-        <strong className='font-extrabold'>la montamos de nuevo</strong>.
+        Si la tienda actual es lenta, tiene errores o tus clientes no terminan
+        de comprar,{' '}
+        <strong className='font-extrabold'>
+          te ofrecemos un rediseño completo
+        </strong>
+        .
       </>
     ),
   },
@@ -300,9 +308,11 @@ const TiendasOnline = () => {
         description={
           <>
             Creamos tiendas online claras, rápidas y pensadas para{' '}
-            <strong className='font-extrabold'>cobrar de verdad</strong>:
-            catálogo, pagos, envíos y móvil. Todo lo necesario para que puedas
-            empezar a vender{' '}
+            <strong className='font-extrabold'>
+              convertir visitas en ventas de verdad
+            </strong>
+            : catálogo, pasarela de pagos por tarjeta, Bizum y PayPal, zonas de
+            envío y todo lo necesario para que puedas empezar a vender{' '}
             <strong className='font-extrabold'>desde el primer día</strong>.
           </>
         }
@@ -329,13 +339,14 @@ const TiendasOnline = () => {
 
       <TextImage
         label='¿Por qué una tienda con 36web?'
-        title='Diseñamos tiendas online pensadas para conseguir pedidos.'
+        title='Diseñamos tiendas online pensadas para convertir visitas en ventas.'
         paragraphs={[
           <>
-            Llevamos mucho tiempo en esto. Una tienda online lenta o un checkout
-            confuso te cuesta pedidos. Por eso te ofrecemos un ecommerce{' '}
+            Las estadísticas no engañan. Una tienda online lenta o una pasarela
+            de pago confusa te cuesta pedidos. Por eso ofrecemos tiendas online{' '}
             <strong className='font-extrabold'>
-              claro, rápido y listo para cobrar con tu dominio
+              claras, rápidas y listas para empezar a vender desde su
+              publicación
             </strong>
             .
           </>,
@@ -344,8 +355,10 @@ const TiendasOnline = () => {
             <strong className='font-extrabold'>
               tus necesidades y presupuesto
             </strong>{' '}
-            a la hora de elegir la plataforma. WooCommerce, Shopify o a medida,
-            según el caso. Siempre vamos a aconsejarte{' '}
+            a la hora de elegir el tipo de diseño. Con plataformas como
+            WooCommerce, PrestaShop y Shopify o una tienda a medida que cumpla
+            con todas las funciones que requiere tu proyecto. Siempre
+            aconsejamos{' '}
             <strong className='font-extrabold'>
               lo mejor para ti, no lo más caro
             </strong>
@@ -359,12 +372,11 @@ const TiendasOnline = () => {
       />
 
       <ServiceIncludes
-        title='Qué incluimos en el diseño de tu tienda online'
+        title='Qué incluimos en tu tienda online'
         intro={
           <>
-            Esta es la base de un ecommerce típico. El alcance exacto —
-            WooCommerce, Shopify o a medida — irá especificado en la propuesta
-            final.{' '}
+            Esta es la base de todas nuestras tiendas online. Todo el resto irá
+            especificado en la propuesta final.{' '}
             <strong className='font-extrabold'>Sin sorpresas.</strong>
           </>
         }
@@ -372,39 +384,33 @@ const TiendasOnline = () => {
       />
 
       <TextImage
-        label='WOOCOMMERCE, SHOPIFY O A MEDIDA'
-        title='Diseño de tiendas online con WooCommerce, Shopify o a medida'
+        label='PLATAFORMA O A MEDIDA'
+        title='Tú controlas la tienda. Nosotros te decimos con qué.'
         paragraphs={[
           <>
-            <strong className='font-extrabold'>WooCommerce</strong> encaja si ya
-            estás en WordPress o quieres controlar catálogo y contenidos en el
-            mismo sitio.{' '}
-            <strong className='font-extrabold'>Shopify</strong> encaja si
-            priorizas un panel sencillo y un ecosistema de apps.
-          </>,
-          <>
-            El desarrollo a medida entra cuando{' '}
+            Montamos la tienda con una plataforma —WooCommerce, Shopify u otra
+            si encaja— o a medida. En la propuesta te decimos cuál y por qué.{' '}
             <strong className='font-extrabold'>
-              el proceso de compra no cabe en una tienda estándar
-            </strong>
-            . En la propuesta te decimos qué plataforma usamos y por qué. Sin
-            venderte lo más caro por sistema.
-          </>,
-          <>
-            Además, dejamos el panel preparado para que puedas{' '}
-            <strong className='font-extrabold'>
-              gestionar productos, stock y pedidos sin depender de nosotros
+              Lo mejor para ti, no lo más caro
             </strong>
             .
           </>,
           <>
-            Si no vendes productos y lo que necesitas es una página de empresa
-            para que te escriban, mira el{' '}
+            Con una plataforma{' '}
+            <strong className='font-extrabold'>
+              terminas llevando tú el control
+            </strong>
+            : productos, stock, pedidos y fotos, sin depender de nosotros. Hay
+            un poco de aprendizaje; incluimos una formación de 1 h. La mayoría
+            de clientes se quedan ellos al mando.
+          </>,
+
+          <>
+            Si no vendes productos, lo que necesitas es una{' '}
             <a href={SITE_WEB_PATH} className='font-bold text-link underline'>
-              diseño web a medida
+              página web profesional
             </a>
             .{' '}
-            <strong className='font-extrabold'>No es el mismo proyecto</strong>.
           </>,
         ]}
         imageSrc='/img/portfolio/mock-camisetas.png'
@@ -418,12 +424,14 @@ const TiendasOnline = () => {
         title='Una tienda online distinta según lo que necesite tu negocio.'
         subtitle={
           <>
-            Hacemos ecommerce para{' '}
+            Hacemos tiendas online para{' '}
             <strong className='font-extrabold'>
               marcas que empiezan a vender online
             </strong>
             ,{' '}
-            <strong className='font-extrabold'>negocios con tienda física</strong>{' '}
+            <strong className='font-extrabold'>
+              negocios con tienda física
+            </strong>{' '}
             y tiendas que hay que rehacer.
           </>
         }
@@ -445,24 +453,24 @@ const TiendasOnline = () => {
       />
 
       <TextImage
-        label='PRESUPUESTO'
+        label='TIENDA ONLINE A MEDIDA'
         title='Precio de una tienda online profesional'
         paragraphs={[
           <>
             <strong className='font-extrabold'>
-              No tenemos un pack cerrado
-            </strong>{' '}
-            de ecommerce. El presupuesto depende de{' '}
+              No tenemos un pack de tienda online cerrado
+            </strong>
+            . El presupuesto depende del número de{' '}
             <strong className='font-extrabold'>
               productos, pasarelas, envíos, idiomas y si hay que migrar una
-              tienda antigua
+              tienda online antigua
             </strong>
             .
           </>,
           <>
             No publicamos un precio único porque no sería cierto. En{' '}
             <strong className='font-extrabold'>24–48 h laborables</strong> te
-            mandamos un número concreto, con lo que entra y el plazo. Pedir
+            mandamos un precio cerrado, con lo que entra y el plazo. Pedir
             presupuesto de tienda online es gratis y no te compromete.
           </>,
           <>
@@ -471,7 +479,8 @@ const TiendasOnline = () => {
             <strong className='font-extrabold'>
               lo que realmente necesitas
             </strong>
-            , sin hinchar el proyecto.
+            , sin hinchar el proyecto, siempre hay tiempo de escalar tu tienda
+            online.
           </>,
         ]}
         imageSrc='/img/portfolio/camisetas-ahora.png'
@@ -481,11 +490,11 @@ const TiendasOnline = () => {
         buttonHref='#contacto'
       />
 
-      <Portfolio contained />
+      <Portfolio variant='tiendas' contained />
       <Testimonials />
       <Team
         label='CONOCE A TU FUTURO EQUIPO DE TIENDAS ONLINE'
-        title='Estas somos las personas que vamos a encargarnos de montar tu ecommerce.'
+        title='Estas somos las personas encargadas de montar tu tienda online.'
         paragraphs={[
           <>
             Queremos que nos pongas caras. Que puedas ver nuestros portfolios y
@@ -495,9 +504,9 @@ const TiendasOnline = () => {
             <strong className='font-extrabold'>
               seguridad al confiarnos la parte digital de tu negocio
             </strong>
-            . Un ecommerce lento o confuso te cuesta ventas; por eso lo hacemos{' '}
+            . Una tienda lenta o confusa te cuesta ventas; por eso la hacemos{' '}
             <strong className='font-extrabold'>
-              claro, rápido y listo para cobrar
+              clara, rápida y lista para vender desde el minuto uno
             </strong>
             .
           </>,

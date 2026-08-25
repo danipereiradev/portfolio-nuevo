@@ -72,7 +72,7 @@ const translations = {
     'App web para generar vídeos CORE en vertical, listos para TikTok, Reels y Shorts.',
   'portfolio.chicxs.title': 'Chicxsdelacalle',
   'portfolio.chicxs.desc':
-    'Tienda de moda urbana: catálogo, stock y pedidos sin líos.',
+    'Tienda de merch de bandas de música: catálogo, stock y pedidos.',
   'portfolio.confusion.title': 'Confusion Wear',
   'portfolio.confusion.desc':
     'Streetwear con catálogo vivo y pago con tarjeta.',
@@ -90,10 +90,10 @@ const translations = {
     'One-pager de una banda de Madrid: bio, Spotify, dossier, merch e Instagram.',
   'portfolio.hatena.title': 'Clínica Veterinaria Hatena',
   'portfolio.hatena.desc':
-    'Web de clínica: servicios, equipo y cómo pedir cita sin marear al dueño.',
+    'Web de clínica: servicios, equipo y formulario de citas integrado.',
   'portfolio.resilience.title': 'Resilience Shop',
   'portfolio.resilience.desc':
-    'Tienda de ciclismo: catálogo claro y compra sin rodeos.',
+    'Tienda de equipamiento ciclista: catálogo claro y compra sencilla.',
   'portfolio.elefantes.title': 'El Viaje de los Elefantes',
   'portfolio.elefantes.desc':
     'Blog de viajes con galería y estructura pensada para buscadores.',

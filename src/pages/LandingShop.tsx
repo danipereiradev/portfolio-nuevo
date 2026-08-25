@@ -220,7 +220,7 @@ const LandingShop = () => {
           'Estudio pequeño en Madrid. Diseño, desarrollo y publicación con tu dominio. Una tienda lenta o un checkout confuso te cuesta pedidos; por eso la hacemos clara, rápida y lista para cobrar.',
         ]}
       />
-      <Portfolio contained />
+      <Portfolio casos contained />
       <Testimonials hasVideo />
 
       <div id='faq' className='scroll-mt-24'>

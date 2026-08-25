@@ -76,7 +76,7 @@ const Nosotros = () => {
           <>
             Somos una agencia{' '}
             <strong className='font-extrabold'>100% online</strong> y trabajamos
-            contigo de forma directa. Tendrás{' '}
+            contigo de tu a tu. Tendrás{' '}
             <strong className='font-extrabold'>
               contacto directo en todo momento con quien lleva tu proyecto
             </strong>
