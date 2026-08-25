@@ -72,7 +72,7 @@ const Header = () => {
 
   const brand = (
     <span
-      className='flex items-center whitespace-nowrap text-xl font-extrabold md:text-3xl'
+      className='flex items-center whitespace-nowrap text-2xl font-extrabold md:text-3xl'
       style={{ fontFamily: "'Space Grotesk', sans-serif" }}
     >
       <span className='font-mono text-xl text-ink-dark md:text-3xl'>&gt;</span>
