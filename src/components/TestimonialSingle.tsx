@@ -23,48 +23,49 @@ const snippets = [
   },
 ];
 
-const FADE_MS = 500;
-
 function TestimonialsSingle() {
   const [index, setIndex] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
-  const snippet = snippets[index];
 
   useEffect(() => {
-    let timeoutId = 0;
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (media.matches) return undefined;
 
     const intervalId = window.setInterval(() => {
-      setIsVisible(false);
-      timeoutId = window.setTimeout(() => {
-        setIndex((current) => (current + 1) % snippets.length);
-        setIsVisible(true);
-      }, FADE_MS);
+      setIndex((current) => (current + 1) % snippets.length);
     }, 4000);
 
-    return () => {
-      window.clearInterval(intervalId);
-      window.clearTimeout(timeoutId);
-    };
+    return () => window.clearInterval(intervalId);
   }, []);
 
   return (
-    <blockquote className='relative mt-2 min-h-[7.5rem] w-full min-w-0 overflow-hidden rounded-xl text-left'>
-      <div
-        className={`w-full min-w-0 transition-all duration-500 ease-in-out ${
-          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
-        }`}
-      >
-        <p className='mt-2 w-full break-words text-lg font-semibold italic leading-snug text-gray-900'>
-          {snippet.text}
-        </p>
+    <blockquote
+      aria-live='polite'
+      className='relative mt-2 grid w-full min-w-0 text-left'
+    >
+      {snippets.map((snippet, i) => {
+        const isActive = i === index;
 
-        <footer className='mt-2 flex min-w-0 items-center gap-3'>
-          <span className='h-px w-6 shrink-0 bg-accent' aria-hidden='true' />
-          <cite className='min-w-0 break-words not-italic text-sm font-semibold text-gray-600'>
-            {snippet.name}
-          </cite>
-        </footer>
-      </div>
+        return (
+          <div
+            key={snippet.name}
+            className={`col-start-1 row-start-1 w-full min-w-0 transition-opacity duration-500 ease-in-out ${
+              isActive ? 'opacity-100' : 'pointer-events-none opacity-0'
+            }`}
+            aria-hidden={!isActive}
+          >
+            <p className='mt-2 w-full break-words text-lg font-semibold italic leading-snug text-gray-900'>
+              {snippet.text}
+            </p>
+
+            <footer className='mt-2 flex min-w-0 items-center gap-3'>
+              <span className='h-px w-6 shrink-0 bg-accent' aria-hidden='true' />
+              <cite className='min-w-0 break-words not-italic text-sm font-semibold text-gray-600'>
+                {snippet.name}
+              </cite>
+            </footer>
+          </div>
+        );
+      })}
     </blockquote>
   );
 }
