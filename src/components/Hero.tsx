@@ -101,7 +101,7 @@ const Hero = ({
               </h1>
               {description ? (
                 <p
-                  className={`text-xl md:text-2xl ${
+                  className={`text-xl md:text-2xl md:max-w-2xl md:mx-auto ${
                     overlayTone === 'black' ? 'text-white' : 'text-ink-dark'
                   }`}
                 >

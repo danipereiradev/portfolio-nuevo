@@ -26,21 +26,14 @@ const Home = () => {
         title='Agencia de diseño web y marketing digital'
         description={
           <>
-            Creamos{' '}
-            <strong className='font-extrabold'>
-              páginas web, tiendas online y aplicaciones a medida
-            </strong>
-            . También te ayudamos con{' '}
-            <strong className='font-extrabold'>
-              SEO, branding y estrategia digital
-            </strong>{' '}
-            para hacer crecer tu proyecto.
+            Ayudamos a pequeñas empresas a construir y hacer funcionar su
+            presencia digital
           </>
         }
         buttonText='CONTACTA AHORA'
         buttonHref='#contacto'
         backgroundUrl='/img/hero-home-poster.jpg'
-        videoUrl='/video/8523640-hd_1920_1080_25fps.mp4'
+        videoUrl='/video/7191375-uhd_2560_1080_25fps.mp4'
         overlay='black'
         hasButton
         hasBackground
