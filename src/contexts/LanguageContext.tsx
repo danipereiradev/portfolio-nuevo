@@ -57,8 +57,7 @@ const translations = {
     'Actualizaciones, copias, cambios de textos y fotos, y soporte cuando algo se rompe.',
 
   // Portfolio
-  'portfolio.title':
-    'Nuestros primeros proyectos ya han empezado a dar resultados',
+  'portfolio.title': 'Proyectos que ya han empezado a dar resultados',
   'portfolio.description':
     'Algunos proyectos en los que el diseño, el desarrollo y el SEO ya están dando resultados.',
   'portfolio.upcoming.title': 'Próximamente',

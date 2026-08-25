@@ -27,7 +27,7 @@ import {
 } from '../data/shopIncludes';
 
 const landingTrustPoints = [
-  { icon: Wallet, text: 'Desde 400 €' },
+  { icon: Wallet, text: 'Desde 900 €' },
   { icon: Clock, text: 'Propuesta en 24–48 h' },
   { icon: ShieldCheck, text: 'Hosting incluido' },
   { icon: BadgeCheck, text: 'La tienda es tuya' },
@@ -129,7 +129,7 @@ const faqs = [
   {
     question: '¿Cuánto cuesta?',
     answer:
-      'Depende del alcance, no hay un pack fijo. Orientación: muchas tiendas quedan entre 400 € y 3.000 € + IVA. Tras hablar te mandamos un número concreto, por escrito. Pedirlo es gratis.',
+      'Depende del alcance, no hay un pack fijo. Orientación: muchas tiendas quedan entre 900 € y 3.000 € + IVA. Tras hablar te mandamos un número concreto, por escrito. Pedirlo es gratis.',
   },
   {
     question: '¿Cuánto tarda?',
@@ -187,13 +187,13 @@ const LandingShop = () => {
   return (
     <>
       <HeroCta
-        title='Te hacemos una tienda online que vende. Precio y plazos, por escrito.'
+        title='Te hacemos una tienda online preparada para vender. Precio y plazos, por escrito.'
         description={
           <>
             Cuéntanos qué vendes. En 24–48 h te mandamos una propuesta con lo
             que entra, lo que cuesta y cuándo está.{' '}
             <strong className='font-extrabold'>
-              Hablas con nosotros, no con un comercial
+              Hablas con quien te va a hacer la tienda,, no con un comercial
             </strong>
             . Si no encaja, lo dices y no pasa nada.
           </>

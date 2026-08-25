@@ -246,7 +246,7 @@ const LandingWeb = () => {
             Cuéntanos qué haces. En 24–48 h te mandamos una propuesta con lo que
             entra, lo que cuesta y cuándo está.{' '}
             <strong className='font-extrabold'>
-              Hablas con nosotros, no con un comercial
+              Hablas con quien te va a hacer la web,, no con un comercial
             </strong>
             . Si no encaja, lo dices y no pasa nada.
           </>

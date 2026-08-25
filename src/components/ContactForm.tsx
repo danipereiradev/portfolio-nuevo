@@ -511,7 +511,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                 variant='primary'
                 className='mx-auto'
               >
-                {isSubmitting ? 'Enviando...' : 'Enviar Solicitud'}
+                {isSubmitting ? 'Enviando...' : 'Pedir propuesta'}
                 {!isSubmitting && <Check className='w-4 h-4' />}
               </Button>
             </div>

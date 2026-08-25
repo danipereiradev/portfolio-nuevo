@@ -34,6 +34,7 @@ interface ContactHeroFormHeroProps {
   page: string;
   id?: string;
   showProjectType?: boolean;
+  projectTypes?: readonly string[];
 }
 
 export const ContactFormHero = ({
@@ -320,7 +321,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             variant='primary'
             className='self-start !mx-0'
           >
-            {isSubmitting ? 'Enviando...' : 'Enviar'}
+            {isSubmitting ? 'Enviando...' : 'Pedir propuesta'}
           </Button>
 
           <TestimonialsSingle />
