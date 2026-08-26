@@ -5,7 +5,6 @@ import { ContactModalProvider } from './contexts/ContactModalContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ContactFormModal from './components/ContactFormModal';
-import ExitIntentPopup from './components/ExitIntentPopup';
 import CrispChat from './components/CrispChat';
 import LandingWeb from './pages/LandingWeb';
 import LandingShop from './pages/LandingShop';
@@ -98,7 +97,6 @@ function AppContent() {
 
       <Footer />
       <ContactFormModal />
-      <ExitIntentPopup />
       <CrispChat />
     </div>
   );

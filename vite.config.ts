@@ -9,7 +9,7 @@ export default defineConfig({
   },
   server: {
     historyApiFallback: true,
-    // En local, reenvía las functions a producción para poder probar el popup.
+    // En local, reenvía las functions a producción.
     proxy: {
       '/.netlify/functions': {
         target: 'https://36web.es',

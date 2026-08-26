@@ -8,7 +8,14 @@ import { Team } from '../components/Team';
 import Portfolio from '../components/Portfolio';
 import Testimonials from '../components/Testimonials';
 import HeroCta from '../components/HeroCta';
-import { ABOUT_LABEL, ABOUT_PATH, SITE_WEB_PATH } from '../config/contact';
+import {
+  ABOUT_LABEL,
+  ABOUT_PATH,
+  SITE_MAINTENANCE_LABEL,
+  SITE_SHOP_LABEL,
+  SITE_WEB_LABEL,
+  SITE_WEB_PATH,
+} from '../config/contact';
 
 const SITE_URL = 'https://36web.es';
 
@@ -183,6 +190,13 @@ const Nosotros = () => {
         buttonHref={SITE_WEB_PATH}
         heroType='form'
         hasButton={false}
+        showProjectType
+        projectTypes={[
+          SITE_WEB_LABEL,
+          SITE_SHOP_LABEL,
+          SITE_MAINTENANCE_LABEL,
+          'Todavía no lo tengo claro',
+        ]}
         formTitle='Te llamamos'
         formDescription='Propuesta en 24–48 h. Sin compromiso.'
         formSectionInfo='La Agencia CTA'

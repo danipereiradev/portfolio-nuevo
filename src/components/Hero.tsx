@@ -16,6 +16,10 @@ interface HeroProps {
   hasReviewBadge: boolean;
 }
 
+const prefersReducedMotion = () =>
+  typeof window !== 'undefined' &&
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 const Hero = ({
   title,
   description,
@@ -29,13 +33,24 @@ const Hero = ({
   hasBackground,
   hasReviewBadge,
 }: HeroProps) => {
-  const [showVideo, setShowVideo] = useState(false);
+  const [showVideo, setShowVideo] = useState(
+    () => Boolean(videoUrl) && !prefersReducedMotion(),
+  );
+  const [videoReady, setVideoReady] = useState(false);
 
   useEffect(() => {
-    if (!videoUrl) return undefined;
+    setVideoReady(false);
+
+    if (!videoUrl) {
+      setShowVideo(false);
+      return undefined;
+    }
 
     const media = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const update = () => setShowVideo(!media.matches);
+    const update = () => {
+      setShowVideo(!media.matches);
+      setVideoReady(false);
+    };
     update();
     media.addEventListener('change', update);
     return () => media.removeEventListener('change', update);
@@ -55,17 +70,20 @@ const Hero = ({
     >
       {showVideo && videoUrl ? (
         <video
-          className='pointer-events-none absolute inset-0 h-full w-full object-cover'
+          key={videoUrl}
+          className={`pointer-events-none absolute inset-0 h-full w-full object-cover ${
+            videoReady ? 'opacity-100' : 'opacity-0'
+          }`}
           autoPlay
           muted
           loop
           playsInline
-          preload='metadata'
+          preload='auto'
           poster={backgroundUrl}
+          src={videoUrl}
           aria-hidden='true'
-        >
-          <source src={videoUrl} type='video/mp4' />
-        </video>
+          onCanPlay={() => setVideoReady(true)}
+        />
       ) : null}
 
       {overlayTone === 'black' ? (
