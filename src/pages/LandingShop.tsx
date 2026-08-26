@@ -262,12 +262,20 @@ const LandingShop = () => {
 
       <Team
         label='EL EQUIPO'
-        title='Somos las personas que te vamos a montar la tienda.'
+        title='Trato directo durante todo el proyecto.'
         compact
         paragraphs={[
           <>
-            Nos pones cara, ves el portfolio y nos escribes si quieres.{' '}
-            <strong className='font-extrabold'>Contestamos nosotros</strong>.
+            Desde la primera reunión hasta la entrega, podrás hablar
+            directamente con{' '}
+            <strong className='font-extrabold'>
+              la persona encargada de tu tienda online
+            </strong>{' '}
+            por{' '}
+            <strong className='font-extrabold'>
+              email, teléfono o videollamada
+            </strong>
+            .
           </>,
         ]}
       />

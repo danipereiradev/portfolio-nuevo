@@ -56,8 +56,13 @@ const SEOProcess = ({
           )}
           <div className='mx-auto md:w-1/2'>
             {steps.map((step, index) => {
+              const isLast = index === steps.length - 1;
               const row = (
-                <div className='relative flex gap-content-gap pb-page-gap last:pb-0'>
+                <div
+                  className={`relative flex gap-content-gap ${
+                    isLast ? '' : 'pb-page-gap'
+                  }`}
+                >
                   {index !== steps.length - 1 && (
                     <span
                       className='absolute left-[1.55rem] md:left-[2.05rem] top-12 md:top-16 bottom-0 w-1 bg-accent'

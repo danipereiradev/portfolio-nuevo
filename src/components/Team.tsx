@@ -10,7 +10,7 @@ import 'swiper/css/navigation';
 
 interface Team {
   fullName: string;
-  description: string;
+  description: ReactNode;
   role: string;
   linkedin?: string;
   github?: string;
@@ -36,13 +36,6 @@ interface TeamProps {
   compact?: boolean;
 }
 
-const compactRoles: Record<string, string> = {
-  'Cristina Recio': 'Diseño UX/UI y branding',
-  'Dani Pereira': 'Desarrollo web y SEO',
-  'Karen Montero': 'WordPress y UX/UI',
-  'Sergio Cerdá': 'Desarrollo web y aplicaciones',
-};
-
 const compactOrder = [
   'Cristina Recio',
   'Dani Pereira',
@@ -59,9 +52,17 @@ export const Team = ({
   const teamMembers: TeamMembers = [
     {
       fullName: 'Sergio Cerdá',
-      description:
-        'Más de 5 años desarrollando software, aplicaciones web y móviles. Convierte ideas en herramientas digitales pensadas para funcionar de verdad.',
-      role: 'Desarrollo Web y App',
+      description: (
+        <>
+          Más de 5 años desarrollando software,{' '}
+          <strong className='font-extrabold'>
+            aplicaciones web y móviles
+          </strong>
+          . Convierte ideas en herramientas digitales pensadas para funcionar de
+          verdad.
+        </>
+      ),
+      role: 'Ingeniero de Software',
       linkedin: 'https://www.linkedin.com/in/sergio-cerda-hervas/',
       github: 'https://github.com/sergio-cravas',
       imageUrl: '/img/team/sergi.png',
@@ -69,28 +70,54 @@ export const Team = ({
     },
     {
       fullName: 'Cristina Recio',
-      description:
-        'Más de 10 años en diseño gráfico y dirección de arte especializada en branding. Combina pensamiento estratégico con sensibilidad visual.',
-      role: 'Diseñadora gráfica UX/UI',
+      description: (
+        <>
+          Más de 10 años en diseño gráfico,{' '}
+          <strong className='font-extrabold'>
+            dirección de arte y branding
+          </strong>
+          . Combina pensamiento estratégico con{' '}
+          <strong className='font-extrabold'>sensibilidad visual</strong>.
+        </>
+      ),
+      role: 'Diseñadora gráfica',
       linkedin: 'https://www.linkedin.com/in/cristina-recio/',
       imageUrl: '/img/team/cristina.jpg',
       mail: 'c.recio@36web.es',
     },
     {
       fullName: 'Dani Pereira',
-      description:
-        'Más de 12 años de experiencia en web y SEO. Frontend con TypeScript. Clientes como Inditex y Banco Santander.',
-      role: 'Desarrollo Web y Marketing digital',
+      description: (
+        <>
+          Más de 12 años{' '}
+          <strong className='font-extrabold'>
+            desarrollando webs y posicionando webs
+          </strong>
+          .{' '}
+          <strong className='font-extrabold'>Máster en marketing digital</strong>
+          . Ha trabajado para{' '}
+          <strong className='font-extrabold'>
+            grandes empresas de banca y retail
+          </strong>
+          .
+        </>
+      ),
+      role: 'Ingeniero de Software',
       github: 'https://github.com/danipereiradev',
       imageUrl: '/img/team/dani.png',
       mail: 'hola@36web.es',
     },
-
     {
       fullName: 'Karen Montero',
-      description:
-        'Especializada en diseño y desarrollo web con WordPress, con especial atención a la experiencia de usuario y al diseño UX/UI.',
-      role: 'Desarrollo Web',
+      description: (
+        <>
+          Especializada en{' '}
+          <strong className='font-extrabold'>diseño y desarrollo</strong> web
+          con WordPress, con especial atención a la experiencia de usuario y al{' '}
+          <strong className='font-extrabold'>diseño UX/UI</strong>.
+        </>
+      ),
+      role: 'Desarrolladora web',
       linkedin: 'https://www.linkedin.com/in/karenmonrose/',
       imageUrl: '',
       mail: 'k.montero@36web.es',
@@ -148,9 +175,6 @@ export const Team = ({
               const displayName = compact
                 ? member.fullName.split(' ')[0]
                 : member.fullName;
-              const displayRole = compact
-                ? (compactRoles[member.fullName] ?? member.role)
-                : member.role;
 
               return (
                 <SwiperSlide key={member.fullName}>
@@ -176,15 +200,15 @@ export const Team = ({
 
                     <div
                       className={`member-info flex flex-col rounded-b-xl bg-surface-muted p-content-pad text-start text-lg text-ink-dark ${
-                        compact ? 'min-h-[7.25rem]' : 'min-h-[13.5rem]'
+                        compact ? 'min-h-[8.25rem]' : 'min-h-[13.5rem]'
                       }`}
                     >
                       <h3 className='text-2xl font-bold text-accent'>
                         {displayName}
                       </h3>
-                      <span className='font-bold text-ink-dark'>
-                        {displayRole}
-                      </span>
+                      <p className='mt-1 text-base font-bold leading-snug text-ink-dark md:text-lg'>
+                        {member.role}
+                      </p>
                       {compact ? null : (
                         <>
                           <p className='mt-heading-gap text-base'>

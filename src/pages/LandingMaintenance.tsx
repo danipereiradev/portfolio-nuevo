@@ -210,9 +210,19 @@ const LandingMaintenance = () => {
 
       <Team
         label={'TUS EXPERTOS EN MANTENIMIENTO WEB'}
-        title='La cuidamos nosotros. Tú hablas con el equipo, no con un comercial.'
+        title='Trato directo durante todo el proyecto.'
         paragraphs={[
-          'Estudio pequeño en Madrid. Actualizaciones, copias y soporte. Una web caída o un formulario mudo te cuesta clientes; por eso hay alguien al otro lado.',
+          <>
+            Desde la primera reunión, podrás hablar directamente con{' '}
+            <strong className='font-extrabold'>
+              la persona encargada de tu mantenimiento
+            </strong>{' '}
+            por{' '}
+            <strong className='font-extrabold'>
+              email, teléfono o videollamada
+            </strong>
+            .
+          </>,
         ]}
       />
       <Portfolio casos contained />

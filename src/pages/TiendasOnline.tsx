@@ -415,19 +415,17 @@ const TiendasOnline = () => {
       <Testimonials />
       <Team
         label='CONOCE A TU FUTURO EQUIPO DE TIENDAS ONLINE'
-        title='Estas somos las personas encargadas de montar tu tienda online.'
+        title='Trato directo durante todo el proyecto.'
         paragraphs={[
           <>
-            Queremos que nos pongas caras. Que puedas ver nuestros portfolios y
-            contactar con nosotros para lo que necesites:{' '}
-            <strong className='font-extrabold'>siempre contestamos</strong>.
-            Sobre todo, que sientas{' '}
+            Desde la primera reunión hasta la entrega, podrás hablar
+            directamente con{' '}
             <strong className='font-extrabold'>
-              seguridad al confiarnos la parte digital de tu negocio
-            </strong>
-            . Una tienda lenta o confusa te cuesta ventas; por eso la hacemos{' '}
+              la persona encargada de tu tienda online
+            </strong>{' '}
+            por{' '}
             <strong className='font-extrabold'>
-              clara, rápida y lista para vender desde el minuto uno
+              email, teléfono o videollamada
             </strong>
             .
           </>,

@@ -477,18 +477,18 @@ const MantenimientoWeb = () => {
       <Testimonials />
       <Team
         label='CONOCE A TU FUTURO EQUIPO DE MANTENIMIENTO WEB'
-        title='Estas somos las personas que vamos a encargarnos de cuidar tu web.'
+        title='Trato directo durante todo el proyecto.'
         paragraphs={[
           <>
-            Queremos que nos pongas caras. Que puedas ver nuestros portfolios y
-            contactar con nosotros para lo que necesites:{' '}
-            <strong className='font-extrabold'>siempre contestamos</strong>.
-            Sobre todo, que sientas{' '}
+            Desde la primera reunión, podrás hablar directamente con{' '}
             <strong className='font-extrabold'>
-              seguridad al confiarnos la parte digital de tu negocio
+              la persona encargada de tu mantenimiento
+            </strong>{' '}
+            por{' '}
+            <strong className='font-extrabold'>
+              email, teléfono o videollamada
             </strong>
-            . Una web caída o un formulario mudo te cuesta clientes; por eso hay{' '}
-            <strong className='font-extrabold'>alguien al otro lado</strong>.
+            .
           </>,
         ]}
       />

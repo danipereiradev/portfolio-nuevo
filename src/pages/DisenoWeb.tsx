@@ -419,13 +419,7 @@ const DisenoWeb = () => {
             . Podemos partir de un diseño propio o personalizar una base
             existente, siempre adaptándola a tu marca y necesidades.
           </>,
-          <>
-            Además, dejamos el panel preparado para que puedas{' '}
-            <strong className='font-extrabold'>
-              gestionar tus propios contenidos sin depender de nosotros
-            </strong>
-            .
-          </>,
+
           <>
             Si lo que necesitas es un catálogo de productos con pasarela de pago
             y envíos, te ofrecemos una{' '}
@@ -510,19 +504,17 @@ const DisenoWeb = () => {
       <Testimonials />
       <Team
         label='CONOCE A TU FUTURO EQUIPO DE DISEÑO WEB'
-        title='Estas somos las personas que vamos a encargarnos de diseñar tu página web.'
+        title='Trato directo durante todo el proyecto.'
         paragraphs={[
           <>
-            Queremos que nos pongas caras. Que puedas ver nuestros portfolios y
-            contactar con nosotros para lo que necesites:{' '}
-            <strong className='font-extrabold'>siempre contestamos</strong>.
-            Sobre todo, que sientas{' '}
+            Desde la primera reunión hasta la entrega, podrás hablar
+            directamente con{' '}
             <strong className='font-extrabold'>
-              seguridad al confiarnos la parte digital de tu negocio
-            </strong>
-            . Aunque 36web acaba de empezar,{' '}
+              la persona encargada de tu web
+            </strong>{' '}
+            por{' '}
             <strong className='font-extrabold'>
-              nosotros llevamos años trabajando en esto
+              email, teléfono o videollamada
             </strong>
             .
           </>,
