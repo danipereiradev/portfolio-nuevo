@@ -33,7 +33,7 @@ const Home = () => {
         buttonText='CONTACTA AHORA'
         buttonHref='#contacto'
         backgroundUrl='/img/hero-home-poster.jpg'
-        videoUrl='/video/7191375-uhd_2560_1080_25fps.mp4'
+        videoUrl='/video/8523640-hd_1920_1080_25fps.mp4'
         overlay='black'
         hasButton
         hasBackground
