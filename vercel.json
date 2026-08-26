@@ -236,6 +236,9 @@
       "destination": "/politica-de-cookies/index.html"
     },
     { "source": "/aviso-legal", "destination": "/aviso-legal/index.html" },
+    { "source": "/pago", "destination": "/pago/index.html" },
+    { "source": "/pago/gracias", "destination": "/pago/gracias/index.html" },
+    { "source": "/pago/:id", "destination": "/pago/index.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

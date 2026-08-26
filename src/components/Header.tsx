@@ -35,7 +35,7 @@ const WhatsAppIcon = () => (
   </svg>
 );
 
-const Header = () => {
+const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
   const { pathname } = useLocation();
   const isAdsLanding = isAdsLandingPath(pathname);
   const whatsappUrl = buildWhatsAppUrl(getWhatsAppMessageForPath(pathname));
@@ -95,14 +95,18 @@ const Header = () => {
       <header className='site-header fixed top-0 z-50 mx-auto mt-4 w-[95%] max-w-page rounded-lg shadow-[0_4px_16px_rgba(0,0,0,0.08)]'>
         <div className='mx-auto w-full px-page-x py-4'>
           <div className='flex w-full items-center justify-between gap-3'>
-            <a
-              href={isAdsLanding ? '#hero' : '/'}
-              className='flex min-w-0 shrink-0 items-center'
-            >
-              {brand}
-            </a>
+            {hideNav ? (
+              <div className='flex min-w-0 shrink-0 items-center'>{brand}</div>
+            ) : (
+              <a
+                href={isAdsLanding ? '#hero' : '/'}
+                className='flex min-w-0 shrink-0 items-center'
+              >
+                {brand}
+              </a>
+            )}
 
-            {isAdsLanding ? (
+            {hideNav ? null : isAdsLanding ? (
               <nav
                 className='flex shrink-0 items-center justify-end gap-1'
                 aria-label='Contacto'
@@ -206,7 +210,7 @@ const Header = () => {
             )}
           </div>
 
-          {!isAdsLanding && isMenuOpen ? (
+          {!hideNav && !isAdsLanding && isMenuOpen ? (
             <nav
               className='mt-2 divide-y divide-ink-dark/15 lg:hidden'
               aria-label='Principal'

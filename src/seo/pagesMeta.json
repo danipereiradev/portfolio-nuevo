@@ -60,5 +60,15 @@
   "/aviso-legal": {
     "title": "Aviso Legal | 36web",
     "description": "Aviso legal e información del titular del sitio web 36web: datos identificativos, condiciones de uso y responsabilidad."
+  },
+  "/pago": {
+    "title": "Activación del servicio | 36web",
+    "description": "Activación del servicio acordado.",
+    "robots": "noindex, nofollow, noarchive"
+  },
+  "/pago/gracias": {
+    "title": "Pago recibido | 36web",
+    "description": "Gracias. Hemos recibido tu pago.",
+    "robots": "noindex, nofollow, noarchive"
   }
 }

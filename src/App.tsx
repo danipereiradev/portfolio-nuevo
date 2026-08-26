@@ -18,6 +18,8 @@ import Home from './pages/Home';
 import Nosotros from './pages/Nosotros';
 import LegalDocument from './pages/LegalDocument';
 import Maintenance from './pages/Maintenance';
+import Pago from './pages/Pago';
+import PagoGracias from './pages/PagoGracias';
 import {
   isMaintenanceActive,
   isMaintenancePreviewPath,
@@ -35,8 +37,27 @@ import {
 } from './config/contact';
 import { BLOG_PATH } from './blog/posts';
 
+function isPaymentPath(pathname: string) {
+  const path = pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
+  return path === '/pago' || path.startsWith('/pago/');
+}
+
 function AppContent() {
   useScrollToHash();
+  const { pathname } = useLocation();
+
+  if (isPaymentPath(pathname)) {
+    return (
+      <>
+        <Header hideNav />
+        <Routes>
+          <Route path='/pago/gracias' element={<PagoGracias />} />
+          <Route path='/pago/:id' element={<Pago />} />
+          <Route path='*' element={<Pago />} />
+        </Routes>
+      </>
+    );
+  }
 
   return (
     <div className='relative min-h-screen overflow-x-hidden bg-surface-base pb-16 md:pb-0'>
