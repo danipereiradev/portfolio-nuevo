@@ -29,8 +29,8 @@ const webProjectTypes = [
 ] as const;
 
 const landingTrustPoints = [
-  { icon: Wallet, text: 'Desde 600 €' },
-  { icon: Clock, text: 'Propuesta en 24–48 h' },
+  { icon: Wallet, text: 'Desde 600€' },
+  { icon: Clock, text: 'Propuesta 24–48h' },
   { icon: ShieldCheck, text: 'Hosting incluido' },
   { icon: BadgeCheck, text: 'La web es tuya' },
 ];
@@ -254,7 +254,7 @@ const LandingWeb = () => {
             Cuéntanos qué haces. En 24–48 h te mandamos una propuesta con lo que
             entra, lo que cuesta y cuándo está.{' '}
             <strong className='font-extrabold'>
-              Hablas con quien te va a hacer la web,, no con un comercial
+              Hablas con quien te va a hacer la web, no con un comercial
             </strong>
             . Si no encaja, lo dices y no pasa nada.
           </>

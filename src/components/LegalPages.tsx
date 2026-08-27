@@ -585,7 +585,7 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                     <strong>Pexels:</strong> Para mostrar imágenes optimizadas
                   </li>
                   <li>
-                    <strong>Crisp:</strong> Chat de atención en escritorio
+                    <strong>Crisp:</strong> Chat de atención
                   </li>
                 </ul>
               </section>

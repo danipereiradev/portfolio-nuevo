@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useId } from 'react';
 
 const TRUSTINDEX_WIDGET_SRC =
   'https://cdn.trustindex.io/loader.js?fcef0d1791cb395e7c263690105';
@@ -13,7 +13,9 @@ interface TestimonialsProps {
   id?: string;
 }
 
-function TestimonialsBadge({ id = 'testimonials' }: TestimonialsProps) {
+function TestimonialsBadge({ id }: TestimonialsProps) {
+  const generatedId = `ti-badge-${useId().replace(/:/g, '')}`;
+  const widgetId = id ?? generatedId;
   useEffect(() => {
     let cancelled = false;
     let intervalId = 0;
@@ -39,7 +41,7 @@ function TestimonialsBadge({ id = 'testimonials' }: TestimonialsProps) {
 
   return (
     <>
-      <div id={id} data-src={TRUSTINDEX_WIDGET_SRC} className='w-1/3' />
+      <div id={widgetId} data-src={TRUSTINDEX_WIDGET_SRC} className='w-1/3' />
       <div className='spacer'></div>
     </>
   );

@@ -10,7 +10,6 @@ import {
   trackCrispMessageSent,
 } from '../utils/analytics';
 
-const DESKTOP_MQ = '(min-width: 768px)';
 const SCRIPT_ID = 'crisp-js';
 const PROACTIVE_SHOWN_KEY = 'crisp-proactive-shown';
 
@@ -50,8 +49,9 @@ const loadCrisp = () => {
 
   pushCrisp('safe', true);
   pushCrisp('config', 'color:theme', [CRISP_THEME_COLOR]);
-  // Por debajo del header (z-50) y de los modales (z-9999).
-  pushCrisp('config', 'container:index', [40]);
+  // Por encima del header (z-50) para que el chat abierto en móvil no quede
+  // tapado; por debajo de los modales (z-9999).
+  pushCrisp('config', 'container:index', [60]);
   pushCrisp('on', 'chat:opened', [
     () => {
       markProactiveShown();
@@ -63,7 +63,7 @@ const loadCrisp = () => {
   pushCrisp('on', 'session:loaded', [
     () => {
       pushCrisp('config', 'color:theme', [CRISP_THEME_COLOR]);
-      setChatVisible(window.matchMedia(DESKTOP_MQ).matches);
+      setChatVisible(true);
     },
   ]);
 
@@ -85,7 +85,6 @@ const CrispChat = () => {
       return;
     }
 
-    const mq = window.matchMedia(DESKTOP_MQ);
     let proactiveTimer: number | undefined;
 
     const clearProactiveTimer = () => {
@@ -96,7 +95,7 @@ const CrispChat = () => {
     };
 
     const showProactiveMessage = () => {
-      if (hasShownProactive() || !mq.matches) return;
+      if (hasShownProactive()) return;
       if (window.$crisp?.is?.('chat:opened')) {
         markProactiveShown();
         return;
@@ -108,7 +107,7 @@ const CrispChat = () => {
     };
 
     const scheduleProactiveMessage = () => {
-      if (proactiveTimer || hasShownProactive() || !mq.matches) return;
+      if (proactiveTimer || hasShownProactive()) return;
 
       proactiveTimer = window.setTimeout(() => {
         proactiveTimer = undefined;
@@ -129,23 +128,13 @@ const CrispChat = () => {
       clearProactiveTimer();
     };
 
-    const sync = () => {
-      if (mq.matches) {
-        loadCrisp();
-        pushCrisp('config', 'color:theme', [CRISP_THEME_COLOR]);
-        setChatVisible(true);
-        whenCrispReady(scheduleProactiveMessage);
-      } else {
-        setChatVisible(false);
-        clearProactiveTimer();
-      }
-    };
+    loadCrisp();
+    pushCrisp('config', 'color:theme', [CRISP_THEME_COLOR]);
+    setChatVisible(true);
+    whenCrispReady(scheduleProactiveMessage);
 
-    sync();
-    mq.addEventListener('change', sync);
     return () => {
       onChatClosed = null;
-      mq.removeEventListener('change', sync);
       clearProactiveTimer();
     };
   }, []);
