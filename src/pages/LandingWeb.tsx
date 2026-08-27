@@ -195,7 +195,7 @@ const faqs = [
   {
     question: '¿Cuánto tarda?',
     answer:
-      'El plazo va por escrito en la propuesta. Suele ser de 3 a 8 semanas cuando tenemos textos y fotos. Cuenta desde el arranque pagado, no desde el primer “hola”.',
+      'El plazo va por escrito en la propuesta. Suele ser de 2 a 4 semanas cuando tenemos textos y fotos. Cuenta desde el arranque pagado, no desde el primer “hola”.',
   },
   {
     question: '¿Qué incluye?',
