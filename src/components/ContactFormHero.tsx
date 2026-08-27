@@ -5,7 +5,6 @@ import {
   trackGoogleAdsFormConversion,
   unlockGoogleAdsFormConversion,
 } from '../utils/analytics';
-import { markFormSubmissionSuccess } from '../config/formSubmission';
 import { BUSINESS_HOURS_LABEL, FORM_CC_EMAIL } from '../config/contact';
 import { AlertCircle } from 'lucide-react';
 import TestimonialsSingle from './TestimonialSingle';
@@ -140,8 +139,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       const result = await response.json().catch(() => null);
 
       // Formspree confirma éxito con HTTP 2xx y { ok: true }.
-
-      // Sin ambas condiciones no redirigimos ni disparamos conversión.
+      // Sin ambas condiciones no disparamos conversión.
       if (!response.ok || !result || result.ok !== true) {
         throw new Error(
           result?.error ||
@@ -152,7 +150,6 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       // Orden: Formspree OK , mostramos mensaje de agradecimiento y nos quedamos en la página
 
       trackGoogleAdsFormConversion();
-      markFormSubmissionSuccess();
       setIsFormSent(true);
     } catch (error) {
       console.error('Error al enviar formulario:', error);
@@ -343,7 +340,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             disabled={isSubmitting}
             isLoading={isSubmitting}
             variant='primary'
-            className='self-start !mx-0'
+            className='self-center !mx-0 md:self-start'
           >
             {isSubmitting ? 'Enviando...' : 'Pedir propuesta'}
           </Button>

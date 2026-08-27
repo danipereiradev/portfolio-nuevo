@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { Mail, Phone, User, Briefcase, Check, AlertCircle } from 'lucide-react';
 import {
   trackFormSubmit,
@@ -11,13 +11,11 @@ import {
   trackEmailClick,
   trackWebProfesionalFormSubmit,
 } from '../utils/analytics';
-import { useContactModal } from '../contexts/ContactModalContext';
 import {
   buildWhatsAppUrl,
   FORM_CC_EMAIL,
   getWhatsAppMessageForPath,
 } from '../config/contact';
-import { markFormSubmissionSuccess } from '../config/formSubmission';
 import Button from './Button';
 
 interface ContactFormProps {
@@ -29,14 +27,14 @@ const ContactForm = ({
   preselectedPlan,
   isInModal = false,
 }: ContactFormProps = {}) => {
-  const navigate = useNavigate();
   const { pathname } = useLocation();
   const bottomWhatsAppUrl = buildWhatsAppUrl(
     getWhatsAppMessageForPath(pathname),
   );
-  const { closeModal } = useContactModal();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'error' | 'success'>(
+    'idle',
+  );
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [antiSpamAnswer, setAntiSpamAnswer] = useState('');
   const [antiSpamQuestion] = useState(() => {
@@ -213,7 +211,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       const result = await response.json().catch(() => null);
 
       // Formspree confirma éxito con HTTP 2xx y { ok: true }.
-      // Sin ambas condiciones no redirigimos ni disparamos conversión.
+      // Sin ambas condiciones no disparamos conversión.
       if (!response.ok || !result || result.ok !== true) {
         throw new Error(
           result?.error ||
@@ -234,7 +232,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       };
       const planValue = planPrices[formData.plan] || 0;
 
-      // Orden: Formspree OK → GA4 → Ads → token /gracias → navigate.
+      // Orden: Formspree OK → GA4 → Ads → mensaje en la misma página.
       trackFormSubmit(formData.plan, planValue);
       const path =
         pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
@@ -242,12 +240,16 @@ Fecha: ${new Date().toLocaleString('es-ES')}
         trackWebProfesionalFormSubmit(formData.plan, planValue);
       }
       trackGoogleAdsFormConversion();
-      markFormSubmissionSuccess();
-
-      if (isInModal) {
-        closeModal();
-      }
-      navigate('/gracias', { replace: true });
+      setSubmitStatus('success');
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        businessType: '',
+        plan: preselectedPlan || '',
+        description: '',
+      });
+      setAntiSpamAnswer('');
     } catch (error) {
       console.error('Error al enviar formulario:', error);
       trackFormError('submit_failed', formData.plan);
@@ -527,6 +529,12 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                   email: hola@36web.es
                 </p>
               </div>
+            )}
+            {submitStatus === 'success' && (
+              <p className='text-center text-lg font-bold text-gray-900'>
+                Tus datos han sido enviados correctamente. Nos pondremos en
+                contacto en breve. ¡Gracias!
+              </p>
             )}
           </form>
         </div>

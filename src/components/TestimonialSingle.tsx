@@ -40,7 +40,7 @@ function TestimonialsSingle() {
   return (
     <blockquote
       aria-live='polite'
-      className='relative mt-2 grid w-full min-w-0 text-left'
+      className='relative mt-2 grid w-full min-w-0 text-center md:text-left'
     >
       {snippets.map((snippet, i) => {
         const isActive = i === index;
@@ -57,7 +57,7 @@ function TestimonialsSingle() {
               {snippet.text}
             </p>
 
-            <footer className='mt-2 flex min-w-0 items-center gap-3'>
+            <footer className='mt-2 flex min-w-0 items-center justify-center gap-3 md:justify-start'>
               <span className='h-px w-6 shrink-0 bg-accent' aria-hidden='true' />
               <cite className='min-w-0 break-words not-italic text-sm font-semibold text-gray-600'>
                 {snippet.name}

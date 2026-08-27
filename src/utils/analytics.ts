@@ -93,7 +93,7 @@ export const unlockGoogleAdsFormConversion = (): void => {
 
 /**
  * Conversión oficial de Google Ads por envío de formulario.
- * Llamar UNA sola vez tras Formspree OK ({ ok: true }), antes de /gracias.
+ * Llamar UNA sola vez tras Formspree OK ({ ok: true }).
  * No usar en WhatsApp, newsletter, errores ni carga de página.
  */
 export const trackGoogleAdsFormConversion = (): void => {
@@ -218,14 +218,6 @@ export const trackFormSubmit = (serviceType: string, value?: number) => {
     service_type: serviceType,
     value: value || 0,
     currency: 'EUR',
-  });
-};
-
-/** Vista válida de /gracias tras envío confirmado (una vez por envío). */
-export const trackThankYouView = () => {
-  trackEvent('thank_you_view', {
-    event_category: 'engagement',
-    event_label: 'gracias',
   });
 };
 
