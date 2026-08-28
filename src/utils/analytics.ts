@@ -160,6 +160,84 @@ export const trackGoogleAdsWhatsAppConversion = (url: string): boolean => {
   return false;
 };
 
+// Evento GA4/GTM para el clic en reservar (oferta de lanzamiento).
+// En GTM se puede marcar como conversión. Si más adelante hay un send_to
+// oficial de Ads (AW-…/label), pegarlo en GOOGLE_ADS_LAUNCH_RESERVE_SEND_TO.
+const ADS_CONVERSION_RESERVA = 'ads_conversion_Reserva_1';
+
+/**
+ * send_to de Google Ads para el clic en Reservar (Stripe).
+ * Vacío hasta que exista la conversión en la cuenta.
+ */
+export const GOOGLE_ADS_LAUNCH_RESERVE_SEND_TO = '';
+
+/**
+ * Dispara la conversión de reserva (Stripe) y navega al pago.
+ * Misma lógica que WhatsApp: no bloquear si no hay gtag; esperar callback.
+ */
+export const trackGoogleAdsLaunchReserveConversion = (
+  url: string,
+  locationSection: string,
+): boolean => {
+  if (typeof window === 'undefined') return false;
+
+  trackPricingSplitPayment('landing-web-profesional');
+  trackEvent('begin_checkout', {
+    event_category: 'ecommerce',
+    event_label: locationSection,
+    location_section: locationSection,
+    value: 99,
+    currency: 'EUR',
+    item_name: 'Reserva web profesional',
+  });
+
+  let navigated = false;
+  const go = () => {
+    if (navigated) return;
+    navigated = true;
+    if (url) {
+      window.location.assign(url);
+    }
+  };
+
+  if (typeof window.gtag !== 'function') {
+    go();
+    return false;
+  }
+
+  try {
+    window.gtag('event', ADS_CONVERSION_RESERVA, {
+      page_path: window.location.pathname,
+      page_title: document.title,
+      event_category: 'lead',
+      event_label: locationSection,
+      value: 99,
+      currency: 'EUR',
+    });
+
+    if (GOOGLE_ADS_LAUNCH_RESERVE_SEND_TO) {
+      window.gtag('event', 'conversion', {
+        send_to: GOOGLE_ADS_LAUNCH_RESERVE_SEND_TO,
+        value: 99,
+        currency: 'EUR',
+        event_callback: go,
+      });
+    } else {
+      window.gtag('event', 'generate_lead', {
+        value: 99,
+        currency: 'EUR',
+        event_callback: go,
+      });
+    }
+  } catch {
+    go();
+    return false;
+  }
+
+  setTimeout(go, 800);
+  return false;
+};
+
 // Contacto directo
 
 export const trackWhatsAppClick = (

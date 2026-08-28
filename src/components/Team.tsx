@@ -36,12 +36,7 @@ interface TeamProps {
   compact?: boolean;
 }
 
-const compactOrder = [
-  'Cristina Recio',
-  'Dani Pereira',
-  'Karen Montero',
-  'Sergio Cerdá',
-];
+const compactOrder = ['Cristina Recio', 'Dani Pereira', 'Sergio Cerdá'];
 
 export const Team = ({
   label,
@@ -62,7 +57,7 @@ export const Team = ({
           verdad.
         </>
       ),
-      role: 'Ingeniero de Software',
+      role: 'Responsable de desarrollo de apps',
       linkedin: 'https://www.linkedin.com/in/sergio-cerda-hervas/',
       github: 'https://github.com/sergio-cravas',
       imageUrl: '/img/team/sergi.png',
@@ -80,7 +75,7 @@ export const Team = ({
           <strong className='font-extrabold'>sensibilidad visual</strong>.
         </>
       ),
-      role: 'Diseñadora gráfica',
+      role: 'Responsable de diseño y branding',
       linkedin: 'https://www.linkedin.com/in/cristina-recio/',
       imageUrl: '/img/team/cristina.jpg',
       mail: 'c.recio@36web.es',
@@ -102,26 +97,27 @@ export const Team = ({
           .
         </>
       ),
-      role: 'Ingeniero de Software',
+      role: 'Responsable de diseño web y marketing digital',
       github: 'https://github.com/danipereiradev',
       imageUrl: '/img/team/dani.png',
       mail: 'hola@36web.es',
     },
-    {
-      fullName: 'Karen Montero',
-      description: (
-        <>
-          Especializada en{' '}
-          <strong className='font-extrabold'>diseño y desarrollo</strong> web
-          con WordPress, con especial atención a la experiencia de usuario y al{' '}
-          <strong className='font-extrabold'>diseño UX/UI</strong>.
-        </>
-      ),
-      role: 'Desarrolladora web',
-      linkedin: 'https://www.linkedin.com/in/karenmonrose/',
-      imageUrl: '',
-      mail: 'k.montero@36web.es',
-    },
+    // Hasta que tenga foto, no la mostramos.
+    // {
+    //   fullName: 'Karen Montero',
+    //   description: (
+    //     <>
+    //       Especializada en{' '}
+    //       <strong className='font-extrabold'>diseño y desarrollo</strong> web
+    //       con WordPress, con especial atención a la experiencia de usuario y al{' '}
+    //       <strong className='font-extrabold'>diseño UX/UI</strong>.
+    //     </>
+    //   ),
+    //   role: 'Desarrolladora web',
+    //   linkedin: 'https://www.linkedin.com/in/karenmonrose/',
+    //   imageUrl: '',
+    //   mail: 'k.montero@36web.es',
+    // },
   ];
 
   return (
@@ -200,7 +196,7 @@ export const Team = ({
 
                     <div
                       className={`member-info flex flex-col rounded-b-xl bg-surface-muted p-content-pad text-start text-lg text-ink-dark ${
-                        compact ? 'min-h-[8.25rem]' : 'min-h-[13.5rem]'
+                        compact ? 'min-h-[9.75rem]' : 'min-h-[13.5rem]'
                       }`}
                     >
                       <h3 className='text-2xl font-bold text-accent'>

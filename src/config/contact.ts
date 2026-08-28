@@ -29,6 +29,9 @@ export const ADS_SHOP_WHATSAPP_MESSAGE =
 export const ADS_MAINTENANCE_WHATSAPP_MESSAGE =
   'Hola, vengo de Google y quiero información sobre mantenimiento web.';
 
+export const ADS_LAUNCH_WHATSAPP_MESSAGE =
+  'Hola, quiero reservar la oferta de lanzamiento: web profesional por 299 €.';
+
 // Mensaje para el botón de WhatsApp de /web-profesional (landing de packs).
 export const WEB_PROFESIONAL_WHATSAPP_MESSAGE =
   'Hola, quiero información sobre la web profesional (249 € / 349 €).';
@@ -91,6 +94,9 @@ export const ADS_SHOP_LANDING_PATH = '/landing-tiendas-online';
 
 export const ADS_MAINTENANCE_LANDING_PATH = '/landing-mantenimiento-web';
 
+/** Landing de oferta de lanzamiento paquetizada. noindex. */
+export const ADS_LAUNCH_LANDING_PATH = '/landing-web-profesional';
+
 export const isAdsWebLandingPath = (pathname: string): boolean => {
   const path = normalizePath(pathname);
   return path === ADS_LANDING_PATH || path === ADS_LANDING_PATH_N;
@@ -102,10 +108,14 @@ export const isAdsShopLandingPath = (pathname: string): boolean =>
 export const isAdsMaintenanceLandingPath = (pathname: string): boolean =>
   normalizePath(pathname) === ADS_MAINTENANCE_LANDING_PATH;
 
+export const isAdsLaunchLandingPath = (pathname: string): boolean =>
+  normalizePath(pathname) === ADS_LAUNCH_LANDING_PATH;
+
 export const isAdsLandingPath = (pathname: string): boolean =>
   isAdsWebLandingPath(pathname) ||
   isAdsShopLandingPath(pathname) ||
-  isAdsMaintenanceLandingPath(pathname);
+  isAdsMaintenanceLandingPath(pathname) ||
+  isAdsLaunchLandingPath(pathname);
 
 export const isSiteWebPath = (pathname: string): boolean => {
   const path = normalizePath(pathname);
@@ -122,6 +132,7 @@ export const getWhatsAppMessageForPath = (pathname: string): string => {
       ? ECOMMERCE_WHATSAPP_MESSAGE
       : ADS_SHOP_WHATSAPP_MESSAGE;
   }
+  if (isAdsLaunchLandingPath(path)) return ADS_LAUNCH_WHATSAPP_MESSAGE;
   if (isAdsWebLandingPath(path)) return ADS_WHATSAPP_MESSAGE;
   if (isAdsMaintenanceLandingPath(path))
     return ADS_MAINTENANCE_WHATSAPP_MESSAGE;

@@ -51,6 +51,28 @@ export const paymentConfigs: Record<string, PaymentConfig> = {
     conditions:
       '*Servicio con permanencia mínima de 6 meses.\nLa suscripción se renueva mensualmente y, una vez cumplido el periodo mínimo, puede cancelarse según las condiciones acordadas.',
   },
+  'reserva-web-profesional': {
+    id: 'reserva-web-profesional',
+    clientName: 'Oferta de lanzamiento',
+    serviceName: 'Reserva — Web profesional',
+    description:
+      'Reserva de 99 € + IVA para la web profesional de lanzamiento (299 € + IVA). El resto (200 € + IVA) se paga antes de la publicación. Entrega en 72 h máximo.',
+    amount: 99,
+    vatRate: 21,
+    paymentType: 'one_time',
+    stripePaymentLink: 'https://buy.stripe.com/5kQ9ATcWL0Y0dfDaFI4AU01',
+    includes: [
+      'Reserva de una de las 10 plazas de lanzamiento',
+      'Web profesional a 299 € + IVA',
+      'Logo si no tienes',
+      'Textos, fotos y contenidos según tu sector',
+      'Hosting y dominio incluidos',
+      'Entrega en 72 h máximo',
+      'Sin permanencia. La web es tuya',
+    ],
+    conditions:
+      '*El importe de esta página es solo la reserva (99 € + IVA).\nEl resto (200 € + IVA) se paga antes de la publicación.',
+  },
   'mantenimiento-base': {
     id: 'mantenimiento-base',
     clientName: '[CLIENTE]',

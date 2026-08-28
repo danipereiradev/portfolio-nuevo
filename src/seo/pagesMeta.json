@@ -19,6 +19,11 @@
     "title": "Diseño web | 36web",
     "description": "Te montamos la web de tu negocio: estructura, diseño, móvil, formulario y WhatsApp. Te decimos precio y plazos antes de cobrar nada."
   },
+  "/landing-web-profesional": {
+    "title": "Una web profesional para arrancar tu negocio por 299 € + IVA | 36web",
+    "description": "Oferta de lanzamiento: web profesional por 299 € + IVA. Logo si no tienes. Textos y fotos de tu sector. Reserva 99 € + IVA. Hosting y dominio. Entrega en 72 h.",
+    "robots": "noindex, nofollow, noarchive"
+  },
   "/landing-tiendas-online": {
     "title": "Tiendas online | 36web",
     "description": "Te montamos la tienda online: catálogo, pagos, envíos y móvil. WooCommerce, Shopify o a medida. Te decimos precio y plazos antes de cobrar nada."

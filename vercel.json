@@ -192,6 +192,10 @@
       "destination": "/landing-diseno-web/index.html"
     },
     {
+      "source": "/landing-web-profesional",
+      "destination": "/landing-web-profesional/index.html"
+    },
+    {
       "source": "/landing-tiendas-online",
       "destination": "/landing-tiendas-online/index.html"
     },

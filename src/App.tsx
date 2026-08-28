@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import ContactFormModal from './components/ContactFormModal';
 import CrispChat from './components/CrispChat';
 import LandingWeb from './pages/LandingWeb';
+import LandingWebProfesional from './pages/LandingWebProfesional';
 import LandingShop from './pages/LandingShop';
 import LandingMaintenance from './pages/LandingMaintenance';
 import DisenoWeb from './pages/DisenoWeb';
@@ -27,6 +28,7 @@ import {
 import {
   ADS_LANDING_PATH,
   ADS_LANDING_PATH_N,
+  ADS_LAUNCH_LANDING_PATH,
   ADS_MAINTENANCE_LANDING_PATH,
   ADS_SHOP_LANDING_PATH,
   ABOUT_PATH,
@@ -83,6 +85,10 @@ function AppContent() {
         <Route
           path={ADS_LANDING_PATH_N}
           element={<Navigate to={ADS_LANDING_PATH} replace />}
+        />
+        <Route
+          path={ADS_LAUNCH_LANDING_PATH}
+          element={<LandingWebProfesional />}
         />
         <Route path={ADS_SHOP_LANDING_PATH} element={<LandingShop />} />
         <Route

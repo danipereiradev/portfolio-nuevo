@@ -8,17 +8,17 @@ import TestimonialsBadge from './TestimonialsBadge';
 interface HeroCtaProps {
   label?: string;
   title: string;
-  description: ReactNode;
+  description?: ReactNode;
   buttonText?: string;
   buttonHref?: string;
   backgroundUrl?: string;
-  heroType?: 'form' | 'video' | 'clean';
+  heroType?: 'form' | 'video' | 'clean' | 'offer';
   videoUrl?: string;
   hasButton: boolean;
   hasBackground: boolean;
-  formTitle: string;
-  formDescription: string;
-  formSectionInfo: string;
+  formTitle?: string;
+  formDescription?: string;
+  formSectionInfo?: string;
   hasReviewBadge: boolean;
   isTopHero?: boolean;
   showProjectType?: boolean;
@@ -28,6 +28,11 @@ interface HeroCtaProps {
   formId?: string;
   breadcrumb?: ReactNode;
   animateEntrance?: boolean;
+  labelNote?: ReactNode;
+  offerContent?: ReactNode;
+  buttonClassName?: string;
+  belowDescription?: ReactNode;
+  ctaContent?: ReactNode;
 }
 
 const HeroCta = ({
@@ -41,9 +46,9 @@ const HeroCta = ({
   videoUrl,
   hasButton,
   hasBackground,
-  formTitle,
-  formDescription,
-  formSectionInfo,
+  formTitle = '',
+  formDescription = '',
+  formSectionInfo = '',
   hasReviewBadge,
   isTopHero = false,
   showProjectType = false,
@@ -53,8 +58,14 @@ const HeroCta = ({
   formId,
   breadcrumb,
   animateEntrance = true,
+  labelNote,
+  offerContent,
+  buttonClassName = '',
+  belowDescription,
+  ctaContent,
 }: HeroCtaProps) => {
   const TitleTag = isTopHero ? 'h1' : 'h2';
+  const isClean = heroType === 'clean';
   const sectionRef = useRef<HTMLElement>(null);
   const [entered, setEntered] = useState(isTopHero);
 
@@ -114,17 +125,24 @@ const HeroCta = ({
       <div className='container relative z-30 mx-auto flex flex-col items-center gap-3 md:gap-4'>
         {breadcrumb}
         <div
-          className={`flex w-full flex-col items-center gap-page-gap text-center md:flex-row md:justify-center ${heroType === 'clean' ? '' : 'md:text-start'}`}
+          className={`flex w-full flex-col items-center gap-page-gap text-center md:justify-center ${
+            isClean ? '' : 'md:flex-row md:text-start'
+          }`}
         >
           <div
-            className={`hero-cta-copy flex w-full min-w-0 flex-col items-center gap-page-gap md:items-start ${
-              heroType === 'clean' ? '' : 'md:w-1/2'
+            className={`hero-cta-copy flex w-full min-w-0 flex-col items-center gap-page-gap ${
+              isClean ? '' : 'md:items-start md:w-1/2'
             }`}
           >
-            <div className='page-title-block'>
+            <div className={`page-title-block ${isClean ? 'items-center' : ''}`}>
               {label ? (
                 <span className='hero-cta-label text-md uppercase rounded-lg font-extrabold text-accent underline'>
                   {label}
+                </span>
+              ) : null}
+              {labelNote ? (
+                <span className='hero-cta-label text-lg font-extrabold text-ink-dark'>
+                  {labelNote}
                 </span>
               ) : null}
               <TitleTag className='hero-cta-title text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark'>
@@ -132,14 +150,23 @@ const HeroCta = ({
               </TitleTag>
               {animateEntrance ? (
                 <span
-                  className='hero-cta-underline h-1 w-16 bg-brand'
+                  className={`hero-cta-underline h-1 w-16 bg-brand ${
+                    isClean ? 'mx-auto' : ''
+                  }`}
                   aria-hidden='true'
                 />
               ) : null}
-              <p className='hero-cta-desc text-xl md:text-2xl text-ink-dark md:text-justify'>
-                {description}
-              </p>
+              {description ? (
+                <div
+                  className={`hero-cta-desc text-xl md:text-2xl text-ink-dark ${
+                    isClean ? 'max-w-3xl text-center' : 'md:text-justify'
+                  }`}
+                >
+                  {description}
+                </div>
+              ) : null}
             </div>
+            {belowDescription}
             {highlights && highlights.length > 0 ? (
               <ul className='hero-cta-highlights grid w-full grid-cols-1 gap-item-gap text-left md:grid-cols-2'>
                 {highlights.map((item) => (
@@ -158,16 +185,20 @@ const HeroCta = ({
                 <TestimonialsBadge />
               </div>
             ) : null}
-            {hasButton ? (
+            {ctaContent ? (
+              <div className='hero-cta-badge w-full'>{ctaContent}</div>
+            ) : hasButton ? (
               <Button
-                className='hero-cta-badge mx-auto md:mx-0 place-self-start m-0'
+                className={`hero-cta-badge m-0 ${
+                  isClean ? 'mx-auto' : 'mx-auto md:mx-0 place-self-start'
+                } ${buttonClassName}`.trim()}
                 href={buttonHref}
               >
                 {buttonText}
               </Button>
             ) : null}
           </div>
-          {heroType !== 'clean' ? (
+          {!isClean ? (
             heroType === 'form' ? (
               <ContactFormHero
                 id={formId}
@@ -179,6 +210,8 @@ const HeroCta = ({
                 projectTypes={projectTypes}
                 className={animateEntrance ? 'hero-cta-form' : undefined}
               />
+            ) : heroType === 'offer' ? (
+              offerContent
             ) : (
               <div className='flex justify-end items-center md:w-1/2 z-10 '>
                 <ReactPlayer width={450} controls src={videoUrl} />
