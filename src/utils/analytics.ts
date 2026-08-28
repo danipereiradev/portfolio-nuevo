@@ -242,18 +242,37 @@ const THANKYOU_TRACKED_KEY = 'launch-reserve-thankyou-tracked';
 
 const ADS_CONVERSION_RESERVA_PAGO = 'ads_conversion_ReservaPago_1';
 
+/** Conversión oficial Ads: reserva pagada (oferta Web 299). */
+export const GOOGLE_ADS_LAUNCH_RESERVE_PAID_SEND_TO =
+  'AW-18305239496/aCsFCL3PvekcEMiTz5hE';
+
+const LAUNCH_THANKYOU_PATH = '/pago/gracias/web-299';
+
+let launchReserveThankYouLocked = false;
+
 /**
  * Conversión de reserva pagada (página de gracias).
  * Llamar UNA vez al cargar /pago/gracias/web-299.
+ * No usar en /pago/gracias ni en ninguna otra ruta.
  */
 export const trackLaunchReserveThankYou = (): void => {
   if (typeof window === 'undefined') return;
 
+  const path = window.location.pathname.replace(/\/+$/, '') || '/';
+  if (path !== LAUNCH_THANKYOU_PATH) return;
+
+  if (launchReserveThankYouLocked) return;
   try {
     if (sessionStorage.getItem(THANKYOU_TRACKED_KEY) === '1') return;
+  } catch {
+    // Safari privado: el candado de módulo evita el doble disparo en esta carga.
+  }
+
+  launchReserveThankYouLocked = true;
+  try {
     sessionStorage.setItem(THANKYOU_TRACKED_KEY, '1');
   } catch {
-    // Safari privado: disparar igual, sin candado persistente.
+    // Sin sessionStorage: el candado de módulo sigue valiendo en esta sesión JS.
   }
 
   trackEvent('purchase', {
@@ -284,13 +303,10 @@ export const trackLaunchReserveThankYou = (): void => {
       value: 99,
       currency: 'EUR',
     });
-    if (GOOGLE_ADS_LAUNCH_RESERVE_SEND_TO) {
-      window.gtag?.('event', 'conversion', {
-        send_to: GOOGLE_ADS_LAUNCH_RESERVE_SEND_TO,
-        value: 99,
-        currency: 'EUR',
-      });
-    }
+    window.gtag?.('event', 'conversion', {
+      send_to: GOOGLE_ADS_LAUNCH_RESERVE_PAID_SEND_TO,
+      transaction_id: '',
+    });
   } catch {
     // La analítica nunca debe romper la experiencia del usuario.
   }
