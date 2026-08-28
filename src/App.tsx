@@ -53,6 +53,10 @@ function AppContent() {
       <>
         <Header hideNav />
         <Routes>
+          <Route
+            path='/pago/gracias/web-299'
+            element={<PagoGracias variant='web-299' />}
+          />
           <Route path='/pago/gracias' element={<PagoGracias />} />
           <Route path='/pago/:id' element={<Pago />} />
           <Route path='*' element={<Pago />} />

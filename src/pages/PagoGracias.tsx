@@ -1,18 +1,41 @@
 import { useEffect } from 'react';
 import {
+  PAYMENT_LAUNCH_SUCCESS_PATH,
   PAYMENT_ROBOTS,
   PAYMENT_SUCCESS_PATH,
 } from '../config/payments';
+import { trackLaunchReserveThankYou } from '../utils/analytics';
 
 const SITE_URL = 'https://36web.es';
 
-const PagoGracias = () => {
-  useEffect(() => {
-    const title = 'Pago recibido | 36web';
-    const description = 'Gracias. Hemos recibido tu pago.';
-    const canonicalUrl = `${SITE_URL}${PAYMENT_SUCCESS_PATH}`;
+type GraciasVariant = 'default' | 'web-299';
 
-    document.title = title;
+const COPY: Record<
+  GraciasVariant,
+  { path: string; title: string; heading: string; body: string }
+> = {
+  default: {
+    path: PAYMENT_SUCCESS_PATH,
+    title: 'Pago recibido | 36web',
+    heading: 'Pago recibido',
+    body: 'Gracias. Hemos recibido tu pago. En breve la persona encargada de tu proyecto se pondrá en contacto contigo.',
+  },
+  'web-299': {
+    path: PAYMENT_LAUNCH_SUCCESS_PATH,
+    title: 'Reserva recibida | 36web',
+    heading: 'Gracias por reservar tu web profesional con 36web',
+    body: 'En breve la persona encargada de tu proyecto se pondrá en contacto contigo.',
+  },
+};
+
+const PagoGracias = ({ variant = 'default' }: { variant?: GraciasVariant }) => {
+  const copy = COPY[variant];
+
+  useEffect(() => {
+    const description = `${copy.heading}. ${copy.body}`;
+    const canonicalUrl = `${SITE_URL}${copy.path}`;
+
+    document.title = copy.title;
 
     const setMeta = (
       attr: 'name' | 'property',
@@ -32,10 +55,10 @@ const PagoGracias = () => {
 
     setMeta('name', 'description', description);
     setMeta('name', 'robots', PAYMENT_ROBOTS);
-    setMeta('property', 'og:title', title);
+    setMeta('property', 'og:title', copy.title);
     setMeta('property', 'og:description', description);
     setMeta('property', 'og:url', canonicalUrl);
-    setMeta('name', 'twitter:title', title);
+    setMeta('name', 'twitter:title', copy.title);
     setMeta('name', 'twitter:description', description);
 
     let canonicalLink = document.querySelector<HTMLLinkElement>(
@@ -48,10 +71,14 @@ const PagoGracias = () => {
     }
     canonicalLink.setAttribute('href', canonicalUrl);
 
+    if (variant === 'web-299') {
+      trackLaunchReserveThankYou();
+    }
+
     return () => {
       document.querySelector('meta[name="robots"]')?.remove();
     };
-  }, []);
+  }, [copy.body, copy.heading, copy.path, copy.title, variant]);
 
   return (
     <main className='flex min-h-screen items-center justify-center bg-white px-4 text-center text-[#101010]'>
@@ -60,10 +87,10 @@ const PagoGracias = () => {
           className='text-2xl font-bold md:text-3xl'
           style={{ fontFamily: "'Space Grotesk', sans-serif" }}
         >
-          Pago recibido
+          {copy.heading}
         </h1>
         <p className='mt-4 text-base leading-relaxed text-[#4d4d4c]'>
-          Gracias. Hemos recibido tu pago.
+          {copy.body}
         </p>
       </div>
     </main>

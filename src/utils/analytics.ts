@@ -238,6 +238,64 @@ export const trackGoogleAdsLaunchReserveConversion = (
   return false;
 };
 
+const THANKYOU_TRACKED_KEY = 'launch-reserve-thankyou-tracked';
+
+const ADS_CONVERSION_RESERVA_PAGO = 'ads_conversion_ReservaPago_1';
+
+/**
+ * Conversión de reserva pagada (página de gracias).
+ * Llamar UNA vez al cargar /pago/gracias/web-299.
+ */
+export const trackLaunchReserveThankYou = (): void => {
+  if (typeof window === 'undefined') return;
+
+  try {
+    if (sessionStorage.getItem(THANKYOU_TRACKED_KEY) === '1') return;
+    sessionStorage.setItem(THANKYOU_TRACKED_KEY, '1');
+  } catch {
+    // Safari privado: disparar igual, sin candado persistente.
+  }
+
+  trackEvent('purchase', {
+    event_category: 'ecommerce',
+    event_label: 'landing-web-profesional',
+    value: 99,
+    currency: 'EUR',
+    item_name: 'Reserva web profesional',
+  });
+
+  try {
+    window.gtag?.('event', 'purchase', {
+      value: 99,
+      currency: 'EUR',
+      items: [
+        {
+          item_id: 'reserva-web-profesional',
+          item_name: 'Reserva web profesional',
+          price: 99,
+          quantity: 1,
+        },
+      ],
+    });
+    window.gtag?.('event', ADS_CONVERSION_RESERVA_PAGO, {
+      page_path: window.location.pathname,
+      page_title: document.title,
+      event_category: 'ecommerce',
+      value: 99,
+      currency: 'EUR',
+    });
+    if (GOOGLE_ADS_LAUNCH_RESERVE_SEND_TO) {
+      window.gtag?.('event', 'conversion', {
+        send_to: GOOGLE_ADS_LAUNCH_RESERVE_SEND_TO,
+        value: 99,
+        currency: 'EUR',
+      });
+    }
+  } catch {
+    // La analítica nunca debe romper la experiencia del usuario.
+  }
+};
+
 // Contacto directo
 
 export const trackWhatsAppClick = (

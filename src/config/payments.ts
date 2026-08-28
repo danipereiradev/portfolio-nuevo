@@ -1,6 +1,9 @@
 /** URL de retorno tras el pago. En Stripe Payment Link, usarla como success URL. */
 export const PAYMENT_SUCCESS_PATH = '/pago/gracias';
 
+/** Gracias de la oferta de lanzamiento 299 €. Success URL del Payment Link. */
+export const PAYMENT_LAUNCH_SUCCESS_PATH = '/pago/gracias/web-299';
+
 export const PAYMENT_ROBOTS = 'noindex, nofollow, noarchive';
 
 export type PaymentType = 'one_time' | 'subscription';
@@ -60,6 +63,7 @@ export const paymentConfigs: Record<string, PaymentConfig> = {
     amount: 99,
     vatRate: 21,
     paymentType: 'one_time',
+    // Success URL en Stripe: https://36web.es/pago/gracias/web-299
     stripePaymentLink: 'https://buy.stripe.com/5kQ9ATcWL0Y0dfDaFI4AU01',
     includes: [
       'Reserva de una de las 10 plazas de lanzamiento',

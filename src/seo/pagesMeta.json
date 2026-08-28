@@ -75,5 +75,10 @@
     "title": "Pago recibido | 36web",
     "description": "Gracias. Hemos recibido tu pago.",
     "robots": "noindex, nofollow, noarchive"
+  },
+  "/pago/gracias/web-299": {
+    "title": "Reserva recibida | 36web",
+    "description": "Gracias por reservar tu web profesional con 36web. En breve la persona encargada de tu proyecto se pondrá en contacto contigo.",
+    "robots": "noindex, nofollow, noarchive"
   }
 }

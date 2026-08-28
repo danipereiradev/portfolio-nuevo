@@ -42,7 +42,7 @@ const LaunchOfferCard = ({ className = '' }: { className?: string }) => {
             <Clock className='h-5 w-5 shrink-0 text-accent' aria-hidden />
             Entrega en {LAUNCH_DELIVERY_HOURS} h máximo
           </p>
-          <ul className='space-y-2 text-left text-sm text-ink-dark md:text-base'>
+          <ul className='mx-auto w-fit space-y-2 text-left text-sm text-ink-dark md:mx-0 md:text-base'>
             {[
               'Logo si no tienes',
               'Textos y fotos de tu sector',

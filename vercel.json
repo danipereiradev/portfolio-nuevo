@@ -241,6 +241,10 @@
     },
     { "source": "/aviso-legal", "destination": "/aviso-legal/index.html" },
     { "source": "/pago", "destination": "/pago/index.html" },
+    {
+      "source": "/pago/gracias/web-299",
+      "destination": "/pago/gracias/web-299/index.html"
+    },
     { "source": "/pago/gracias", "destination": "/pago/gracias/index.html" },
     { "source": "/pago/:id", "destination": "/pago/index.html" },
     { "source": "/(.*)", "destination": "/index.html" }

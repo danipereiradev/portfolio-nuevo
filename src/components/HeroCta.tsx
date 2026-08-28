@@ -134,7 +134,11 @@ const HeroCta = ({
               isClean ? '' : 'md:items-start md:w-1/2'
             }`}
           >
-            <div className={`page-title-block ${isClean ? 'items-center' : ''}`}>
+            <div
+              className={`page-title-block w-full items-center ${
+                isClean ? '' : 'md:items-start'
+              }`}
+            >
               {label ? (
                 <span className='hero-cta-label text-md uppercase rounded-lg font-extrabold text-accent underline'>
                   {label}
@@ -150,16 +154,16 @@ const HeroCta = ({
               </TitleTag>
               {animateEntrance ? (
                 <span
-                  className={`hero-cta-underline h-1 w-16 bg-brand ${
-                    isClean ? 'mx-auto' : ''
+                  className={`hero-cta-underline h-1 w-16 bg-brand mx-auto ${
+                    isClean ? '' : 'md:mx-0'
                   }`}
                   aria-hidden='true'
                 />
               ) : null}
               {description ? (
                 <div
-                  className={`hero-cta-desc text-xl md:text-2xl text-ink-dark ${
-                    isClean ? 'max-w-3xl text-center' : 'md:text-justify'
+                  className={`hero-cta-desc text-xl md:text-2xl text-ink-dark text-center ${
+                    isClean ? 'max-w-3xl' : 'md:text-justify'
                   }`}
                 >
                   {description}

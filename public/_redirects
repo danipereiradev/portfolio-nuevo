@@ -54,6 +54,7 @@
 /politica-de-cookies            /politica-de-cookies/index.html            200
 /aviso-legal                    /aviso-legal/index.html                    200
 /pago                           /pago/index.html                           200
+/pago/gracias/web-299           /pago/gracias/web-299/index.html           200
 /pago/gracias                   /pago/gracias/index.html                   200
 /pago/*                         /pago/index.html                           200
 

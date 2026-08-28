@@ -301,6 +301,12 @@ img {
     animation: hero-rule 0.5s 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
+  @media (max-width: 767px) {
+    .hero-cta-enter .hero-cta-underline {
+      transform-origin: center;
+    }
+  }
+
   .page-hero-compact .hero-cta-enter .hero-cta-underline {
     transform-origin: center;
   }
