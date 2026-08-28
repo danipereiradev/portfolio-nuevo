@@ -36,16 +36,11 @@ const Maintenance = () => {
   return (
     <main className='flex min-h-screen items-center justify-center bg-ink-dark px-page-x py-page-y'>
       <div className='flex max-w-lg flex-col gap-page-gap'>
-        <p
-          className='flex items-center text-xl font-extrabold md:text-2xl'
-          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-        >
-          <span className='font-mono text-brand-light'>&gt;</span>
-          <span className='ml-1 font-mono tracking-tight text-white'>
-            36web
-          </span>
-          <span className='font-mono font-normal text-ink-light'> .es</span>
-          <span className='ml-0 animate-pulse font-mono text-brand'>_</span>
+        <p className='flex items-baseline font-display text-[calc(1.25rem*1.15)] font-normal tracking-tight md:text-[calc(1.5rem*1.15)]'>
+          <span className='text-brand-light'>&gt;&nbsp;</span>
+          <span className='font-bold text-white'>36Web</span>
+          <span className='text-ink-light'>.es</span>
+          <span className='animate-pulse text-brand'>&nbsp;_</span>
         </p>
 
         <span className='block h-1 w-10 bg-brand' />

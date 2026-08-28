@@ -62,22 +62,14 @@ const Footer = () => {
           {!isAdsLanding && (
             <div className='lg:col-span-1 text-center md:text-left lg:pr-6 xl:pr-8'>
               <div className='flex items-center mb-6 justify-center md:justify-start'>
-                <span
-                  className='text-sm md:text-base whitespace-nowrap font-extrabold flex items-center gap-1'
-                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                >
-                  <span className='text-ink-dark font-mono text-base md:text-lg'>
-                    &gt;
+                <span className='flex items-baseline whitespace-nowrap font-display text-[calc(0.875rem*1.15)] font-normal tracking-tight md:text-[calc(1rem*1.15)]'>
+                  <span className='text-[calc(1rem*1.15)] text-ink-dark md:text-[calc(1.125rem*1.15)]'>
+                    &gt;&nbsp;
                   </span>
-                  <span className='text-ink-dark font-mono tracking-tight'>
-                    36web
-                  </span>
-                  <span className='text-ink-dark font-mono font-normal'>
-                    {' '}
-                    .es
-                  </span>
-                  <span className='text-ink-dark font-mono text-sm md:text-base animate-pulse'>
-                    _
+                  <span className='font-bold text-ink-dark'>36Web</span>
+                  <span className='text-ink-dark'>.es</span>
+                  <span className='animate-pulse text-[calc(0.875rem*1.15)] text-ink-dark md:text-[calc(1rem*1.15)]'>
+                    &nbsp;_
                   </span>
                 </span>
               </div>

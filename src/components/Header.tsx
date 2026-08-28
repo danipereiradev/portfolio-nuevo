@@ -45,13 +45,18 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
   const [typedText, setTypedText] = useState('');
   const [hasTyped, setHasTyped] = useState(false);
 
-  const fullText = '36web .es';
-  const namePart = hasTyped ? '36web' : typedText.split(' ')[0];
+  const fullText = '36Web.es';
+  const dotIndex = typedText.indexOf('.');
+  const namePart = hasTyped
+    ? '36Web'
+    : dotIndex === -1
+      ? typedText
+      : typedText.slice(0, dotIndex);
   const domainPart = hasTyped
     ? '.es'
-    : typedText.includes(' .')
-      ? typedText.split(' ')[1]
-      : '';
+    : dotIndex === -1
+      ? ''
+      : typedText.slice(dotIndex);
 
   useEffect(() => {
     if (hasTyped) return undefined;
@@ -71,21 +76,14 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
   }, [hasTyped]);
 
   const brand = (
-    <span
-      className='flex items-center whitespace-nowrap text-3xl font-extrabold md:text-3xl'
-      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-    >
-      <span className='font-mono text-xl text-ink-dark md:text-3xl'>&gt;</span>
-      <span className='ml-1 font-mono tracking-tight text-ink-dark'>
-        {namePart}
+    <span className='flex items-baseline whitespace-nowrap font-display text-[calc(1.875rem*1.15)] font-normal tracking-tight'>
+      <span className='text-[calc(1.25rem*1.15)] text-ink-dark md:text-[calc(1.875rem*1.15)]'>
+        &gt;&nbsp;
       </span>
-      {domainPart ? (
-        <span className='ml-[0.15em] font-mono font-normal text-ink-dark'>
-          {domainPart}
-        </span>
-      ) : null}
-      <span className='ml-0 animate-pulse font-mono text-xl text-ink-dark'>
-        _
+      <span className='font-bold text-ink-dark'>{namePart}</span>
+      {domainPart ? <span className='text-ink-dark'>{domainPart}</span> : null}
+      <span className='animate-pulse text-[calc(1.25rem*1.15)] text-ink-dark md:text-[calc(1.875rem*1.15)]'>
+        &nbsp;_
       </span>
     </span>
   );
@@ -108,7 +106,7 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
 
             {hideNav ? null : isAdsLanding ? (
               <nav
-                className='flex shrink-0 items-center justify-end gap-1'
+                className='flex shrink-0 items-center justify-end gap-4'
                 aria-label='Contacto'
               >
                 <a
