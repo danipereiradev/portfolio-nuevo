@@ -473,6 +473,15 @@ export const trackPlayReviewVideo = (params: {
   });
 };
 
+/** Clic en “Hablar con un cliente”. Solo GA4; no es conversión de Ads. */
+export const trackContactClientReference = () => {
+  trackEvent('contact_client_reference', {
+    event_category: 'engagement',
+    event_label: 'Juanvi Raga',
+    location_section: 'Testimonials',
+  });
+};
+
 // Genéricos / otros
 
 export const trackButtonClick = (buttonName: string, locationSection: string) => {

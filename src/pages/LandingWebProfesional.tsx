@@ -365,7 +365,7 @@ const LandingWebProfesional = () => {
         steps={processSteps}
       />
 
-      <Testimonials hasVideo />
+      <Testimonials hasVideo showClientReferenceCta />
 
       <Team
         label='EL EQUIPO'

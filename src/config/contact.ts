@@ -56,6 +56,9 @@ export const ABOUT_PAGE_WHATSAPP_MESSAGE =
 export const PORTFOLIO_WHATSAPP_MESSAGE =
   'Hola, he visto tu portfolio y me gustaría ver más ejemplos de proyectos similares al que necesito.';
 
+export const CLIENT_REFERENCE_WHATSAPP_MESSAGE =
+  'Hola, estoy valorando trabajar con 36web y me gustaría hablar con uno de vuestros clientes para conocer su experiencia.';
+
 export const buildWhatsAppUrl = (message: string = DEFAULT_WHATSAPP_MESSAGE) =>
   `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`;
 

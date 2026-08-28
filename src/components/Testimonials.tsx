@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import RevealOnScroll from './RevealOnScroll';
 import VideoTestimonial from './VideoTestimonial';
+import ClientReferenceCta from './ClientReferenceCta';
 
 const TRUSTINDEX_WIDGET_SRC =
   'https://cdn.trustindex.io/loader.js?7268074797d8717b3c668cae8f6';
@@ -14,11 +15,13 @@ declare global {
 interface TestimonialsProps {
   id?: string;
   hasVideo?: boolean;
+  showClientReferenceCta?: boolean;
 }
 
 function Testimonials({
   id = 'testimonials',
   hasVideo = false,
+  showClientReferenceCta = false,
 }: TestimonialsProps) {
   useEffect(() => {
     let cancelled = false;
@@ -60,7 +63,14 @@ function Testimonials({
         </RevealOnScroll>
         {hasVideo ? (
           <RevealOnScroll delayMs={90}>
-            <VideoTestimonial />
+            {showClientReferenceCta ? (
+              <div className='mx-auto flex w-full max-w-4xl flex-col items-center gap-page-gap md:flex-row md:items-center md:justify-center'>
+                <VideoTestimonial />
+                <ClientReferenceCta />
+              </div>
+            ) : (
+              <VideoTestimonial />
+            )}
           </RevealOnScroll>
         ) : null}
         <div data-src={TRUSTINDEX_WIDGET_SRC} />
