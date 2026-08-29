@@ -22,7 +22,7 @@ const Services = ({ description }: ServicesProps) => {
       title: SITE_WEB_LABEL,
       link: SITE_WEB_PATH,
       image: '/img/sections/servicio-web.webp',
-      imageAlt: 'Web de Carper Sonido',
+      imageAlt: 'Web de Clínica Veterinaria Hatena',
     },
     {
       title: SITE_SHOP_LABEL,

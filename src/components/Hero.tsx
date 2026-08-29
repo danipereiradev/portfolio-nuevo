@@ -80,7 +80,7 @@ const Hero = ({
     <section
       id='hero'
       className={`page-hero-compact bg-ink-dark text-ink-dark ${
-        videoUrl ? 'min-h-dvh' : ''
+        videoUrl ? 'min-h-svh' : ''
       }`}
     >
       {hasBackground && backgroundUrl ? (
@@ -97,7 +97,7 @@ const Hero = ({
         <video
           ref={videoRef}
           key={videoUrl}
-          className='pointer-events-none absolute inset-0 z-0 h-full w-full object-cover object-[28%_center] transform-gpu md:object-center'
+          className='pointer-events-none absolute inset-0 z-0 h-full w-full object-cover object-[28%_center] md:object-center'
           autoPlay
           muted
           loop
