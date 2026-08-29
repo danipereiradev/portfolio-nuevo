@@ -1,6 +1,11 @@
 import { useLanguage } from '../contexts/LanguageContext';
 import { useSectionView } from '../hooks/useSectionView';
 import RevealOnScroll from './RevealOnScroll';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 import {
   trackPortfolioClick,
@@ -19,7 +24,10 @@ type ProjectId =
   | 'hoyviajamos'
   | 'camisetas'
   | 'resilience'
-  | 'hatena';
+  | 'hatena'
+  | 'delish'
+  | 'sillysally'
+  | 'core';
 
 interface PortfolioProps {
   /** En /web-profesional: badges de packs y sin proyectos de tienda online. */
@@ -30,10 +38,116 @@ interface PortfolioProps {
   contained?: boolean;
 }
 
+const ALL_ORDER: ProjectId[] = [
+  'carper',
+  'chicxs',
+  'hoyviajamos',
+  'camisetas',
+  'resilience',
+  'hatena',
+  'delish',
+  'sillysally',
+  'core',
+];
 const CASOS_ORDER: ProjectId[] = ['carper', 'chicxs', 'hoyviajamos'];
-const WEB_ORDER: ProjectId[] = ['hoyviajamos', 'carper', 'hatena'];
-const SHOP_ORDER: ProjectId[] = ['chicxs', 'camisetas', 'resilience'];
-const DEFAULT_ORDER: ProjectId[] = ['carper', 'chicxs', 'hoyviajamos'];
+
+const cardClass =
+  'group relative block h-full overflow-hidden rounded-lg bg-ink-dark shadow-xl';
+
+function CasosCard({
+  title,
+  image,
+  url,
+  urlSoon,
+  exito,
+}: {
+  title: string;
+  image: string;
+  url?: string;
+  urlSoon?: boolean;
+  exito: string;
+}) {
+  return (
+    <article className='group relative flex h-full flex-col overflow-hidden rounded-lg shadow-xl'>
+      <img
+        src={image}
+        alt={`Web de ${title}`}
+        width={800}
+        height={600}
+        className='aspect-[4/3] w-full object-cover'
+        loading='lazy'
+        decoding='async'
+      />
+      <div className='absolute inset-0 bg-gradient-to-t from-ink-dark via-ink-dark/75 to-ink-dark/25' />
+      <div className='absolute inset-x-4 bottom-5 z-10 flex flex-col items-center text-center'>
+        <h3 className='text-2xl font-extrabold text-white md:text-3xl'>
+          {title}
+        </h3>
+        <span className='mt-2 block h-1 w-10 bg-brand' />
+        <p className='mt-3 text-base font-bold leading-snug text-white md:text-lg'>
+          {exito}
+        </p>
+        {url ? (
+          <a
+            href={url}
+            target='_blank'
+            rel='noopener noreferrer'
+            onClick={() => trackPortfolioClick(title)}
+            className='mt-3 inline-block text-sm font-extrabold uppercase tracking-wide text-brand-light underline decoration-2 underline-offset-4 hover:text-white md:text-base'
+          >
+            Ver la web
+          </a>
+        ) : urlSoon ? (
+          <span className='mt-3 inline-block cursor-default text-sm font-extrabold uppercase tracking-wide text-brand-light underline decoration-2 underline-offset-4 md:text-base'>
+            Ver la web
+          </span>
+        ) : null}
+      </div>
+    </article>
+  );
+}
+
+function PortfolioCard({
+  title,
+  image,
+  url,
+}: {
+  title: string;
+  image: string;
+  url?: string;
+}) {
+  const visual = (
+    <>
+      <img
+        src={image}
+        alt={`Web de ${title}`}
+        width={800}
+        height={600}
+        className='aspect-[4/3] w-full object-contain'
+        loading='lazy'
+        decoding='async'
+      />
+      <div className='absolute inset-0 bg-ink-dark/40 transition-colors duration-300 group-hover:bg-ink-dark/25' />
+    </>
+  );
+
+  if (url) {
+    return (
+      <a
+        href={url}
+        target='_blank'
+        rel='noopener noreferrer'
+        aria-label={`Ver la web de ${title}`}
+        onClick={() => trackPortfolioClick(title)}
+        className={cardClass}
+      >
+        {visual}
+      </a>
+    );
+  }
+
+  return <div className={cardClass}>{visual}</div>;
+}
 
 const Portfolio = ({
   variant = 'default',
@@ -61,7 +175,7 @@ const Portfolio = ({
     carper: {
       title: t('portfolio.carper.title'),
       description: t('portfolio.carper.desc'),
-      image: '/img/portfolio/mock-carper.png',
+      image: '/img/portfolio/mock-carper.webp',
       product: SITE_WEB_LABEL,
       productHref: SITE_WEB_PATH,
       url: 'https://carpersonido.com',
@@ -70,7 +184,7 @@ const Portfolio = ({
     chicxs: {
       title: t('portfolio.chicxs.title'),
       description: t('portfolio.chicxs.desc'),
-      image: '/img/portfolio/mock-chicxs.png',
+      image: '/img/portfolio/mock-chicxs.webp',
       product: SITE_SHOP_LABEL,
       productHref: SITE_SHOP_PATH,
       url: 'https://chicxsdelacalle.com',
@@ -79,7 +193,7 @@ const Portfolio = ({
     hoyviajamos: {
       title: t('portfolio.hoyviajamos.title'),
       description: t('portfolio.hoyviajamos.desc'),
-      image: '/img/portfolio/mock-viajamos.png',
+      image: '/img/portfolio/mock-viajamos.webp',
       product: SITE_WEB_LABEL,
       productHref: SITE_WEB_PATH,
       url: 'https://hoyviajamosweb.com',
@@ -88,7 +202,7 @@ const Portfolio = ({
     camisetas: {
       title: t('portfolio.camisetas.title'),
       description: t('portfolio.camisetas.desc'),
-      image: '/img/portfolio/mock-camisetas.png',
+      image: '/img/portfolio/mock-camisetas.webp',
       product: SITE_SHOP_LABEL,
       productHref: SITE_SHOP_PATH,
       url: 'https://camisetas-ahora.com',
@@ -112,15 +226,36 @@ const Portfolio = ({
       urlSoon: true,
       exito: t('portfolio.hatena.desc'),
     },
+    delish: {
+      title: t('portfolio.delish.title'),
+      description: t('portfolio.delish.desc'),
+      image: '/img/portfolio/mock-delish.webp',
+      product: SITE_SHOP_LABEL,
+      productHref: SITE_SHOP_PATH,
+      url: 'https://delishvegan.com/',
+      exito: t('portfolio.delish.desc'),
+    },
+    sillysally: {
+      title: t('portfolio.sillysally.title'),
+      description: t('portfolio.sillysally.desc'),
+      image: '/img/portfolio/silly-sally-mock.webp',
+      product: SITE_WEB_LABEL,
+      productHref: SITE_WEB_PATH,
+      urlSoon: true,
+      exito: t('portfolio.sillysally.desc'),
+    },
+    core: {
+      title: t('portfolio.core.title'),
+      description: t('portfolio.core.desc'),
+      image: '/img/portfolio/mock-core.webp',
+      product: SITE_WEB_LABEL,
+      productHref: SITE_WEB_PATH,
+      urlSoon: true,
+      exito: t('portfolio.core.desc'),
+    },
   };
 
-  const order = isCasos
-    ? CASOS_ORDER
-    : variant === 'web' || variant === 'web-profesional'
-      ? WEB_ORDER
-      : variant === 'tiendas'
-        ? SHOP_ORDER
-        : DEFAULT_ORDER;
+  const order = isCasos ? CASOS_ORDER : ALL_ORDER;
 
   const mapPackBadge = <
     T extends { product: string; productHref: string; url?: string },
@@ -173,56 +308,58 @@ const Portfolio = ({
             </p>
           </div>
 
-          <div className='mx-auto grid grid-cols-1 items-stretch gap-page-gap md:grid-cols-2 lg:grid-cols-3'>
-            {projects.map((project, index) => (
-              <RevealOnScroll
-                key={project.title}
-                className='h-full'
-                delayMs={index * 90}
-              >
-                <article
-                  className={`group relative flex h-full flex-col overflow-hidden rounded-lg shadow-xl ${
-                    projects.length === 1 ? 'w-full max-w-md' : ''
-                  }`}
+          {isCasos ? (
+            <div className='mx-auto grid grid-cols-1 items-stretch gap-page-gap md:grid-cols-2 lg:grid-cols-3'>
+              {projects.map((project, index) => (
+                <RevealOnScroll
+                  key={project.title}
+                  className='h-full'
+                  delayMs={index * 90}
                 >
-                  <img
-                    src={project.image}
-                    alt={`Mock de ${project.title}`}
-                    width={800}
-                    height={600}
-                    className='aspect-[4/3] w-full object-cover'
-                    loading='lazy'
-                    decoding='async'
+                  <CasosCard
+                    title={project.title}
+                    image={project.image}
+                    url={project.url}
+                    urlSoon={project.urlSoon}
+                    exito={project.exito}
                   />
-                  <div className='absolute inset-0 bg-gradient-to-t from-ink-dark via-ink-dark/75 to-ink-dark/25' />
-                  <div className='absolute inset-x-4 bottom-5 z-10 flex flex-col items-center text-center'>
-                    <h3 className='text-2xl font-extrabold text-white md:text-3xl'>
-                      {project.title}
-                    </h3>
-                    <span className='mt-2 block h-1 w-10 bg-brand' />
-                    <p className='mt-3 text-base font-bold leading-snug text-white md:text-lg'>
-                      {isCasos ? project.exito : project.description}
-                    </p>
-                    {project.url ? (
-                      <a
-                        href={project.url}
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        onClick={() => trackPortfolioClick(project.title)}
-                        className='mt-3 inline-block text-sm font-extrabold uppercase tracking-wide text-brand-light underline decoration-2 underline-offset-4 hover:text-white md:text-base'
-                      >
-                        Ver la web
-                      </a>
-                    ) : project.urlSoon ? (
-                      <span className='mt-3 inline-block cursor-default text-sm font-extrabold uppercase tracking-wide text-brand-light underline decoration-2 underline-offset-4 md:text-base'>
-                        Ver la web
-                      </span>
-                    ) : null}
-                  </div>
-                </article>
-              </RevealOnScroll>
-            ))}
-          </div>
+                </RevealOnScroll>
+              ))}
+            </div>
+          ) : (
+            <RevealOnScroll className='w-full'>
+              <Swiper
+                className='portfolio-swiper w-full'
+                modules={[Autoplay, Pagination, Navigation]}
+                loop
+                grabCursor
+                speed={700}
+                spaceBetween={32}
+                slidesPerView={1}
+                autoplay={{
+                  delay: 4000,
+                  disableOnInteraction: false,
+                  pauseOnMouseEnter: true,
+                }}
+                pagination={{ clickable: true }}
+                navigation
+                breakpoints={{
+                  768: { slidesPerView: 2, spaceBetween: 32 },
+                  1024: { slidesPerView: 3, spaceBetween: 32 },
+                }}
+              >
+                {projects.map((project) => (
+                  <SwiperSlide key={project.title}>
+                    <PortfolioCard
+                      title={project.title}
+                      image={project.image}
+                      url={project.url}
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </RevealOnScroll>
+          )}
         </div>
       </section>
     </>

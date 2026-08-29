@@ -21,20 +21,20 @@ const Services = ({ description }: ServicesProps) => {
     {
       title: SITE_WEB_LABEL,
       link: SITE_WEB_PATH,
-      image: '/img/theme-photos-CGpifH3FjOA-unsplash.jpg',
-      imageAlt: 'Diseño web a medida',
+      image: '/img/services/captura-carper-optimizada.webp',
+      imageAlt: 'Web de Carper Sonido',
     },
     {
       title: SITE_SHOP_LABEL,
       link: SITE_SHOP_PATH,
-      image: '/img/sumup-ShB9pI4mpRg-unsplash.jpg',
-      imageAlt: 'Tienda online',
+      image: '/img/sections/servicio-tiendas.webp',
+      imageAlt: 'Tienda online de Resilience',
     },
     {
       title: SITE_MAINTENANCE_LABEL,
       link: SITE_MAINTENANCE_PATH,
-      image: '/img/justin-morgan-wordpress.jpg',
-      imageAlt: 'Mantenimiento web',
+      image: '/img/sections/servicio-mantenimiento.webp',
+      imageAlt: 'Mantenimiento web en el escritorio de WordPress',
     },
   ];
 
@@ -53,7 +53,7 @@ const Services = ({ description }: ServicesProps) => {
           </h2>
           <p className='text-xl md:text-2xl text-ink-dark'>{description}</p>
         </div>
-        <div className='mx-auto grid w-full grid-cols-1 items-stretch gap-page-gap md:grid-cols-3'>
+        <div className='mx-auto  grid w-full grid-cols-1 items-stretch gap-page-gap md:grid-cols-3'>
           {mainServices.map((service, index) => (
             <RevealOnScroll
               key={service.title}
@@ -62,18 +62,18 @@ const Services = ({ description }: ServicesProps) => {
             >
               <a
                 href={service.link}
-                className='group relative block h-full overflow-hidden rounded-lg shadow-xl'
+                className='group relative block h-full overflow-hidden rounded-lg bg-ink-dark shadow-xl'
               >
                 <img
                   src={service.image}
                   alt={service.imageAlt}
                   width={800}
                   height={600}
-                  className='aspect-[4/3] w-full object-cover'
+                  className='aspect-[4/3] w-full object-contain'
                   loading='lazy'
                   decoding='async'
                 />
-                <div className='absolute inset-0 bg-ink-dark/55 transition-colors duration-300 group-hover:bg-ink-dark/40' />
+                <div className='absolute inset-0 bg-ink-dark/40 transition-colors duration-300 group-hover:bg-ink-dark/25' />
                 <h3 className='absolute inset-x-4 bottom-6 z-10 text-center text-2xl font-extrabold text-white md:text-3xl'>
                   {service.title}
                 </h3>

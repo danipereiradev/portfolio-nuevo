@@ -9,7 +9,7 @@ const cuantoCuesta: BlogPost = {
     'En 2026 una página web profesional en España suele ir de 600 € a 3.000 € + IVA, según alcance. Qué entra en el precio, qué no, y cómo pedimos presupuesto en 36web.',
   date: '2026-08-21',
   author: 'Dani Pereira',
-  image: '/img/portfolio/mock-delish.png',
+  image: '/img/portfolio/mock-delish.webp',
   imageAlt: 'Mock de página web profesional',
   category: 'Diseño web',
   content: (
@@ -22,7 +22,7 @@ const cuantoCuesta: BlogPost = {
         o que informen.
       </p>
       <BlogFigure
-        src='/img/portfolio/mock-carper.png'
+        src='/img/portfolio/mock-carper.webp'
         alt='Mock de página web profesional de Carper Sonido'
         caption='Una web de empresa no es una plantilla: estructura, fichas y un contacto que se usa.'
       />
@@ -108,7 +108,7 @@ const cuantoCuesta: BlogPost = {
         entra esto:
       </p>
       <BlogFigure
-        src='/img/portfolio/mock-viajamos.png'
+        src='/img/portfolio/mock-viajamos.webp'
         alt='Mock de página web de Hoy Viajamos'
         caption='Diseño, móvil y publicación con tu dominio. Eso es lo que entra en el precio.'
       />
@@ -152,7 +152,7 @@ const cuantoCuesta: BlogPost = {
         adapta a tu marca, tus textos y cómo te tienen que encontrar.
       </p>
       <BlogFigure
-        src='/img/portfolio/mock-core.png'
+        src='/img/portfolio/mock-core.webp'
         alt='Mock de diseño web a medida'
         caption='A medida no es más caro por sistema. Es la base que pide el caso.'
       />
@@ -165,8 +165,9 @@ const cuantoCuesta: BlogPost = {
 
       <h2>Cómo se paga y cuánto tarda</h2>
       <p>
-        Pedir presupuesto de diseño web es gratis. Nos cuentas el caso. En 24–48
-        h laborables te mandamos qué entra, cuánto sale y cuándo está. Si
+        Pedir presupuesto de diseño web es gratis. Nos cuentas el caso. Te
+        devolvemos propuesta en el mismo día: qué entra, cuánto sale y cuándo
+        está. Si
         encaja, el 50% al aceptar y arrancamos. El resto, al publicar. Si no
         encaja, lo dices y no pasa nada.
       </p>

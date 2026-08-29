@@ -1,7 +1,6 @@
 import { useMemo } from 'react';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
-import Hero from '../components/Hero';
 import { TextImage } from '../components/TextImage';
 import { TextSection } from '../components/TextSection';
 import { Team } from '../components/Team';
@@ -65,18 +64,9 @@ const Nosotros = () => {
 
   return (
     <>
-      <Hero
-        title={'Nuestra Agencia'}
-        description='Somos una agencia de diseño web y marketing digital joven. Te contamos quiénes somos y cómo trabajamos.'
-        buttonText='CONTACTA AHORA'
-        buttonHref='#contacto'
-        backgroundUrl='/img/web-design-charlesdeluvio.webp'
-        hasButton
-        hasBackground
-        hasReviewBadge={false}
-      />
-
       <TextImage
+        className='pt-[calc(var(--site-header-h)+var(--page-hero-offset)+1rem)]'
+        headingAs='h1'
         label='¿QUÉ ES 36WEB?'
         title='Agencia de diseño web y marketing digital con atención directa.'
         paragraphs={[
@@ -108,10 +98,10 @@ const Nosotros = () => {
             .
           </>,
         ]}
-        imageAlt='Equipo de 36web trabajando en diseño y desarrollo web'
+        imageAlt='Setup de 36web'
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
-        imageSrc='/img/fikret-tozak-rfNLa1HL7eY-unsplash.jpg'
+        imageSrc='/img/sections/setup-dani-36web-milo-front.webp'
       />
 
       <TextSection
@@ -198,7 +188,7 @@ const Nosotros = () => {
           'Todavía no lo tengo claro',
         ]}
         formTitle='Te llamamos'
-        formDescription='Propuesta en 24–48 h. Sin compromiso.'
+        formDescription='Propuesta en el mismo día. Sin compromiso.'
         formSectionInfo='La Agencia CTA'
         hasBackground={false}
         hasReviewBadge

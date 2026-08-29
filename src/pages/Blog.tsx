@@ -1,7 +1,6 @@
 import { useMemo } from 'react';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
-import Hero from '../components/Hero';
 import { BlogPostCard } from '../components/BlogPostCard';
 import HeroCta from '../components/HeroCta';
 import RevealOnScroll from '../components/RevealOnScroll';
@@ -54,28 +53,17 @@ const Blog = () => {
 
   return (
     <>
-      <Hero
-        title='Blog'
-        description={
-          <>
-            <strong className='font-bold'>Ideas</strong>,{' '}
-            <strong className='font-bold'>Novedades</strong> y{' '}
-            <strong className='font-bold'>Guias</strong> sobre desarrollo web,{' '}
-            <strong className='font-bold'>Posicionamiento SEO</strong> y{' '}
-            <strong className='font-bold'>Marketing digital</strong> para
-            ayudarte con tu proyecto.
-          </>
-        }
-        buttonText='CONTACTA AHORA'
-        buttonHref='#contacto'
-        backgroundUrl='/img/web-design-charlesdeluvio.webp'
-        hasButton={false}
-        hasBackground
-        hasReviewBadge={false}
-      />
-
-      <section className='page-section'>
-        <div className='container mx-auto'>
+      <section className='page-section pt-[calc(var(--site-header-h)+var(--page-hero-offset)+1rem)]'>
+        <div className='container mx-auto flex flex-col gap-page-gap'>
+          <header className='page-title-block max-w-3xl'>
+            <h1 className='text-3xl font-extrabold text-ink-dark md:text-4xl lg:text-5xl'>
+              Blog
+            </h1>
+            <p className='text-lg text-ink-dark md:text-xl'>
+              Ideas, novedades y guías sobre desarrollo web, posicionamiento SEO
+              y marketing digital para ayudarte con tu proyecto.
+            </p>
+          </header>
           <div className='mx-auto grid w-full grid-cols-1 items-stretch gap-page-gap lg:grid-cols-3'>
             {posts.map((post, index) => (
               <RevealOnScroll key={post.slug} className='h-full' delayMs={index * 90}>
@@ -88,13 +76,20 @@ const Blog = () => {
 
       <HeroCta
         title='Pide presupuesto de diseño web'
-        description='Cuéntanos qué haces y qué tiene que hacer la página. Te devolvemos propuesta en 24–48 h, con precio y plazos. Si no encaja, lo dices y no pasa nada.'
+        description={
+          <>
+            Cuéntanos qué haces y qué tiene que hacer la página. Te devolvemos{' '}
+            <strong className='font-extrabold'>propuesta</strong>{' '}
+            <strong className='font-extrabold'>en el mismo día</strong>, con
+            precio y plazos. Si no encaja, lo dices y no pasa nada.
+          </>
+        }
         buttonText='VER DISEÑO WEB'
         buttonHref={SITE_WEB_PATH}
         heroType='form'
         hasButton={false}
         formTitle='Presupuesto de diseño web'
-        formDescription='Propuesta en 24–48 h. Sin compromiso.'
+        formDescription='Propuesta en el mismo día. Sin compromiso.'
         formSectionInfo='Blog índice CTA'
         hasBackground={false}
         hasReviewBadge

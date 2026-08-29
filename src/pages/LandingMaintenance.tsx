@@ -21,7 +21,7 @@ import { ADS_MAINTENANCE_LANDING_PATH } from '../config/contact';
 
 const landingTrustPoints = [
   { icon: ShieldCheck, text: 'Actualizaciones y copias' },
-  { icon: Clock, text: 'Propuesta en 24–48 h' },
+  { icon: Clock, text: 'Propuesta el mismo día' },
   { icon: Wrench, text: 'Cambios pequeños incluidos' },
   { icon: BadgeCheck, text: 'Cancelas cuando quieras' },
 ];
@@ -37,7 +37,7 @@ const processSteps = [
     number: '2',
     title: 'Te mandamos la propuesta',
     description:
-      'En 24–48 h laborables: cuota, qué entra y desde cuándo, por escrito. Si encaja, arrancamos. Si no, lo dices y no pasa nada.',
+      'Te devolvemos propuesta en el mismo día: cuota, qué entra y desde cuándo, por escrito. Si encaja, arrancamos. Si no, lo dices y no pasa nada.',
   },
   {
     number: '3',
@@ -88,7 +88,7 @@ const faqs = [
   {
     question: '¿Hay que pagar para que me deis precio?',
     answer:
-      'No. Primero hablamos, te mandamos la propuesta en 24–48 h laborables y decides. Si encaja, arrancamos el plan.',
+      'No. Primero hablamos, te mandamos la propuesta el mismo día y decides. Si encaja, arrancamos el plan.',
   },
   {
     question: '¿Mantenéis una web que no hicisteis vosotros?',
@@ -165,20 +165,22 @@ const LandingMaintenance = () => {
         description='Actualizaciones, copias y alguien a quien escribir cuando falla. Hablas con quien la mira. Te decimos qué entra y cuánto sale, antes de cobrar nada.'
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
-        backgroundUrl='/img/justin-morgan-wordpress.jpg'
+        backgroundUrl='/img/hero/hero-mantenimiento-36web.webp'
         heroType='form'
         hasButton={false}
         formTitle='Te llamamos'
-        formDescription='Propuesta en 24–48 h. Sin compromiso.'
+        formDescription='Propuesta en el mismo día. Sin compromiso.'
         formSectionInfo='Landing mantenimiento web — Hero'
         hasBackground
+        grayscale
+        overlay='black'
         hasReviewBadge
         isTopHero
         highlights={[
           'Cuota mensual. Cerrada en la propuesta.',
           'Actualizaciones, copias y soporte.',
           'Webs propias o de otros.',
-          'Propuesta en 24–48 h laborables.',
+          'Propuesta en el mismo día.',
         ]}
       />
       <TrustBar points={landingTrustPoints} />
@@ -196,13 +198,20 @@ const LandingMaintenance = () => {
 
       <HeroCta
         title='¿Hablamos de tu web?'
-        description='Cuéntanos qué tienes ahora y qué te preocupa. Te devolvemos propuesta en 24–48 h, con cuota y alcance. Si no encaja, lo dices y no pasa nada.'
+        description={
+          <>
+            Cuéntanos qué tienes ahora y qué te preocupa. Te devolvemos{' '}
+            <strong className='font-extrabold'>propuesta</strong>{' '}
+            <strong className='font-extrabold'>en el mismo día</strong>, con
+            cuota y alcance. Si no encaja, lo dices y no pasa nada.
+          </>
+        }
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
         heroType='form'
         hasButton={false}
         formTitle='Te llamamos'
-        formDescription='Propuesta en 24–48 h. Sin compromiso.'
+        formDescription='Propuesta en el mismo día. Sin compromiso.'
         formSectionInfo='Landing mantenimiento web — CTA medio'
         hasBackground={false}
         hasReviewBadge={false}
@@ -238,13 +247,21 @@ const LandingMaintenance = () => {
       </div>
       <HeroCta
         title='Cuando quieras, empezamos'
-        description='Formulario, WhatsApp o llamada. Te devolvemos cuota y alcance por escrito en 24–48 h. El mantenimiento es mensual; cancelas cuando quieras. La web sigue siendo tuya.'
+        description={
+          <>
+            Formulario, WhatsApp o llamada. Te devolvemos cuota y alcance por
+            escrito{' '}
+            <strong className='font-extrabold'>en el mismo día</strong>. El
+            mantenimiento es mensual; cancelas cuando quieras. La web sigue
+            siendo tuya.
+          </>
+        }
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
         heroType='form'
         hasButton={false}
         formTitle='Te llamamos'
-        formDescription='Propuesta en 24–48 h. Sin compromiso.'
+        formDescription='Propuesta en el mismo día. Sin compromiso.'
         formSectionInfo='Landing mantenimiento web — CTA final'
         hasBackground={false}
         hasReviewBadge

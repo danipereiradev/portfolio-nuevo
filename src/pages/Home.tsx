@@ -32,12 +32,12 @@ const Home = () => {
         }
         buttonText='CONTACTA AHORA'
         buttonHref='#contacto'
-        backgroundUrl='/img/hero-home-poster.jpg'
-        videoUrl='/video/8523640-hd_1920_1080_25fps.mp4'
+        videoUrl='/video/hero-home.mp4'
         overlay='black'
         hasButton
         hasBackground
         hasReviewBadge={false}
+        grayscale
       />
       <TextImage
         label='¿QUÉ ES 36WEB?'
@@ -73,10 +73,10 @@ const Home = () => {
             .
           </>,
         ]}
-        imageAlt='Equipo de 36web trabajando en diseño y desarrollo web'
+        imageAlt='Setup de 36web'
         buttonText='LEER MÁS'
         buttonHref='/sobre-36web#about2'
-        imageSrc='/img/fikret-tozak-rfNLa1HL7eY-unsplash.jpg'
+        imageSrc='/img/sections/setup-dani-36web-milo-front.webp'
       />
       <Services
         description={
@@ -148,7 +148,7 @@ const Home = () => {
           'Todavía no lo tengo claro',
         ]}
         formTitle='Te llamamos'
-        formDescription='Propuesta en 24–48 h. Sin compromiso.'
+        formDescription='Propuesta en el mismo día. Sin compromiso.'
         formSectionInfo='La Agencia CTA'
         hasBackground={false}
         hasReviewBadge

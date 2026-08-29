@@ -14,6 +14,7 @@ interface HeroProps {
   hasButton: boolean;
   hasBackground: boolean;
   hasReviewBadge: boolean;
+  grayscale?: boolean;
 }
 
 const prefersReducedMotion = () =>
@@ -32,6 +33,7 @@ const Hero = ({
   hasButton,
   hasBackground,
   hasReviewBadge,
+  grayscale = false,
 }: HeroProps) => {
   const [showVideo, setShowVideo] = useState(
     () => Boolean(videoUrl) && !prefersReducedMotion(),
@@ -72,8 +74,8 @@ const Hero = ({
         <video
           key={videoUrl}
           className={`pointer-events-none absolute inset-0 h-full w-full object-cover ${
-            videoReady ? 'opacity-100' : 'opacity-0'
-          }`}
+            grayscale ? 'grayscale' : ''
+          } ${videoReady ? 'opacity-100' : 'opacity-0'}`}
           autoPlay
           muted
           loop
@@ -87,19 +89,20 @@ const Hero = ({
       ) : null}
 
       {overlayTone === 'black' ? (
-        <div className='absolute inset-0 bg-black/60' aria-hidden='true' />
+        <div className='absolute inset-0 z-[1] bg-black/60' aria-hidden='true' />
       ) : null}
       {overlayTone === 'white' ? (
-        <div className='absolute inset-0 bg-white/55' aria-hidden='true' />
+        <div className='absolute inset-0 z-[1] bg-white/70' aria-hidden='true' />
       ) : null}
 
-      {hasBackground && !titleOnly ? (
+      {hasBackground && !titleOnly && !showVideo ? (
         <div
           style={{
             backgroundImage: 'url("/img/hero-bg-texture.avif")',
           }}
-          className='absolute inset-0 w-full bg-cover bg-center bg-no-repeat opacity-20'
-        ></div>
+          className='pointer-events-none absolute inset-0 z-[2] w-full bg-cover bg-center bg-no-repeat opacity-20'
+          aria-hidden='true'
+        />
       ) : null}
 
       <div className='relative z-10 mx-auto flex w-[95%] max-w-5xl flex-col items-center text-center'>

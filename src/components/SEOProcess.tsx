@@ -20,10 +20,12 @@ const SEOProcess = ({
   title,
   subtitle,
   steps,
-  imageSrc = '/img/theme-photos-CGpifH3FjOA-unsplash.jpg',
+  imageSrc,
   imageAlt = 'Proceso de trabajo de 36web',
   stagger = true,
 }: SEOProcessProps) => {
+  const hasImage = Boolean(imageSrc);
+
   return (
     <section className='page-section relative overflow-hidden bg-surface-muted'>
       <div className='container relative z-10 mx-auto flex flex-col gap-page-gap'>
@@ -36,31 +38,41 @@ const SEOProcess = ({
           ) : null}
         </div>
 
-        <div className='flex flex-col items-center justify-center gap-page-gap md:flex-row'>
-          {stagger ? (
-            <RevealOnScroll className='group aspect-[4/3] w-full overflow-hidden rounded-lg md:w-1/2'>
-              <img
-                className='h-full w-full object-cover'
-                src={imageSrc}
-                alt={imageAlt}
-              />
-            </RevealOnScroll>
-          ) : (
-            <div className='group aspect-[4/3] w-full overflow-hidden rounded-lg md:w-1/2'>
-              <img
-                className='h-full w-full object-cover'
-                src={imageSrc}
-                alt={imageAlt}
-              />
-            </div>
-          )}
-          <div className='mx-auto md:w-1/2'>
+        <div
+          className={`flex flex-col items-center justify-center gap-page-gap ${
+            hasImage ? 'md:flex-row' : ''
+          }`}
+        >
+          {hasImage ? (
+            stagger ? (
+              <RevealOnScroll className='group aspect-[4/3] w-full overflow-hidden rounded-lg md:w-1/2'>
+                <img
+                  className='h-full w-full object-cover'
+                  src={imageSrc}
+                  alt={imageAlt}
+                />
+              </RevealOnScroll>
+            ) : (
+              <div className='group aspect-[4/3] w-full overflow-hidden rounded-lg md:w-1/2'>
+                <img
+                  className='h-full w-full object-cover'
+                  src={imageSrc}
+                  alt={imageAlt}
+                />
+              </div>
+            )
+          ) : null}
+          <div
+            className={
+              hasImage ? 'mx-auto md:w-1/2' : 'mx-auto w-full max-w-3xl'
+            }
+          >
             {steps.map((step, index) => {
               const isLast = index === steps.length - 1;
               const row = (
                 <div
                   className={`relative flex gap-content-gap ${
-                    isLast ? '' : 'pb-page-gap'
+                    isLast ? '' : 'pb-16 md:pb-20'
                   }`}
                 >
                   {index !== steps.length - 1 && (
@@ -69,8 +81,8 @@ const SEOProcess = ({
                       aria-hidden='true'
                     />
                   )}
-                  <div className='relative flex-shrink-0 z-10'>
-                    <div className='process-step-num w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#141414] text-white flex items-center justify-center text-lg md:text-2xl font-bold '>
+                  <div className='relative z-10 flex-shrink-0'>
+                    <div className='process-step-num flex h-12 w-12 items-center justify-center rounded-full bg-accent text-lg font-bold text-white md:h-16 md:w-16 md:text-2xl'>
                       {step.number}
                     </div>
                   </div>
@@ -78,7 +90,7 @@ const SEOProcess = ({
                     <h3 className='mb-heading-gap text-lg font-bold text-ink-dark md:text-xl lg:text-2xl'>
                       {step.title}
                     </h3>
-                    <p className='text-base md:text-lg lg:text-xl text-ink-dark font-medium leading-relaxed'>
+                    <p className='text-base font-medium leading-relaxed text-ink-dark md:text-lg lg:text-xl'>
                       {step.description}
                     </p>
                   </div>

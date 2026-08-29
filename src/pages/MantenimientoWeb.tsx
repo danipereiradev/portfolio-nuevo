@@ -8,7 +8,6 @@ import SEOFAQ from '../components/SEOFAQ';
 import SEOProcess from '../components/SEOProcess';
 import SEOBenefits from '../components/SEOBenefits';
 import {
-  ServiceBreadcrumb,
   ServiceIncludes,
 } from '../components/ServiceOnPage';
 import { usePageMeta } from '../hooks/usePageMeta';
@@ -33,7 +32,7 @@ const faqs = [
   {
     question: '¿Cuándo arranca?',
     answer:
-      'Primero hablamos y te mandamos la propuesta en 24–48 h laborables. Si encaja, activamos el plan. No hay que pagar para pedir precio.',
+      'Primero hablamos y te mandamos la propuesta el mismo día. Si encaja, activamos el plan. No hay que pagar para pedir precio.',
   },
   {
     question: '¿Qué incluye?',
@@ -155,7 +154,7 @@ const processSteps = [
   },
   {
     number: '2',
-    title: 'En 24–48 h te enviamos la propuesta',
+    title: 'El mismo día te enviamos la propuesta',
     description: (
       <>
         Con toda la info que nos has dado, estudiamos tu caso y preparamos un{' '}
@@ -304,25 +303,19 @@ const MantenimientoWeb = () => {
         }
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
-        backgroundUrl='/img/justin-morgan-wordpress.jpg'
+        backgroundUrl='/img/hero/hero-mantenimiento-36web.webp'
         heroType='form'
         hasButton={false}
         formTitle='Presupuesto de mantenimiento'
-        formDescription='Propuesta en 24–48 h. Sin compromiso.'
+        formDescription='Propuesta en el mismo día. Sin compromiso.'
         formSectionInfo='MantenimientoWeb Hero'
         hasBackground
+        grayscale
+        overlay='black'
         hasReviewBadge
         isTopHero
         showProjectType
         projectTypes={maintenanceProjectTypes}
-        breadcrumb={
-          <ServiceBreadcrumb
-            items={[
-              { label: 'Inicio', href: '/' },
-              { label: 'Mantenimiento web' },
-            ]}
-          />
-        }
       />
 
       <TextImage
@@ -405,7 +398,7 @@ const MantenimientoWeb = () => {
             <strong className='font-extrabold'>No es el mismo servicio</strong>.
           </>,
         ]}
-        imageSrc='/img/portfolio/mock-core.png'
+        imageSrc='/img/portfolio/mock-core.webp'
         imageAlt='Mock de página web en mantenimiento'
         imageLeft
         buttonText='PEDIR PROPUESTA'
@@ -435,8 +428,6 @@ const MantenimientoWeb = () => {
           </>
         }
         steps={processSteps}
-        imageSrc='/img/portfolio/mock-core.png'
-        imageAlt='Mock de página web de Core Generator'
       />
 
       <TextImage
@@ -455,8 +446,11 @@ const MantenimientoWeb = () => {
             <strong className='font-extrabold'>
               60 € y 100 € + IVA al mes
             </strong>
-            . En 24–48 h laborables te mandamos un número concreto, con lo que
-            entra y desde cuándo. Pedirlo es gratis y no te compromete.
+            . Te devolvemos{' '}
+            <strong className='font-extrabold'>propuesta</strong>{' '}
+            <strong className='font-extrabold'>en el mismo día</strong> con un
+            número concreto, con lo que entra y desde cuándo. Pedirlo es gratis
+            y no te compromete.
           </>,
           <>
             El mantenimiento{' '}
@@ -466,7 +460,7 @@ const MantenimientoWeb = () => {
             el más caro.
           </>,
         ]}
-        imageSrc='/img/portfolio/mock-delish.png'
+        imageSrc='/img/portfolio/mock-delish.webp'
         imageAlt='Mock de tienda online de Delish Vegan'
         imageLeft
         buttonText='PEDIR PROPUESTA'
@@ -516,7 +510,7 @@ const MantenimientoWeb = () => {
             .
           </>,
         ]}
-        imageSrc='/img/portfolio/mock-carper.png'
+        imageSrc='/img/portfolio/mock-carper.webp'
         imageAlt='Mock de página web de Carper Sonido'
         buttonText='VER DISEÑO WEB'
         buttonHref={SITE_WEB_PATH}
@@ -526,9 +520,10 @@ const MantenimientoWeb = () => {
         title='Pide presupuesto de mantenimiento web'
         description={
           <>
-            Cuéntanos qué web tienes y qué te preocupa. Te devolvemos propuesta
-            en <strong className='font-extrabold'>24–48 h</strong>, con cuota y
-            lo que entra.{' '}
+            Cuéntanos qué web tienes y qué te preocupa. Te devolvemos{' '}
+            <strong className='font-extrabold'>propuesta</strong>{' '}
+            <strong className='font-extrabold'>en el mismo día</strong>, con
+            cuota y lo que entra.{' '}
             <strong className='font-extrabold'>
               Si no encaja, lo dices y no pasa nada
             </strong>
@@ -540,7 +535,7 @@ const MantenimientoWeb = () => {
         heroType='form'
         hasButton={false}
         formTitle='Presupuesto de mantenimiento'
-        formDescription='Propuesta en 24–48 h. Sin compromiso.'
+        formDescription='Propuesta en el mismo día. Sin compromiso.'
         formSectionInfo='MantenimientoWeb CTA final'
         hasBackground={false}
         hasReviewBadge

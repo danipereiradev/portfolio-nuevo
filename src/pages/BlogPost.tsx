@@ -109,13 +109,20 @@ const BlogPost = () => {
 
       <HeroCta
         title='Pide presupuesto de diseño web'
-        description='Cuéntanos qué haces y qué tiene que hacer la página. Te devolvemos propuesta en 24–48 h, con precio y plazos. Si no encaja, lo dices y no pasa nada.'
+        description={
+          <>
+            Cuéntanos qué haces y qué tiene que hacer la página. Te devolvemos{' '}
+            <strong className='font-extrabold'>propuesta</strong>{' '}
+            <strong className='font-extrabold'>en el mismo día</strong>, con
+            precio y plazos. Si no encaja, lo dices y no pasa nada.
+          </>
+        }
         buttonText='VER DISEÑO WEB'
         buttonHref={SITE_WEB_PATH}
         heroType='form'
         hasButton={false}
         formTitle='Presupuesto de diseño web'
-        formDescription='Propuesta en 24–48 h. Sin compromiso.'
+        formDescription='Propuesta en el mismo día. Sin compromiso.'
         formSectionInfo={`Blog: ${post.slug}`}
         hasBackground={false}
         hasReviewBadge

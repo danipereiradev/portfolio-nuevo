@@ -26,13 +26,14 @@ interface HeroCtaProps {
   projectTypes?: readonly string[];
   highlights?: string[];
   formId?: string;
-  breadcrumb?: ReactNode;
   animateEntrance?: boolean;
   labelNote?: ReactNode;
   offerContent?: ReactNode;
   buttonClassName?: string;
   belowDescription?: ReactNode;
   ctaContent?: ReactNode;
+  grayscale?: boolean;
+  overlay?: 'white' | 'black';
 }
 
 const HeroCta = ({
@@ -56,16 +57,19 @@ const HeroCta = ({
   projectTypes,
   highlights,
   formId,
-  breadcrumb,
   animateEntrance = true,
   labelNote,
   offerContent,
   buttonClassName = '',
   belowDescription,
   ctaContent,
+  grayscale = false,
+  overlay = 'white',
 }: HeroCtaProps) => {
   const TitleTag = isTopHero ? 'h1' : 'h2';
   const isClean = heroType === 'clean';
+  const onDark = hasBackground && overlay === 'black';
+  const copyTone = onDark ? 'text-white' : 'text-ink-dark';
   const sectionRef = useRef<HTMLElement>(null);
   const [entered, setEntered] = useState(isTopHero);
 
@@ -100,30 +104,41 @@ const HeroCta = ({
     <section
       ref={sectionRef}
       id={isTopHero ? 'hero' : undefined}
-      style={
-        hasBackground && backgroundUrl
-          ? { backgroundImage: `url(${backgroundUrl})` }
-          : undefined
-      }
-      className={`${isTopHero ? 'page-hero' : 'page-section'} relative overflow-hidden text-ink-dark ${
+      className={`${isTopHero ? 'page-hero' : 'page-section'} relative overflow-hidden ${copyTone} ${
         isTopHero ? '' : 'flex items-center'
-      } ${
-        hasBackground ? 'bg-no-repeat bg-center bg-cover' : 'bg-accent-light'
-      } ${
+      } ${hasBackground ? '' : 'bg-accent-light'} ${
         animateEntrance ? (entered ? 'hero-cta-enter' : 'hero-cta-pending') : ''
       }`}
     >
+      {hasBackground && backgroundUrl ? (
+        <img
+          src={backgroundUrl}
+          alt=''
+          aria-hidden='true'
+          className={`pointer-events-none absolute inset-0 h-full w-full object-cover ${
+            grayscale ? 'grayscale' : ''
+          }`}
+        />
+      ) : null}
       {hasBackground ? (
-        <div
-          style={{
-            background: 'white',
-          }}
-          className='absolute inset-0 w-full bg-cover bg-center bg-no-repeat opacity-70'
-        ></div>
+        <>
+          <div
+            className={`absolute inset-0 ${onDark ? 'bg-black/60' : 'bg-white/70'}`}
+            aria-hidden='true'
+          />
+          {!onDark ? (
+            <div
+              style={{
+                backgroundImage: 'url("/img/hero-bg-texture.avif")',
+              }}
+              className='absolute inset-0 w-full bg-cover bg-center bg-no-repeat opacity-20'
+              aria-hidden='true'
+            />
+          ) : null}
+        </>
       ) : null}
 
       <div className='container relative z-30 mx-auto flex flex-col items-center gap-3 md:gap-4'>
-        {breadcrumb}
         <div
           className={`flex w-full flex-col items-center gap-page-gap text-center md:justify-center ${
             isClean ? '' : 'md:flex-row md:text-start'
@@ -140,16 +155,22 @@ const HeroCta = ({
               }`}
             >
               {label ? (
-                <span className='hero-cta-label text-md uppercase rounded-lg font-extrabold text-accent underline'>
+                <span
+                  className={`hero-cta-label text-md uppercase rounded-lg font-extrabold ${
+                    onDark
+                      ? 'text-ink-light'
+                      : 'text-accent underline'
+                  }`}
+                >
                   {label}
                 </span>
               ) : null}
               {labelNote ? (
-                <span className='hero-cta-label text-lg font-extrabold text-ink-dark'>
+                <span className={`hero-cta-label text-lg font-extrabold ${copyTone}`}>
                   {labelNote}
                 </span>
               ) : null}
-              <TitleTag className='hero-cta-title text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark'>
+              <TitleTag className={`hero-cta-title text-3xl md:text-4xl lg:text-5xl font-extrabold ${copyTone}`}>
                 {title}
               </TitleTag>
               {animateEntrance ? (
@@ -162,7 +183,7 @@ const HeroCta = ({
               ) : null}
               {description ? (
                 <div
-                  className={`hero-cta-desc text-xl md:text-2xl text-ink-dark text-center ${
+                  className={`hero-cta-desc text-xl md:text-2xl text-center ${copyTone} ${
                     isClean ? 'max-w-3xl' : 'md:text-justify'
                   }`}
                 >
@@ -176,7 +197,7 @@ const HeroCta = ({
                 {highlights.map((item) => (
                   <li
                     key={item}
-                    className='flex items-start gap-3 text-base font-bold text-ink-dark md:text-lg'
+                    className={`flex items-start gap-3 text-base font-bold md:text-lg ${copyTone}`}
                   >
                     <span className='mt-2 h-1 w-10 shrink-0 bg-brand' />
                     <span>{item}</span>

@@ -60,7 +60,7 @@ export const Team = ({
       role: 'Responsable de desarrollo de apps',
       linkedin: 'https://www.linkedin.com/in/sergio-cerda-hervas/',
       github: 'https://github.com/sergio-cravas',
-      imageUrl: '/img/team/sergi.png',
+      imageUrl: '/img/team/sergi.webp',
       mail: 's.cerda@36web.es',
     },
     {
@@ -99,7 +99,7 @@ export const Team = ({
       ),
       role: 'Responsable de diseño web y marketing digital',
       github: 'https://github.com/danipereiradev',
-      imageUrl: '/img/team/dani.png',
+      imageUrl: '/img/team/dani.webp',
       mail: 'hola@36web.es',
     },
     // Hasta que tenga foto, no la mostramos.

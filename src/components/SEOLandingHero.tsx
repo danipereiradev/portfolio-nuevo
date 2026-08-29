@@ -15,7 +15,7 @@ interface SEOLandingHeroProps {
   secondaryCTAIcon?: 'phone' | 'chevron-down';
   /** Texto breve bajo los CTAs (ej. bullets de confianza). */
   ctaFootnote?: string;
-  /** Fondo de imagen. Por defecto web-design-charlesdeluvio. */
+  /** Fondo de imagen. Por defecto el mock de páginas web. */
   backgroundImage?: string;
 }
 
@@ -31,7 +31,7 @@ const SEOLandingHero = ({
   secondaryCTAAction,
   secondaryCTAIcon,
   ctaFootnote,
-  backgroundImage = '/img/web-design-charlesdeluvio.webp',
+  backgroundImage = '/img/sections/servicio-web.webp',
 }: SEOLandingHeroProps) => {
   return (
     <section className='relative flex items-center justify-center overflow-hidden   pb-14 min-h-[70vh] md:pb-0 md:min-h-[100svh]'>

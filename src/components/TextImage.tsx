@@ -12,25 +12,30 @@ interface TextImageProps {
   buttonText?: string;
   buttonHref?: string;
   hasButton?: boolean;
+  className?: string;
+  headingAs?: 'h1' | 'h2';
 }
 
 export const TextImage = ({
   label,
   title,
   paragraphs,
-  imageSrc = '/img/web-design-charlesdeluvio.webp',
+  imageSrc = '/img/sections/servicio-web.webp',
   imageAlt = 'Diseño y desarrollo web',
   imageLeft = false,
   buttonText = 'Saber más',
   buttonHref,
   hasButton = true,
+  className = '',
+  headingAs = 'h2',
 }: TextImageProps) => {
+  const Heading = headingAs;
   const rowClass = imageLeft
     ? 'lg:flex-row lg:text-start'
     : 'lg:flex-row-reverse lg:text-start';
 
   return (
-    <section className='page-section'>
+    <section className={`page-section ${className}`.trim()}>
       <div
         className={`container mx-auto flex flex-col-reverse items-center gap-page-gap text-center ${rowClass}`}
       >
@@ -38,9 +43,9 @@ export const TextImage = ({
           <span className='text-md uppercase rounded-lg font-extrabold text-accent underline'>
             {label}
           </span>
-          <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark'>
+          <Heading className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark'>
             {title}
-          </h2>
+          </Heading>
           {paragraphs.map((para, index) => (
             <p
               key={index}
@@ -56,7 +61,7 @@ export const TextImage = ({
           ) : null}
         </RevealOnScroll>
         <RevealOnScroll className='w-full shrink-0 lg:w-1/2' delayMs={120}>
-          <div className='group relative aspect-[4/3] w-full overflow-hidden rounded-lg'>
+          <div className='relative aspect-[4/3] w-full overflow-hidden rounded-lg'>
             <img
               className='absolute inset-0 h-full w-full object-cover'
               src={imageSrc}

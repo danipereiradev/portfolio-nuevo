@@ -7,10 +7,7 @@ import { Team } from '../components/Team';
 import SEOFAQ from '../components/SEOFAQ';
 import SEOProcess from '../components/SEOProcess';
 import SEOBenefits from '../components/SEOBenefits';
-import {
-  ServiceBreadcrumb,
-  ServiceIncludes,
-} from '../components/ServiceOnPage';
+import { ServiceIncludes } from '../components/ServiceOnPage';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { SITE_SHOP_PATH, SITE_WEB_PATH } from '../config/contact';
@@ -181,7 +178,7 @@ const processSteps = [
   },
   {
     number: '2',
-    title: 'En 24–48 h te enviamos la propuesta',
+    title: 'El mismo día te enviamos la propuesta',
     description: (
       <>
         Con toda la info que nos has dado, estudiamos tu caso y preparamos un{' '}
@@ -330,22 +327,19 @@ const DisenoWeb = () => {
         }
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
-        backgroundUrl='/img/web-design-charlesdeluvio.webp'
+        backgroundUrl='/img/hero/hero-diseno-web-36web.webp'
         heroType='form'
         hasButton={false}
         formTitle='Presupuesto de diseño web'
-        formDescription='Propuesta en 24–48 h. Sin compromiso.'
+        formDescription='Propuesta en el mismo día. Sin compromiso.'
         formSectionInfo='DisenoWeb Hero'
         hasBackground
+        grayscale
+        overlay='black'
         hasReviewBadge
         isTopHero
         showProjectType
         projectTypes={webProjectTypes}
-        breadcrumb={
-          <ServiceBreadcrumb
-            items={[{ label: 'Inicio', href: '/' }, { label: 'Diseño web' }]}
-          />
-        }
       />
 
       <TextImage
@@ -378,7 +372,7 @@ const DisenoWeb = () => {
             .
           </>,
         ]}
-        imageSrc='/img/portfolio/mock-carper.png'
+        imageSrc='/img/portfolio/mock-carper.webp'
         imageAlt='Mock de página web de Carper Sonido'
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
@@ -429,7 +423,7 @@ const DisenoWeb = () => {
             .
           </>,
         ]}
-        imageSrc='/img/portfolio/mock-viajamos.png'
+        imageSrc='/img/portfolio/mock-viajamos.webp'
         imageAlt='Mock de página web de Hoy Viajamos'
         imageLeft
         buttonText='PEDIR PROPUESTA'
@@ -461,8 +455,6 @@ const DisenoWeb = () => {
           </>
         }
         steps={processSteps}
-        imageSrc='/img/portfolio/mock-viajamos.png'
-        imageAlt='Mock de página web de Hoy Viajamos'
       />
 
       <TextImage
@@ -544,7 +536,7 @@ const DisenoWeb = () => {
             .
           </>,
         ]}
-        imageSrc='/img/portfolio/mock-chicxs.png'
+        imageSrc='/img/portfolio/mock-chicxs.webp'
         imageAlt='Mock de tienda online de Chicxs de la Calle'
         buttonText='VER TIENDAS ONLINE'
         buttonHref={SITE_SHOP_PATH}
@@ -554,9 +546,10 @@ const DisenoWeb = () => {
         title='Pide presupuesto de diseño web'
         description={
           <>
-            Cuéntanos qué haces y qué tiene que hacer la página. Te devolvemos
-            propuesta en <strong className='font-extrabold'>24–48 h</strong>,
-            con precio y plazos.{' '}
+            Cuéntanos qué haces y qué tiene que hacer la página. Te devolvemos{' '}
+            <strong className='font-extrabold'>propuesta</strong>{' '}
+            <strong className='font-extrabold'>en el mismo día</strong>, con
+            precio y plazos.{' '}
             <strong className='font-extrabold'>
               Si no encaja, lo dices y no pasa nada
             </strong>
@@ -568,7 +561,7 @@ const DisenoWeb = () => {
         heroType='form'
         hasButton={false}
         formTitle='Presupuesto de diseño web'
-        formDescription='Propuesta en 24–48 h. Sin compromiso.'
+        formDescription='Propuesta en el mismo día. Sin compromiso.'
         formSectionInfo='DisenoWeb CTA final'
         hasBackground={false}
         hasReviewBadge

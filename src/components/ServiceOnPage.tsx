@@ -1,43 +1,6 @@
 import type { ReactNode } from 'react';
 import RevealOnScroll from './RevealOnScroll';
 
-export type BreadcrumbItem = {
-  label: string;
-  href?: string;
-};
-
-export const ServiceBreadcrumb = ({
-  items,
-  align = 'center',
-}: {
-  items: BreadcrumbItem[];
-  align?: 'center' | 'start';
-}) => (
-  <nav aria-label='Migas de pan' className='w-full'>
-    <ol
-      className={`flex flex-wrap items-center gap-2 text-sm text-ink-medium ${
-        align === 'start' ? 'justify-start' : 'justify-center md:justify-start'
-      }`}
-    >
-      {items.map((item, index) => {
-        const isLast = index === items.length - 1;
-        return (
-          <li key={item.label} className='flex items-center gap-2'>
-            {index > 0 ? <span aria-hidden='true'>/</span> : null}
-            {item.href && !isLast ? (
-              <a href={item.href} className='hover:text-link'>
-                {item.label}
-              </a>
-            ) : (
-              <span className='font-semibold text-ink-dark'>{item.label}</span>
-            )}
-          </li>
-        );
-      })}
-    </ol>
-  </nav>
-);
-
 type IncludeItem = {
   title: string;
   description: ReactNode;

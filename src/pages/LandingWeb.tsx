@@ -30,7 +30,7 @@ const webProjectTypes = [
 
 const landingTrustPoints = [
   { icon: Wallet, text: 'Desde 600€' },
-  { icon: Clock, text: 'Propuesta 24–48h' },
+  { icon: Clock, text: 'Propuesta el mismo día' },
   { icon: ShieldCheck, text: 'Hosting incluido' },
   { icon: BadgeCheck, text: 'La web es tuya' },
 ];
@@ -150,8 +150,10 @@ const processSteps = [
     title: 'Te mandamos la propuesta',
     description: (
       <>
-        En 24–48 h laborables: precio, plazos y qué entra, por escrito. Si
-        encaja, el 50% al aceptar y arrancamos.
+        Te devolvemos <strong className='font-extrabold'>propuesta</strong>{' '}
+        <strong className='font-extrabold'>en el mismo día</strong>: precio,
+        plazos y qué entra, por escrito. Si encaja, el 50% al aceptar y
+        arrancamos.
       </>
     ),
   },
@@ -248,11 +250,13 @@ const LandingWeb = () => {
   return (
     <>
       <HeroCta
-        title='Te hacemos una web para captar clientes. Precio y plazo, por escrito.'
+        title='Te hacemos una web completa para captar clientes desde 600 € + IVA. Precio y entrega cerrados.'
         description={
           <>
-            Cuéntanos qué haces. En 24–48 h te mandamos una propuesta con lo que
-            entra, lo que cuesta y cuándo está.{' '}
+            Cuéntanos qué haces. Te devolvemos{' '}
+            <strong className='font-extrabold'>propuesta</strong>{' '}
+            <strong className='font-extrabold'>en el mismo día</strong> con lo
+            que entra, lo que cuesta y cuándo está.{' '}
             <strong className='font-extrabold'>
               Hablas con quien te va a hacer la web, no con un comercial
             </strong>
@@ -261,13 +265,15 @@ const LandingWeb = () => {
         }
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
-        backgroundUrl='/img/web-design-charlesdeluvio.webp'
+        backgroundUrl='/img/hero/hero-diseno-web-36web.webp'
         heroType='form'
         hasButton={false}
         formTitle='Pide tu propuesta'
-        formDescription='En 24–48 h. Sin compromiso.'
+        formDescription='Propuesta en el mismo día. Sin compromiso.'
         formSectionInfo='Landing diseño web — Hero'
         hasBackground
+        grayscale
+        overlay='black'
         hasReviewBadge
         isTopHero
         showProjectType
@@ -313,7 +319,7 @@ const LandingWeb = () => {
         steps={processSteps}
       />
 
-      <Testimonials hasVideo />
+      <Testimonials hasVideo showClientReferenceCta />
 
       <Team
         label='EL EQUIPO'
@@ -348,9 +354,11 @@ const LandingWeb = () => {
         title='Cuando quieras, lo vemos'
         description={
           <>
-            Déjanos nombre y teléfono. Te devolvemos propuesta en{' '}
-            <strong className='font-extrabold'>24–48 h</strong>, con precio y
-            plazos. <strong className='font-extrabold'>Sin compromiso.</strong>
+            Déjanos nombre y teléfono. Te devolvemos{' '}
+            <strong className='font-extrabold'>propuesta</strong>{' '}
+            <strong className='font-extrabold'>en el mismo día</strong>, con
+            precio y plazos.{' '}
+            <strong className='font-extrabold'>Sin compromiso.</strong>
           </>
         }
         buttonText='PEDIR PROPUESTA'
@@ -358,7 +366,7 @@ const LandingWeb = () => {
         heroType='form'
         hasButton={false}
         formTitle='Pide tu propuesta'
-        formDescription='En 24–48 h. Sin compromiso.'
+        formDescription='Propuesta en el mismo día. Sin compromiso.'
         formSectionInfo='Landing diseño web — CTA final'
         hasBackground={false}
         hasReviewBadge

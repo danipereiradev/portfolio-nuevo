@@ -583,6 +583,26 @@ body {
   display: none;
 }
 
+.portfolio-swiper {
+  padding-bottom: 3rem;
+}
+
+.portfolio-swiper.swiper-horizontal > .swiper-pagination-bullets,
+.portfolio-swiper .swiper-pagination-horizontal.swiper-pagination-bullets {
+  display: flex;
+  justify-content: center;
+  bottom: 0;
+}
+
+.portfolio-swiper .swiper-pagination-bullet-active {
+  background: var(--color-accent);
+}
+
+.portfolio-swiper .swiper-button-next,
+.portfolio-swiper .swiper-button-prev {
+  color: var(--color-accent);
+}
+
 .ti-widget[data-layout-id='27'][data-set-id='drop-shadow'] {
   text-align: left !important;
 

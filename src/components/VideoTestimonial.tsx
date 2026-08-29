@@ -3,7 +3,7 @@ import { Play } from 'lucide-react';
 import { trackPlayReviewVideo } from '../utils/analytics';
 
 const VIDEO_SRC = '/video/juanvi-testimonio.mp4';
-const POSTER_SRC = '/video/juanvi-testimonio.jpg';
+const POSTER_SRC = '/video/juanvi-testimonio.webp';
 const SITE_URL = 'https://hoyviajamosweb.com';
 
 function VideoTestimonial() {

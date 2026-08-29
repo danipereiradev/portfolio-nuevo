@@ -168,8 +168,11 @@ const processSteps = [
     title: 'Te mandamos la propuesta',
     description: (
       <>
-        En 24–48 h laborables: precio, plazos y qué entra, por escrito. Si
-        encaja, el 50% al aceptar y arrancamos.
+        Te devolvemos{' '}
+        <strong className='font-extrabold'>propuesta</strong>{' '}
+        <strong className='font-extrabold'>en el mismo día</strong>: precio,
+        plazos y qué entra, por escrito. Si encaja, el 50% al aceptar y
+        arrancamos.
       </>
     ),
   },
@@ -284,10 +287,12 @@ const LandingWebProfesional = () => {
         }
         buttonText={`Reservar ${getLaunchReserveLabel()}`}
         buttonHref='#reserva'
-        backgroundUrl='/img/web-design-charlesdeluvio.webp'
+        backgroundUrl='/img/hero/hero-diseno-web-36web.webp'
         heroType='offer'
         hasButton={false}
         hasBackground
+        grayscale
+        overlay='black'
         hasReviewBadge
         isTopHero
         offerContent={<LaunchOfferCard className='hero-cta-form' />}

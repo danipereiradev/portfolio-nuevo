@@ -8,7 +8,6 @@ import SEOFAQ from '../components/SEOFAQ';
 import SEOProcess from '../components/SEOProcess';
 import SEOBenefits from '../components/SEOBenefits';
 import {
-  ServiceBreadcrumb,
   ServiceIncludes,
 } from '../components/ServiceOnPage';
 import { usePageMeta } from '../hooks/usePageMeta';
@@ -87,10 +86,12 @@ const processSteps = [
   },
   {
     number: '2',
-    title: 'En 24–48 h te enviamos la propuesta',
+    title: 'El mismo día te enviamos la propuesta',
     description: (
       <>
-        En 24–48 h laborables te mandamos un{' '}
+        Te devolvemos{' '}
+        <strong className='font-extrabold'>propuesta</strong>{' '}
+        <strong className='font-extrabold'>en el mismo día</strong>: un{' '}
         <strong className='font-extrabold'>presupuesto cerrado</strong> con qué
         entra, cuánto sale y cuándo está. Sin pagar por pedir precio.
       </>
@@ -240,25 +241,19 @@ const TiendasOnline = () => {
         }
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
-        backgroundUrl='/img/sumup-ShB9pI4mpRg-unsplash.jpg'
+        backgroundUrl='/img/hero/hero-tienda-online-36web.webp'
         heroType='form'
         hasButton={false}
         formTitle='Presupuesto de tienda online'
-        formDescription='Propuesta en 24–48 h. Sin compromiso.'
+        formDescription='Propuesta en el mismo día. Sin compromiso.'
         formSectionInfo='TiendasOnline Hero'
         hasBackground
+        grayscale
+        overlay='black'
         hasReviewBadge
         isTopHero
         showProjectType
         projectTypes={shopProjectTypes}
-        breadcrumb={
-          <ServiceBreadcrumb
-            items={[
-              { label: 'Inicio', href: '/' },
-              { label: 'Tiendas online' },
-            ]}
-          />
-        }
       />
 
       <TextImage
@@ -289,7 +284,7 @@ const TiendasOnline = () => {
             .
           </>,
         ]}
-        imageSrc='/img/portfolio/mock-chicxs.png'
+        imageSrc='/img/portfolio/mock-chicxs.webp'
         imageAlt='Mock de tienda online de Chicxs de la Calle'
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
@@ -331,7 +326,7 @@ const TiendasOnline = () => {
             .{' '}
           </>,
         ]}
-        imageSrc='/img/portfolio/mock-camisetas.png'
+        imageSrc='/img/portfolio/mock-camisetas.webp'
         imageAlt='Mock de tienda online de Camisetas Ahora'
         imageLeft
         buttonText='PEDIR PROPUESTA'
@@ -366,8 +361,6 @@ const TiendasOnline = () => {
           </>
         }
         steps={processSteps}
-        imageSrc='/img/portfolio/mock-camisetas.png'
-        imageAlt='Mock de tienda online de Camisetas Ahora'
       />
 
       <TextImage
@@ -389,9 +382,10 @@ const TiendasOnline = () => {
             No publicamos un precio único porque no sería cierto. Orientación:
             muchas tiendas quedan entre{' '}
             <strong className='font-extrabold'>600 € y 3.000 € + IVA</strong>,
-            según el alcance. En{' '}
-            <strong className='font-extrabold'>24–48 h laborables</strong> te
-            mandamos un precio cerrado, con lo que entra y el plazo. Pedir
+            según el alcance. Te devolvemos{' '}
+            <strong className='font-extrabold'>propuesta</strong>{' '}
+            <strong className='font-extrabold'>en el mismo día</strong> con un
+            precio cerrado, lo que entra y el plazo. Pedir
             presupuesto de tienda online es gratis y no te compromete.
           </>,
           <>
@@ -455,7 +449,7 @@ const TiendasOnline = () => {
             .
           </>,
         ]}
-        imageSrc='/img/portfolio/mock-carper.png'
+        imageSrc='/img/portfolio/mock-carper.webp'
         imageAlt='Mock de página web de Carper Sonido'
         buttonText='VER DISEÑO WEB'
         buttonHref={SITE_WEB_PATH}
@@ -466,9 +460,9 @@ const TiendasOnline = () => {
         description={
           <>
             Cuéntanos qué vendes y qué tiene que hacer el ecommerce. Te
-            devolvemos propuesta en{' '}
-            <strong className='font-extrabold'>24–48 h</strong>, con precio y
-            plazos.{' '}
+            devolvemos <strong className='font-extrabold'>propuesta</strong>{' '}
+            <strong className='font-extrabold'>en el mismo día</strong>, con
+            precio y plazos.{' '}
             <strong className='font-extrabold'>
               Si no encaja, lo dices y no pasa nada
             </strong>
@@ -480,7 +474,7 @@ const TiendasOnline = () => {
         heroType='form'
         hasButton={false}
         formTitle='Presupuesto de tienda online'
-        formDescription='Propuesta en 24–48 h. Sin compromiso.'
+        formDescription='Propuesta en el mismo día. Sin compromiso.'
         formSectionInfo='TiendasOnline CTA final'
         hasBackground={false}
         hasReviewBadge

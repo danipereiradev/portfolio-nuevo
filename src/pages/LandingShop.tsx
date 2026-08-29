@@ -35,7 +35,7 @@ const shopProjectTypes = [
 
 const landingTrustPoints = [
   { icon: Wallet, text: 'Desde 900 €' },
-  { icon: Clock, text: 'Propuesta en 24–48 h' },
+  { icon: Clock, text: 'Propuesta el mismo día' },
   { icon: ShieldCheck, text: 'Hosting incluido' },
   { icon: BadgeCheck, text: 'La tienda es tuya' },
 ];
@@ -46,8 +46,10 @@ const whyUs = [
     title: 'Precio y plazo, por escrito',
     description: (
       <>
-        No hay un pack cerrado. En 24–48 h laborables te mandamos qué entra,
-        cuánto sale y cuándo está.{' '}
+        No hay un pack cerrado. Te devolvemos{' '}
+        <strong className='font-extrabold'>propuesta</strong>{' '}
+        <strong className='font-extrabold'>en el mismo día</strong> con qué
+        entra, cuánto sale y cuándo está.{' '}
         <strong className='font-extrabold'>
           Pedir presupuesto es gratis y no te compromete
         </strong>
@@ -98,8 +100,10 @@ const processSteps = [
     title: 'Te mandamos la propuesta',
     description: (
       <>
-        En 24–48 h laborables: precio, plazos y qué entra, por escrito. Si
-        encaja, el 50% al aceptar y arrancamos.
+        Te devolvemos <strong className='font-extrabold'>propuesta</strong>{' '}
+        <strong className='font-extrabold'>en el mismo día</strong>: precio,
+        plazos y qué entra, por escrito. Si encaja, el 50% al aceptar y
+        arrancamos.
       </>
     ),
   },
@@ -195,10 +199,12 @@ const LandingShop = () => {
   return (
     <>
       <HeroCta
-        title='Te hacemos una tienda online preparada para vender. Precio y plazos, por escrito.'
+        title='Te hacemos una tienda online completa preparada para vender desde 900 € + IVA. Precio y entrega cerrados.'
         description={
           <>
-            Cuéntanos qué vendes. En 24–48 h te mandamos una propuesta con lo
+            Cuéntanos qué vendes. Te devolvemos{' '}
+            <strong className='font-extrabold'>propuesta</strong>{' '}
+            <strong className='font-extrabold'>en el mismo día</strong> con lo
             que entra, lo que cuesta y cuándo está.{' '}
             <strong className='font-extrabold'>
               Hablas con quien te va a hacer la tienda, no con un comercial
@@ -208,13 +214,15 @@ const LandingShop = () => {
         }
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
-        backgroundUrl='/img/sumup-ShB9pI4mpRg-unsplash.jpg'
+        backgroundUrl='/img/hero/hero-tienda-online-36web.webp'
         heroType='form'
         hasButton={false}
         formTitle='Pide tu propuesta'
-        formDescription='En 24–48 h. Sin compromiso.'
+        formDescription='Propuesta en el mismo día. Sin compromiso.'
         formSectionInfo='Landing tiendas online — Hero'
         hasBackground
+        grayscale
+        overlay='black'
         hasReviewBadge
         isTopHero
         showProjectType
@@ -293,9 +301,11 @@ const LandingShop = () => {
         title='Cuando quieras, lo vemos'
         description={
           <>
-            Déjanos nombre y teléfono. Te devolvemos propuesta en{' '}
-            <strong className='font-extrabold'>24–48 h</strong>, con precio y
-            plazos. <strong className='font-extrabold'>Sin compromiso.</strong>
+            Déjanos nombre y teléfono. Te devolvemos{' '}
+            <strong className='font-extrabold'>propuesta</strong>{' '}
+            <strong className='font-extrabold'>en el mismo día</strong>, con
+            precio y plazos.{' '}
+            <strong className='font-extrabold'>Sin compromiso.</strong>
           </>
         }
         buttonText='PEDIR PROPUESTA'
@@ -303,7 +313,7 @@ const LandingShop = () => {
         heroType='form'
         hasButton={false}
         formTitle='Pide tu propuesta'
-        formDescription='En 24–48 h. Sin compromiso.'
+        formDescription='Propuesta en el mismo día. Sin compromiso.'
         formSectionInfo='Landing tiendas online — CTA final'
         hasBackground={false}
         hasReviewBadge
