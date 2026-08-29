@@ -66,7 +66,7 @@ function AppContent() {
   }
 
   return (
-    <div className='relative min-h-svh overflow-x-clip bg-surface-base pb-16 md:pb-0'>
+    <div className='relative min-h-svh bg-surface-base pb-16 md:pb-0'>
       <Header />
 
       <Routes>

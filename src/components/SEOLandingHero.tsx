@@ -43,7 +43,7 @@ const SEOLandingHero = ({
       <div className='absolute inset-0 bg-[#141414]/60' aria-hidden='true' />
 
       <div className='container relative z-10 mx-auto'>
-        <div className='   mx-auto text-center animate-fade-in'>
+        <div className='mx-auto text-center animate-fade-in'>
           {kicker && (
             <p className='text-accent font-mono text-sm md:text-base font-semibold tracking-tight mb-5'>
               {kicker}
