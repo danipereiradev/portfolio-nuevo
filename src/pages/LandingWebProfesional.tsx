@@ -155,38 +155,40 @@ const whyUs = [
 const processSteps = [
   {
     number: '1',
-    title: 'Nos cuentas el caso',
+    title: 'Reservas tu plaza',
     description: (
       <>
-        Formulario, WhatsApp o llamada. Qué haces y qué tiene que hacer la web.{' '}
-        <strong className='font-extrabold'>Aún no hay nada que pagar</strong>.
+        Pagas{' '}
+        <strong className='font-extrabold'>{getLaunchReserveLabel()}</strong> y
+        arrancamos. Precio cerrado:{' '}
+        <strong className='font-extrabold'>{getLaunchPriceLabel()}</strong>.
       </>
     ),
   },
   {
     number: '2',
-    title: 'Te mandamos la propuesta',
+    title: 'Montamos la web',
     description: (
       <>
-        Te devolvemos{' '}
-        <strong className='font-extrabold'>propuesta</strong>{' '}
-        <strong className='font-extrabold'>en el mismo día</strong>: precio,
-        plazos y qué entra, por escrito. Si encaja, el 50% al aceptar y
-        arrancamos.
+        Con tu marca si la tienes. Si no, te hacemos el logo y redactamos textos
+        y fotos de tu sector.{' '}
+        <strong className='font-extrabold'>
+          Hablas con quien la está haciendo
+        </strong>
+        .
       </>
     ),
   },
   {
     number: '3',
-    title: 'La montamos',
+    title: 'Te la enseñamos',
     description: (
       <>
-        Con tu marca si la tienes. Si no, te hacemos el logo y redactamos textos
-        y fotos de tu sector. Tú revisas.{' '}
+        En{' '}
         <strong className='font-extrabold'>
-          Hablas con quien la está haciendo
-        </strong>
-        .
+          {LAUNCH_DELIVERY_HOURS} h máximo
+        </strong>{' '}
+        te mostramos la web. Después pagas el resto (<strong className='font-extrabold'>{getLaunchRemainderLabel()}</strong>) y la publicamos.
       </>
     ),
   },
@@ -363,8 +365,9 @@ const LandingWebProfesional = () => {
         title='Así se hace'
         subtitle={
           <>
-            <strong className='font-extrabold'>Cuatro pasos.</strong> Sabes
-            precio y plazo antes de empezar, y la web queda a tu nombre.
+            <strong className='font-extrabold'>Cuatro pasos.</strong> Reservas,
+            montamos, te la enseñamos en {LAUNCH_DELIVERY_HOURS} h máximo y, al
+            pagar el resto, se publica a tu nombre.
           </>
         }
         steps={processSteps}

@@ -13,7 +13,7 @@ const LaunchPaymentTable = () => {
     },
     {
       title: 'Antes de publicar',
-      detail: 'Cuando hayas visto y aprobado la web',
+      detail: 'Cuando te la hayamos enseñado',
       amount: getLaunchRemainderLabel(),
     },
   ];
