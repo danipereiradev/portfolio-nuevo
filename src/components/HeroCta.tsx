@@ -106,7 +106,13 @@ const HeroCta = ({
       id={isTopHero ? 'hero' : undefined}
       className={`${isTopHero ? 'page-hero' : 'page-section'} relative overflow-hidden ${copyTone} ${
         isTopHero ? '' : 'flex items-center'
-      } ${hasBackground ? '' : 'bg-accent-light'} ${
+      } ${
+        hasBackground
+          ? onDark
+            ? 'bg-ink-dark'
+            : 'bg-white'
+          : 'bg-accent-light'
+      } ${
         animateEntrance ? (entered ? 'hero-cta-enter' : 'hero-cta-pending') : ''
       }`}
     >
@@ -115,6 +121,9 @@ const HeroCta = ({
           src={backgroundUrl}
           alt=''
           aria-hidden='true'
+          fetchPriority={isTopHero ? 'high' : 'low'}
+          loading={isTopHero ? 'eager' : 'lazy'}
+          decoding='async'
           className={`pointer-events-none absolute inset-0 h-full w-full object-cover ${
             grayscale ? 'grayscale' : ''
           }`}

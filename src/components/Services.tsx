@@ -21,7 +21,7 @@ const Services = ({ description }: ServicesProps) => {
     {
       title: SITE_WEB_LABEL,
       link: SITE_WEB_PATH,
-      image: '/img/services/captura-carper-optimizada.webp',
+      image: '/img/sections/servicio-web.webp',
       imageAlt: 'Web de Carper Sonido',
     },
     {

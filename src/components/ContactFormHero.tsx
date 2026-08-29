@@ -7,7 +7,6 @@ import {
 } from '../utils/analytics';
 import { BUSINESS_HOURS_LABEL, FORM_CC_EMAIL } from '../config/contact';
 import { AlertCircle } from 'lucide-react';
-import TestimonialsSingle from './TestimonialSingle';
 
 const PROJECT_TYPES = [
   'Web nueva',
@@ -344,8 +343,6 @@ Fecha: ${new Date().toLocaleString('es-ES')}
           >
             {isSubmitting ? 'Enviando...' : 'Pedir propuesta'}
           </Button>
-
-          <TestimonialsSingle />
         </div>
         {submitStatus === 'error' && (
           <div className='mt-2 p-4 bg-gray-50 border-2 border-ink-dark rounded-lg shadow-[4px_4px_0_0_#1a1a1a]'>

@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode, useEffect, useRef, useState } from 'react';
 import Button from './Button';
 import TestimonialsBadge from './TestimonialsBadge';
 
@@ -14,7 +14,6 @@ interface HeroProps {
   hasButton: boolean;
   hasBackground: boolean;
   hasReviewBadge: boolean;
-  grayscale?: boolean;
 }
 
 const prefersReducedMotion = () =>
@@ -33,49 +32,72 @@ const Hero = ({
   hasButton,
   hasBackground,
   hasReviewBadge,
-  grayscale = false,
 }: HeroProps) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [showVideo, setShowVideo] = useState(
     () => Boolean(videoUrl) && !prefersReducedMotion(),
   );
-  const [videoReady, setVideoReady] = useState(false);
 
   useEffect(() => {
-    setVideoReady(false);
-
     if (!videoUrl) {
       setShowVideo(false);
       return undefined;
     }
 
     const media = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const update = () => {
-      setShowVideo(!media.matches);
-      setVideoReady(false);
-    };
+    const update = () => setShowVideo(!media.matches);
     update();
     media.addEventListener('change', update);
     return () => media.removeEventListener('change', update);
   }, [videoUrl]);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !showVideo) return undefined;
+
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+    video.setAttribute('webkit-playsinline', 'true');
+
+    const tryPlay = () => {
+      void video.play();
+    };
+
+    tryPlay();
+    video.addEventListener('canplay', tryPlay);
+    video.addEventListener('loadeddata', tryPlay);
+
+    return () => {
+      video.removeEventListener('canplay', tryPlay);
+      video.removeEventListener('loadeddata', tryPlay);
+    };
+  }, [showVideo, videoUrl]);
 
   const overlayTone = overlay ?? (videoUrl ? 'white' : undefined);
 
   return (
     <section
       id='hero'
-      style={{
-        backgroundImage: `url(${hasBackground ? backgroundUrl : ''})`,
-      }}
-      className={`page-hero-compact bg-cover bg-center bg-no-repeat text-ink-dark ${
+      className={`page-hero-compact bg-ink-dark text-ink-dark ${
         videoUrl ? 'min-h-dvh' : ''
       }`}
     >
+      {hasBackground && backgroundUrl ? (
+        <img
+          src={backgroundUrl}
+          alt=''
+          aria-hidden='true'
+          fetchPriority='high'
+          decoding='async'
+          className='pointer-events-none absolute inset-0 z-0 h-full w-full object-cover object-[28%_center] md:object-center'
+        />
+      ) : null}
       {showVideo && videoUrl ? (
         <video
+          ref={videoRef}
           key={videoUrl}
-          className={`pointer-events-none absolute inset-0 h-full w-full object-cover ${
-            grayscale ? 'grayscale' : ''
-          } ${videoReady ? 'opacity-100' : 'opacity-0'}`}
+          className='pointer-events-none absolute inset-0 z-0 h-full w-full object-cover object-[28%_center] transform-gpu md:object-center'
           autoPlay
           muted
           loop
@@ -84,15 +106,20 @@ const Hero = ({
           poster={backgroundUrl}
           src={videoUrl}
           aria-hidden='true'
-          onCanPlay={() => setVideoReady(true)}
         />
       ) : null}
 
       {overlayTone === 'black' ? (
-        <div className='absolute inset-0 z-[1] bg-black/60' aria-hidden='true' />
+        <div
+          className='absolute inset-0 z-[1] bg-black/60'
+          aria-hidden='true'
+        />
       ) : null}
       {overlayTone === 'white' ? (
-        <div className='absolute inset-0 z-[1] bg-white/70' aria-hidden='true' />
+        <div
+          className='absolute inset-0 z-[1] bg-white/70'
+          aria-hidden='true'
+        />
       ) : null}
 
       {hasBackground && !titleOnly && !showVideo ? (
@@ -114,7 +141,7 @@ const Hero = ({
           ) : (
             <div className='page-title-block md:max-w-4xl'>
               <h1
-                className={`hero-cta-title text-5xl md:text-6xl lg:text-7xl font-extrabold ${
+                className={`hero-cta-title text-4xl md:text-6xl lg:text-7xl font-extrabold ${
                   overlayTone === 'black' ? 'text-white' : 'text-ink-dark'
                 }`}
               >

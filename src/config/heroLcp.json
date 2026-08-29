@@ -1,0 +1,27 @@
+{
+  "/": {
+    "image": "/video/hero-home.jpg",
+    "video": "/video/hero-home.mp4"
+  },
+  "/diseño-web": {
+    "image": "/img/hero/hero-diseno-web-36web.webp"
+  },
+  "/landing-diseno-web": {
+    "image": "/img/hero/hero-diseno-web-36web.webp"
+  },
+  "/landing-web-profesional": {
+    "image": "/img/hero/hero-diseno-web-36web.webp"
+  },
+  "/tiendas-online": {
+    "image": "/img/hero/hero-tienda-online-36web.webp"
+  },
+  "/landing-tiendas-online": {
+    "image": "/img/hero/hero-tienda-online-36web.webp"
+  },
+  "/mantenimiento-web": {
+    "image": "/img/hero/hero-mantenimiento-36web.webp"
+  },
+  "/landing-mantenimiento-web": {
+    "image": "/img/hero/hero-mantenimiento-36web.webp"
+  }
+}

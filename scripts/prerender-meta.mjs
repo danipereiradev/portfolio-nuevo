@@ -34,6 +34,28 @@ const pagesMeta = JSON.parse(
   readFileSync(path.join(rootDir, 'src', 'seo', 'pagesMeta.json'), 'utf-8'),
 );
 
+const heroLcp = JSON.parse(
+  readFileSync(path.join(rootDir, 'src', 'config', 'heroLcp.json'), 'utf-8'),
+);
+
+const buildHeroPreloadTags = (routePath) => {
+  const assets = heroLcp[routePath];
+  if (!assets) return '';
+
+  const tags = [];
+  if (assets.image) {
+    tags.push(
+      `<link rel="preload" as="image" href="${escapeHtml(assets.image)}" fetchpriority="high" />`,
+    );
+  }
+  if (assets.video) {
+    tags.push(
+      `<link rel="preload" as="video" href="${escapeHtml(assets.video)}" type="video/mp4" fetchpriority="high" />`,
+    );
+  }
+  return tags.join('\n    ');
+};
+
 const template = readFileSync(distIndexPath, 'utf-8');
 
 const escapeHtml = (value) =>
@@ -59,6 +81,8 @@ const buildHtmlForRoute = (
   const safeCanonical = escapeHtml(canonicalUrl);
 
   let html = template;
+
+  html = html.replace('<!--hero-lcp-->', buildHeroPreloadTags(routePath));
 
   html = html.replace(
     /<title>[\s\S]*?<\/title>/,

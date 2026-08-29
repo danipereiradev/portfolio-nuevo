@@ -33,11 +33,11 @@ const Home = () => {
         buttonText='CONTACTA AHORA'
         buttonHref='#contacto'
         videoUrl='/video/hero-home.mp4'
+        backgroundUrl='/video/hero-home.jpg'
         overlay='black'
         hasButton
         hasBackground
         hasReviewBadge={false}
-        grayscale
       />
       <TextImage
         label='¿QUÉ ES 36WEB?'
