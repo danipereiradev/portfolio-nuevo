@@ -12,10 +12,13 @@ import {
 
 const SCRIPT_ID = 'crisp-js';
 const PROACTIVE_SHOWN_KEY = 'crisp-proactive-shown';
+const PROACTIVE_DISMISSED_KEY = 'crisp-proactive-dismissed';
 
 declare global {
   interface Window {
-    $crisp?: unknown[] & { is?: (name: string) => boolean };
+    $crisp?: unknown[] & {
+      is?: (name: string) => boolean;
+    };
     CRISP_WEBSITE_ID?: string;
     CRISP_RUNTIME_CONFIG?: { locale?: string };
     CRISP_READY_TRIGGER?: () => void;
@@ -51,9 +54,71 @@ const hasShownProactive = () => readSessionFlag(PROACTIVE_SHOWN_KEY) === '1';
 
 const markProactiveShown = () => writeSessionFlag(PROACTIVE_SHOWN_KEY, '1');
 
-let onChatClosed: (() => void) | null = null;
+const hasDismissedProactive = () =>
+  readSessionFlag(PROACTIVE_DISMISSED_KEY) === '1';
+
+const markProactiveDismissed = () =>
+  writeSessionFlag(PROACTIVE_DISMISSED_KEY, '1');
+
+const messageContent = (message: unknown): string => {
+  if (typeof message === 'string') return message;
+  if (!message || typeof message !== 'object' || !('content' in message)) {
+    return '';
+  }
+  const content = (message as { content: unknown }).content;
+  return typeof content === 'string' ? content : '';
+};
+
 let proactiveTimer: number | undefined;
+let showMessageTimer: number | undefined;
 let proactiveScheduled = false;
+let proactivePushed = false;
+let proactiveDismissed = hasDismissedProactive();
+let snippetClickBound = false;
+
+const clearProactiveTimers = () => {
+  if (proactiveTimer) {
+    window.clearTimeout(proactiveTimer);
+    proactiveTimer = undefined;
+  }
+  if (showMessageTimer) {
+    window.clearTimeout(showMessageTimer);
+    showMessageTimer = undefined;
+  }
+};
+
+const onSnippetClick = (event: Event) => {
+  const target = event.target;
+  if (!(target instanceof Element) || !target.closest('.crisp-client')) {
+    return;
+  }
+
+  window.setTimeout(() => {
+    if (window.$crisp?.is?.('chat:opened')) return;
+    dismissProactive();
+  }, 80);
+};
+
+const unbindSnippetClick = () => {
+  if (!snippetClickBound) return;
+  document.removeEventListener('click', onSnippetClick, true);
+  snippetClickBound = false;
+};
+
+const bindSnippetClick = () => {
+  if (snippetClickBound) return;
+  document.addEventListener('click', onSnippetClick, true);
+  snippetClickBound = true;
+};
+
+const dismissProactive = () => {
+  proactiveDismissed = true;
+  markProactiveShown();
+  markProactiveDismissed();
+  clearProactiveTimers();
+  unbindSnippetClick();
+  pushCrisp('do', 'message:read');
+};
 
 const loadCrisp = () => {
   if (document.getElementById(SCRIPT_ID) || window.CRISP_WEBSITE_ID) {
@@ -72,14 +137,26 @@ const loadCrisp = () => {
   pushCrisp('config', 'container:index', [60]);
   pushCrisp('on', 'chat:opened', () => {
     markProactiveShown();
+    unbindSnippetClick();
     trackCrispChatOpened();
   });
-  pushCrisp('on', 'chat:closed', () => onChatClosed?.());
+  pushCrisp('on', 'chat:closed', () => {
+    dismissProactive();
+  });
   pushCrisp('on', 'message:sent', trackCrispMessageSent);
+  pushCrisp('on', 'message:received', (message: unknown) => {
+    if (!proactiveDismissed) return;
+    if (messageContent(message) !== CRISP_PROACTIVE_TEXT) return;
+    pushCrisp('do', 'message:read');
+    pushCrisp('do', 'chat:close');
+  });
   pushCrisp('on', 'session:loaded', () => {
     pushCrisp('config', 'color:theme', [CRISP_THEME_COLOR]);
     pushCrisp('config', 'hide:on:mobile', [false]);
     setChatVisible(true);
+    if (proactiveDismissed || hasDismissedProactive()) {
+      pushCrisp('do', 'message:read');
+    }
   });
 
   const script = document.createElement('script');
@@ -131,34 +208,61 @@ const CrispChat = () => {
       return;
     }
 
-    const clearProactiveTimer = () => {
-      if (proactiveTimer) {
-        window.clearTimeout(proactiveTimer);
-        proactiveTimer = undefined;
-      }
-    };
+    proactiveDismissed = hasDismissedProactive();
 
     const showProactiveMessage = () => {
-      if (hasShownProactive()) return;
+      if (
+        proactivePushed ||
+        proactiveDismissed ||
+        hasDismissedProactive() ||
+        hasShownProactive()
+      ) {
+        return;
+      }
       if (window.$crisp?.is?.('chat:opened')) {
         markProactiveShown();
         return;
       }
 
-      markProactiveShown();
+      proactivePushed = true;
       setChatVisible(true);
+      bindSnippetClick();
       // En móvil el globo ignora message:show si el widget aún no está pintado.
-      window.setTimeout(() => {
+      showMessageTimer = window.setTimeout(() => {
+        showMessageTimer = undefined;
+        if (proactiveDismissed || hasDismissedProactive()) return;
+        if (window.$crisp?.is?.('chat:opened')) {
+          markProactiveShown();
+          unbindSnippetClick();
+          return;
+        }
         pushCrisp('do', 'message:show', ['text', CRISP_PROACTIVE_TEXT]);
+        markProactiveShown();
       }, 400);
     };
 
     const scheduleProactiveMessage = () => {
-      if (proactiveScheduled || hasShownProactive()) return;
+      if (
+        proactiveScheduled ||
+        proactivePushed ||
+        proactiveDismissed ||
+        hasDismissedProactive() ||
+        hasShownProactive()
+      ) {
+        return;
+      }
       proactiveScheduled = true;
 
       const startTimer = () => {
-        if (proactiveTimer || hasShownProactive()) return;
+        if (
+          proactiveTimer ||
+          proactivePushed ||
+          proactiveDismissed ||
+          hasDismissedProactive() ||
+          hasShownProactive()
+        ) {
+          return;
+        }
         proactiveTimer = window.setTimeout(() => {
           proactiveTimer = undefined;
           showProactiveMessage();
@@ -178,20 +282,11 @@ const CrispChat = () => {
       document.addEventListener('visibilitychange', onVisible);
     };
 
-    onChatClosed = () => {
-      markProactiveShown();
-      clearProactiveTimer();
-    };
-
     loadCrisp();
     pushCrisp('config', 'color:theme', [CRISP_THEME_COLOR]);
     pushCrisp('config', 'hide:on:mobile', [false]);
     setChatVisible(true);
     whenCrispReady(scheduleProactiveMessage);
-
-    return () => {
-      onChatClosed = null;
-    };
   }, []);
 
   return null;
