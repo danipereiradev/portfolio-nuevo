@@ -11,7 +11,7 @@ export const LAUNCH_OFFER_MAX = 10;
  * 9  → "Quedan 9 de 10 disponibles"
  * 0  → "No quedan plazas"
  */
-export const soldWebs = 7;
+export const soldWebs = 6;
 
 /** Precio del pack, sin IVA. */
 export const LAUNCH_PRICE = 299;
