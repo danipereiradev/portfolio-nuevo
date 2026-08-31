@@ -8,20 +8,10 @@ import {
 import { BUSINESS_HOURS_LABEL, FORM_CC_EMAIL } from '../config/contact';
 import { AlertCircle } from 'lucide-react';
 
-const PROJECT_TYPES = [
-  'Web nueva',
-  'Rediseñar la que ya tengo',
-  'Tienda online',
-  'Aplicación movil',
-  'Mantenimiento web',
-  'Todavía no lo tengo claro',
-] as const;
-
 const emptyForm = (page: string) => ({
   name: '',
   email: '',
   phone: '',
-  projectType: '',
   consent: false,
   page,
 });
@@ -32,9 +22,6 @@ interface ContactHeroFormHeroProps {
   page: string;
   id?: string;
   className?: string;
-  showProjectType?: boolean;
-  showEmail?: boolean;
-  projectTypes?: readonly string[];
 }
 
 export const ContactFormHero = ({
@@ -43,9 +30,6 @@ export const ContactFormHero = ({
   page,
   id,
   className = '',
-  showProjectType = false,
-  showEmail = false,
-  projectTypes = PROJECT_TYPES,
 }: ContactHeroFormHeroProps) => {
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -98,33 +82,26 @@ export const ContactFormHero = ({
 
       const formDataToSend: Record<string, string | boolean> = {
         name: formData.name,
+        email: formData.email,
         phone: formData.phone,
         origen,
         page: origen,
         pagina,
         consent: formData.consent,
-
         submissionDate: new Date().toLocaleString('es-ES'),
         _subject: `[${origen}] Nueva solicitud — ${formData.name}`,
+        _replyto: formData.email,
         _cc: FORM_CC_EMAIL,
         message: `
 Origen: ${origen}
 Página: ${pagina}
 Nombre: ${formData.name}
-${showEmail ? `Email: ${formData.email}\n` : ''}Teléfono: ${formData.phone}
-${showProjectType ? `Qué necesita: ${formData.projectType}\n` : ''}consent: ${formData.consent}
+Email: ${formData.email}
+Teléfono: ${formData.phone}
+consent: ${formData.consent}
 Fecha: ${new Date().toLocaleString('es-ES')}
         `,
       };
-
-      if (showEmail) {
-        formDataToSend.email = formData.email;
-        formDataToSend._replyto = formData.email;
-      }
-
-      if (showProjectType) {
-        formDataToSend.projectType = formData.projectType;
-      }
 
       const response = await fetch(formspreeEndpoint, {
         method: 'POST',
@@ -190,19 +167,13 @@ Fecha: ${new Date().toLocaleString('es-ES')}
         'El nombre debe contener solo letras y tener entre 2-50 caracteres';
     }
 
-    if (showEmail) {
-      const emailValue = formData.email.trim();
-      if (!emailValue || !validateEmail(emailValue)) {
-        newErrors.email = 'Introduce un email válido';
-      }
+    const emailValue = formData.email.trim();
+    if (!emailValue || !validateEmail(emailValue)) {
+      newErrors.email = 'Introduce un email válido';
     }
 
     if (!formData.phone.trim() || !validatePhone(formData.phone)) {
       newErrors.phone = 'Introduce un teléfono válido';
-    }
-
-    if (showProjectType && !formData.projectType) {
-      newErrors.projectType = 'Elige qué necesitas';
     }
 
     setErrors(newErrors);
@@ -249,23 +220,19 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             maxLength={50}
           />
           {errors.name && <ErrorMessage error={errors.name} />}
-          {showEmail ? (
-            <>
-              <input
-                type='email'
-                value={formData.email}
-                onChange={(e) => handleInputChange('email', e.target.value)}
-                className={`w-full text-2xl pl-4 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent transition-all duration-150 ${
-                  errors.email
-                    ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
-                    : 'border-gray-400'
-                }`}
-                autoComplete='email'
-                placeholder='Tu email *'
-              />
-              {errors.email && <ErrorMessage error={errors.email} />}
-            </>
-          ) : null}
+          <input
+            type='email'
+            value={formData.email}
+            onChange={(e) => handleInputChange('email', e.target.value)}
+            className={`w-full text-2xl pl-4 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent transition-all duration-150 ${
+              errors.email
+                ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
+                : 'border-gray-400'
+            }`}
+            autoComplete='email'
+            placeholder='Tu email *'
+          />
+          {errors.email && <ErrorMessage error={errors.email} />}
           <input
             type='tel'
             value={formData.phone}
@@ -280,33 +247,6 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             inputMode='tel'
           />
           {errors.phone && <ErrorMessage error={errors.phone} />}
-          {showProjectType ? (
-            <>
-              <select
-                value={formData.projectType}
-                onChange={(e) =>
-                  handleInputChange('projectType', e.target.value)
-                }
-                aria-label='Qué necesitas'
-                required
-                className={`w-full border-2 rounded-lg bg-white py-3 pl-4 pr-4 text-xl transition-all duration-150 focus:outline-none focus:border-accent md:text-2xl ${
-                  errors.projectType
-                    ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
-                    : 'border-gray-400'
-                } ${formData.projectType ? 'text-ink-dark' : 'text-gray-400'}`}
-              >
-                <option value=''>¿Qué necesitas?</option>
-                {projectTypes.map((type) => (
-                  <option key={type} value={type}>
-                    {type}
-                  </option>
-                ))}
-              </select>
-              {errors.projectType && (
-                <ErrorMessage error={errors.projectType} />
-              )}
-            </>
-          ) : null}
 
           <div className='flex items-center gap-2'>
             <span className='relative flex-shrink-0 text-neutral-300 flex items-center justify-center w-11 h-11 -ml-2 -mt-1 md:w-5 md:h-5 md:ml-0 md:mt-0.5'>

@@ -21,13 +21,6 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { ADS_LANDING_PATH } from '../config/contact';
 
-const webProjectTypes = [
-  'Web nueva',
-  'Rediseñar mi web',
-  'Landing page',
-  'No lo tengo claro',
-] as const;
-
 const landingTrustPoints = [
   { icon: Wallet, text: 'Desde 600€' },
   { icon: Clock, text: 'Propuesta el mismo día' },
@@ -276,8 +269,6 @@ const LandingWeb = () => {
         overlay='black'
         hasReviewBadge
         isTopHero
-        showProjectType
-        projectTypes={webProjectTypes}
       />
 
       <TrustBar points={landingTrustPoints} />
@@ -371,8 +362,6 @@ const LandingWeb = () => {
         hasBackground={false}
         hasReviewBadge
         formId='contacto'
-        showProjectType
-        projectTypes={webProjectTypes}
       />
     </>
   );

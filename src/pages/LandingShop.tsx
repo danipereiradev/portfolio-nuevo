@@ -26,13 +26,6 @@ import {
   shopIncludesTitle,
 } from '../data/shopIncludes';
 
-const shopProjectTypes = [
-  'Crear tienda desde cero',
-  'Mejorar tienda existente',
-  'Migrar mi tienda',
-  'Todavía no lo tengo claro',
-] as const;
-
 const landingTrustPoints = [
   { icon: Wallet, text: 'Desde 900 €' },
   { icon: Clock, text: 'Propuesta el mismo día' },
@@ -225,8 +218,6 @@ const LandingShop = () => {
         overlay='black'
         hasReviewBadge
         isTopHero
-        showProjectType
-        projectTypes={shopProjectTypes}
       />
 
       <TrustBar points={landingTrustPoints} />
@@ -318,8 +309,6 @@ const LandingShop = () => {
         hasBackground={false}
         hasReviewBadge
         formId='contacto'
-        showProjectType
-        projectTypes={shopProjectTypes}
       />
     </>
   );

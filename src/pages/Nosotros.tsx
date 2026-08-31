@@ -10,9 +10,6 @@ import HeroCta from '../components/HeroCta';
 import {
   ABOUT_LABEL,
   ABOUT_PATH,
-  SITE_MAINTENANCE_LABEL,
-  SITE_SHOP_LABEL,
-  SITE_WEB_LABEL,
   SITE_WEB_PATH,
 } from '../config/contact';
 
@@ -180,13 +177,6 @@ const Nosotros = () => {
         buttonHref={SITE_WEB_PATH}
         heroType='form'
         hasButton={false}
-        showProjectType
-        projectTypes={[
-          SITE_WEB_LABEL,
-          SITE_SHOP_LABEL,
-          SITE_MAINTENANCE_LABEL,
-          'Todavía no lo tengo claro',
-        ]}
         formTitle='Te llamamos'
         formDescription='Propuesta en el mismo día. Sin compromiso.'
         formSectionInfo='La Agencia CTA'

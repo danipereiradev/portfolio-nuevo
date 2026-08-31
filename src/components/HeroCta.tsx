@@ -21,9 +21,6 @@ interface HeroCtaProps {
   formSectionInfo?: string;
   hasReviewBadge: boolean;
   isTopHero?: boolean;
-  showProjectType?: boolean;
-  showEmail?: boolean;
-  projectTypes?: readonly string[];
   highlights?: string[];
   formId?: string;
   animateEntrance?: boolean;
@@ -52,9 +49,6 @@ const HeroCta = ({
   formSectionInfo = '',
   hasReviewBadge,
   isTopHero = false,
-  showProjectType = false,
-  showEmail = false,
-  projectTypes,
   highlights,
   formId,
   animateEntrance = true,
@@ -239,9 +233,6 @@ const HeroCta = ({
                 title={formTitle}
                 description={formDescription}
                 page={formSectionInfo}
-                showProjectType={showProjectType}
-                showEmail={showEmail}
-                projectTypes={projectTypes}
                 className={animateEntrance ? 'hero-cta-form' : undefined}
               />
             ) : heroType === 'offer' ? (

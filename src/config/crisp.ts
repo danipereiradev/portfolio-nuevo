@@ -5,7 +5,3 @@ export const CRISP_WEBSITE_ID =
   'dfd05fb5-ada2-4d14-a2a7-d0df20eacfb4';
 
 export const CRISP_THEME_COLOR = '#e1f56e';
-
-export const CRISP_PROACTIVE_DELAY_MS = 10000;
-
-export const CRISP_PROACTIVE_TEXT = '¿Te podemos ayudar? No soy una IA :)';

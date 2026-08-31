@@ -11,11 +11,6 @@ import { TextImage } from '../components/TextImage';
 
 import { Team } from '../components/Team';
 import HeroCta from '../components/HeroCta';
-import {
-  SITE_MAINTENANCE_LABEL,
-  SITE_SHOP_LABEL,
-  SITE_WEB_LABEL,
-} from '../config/contact';
 
 const Home = () => {
   usePageMeta('/');
@@ -139,14 +134,6 @@ const Home = () => {
         }
         heroType='form'
         hasButton={false}
-        showEmail
-        showProjectType
-        projectTypes={[
-          SITE_WEB_LABEL,
-          SITE_SHOP_LABEL,
-          SITE_MAINTENANCE_LABEL,
-          'Todavía no lo tengo claro',
-        ]}
         formTitle='Te llamamos'
         formDescription='Propuesta en el mismo día. Sin compromiso.'
         formSectionInfo='La Agencia CTA'
