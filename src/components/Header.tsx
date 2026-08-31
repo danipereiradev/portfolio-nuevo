@@ -83,12 +83,12 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
 
   const brand = (
     <span className='flex items-baseline whitespace-nowrap font-display text-[calc(1.875rem*1.15*0.8)] font-normal tracking-tight md:text-[calc(1.875rem*1.15)]'>
-      <span className='text-[calc(1.25rem*1.15*0.8)] text-ink-dark md:text-[calc(1.875rem*1.15)]'>
+      <span className='text-[calc(1.25rem*1.15*0.8)] text-accent md:text-[calc(1.875rem*1.15)]'>
         &gt;&nbsp;
       </span>
       <span className='font-bold text-ink-dark'>{namePart}</span>
       {domainPart ? <span className='text-ink-dark'>{domainPart}</span> : null}
-      <span className='animate-pulse text-[calc(1.25rem*1.15*0.8)] text-ink-dark md:text-[calc(1.875rem*1.15)]'>
+      <span className='animate-pulse text-[calc(1.25rem*1.15*0.8)] text-accent md:text-[calc(1.875rem*1.15)]'>
         &nbsp;_
       </span>
     </span>

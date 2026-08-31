@@ -37,10 +37,10 @@ const Maintenance = () => {
     <main className='flex min-h-screen items-center justify-center bg-ink-dark px-page-x py-page-y'>
       <div className='flex max-w-lg flex-col gap-page-gap'>
         <p className='flex items-baseline font-display text-[calc(1.25rem*1.15)] font-normal tracking-tight md:text-[calc(1.5rem*1.15)]'>
-          <span className='text-brand-light'>&gt;&nbsp;</span>
+          <span className='text-accent'>&gt;&nbsp;</span>
           <span className='font-bold text-white'>36Web</span>
           <span className='text-ink-light'>.es</span>
-          <span className='animate-pulse text-brand'>&nbsp;_</span>
+          <span className='animate-pulse text-accent'>&nbsp;_</span>
         </p>
 
         <span className='block h-1 w-10 bg-brand' />
