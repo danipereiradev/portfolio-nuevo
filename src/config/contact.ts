@@ -74,9 +74,9 @@ const normalizePath = (pathname: string): string => {
   }
 };
 
-/** Página de servicio (orgánica). Menú Servicios → Diseño web. */
-export const SITE_WEB_PATH = '/diseño-web';
-export const SITE_WEB_PATH_ASCII = '/diseno-web';
+/** Página de servicio (orgánica). Menú Servicios → Páginas web. */
+export const SITE_WEB_PATH = '/diseno-web';
+export const SITE_WEB_PATH_N = '/diseño-web';
 export const SITE_WEB_LABEL = 'Páginas web';
 
 /** Página de servicio (orgánica). Menú Servicios → Tiendas online. */
@@ -122,7 +122,7 @@ export const isAdsLandingPath = (pathname: string): boolean =>
 
 export const isSiteWebPath = (pathname: string): boolean => {
   const path = normalizePath(pathname);
-  return path === SITE_WEB_PATH || path === SITE_WEB_PATH_ASCII;
+  return path === SITE_WEB_PATH || path === SITE_WEB_PATH_N;
 };
 
 // Devuelve el mensaje de WhatsApp más adecuado según la ruta actual, para

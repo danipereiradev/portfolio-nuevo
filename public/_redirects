@@ -1,9 +1,9 @@
 /api/subscribe  /.netlify/functions/subscribe  200!
 
-/web-a-medida   /diseño-web   301!
-/web-a-medida/   /diseño-web   301!
-/diseno-web   /diseño-web   301!
-/diseno-web/   /diseño-web   301!
+/web-a-medida   /diseno-web   301!
+/web-a-medida/   /diseno-web   301!
+/diseño-web   /diseno-web   301!
+/diseño-web/   /diseno-web   301!
 
 /web-profesional-a-medida   /landing-diseno-web   301!
 /web-profesional-a-medida/   /landing-diseno-web   301!
@@ -38,7 +38,7 @@
 /gracias           /landing-diseno-web   301!
 /ia                /landing-diseno-web   301!
 
-/diseño-web                     /diseño-web/index.html                     200
+/diseno-web                     /diseno-web/index.html                     200
 /landing-diseno-web             /landing-diseno-web/index.html             200
 /landing-web-profesional        /landing-web-profesional/index.html        200
 /landing-tiendas-online         /landing-tiendas-online/index.html         200

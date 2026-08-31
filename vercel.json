@@ -2,22 +2,22 @@
   "redirects": [
     {
       "source": "/web-a-medida",
-      "destination": "/diseño-web",
+      "destination": "/diseno-web",
       "permanent": true
     },
     {
       "source": "/web-a-medida/",
-      "destination": "/diseño-web",
+      "destination": "/diseno-web",
       "permanent": true
     },
     {
-      "source": "/diseno-web",
-      "destination": "/diseño-web",
+      "source": "/diseño-web",
+      "destination": "/diseno-web",
       "permanent": true
     },
     {
-      "source": "/diseno-web/",
-      "destination": "/diseño-web",
+      "source": "/diseño-web/",
+      "destination": "/diseno-web",
       "permanent": true
     },
     {
@@ -184,8 +184,8 @@
   ],
   "rewrites": [
     {
-      "source": "/diseño-web",
-      "destination": "/diseño-web/index.html"
+      "source": "/diseno-web",
+      "destination": "/diseno-web/index.html"
     },
     {
       "source": "/landing-diseno-web",

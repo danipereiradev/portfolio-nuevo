@@ -93,8 +93,8 @@
   force = true
 
 [[redirects]]
-  from = "/diseno-web"
-  to = "/diseño-web"
+  from = "/diseño-web"
+  to = "/diseno-web"
   status = 301
   force = true
 
@@ -122,7 +122,7 @@
 # index.html genérico de la home.
 [[redirects]]
   from = "/web-a-medida"
-  to = "/diseño-web"
+  to = "/diseno-web"
   status = 301
   force = true
 
@@ -139,8 +139,8 @@
   force = true
 
 [[redirects]]
-  from = "/diseño-web"
-  to = "/diseño-web/index.html"
+  from = "/diseno-web"
+  to = "/diseno-web/index.html"
   status = 200
 
 [[redirects]]

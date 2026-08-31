@@ -35,7 +35,7 @@ import {
   SITE_MAINTENANCE_PATH,
   SITE_SHOP_PATH,
   SITE_WEB_PATH,
-  SITE_WEB_PATH_ASCII,
+  SITE_WEB_PATH_N,
 } from './config/contact';
 import { BLOG_PATH } from './blog/posts';
 
@@ -74,7 +74,7 @@ function AppContent() {
         <Route path={ABOUT_PATH} element={<Nosotros />} />
         <Route path={SITE_WEB_PATH} element={<DisenoWeb />} />
         <Route
-          path={SITE_WEB_PATH_ASCII}
+          path={SITE_WEB_PATH_N}
           element={<Navigate to={SITE_WEB_PATH} replace />}
         />
         <Route path={SITE_SHOP_PATH} element={<TiendasOnline />} />
