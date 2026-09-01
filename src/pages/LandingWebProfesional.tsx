@@ -28,28 +28,13 @@ import { trackLandingPromo299View } from '../utils/analytics';
 
 const includes = [
   {
-    title: 'Tú nos das logo y contenidos',
-    description: (
-      <>
-        La web se monta con tu marca, tus textos y tus fotos. Tú entregas la
-        información de tu negocio; nosotros la diseñamos y la publicamos.{' '}
-        <strong className='font-extrabold'>
-          El plazo de {LAUNCH_DELIVERY_HOURS} h empieza cuando nos llega lo
-          necesario
-        </strong>
-        .
-      </>
-    ),
-  },
-  {
     title: `Publicación en un máximo de ${LAUNCH_DELIVERY_HOURS} h`,
     description: (
       <>
         Cuando tenemos logo, textos y los datos de tu negocio, montamos la web y
         te la enseñamos.{' '}
         <strong className='font-extrabold'>
-          Se publica en un máximo de {LAUNCH_DELIVERY_HOURS} h desde esa
-          entrega
+          Se publica en un máximo de {LAUNCH_DELIVERY_HOURS} h desde esa entrega
         </strong>
         .
       </>
@@ -193,7 +178,8 @@ const processSteps = [
     title: 'Te la enseñamos y se publica',
     description: (
       <>
-        En un máximo de {LAUNCH_DELIVERY_HOURS} h te la mostramos. Pagas el resto (
+        En un máximo de {LAUNCH_DELIVERY_HOURS} h te la mostramos. Pagas el
+        resto (
         <strong className='font-extrabold'>{getLaunchRemainderLabel()}</strong>)
         y la publicamos a tu nombre.{' '}
         <strong className='font-extrabold'>La web es tuya</strong>.
@@ -277,8 +263,8 @@ const LandingWebProfesional = () => {
             {getLaunchRemainderLabel()}) se paga antes de la publicación. Tú nos
             entregas logo, textos y la información de tu negocio.{' '}
             <strong className='font-extrabold'>
-              La web se publica en un máximo de {LAUNCH_DELIVERY_HOURS} h
-              desde ese momento
+              La web se publica en un máximo de {LAUNCH_DELIVERY_HOURS} h desde
+              ese momento
             </strong>
             . Hosting y dominio incluidos. Sin permanencia. La web es tuya.
           </>
