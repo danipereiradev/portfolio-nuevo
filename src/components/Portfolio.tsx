@@ -227,7 +227,6 @@ const Portfolio = ({
       image: '/img/portfolio/mock-delish.webp',
       product: SITE_SHOP_LABEL,
       productHref: SITE_SHOP_PATH,
-      url: 'https://delishvegan.com/',
       exito: t('portfolio.delish.desc'),
     },
     sillysally: {

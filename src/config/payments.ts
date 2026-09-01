@@ -1,7 +1,7 @@
 /** URL de retorno tras el pago. En Stripe Payment Link, usarla como success URL. */
 export const PAYMENT_SUCCESS_PATH = '/pago/gracias';
 
-/** Gracias de la oferta de lanzamiento 299 €. Success URL del Payment Link. */
+/** Gracias de la oferta de lanzamiento 349 €. Success URL del Payment Link. */
 export const PAYMENT_LAUNCH_SUCCESS_PATH = '/pago/gracias/web-299';
 
 export const PAYMENT_ROBOTS = 'noindex, nofollow, noarchive';
@@ -67,12 +67,12 @@ export const paymentConfigs: Record<string, PaymentConfig> = {
     conditions:
       '*Servicio con permanencia mínima de 6 meses.\nLa suscripción se renueva mensualmente y, una vez cumplido el periodo mínimo, puede cancelarse según las condiciones acordadas.',
   },
-  'reserva-web-profesional': {
-    id: 'reserva-web-profesional',
+  'reserva-web-profesional-esencial': {
+    id: 'reserva-web-profesional-esencial',
     clientName: 'Oferta de lanzamiento',
     serviceName: 'Reserva — Web profesional',
     description:
-      'Reserva de 99 € + IVA para la web profesional de lanzamiento (299 € + IVA). El resto (200 € + IVA) se paga antes de la publicación. Se publica en un máximo de 72 h desde que nos entregas la información de tu negocio.',
+      'Reserva de 99 € + IVA para la web profesional de lanzamiento (349 € + IVA). El resto (250 € + IVA) se paga antes de la publicación. Se publica en un máximo de 72 h desde que nos entregas la información de tu negocio.',
     amount: 99,
     vatRate: 21,
     paymentType: 'one_time',
@@ -80,14 +80,14 @@ export const paymentConfigs: Record<string, PaymentConfig> = {
     stripePaymentLink: 'https://buy.stripe.com/5kQ9ATcWL0Y0dfDaFI4AU01',
     includes: [
       'Reserva para empezar el proyecto',
-      'Web profesional a 299 € + IVA',
+      'Web profesional a 349 € + IVA',
       'Tú entregas logo, textos y fotos',
       'Hosting y dominio incluidos',
       'Publicación en un máximo de 72 h desde que nos entregas la información de tu negocio',
       'Sin permanencia. La web es tuya',
     ],
     conditions:
-      '*El importe de esta página es solo la reserva (99 € + IVA).\nEl resto (200 € + IVA) se paga antes de la publicación.',
+      '*El importe de esta página es solo la reserva (99 € + IVA).\nEl resto (250 € + IVA) se paga antes de la publicación.',
   },
   [HOURLY_PAYMENT_ID]: {
     id: HOURLY_PAYMENT_ID,
@@ -157,7 +157,10 @@ export const getTotalsFromNet = (amount: number, vatRate: number) => {
 };
 
 export const getPaymentTotals = (payment: PaymentConfig) => {
-  const { vatAmount, total } = getTotalsFromNet(payment.amount, payment.vatRate);
+  const { vatAmount, total } = getTotalsFromNet(
+    payment.amount,
+    payment.vatRate,
+  );
   return { vatAmount, total };
 };
 

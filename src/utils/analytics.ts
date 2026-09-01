@@ -616,13 +616,13 @@ export const trackLandingPromo299FormSubmit = () => {
     event_category: 'landing_promo_299',
     event_label: 'landing promo 299',
     landing_name: 'landing promo 299',
-    value: 299,
+    value: 349,
     currency: 'EUR',
   });
 
   try {
     window.gtag?.('event', 'generate_lead', {
-      value: 299,
+      value: 349,
       currency: 'EUR',
       landing_name: 'landing promo 299',
     });

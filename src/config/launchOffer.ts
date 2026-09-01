@@ -14,7 +14,7 @@ export const LAUNCH_OFFER_MAX = 10;
 export const soldWebs = 5;
 
 /** Precio del pack, sin IVA. */
-export const LAUNCH_PRICE = 299;
+export const LAUNCH_PRICE = 349;
 
 /** Reserva ahora, sin IVA. El resto se paga en la entrega. */
 export const LAUNCH_RESERVE = 99;
@@ -22,7 +22,7 @@ export const LAUNCH_RESERVE = 99;
 /** Entrega máxima en horas. */
 export const LAUNCH_DELIVERY_HOURS = 72;
 
-export const LAUNCH_RESERVE_PAYMENT_ID = 'reserva-web-profesional';
+export const LAUNCH_RESERVE_PAYMENT_ID = 'reserva-web-profesional-esencial';
 
 export const getLaunchRemaining = (remaining = soldWebs): number =>
   Math.max(0, Math.min(LAUNCH_OFFER_MAX, remaining));
