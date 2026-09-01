@@ -9,7 +9,7 @@ import {
 const LaunchTrustBar = () => {
   const points = [
     { icon: Wallet, text: getLaunchPriceLabel() },
-    { icon: Clock, text: `Publicación en un máximo de ${LAUNCH_DELIVERY_HOURS} h` },
+    { icon: Clock, text: `Publicación en ${LAUNCH_DELIVERY_HOURS} h` },
     { icon: ShieldCheck, text: `Reserva ${getLaunchReserveLabel()}` },
     { icon: BadgeCheck, text: 'La web es tuya' },
   ];
