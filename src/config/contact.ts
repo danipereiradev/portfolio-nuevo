@@ -30,7 +30,10 @@ export const ADS_MAINTENANCE_WHATSAPP_MESSAGE =
   'Hola, vengo de Google y quiero información sobre mantenimiento web.';
 
 export const ADS_LAUNCH_WHATSAPP_MESSAGE =
-  'Hola, quiero reservar la oferta de lanzamiento: web profesional por 299 €.';
+  'Hola, vengo de landing promo 299 y quiero información sobre la web profesional por 299 €.';
+
+/** Origen del formulario en la landing de oferta 299 €. Sale en Formspree y en el tracking. */
+export const ADS_LAUNCH_FORM_ORIGIN = 'landing promo 299';
 
 // Mensaje para el botón de WhatsApp de /web-profesional (landing de packs).
 export const WEB_PROFESIONAL_WHATSAPP_MESSAGE =

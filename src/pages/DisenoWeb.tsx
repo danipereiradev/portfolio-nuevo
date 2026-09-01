@@ -29,7 +29,7 @@ const faqs = [
   {
     question: '¿Qué incluye?',
     answer:
-      'Diseño de la página web, estructura, versión móvil, formulario o WhatsApp, base de SEO técnico, editor de contenidos y publicación con tu dominio. Hosting para arrancar. Precio y plazos van por escrito en la propuesta, antes de cobrar nada.',
+      'Diseño de la página web, estructura, versión móvil, Formulario y WhatsApp, base de SEO técnico, editor de contenidos y publicación con tu dominio. Hosting para arrancar. Precio y plazos van por escrito en la propuesta, antes de cobrar nada.',
   },
   {
     question: '¿WordPress o desarrollo a medida?',
@@ -54,7 +54,7 @@ const faqs = [
   {
     question: '¿De quién es la web?',
     answer:
-      'Tuya. Te la entregamos funcionando: dominio, móvil, formulario o WhatsApp. Archivos y accesos a tu nombre. El mantenimiento mensual es opcional.',
+      'Tuya. Te la entregamos funcionando: dominio, móvil, Formulario y WhatsApp. Archivos y accesos a tu nombre. El mantenimiento mensual es opcional.',
   },
 ];
 

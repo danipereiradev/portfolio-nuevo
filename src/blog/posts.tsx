@@ -29,8 +29,7 @@ const cuantoCuesta: BlogPost = {
       <p>
         No hay un pack cerrado que valga para todos. Quien te da un precio único
         sin preguntar o te está vendiendo una plantilla, o te lo inventa. Aquí
-        te dejamos orientación de verdad, y cómo lo presupuestamos en
-        36web.
+        te dejamos orientación de verdad, y cómo lo presupuestamos en 36web.
       </p>
 
       <h2>Qué marca el precio de una página web en 2026</h2>
@@ -58,7 +57,7 @@ const cuantoCuesta: BlogPost = {
           lo que ya tienes.
         </li>
         <li>
-          <strong>Funciones.</strong> Formulario o WhatsApp entra en un proyecto
+          <strong>Funciones.</strong> Formulario y WhatsApp entra en un proyecto
           típico. Reservas, área privada o integraciones raras, no.
         </li>
       </ul>
@@ -115,7 +114,7 @@ const cuantoCuesta: BlogPost = {
       <ul>
         <li>Estructura y diseño de la página web, con tu marca.</li>
         <li>Versión móvil (responsive).</li>
-        <li>Formulario o WhatsApp, para que te puedan escribir.</li>
+        <li>Formulario y WhatsApp, para que te puedan escribir.</li>
         <li>
           Base de SEO on-page: títulos, encabezados, URLs limpias y que cargue.
         </li>
@@ -167,9 +166,8 @@ const cuantoCuesta: BlogPost = {
       <p>
         Pedir presupuesto de diseño web es gratis. Nos cuentas el caso. Te
         devolvemos propuesta en el mismo día: qué entra, cuánto sale y cuándo
-        está. Si
-        encaja, el 50% al aceptar y arrancamos. El resto, al publicar. Si no
-        encaja, lo dices y no pasa nada.
+        está. Si encaja, el 50% al aceptar y arrancamos. El resto, al publicar.
+        Si no encaja, lo dices y no pasa nada.
       </p>
       <p>
         El plazo va por escrito. Una página web de negocio suele estar en 3 a 8
@@ -179,11 +177,10 @@ const cuantoCuesta: BlogPost = {
 
       <h2>¿Cuánto cuesta una página web en Madrid en 2026?</h2>
       <p>
-        36web es una agencia de diseño web y marketing digital en Madrid.
-        El precio no cambia por código postal: trabajamos en remoto con
-        autónomos y empresas de toda España. Si estás en Madrid, también podemos
-        vernos. Lo que cambia el precio es el alcance del proyecto, no la
-        ciudad.
+        36web es una agencia de diseño web y marketing digital en Madrid. El
+        precio no cambia por código postal: trabajamos en remoto con autónomos y
+        empresas de toda España. Si estás en Madrid, también podemos vernos. Lo
+        que cambia el precio es el alcance del proyecto, no la ciudad.
       </p>
       <p>
         Si te interesa el stack, no solo el precio:{' '}

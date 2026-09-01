@@ -19,6 +19,7 @@ interface HeroCtaProps {
   formTitle?: string;
   formDescription?: string;
   formSectionInfo?: string;
+  formSubmitLabel?: string;
   hasReviewBadge: boolean;
   isTopHero?: boolean;
   highlights?: string[];
@@ -47,6 +48,7 @@ const HeroCta = ({
   formTitle = '',
   formDescription = '',
   formSectionInfo = '',
+  formSubmitLabel,
   hasReviewBadge,
   isTopHero = false,
   highlights,
@@ -233,6 +235,7 @@ const HeroCta = ({
                 title={formTitle}
                 description={formDescription}
                 page={formSectionInfo}
+                submitLabel={formSubmitLabel}
                 className={animateEntrance ? 'hero-cta-form' : undefined}
               />
             ) : heroType === 'offer' ? (

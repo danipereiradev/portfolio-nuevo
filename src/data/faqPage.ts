@@ -48,7 +48,7 @@ export const faqCategories: FaqCategory[] = [
       {
         question: '¿Qué incluye una web a medida?',
         answer:
-          'Diseño propio, móvil, formulario o WhatsApp, dominio conectado y una base razonable para Google. Si hace falta reservas, paneles o integraciones, va en la propuesta.',
+          'Diseño propio, móvil, Formulario y WhatsApp, dominio conectado y una base razonable para Google. Si hace falta reservas, paneles o integraciones, va en la propuesta.',
       },
       {
         question: '¿Podéis mejorar una web que ya existe?',

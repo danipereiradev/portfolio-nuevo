@@ -181,11 +181,19 @@ export const trackGoogleAdsLaunchReserveConversion = (
 ): boolean => {
   if (typeof window === 'undefined') return false;
 
-  trackPricingSplitPayment('landing-web-profesional');
-  trackEvent('begin_checkout', {
-    event_category: 'ecommerce',
+  trackPricingSplitPayment('landing promo 299');
+  trackEvent('landing_promo_299_reserve_click', {
+    event_category: 'landing_promo_299',
     event_label: locationSection,
     location_section: locationSection,
+    value: 99,
+    currency: 'EUR',
+  });
+  trackEvent('begin_checkout', {
+    event_category: 'ecommerce',
+    event_label: 'landing promo 299',
+    location_section: locationSection,
+    landing_name: 'landing promo 299',
     value: 99,
     currency: 'EUR',
     item_name: 'Reserva web profesional',
@@ -275,9 +283,16 @@ export const trackLaunchReserveThankYou = (): void => {
     // Sin sessionStorage: el candado de módulo sigue valiendo en esta sesión JS.
   }
 
+  trackEvent('landing_promo_299_purchase', {
+    event_category: 'landing_promo_299',
+    event_label: 'landing promo 299',
+    value: 99,
+    currency: 'EUR',
+  });
   trackEvent('purchase', {
     event_category: 'ecommerce',
-    event_label: 'landing-web-profesional',
+    event_label: 'landing promo 299',
+    landing_name: 'landing promo 299',
     value: 99,
     currency: 'EUR',
     item_name: 'Reserva web profesional',
@@ -584,4 +599,34 @@ export const trackWebProfesionalFormSubmit = (plan: string, value?: number) => {
     value: value || 0,
     currency: 'EUR',
   });
+};
+
+// Landing promo 299 (/landing-web-profesional)
+
+export const trackLandingPromo299View = () => {
+  trackEvent('landing_promo_299_view', {
+    event_category: 'landing_promo_299',
+    event_label: 'landing promo 299',
+    landing_name: 'landing promo 299',
+  });
+};
+
+export const trackLandingPromo299FormSubmit = () => {
+  trackEvent('landing_promo_299_form_submit', {
+    event_category: 'landing_promo_299',
+    event_label: 'landing promo 299',
+    landing_name: 'landing promo 299',
+    value: 299,
+    currency: 'EUR',
+  });
+
+  try {
+    window.gtag?.('event', 'generate_lead', {
+      value: 299,
+      currency: 'EUR',
+      landing_name: 'landing promo 299',
+    });
+  } catch {
+    // La analítica nunca debe romper la experiencia del usuario.
+  }
 };

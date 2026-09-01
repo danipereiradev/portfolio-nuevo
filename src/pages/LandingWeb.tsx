@@ -30,15 +30,12 @@ const landingTrustPoints = [
 
 const includes = [
   {
-    title: 'Diseño a tu medida',
+    title: 'Diseño adaptado a tu negocio',
     description: (
       <>
-        No hacemos la misma web para todo el mundo. La hacemos con tu marca, tus
-        textos y tus fotos.{' '}
-        <strong className='font-extrabold'>
-          Cada web es distinta porque cada negocio lo es
-        </strong>
-        .
+        Adaptamos colores, estructura y presentación a tu marca y sector para
+        que la web tenga{' '}
+        <strong className='font-extrabold'>sentido para tu negocio</strong>.
       </>
     ),
   },
@@ -56,12 +53,12 @@ const includes = [
     ),
   },
   {
-    title: 'Formulario o WhatsApp',
+    title: 'Formulario y WhatsApp',
     description: (
       <>
         Si no pueden contactarte, la web no sirve. Dejamos{' '}
         <strong className='font-extrabold'>
-          un formulario o un botón de WhatsApp
+          un formulario y un botón de WhatsApp
         </strong>{' '}
         a la vista.
       </>
@@ -195,7 +192,7 @@ const faqs = [
   {
     question: '¿Qué incluye?',
     answer:
-      'Diseño a medida, versión móvil, formulario o WhatsApp, SEO de base, panel para textos y fotos, y publicación con tu dominio. Hosting para arrancar. Lo concreto de tu caso va en la propuesta, antes de cobrar nada.',
+      'Diseño a medida, versión móvil, Formulario y WhatsApp, SEO de base, panel para textos y fotos, y publicación con tu dominio. Hosting para arrancar. Lo concreto de tu caso va en la propuesta, antes de cobrar nada.',
   },
   {
     question: '¿WordPress o a medida?',

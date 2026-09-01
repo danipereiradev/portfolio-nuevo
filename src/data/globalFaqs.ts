@@ -18,7 +18,7 @@ export const globalFaqs: GlobalFaqItem[] = [
   {
     question: '¿Qué incluye el desarrollo de la web?',
     answer:
-      'Diseño a medida, versión móvil, formulario o WhatsApp, base de SEO on-page, publicación con tu dominio y hosting para arrancar. Panel para textos y fotos. Reservas, paneles o integraciones, si hacen falta, van en la propuesta.',
+      'Diseño a medida, versión móvil, Formulario y WhatsApp, base de SEO on-page, publicación con tu dominio y hosting para arrancar. Panel para textos y fotos. Reservas, paneles o integraciones, si hacen falta, van en la propuesta.',
   },
   {
     question: '¿Incluís SEO?',

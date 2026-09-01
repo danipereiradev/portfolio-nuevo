@@ -1,37 +1,20 @@
 import { BadgeCheck, Clock, ShieldCheck, Wallet } from 'lucide-react';
 import TrustBar from './TrustBar';
 import {
-  getLaunchAvailabilityCopy,
   getLaunchPriceLabel,
-  getLaunchRemaining,
   getLaunchReserveLabel,
-  isLaunchSoldOut,
   LAUNCH_DELIVERY_HOURS,
-  LAUNCH_OFFER_MAX,
 } from '../config/launchOffer';
 
 const LaunchTrustBar = () => {
-  const remaining = getLaunchRemaining();
-  const soldOut = isLaunchSoldOut();
-
   const points = [
     { icon: Wallet, text: getLaunchPriceLabel() },
-    { icon: Clock, text: `${LAUNCH_DELIVERY_HOURS} h máximo` },
+    { icon: Clock, text: `Publicación en un máximo de ${LAUNCH_DELIVERY_HOURS} h` },
     { icon: ShieldCheck, text: `Reserva ${getLaunchReserveLabel()}` },
-    {
-      icon: BadgeCheck,
-      text: soldOut
-        ? 'Plazas agotadas'
-        : `${remaining} / ${LAUNCH_OFFER_MAX} plazas`,
-    },
+    { icon: BadgeCheck, text: 'La web es tuya' },
   ];
 
-  return (
-    <>
-      <TrustBar points={points} />
-      <p className='sr-only'>{getLaunchAvailabilityCopy()}</p>
-    </>
-  );
+  return <TrustBar points={points} />;
 };
 
 export default LaunchTrustBar;

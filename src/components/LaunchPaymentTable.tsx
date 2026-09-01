@@ -8,7 +8,7 @@ const LaunchPaymentTable = () => {
   const rows = [
     {
       title: 'Hoy',
-      detail: 'Para reservar tu plaza',
+      detail: 'Para empezar el proyecto',
       amount: getLaunchReserveLabel(),
     },
     {

@@ -59,19 +59,18 @@ export const paymentConfigs: Record<string, PaymentConfig> = {
     clientName: 'Oferta de lanzamiento',
     serviceName: 'Reserva — Web profesional',
     description:
-      'Reserva de 99 € + IVA para la web profesional de lanzamiento (299 € + IVA). El resto (200 € + IVA) se paga antes de la publicación. Entrega en 72 h máximo.',
+      'Reserva de 99 € + IVA para la web profesional de lanzamiento (299 € + IVA). El resto (200 € + IVA) se paga antes de la publicación. Se publica en un máximo de 72 h desde que nos entregas la información de tu negocio.',
     amount: 99,
     vatRate: 21,
     paymentType: 'one_time',
     // Success URL en Stripe: https://36web.es/pago/gracias/web-299
     stripePaymentLink: 'https://buy.stripe.com/5kQ9ATcWL0Y0dfDaFI4AU01',
     includes: [
-      'Reserva de una de las 10 plazas de lanzamiento',
+      'Reserva para empezar el proyecto',
       'Web profesional a 299 € + IVA',
-      'Logo si no tienes',
-      'Textos, fotos y contenidos según tu sector',
+      'Tú entregas logo, textos y fotos',
       'Hosting y dominio incluidos',
-      'Entrega en 72 h máximo',
+      'Publicación en un máximo de 72 h desde que nos entregas la información de tu negocio',
       'Sin permanencia. La web es tuya',
     ],
     conditions:

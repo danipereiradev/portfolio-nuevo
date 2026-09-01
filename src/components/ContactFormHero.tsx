@@ -2,10 +2,16 @@ import { useState } from 'react';
 import Button from './Button';
 import {
   trackFormError,
+  trackFormSubmit,
   trackGoogleAdsFormConversion,
+  trackLandingPromo299FormSubmit,
   unlockGoogleAdsFormConversion,
 } from '../utils/analytics';
-import { BUSINESS_HOURS_LABEL, FORM_CC_EMAIL } from '../config/contact';
+import {
+  ADS_LAUNCH_FORM_ORIGIN,
+  BUSINESS_HOURS_LABEL,
+  FORM_CC_EMAIL,
+} from '../config/contact';
 import { AlertCircle } from 'lucide-react';
 
 const emptyForm = (page: string) => ({
@@ -22,6 +28,7 @@ interface ContactHeroFormHeroProps {
   page: string;
   id?: string;
   className?: string;
+  submitLabel?: string;
 }
 
 export const ContactFormHero = ({
@@ -30,6 +37,7 @@ export const ContactFormHero = ({
   page,
   id,
   className = '',
+  submitLabel = 'Pedir propuesta',
 }: ContactHeroFormHeroProps) => {
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -125,6 +133,10 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       }
       // Orden: Formspree OK , mostramos mensaje de agradecimiento y nos quedamos en la página
 
+      trackFormSubmit(origen);
+      if (origen === ADS_LAUNCH_FORM_ORIGIN) {
+        trackLandingPromo299FormSubmit();
+      }
       trackGoogleAdsFormConversion();
       setIsFormSent(true);
     } catch (error) {
@@ -281,7 +293,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             variant='primary'
             className='self-center !mx-0 md:self-start'
           >
-            {isSubmitting ? 'Enviando...' : 'Pedir propuesta'}
+            {isSubmitting ? 'Enviando...' : submitLabel}
           </Button>
         </div>
         {submitStatus === 'error' && (

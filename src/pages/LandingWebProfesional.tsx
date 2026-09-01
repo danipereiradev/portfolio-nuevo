@@ -1,9 +1,5 @@
-import { useMemo } from 'react';
-import {
-  FileCheck,
-  Handshake,
-  LayoutTemplate,
-} from 'lucide-react';
+import { useEffect, useMemo } from 'react';
+import { FileCheck, Handshake, LayoutTemplate } from 'lucide-react';
 import Portfolio from '../components/Portfolio';
 import SEOBenefits from '../components/SEOBenefits';
 import SEOFAQ from '../components/SEOFAQ';
@@ -18,52 +14,54 @@ import LaunchReserveActions from '../components/LaunchReserveActions';
 import { ServiceIncludes } from '../components/ServiceOnPage';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
-import { ADS_LAUNCH_LANDING_PATH } from '../config/contact';
 import {
-  getLaunchAvailabilityCopy,
+  ADS_LAUNCH_FORM_ORIGIN,
+  ADS_LAUNCH_LANDING_PATH,
+} from '../config/contact';
+import {
   getLaunchPriceLabel,
   getLaunchRemainderLabel,
   getLaunchReserveLabel,
   LAUNCH_DELIVERY_HOURS,
-  LAUNCH_OFFER_MAX,
 } from '../config/launchOffer';
+import { trackLandingPromo299View } from '../utils/analytics';
 
 const includes = [
   {
-    title: 'Logo si no tienes',
+    title: 'Tú nos das logo y contenidos',
     description: (
       <>
-        Si no tienes logo, te lo hacemos. Si ya tienes marca, la usamos.{' '}
+        La web se monta con tu marca, tus textos y tus fotos. Tú entregas la
+        información de tu negocio; nosotros la diseñamos y la publicamos.{' '}
         <strong className='font-extrabold'>
-          La web sale con identidad, no con un recuadro vacío
+          El plazo de {LAUNCH_DELIVERY_HOURS} h empieza cuando nos llega lo
+          necesario
         </strong>
         .
       </>
     ),
   },
   {
-    title: 'Textos, fotos y contenidos de tu sector',
+    title: `Publicación en un máximo de ${LAUNCH_DELIVERY_HOURS} h`,
     description: (
       <>
-        No hace falta que nos mandes un dossier. Redactamos los textos y
-        ponemos fotos acordes a lo que haces:{' '}
+        Cuando tenemos logo, textos y los datos de tu negocio, montamos la web y
+        te la enseñamos.{' '}
         <strong className='font-extrabold'>
-          fontanero, clínica, restaurante, tienda…
-        </strong>{' '}
-        La web habla de tu negocio desde el día uno.
+          Se publica en un máximo de {LAUNCH_DELIVERY_HOURS} h desde esa
+          entrega
+        </strong>
+        .
       </>
     ),
   },
   {
-    title: 'Diseño a tu medida',
+    title: 'Diseño adaptado a tu negocio',
     description: (
       <>
-        No hacemos la misma web para todo el mundo. Colores, estructura y tono
-        de tu sector.{' '}
-        <strong className='font-extrabold'>
-          Cada web es distinta porque cada negocio lo es
-        </strong>
-        .
+        Adaptamos colores, estructura y presentación a tu marca y sector para
+        que la web tenga{' '}
+        <strong className='font-extrabold'>sentido para tu negocio</strong>.
       </>
     ),
   },
@@ -81,12 +79,12 @@ const includes = [
     ),
   },
   {
-    title: 'Formulario o WhatsApp',
+    title: 'Formulario y WhatsApp',
     description: (
       <>
         Si no pueden contactarte, la web no sirve. Dejamos{' '}
         <strong className='font-extrabold'>
-          un formulario o un botón de WhatsApp
+          un formulario y un botón de WhatsApp
         </strong>{' '}
         a la vista.
       </>
@@ -105,11 +103,10 @@ const includes = [
     ),
   },
   {
-    title: 'Hosting, dominio y panel',
+    title: 'Hosting y dominio',
     description: (
       <>
-        Un año de hosting para arrancar, tu dominio y un panel sencillo para
-        textos y fotos.{' '}
+        Un año de hosting para arrancar y tu dominio.{' '}
         <strong className='font-extrabold'>La web queda a tu nombre</strong>.
       </>
     ),
@@ -155,23 +152,35 @@ const whyUs = [
 const processSteps = [
   {
     number: '1',
-    title: 'Reservas tu plaza',
+    title: 'Reservas y arrancamos',
     description: (
       <>
         Pagas{' '}
         <strong className='font-extrabold'>{getLaunchReserveLabel()}</strong> y
-        arrancamos. Precio cerrado:{' '}
+        empezamos. Precio cerrado:{' '}
         <strong className='font-extrabold'>{getLaunchPriceLabel()}</strong>.
       </>
     ),
   },
   {
     number: '2',
+    title: 'Nos entregas la información',
+    description: (
+      <>
+        Logo, textos, fotos y los datos de tu negocio. Con eso montamos la web.{' '}
+        <strong className='font-extrabold'>
+          El plazo de {LAUNCH_DELIVERY_HOURS} h empieza aquí
+        </strong>
+        .
+      </>
+    ),
+  },
+  {
+    number: '3',
     title: 'Montamos la web',
     description: (
       <>
-        Con tu marca si la tienes. Si no, te hacemos el logo y redactamos textos
-        y fotos de tu sector.{' '}
+        Con tu marca y tus contenidos.{' '}
         <strong className='font-extrabold'>
           Hablas con quien la está haciendo
         </strong>
@@ -180,24 +189,13 @@ const processSteps = [
     ),
   },
   {
-    number: '3',
-    title: 'Te la enseñamos',
-    description: (
-      <>
-        En{' '}
-        <strong className='font-extrabold'>
-          {LAUNCH_DELIVERY_HOURS} h máximo
-        </strong>{' '}
-        te mostramos la web. Después pagas el resto (<strong className='font-extrabold'>{getLaunchRemainderLabel()}</strong>) y la publicamos.
-      </>
-    ),
-  },
-  {
     number: '4',
-    title: 'Se publica y queda tuya',
+    title: 'Te la enseñamos y se publica',
     description: (
       <>
-        Conectamos el dominio, se ve bien en el móvil y te pueden escribir.{' '}
+        En un máximo de {LAUNCH_DELIVERY_HOURS} h te la mostramos. Pagas el resto (
+        <strong className='font-extrabold'>{getLaunchRemainderLabel()}</strong>)
+        y la publicamos a tu nombre.{' '}
         <strong className='font-extrabold'>La web es tuya</strong>.
       </>
     ),
@@ -207,26 +205,24 @@ const processSteps = [
 const faqs = [
   {
     question: `¿Por qué cuesta ${getLaunchPriceLabel()}?`,
-    answer: `Es una oferta de lanzamiento: solo ${LAUNCH_OFFER_MAX} proyectos a este precio. Nuestras webs a medida suelen partir de 600 €. Aquí montamos una web funcional, rápida y sencilla para empezar a captar clientes ya: se ve bien en el móvil, te pueden escribir y Google la entiende. No es una plantilla ni un proyecto inflado. Es el arranque profesional. Cuando el negocio pida más —páginas, reservas, tienda— la escalamos. Empiezas con lo que hace falta, sin pagar por lo que aún no usas. Y la web es tuya.`,
+    answer: `Es el precio de lanzamiento. Nuestras webs a medida suelen partir de 600 €. Aquí montamos una web funcional, rápida y sencilla para empezar a captar clientes: se ve bien en el móvil, te pueden escribir y Google la entiende. No es una plantilla ni un proyecto inflado. Es el arranque profesional. Cuando el negocio pida más —páginas, reservas, tienda— la escalamos. Empiezas con lo que hace falta, sin pagar por lo que aún no usas. Y la web es tuya.`,
   },
   {
     question: '¿Cuánto cuesta y cómo se paga?',
     answer: `${getLaunchPriceLabel()}, precio cerrado. Reservas con ${getLaunchReserveLabel()}. El resto (${getLaunchRemainderLabel()}) se paga antes de la publicación. Hosting y dominio incluidos. Sin permanencia. La web es tuya.`,
   },
-
   {
     question: '¿Cuánto tarda?',
-    answer: `En ${LAUNCH_DELIVERY_HOURS} h máximo. No esperamos a que nos mandes textos: si no tienes logo, textos o fotos, los preparamos nosotros según tu sector.`,
+    answer: `Se publica en un máximo de ${LAUNCH_DELIVERY_HOURS} h desde que nos entregas la información necesaria de tu negocio: logo, textos, fotos y datos de contacto. Puedes reservar antes; el reloj empieza cuando nos llega ese material.`,
   },
   {
     question: '¿Qué incluye?',
     answer:
-      'Diseño a tu sector, versión móvil, formulario o WhatsApp, SEO de base, panel para textos y fotos, hosting y dominio. Si no tienes logo, te lo hacemos. Textos y fotos, acordes a lo que haces. Precio cerrado. La web es tuya.',
+      'Diseño a tu sector, versión móvil, Formulario y WhatsApp, SEO de base, hosting y dominio. Tú aportas logo, textos y fotos. Precio cerrado. La web es tuya.',
   },
   {
-    question: '¿Y si no tengo logo, textos o fotos?',
-    answer:
-      'No pasa nada. Si no tienes logo, te hacemos uno. Redactamos los textos y ponemos fotos según tu sector. Si ya tienes marca o material, lo usamos. No tienes que llegar con un dossier para reservar.',
+    question: '¿Qué tengo que entregar yo?',
+    answer: `Logo, textos, fotos y la información de tu negocio (qué haces, cómo te contactan, horarios, redes). Con eso montamos y publicamos. Si prefieres reservar primero con ${getLaunchReserveLabel()}, lo hacemos; el plazo de ${LAUNCH_DELIVERY_HOURS} h cuenta desde que nos llega el material.`,
   },
   {
     question: '¿WordPress o a medida?',
@@ -247,6 +243,10 @@ const faqs = [
 
 const LandingWebProfesional = () => {
   usePageMeta(ADS_LAUNCH_LANDING_PATH);
+
+  useEffect(() => {
+    trackLandingPromo299View();
+  }, []);
 
   const faqJsonLd = useMemo(
     () => ({
@@ -269,22 +269,18 @@ const LandingWebProfesional = () => {
   return (
     <>
       <HeroCta
-        label={`Oferta de lanzamiento · Máximo ${LAUNCH_OFFER_MAX} proyectos`}
-        labelNote={getLaunchAvailabilityCopy()}
-        title={`Una Web Profesional para arrancar tu negocio por ${getLaunchPriceLabel()}`}
+        label='Web profesional'
+        title={`Una web profesional para arrancar tu negocio por ${getLaunchPriceLabel()}`}
         description={
           <>
-            Solo {LAUNCH_OFFER_MAX} proyectos · Logo si no tienes · Textos y
-            fotos de tu sector · Hosting y dominio · Sin permanencia · La web es
-            tuya.
-            <br />
+            Precio cerrado. Reserva con {getLaunchReserveLabel()}; el resto (
+            {getLaunchRemainderLabel()}) se paga antes de la publicación. Tú nos
+            entregas logo, textos y la información de tu negocio.{' '}
             <strong className='font-extrabold'>
-              Oferta de lanzamiento limitada a las {LAUNCH_OFFER_MAX} primeras
-              reservas.
-            </strong>{' '}
-            Reserva con {getLaunchReserveLabel()}; el resto (
-            {getLaunchRemainderLabel()}) se paga antes de la publicación. La web
-            se entrega en {LAUNCH_DELIVERY_HOURS} h máximo.
+              La web se publica en un máximo de {LAUNCH_DELIVERY_HOURS} h
+              desde ese momento
+            </strong>
+            . Hosting y dominio incluidos. Sin permanencia. La web es tuya.
           </>
         }
         buttonText={`Reservar ${getLaunchReserveLabel()}`}
@@ -306,9 +302,9 @@ const LandingWebProfesional = () => {
         title='Qué incluye la web'
         intro={
           <>
-            Esto entra en el pack, precio cerrado.{' '}
+            Esto entra en tu web, precio cerrado.{' '}
             <strong className='font-extrabold'>
-              Logo, textos y fotos incluidos si no los tienes
+              Tú nos entregas logo y contenidos; nosotros montamos y publicamos
             </strong>
             .
           </>
@@ -366,8 +362,9 @@ const LandingWebProfesional = () => {
         subtitle={
           <>
             <strong className='font-extrabold'>Cuatro pasos.</strong> Reservas,
-            montamos, te la enseñamos en {LAUNCH_DELIVERY_HOURS} h máximo y, al
-            pagar el resto, se publica a tu nombre.
+            nos entregas la información de tu negocio, montamos y te la
+            enseñamos. Se publica en un máximo de {LAUNCH_DELIVERY_HOURS} h
+            desde esa entrega.
           </>
         }
         steps={processSteps}
@@ -395,6 +392,28 @@ const LandingWebProfesional = () => {
         ]}
       />
 
+      <HeroCta
+        title='¿Tienes dudas? Te llamamos'
+        description={
+          <>
+            Déjanos tus datos y te contactamos.{' '}
+            <strong className='font-extrabold'>Sin compromiso.</strong> Si lo
+            tienes claro, reserva con {getLaunchReserveLabel()} y arrancamos.
+          </>
+        }
+        buttonText='Quiero información'
+        buttonHref='#contacto'
+        heroType='form'
+        hasButton={false}
+        formTitle='Te llamamos'
+        formDescription='Nombre, email y teléfono. Te escribimos en horario laboral.'
+        formSectionInfo={ADS_LAUNCH_FORM_ORIGIN}
+        formSubmitLabel='Quiero información'
+        formId='contacto'
+        hasBackground={false}
+        hasReviewBadge
+      />
+
       <div id='faq' className='scroll-mt-24'>
         <SEOFAQ
           title='Lo que suele preguntar la gente'
@@ -406,7 +425,7 @@ const LandingWebProfesional = () => {
 
       <div id='reserva-final' className='scroll-mt-24'>
         <HeroCta
-          title={`Reserva una de las ${LAUNCH_OFFER_MAX} webs`}
+          title='Reserva tu web profesional'
           belowDescription={<LaunchPaymentTable />}
           ctaContent={
             <LaunchReserveActions location='LaunchFinal' align='center' />
