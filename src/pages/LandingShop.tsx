@@ -15,7 +15,7 @@ import { Team } from '../components/Team';
 import Testimonials from '../components/Testimonials';
 import TrustBar from '../components/TrustBar';
 import SEOProcess from '../components/SEOProcess';
-import HeroCta from '../components/HeroCta';
+import HeroCta, { HeroCtaList } from '../components/HeroCta';
 import { ServiceIncludes } from '../components/ServiceOnPage';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
@@ -194,16 +194,23 @@ const LandingShop = () => {
       <HeroCta
         title='Te hacemos una tienda online completa preparada para vender desde 900 € + IVA. Precio y entrega cerrados.'
         description={
-          <>
-            Cuéntanos qué vendes. Te devolvemos{' '}
-            <strong className='font-extrabold'>propuesta</strong>{' '}
-            <strong className='font-extrabold'>en el mismo día</strong> con lo
-            que entra, lo que cuesta y cuándo está.{' '}
-            <strong className='font-extrabold'>
-              Hablas con quien te va a hacer la tienda, no con un comercial
-            </strong>
-            . Si no encaja, lo dices y no pasa nada.
-          </>
+          <HeroCtaList
+            items={[
+              <>
+                Te devolvemos{' '}
+                <strong className='font-extrabold'>propuesta</strong>{' '}
+                <strong className='font-extrabold'>en el mismo día</strong> con lo
+                que entra, lo que cuesta y cuándo está.
+              </>,
+              <>
+                <strong className='font-extrabold'>
+                  Hablas con quien te va a hacer la tienda, no con un comercial
+                </strong>
+                .
+              </>,
+              'Si no encaja, lo dices y no pasa nada.',
+            ]}
+          />
         }
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'

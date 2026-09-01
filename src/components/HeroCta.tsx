@@ -4,6 +4,16 @@ import Button from './Button';
 import { ContactFormHero } from './ContactFormHero';
 import TestimonialsBadge from './TestimonialsBadge';
 
+export const HeroCtaList = ({ items }: { items: ReactNode[] }) => (
+  <ul className='mx-auto w-full list-disc space-y-3 pl-5 text-left text-lg marker:text-brand md:mx-0 md:text-xl'>
+    {items.map((item, index) => (
+      <li key={index} className='pl-1'>
+        {item}
+      </li>
+    ))}
+  </ul>
+);
+
 interface HeroCtaProps {
   label?: string;
   title: string;
@@ -195,14 +205,13 @@ const HeroCta = ({
             </div>
             {belowDescription}
             {highlights && highlights.length > 0 ? (
-              <ul className='hero-cta-highlights grid w-full grid-cols-1 gap-item-gap text-left md:grid-cols-2'>
+              <ul className='hero-cta-highlights grid w-full list-disc grid-cols-1 gap-item-gap pl-5 text-left marker:text-brand md:grid-cols-2'>
                 {highlights.map((item) => (
                   <li
                     key={item}
-                    className={`flex items-start gap-3 text-base font-bold md:text-lg ${copyTone}`}
+                    className={`pl-1 text-base font-bold md:text-lg ${copyTone}`}
                   >
-                    <span className='mt-2 h-1 w-10 shrink-0 bg-brand' />
-                    <span>{item}</span>
+                    {item}
                   </li>
                 ))}
               </ul>

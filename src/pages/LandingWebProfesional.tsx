@@ -7,7 +7,7 @@ import { Team } from '../components/Team';
 import Testimonials from '../components/Testimonials';
 import LaunchTrustBar from '../components/LaunchTrustBar';
 import SEOProcess from '../components/SEOProcess';
-import HeroCta from '../components/HeroCta';
+import HeroCta, { HeroCtaList } from '../components/HeroCta';
 import LaunchOfferCard from '../components/LaunchOfferCard';
 import LaunchPaymentTable from '../components/LaunchPaymentTable';
 import LaunchReserveActions from '../components/LaunchReserveActions';
@@ -258,16 +258,24 @@ const LandingWebProfesional = () => {
         label='Web profesional'
         title={`Una web profesional para arrancar tu negocio por ${getLaunchPriceLabel()}`}
         description={
-          <>
-            Precio cerrado. Reserva con {getLaunchReserveLabel()}; el resto (
-            {getLaunchRemainderLabel()}) se paga antes de la publicación. Tú nos
-            entregas logo, textos y la información de tu negocio.{' '}
-            <strong className='font-extrabold'>
-              La web se publica en un máximo de {LAUNCH_DELIVERY_HOURS} h desde
-              ese momento
-            </strong>
-            . Hosting y dominio incluidos. Sin permanencia. La web es tuya.
-          </>
+          <HeroCtaList
+            items={[
+              <>
+                Precio cerrado. Reserva con {getLaunchReserveLabel()}; el resto
+                ({getLaunchRemainderLabel()}) se paga antes de la publicación.
+              </>,
+              'Tú nos entregas logo, textos y la información de tu negocio.',
+              <>
+                <strong className='font-extrabold'>
+                  La web se publica en un máximo de {LAUNCH_DELIVERY_HOURS} h
+                  desde ese momento
+                </strong>
+                .
+              </>,
+              'Hosting y dominio incluidos.',
+              'Sin permanencia. La web es tuya.',
+            ]}
+          />
         }
         buttonText={`Reservar ${getLaunchReserveLabel()}`}
         buttonHref='#reserva'

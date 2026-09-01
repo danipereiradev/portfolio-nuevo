@@ -15,7 +15,7 @@ import { Team } from '../components/Team';
 import Testimonials from '../components/Testimonials';
 import TrustBar from '../components/TrustBar';
 import SEOProcess from '../components/SEOProcess';
-import HeroCta from '../components/HeroCta';
+import HeroCta, { HeroCtaList } from '../components/HeroCta';
 import { ServiceIncludes } from '../components/ServiceOnPage';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
@@ -242,16 +242,23 @@ const LandingWeb = () => {
       <HeroCta
         title='Te hacemos una web completa para captar clientes desde 600 € + IVA. Precio y entrega cerrados.'
         description={
-          <>
-            Cuéntanos qué haces. Te devolvemos{' '}
-            <strong className='font-extrabold'>propuesta</strong>{' '}
-            <strong className='font-extrabold'>en el mismo día</strong> con lo
-            que entra, lo que cuesta y cuándo está.{' '}
-            <strong className='font-extrabold'>
-              Hablas con quien te va a hacer la web, no con un comercial
-            </strong>
-            . Si no encaja, lo dices y no pasa nada.
-          </>
+          <HeroCtaList
+            items={[
+              <>
+                Te devolvemos{' '}
+                <strong className='font-extrabold'>propuesta</strong>{' '}
+                <strong className='font-extrabold'>en el mismo día</strong> con lo
+                que entra, lo que cuesta y cuándo está.
+              </>,
+              <>
+                <strong className='font-extrabold'>
+                  Hablas con quien te va a hacer la web, no con un comercial
+                </strong>
+                .
+              </>,
+              'Si no encaja, lo dices y no pasa nada.',
+            ]}
+          />
         }
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
