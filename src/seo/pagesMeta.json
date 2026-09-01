@@ -71,6 +71,16 @@
     "description": "Activación del servicio acordado.",
     "robots": "noindex, nofollow, noarchive"
   },
+  "/pago/paquete-horas": {
+    "title": "Paquete de horas | 36web",
+    "description": "Paga un paquete de horas de diseño y desarrollo a 35 €/h + IVA.",
+    "robots": "noindex, nofollow, noarchive"
+  },
+  "/pago/paquete-mantenimiento-6h": {
+    "title": "Paquete de mantenimiento — 6 h | 36web",
+    "description": "Paga 6 horas de mantenimiento a 35 €/h + IVA.",
+    "robots": "noindex, nofollow, noarchive"
+  },
   "/pago/gracias": {
     "title": "Pago recibido | 36web",
     "description": "Gracias. Hemos recibido tu pago.",

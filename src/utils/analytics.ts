@@ -630,3 +630,14 @@ export const trackLandingPromo299FormSubmit = () => {
     // La analítica nunca debe romper la experiencia del usuario.
   }
 };
+
+export const trackHoursPackCheckout = (hours: number, total: number) => {
+  trackEvent('begin_checkout', {
+    event_category: 'paquete_horas',
+    event_label: `${hours}h`,
+    hours,
+    value: total,
+    currency: 'EUR',
+    item_name: 'Paquete de horas',
+  });
+};

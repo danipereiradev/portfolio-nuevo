@@ -2,7 +2,6 @@ import { type ReactNode, useEffect, useRef, useState } from 'react';
 import Button from './Button';
 
 import { ContactFormHero } from './ContactFormHero';
-import ReactPlayer from 'react-player';
 import TestimonialsBadge from './TestimonialsBadge';
 
 interface HeroCtaProps {
@@ -12,8 +11,7 @@ interface HeroCtaProps {
   buttonText?: string;
   buttonHref?: string;
   backgroundUrl?: string;
-  heroType?: 'form' | 'video' | 'clean' | 'offer';
-  videoUrl?: string;
+  heroType?: 'form' | 'clean' | 'offer';
   hasButton: boolean;
   hasBackground: boolean;
   formTitle?: string;
@@ -42,7 +40,6 @@ const HeroCta = ({
   buttonHref,
   backgroundUrl,
   heroType,
-  videoUrl,
   hasButton,
   hasBackground,
   formTitle = '',
@@ -240,11 +237,7 @@ const HeroCta = ({
               />
             ) : heroType === 'offer' ? (
               offerContent
-            ) : (
-              <div className='flex justify-end items-center md:w-1/2 z-10 '>
-                <ReactPlayer width={450} controls src={videoUrl} />
-              </div>
-            )
+            ) : null
           ) : null}
         </div>
       </div>

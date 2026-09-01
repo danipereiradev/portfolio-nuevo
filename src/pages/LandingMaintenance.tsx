@@ -217,6 +217,8 @@ const LandingMaintenance = () => {
         hasReviewBadge={false}
       />
 
+      <Portfolio casos contained />
+      <Testimonials hasVideo />
       <Team
         label={'TUS EXPERTOS EN MANTENIMIENTO WEB'}
         title='Trato directo durante todo el proyecto.'
@@ -234,8 +236,6 @@ const LandingMaintenance = () => {
           </>,
         ]}
       />
-      <Portfolio casos contained />
-      <Testimonials hasVideo />
 
       <div id='faq' className='scroll-mt-24'>
         <SEOFAQ

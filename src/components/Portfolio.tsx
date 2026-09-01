@@ -1,11 +1,6 @@
 import { useLanguage } from '../contexts/LanguageContext';
 import { useSectionView } from '../hooks/useSectionView';
 import RevealOnScroll from './RevealOnScroll';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
 
 import {
   trackPortfolioClick,
@@ -308,14 +303,14 @@ const Portfolio = ({
             </p>
           </div>
 
-          {isCasos ? (
-            <div className='mx-auto grid grid-cols-1 items-stretch gap-page-gap md:grid-cols-2 lg:grid-cols-3'>
-              {projects.map((project, index) => (
-                <RevealOnScroll
-                  key={project.title}
-                  className='h-full'
-                  delayMs={index * 90}
-                >
+          <div className='mx-auto grid grid-cols-1 items-stretch gap-page-gap md:grid-cols-2 lg:grid-cols-3'>
+            {projects.map((project, index) => (
+              <RevealOnScroll
+                key={project.title}
+                className='h-full'
+                delayMs={index * 90}
+              >
+                {isCasos ? (
                   <CasosCard
                     title={project.title}
                     image={project.image}
@@ -323,43 +318,16 @@ const Portfolio = ({
                     urlSoon={project.urlSoon}
                     exito={project.exito}
                   />
-                </RevealOnScroll>
-              ))}
-            </div>
-          ) : (
-            <RevealOnScroll className='w-full'>
-              <Swiper
-                className='portfolio-swiper w-full'
-                modules={[Autoplay, Pagination, Navigation]}
-                loop
-                grabCursor
-                speed={700}
-                spaceBetween={32}
-                slidesPerView={1}
-                autoplay={{
-                  delay: 4000,
-                  disableOnInteraction: false,
-                  pauseOnMouseEnter: true,
-                }}
-                pagination={{ clickable: true }}
-                navigation
-                breakpoints={{
-                  768: { slidesPerView: 2, spaceBetween: 32 },
-                  1024: { slidesPerView: 3, spaceBetween: 32 },
-                }}
-              >
-                {projects.map((project) => (
-                  <SwiperSlide key={project.title}>
-                    <PortfolioCard
-                      title={project.title}
-                      image={project.image}
-                      url={project.url}
-                    />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </RevealOnScroll>
-          )}
+                ) : (
+                  <PortfolioCard
+                    title={project.title}
+                    image={project.image}
+                    url={project.url}
+                  />
+                )}
+              </RevealOnScroll>
+            ))}
+          </div>
         </div>
       </section>
     </>

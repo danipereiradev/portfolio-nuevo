@@ -85,6 +85,8 @@ const Home = () => {
           </>
         }
       />
+      <Portfolio />
+      <Testimonials />
       <Team
         label='¿QUIÉN ESTÁ DETRÁS DE 36WEB?'
         title='Estas somos las personas que vamos a encargarnos de tu proyecto.'
@@ -105,8 +107,6 @@ const Home = () => {
           </>,
         ]}
       />
-      <Portfolio />
-      <Testimonials />
 
       <div id='faq' className='scroll-mt-24'>
         <SEOFAQ

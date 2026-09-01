@@ -1,19 +1,11 @@
 import type { ReactNode } from 'react';
-import { GithubIcon, LinkedinIcon, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import RevealOnScroll from './RevealOnScroll';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/effect-fade';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
 
 interface Team {
   fullName: string;
   description: ReactNode;
   role: string;
-  linkedin?: string;
-  github?: string;
   imageUrl?: string;
   mail: string;
 }
@@ -58,8 +50,6 @@ export const Team = ({
         </>
       ),
       role: 'Responsable de desarrollo de apps',
-      linkedin: 'https://www.linkedin.com/in/sergio-cerda-hervas/',
-      github: 'https://github.com/sergio-cravas',
       imageUrl: '/img/team/sergi.webp',
       mail: 's.cerda@36web.es',
     },
@@ -76,7 +66,6 @@ export const Team = ({
         </>
       ),
       role: 'Responsable de diseño y branding',
-      linkedin: 'https://www.linkedin.com/in/cristina-recio/',
       imageUrl: '/img/team/cristina.jpg',
       mail: 'c.recio@36web.es',
     },
@@ -98,7 +87,6 @@ export const Team = ({
         </>
       ),
       role: 'Responsable de diseño web y marketing digital',
-      github: 'https://github.com/danipereiradev',
       imageUrl: '/img/team/dani.webp',
       mail: 'hola@36web.es',
     },
@@ -120,10 +108,17 @@ export const Team = ({
     // },
   ];
 
+  const members = compact
+    ? [...teamMembers].sort(
+        (a, b) =>
+          compactOrder.indexOf(a.fullName) - compactOrder.indexOf(b.fullName),
+      )
+    : teamMembers;
+
   return (
     <section className='page-section'>
-      <div className='container mx-auto flex flex-col items-center gap-page-gap text-center lg:flex-row lg:text-start'>
-        <RevealOnScroll className='page-title-block w-full items-center lg:w-1/2 lg:items-start'>
+      <div className='container mx-auto flex flex-col items-center gap-page-gap text-center'>
+        <RevealOnScroll className='page-title-block mx-auto w-full max-w-5xl items-center'>
           <span className='text-accent font-extrabold underline text-md rounded-lg'>
             {label}
           </span>
@@ -133,122 +128,76 @@ export const Team = ({
           {paragraphs?.map((para, index) => (
             <p
               key={index}
-              className='text-xl md:text-2xl text-ink-dark lg:text-justify'
+              className='text-xl md:text-2xl text-ink-dark'
             >
               {para}
             </p>
           ))}
         </RevealOnScroll>
-        <RevealOnScroll className='w-full lg:w-1/2' delayMs={120}>
-          <Swiper
-            autoplay={{
-              delay: 2000,
-              disableOnInteraction: false,
-            }}
-            spaceBetween={16}
-            speed={1000}
-            pagination={{
-              clickable: true,
-            }}
-            modules={[Autoplay, Pagination, Navigation]}
-            slidesPerView={1}
-            loop
-            breakpoints={{
-              480: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-              },
-            }}
+        <RevealOnScroll className='w-full' delayMs={120}>
+          <div
+            className={`grid grid-cols-1 gap-4 md:grid-cols-3`}
           >
-            {(compact
-              ? [...teamMembers].sort(
-                  (a, b) =>
-                    compactOrder.indexOf(a.fullName) -
-                    compactOrder.indexOf(b.fullName),
-                )
-              : teamMembers
-            ).map((member: Team) => {
+            {members.map((member: Team) => {
               const displayName = compact
                 ? member.fullName.split(' ')[0]
                 : member.fullName;
 
               return (
-                <SwiperSlide key={member.fullName}>
-                  <article className='cursor-grab text-center'>
-                    {member.imageUrl ? (
-                      <div className='overflow-hidden rounded-t-xl'>
-                        <img
-                          className='h-[333px] w-full object-cover object-top grayscale'
-                          src={member.imageUrl}
-                          alt={member.fullName}
-                        />
-                      </div>
-                    ) : (
-                      <div
-                        className='flex h-[333px] w-full items-center justify-center rounded-t-xl bg-accent-light'
-                        aria-hidden='true'
-                      >
-                        <span className='text-5xl font-extrabold text-accent md:text-6xl'>
-                          {memberInitials(member.fullName)}
-                        </span>
-                      </div>
-                    )}
-
-                    <div
-                      className={`member-info flex flex-col rounded-b-xl bg-surface-muted p-content-pad text-start text-lg text-ink-dark ${
-                        compact ? 'min-h-[9.75rem]' : 'min-h-[13.5rem]'
-                      }`}
-                    >
-                      <h3 className='text-2xl font-bold text-accent'>
-                        {displayName}
-                      </h3>
-                      <p className='mt-1 text-base font-bold leading-snug text-ink-dark md:text-lg'>
-                        {member.role}
-                      </p>
-                      {compact ? null : (
-                        <>
-                          <p className='mt-heading-gap text-base'>
-                            {member.description}
-                          </p>
-                          <div className='mt-text-gap flex items-start gap-content-gap'>
-                            <a
-                              href={`mailto:${member.mail}`}
-                              aria-label={`Enviar email a ${member.fullName}`}
-                              className='text-accent transition-colors hover:text-accent-hover'
-                            >
-                              <Mail width={20} />
-                            </a>
-                            {member.linkedin ? (
-                              <a
-                                href={member.linkedin}
-                                target='_blank'
-                                rel='noopener noreferrer'
-                                aria-label={`LinkedIn de ${member.fullName}`}
-                                className='text-accent transition-colors hover:text-accent-hover'
-                              >
-                                <LinkedinIcon width={20} />
-                              </a>
-                            ) : null}
-                            {member.github ? (
-                              <a
-                                href={member.github}
-                                target='_blank'
-                                rel='noopener noreferrer'
-                                aria-label={`GitHub de ${member.fullName}`}
-                                className='text-accent transition-colors hover:text-accent-hover'
-                              >
-                                <GithubIcon width={20} />
-                              </a>
-                            ) : null}
-                          </div>
-                        </>
-                      )}
+                <article key={member.fullName} className='text-center'>
+                  {member.imageUrl ? (
+                    <div className='overflow-hidden rounded-t-xl'>
+                      <img
+                        className='h-[333px] w-full object-cover object-top grayscale'
+                        src={member.imageUrl}
+                        alt={member.fullName}
+                        width={400}
+                        height={333}
+                        loading='lazy'
+                        decoding='async'
+                      />
                     </div>
-                  </article>
-                </SwiperSlide>
+                  ) : (
+                    <div
+                      className='flex h-[333px] w-full items-center justify-center rounded-t-xl bg-accent-light'
+                      aria-hidden='true'
+                    >
+                      <span className='text-5xl font-extrabold text-accent md:text-6xl'>
+                        {memberInitials(member.fullName)}
+                      </span>
+                    </div>
+                  )}
+
+                  <div
+                    className={`member-info flex flex-col rounded-b-xl bg-surface-muted p-content-pad text-start text-lg text-ink-dark ${
+                      compact ? 'min-h-[9.75rem]' : 'min-h-[13.5rem]'
+                    }`}
+                  >
+                    <h3 className='text-2xl font-bold text-accent'>
+                      {displayName}
+                    </h3>
+                    <p className='mt-1 text-base font-bold leading-snug text-ink-dark md:text-lg'>
+                      {member.role}
+                    </p>
+                    {compact ? null : (
+                      <p className='mt-heading-gap text-base'>
+                        {member.description}
+                      </p>
+                    )}
+                    <a
+                      href={`mailto:${member.mail}`}
+                      className='mt-text-gap flex items-center gap-2 text-accent transition-colors hover:text-accent-hover'
+                    >
+                      <Mail width={20} className='shrink-0' aria-hidden />
+                      <span className='break-all text-base font-bold'>
+                        {member.mail}
+                      </span>
+                    </a>
+                  </div>
+                </article>
               );
             })}
-          </Swiper>
+          </div>
         </RevealOnScroll>
       </div>
     </section>

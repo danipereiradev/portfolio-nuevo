@@ -132,6 +132,9 @@ const Nosotros = () => {
         ]}
       />
 
+      <Portfolio />
+      <Testimonials />
+
       <Team
         label='¿QUIÉN ESTÁ DETRÁS DE 36WEB?'
         title='Estas somos las personas que vamos a encargarnos de tu proyecto.'
@@ -152,9 +155,6 @@ const Nosotros = () => {
           </>,
         ]}
       />
-
-      <Portfolio />
-      <Testimonials />
 
       <HeroCta
         label='Te lo ponemos fácil'
