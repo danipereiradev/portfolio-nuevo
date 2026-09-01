@@ -26,8 +26,14 @@ export const BONO_10H_URL = paymentPath(MAINTENANCE_PACK_10H_ID);
 export const PLAN_WEB_URL = paymentPath(MAINTENANCE_PLAN_WEB_ID);
 export const PLAN_NEGOCIO_URL = paymentPath(MAINTENANCE_PLAN_NEGOCIO_ID);
 
+export const maintenanceCardAlignClass =
+  'items-center text-center md:items-stretch md:text-left';
+
+export const maintenanceListClass =
+  'mx-auto w-fit text-left md:mx-0 md:w-full';
+
 export const maintenancePriceCardClass = (featured?: boolean): string =>
-  `relative flex h-full flex-col rounded-lg bg-white p-content-pad text-ink-dark shadow-xl ${
+  `relative flex h-full flex-col ${maintenanceCardAlignClass} rounded-lg bg-white p-content-pad text-ink-dark shadow-xl ${
     featured ? 'ring-2 ring-accent' : 'ring-1 ring-black/10'
   }`;
 

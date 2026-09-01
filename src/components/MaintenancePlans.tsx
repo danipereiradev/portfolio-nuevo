@@ -6,6 +6,8 @@ import {
   MAINTENANCE_APPS_ID,
   MAINTENANCE_CONTACT_ID,
   MAINTENANCE_PLANS,
+  maintenanceCardAlignClass,
+  maintenanceListClass,
   maintenancePriceCardClass,
   type MaintenancePlan,
   type MaintenancePlanId,
@@ -38,7 +40,7 @@ const MaintenancePlans = () => {
 
         <article
           id={MAINTENANCE_APPS_ID}
-          className='scroll-mt-[calc(var(--site-header-h)+1rem)] rounded-lg bg-white p-content-pad shadow-xl ring-1 ring-black/10'
+          className={`scroll-mt-[calc(var(--site-header-h)+1rem)] flex flex-col ${maintenanceCardAlignClass} rounded-lg bg-white p-content-pad shadow-xl ring-1 ring-black/10`}
         >
           <h3 className='text-2xl font-extrabold text-ink-dark md:text-3xl'>
             ¿No es WordPress? También.
@@ -60,7 +62,7 @@ const MaintenancePlans = () => {
           </p>
           <Button
             href={`#${MAINTENANCE_CONTACT_ID}`}
-            className='mt-6 !mx-0'
+            className='mt-6 mx-auto md:mx-0'
             onClick={() => trackMaintenancePlanClick('apps')}
           >
             Cuéntanos cómo está construida
@@ -88,7 +90,7 @@ const PlanCard = ({ plan }: { plan: MaintenancePlan }) => {
       <p className='mt-3 text-base text-ink-medium md:text-lg'>
         {plan.ideal}
       </p>
-      <ul className='mt-6 flex-1 space-y-2 text-sm md:text-base'>
+      <ul className={`mt-6 flex-1 space-y-2 text-sm md:text-base ${maintenanceListClass}`}>
         {plan.includes.map((item) => (
           <li key={item} className='flex items-start gap-2'>
             <Check

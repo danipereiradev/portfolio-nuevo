@@ -33,6 +33,8 @@ import {
   MAINTENANCE_BONOS_ID,
   MAINTENANCE_CONTACT_ID,
   MAINTENANCE_PLANES_ID,
+  maintenanceCardAlignClass,
+  maintenanceListClass,
 } from '../config/maintenanceOffer';
 import { formatEuro } from '../config/payments';
 import {
@@ -262,6 +264,7 @@ const MantenimientoWeb = () => {
         title='Mantenimiento y soporte web cuando lo necesitas'
         description={
           <HeroCtaList
+            className='mx-auto w-full list-none pl-0 text-center'
             items={[
               'Arreglamos incidencias, hacemos cambios y mantenemos webs, tiendas online y aplicaciones.',
               'Puedes contratar horas puntuales o dejarnos el mantenimiento mes a mes.',
@@ -280,17 +283,17 @@ const MantenimientoWeb = () => {
         hasReviewBadge
         isTopHero
         ctaContent={
-          <div className='flex w-full flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center'>
+          <div className='flex w-full flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center'>
             <Button
               href={`#${MAINTENANCE_BONOS_ID}`}
-              className='!mx-0 !mt-0 sm:flex-1 sm:max-w-[var(--button-width)]'
+              className='!mt-0 sm:flex-1 sm:max-w-[var(--button-width)]'
             >
               Necesito arreglar mi web
             </Button>
             <Button
               href={`#${MAINTENANCE_PLANES_ID}`}
               variant='secondary'
-              className='!mx-0 !mt-0 sm:flex-1 sm:max-w-[var(--button-width)]'
+              className='!mt-0 sm:flex-1 sm:max-w-[var(--button-width)]'
             >
               Quiero mantenimiento mensual
             </Button>
@@ -298,7 +301,7 @@ const MantenimientoWeb = () => {
               href={whatsappUrl}
               target='_blank'
               rel='noopener noreferrer'
-              className='!mx-0 !mt-0 !bg-[#25D366] hover:!bg-[#20bd5a] sm:flex-1 sm:max-w-[var(--button-width)]'
+              className='!mt-0 !bg-[#25D366] hover:!bg-[#20bd5a] sm:flex-1 sm:max-w-[var(--button-width)]'
               onClick={(event) => {
                 event.preventDefault();
                 trackWhatsAppClick('MaintenanceHero');
@@ -336,7 +339,7 @@ const MantenimientoWeb = () => {
             {needCards.map((card) => (
               <article
                 key={card.title}
-                className='flex h-full flex-col rounded-lg border-2 border-ink-dark bg-white p-content-pad'
+                className={`flex h-full flex-col ${maintenanceCardAlignClass} rounded-lg border-2 border-ink-dark bg-white p-content-pad`}
               >
                 <h3 className='text-xl font-extrabold text-ink-dark md:text-2xl'>
                   {card.title}
@@ -344,7 +347,7 @@ const MantenimientoWeb = () => {
                 <p className='mt-text-gap flex-1 text-base text-ink-dark md:text-lg'>
                   {card.text}
                 </p>
-                <Button href={card.href} className='mt-6 !mx-0'>
+                <Button href={card.href} className='mt-6 mx-auto md:mx-0'>
                   {card.cta}
                 </Button>
               </article>
@@ -376,9 +379,9 @@ const MantenimientoWeb = () => {
 
       <section className='page-section bg-surface-muted'>
         <div className='container mx-auto max-w-4xl'>
-          <div className='flex items-start gap-4 rounded-lg border-2 border-ink-dark bg-white p-content-pad'>
+          <div className='flex flex-col items-center gap-4 rounded-lg border-2 border-ink-dark bg-white p-content-pad text-center md:flex-row md:items-start md:text-left'>
             <AlertTriangle
-              className='mt-1 h-7 w-7 shrink-0 text-accent'
+              className='h-7 w-7 shrink-0 text-accent md:mt-1'
               aria-hidden
             />
             <div>
@@ -407,9 +410,9 @@ const MantenimientoWeb = () => {
             </p>
           </div>
           <div className='grid items-stretch gap-page-gap md:grid-cols-2'>
-            <article className='rounded-lg border-2 border-ink-dark bg-white p-content-pad'>
+            <article className={`flex flex-col ${maintenanceCardAlignClass} rounded-lg border-2 border-ink-dark bg-white p-content-pad`}>
               <h3 className='text-2xl font-extrabold text-ink-dark'>Incluido</h3>
-              <ul className='mt-6 space-y-2 text-base md:text-lg'>
+              <ul className={`mt-6 space-y-2 text-base md:text-lg ${maintenanceListClass}`}>
                 {included.map((item) => (
                   <li key={item} className='flex items-start gap-2'>
                     <Check
@@ -421,11 +424,11 @@ const MantenimientoWeb = () => {
                 ))}
               </ul>
             </article>
-            <article className='rounded-lg border-2 border-ink-dark bg-white p-content-pad'>
+            <article className={`flex flex-col ${maintenanceCardAlignClass} rounded-lg border-2 border-ink-dark bg-white p-content-pad`}>
               <h3 className='text-2xl font-extrabold text-ink-dark'>
                 No incluido
               </h3>
-              <ul className='mt-6 space-y-2 text-base md:text-lg'>
+              <ul className={`mt-6 space-y-2 text-base md:text-lg ${maintenanceListClass}`}>
                 {excluded.map((item) => (
                   <li key={item} className='flex items-start gap-2'>
                     <X
@@ -456,11 +459,12 @@ const MantenimientoWeb = () => {
         title='Cuando algo falla, no quieres abrir un ticket y esperar una semana.'
         subtitle='Estudio pequeño. Hablas con quien mira la web.'
         benefits={whyUs}
+        mobileCenter
       />
 
       <section className='page-section bg-surface-muted'>
         <div className='container mx-auto max-w-3xl'>
-          <article className='rounded-lg border-2 border-ink-dark bg-white p-content-pad'>
+          <article className={`flex flex-col ${maintenanceCardAlignClass} rounded-lg border-2 border-ink-dark bg-white p-content-pad`}>
             <h2 className='text-2xl font-extrabold text-ink-dark md:text-3xl'>
               Un ejemplo
             </h2>
@@ -476,7 +480,7 @@ const MantenimientoWeb = () => {
               Revisamos, solucionamos y probamos. Si después prefieres que nos
               ocupemos cada mes, puedes pasar a mantenimiento.
             </p>
-            <Button href={`#${MAINTENANCE_BONOS_ID}`} className='mt-6 !mx-0'>
+            <Button href={`#${MAINTENANCE_BONOS_ID}`} className='mt-6 mx-auto md:mx-0'>
               Ver bonos de horas
             </Button>
           </article>

@@ -13,6 +13,7 @@ interface SEOBenefitsProps {
   subtitle?: ReactNode;
   benefits: Benefit[];
   stagger?: boolean;
+  mobileCenter?: boolean;
 }
 
 const SEOBenefits = ({
@@ -20,6 +21,7 @@ const SEOBenefits = ({
   subtitle,
   benefits,
   stagger = true,
+  mobileCenter = false,
 }: SEOBenefitsProps) => (
   <section className='page-section'>
     <div className='container mx-auto flex flex-col gap-page-gap'>
@@ -40,7 +42,13 @@ const SEOBenefits = ({
         {benefits.map((benefit, index) => {
           const Icon = benefit.icon;
           const card = (
-            <div className='flex h-full flex-col rounded-lg border-2 border-ink-dark bg-white p-content-pad'>
+            <div
+              className={`flex h-full flex-col rounded-lg border-2 border-ink-dark bg-white p-content-pad ${
+                mobileCenter
+                  ? 'items-center text-center md:items-start md:text-left'
+                  : ''
+              }`}
+            >
               <Icon className='mb-title-gap h-7 w-7 shrink-0 text-accent md:h-8 md:w-8' />
               <h3 className='mb-heading-gap text-xl font-bold text-ink-dark md:text-2xl'>
                 {benefit.title}

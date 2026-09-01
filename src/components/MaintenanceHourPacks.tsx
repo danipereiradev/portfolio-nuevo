@@ -7,6 +7,7 @@ import {
   getHourPackRemainderCopy,
   getHourPackValidityCopy,
   HOUR_PACKS,
+  maintenanceListClass,
   maintenancePriceCardClass,
   type HourPack,
   type HourPackId,
@@ -36,7 +37,7 @@ const MaintenanceHourPacks = () => {
           ))}
         </div>
 
-        <div className='mx-auto max-w-3xl space-y-3 text-base leading-relaxed text-ink-dark md:text-lg'>
+        <div className='mx-auto max-w-3xl space-y-3 text-center text-base leading-relaxed text-ink-dark md:text-left md:text-lg'>
           <p className='font-extrabold'>{getHourPackValidityCopy()}</p>
           <p>
             Antes de empezar revisamos brevemente la tarea. Si creemos que el
@@ -75,7 +76,7 @@ const HourPackCard = ({ pack }: { pack: HourPack }) => {
       <p className='mt-3 text-sm font-bold text-ink-dark'>
         {getHourPackValidityCopy()}
       </p>
-      <ul className='mt-6 flex-1 space-y-2 text-sm md:text-base'>
+      <ul className={`mt-6 flex-1 space-y-2 text-sm md:text-base ${maintenanceListClass}`}>
         {pack.ideal.map((item) => (
           <li key={item} className='flex items-start gap-2'>
             <Check

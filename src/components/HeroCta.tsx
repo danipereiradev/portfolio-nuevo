@@ -4,8 +4,16 @@ import Button from './Button';
 import { ContactFormHero } from './ContactFormHero';
 import TestimonialsBadge from './TestimonialsBadge';
 
-export const HeroCtaList = ({ items }: { items: ReactNode[] }) => (
-  <ul className='mx-auto w-full list-disc space-y-3 pl-5 text-left text-lg marker:text-brand md:mx-0 md:text-xl'>
+export const HeroCtaList = ({
+  items,
+  className = 'mx-auto w-full list-disc pl-5 text-left md:mx-0',
+}: {
+  items: ReactNode[];
+  className?: string;
+}) => (
+  <ul
+    className={`space-y-3 text-lg marker:text-brand md:text-xl ${className}`}
+  >
     {items.map((item, index) => (
       <li key={index} className='pl-1'>
         {item}
