@@ -245,7 +245,27 @@
       "source": "/pago/gracias/web-299",
       "destination": "/pago/gracias/web-299/index.html"
     },
+    {
+      "source": "/pago/gracias/bono-tecnico-3h",
+      "destination": "/pago/gracias/bono-tecnico-3h/index.html"
+    },
+    {
+      "source": "/pago/gracias/bono-tecnico-6h",
+      "destination": "/pago/gracias/bono-tecnico-6h/index.html"
+    },
+    {
+      "source": "/pago/gracias/bono-tecnico-10h",
+      "destination": "/pago/gracias/bono-tecnico-10h/index.html"
+    },
     { "source": "/pago/gracias", "destination": "/pago/gracias/index.html" },
+    {
+      "source": "/gracias/mantenimiento-web-base-mensual",
+      "destination": "/gracias/mantenimiento-web-base-mensual/index.html"
+    },
+    {
+      "source": "/gracias/mantenimiento-web-negocio-mensual",
+      "destination": "/gracias/mantenimiento-web-negocio-mensual/index.html"
+    },
     { "source": "/pago/:id", "destination": "/pago/index.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]

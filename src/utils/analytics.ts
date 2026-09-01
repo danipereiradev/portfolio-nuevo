@@ -340,6 +340,19 @@ export const trackWhatsAppClick = (
     cta_text: ctaText,
   });
   trackAdsContactConversion('whatsapp');
+
+  try {
+    const path = window.location.pathname.replace(/\/+$/, '') || '/';
+    if (path === '/mantenimiento-web') {
+      trackEvent('click_maintenance_whatsapp', {
+        event_category: 'mantenimiento',
+        event_label: locationSection,
+        location_section: locationSection,
+      });
+    }
+  } catch {
+    // La analítica nunca debe romper la experiencia del usuario.
+  }
 };
 
 export const trackEmailClick = (locationSection: string) => {
@@ -639,5 +652,59 @@ export const trackHoursPackCheckout = (hours: number, total: number) => {
     value: total,
     currency: 'EUR',
     item_name: 'Paquete de horas',
+  });
+};
+
+// /mantenimiento-web
+
+export const trackMaintenancePageView = () => {
+  trackEvent('view_maintenance_page', {
+    event_category: 'mantenimiento',
+    event_label: 'mantenimiento-web',
+  });
+};
+
+export const trackHourPackClick = (hours: 3 | 6 | 10) => {
+  trackEvent('click_hour_pack', {
+    event_category: 'mantenimiento',
+    event_label: `${hours}h`,
+    hours,
+  });
+  trackEvent(`select_hour_pack_${hours}`, {
+    event_category: 'mantenimiento',
+    event_label: `${hours}h`,
+    hours,
+  });
+};
+
+export const trackMaintenancePlanClick = (
+  plan: 'web' | 'negocio' | 'ecommerce' | 'apps',
+) => {
+  trackEvent('click_maintenance_plan', {
+    event_category: 'mantenimiento',
+    event_label: plan,
+    plan,
+  });
+
+  const selectEvent =
+    plan === 'web'
+      ? 'select_maintenance_web'
+      : plan === 'negocio'
+        ? 'select_maintenance_business'
+        : plan === 'ecommerce'
+          ? 'select_maintenance_ecommerce'
+          : 'select_app_maintenance';
+
+  trackEvent(selectEvent, {
+    event_category: 'mantenimiento',
+    event_label: plan,
+    plan,
+  });
+};
+
+export const trackMaintenanceFormSubmit = () => {
+  trackEvent('contact_maintenance_form', {
+    event_category: 'mantenimiento',
+    event_label: 'mantenimiento-web',
   });
 };

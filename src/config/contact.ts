@@ -45,7 +45,7 @@ export const ECOMMERCE_WHATSAPP_MESSAGE =
 
 // Mensaje para el botón de WhatsApp de /mantenimiento-web.
 export const MAINTENANCE_WHATSAPP_MESSAGE =
-  'Hola, quiero información sobre mantenimiento web.';
+  'Hola, vengo de la página de mantenimiento de 36web. Necesito ayuda con mi web:';
 
 // Mensaje para el botón de WhatsApp de la página /contacto.
 export const CONTACT_PAGE_WHATSAPP_MESSAGE =

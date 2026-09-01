@@ -4,7 +4,6 @@ import { Check, Minus, Plus } from 'lucide-react';
 import Button from '../components/Button';
 import { trackHoursPackCheckout } from '../utils/analytics';
 import {
-  BILLING_INTERVAL_LABEL,
   buildStripeHoursCheckoutUrl,
   clampHours,
   formatEuro,
@@ -102,17 +101,20 @@ const Pago = () => {
 const PaymentCard = ({ payment }: { payment: PaymentConfig }) => {
   const { total } = getPaymentTotals(payment);
   const isSubscription = payment.paymentType === 'subscription';
-  const interval =
-    payment.billingInterval && BILLING_INTERVAL_LABEL[payment.billingInterval];
   const stripeLink = payment.stripePaymentLink.trim();
   const includes = payment.includes?.filter(Boolean) ?? [];
+  const excludes = payment.excludes?.filter(Boolean) ?? [];
+  const isNamedPage = !payment.clientName.trim();
+  const ctaLabel =
+    payment.cta?.trim() ||
+    (isSubscription ? 'Activar pago mensual' : 'Pagar ahora');
 
   const amountLabel = isSubscription
-    ? `${formatEuro(total)}/mes IVA incluido`
+    ? `${formatEuro(payment.amount)} + IVA / mes`
     : `${formatEuro(payment.amount)} + IVA`;
 
   const totalLabel = isSubscription
-    ? `${formatEuro(total)} / mes IVA incluido`
+    ? `${formatEuro(total)} / mes`
     : formatEuro(total);
 
   return (
@@ -121,28 +123,30 @@ const PaymentCard = ({ payment }: { payment: PaymentConfig }) => {
         className='text-2xl font-bold md:text-3xl'
         style={{ fontFamily: "'Space Grotesk', sans-serif" }}
       >
-        Activación del servicio
+        {isNamedPage ? payment.serviceName : 'Activación del servicio'}
       </h1>
 
-      <dl className='mt-6 space-y-4'>
-        {payment.clientName.trim() ? (
+      {isNamedPage ? null : (
+        <dl className='mt-6 space-y-4'>
+          {payment.clientName.trim() ? (
+            <div>
+              <dt className='text-sm text-[#6f6f6d]'>Cliente</dt>
+              <dd className='mt-0.5 text-lg font-bold uppercase tracking-wide'>
+                {payment.clientName}
+              </dd>
+            </div>
+          ) : null}
           <div>
-            <dt className='text-sm text-[#6f6f6d]'>Cliente</dt>
-            <dd className='mt-0.5 text-lg font-bold uppercase tracking-wide'>
-              {payment.clientName}
+            <dt className='text-sm text-[#6f6f6d]'>Servicio</dt>
+            <dd
+              className='mt-0.5 text-lg font-bold'
+              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            >
+              {payment.serviceName}
             </dd>
           </div>
-        ) : null}
-        <div>
-          <dt className='text-sm text-[#6f6f6d]'>Servicio</dt>
-          <dd
-            className='mt-0.5 text-lg font-bold'
-            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-          >
-            {payment.serviceName}
-          </dd>
-        </div>
-      </dl>
+        </dl>
+      )}
 
       <p className='mt-4 text-base leading-relaxed text-[#4d4d4c]'>
         {payment.description}
@@ -157,15 +161,9 @@ const PaymentCard = ({ payment }: { payment: PaymentConfig }) => {
         </p>
 
         <dl className='mt-4 space-y-2 text-sm'>
-          {isSubscription && interval ? (
-            <div className='flex justify-between gap-4'>
-              <dt className='text-[#6f6f6d]'>Periodicidad</dt>
-              <dd className='font-medium'>{interval}</dd>
-            </div>
-          ) : null}
           <div className='flex justify-between gap-4 border-t border-[#3346C1]/15 pt-2 text-base'>
             <dt className='font-semibold'>
-              {isSubscription ? 'Total mensual' : 'Total con IVA'}
+              {isSubscription ? 'Total mensual con IVA' : 'Total con IVA'}
             </dt>
             <dd className='font-bold'>{totalLabel}</dd>
           </div>
@@ -178,13 +176,38 @@ const PaymentCard = ({ payment }: { payment: PaymentConfig }) => {
             className='text-base font-bold'
             style={{ fontFamily: "'Space Grotesk', sans-serif" }}
           >
-            Este servicio incluye
+            Qué incluye
           </h2>
           <ul className='mt-3 space-y-2'>
             {includes.map((item) => (
               <li key={item} className='flex items-start gap-2 text-sm'>
                 <Check
                   className='mt-0.5 h-4 w-4 shrink-0 text-[#3346C1]'
+                  aria-hidden='true'
+                />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+
+      {excludes.length > 0 ? (
+        <section className='mt-6'>
+          <h2
+            className='text-base font-bold'
+            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+          >
+            Qué no incluye
+          </h2>
+          <ul className='mt-3 space-y-2'>
+            {excludes.map((item) => (
+              <li
+                key={item}
+                className='flex items-start gap-2 text-sm text-[#4d4d4c]'
+              >
+                <Minus
+                  className='mt-0.5 h-4 w-4 shrink-0 text-[#6f6f6d]'
                   aria-hidden='true'
                 />
                 <span>{item}</span>
@@ -201,7 +224,7 @@ const PaymentCard = ({ payment }: { payment: PaymentConfig }) => {
             className='mt-0'
             rel='noopener noreferrer'
           >
-            {isSubscription ? 'Activar pago mensual' : 'Pagar ahora'}
+            {ctaLabel}
           </Button>
         ) : (
           <p className='text-center text-sm text-[#6f6f6d]'>

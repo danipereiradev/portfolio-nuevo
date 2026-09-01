@@ -55,7 +55,12 @@
 /aviso-legal                    /aviso-legal/index.html                    200
 /pago                           /pago/index.html                           200
 /pago/gracias/web-299           /pago/gracias/web-299/index.html           200
+/pago/gracias/bono-tecnico-3h  /pago/gracias/bono-tecnico-3h/index.html  200
+/pago/gracias/bono-tecnico-6h  /pago/gracias/bono-tecnico-6h/index.html  200
+/pago/gracias/bono-tecnico-10h /pago/gracias/bono-tecnico-10h/index.html 200
 /pago/gracias                   /pago/gracias/index.html                   200
+/gracias/mantenimiento-web-base-mensual     /gracias/mantenimiento-web-base-mensual/index.html     200
+/gracias/mantenimiento-web-negocio-mensual /gracias/mantenimiento-web-negocio-mensual/index.html 200
 /pago/*                         /pago/index.html                           200
 
 /*    /index.html   200

@@ -1,35 +1,19 @@
 import { useEffect } from 'react';
 import {
-  PAYMENT_LAUNCH_SUCCESS_PATH,
   PAYMENT_ROBOTS,
-  PAYMENT_SUCCESS_PATH,
+  THANK_YOU_PAGES,
+  type ThankYouVariant,
 } from '../config/payments';
 import { trackLaunchReserveThankYou } from '../utils/analytics';
 
 const SITE_URL = 'https://36web.es';
 
-type GraciasVariant = 'default' | 'web-299';
-
-const COPY: Record<
-  GraciasVariant,
-  { path: string; title: string; heading: string; body: string }
-> = {
-  default: {
-    path: PAYMENT_SUCCESS_PATH,
-    title: 'Pago recibido | 36web',
-    heading: 'Pago recibido',
-    body: 'Gracias. Hemos recibido tu pago. En breve la persona encargada de tu proyecto se pondrá en contacto contigo.',
-  },
-  'web-299': {
-    path: PAYMENT_LAUNCH_SUCCESS_PATH,
-    title: 'Reserva recibida | 36web',
-    heading: 'Gracias por reservar tu web profesional con 36web',
-    body: 'En breve la persona encargada de tu proyecto se pondrá en contacto contigo.',
-  },
-};
-
-const PagoGracias = ({ variant = 'default' }: { variant?: GraciasVariant }) => {
-  const copy = COPY[variant];
+const PagoGracias = ({
+  variant = 'default',
+}: {
+  variant?: ThankYouVariant;
+}) => {
+  const copy = THANK_YOU_PAGES[variant];
 
   useEffect(() => {
     const description = `${copy.heading}. ${copy.body}`;

@@ -12,8 +12,8 @@
     "description": "Creamos tiendas online: WooCommerce, Shopify o a medida. Catálogo, pagos y envíos. Estudio en Madrid, toda España. Presupuesto y plazos por escrito."
   },
   "/mantenimiento-web": {
-    "title": "Mantenimiento web mensual | 36web",
-    "description": "Mantenimiento de páginas web: actualizaciones, copias, cambios pequeños y soporte. Webs propias o de otros. Estudio en Madrid, toda España."
+    "title": "Mantenimiento Web y Soporte Técnico | Desde 59 €/mes | 36web",
+    "description": "Mantenimiento y soporte para webs, WordPress, ecommerce y aplicaciones. Planes mensuales y bonos de horas. Soporte técnico directo desde 59 €/mes."
   },
   "/landing-diseno-web": {
     "title": "Diseño web | 36web",
@@ -76,9 +76,34 @@
     "description": "Paga un paquete de horas de diseño y desarrollo a 35 €/h + IVA.",
     "robots": "noindex, nofollow, noarchive"
   },
+  "/pago/paquete-mantenimiento-3h": {
+    "title": "Bono técnico 3 horas | 36web",
+    "description": "3 horas de trabajo en tu web. Se descuentan según el tiempo real. Las que no uses duran 6 meses.",
+    "robots": "noindex, nofollow, noarchive"
+  },
   "/pago/paquete-mantenimiento-6h": {
-    "title": "Paquete de mantenimiento — 6 h | 36web",
-    "description": "Paga 6 horas de mantenimiento a 35 €/h + IVA.",
+    "title": "Bono técnico 6 horas | 36web",
+    "description": "6 horas de trabajo en tu web. Se descuentan según el tiempo real. Las que no uses duran 6 meses.",
+    "robots": "noindex, nofollow, noarchive"
+  },
+  "/pago/paquete-mantenimiento-10h": {
+    "title": "Bono técnico 10 horas | 36web",
+    "description": "10 horas de trabajo en tu web. Se descuentan según el tiempo real. Las que no uses duran 6 meses.",
+    "robots": "noindex, nofollow, noarchive"
+  },
+  "/pago/mantenimiento-web": {
+    "title": "Mantenimiento Web · Plan Base | 36web",
+    "description": "Mantenimiento mensual de tu web: 59 € + IVA/mes. Sin permanencia. Puedes cancelar.",
+    "robots": "noindex, nofollow, noarchive"
+  },
+  "/pago/mantenimiento-negocio": {
+    "title": "Mantenimiento Web · Plan Negocio | 36web",
+    "description": "Mantenimiento mensual para webs activas: 99 € + IVA/mes. Sin permanencia.",
+    "robots": "noindex, nofollow, noarchive"
+  },
+  "/pago/mantenimiento-ecommerce": {
+    "title": "Mantenimiento Ecommerce | 36web",
+    "description": "Activa el mantenimiento de tienda online desde 149 € + IVA/mes.",
     "robots": "noindex, nofollow, noarchive"
   },
   "/pago/gracias": {
@@ -89,6 +114,31 @@
   "/pago/gracias/web-299": {
     "title": "Reserva recibida | 36web",
     "description": "Gracias por reservar tu web profesional con 36web. En breve la persona encargada de tu proyecto se pondrá en contacto contigo.",
+    "robots": "noindex, nofollow, noarchive"
+  },
+  "/pago/gracias/bono-tecnico-3h": {
+    "title": "Pago recibido | Bono técnico 3 horas | 36web",
+    "description": "Gracias. Hemos recibido el pago del bono técnico de 3 horas. En breve te escribimos para revisar la tarea y empezar.",
+    "robots": "noindex, nofollow, noarchive"
+  },
+  "/pago/gracias/bono-tecnico-6h": {
+    "title": "Pago recibido | Bono técnico 6 horas | 36web",
+    "description": "Gracias. Hemos recibido el pago del bono técnico de 6 horas. En breve te escribimos para revisar la tarea y empezar.",
+    "robots": "noindex, nofollow, noarchive"
+  },
+  "/pago/gracias/bono-tecnico-10h": {
+    "title": "Pago recibido | Bono técnico 10 horas | 36web",
+    "description": "Gracias. Hemos recibido el pago del bono técnico de 10 horas. En breve te escribimos para revisar la tarea y empezar.",
+    "robots": "noindex, nofollow, noarchive"
+  },
+  "/gracias/mantenimiento-web-base-mensual": {
+    "title": "Pago recibido | Mantenimiento web base mensual | 36web",
+    "description": "Gracias. Hemos recibido el pago del mantenimiento web base mensual. En breve nos pondremos en contacto contigo para activar el plan.",
+    "robots": "noindex, nofollow, noarchive"
+  },
+  "/gracias/mantenimiento-web-negocio-mensual": {
+    "title": "Pago recibido | Mantenimiento Negocio | 36web",
+    "description": "Gracias. Hemos recibido el pago del plan Negocio. En breve nos pondremos en contacto contigo para activar el mantenimiento.",
     "robots": "noindex, nofollow, noarchive"
   }
 }

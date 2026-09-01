@@ -24,6 +24,11 @@ import {
   SITE_WEB_PATH_N,
 } from './config/contact';
 import { BLOG_PATH } from './blog/posts';
+import {
+  isPaymentOrThankYouPath,
+  THANK_YOU_PAGES,
+  type ThankYouVariant,
+} from './config/payments';
 
 const Home = lazy(() => import('./pages/Home'));
 const Nosotros = lazy(() => import('./pages/Nosotros'));
@@ -51,26 +56,25 @@ const PageFallback = () => (
   />
 );
 
-function isPaymentPath(pathname: string) {
-  const path = pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
-  return path === '/pago' || path.startsWith('/pago/');
-}
-
 function AppContent() {
   useScrollToHash();
   const { pathname } = useLocation();
 
-  if (isPaymentPath(pathname)) {
+  if (isPaymentOrThankYouPath(pathname)) {
     return (
       <>
         <Header hideNav />
         <Suspense fallback={<PageFallback />}>
           <Routes>
-            <Route
-              path='/pago/gracias/web-299'
-              element={<PagoGracias variant='web-299' />}
-            />
-            <Route path='/pago/gracias' element={<PagoGracias />} />
+            {(Object.keys(THANK_YOU_PAGES) as ThankYouVariant[]).map(
+              (variant) => (
+                <Route
+                  key={variant}
+                  path={THANK_YOU_PAGES[variant].path}
+                  element={<PagoGracias variant={variant} />}
+                />
+              ),
+            )}
             <Route path='/pago/:id' element={<Pago />} />
             <Route path='*' element={<Pago />} />
           </Routes>
