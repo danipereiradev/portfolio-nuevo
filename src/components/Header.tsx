@@ -16,7 +16,6 @@ import {
   isAdsLandingPath,
 } from '../config/contact';
 import { SERVICE_NAV } from '../config/nav';
-import { BLOG_PATH } from '../blog/types';
 
 const navLinkClass =
   'relative shrink-0 text-center text-sm xl:text-xl py-2 px-2 xl:px-4 rounded-lg text-ink-dark uppercase font-bold';
@@ -200,9 +199,6 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
                   <a href={ABOUT_PATH} className={navLinkClass}>
                     {ABOUT_LABEL}
                   </a>
-                  <a href={BLOG_PATH} className={navLinkClass}>
-                    Blog
-                  </a>
                   <a
                     href='#contacto'
                     className={`${navLinkClass} !text-accent`}
@@ -256,13 +252,6 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
                 className={mobileNavLinkClass}
               >
                 {ABOUT_LABEL}
-              </a>
-              <a
-                href={BLOG_PATH}
-                onClick={() => setIsMenuOpen(false)}
-                className={mobileNavLinkClass}
-              >
-                Blog
               </a>
               <a
                 href='#contacto'

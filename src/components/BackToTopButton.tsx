@@ -7,36 +7,27 @@ const BackToTopButton = () => {
   useEffect(() => {
     const toggleVisibility = () => {
       const scrollThreshold = window.innerHeight * 0.15;
-      if (window.scrollY > scrollThreshold) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      setIsVisible(window.scrollY > scrollThreshold);
     };
 
+    toggleVisibility();
     window.addEventListener('scroll', toggleVisibility, { passive: true });
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
+  if (!isVisible) return null;
 
   return (
-    <>
-      {isVisible && (
-        <button
-          onClick={scrollToTop}
-          className='fixed bottom-20 right-1/2 md:bottom-6 bg-accent hover:bg-accent-hover text-white p-4 rounded-full z-40'
-          aria-label='Volver arriba'
-        >
-          <ArrowUp className='w-6 h-6' />
-        </button>
-      )}
-    </>
+    <button
+      type='button'
+      onClick={() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }}
+      className='fixed bottom-6 right-6 z-40 rounded-full bg-brand-light p-4 text-accent shadow-[0_4px_16px_rgba(0,0,0,0.08)] hover:bg-brand md:left-1/2 md:right-auto md:-translate-x-1/2'
+      aria-label='Volver arriba'
+    >
+      <ArrowUp className='h-6 w-6' aria-hidden='true' />
+    </button>
   );
 };
 

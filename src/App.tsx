@@ -6,6 +6,7 @@ import { ContactModalProvider } from './contexts/ContactModalContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ContactFormModal from './components/ContactFormModal';
+import BackToTopButton from './components/BackToTopButton';
 import CrispChat from './components/CrispChat';
 import {
   isMaintenanceActive,
@@ -155,6 +156,7 @@ function AppContent() {
 
       <Footer />
       <ContactFormModal />
+      <BackToTopButton />
       <CrispChat />
     </div>
   );

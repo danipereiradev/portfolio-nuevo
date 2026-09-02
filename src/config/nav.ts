@@ -1,4 +1,3 @@
-import { BLOG_PATH } from '../blog/types';
 import {
   ABOUT_LABEL,
   ABOUT_PATH,
@@ -18,14 +17,12 @@ export const SERVICE_NAV = [
 
 export const MAIN_NAV = [
   { href: ABOUT_PATH, label: ABOUT_LABEL },
-  { href: BLOG_PATH, label: 'Blog' },
   { href: '#contacto', label: 'Contacto' },
 ] as const;
 
 export const FOOTER_NAV = [
   { href: ABOUT_PATH, label: ABOUT_LABEL },
   ...SERVICE_NAV,
-  { href: BLOG_PATH, label: 'Blog' },
   { href: '#contacto', label: 'Contacto' },
   {
     href: 'mailto:hola@36web.es?subject=Trabaja%20con%20nosotros',
