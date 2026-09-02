@@ -111,33 +111,49 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
 
             {hideNav ? null : isAdsLanding ? (
               <nav
-                className='flex shrink-0 items-center justify-end gap-4'
+                className='flex shrink-0 items-center justify-end'
                 aria-label='Contacto'
               >
                 <a
                   href={PHONE_TEL_LINK}
                   onClick={() => trackPhoneClick('AdsLandingHeader')}
-                  className={adsHeaderIconLinkClass}
+                  className='inline-flex items-center gap-1.5 text-ink-dark md:hidden'
                   aria-label={`Llamar al ${PHONE_DISPLAY}`}
-                  title={PHONE_DISPLAY}
                 >
-                  <Phone className='h-6 w-6' strokeWidth={2.75} />
+                  <Phone className='h-4 w-4 shrink-0' strokeWidth={2.5} />
+                  <span className='text-[0.7rem] font-semibold leading-none tracking-tight'>
+                    {PHONE_DISPLAY}
+                  </span>
                 </a>
-                <a
-                  href={whatsappUrl}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  onClick={(event) => {
-                    event.preventDefault();
-                    trackWhatsAppClick('AdsLandingHeader');
-                    trackGoogleAdsWhatsAppConversion(whatsappUrl);
-                  }}
-                  className={adsHeaderIconLinkClass}
-                  aria-label={`Escríbenos por WhatsApp al ${PHONE_DISPLAY}`}
-                  title='WhatsApp'
-                >
-                  <WhatsAppIcon />
-                </a>
+                <div className='hidden items-center gap-4 md:flex'>
+                  <a
+                    href={PHONE_TEL_LINK}
+                    onClick={() => trackPhoneClick('AdsLandingHeader')}
+                    className={adsHeaderIconLinkClass}
+                    aria-label={`Llamar al ${PHONE_DISPLAY}`}
+                    title={PHONE_DISPLAY}
+                  >
+                    <Phone className='h-6 w-6' strokeWidth={2.75} />
+                  </a>
+                  <a
+                    href={whatsappUrl}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    onClick={(event) => {
+                      event.preventDefault();
+                      trackWhatsAppClick(
+                        'AdsLandingHeader',
+                        getWhatsAppMessageForPath(pathname),
+                      );
+                      trackGoogleAdsWhatsAppConversion(whatsappUrl);
+                    }}
+                    className={adsHeaderIconLinkClass}
+                    aria-label={`Escríbenos por WhatsApp al ${PHONE_DISPLAY}`}
+                    title='WhatsApp'
+                  >
+                    <WhatsAppIcon />
+                  </a>
+                </div>
               </nav>
             ) : (
               <>

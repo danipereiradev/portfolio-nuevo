@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ContactFormModal from './components/ContactFormModal';
 import BackToTopButton from './components/BackToTopButton';
+import WhatsAppButton from './components/WhatsAppButton';
 import CrispChat from './components/CrispChat';
 import {
   isMaintenanceActive,
@@ -88,7 +89,7 @@ function AppContent() {
   }
 
   return (
-    <div className='relative min-h-svh bg-surface-base pb-16 md:pb-0'>
+    <div className='relative min-h-svh bg-surface-base'>
       <Header />
 
       <Suspense fallback={<PageFallback />}>
@@ -157,6 +158,7 @@ function AppContent() {
       <Footer />
       <ContactFormModal />
       <BackToTopButton />
+      <WhatsAppButton />
       <CrispChat />
     </div>
   );

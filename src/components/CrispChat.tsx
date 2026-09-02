@@ -356,13 +356,31 @@ const CrispChat = () => {
       document.addEventListener('visibilitychange', onVisible);
     };
 
-    loadCrisp();
-    pushCrisp('config', 'color:theme', [CRISP_THEME_COLOR]);
-    applyCrispVisibility();
-    whenCrispReady(scheduleProactiveMessage);
-
     const media = window.matchMedia('(max-width: 767px)');
-    const onChange = () => applyCrispVisibility();
+
+    const bootDesktop = () => {
+      if (media.matches) return;
+      loadCrisp();
+      pushCrisp('config', 'color:theme', [CRISP_THEME_COLOR]);
+      applyCrispVisibility();
+      whenCrispReady(scheduleProactiveMessage);
+    };
+
+    bootDesktop();
+
+    const onChange = () => {
+      if (media.matches) {
+        if (document.getElementById(SCRIPT_ID)) {
+          pushCrisp('config', 'hide:on:mobile', [true]);
+          setChatVisible(false);
+          unbindSnippetClick();
+          stopOverlayWatch();
+          clearProactiveTimers();
+        }
+        return;
+      }
+      bootDesktop();
+    };
     media.addEventListener('change', onChange);
     return () => media.removeEventListener('change', onChange);
   }, []);

@@ -68,7 +68,7 @@ const LaunchReserveActions = ({
         className={`${buttonClassName} !bg-[#25D366] hover:!bg-[#20bd5a]`}
         onClick={(event) => {
           event.preventDefault();
-          trackWhatsAppClick(location);
+          trackWhatsAppClick(location, ADS_LAUNCH_WHATSAPP_MESSAGE);
           trackGoogleAdsWhatsAppConversion(whatsappUrl);
         }}
       >

@@ -18,19 +18,18 @@ export const GOOGLE_MAPS_PLACE_URL =
 export const DEFAULT_WHATSAPP_MESSAGE =
   'Hola, quiero información para un proyecto web.';
 
-// Mensaje específico para el tráfico de campañas de Google Ads que llega a
-// la landing /landing-diseno-web.
-export const ADS_WHATSAPP_MESSAGE =
-  'Hola, vengo de Google y quiero información para una web profesional a medida.';
+// Prefill de WhatsApp en landings de Ads. El texto identifica el producto
+// en el chat (tracking de origen).
+export const ADS_WHATSAPP_MESSAGE = 'Estoy interesado en diseño web';
 
 export const ADS_SHOP_WHATSAPP_MESSAGE =
-  'Hola, vengo de Google y quiero información para una tienda online.';
+  'Estoy interesado en tienda online';
 
 export const ADS_MAINTENANCE_WHATSAPP_MESSAGE =
-  'Hola, vengo de Google y quiero información sobre mantenimiento web.';
+  'Estoy interesado en mantenimiento web';
 
 export const ADS_LAUNCH_WHATSAPP_MESSAGE =
-  'Hola, vengo de landing promo 299 y quiero información sobre la web profesional por 349 €.';
+  'Estoy interesado en web profesional';
 
 /** Origen del formulario en la landing de oferta 349 €. Sale en Formspree y en el tracking. */
 export const ADS_LAUNCH_FORM_ORIGIN = 'landing promo 299';
