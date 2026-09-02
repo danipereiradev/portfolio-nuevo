@@ -158,6 +158,7 @@ const CondicionesDelProyecto = () => {
               hrefLabel='Ver diseño web'
               items={[
                 'Habitualmente: 50 % al empezar y 50 % antes de publicar. También se puede acordar otro fraccionamiento o pago único.',
+                'Si llega el plazo estimado de la propuesta y aún no nos has enviado textos, fotos o accesos, el 50 % restante se cobra igual, aunque no se haya publicado. Cuando nos lleguen, estimamos una fecha nueva de entrega.',
                 'Las rondas de cambios son las de la propuesta. Sirven para afinar lo acordado, no para añadir páginas o funciones nuevas.',
                 'El plazo suele estar entre 3 y 8 semanas cuando tenemos textos y fotos. Cuenta desde el arranque pagado.',
                 'El dominio es tuyo. Hosting para arrancar, confirmado en la propuesta.',
@@ -172,6 +173,7 @@ const CondicionesDelProyecto = () => {
               hrefLabel='Ver tiendas online'
               items={[
                 'Misma lógica de pago que una web a medida: 50 % al inicio y 50 % antes de publicar, salvo otro acuerdo.',
+                'Si llega el plazo estimado de la propuesta y aún no nos has enviado textos, fotos o accesos, el 50 % restante se cobra igual, aunque no se haya publicado. Cuando nos lleguen, estimamos una fecha nueva de entrega.',
                 'Plazo habitual: 4 a 8 semanas, según el catálogo y las funciones. Cuenta desde el arranque pagado.',
                 'Incluye formación de 1 h para gestionar productos, pedidos y el día a día.',
                 'El dominio es tuyo. Hosting para arrancar, confirmado en la propuesta.',

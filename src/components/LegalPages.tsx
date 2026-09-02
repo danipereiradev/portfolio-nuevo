@@ -360,7 +360,10 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                   <li>
                     <strong>Pago restante y entrega:</strong> En proyectos web y
                     tiendas, el resto se abona antes de la publicación, salvo
-                    otro acuerdo
+                    otro acuerdo. Si el plazo estimado de la propuesta se cumple
+                    y el cliente no ha enviado textos, fotos u otros materiales
+                    necesarios, el resto es igualmente exigible, según el
+                    apartado 5
                   </li>
                 </ol>
                 <p className='mt-4'>
@@ -389,6 +392,14 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                     % antes de publicar, salvo otro acuerdo por escrito
                   </li>
                   <li>
+                    Si, llegado el plazo de entrega estimado en la propuesta, el
+                    cliente no ha enviado los textos, fotos, accesos u otros
+                    materiales necesarios para publicar, el 50 % restante es
+                    exigible aunque la web o la tienda aún no esté publicada.
+                    36web puede facturar y cobrar esa parte. Cuando el cliente
+                    envíe el material, se estima una nueva fecha de entrega
+                  </li>
+                  <li>
                     Oferta de lanzamiento: reserva y resto antes de publicar,
                     según la página de la oferta
                   </li>
@@ -413,9 +424,14 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                   6. Plazos de Entrega
                 </h2>
                 <p>
-                  Los plazos se especifican en cada propuesta. Los retrasos por
-                  causas imputables al cliente no serán responsabilidad del
-                  prestador del servicio.
+                  Los plazos se especifican en cada propuesta y cuentan desde el
+                  arranque pagado, siempre que el cliente haya entregado los
+                  materiales necesarios (textos, fotos, accesos). Los retrasos
+                  por causas imputables al cliente no serán responsabilidad del
+                  prestador del servicio. Si el plazo estimado se cumple sin
+                  esos materiales, el pago restante de proyectos web y tiendas es
+                  exigible según el apartado 5, y la entrega se vuelve a
+                  estimar cuando llegue el material.
                 </p>
               </section>
 
