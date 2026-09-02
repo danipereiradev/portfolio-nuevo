@@ -14,15 +14,12 @@ import {
 } from '../config/contact';
 
 type ProjectId =
-  | 'carper'
   | 'chicxs'
   | 'hoyviajamos'
   | 'camisetas'
   | 'resilience'
   | 'hatena'
-  | 'delish'
-  | 'sillysally'
-  | 'core';
+  | 'delish';
 
 interface PortfolioProps {
   /** En /web-profesional: badges de packs y sin proyectos de tienda online. */
@@ -34,17 +31,14 @@ interface PortfolioProps {
 }
 
 const ALL_ORDER: ProjectId[] = [
-  'carper',
   'chicxs',
   'hoyviajamos',
   'camisetas',
   'resilience',
   'hatena',
   'delish',
-  'sillysally',
-  'core',
 ];
-const CASOS_ORDER: ProjectId[] = ['carper', 'chicxs', 'hoyviajamos'];
+const CASOS_ORDER: ProjectId[] = ['chicxs', 'hoyviajamos', 'camisetas'];
 
 const cardClass =
   'group relative block h-full overflow-hidden rounded-lg bg-ink-dark shadow-xl';
@@ -167,15 +161,6 @@ const Portfolio = ({
       exito: string;
     }
   > = {
-    carper: {
-      title: t('portfolio.carper.title'),
-      description: t('portfolio.carper.desc'),
-      image: '/img/portfolio/mock-carper.webp',
-      product: SITE_WEB_LABEL,
-      productHref: SITE_WEB_PATH,
-      url: 'https://carpersonido.com',
-      exito: '1º en Google en +30 búsquedas. +400% llamadas.',
-    },
     chicxs: {
       title: t('portfolio.chicxs.title'),
       description: t('portfolio.chicxs.desc'),
@@ -229,24 +214,6 @@ const Portfolio = ({
       productHref: SITE_SHOP_PATH,
       exito: t('portfolio.delish.desc'),
     },
-    sillysally: {
-      title: t('portfolio.sillysally.title'),
-      description: t('portfolio.sillysally.desc'),
-      image: '/img/portfolio/silly-sally-mock.webp',
-      product: SITE_WEB_LABEL,
-      productHref: SITE_WEB_PATH,
-      urlSoon: true,
-      exito: t('portfolio.sillysally.desc'),
-    },
-    core: {
-      title: t('portfolio.core.title'),
-      description: t('portfolio.core.desc'),
-      image: '/img/portfolio/mock-core.webp',
-      product: SITE_WEB_LABEL,
-      productHref: SITE_WEB_PATH,
-      urlSoon: true,
-      exito: t('portfolio.core.desc'),
-    },
   };
 
   const order = isCasos ? CASOS_ORDER : ALL_ORDER;
@@ -257,10 +224,9 @@ const Portfolio = ({
     project: T,
   ): T => {
     if (!isPackLanding) return project;
-    const isEsencial = project.url?.includes('sillysally') ?? false;
     return {
       ...project,
-      product: isEsencial ? 'Web Esencial' : 'Web Profesional',
+      product: 'Web Profesional',
       productHref: '#incluye',
     };
   };

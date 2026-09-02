@@ -66,9 +66,6 @@ const translations = {
   'portfolio.view': 'Ver Proyecto',
 
   // Proyectos específicos
-  'portfolio.core.title': 'Core Generator app',
-  'portfolio.core.desc':
-    'App web para generar vídeos CORE en vertical, listos para TikTok, Reels y Shorts.',
   'portfolio.chicxs.title': 'Chicxsdelacalle',
   'portfolio.chicxs.desc':
     'Tienda de merch de bandas de música: catálogo, stock y pedidos.',
@@ -78,15 +75,9 @@ const translations = {
   'portfolio.camisetas.title': 'Camisetas Ahora',
   'portfolio.camisetas.desc':
     'Tienda de camisetas personalizadas con muchos diseños, filtros y panel de stock.',
-  'portfolio.carper.title': 'Carper Sonido',
-  'portfolio.carper.desc':
-    'Web de audio profesional con catálogo de productos y servicios.',
   'portfolio.hoyviajamos.title': 'Hoy Viajamos',
   'portfolio.hoyviajamos.desc':
     'Blog de viajes con galerías, categorías, afiliados y servicio de guías de viaje por suscripción.',
-  'portfolio.sillysally.title': 'Silly Sally',
-  'portfolio.sillysally.desc':
-    'One-pager de una banda de Madrid: bio, Spotify, dossier, merch e Instagram.',
   'portfolio.hatena.title': 'Clínica Veterinaria Hatena',
   'portfolio.hatena.desc':
     'Web de clínica: servicios, equipo y formulario de citas integrado.',
