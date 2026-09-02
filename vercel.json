@@ -141,11 +141,6 @@
       "permanent": true
     },
     {
-      "source": "/condiciones-del-proyecto",
-      "destination": "/landing-diseno-web",
-      "permanent": true
-    },
-    {
       "source": "/casos-de-exito",
       "destination": "/landing-diseno-web",
       "permanent": true
@@ -239,7 +234,14 @@
       "source": "/politica-de-cookies",
       "destination": "/politica-de-cookies/index.html"
     },
-    { "source": "/aviso-legal", "destination": "/aviso-legal/index.html" },
+    {
+      "source": "/aviso-legal",
+      "destination": "/aviso-legal/index.html"
+    },
+    {
+      "source": "/condiciones-del-proyecto",
+      "destination": "/condiciones-del-proyecto/index.html"
+    },
     { "source": "/pago", "destination": "/pago/index.html" },
     {
       "source": "/pago/gracias/web-299",

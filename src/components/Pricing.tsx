@@ -41,7 +41,7 @@ const Pricing = () => {
       description:
         'Catálogo, carrito, tarjeta, envíos y un panel para que tú gestiones pedidos.',
       path: '/tiendas-online',
-      deliveryTime: 'Suele ser 4–6 semanas, según el catálogo',
+      deliveryTime: 'Suele ser 4–8 semanas, según el catálogo',
       cta: 'Solicitar presupuesto',
       features: [
         'Productos cargados según lo acordado',

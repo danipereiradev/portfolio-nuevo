@@ -198,7 +198,7 @@ export const faqCategories: FaqCategory[] = [
       {
         question: '¿Qué incluye una tienda?',
         answer:
-          'Catálogo, cobro online, pedidos y panel. Productos, envíos y extras se definen en la propuesta. Plazo habitual: 4–6 semanas.',
+          'Catálogo, cobro online, pedidos y panel. Productos, envíos y extras se definen en la propuesta. Plazo habitual: 4–8 semanas.',
       },
       {
         question: '¿Cómo pagan los clientes?',

@@ -283,17 +283,17 @@ const MantenimientoWeb = () => {
         hasReviewBadge
         isTopHero
         ctaContent={
-          <div className='flex w-full flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center'>
+          <div className='flex w-full flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap sm:items-stretch'>
             <Button
               href={`#${MAINTENANCE_BONOS_ID}`}
-              className='!mt-0 sm:flex-1 sm:max-w-[var(--button-width)]'
+              className='!mx-0 !mt-0 shrink-0'
             >
               Necesito arreglar mi web
             </Button>
             <Button
               href={`#${MAINTENANCE_PLANES_ID}`}
               variant='secondary'
-              className='!mt-0 sm:flex-1 sm:max-w-[var(--button-width)]'
+              className='!mx-0 !mt-0 shrink-0'
             >
               Quiero mantenimiento mensual
             </Button>
@@ -301,7 +301,7 @@ const MantenimientoWeb = () => {
               href={whatsappUrl}
               target='_blank'
               rel='noopener noreferrer'
-              className='!mt-0 !bg-[#25D366] hover:!bg-[#20bd5a] sm:flex-1 sm:max-w-[var(--button-width)]'
+              className='!mx-0 !mt-0 shrink-0 !bg-[#25D366] hover:!bg-[#20bd5a]'
               onClick={(event) => {
                 event.preventDefault();
                 trackWhatsAppClick('MaintenanceHero');

@@ -297,8 +297,9 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                 </h2>
                 <p>
                   Los presentes términos y condiciones regulan el uso de este
-                  sitio web y la contratación de servicios de desarrollo web,
-                  diseño web, consultoría tecnológica y servicios relacionados.
+                  sitio web y la contratación de servicios de diseño y desarrollo
+                  web, tiendas online, mantenimiento, bonos de horas y
+                  servicios relacionados.
                 </p>
               </section>
 
@@ -308,46 +309,66 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                 </h2>
                 <p className='mb-4'>36web ofrece los siguientes servicios:</p>
                 <ul className='list-disc pl-6 space-y-2'>
-                  <li>Desarrollo de páginas web corporativas</li>
-                  <li>Desarrollo de tiendas online (e-commerce)</li>
-                  <li>Desarrollo de aplicaciones web</li>
-                  <li>Diseño UX/UI</li>
-                  <li>Optimización SEO</li>
-                  <li>Mantenimiento y soporte web</li>
-                  <li>Consultoría tecnológica</li>
+                  <li>Diseño y desarrollo de páginas web</li>
+                  <li>Diseño y desarrollo de tiendas online</li>
+                  <li>Web profesional de lanzamiento, cuando la oferta esté activa</li>
+                  <li>Mantenimiento web mensual</li>
+                  <li>Bonos de horas de soporte técnico</li>
+                  <li>Mantenimiento de aplicaciones, previa valoración</li>
                 </ul>
+                <p className='mt-4'>
+                  El detalle comercial de cada servicio (forma de pago,
+                  revisiones, caducidad de bonos, permanencia) se describe en{' '}
+                  <a
+                    href='/condiciones-del-proyecto'
+                    className='font-semibold text-accent underline'
+                  >
+                    Condiciones del proyecto
+                  </a>
+                  , en la propuesta o en la página de pago correspondiente.
+                </p>
               </section>
 
               <section className='mb-8'>
                 <h2 className='text-2xl font-bold text-gray-900 mb-4'>
                   4. Proceso de Contratación
                 </h2>
+                <p className='mb-4'>
+                  La contratación depende del servicio. En proyectos web y
+                  tiendas a medida el proceso habitual es:
+                </p>
                 <ol className='list-decimal pl-6 space-y-2'>
                   <li>
-                    <strong>Solicitud:</strong> El cliente solicita presupuesto
-                    a través del formulario web o email
+                    <strong>Solicitud:</strong> El cliente pide propuesta a
+                    través del formulario, email, teléfono o WhatsApp
                   </li>
                   <li>
-                    <strong>Propuesta:</strong> Se envía una propuesta detallada
-                    en un máximo de 48 horas
+                    <strong>Propuesta:</strong> Se envía una propuesta con
+                    alcance, precio y plazos, antes de cobrar
                   </li>
                   <li>
                     <strong>Aceptación:</strong> El cliente acepta la propuesta
-                    y condiciones
+                    y las condiciones
                   </li>
                   <li>
-                    <strong>Pago inicial:</strong> Se requiere pago del 50% para
-                    iniciar el proyecto
+                    <strong>Pago inicial:</strong> Según lo indicado en la
+                    propuesta o en la página de pago
                   </li>
                   <li>
-                    <strong>Desarrollo:</strong> Se ejecuta el proyecto según
-                    las especificaciones acordadas
+                    <strong>Ejecución:</strong> Se realiza el trabajo acordado
                   </li>
                   <li>
-                    <strong>Entrega:</strong> Se entrega el proyecto y se abona
-                    el 50% restante
+                    <strong>Pago restante y entrega:</strong> En proyectos web y
+                    tiendas, el resto se abona antes de la publicación, salvo
+                    otro acuerdo
                   </li>
                 </ol>
+                <p className='mt-4'>
+                  Los mantenimientos mensuales y los bonos de horas se
+                  contratan mediante el pago en la página correspondiente
+                  (Stripe) o, cuando el servicio requiere valoración previa, tras
+                  confirmar por escrito que el plan encaja.
+                </p>
               </section>
 
               <section className='mb-8'>
@@ -356,12 +377,34 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                 </h2>
                 <ul className='list-disc pl-6 space-y-2'>
                   <li>
-                    Los precios se especifican en cada propuesta comercial
+                    Los precios se especifican en cada propuesta o página de
+                    pago
                   </li>
-                  <li>Todos los precios incluyen IVA cuando sea aplicable</li>
-                  <li>Pago: 50% al inicio, 50% a la entrega</li>
-                  <li>Formas de pago: Transferencia bancaria, PayPal</li>
-                  <li>Plazo de pago: 7 días desde la facturación</li>
+                  <li>
+                    Los precios se indican sin IVA, salvo que se indique lo
+                    contrario. Se aplica el IVA vigente
+                  </li>
+                  <li>
+                    Proyectos web y tiendas: habitualmente 50 % al inicio y 50
+                    % antes de publicar, salvo otro acuerdo por escrito
+                  </li>
+                  <li>
+                    Oferta de lanzamiento: reserva y resto antes de publicar,
+                    según la página de la oferta
+                  </li>
+                  <li>
+                    Mantenimiento mensual: pago periódico. Los planes públicos
+                    no tienen permanencia, salvo que se haya acordado otra cosa
+                    por escrito
+                  </li>
+                  <li>
+                    Bonos de horas: pago único. Las horas se descuentan según el
+                    tiempo real trabajado y caducan en el plazo indicado en la
+                    página de pago
+                  </li>
+                  <li>
+                    Formas de pago: Stripe y transferencia bancaria
+                  </li>
                 </ul>
               </section>
 
@@ -402,13 +445,17 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                 </h2>
                 <ul className='list-disc pl-6 space-y-2'>
                   <li>
-                    Se garantiza el correcto funcionamiento durante 3 meses
-                    post-entrega
+                    En proyectos web y tiendas entregados se garantiza el
+                    correcto funcionamiento durante 3 meses post-entrega
                   </li>
-                  <li>Corrección gratuita de errores de programación</li>
+                  <li>Corrección gratuita de errores de programación de lo entregado</li>
                   <li>
-                    No incluye modificaciones de diseño o funcionalidades
-                    adicionales
+                    No incluye modificaciones de diseño, rediseños ni
+                    funcionalidades adicionales
+                  </li>
+                  <li>
+                    Mantenimiento mensual y bonos de horas: el trabajo se
+                    limita a lo contratado en el plan o en el bono
                   </li>
                 </ul>
               </section>

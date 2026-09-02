@@ -66,6 +66,10 @@
     "title": "Aviso Legal | 36web",
     "description": "Aviso legal e información del titular del sitio web 36web: datos identificativos, condiciones de uso y responsabilidad."
   },
+  "/condiciones-del-proyecto": {
+    "title": "Condiciones del proyecto | 36web",
+    "description": "Cómo se contrata y se paga cada servicio de 36web: webs, tiendas, mantenimiento mensual y bonos de horas. Precio y alcance por escrito."
+  },
   "/pago": {
     "title": "Activación del servicio | 36web",
     "description": "Activación del servicio acordado.",

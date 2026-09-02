@@ -43,6 +43,9 @@ const LandingWebProfesional = lazy(
 );
 const LandingShop = lazy(() => import('./pages/LandingShop'));
 const LandingMaintenance = lazy(() => import('./pages/LandingMaintenance'));
+const CondicionesDelProyecto = lazy(
+  () => import('./pages/CondicionesDelProyecto'),
+);
 const LegalDocument = lazy(() => import('./pages/LegalDocument'));
 const Maintenance = lazy(() => import('./pages/Maintenance'));
 const Pago = lazy(() => import('./pages/Pago'));
@@ -121,6 +124,10 @@ function AppContent() {
           <Route
             path={ADS_MAINTENANCE_LANDING_PATH}
             element={<LandingMaintenance />}
+          />
+          <Route
+            path='/condiciones-del-proyecto'
+            element={<CondicionesDelProyecto />}
           />
           <Route
             path='/politica-de-privacidad'

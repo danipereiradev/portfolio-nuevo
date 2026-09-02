@@ -6,14 +6,14 @@ const HASH_RETRY_MS = 50;
 const HASH_MAX_ATTEMPTS = 40;
 
 export const useScrollToHash = () => {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
     let intervalId = 0;
 
     const scrollToHash = () => {
       window.clearInterval(intervalId);
-      const id = window.location.hash.replace('#', '');
+      const id = hash.replace('#', '');
       if (!id) return;
 
       const tryScroll = () => {
@@ -41,5 +41,5 @@ export const useScrollToHash = () => {
       window.clearInterval(intervalId);
       window.removeEventListener('hashchange', scrollToHash);
     };
-  }, [pathname]);
+  }, [pathname, hash]);
 };
