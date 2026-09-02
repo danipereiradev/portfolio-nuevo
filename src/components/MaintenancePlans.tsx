@@ -19,7 +19,7 @@ const MaintenancePlans = () => {
   return (
     <section
       id='planes'
-      className='page-section scroll-mt-[calc(var(--site-header-h)+1rem)] bg-surface-muted'
+      className='page-section bg-surface-muted'
     >
       <div className='container mx-auto flex flex-col gap-page-gap'>
         <div className='page-title-block mx-auto max-w-5xl text-center'>
@@ -40,7 +40,7 @@ const MaintenancePlans = () => {
 
         <article
           id={MAINTENANCE_APPS_ID}
-          className={`scroll-mt-[calc(var(--site-header-h)+1rem)] flex flex-col ${maintenanceCardAlignClass} rounded-lg bg-white p-content-pad shadow-xl ring-1 ring-black/10`}
+          className={`flex flex-col ${maintenanceCardAlignClass} rounded-lg bg-white p-content-pad shadow-xl ring-1 ring-black/10`}
         >
           <h3 className='text-2xl font-extrabold text-ink-dark md:text-3xl'>
             ¿No es WordPress? También.

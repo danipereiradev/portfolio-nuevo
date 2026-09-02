@@ -408,7 +408,7 @@ const LandingWebProfesional = () => {
         hasReviewBadge
       />
 
-      <div id='faq' className='scroll-mt-24'>
+      <div id='faq'>
         <SEOFAQ
           title='Lo que suele preguntar la gente'
           faqs={faqs}
@@ -417,7 +417,7 @@ const LandingWebProfesional = () => {
         />
       </div>
 
-      <div id='reserva-final' className='scroll-mt-24'>
+      <div id='reserva-final'>
         <HeroCta
           title='Reserva tu web profesional'
           belowDescription={<LaunchPaymentTable />}

@@ -10,7 +10,7 @@ const LaunchOfferCard = ({ className = '' }: { className?: string }) => {
     >
       <div
         id='reserva'
-        className='w-full scroll-mt-[calc(var(--site-header-h)+1rem)] rounded-lg bg-surface-muted p-content-pad shadow-xl md:w-3/4'
+        className='w-full rounded-lg bg-surface-muted p-content-pad shadow-xl md:w-3/4'
       >
         <div className='page-title-block text-center'>
           <p className='text-sm font-extrabold uppercase tracking-wide text-accent'>

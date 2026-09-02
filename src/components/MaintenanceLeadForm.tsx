@@ -211,7 +211,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       <form
         id='contacto'
         onSubmit={handleSubmit}
-        className='hero-cta-form w-full scroll-mt-[calc(var(--site-header-h)+1rem)] rounded-lg bg-surface-muted p-content-pad shadow-xl md:w-3/4'
+        className='hero-cta-form w-full rounded-lg bg-surface-muted p-content-pad shadow-xl md:w-3/4'
         action=''
       >
         <div className='page-title-block text-center'>

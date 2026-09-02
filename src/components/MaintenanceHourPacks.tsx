@@ -18,7 +18,7 @@ const MaintenanceHourPacks = () => {
   return (
     <section
       id='bonos'
-      className='page-section scroll-mt-[calc(var(--site-header-h)+1rem)]'
+      className='page-section'
     >
       <div className='container mx-auto flex flex-col gap-page-gap'>
         <div className='page-title-block mx-auto max-w-5xl text-center'>

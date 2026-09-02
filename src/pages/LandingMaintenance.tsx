@@ -237,7 +237,7 @@ const LandingMaintenance = () => {
         ]}
       />
 
-      <div id='faq' className='scroll-mt-24'>
+      <div id='faq'>
         <SEOFAQ
           title='No te vayas quedándote con dudas'
           faqs={faqs}

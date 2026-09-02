@@ -18,7 +18,7 @@ export const TextSection = ({
 }: TextSectionProps) => (
   <section
     id={id}
-    className={`page-section ${muted ? 'bg-surface-muted' : ''} ${id ? 'scroll-mt-24' : ''}`}
+    className={`page-section ${muted ? 'bg-surface-muted' : ''}`}
   >
     <div className='container mx-auto'>
       <RevealOnScroll className='page-title-block mx-auto max-w-5xl text-center'>

@@ -13,7 +13,8 @@
   --color-brand: #b1d004;
   --color-brand-light: #e1f56e;
   --button-width: 15rem;
-  /* Header fijo: py-4 + logo ≈ 6rem (coincide con scroll-mt-24 / pt-24) */
+  /* Header fijo: py-4 + logo ≈ 6rem. El hueco del ancla está en html
+     (scroll-padding-top), no en cada sección. */
   --site-header-h: 6rem;
 
   /* Ancho de lectura del layout (header, secciones y footer). */
@@ -534,6 +535,10 @@ html {
   font-size: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Header fijo: el salto a #id no se esconde debajo. auto, no smooth:
+     el smooth se corta si el layout se mueve (Trustindex, imágenes). */
+  scroll-padding-top: calc(var(--site-header-h) + 1rem);
+  scroll-behavior: auto;
 }
 
 /* Los headings usan Space Grotesk (geométrica, técnica) para reforzar
@@ -549,7 +554,9 @@ h6 {
   letter-spacing: -0.25px;
 }
 
-body {
+/* clip en body corta el scroll inercial (iOS y fling de trackpad).
+   El recorte horizontal va en #root, que no es el elemento que hace scroll. */
+#root {
   overflow-x: clip;
 }
 

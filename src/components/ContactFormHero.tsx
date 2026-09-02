@@ -204,9 +204,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       <form
         id={id}
         onSubmit={handleSubmit}
-        className={`w-full rounded-lg bg-surface-muted p-content-pad shadow-xl md:w-3/4 ${
-          id ? 'scroll-mt-[calc(var(--site-header-h)+1rem)]' : ''
-        }`}
+        className='w-full rounded-lg bg-surface-muted p-content-pad shadow-xl md:w-3/4'
         action=''
       >
         <div className='page-title-block text-center'>

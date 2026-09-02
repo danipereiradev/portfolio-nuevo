@@ -108,7 +108,7 @@ const Home = () => {
         ]}
       />
 
-      <div id='faq' className='scroll-mt-24'>
+      <div id='faq'>
         <SEOFAQ
           title='No te quedes con la duda'
           faqs={globalFaqs}

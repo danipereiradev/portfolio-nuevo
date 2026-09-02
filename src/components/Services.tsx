@@ -41,7 +41,7 @@ const Services = ({ description }: ServicesProps) => {
   return (
     <section
       id='services'
-      className='page-section scroll-mt-24 bg-surface-muted'
+      className='page-section bg-surface-muted'
     >
       <div className='container mx-auto flex flex-col gap-page-gap'>
         <div className='page-title-block mx-auto max-w-5xl text-center'>

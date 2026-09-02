@@ -504,7 +504,7 @@ const MantenimientoWeb = () => {
         ]}
       />
 
-      <div id='faq' className='scroll-mt-24'>
+      <div id='faq'>
         <SEOFAQ
           title='Lo que suele preguntar la gente'
           faqs={faqs}

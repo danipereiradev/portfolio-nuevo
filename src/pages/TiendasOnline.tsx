@@ -417,7 +417,7 @@ const TiendasOnline = () => {
         ]}
       />
 
-      <div id='faq' className='scroll-mt-24'>
+      <div id='faq'>
         <SEOFAQ
           title='No queremos que te quedes con dudas'
           faqs={faqs}
