@@ -27,7 +27,14 @@ import {
   getLaunchRemainderLabel,
   getLaunchReserveLabel,
 } from '../config/launchOffer';
-import { formatEuro } from '../config/payments';
+import {
+  formatEuro,
+  GOOGLE_ADS_MONTHLY_AMOUNT,
+  GOOGLE_ADS_PAYMENT_ID,
+  GOOGLE_ADS_SETUP_AMOUNT,
+  GOOGLE_ADS_TODAY_AMOUNT,
+  paymentPath,
+} from '../config/payments';
 
 const PROJECT_CONDITIONS_PATH = '/condiciones-del-proyecto';
 
@@ -232,6 +239,27 @@ const CondicionesDelProyecto = () => {
                 getHourPackRemainderCopy(),
                 'No superamos el bono sin tu aprobación.',
                 'Antes de empezar revisamos la tarea. Si el bono no encaja, te lo decimos.',
+              ]}
+            />
+
+            <ConditionBlock
+              title='Google Ads con 36web'
+              intro={
+                <>
+                  Hoy {formatEuro(GOOGLE_ADS_TODAY_AMOUNT)} + IVA (setup{' '}
+                  {formatEuro(GOOGLE_ADS_SETUP_AMOUNT)} y primer mes{' '}
+                  {formatEuro(GOOGLE_ADS_MONTHLY_AMOUNT)}). Después{' '}
+                  {formatEuro(GOOGLE_ADS_MONTHLY_AMOUNT)} + IVA/mes.
+                </>
+              }
+              href={paymentPath(GOOGLE_ADS_PAYMENT_ID)}
+              hrefLabel='Ver Google Ads'
+              items={[
+                'El pago se hace por Stripe: setup único y gestión mensual en el mismo checkout.',
+                'Sin permanencia. Puedes cancelar.',
+                'La inversión publicitaria en Google no está incluida. La pagas tú directamente a Google.',
+                'Setup: configuración de cuenta y campaña, tracking básico, estructura, keywords, anuncios, lanzamiento y creación de landing page.',
+                'Gestión mensual: revisión, optimización, palabras clave negativas, pujas y presupuesto, anuncios, informe básico y modificación de landing page para mejorar.',
               ]}
             />
           </div>

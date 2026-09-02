@@ -259,6 +259,10 @@
       "source": "/pago/gracias/bono-tecnico-10h",
       "destination": "/pago/gracias/bono-tecnico-10h/index.html"
     },
+    {
+      "source": "/pago/gracias/google-ads",
+      "destination": "/pago/gracias/google-ads/index.html"
+    },
     { "source": "/pago/gracias", "destination": "/pago/gracias/index.html" },
     {
       "source": "/gracias/mantenimiento-web-base-mensual",

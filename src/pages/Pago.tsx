@@ -10,6 +10,8 @@ import {
   getHourlyTotals,
   getPaymentById,
   getPaymentTotals,
+  getTotalsFromNet,
+  GOOGLE_ADS_CHECKOUT_PATH,
   HOURLY_MAX_HOURS,
   HOURLY_MIN_HOURS,
   parseHours,
@@ -80,6 +82,8 @@ const Pago = () => {
         {payment ? (
           payment.pricingMode === 'hourly' ? (
             <HourlyPaymentCard payment={payment} />
+          ) : payment.pricingMode === 'setup_subscription' ? (
+            <SetupSubscriptionCard payment={payment} />
           ) : (
             <PaymentCard payment={payment} />
           )
@@ -210,7 +214,7 @@ const PaymentCard = ({ payment }: { payment: PaymentConfig }) => {
                   className='mt-0.5 h-4 w-4 shrink-0 text-[#6f6f6d]'
                   aria-hidden='true'
                 />
-                <span>{item}</span>
+                <span className='min-w-0'>{item}</span>
               </li>
             ))}
           </ul>
@@ -235,6 +239,177 @@ const PaymentCard = ({ payment }: { payment: PaymentConfig }) => {
 
       {payment.conditions ? (
         <p className='mt-4 text-center text-xs leading-relaxed text-[#6f6f6d] whitespace-pre-line'>
+          {payment.conditions}
+        </p>
+      ) : null}
+    </article>
+  );
+};
+
+const IncludeList = ({ title, items }: { title: string; items: string[] }) => {
+  if (items.length === 0) return null;
+
+  return (
+    <section className='mt-6'>
+      <h2
+        className='text-base font-bold'
+        style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+      >
+        {title}
+      </h2>
+      <ul className='mt-3 space-y-2'>
+        {items.map((item) => (
+          <li key={item} className='flex items-start gap-2 text-sm'>
+            <Check
+              className='mt-0.5 h-4 w-4 shrink-0 text-[#3346C1]'
+              aria-hidden='true'
+            />
+            <span className='min-w-0'>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+};
+
+const SetupSubscriptionCard = ({ payment }: { payment: PaymentConfig }) => {
+  const setupAmount = payment.setupAmount ?? 0;
+  const monthlyAmount = payment.monthlyAmount ?? 0;
+  const todayAmount = payment.amount;
+  const { total } = getTotalsFromNet(todayAmount, payment.vatRate);
+  const setupIncludes = payment.setupIncludes?.filter(Boolean) ?? [];
+  const monthlyIncludes = payment.monthlyIncludes?.filter(Boolean) ?? [];
+  const excludes = payment.excludes?.filter(Boolean) ?? [];
+  const checkoutPath = payment.checkoutPath?.trim() || GOOGLE_ADS_CHECKOUT_PATH;
+  const stripeLink = payment.stripePaymentLink.trim();
+  const ctaLabel = payment.cta?.trim() || 'Pagar ahora';
+  const [isStartingCheckout, setIsStartingCheckout] = useState(false);
+  const [checkoutError, setCheckoutError] = useState('');
+
+  const startCheckout = async () => {
+    setCheckoutError('');
+    setIsStartingCheckout(true);
+    try {
+      const response = await fetch(checkoutPath, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+      });
+      const data = (await response.json().catch(() => ({}))) as {
+        url?: string;
+        error?: string;
+      };
+      if (!response.ok || !data.url) {
+        throw new Error(data.error || 'No se pudo crear el pago.');
+      }
+      window.location.href = data.url;
+    } catch (error) {
+      setCheckoutError(
+        error instanceof Error ? error.message : 'No se pudo crear el pago.',
+      );
+      setIsStartingCheckout(false);
+    }
+  };
+
+  return (
+    <article>
+      <h1
+        className='text-2xl font-bold md:text-3xl'
+        style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+      >
+        {payment.serviceName}
+      </h1>
+
+      <p className='mt-4 text-base leading-relaxed text-[#4d4d4c]'>
+        {payment.description}
+      </p>
+
+      <div className='mt-6 rounded-lg bg-[rgb(237,239,247)] px-5 py-5'>
+        <p
+          className='text-2xl font-bold md:text-3xl'
+          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+        >
+          Hoy: {formatEuro(todayAmount)} + IVA
+        </p>
+        <p className='mt-2 text-lg font-bold text-[#101010]'>
+          Después: {formatEuro(monthlyAmount)} + IVA / mes
+        </p>
+
+        <dl className='mt-4 space-y-2 text-sm'>
+          <div className='flex justify-between gap-4'>
+            <dt className='text-[#6f6f6d]'>Setup inicial (pago único)</dt>
+            <dd className='font-medium'>{formatEuro(setupAmount)} + IVA</dd>
+          </div>
+          <div className='flex justify-between gap-4'>
+            <dt className='text-[#6f6f6d]'>Gestión mensual</dt>
+            <dd className='font-medium'>{formatEuro(monthlyAmount)} + IVA / mes</dd>
+          </div>
+          <div className='flex justify-between gap-4 border-t border-[#3346C1]/15 pt-2 text-base'>
+            <dt className='font-semibold'>Total hoy con IVA</dt>
+            <dd className='font-bold'>{formatEuro(total)}</dd>
+          </div>
+        </dl>
+      </div>
+
+      <IncludeList title='Qué incluye el setup' items={setupIncludes} />
+      <IncludeList title='Qué incluye la gestión mensual' items={monthlyIncludes} />
+
+      {excludes.length > 0 ? (
+        <section className='mt-6'>
+          <h2
+            className='text-base font-bold'
+            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+          >
+            Qué no incluye
+          </h2>
+          <ul className='mt-3 space-y-2'>
+            {excludes.map((item) => (
+              <li
+                key={item}
+                className='flex items-start gap-2 text-sm text-[#4d4d4c]'
+              >
+                <Minus
+                  className='mt-0.5 h-4 w-4 shrink-0 text-[#6f6f6d]'
+                  aria-hidden='true'
+                />
+                <span className='min-w-0'>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+
+      <div className='mt-8'>
+        {stripeLink ? (
+          <Button
+            href={stripeLink}
+            className='mt-0 !mx-0'
+            rel='noopener noreferrer'
+          >
+            {ctaLabel}
+          </Button>
+        ) : (
+          <>
+            <Button
+              className='mt-0 !mx-0'
+              onClick={() => {
+                void startCheckout();
+              }}
+              disabled={isStartingCheckout}
+              isLoading={isStartingCheckout}
+            >
+              {ctaLabel}
+            </Button>
+            {checkoutError ? (
+              <p className='mt-3 text-left text-sm text-accent'>
+                {checkoutError}
+              </p>
+            ) : null}
+          </>
+        )}
+      </div>
+
+      {payment.conditions ? (
+        <p className='mt-4 text-left text-xs leading-relaxed text-[#6f6f6d] whitespace-pre-line'>
           {payment.conditions}
         </p>
       ) : null}

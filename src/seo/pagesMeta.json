@@ -110,6 +110,11 @@
     "description": "Activa el mantenimiento de tienda online desde 149 € + IVA/mes.",
     "robots": "noindex, nofollow, noarchive"
   },
+  "/pago/google-ads": {
+    "title": "Google Ads con 36web | Setup 250 € + gestión 200 €/mes | 36web",
+    "description": "Hoy 450 € + IVA: setup de Google Ads y primer mes. Después 200 € + IVA/mes. Sin permanencia. La inversión publicitaria la pagas tú a Google.",
+    "robots": "noindex, nofollow, noarchive"
+  },
   "/pago/gracias": {
     "title": "Pago recibido | 36web",
     "description": "Gracias. Hemos recibido tu pago.",
@@ -133,6 +138,11 @@
   "/pago/gracias/bono-tecnico-10h": {
     "title": "Pago recibido | Bono técnico 10 horas | 36web",
     "description": "Gracias. Hemos recibido el pago del bono técnico de 10 horas. En breve te escribimos para revisar la tarea y empezar.",
+    "robots": "noindex, nofollow, noarchive"
+  },
+  "/pago/gracias/google-ads": {
+    "title": "Pago recibido | Google Ads | 36web",
+    "description": "Gracias. Hemos recibido el pago del setup y la primera mensualidad de Google Ads.",
     "robots": "noindex, nofollow, noarchive"
   },
   "/gracias/mantenimiento-web-base-mensual": {

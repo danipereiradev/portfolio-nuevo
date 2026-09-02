@@ -56,6 +56,12 @@ export const THANK_YOU_PAGES = {
     heading: 'Pago recibido',
     body: 'Gracias. Hemos recibido el pago del plan Negocio. En breve nos pondremos en contacto contigo para activar el mantenimiento.',
   },
+  'google-ads': {
+    path: '/pago/gracias/google-ads',
+    title: 'Pago recibido | Google Ads | 36web',
+    heading: 'Pago recibido',
+    body: 'Gracias. Hemos recibido el pago del setup y la primera mensualidad de Google Ads. En breve nos pondremos en contacto contigo para activar las campañas.',
+  },
 } as const satisfies Record<string, ThankYouPage>;
 
 export type ThankYouVariant = keyof typeof THANK_YOU_PAGES;
@@ -71,7 +77,7 @@ export type PaymentType = 'one_time' | 'subscription';
 /** Por ahora solo mensual. Se puede ampliar el modelo más adelante. */
 export type BillingInterval = 'monthly';
 
-export type PricingMode = 'fixed' | 'hourly';
+export type PricingMode = 'fixed' | 'hourly' | 'setup_subscription';
 
 export type PaymentConfig = {
   id: string;
@@ -91,6 +97,12 @@ export type PaymentConfig = {
   /** Texto del botón. Si no se indica: “Pagar ahora” o “Activar pago mensual”. */
   cta?: string;
   conditions?: string;
+  /** Setup + suscripción en la misma Checkout Session. */
+  setupAmount?: number;
+  monthlyAmount?: number;
+  setupIncludes?: string[];
+  monthlyIncludes?: string[];
+  checkoutPath?: string;
 };
 
 /** IDs de /pago para bonos y planes de la landing /mantenimiento-web. */
@@ -100,6 +112,14 @@ export const MAINTENANCE_PACK_10H_ID = 'paquete-mantenimiento-10h';
 export const MAINTENANCE_PLAN_WEB_ID = 'mantenimiento-web';
 export const MAINTENANCE_PLAN_NEGOCIO_ID = 'mantenimiento-negocio';
 export const MAINTENANCE_PLAN_ECOMMERCE_ID = 'mantenimiento-ecommerce';
+
+export const GOOGLE_ADS_PAYMENT_ID = 'google-ads';
+export const GOOGLE_ADS_SETUP_AMOUNT = 250;
+export const GOOGLE_ADS_MONTHLY_AMOUNT = 200;
+export const GOOGLE_ADS_TODAY_AMOUNT =
+  GOOGLE_ADS_SETUP_AMOUNT + GOOGLE_ADS_MONTHLY_AMOUNT;
+export const GOOGLE_ADS_CHECKOUT_PATH = '/api/google-ads-checkout';
+export const GOOGLE_ADS_SUCCESS_PATH = THANK_YOU_PAGES['google-ads'].path;
 
 /** Caducidad de los bonos de mantenimiento, en meses desde la compra. */
 export const HOUR_PACK_VALIDITY_MONTHS = 6;
@@ -124,8 +144,7 @@ const hourPackIncludes = (hours: number): string[] => [
   'No superamos el bono sin tu aprobación',
 ];
 
-const hourPackConditions =
-  '*Pago único. Antes de empezar, revisamos la tarea.';
+const hourPackConditions = '*Pago único. Antes de empezar, revisamos la tarea.';
 
 const monthlyMaintenanceExcludes = (hours: number): string[] => [
   'Rediseños',
@@ -341,6 +360,47 @@ export const paymentConfigs: Record<string, PaymentConfig> = {
     ],
     conditions:
       '*Servicio con permanencia mínima de 6 meses.\nLa suscripción se renueva mensualmente y, una vez cumplido el periodo mínimo, puede cancelarse según las condiciones acordadas.',
+  },
+  [GOOGLE_ADS_PAYMENT_ID]: {
+    id: GOOGLE_ADS_PAYMENT_ID,
+    clientName: '',
+    serviceName: 'Google Ads con 36web',
+    description:
+      'Setup de campañas y gestión mensual. Hoy pagas el arranque y el primer mes. A partir del mes siguiente, solo la gestión. La inversión publicitaria la pagas tú directamente a Google.',
+    amount: GOOGLE_ADS_TODAY_AMOUNT,
+    vatRate: 21,
+    paymentType: 'subscription',
+    billingInterval: 'monthly',
+    pricingMode: 'setup_subscription',
+    // Success URL en Stripe: https://36web.es/pago/gracias/google-ads
+    stripePaymentLink: 'https://buy.stripe.com/3cIaEX7CrcGIejHcNQ4AU08',
+    setupAmount: GOOGLE_ADS_SETUP_AMOUNT,
+    monthlyAmount: GOOGLE_ADS_MONTHLY_AMOUNT,
+    checkoutPath: GOOGLE_ADS_CHECKOUT_PATH,
+    setupIncludes: [
+      'Configuración de cuenta y campaña',
+      'Tracking básico',
+      'Estructura de la cuenta',
+      'Keywords',
+      'Anuncios',
+      'Lanzamiento',
+      'Creación de landing page',
+    ],
+    monthlyIncludes: [
+      'Revisión',
+      'Optimización',
+      'Palabras clave negativas',
+      'Pujas y presupuesto',
+      'Anuncios',
+      'Informe básico',
+      'Modificación de landing page para mejorar',
+    ],
+    excludes: [
+      'La inversión publicitaria en Google. La pagas tú directamente a Google.',
+    ],
+    cta: 'Pagar ahora',
+    conditions:
+      '*Hoy: setup 250 € + IVA y primer mes de gestión 200 € + IVA.\nA partir del mes siguiente: 200 € + IVA/mes.\nSin permanencia. Puedes cancelar.\nLa inversión publicitaria no está incluida.',
   },
 };
 

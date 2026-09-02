@@ -1,10 +1,17 @@
 [functions]
   directory = "netlify/functions"
+  node_bundler = "esbuild"
 
 # Proxy amigable a la función serverless (antes del catch-all SPA).
 [[redirects]]
   from = "/api/subscribe"
   to = "/.netlify/functions/subscribe"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/google-ads-checkout"
+  to = "/.netlify/functions/google-ads-checkout"
   status = 200
   force = true
 
