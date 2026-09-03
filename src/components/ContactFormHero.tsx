@@ -5,10 +5,13 @@ import {
   trackFormSubmit,
   trackGoogleAdsFormConversion,
   trackLandingPromo299FormSubmit,
+  trackMaintenanceFormSubmit,
   unlockGoogleAdsFormConversion,
 } from '../utils/analytics';
 import {
   ADS_LAUNCH_FORM_ORIGIN,
+  ADS_MAINTENANCE_FORM_FINAL,
+  ADS_MAINTENANCE_FORM_HERO,
   BUSINESS_HOURS_LABEL,
   FORM_CC_EMAIL,
 } from '../config/contact';
@@ -136,6 +139,12 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       trackFormSubmit(origen);
       if (origen === ADS_LAUNCH_FORM_ORIGIN) {
         trackLandingPromo299FormSubmit();
+      }
+      if (
+        origen === ADS_MAINTENANCE_FORM_HERO ||
+        origen === ADS_MAINTENANCE_FORM_FINAL
+      ) {
+        trackMaintenanceFormSubmit(origen);
       }
       trackGoogleAdsFormConversion();
       setIsFormSent(true);

@@ -9,6 +9,7 @@ import {
   HOUR_PACKS,
   maintenanceListClass,
   maintenancePriceCardClass,
+  maintenancePriceCtaWrapClass,
   type HourPack,
   type HourPackId,
 } from '../config/maintenanceOffer';
@@ -76,7 +77,7 @@ const HourPackCard = ({ pack }: { pack: HourPack }) => {
       <p className='mt-3 text-sm font-bold text-ink-dark'>
         {getHourPackValidityCopy()}
       </p>
-      <ul className={`mt-6 flex-1 space-y-2 text-sm md:text-base ${maintenanceListClass}`}>
+      <ul className={`mt-6 space-y-2 text-sm md:text-base ${maintenanceListClass}`}>
         {pack.ideal.map((item) => (
           <li key={item} className='flex items-start gap-2'>
             <Check
@@ -87,13 +88,15 @@ const HourPackCard = ({ pack }: { pack: HourPack }) => {
           </li>
         ))}
       </ul>
-      <Button
-        href={href}
-        className='mt-8 !mx-0 w-full max-w-none'
-        onClick={() => trackHourPackClick(Number(hours) as 3 | 6 | 10)}
-      >
-        {pack.cta}
-      </Button>
+      <div className={maintenancePriceCtaWrapClass}>
+        <Button
+          href={href}
+          className='!mx-0 !mt-0 w-full max-w-none'
+          onClick={() => trackHourPackClick(Number(hours) as 3 | 6 | 10)}
+        >
+          {pack.cta}
+        </Button>
+      </div>
     </article>
   );
 };

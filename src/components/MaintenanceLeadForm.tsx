@@ -5,10 +5,17 @@ import {
   trackFormError,
   trackFormSubmit,
   trackGoogleAdsFormConversion,
+  trackGoogleAdsMaintenanceFormConversion,
   trackMaintenanceFormSubmit,
+  trackMaintenanceFormSubmitSuccess,
   unlockGoogleAdsFormConversion,
 } from '../utils/analytics';
-import { BUSINESS_HOURS_LABEL, FORM_CC_EMAIL } from '../config/contact';
+import {
+  ADS_MAINTENANCE_FORM_FINAL,
+  ADS_MAINTENANCE_FORM_HERO,
+  BUSINESS_HOURS_LABEL,
+  FORM_CC_EMAIL,
+} from '../config/contact';
 import {
   MAINTENANCE_FORM_ORIGIN,
   MAINTENANCE_NEED_OPTIONS,
@@ -25,13 +32,21 @@ const emptyForm = () => ({
 });
 
 const inputClass = (hasError: boolean) =>
-  `w-full text-xl md:text-2xl pl-4 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent transition-all duration-150 ${
+  `w-full text-xl md:text-2xl pl-4 pr-4 py-3 border-2 rounded-lg bg-white text-ink-dark focus:outline-none focus:border-accent transition-all duration-150 ${
     hasError
       ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
       : 'border-gray-400'
   }`;
 
-const MaintenanceLeadForm = ({ className = '' }: { className?: string }) => {
+const MaintenanceLeadForm = ({
+  className = '',
+  origin = MAINTENANCE_FORM_ORIGIN,
+  formId,
+}: {
+  className?: string;
+  origin?: string;
+  formId?: string;
+}) => {
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isFormSent, setIsFormSent] = useState(false);
@@ -119,7 +134,7 @@ const MaintenanceLeadForm = ({ className = '' }: { className?: string }) => {
     if (isSubmitting) return;
 
     if (!validateForm()) {
-      trackFormError('validation_error', MAINTENANCE_FORM_ORIGIN);
+      trackFormError('validation_error', origin);
       return;
     }
 
@@ -128,7 +143,7 @@ const MaintenanceLeadForm = ({ className = '' }: { className?: string }) => {
     setSubmitStatus('idle');
 
     try {
-      const origen = MAINTENANCE_FORM_ORIGIN;
+      const origen = origin;
       const pagina = window.location.pathname;
       const needLabel =
         MAINTENANCE_NEED_OPTIONS.find((option) => option.value === formData.need)
@@ -183,12 +198,19 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       }
 
       trackFormSubmit(origen);
-      trackMaintenanceFormSubmit();
+      trackMaintenanceFormSubmit(origen);
+      const isLandingForm =
+        origen === ADS_MAINTENANCE_FORM_HERO ||
+        origen === ADS_MAINTENANCE_FORM_FINAL;
+      if (isLandingForm) {
+        trackMaintenanceFormSubmitSuccess(origen);
+        trackGoogleAdsMaintenanceFormConversion();
+      }
       trackGoogleAdsFormConversion();
       setIsFormSent(true);
     } catch (error) {
       console.error('Error al enviar formulario:', error);
-      trackFormError('submit_failed', MAINTENANCE_FORM_ORIGIN);
+      trackFormError('submit_failed', origin);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -209,7 +231,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
   return (
     <div className={`z-10 flex w-full justify-center md:w-1/2 ${className}`.trim()}>
       <form
-        id='contacto'
+        id={formId}
         onSubmit={handleSubmit}
         className='hero-cta-form w-full rounded-lg bg-surface-muted p-content-pad shadow-xl md:w-3/4'
         action=''
@@ -267,10 +289,18 @@ Fecha: ${new Date().toLocaleString('es-ES')}
           <select
             value={formData.need}
             onChange={(e) => handleInputChange('need', e.target.value)}
-            className={inputClass(false)}
+            className={`${inputClass(false)} ${
+              formData.need ? '' : 'text-gray-400'
+            }`}
+            aria-label='¿Qué necesitas?'
           >
             {MAINTENANCE_NEED_OPTIONS.map((option) => (
-              <option key={option.value || 'empty'} value={option.value}>
+              <option
+                key={option.value || 'empty'}
+                value={option.value}
+                disabled={option.value === ''}
+                className='text-ink-dark'
+              >
                 {option.label}
               </option>
             ))}

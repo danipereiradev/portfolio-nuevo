@@ -121,6 +121,7 @@ let overlayObserver: MutationObserver | undefined;
 let suppressTimer: number | undefined;
 
 const hideProactiveOverlay = () => {
+  pushCrisp('do', 'overlay:close');
   pushCrisp('do', 'message:hide');
   pushCrisp('do', 'message:read');
 };
@@ -224,9 +225,9 @@ const loadCrisp = () => {
   pushCrisp('on', 'session:loaded', () => {
     pushCrisp('config', 'color:theme', [CRISP_THEME_COLOR]);
     applyCrispVisibility();
-    if (proactiveDismissed || hasDismissedProactive()) {
-      hideProactiveOverlay();
-    }
+    if (window.$crisp?.is?.('chat:opened')) return;
+    if (proactivePushed && !hasDismissedProactive()) return;
+    hideProactiveOverlay();
   });
 
   const script = document.createElement('script');
@@ -298,6 +299,7 @@ const CrispChat = () => {
       proactivePushed = true;
       setChatVisible(true);
       bindSnippetClick();
+      hideProactiveOverlay();
       watchOverlayClose();
       showMessageTimer = window.setTimeout(() => {
         showMessageTimer = undefined;
@@ -306,6 +308,10 @@ const CrispChat = () => {
         if (window.$crisp?.is?.('chat:opened')) {
           markProactiveShown();
           unbindSnippetClick();
+          return;
+        }
+        if (overlayStillVisible()) {
+          markProactiveShown();
           return;
         }
         pushCrisp('do', 'message:show', ['text', CRISP_PROACTIVE_TEXT]);

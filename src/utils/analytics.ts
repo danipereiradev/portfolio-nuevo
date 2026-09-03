@@ -166,6 +166,36 @@ export const trackGoogleAdsWhatsAppConversion = (url: string): boolean => {
 const ADS_CONVERSION_RESERVA = 'ads_conversion_Reserva_1';
 
 /**
+ * send_to de Google Ads para el envío del formulario de la landing
+ * `/landing-mantenimiento-web`.
+ *
+ * Vacío hasta que exista la conversión en la cuenta.
+ * Cuando la tengas, pega el label aquí:
+ *   'AW-18305239496/XXXXXXXXXXX'
+ */
+export const GOOGLE_ADS_MAINTENANCE_FORM_SEND_TO = '';
+
+/**
+ * Conversión específica de Ads para el formulario de mantenimiento.
+ * No hace nada mientras GOOGLE_ADS_MAINTENANCE_FORM_SEND_TO esté vacío.
+ * Solo llamar tras Formspree OK. No sustituye a trackGoogleAdsFormConversion.
+ */
+export const trackGoogleAdsMaintenanceFormConversion = (): void => {
+  if (typeof window === 'undefined') return;
+  if (!GOOGLE_ADS_MAINTENANCE_FORM_SEND_TO) return;
+
+  try {
+    window.gtag?.('event', 'conversion', {
+      send_to: GOOGLE_ADS_MAINTENANCE_FORM_SEND_TO,
+      value: 1,
+      currency: 'EUR',
+    });
+  } catch {
+    // La analítica nunca debe romper la experiencia del usuario.
+  }
+};
+
+/**
  * send_to de Google Ads para el clic en Reservar (Stripe).
  * Vacío hasta que exista la conversión en la cuenta.
  */
@@ -702,9 +732,40 @@ export const trackMaintenancePlanClick = (
   });
 };
 
-export const trackMaintenanceFormSubmit = () => {
+export const trackMaintenanceFormSubmit = (
+  origin = 'mantenimiento-web',
+) => {
   trackEvent('contact_maintenance_form', {
     event_category: 'mantenimiento',
-    event_label: 'mantenimiento-web',
+    event_label: origin,
+    landing_name:
+      origin.startsWith('Landing mantenimiento')
+        ? 'landing-mantenimiento-web'
+        : undefined,
+  });
+};
+
+export const trackMaintenanceFormSubmitSuccess = (origin: string) => {
+  trackEvent('maintenance_form_submit_success', {
+    event_category: 'mantenimiento',
+    event_label: origin,
+    landing_name: 'landing-mantenimiento-web',
+  });
+};
+
+export const trackMaintenanceWhatsAppClick = (locationSection: string) => {
+  trackEvent('maintenance_whatsapp_click', {
+    event_category: 'mantenimiento',
+    event_label: locationSection,
+    landing_name: 'landing-mantenimiento-web',
+    location_section: locationSection,
+  });
+};
+
+export const trackLandingMaintenanceView = () => {
+  trackEvent('landing_maintenance_view', {
+    event_category: 'landing_mantenimiento',
+    event_label: 'landing-mantenimiento-web',
+    landing_name: 'landing-mantenimiento-web',
   });
 };

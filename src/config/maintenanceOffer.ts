@@ -37,6 +37,9 @@ export const maintenancePriceCardClass = (featured?: boolean): string =>
     featured ? 'ring-2 ring-accent' : 'ring-1 ring-black/10'
   }`;
 
+export const maintenancePriceCtaWrapClass =
+  'mt-auto w-full pt-[var(--content-pad)]';
+
 export type HourPackId = '3' | '6' | '10';
 
 export type HourPack = {

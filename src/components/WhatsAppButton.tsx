@@ -3,11 +3,13 @@ import { useLocation } from 'react-router-dom';
 import {
   trackWhatsAppClick,
   trackGoogleAdsWhatsAppConversion,
+  trackMaintenanceWhatsAppClick,
 } from '../utils/analytics';
 import {
   buildWhatsAppUrl,
   getWhatsAppMessageForPath,
   isAdsLandingPath,
+  isAdsMaintenanceLandingPath,
 } from '../config/contact';
 
 const TOOLTIP_DELAY_MS = 15000;
@@ -80,6 +82,9 @@ const WhatsAppButton = () => {
   const openWhatsApp = () => {
     setShowTooltip(false);
     trackWhatsAppClick('LandingMobileBubble', message);
+    if (isAdsMaintenanceLandingPath(pathname)) {
+      trackMaintenanceWhatsAppClick('LandingMobileBubble');
+    }
     trackGoogleAdsWhatsAppConversion(whatsappUrl);
   };
 

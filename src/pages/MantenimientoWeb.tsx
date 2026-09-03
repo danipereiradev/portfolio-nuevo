@@ -520,7 +520,7 @@ const MantenimientoWeb = () => {
         hasButton={false}
         hasBackground={false}
         hasReviewBadge
-        offerContent={<MaintenanceLeadForm />}
+        offerContent={<MaintenanceLeadForm formId={MAINTENANCE_CONTACT_ID} />}
       />
     </>
   );

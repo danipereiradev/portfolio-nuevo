@@ -9,6 +9,7 @@ import {
   maintenanceCardAlignClass,
   maintenanceListClass,
   maintenancePriceCardClass,
+  maintenancePriceCtaWrapClass,
   type MaintenancePlan,
   type MaintenancePlanId,
 } from '../config/maintenanceOffer';
@@ -90,7 +91,7 @@ const PlanCard = ({ plan }: { plan: MaintenancePlan }) => {
       <p className='mt-3 text-base text-ink-medium md:text-lg'>
         {plan.ideal}
       </p>
-      <ul className={`mt-6 flex-1 space-y-2 text-sm md:text-base ${maintenanceListClass}`}>
+      <ul className={`mt-6 space-y-2 text-sm md:text-base ${maintenanceListClass}`}>
         {plan.includes.map((item) => (
           <li key={item} className='flex items-start gap-2'>
             <Check
@@ -101,18 +102,20 @@ const PlanCard = ({ plan }: { plan: MaintenancePlan }) => {
           </li>
         ))}
       </ul>
-      {plan.notes?.map((note) => (
-        <p key={note} className='mt-4 text-sm font-bold text-ink-medium'>
-          {note}
-        </p>
-      ))}
-      <Button
-        href={plan.ctaHref}
-        className='mt-8 !mx-0 w-full max-w-none'
-        onClick={() => trackMaintenancePlanClick(planId)}
-      >
-        {plan.cta}
-      </Button>
+      <div className={maintenancePriceCtaWrapClass}>
+        {plan.notes?.map((note) => (
+          <p key={note} className='mb-4 text-sm font-bold text-ink-medium'>
+            {note}
+          </p>
+        ))}
+        <Button
+          href={plan.ctaHref}
+          className='!mx-0 !mt-0 w-full max-w-none'
+          onClick={() => trackMaintenancePlanClick(planId)}
+        >
+          {plan.cta}
+        </Button>
+      </div>
     </article>
   );
 };
