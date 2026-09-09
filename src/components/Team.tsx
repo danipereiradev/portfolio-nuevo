@@ -134,19 +134,20 @@ export const Team = ({
             </p>
           ))}
         </RevealOnScroll>
-        <RevealOnScroll className='w-full' delayMs={120}>
-          <div
-            className={`grid grid-cols-1 gap-4 md:grid-cols-3`}
-          >
+        <RevealOnScroll className='w-full md:w-[75vw]' delayMs={120}>
+          <div className='grid grid-cols-1 items-stretch gap-4 md:grid-cols-3'>
             {members.map((member: Team) => {
               const displayName = compact
                 ? member.fullName.split(' ')[0]
                 : member.fullName;
 
               return (
-                <article key={member.fullName} className='text-center'>
+                <article
+                  key={member.fullName}
+                  className='flex h-full flex-col text-center'
+                >
                   {member.imageUrl ? (
-                    <div className='overflow-hidden rounded-t-xl'>
+                    <div className='shrink-0 overflow-hidden rounded-t-xl'>
                       <img
                         className='h-[333px] w-full object-cover object-top grayscale'
                         src={member.imageUrl}
@@ -159,7 +160,7 @@ export const Team = ({
                     </div>
                   ) : (
                     <div
-                      className='flex h-[333px] w-full items-center justify-center rounded-t-xl bg-accent-light'
+                      className='flex h-[333px] w-full shrink-0 items-center justify-center rounded-t-xl bg-accent-light'
                       aria-hidden='true'
                     >
                       <span className='text-5xl font-extrabold text-accent md:text-6xl'>
@@ -168,11 +169,7 @@ export const Team = ({
                     </div>
                   )}
 
-                  <div
-                    className={`member-info flex flex-col rounded-b-xl bg-surface-muted p-content-pad text-start text-lg text-ink-dark ${
-                      compact ? 'min-h-[9.75rem]' : 'min-h-[13.5rem]'
-                    }`}
-                  >
+                  <div className='member-info flex flex-1 flex-col rounded-b-xl bg-surface-muted p-content-pad text-start text-lg text-ink-dark'>
                     <h3 className='text-2xl font-bold text-accent'>
                       {displayName}
                     </h3>
@@ -186,7 +183,7 @@ export const Team = ({
                     )}
                     <a
                       href={`mailto:${member.mail}`}
-                      className='mt-text-gap flex items-center gap-2 text-accent transition-colors hover:text-accent-hover'
+                      className='mt-auto flex items-center gap-2 pt-text-gap text-accent transition-colors hover:text-accent-hover'
                     >
                       <Mail width={20} className='shrink-0' aria-hidden />
                       <span className='break-all text-base font-bold'>
