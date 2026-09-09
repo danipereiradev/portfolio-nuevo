@@ -21,28 +21,25 @@ const Services = ({ description }: ServicesProps) => {
     {
       title: SITE_WEB_LABEL,
       link: SITE_WEB_PATH,
-      image: '/img/services/iconos%20web-01.png',
+      image: '/img/services/paginas-web.png',
       imageAlt: 'Páginas web',
     },
     {
       title: SITE_SHOP_LABEL,
       link: SITE_SHOP_PATH,
-      image: '/img/services/iconos%20web-03.png',
+      image: '/img/services/tiendas-online.png',
       imageAlt: 'Tiendas online',
     },
     {
       title: SITE_MAINTENANCE_LABEL,
       link: SITE_MAINTENANCE_PATH,
-      image: '/img/services/iconos%20web-02.png',
+      image: '/img/services/mantenimiento-web.png',
       imageAlt: 'Mantenimiento web',
     },
   ];
 
   return (
-    <section
-      id='services'
-      className='page-section bg-white'
-    >
+    <section id='services' className='page-section bg-white'>
       <div className='container mx-auto flex flex-col gap-page-gap'>
         <div className='page-title-block mx-auto max-w-5xl text-center'>
           <span className='text-md uppercase rounded-lg font-extrabold text-accent underline'>
@@ -62,18 +59,20 @@ const Services = ({ description }: ServicesProps) => {
             >
               <a
                 href={service.link}
-                className='group relative block h-full overflow-hidden rounded-lg bg-white'
+                className='group relative flex h-full flex-col overflow-hidden rounded-lg bg-white'
               >
                 <img
                   src={service.image}
                   alt={service.imageAlt}
                   width={800}
                   height={600}
-                  className='aspect-[4/3] w-full object-contain p-content-pad'
+                  className='aspect-[4/3] w-full bg-white object-contain p-content-pad'
                   loading='lazy'
                   decoding='async'
                 />
-                <h3 className='sr-only'>{service.title}</h3>
+                <h3 className='px-content-pad pb-content-pad text-center text-2xl font-extrabold text-ink-dark md:text-3xl z-20'>
+                  {service.title}
+                </h3>
               </a>
             </RevealOnScroll>
           ))}
