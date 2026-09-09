@@ -9,7 +9,7 @@ interface HeroProps {
   buttonHref?: string;
   backgroundUrl?: string;
   videoUrl?: string;
-  overlay?: 'white' | 'black';
+  overlay?: 'white' | 'black' | 'none';
   titleOnly?: boolean;
   hasButton: boolean;
   hasBackground: boolean;
@@ -74,7 +74,9 @@ const Hero = ({
     };
   }, [showVideo, videoUrl]);
 
-  const overlayTone = overlay ?? (videoUrl ? 'white' : undefined);
+  const overlayTone =
+    overlay === 'none' ? undefined : overlay ?? (videoUrl ? 'white' : undefined);
+  const copyOnVideo = Boolean(videoUrl) && overlayTone !== 'white';
 
   return (
     <section
@@ -90,14 +92,14 @@ const Hero = ({
           aria-hidden='true'
           fetchPriority='high'
           decoding='async'
-          className='pointer-events-none absolute inset-0 z-0 h-full w-full object-cover object-[28%_center] md:object-center'
+          className='pointer-events-none absolute inset-0 z-0 h-full w-full object-cover object-center'
         />
       ) : null}
       {showVideo && videoUrl ? (
         <video
           ref={videoRef}
           key={videoUrl}
-          className='pointer-events-none absolute inset-0 z-0 h-full w-full object-cover object-[28%_center] md:object-center'
+          className='pointer-events-none absolute inset-0 z-0 h-full w-full object-cover object-center'
           autoPlay
           muted
           loop
@@ -142,7 +144,9 @@ const Hero = ({
             <div className='page-title-block md:max-w-4xl'>
               <h1
                 className={`hero-cta-title text-4xl md:text-6xl lg:text-7xl font-extrabold ${
-                  overlayTone === 'black' ? 'text-white' : 'text-ink-dark'
+                  overlayTone === 'black' || copyOnVideo
+                    ? 'text-white'
+                    : 'text-ink-dark'
                 }`}
               >
                 {title}
@@ -154,7 +158,9 @@ const Hero = ({
               {description ? (
                 <p
                   className={`hero-cta-desc text-xl md:text-2xl md:max-w-2xl md:mx-auto ${
-                    overlayTone === 'black' ? 'text-white' : 'text-ink-dark'
+                    overlayTone === 'black' || copyOnVideo
+                    ? 'text-white'
+                    : 'text-ink-dark'
                   }`}
                 >
                   {description}

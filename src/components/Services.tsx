@@ -21,27 +21,27 @@ const Services = ({ description }: ServicesProps) => {
     {
       title: SITE_WEB_LABEL,
       link: SITE_WEB_PATH,
-      image: '/img/sections/servicio-web.webp',
-      imageAlt: 'Web de Clínica Veterinaria Hatena',
+      image: '/img/services/iconos%20web-01.png',
+      imageAlt: 'Páginas web',
     },
     {
       title: SITE_SHOP_LABEL,
       link: SITE_SHOP_PATH,
-      image: '/img/sections/servicio-tiendas.webp',
-      imageAlt: 'Tienda online de Resilience',
+      image: '/img/services/iconos%20web-03.png',
+      imageAlt: 'Tiendas online',
     },
     {
       title: SITE_MAINTENANCE_LABEL,
       link: SITE_MAINTENANCE_PATH,
-      image: '/img/sections/servicio-mantenimiento.webp',
-      imageAlt: 'Mantenimiento web en el escritorio de WordPress',
+      image: '/img/services/iconos%20web-02.png',
+      imageAlt: 'Mantenimiento web',
     },
   ];
 
   return (
     <section
       id='services'
-      className='page-section bg-surface-muted'
+      className='page-section bg-white'
     >
       <div className='container mx-auto flex flex-col gap-page-gap'>
         <div className='page-title-block mx-auto max-w-5xl text-center'>
@@ -62,21 +62,18 @@ const Services = ({ description }: ServicesProps) => {
             >
               <a
                 href={service.link}
-                className='group relative block h-full overflow-hidden rounded-lg bg-ink-dark shadow-xl'
+                className='group relative block h-full overflow-hidden rounded-lg bg-white'
               >
                 <img
                   src={service.image}
                   alt={service.imageAlt}
                   width={800}
                   height={600}
-                  className='aspect-[4/3] w-full object-contain'
+                  className='aspect-[4/3] w-full object-contain p-content-pad'
                   loading='lazy'
                   decoding='async'
                 />
-                <div className='absolute inset-0 bg-ink-dark/40 transition-colors duration-300 group-hover:bg-ink-dark/25' />
-                <h3 className='absolute inset-x-4 bottom-6 z-10 text-center text-2xl font-extrabold text-white md:text-3xl'>
-                  {service.title}
-                </h3>
+                <h3 className='sr-only'>{service.title}</h3>
               </a>
             </RevealOnScroll>
           ))}
