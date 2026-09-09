@@ -262,15 +262,15 @@ const LandingWeb = () => {
         }
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
-        backgroundUrl='/img/hero/hero-diseno-web-36web.webp'
+        videoUrl='/video/video%20home_2.mp4'
+        backgroundUrl='/video/hero-home-2.jpg'
         heroType='form'
         hasButton={false}
         formTitle='Pide tu propuesta'
         formDescription='Propuesta en el mismo día. Sin compromiso.'
         formSectionInfo='Landing diseño web — Hero'
         hasBackground
-        grayscale
-        overlay='black'
+        overlay='none'
         hasReviewBadge
         isTopHero
       />

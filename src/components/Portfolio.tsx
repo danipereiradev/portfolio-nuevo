@@ -26,7 +26,7 @@ interface PortfolioProps {
   variant?: 'default' | 'web-profesional' | 'web' | 'tiendas';
   /** Landings de ads: casos de éxito con métricas. */
   casos?: boolean;
-  /** Landings de ads: la card no es un enlace; hay un «Ver la web» en pestaña nueva. */
+  /** Landings de ads: la card no es un enlace. */
   contained?: boolean;
 }
 
@@ -46,14 +46,10 @@ const cardClass =
 function CasosCard({
   title,
   image,
-  url,
-  urlSoon,
   exito,
 }: {
   title: string;
   image: string;
-  url?: string;
-  urlSoon?: boolean;
   exito: string;
 }) {
   return (
@@ -76,21 +72,6 @@ function CasosCard({
         <p className='mt-3 text-base font-bold leading-snug text-white md:text-lg'>
           {exito}
         </p>
-        {url ? (
-          <a
-            href={url}
-            target='_blank'
-            rel='noopener noreferrer'
-            onClick={() => trackPortfolioClick(title)}
-            className='mt-3 inline-block text-sm font-extrabold uppercase tracking-wide text-brand-light underline decoration-2 underline-offset-4 hover:text-white md:text-base'
-          >
-            Ver la web
-          </a>
-        ) : urlSoon ? (
-          <span className='mt-3 inline-block cursor-default text-sm font-extrabold uppercase tracking-wide text-brand-light underline decoration-2 underline-offset-4 md:text-base'>
-            Ver la web
-          </span>
-        ) : null}
       </div>
     </article>
   );
@@ -279,8 +260,6 @@ const Portfolio = ({
                   <CasosCard
                     title={project.title}
                     image={project.image}
-                    url={project.url}
-                    urlSoon={project.urlSoon}
                     exito={project.exito}
                   />
                 ) : (

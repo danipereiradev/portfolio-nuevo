@@ -279,12 +279,12 @@ const LandingWebProfesional = () => {
         }
         buttonText={`Reservar ${getLaunchReserveLabel()}`}
         buttonHref='#reserva'
-        backgroundUrl='/img/hero/hero-diseno-web-36web.webp'
+        videoUrl='/video/video%20home_2.mp4'
+        backgroundUrl='/video/hero-home-2.jpg'
         heroType='offer'
         hasButton={false}
         hasBackground
-        grayscale
-        overlay='black'
+        overlay='none'
         hasReviewBadge
         isTopHero
         offerContent={<LaunchOfferCard className='hero-cta-form' />}

@@ -342,12 +342,12 @@ const LandingMaintenance = () => {
         }
         buttonText='Pedir propuesta'
         buttonHref={`#${MAINTENANCE_CONTACT_ID}`}
-        backgroundUrl='/img/hero/hero-mantenimiento-36web.webp'
+        videoUrl='/video/video%20home_2.mp4'
+        backgroundUrl='/video/hero-home-2.jpg'
         heroType='offer'
         hasButton={false}
         hasBackground
-        grayscale
-        overlay='black'
+        overlay='none'
         hasReviewBadge
         isTopHero
         ctaContent={

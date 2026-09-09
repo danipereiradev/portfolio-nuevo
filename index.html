@@ -13,13 +13,13 @@
           '/': '/video/hero-home-2.jpg',
           '/diseño-web': '/img/hero/hero-diseno-web-36web.webp',
           '/diseno-web': '/img/hero/hero-diseno-web-36web.webp',
-          '/landing-diseno-web': '/img/hero/hero-diseno-web-36web.webp',
-          '/landing-diseño-web': '/img/hero/hero-diseno-web-36web.webp',
-          '/landing-web-profesional': '/img/hero/hero-diseno-web-36web.webp',
+          '/landing-diseno-web': '/video/hero-home-2.jpg',
+          '/landing-diseño-web': '/video/hero-home-2.jpg',
+          '/landing-web-profesional': '/video/hero-home-2.jpg',
           '/tiendas-online': '/img/hero/hero-tienda-online-36web.webp',
-          '/landing-tiendas-online': '/img/hero/hero-tienda-online-36web.webp',
+          '/landing-tiendas-online': '/video/hero-home-2.jpg',
           '/mantenimiento-web': '/img/hero/hero-mantenimiento-36web.webp',
-          '/landing-mantenimiento-web': '/img/hero/hero-mantenimiento-36web.webp',
+          '/landing-mantenimiento-web': '/video/hero-home-2.jpg',
         };
         var warm = {};
         var image = images[path];
@@ -29,7 +29,14 @@
           warm.img.fetchPriority = 'high';
           warm.img.src = image;
         }
-        if (path === '/') {
+        if (
+          path === '/' ||
+          path === '/landing-diseno-web' ||
+          path === '/landing-diseño-web' ||
+          path === '/landing-web-profesional' ||
+          path === '/landing-tiendas-online' ||
+          path === '/landing-mantenimiento-web'
+        ) {
           warm.video = document.createElement('video');
           warm.video.preload = 'auto';
           warm.video.muted = true;

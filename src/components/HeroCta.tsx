@@ -4,6 +4,10 @@ import Button from './Button';
 import { ContactFormHero } from './ContactFormHero';
 import TestimonialsBadge from './TestimonialsBadge';
 
+const prefersReducedMotion = () =>
+  typeof window !== 'undefined' &&
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 export const HeroCtaList = ({
   items,
   className = 'mx-auto w-full list-disc pl-5 text-left md:mx-0',
@@ -29,6 +33,7 @@ interface HeroCtaProps {
   buttonText?: string;
   buttonHref?: string;
   backgroundUrl?: string;
+  videoUrl?: string;
   heroType?: 'form' | 'clean' | 'offer';
   hasButton: boolean;
   hasBackground: boolean;
@@ -47,7 +52,7 @@ interface HeroCtaProps {
   belowDescription?: ReactNode;
   ctaContent?: ReactNode;
   grayscale?: boolean;
-  overlay?: 'white' | 'black';
+  overlay?: 'white' | 'black' | 'none';
 }
 
 const HeroCta = ({
@@ -57,6 +62,7 @@ const HeroCta = ({
   buttonText,
   buttonHref,
   backgroundUrl,
+  videoUrl,
   heroType,
   hasButton,
   hasBackground,
@@ -79,10 +85,16 @@ const HeroCta = ({
 }: HeroCtaProps) => {
   const TitleTag = isTopHero ? 'h1' : 'h2';
   const isClean = heroType === 'clean';
-  const onDark = hasBackground && overlay === 'black';
+  const overlayTone = overlay === 'none' ? undefined : overlay;
+  const onVideo = Boolean(videoUrl) && overlayTone !== 'white';
+  const onDark = (hasBackground && overlay === 'black') || onVideo;
   const copyTone = onDark ? 'text-white' : 'text-ink-dark';
   const sectionRef = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [entered, setEntered] = useState(isTopHero);
+  const [showVideo, setShowVideo] = useState(
+    () => Boolean(videoUrl) && !prefersReducedMotion(),
+  );
 
   useEffect(() => {
     if (!animateEntrance) return undefined;
@@ -111,6 +123,42 @@ const HeroCta = ({
     return () => observer.disconnect();
   }, [animateEntrance, isTopHero]);
 
+  useEffect(() => {
+    if (!videoUrl) {
+      setShowVideo(false);
+      return undefined;
+    }
+
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setShowVideo(!media.matches);
+    update();
+    media.addEventListener('change', update);
+    return () => media.removeEventListener('change', update);
+  }, [videoUrl]);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !showVideo) return undefined;
+
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+    video.setAttribute('webkit-playsinline', 'true');
+
+    const tryPlay = () => {
+      void video.play();
+    };
+
+    tryPlay();
+    video.addEventListener('canplay', tryPlay);
+    video.addEventListener('loadeddata', tryPlay);
+
+    return () => {
+      video.removeEventListener('canplay', tryPlay);
+      video.removeEventListener('loadeddata', tryPlay);
+    };
+  }, [showVideo, videoUrl]);
+
   return (
     <section
       ref={sectionRef}
@@ -135,23 +183,40 @@ const HeroCta = ({
           fetchPriority={isTopHero ? 'high' : 'low'}
           loading={isTopHero ? 'eager' : 'lazy'}
           decoding='async'
-          className={`pointer-events-none absolute inset-0 h-full w-full object-cover ${
+          className={`pointer-events-none absolute inset-0 z-0 h-full w-full object-cover object-center ${
             grayscale ? 'grayscale' : ''
           }`}
         />
       ) : null}
-      {hasBackground ? (
+      {showVideo && videoUrl ? (
+        <video
+          ref={videoRef}
+          key={videoUrl}
+          className='pointer-events-none absolute inset-0 z-0 h-full w-full object-cover object-center'
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload='auto'
+          poster={backgroundUrl}
+          src={videoUrl}
+          aria-hidden='true'
+        />
+      ) : null}
+      {hasBackground && overlayTone ? (
         <>
           <div
-            className={`absolute inset-0 ${onDark ? 'bg-black/60' : 'bg-white/70'}`}
+            className={`absolute inset-0 z-[1] ${
+              overlayTone === 'black' ? 'bg-black/60' : 'bg-white/70'
+            }`}
             aria-hidden='true'
           />
-          {!onDark ? (
+          {overlayTone !== 'black' ? (
             <div
               style={{
                 backgroundImage: 'url("/img/hero-bg-texture.avif")',
               }}
-              className='absolute inset-0 w-full bg-cover bg-center bg-no-repeat opacity-20'
+              className='pointer-events-none absolute inset-0 z-[2] w-full bg-cover bg-center bg-no-repeat opacity-20'
               aria-hidden='true'
             />
           ) : null}
