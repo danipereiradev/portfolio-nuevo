@@ -61,7 +61,11 @@ const MaintenanceLeadForm = ({
 
   const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: sanitizeText(value) }));
-    if (errors[field]) {
+    if (field === 'email' || field === 'phone') {
+      if (errors.email || errors.phone) {
+        setErrors((prev) => ({ ...prev, email: '', phone: '' }));
+      }
+    } else if (errors[field]) {
       setErrors((prev) => ({ ...prev, [field]: '' }));
     }
   };
@@ -105,16 +109,28 @@ const MaintenanceLeadForm = ({
         'El nombre debe contener solo letras y tener entre 2-50 caracteres';
     }
 
-    if (!formData.email.trim() || !validateEmail(formData.email.trim())) {
+    const emailValue = formData.email.trim();
+    const phoneValue = formData.phone.trim();
+    const emailValid = Boolean(emailValue) && validateEmail(emailValue);
+    const phoneValid = Boolean(phoneValue) && validatePhone(phoneValue);
+
+    if (emailValue && !emailValid) {
       newErrors.email = 'Introduce un email válido';
     }
-
-    if (!formData.phone.trim() || !validatePhone(formData.phone)) {
+    if (phoneValue && !phoneValid) {
       newErrors.phone = 'Introduce un teléfono válido';
+    }
+    if (!emailValid && !phoneValid && !emailValue && !phoneValue) {
+      newErrors.email = 'Introduce un email o un teléfono';
+      newErrors.phone = 'Introduce un email o un teléfono';
     }
 
     if (!validateWebsite(formData.website)) {
       newErrors.website = 'Introduce una URL válida';
+    }
+
+    if (!formData.need) {
+      newErrors.need = 'Elige qué necesitas';
     }
 
     if (formData.message.trim().length < 10) {
@@ -162,7 +178,7 @@ const MaintenanceLeadForm = ({
         consent: formData.consent,
         submissionDate: new Date().toLocaleString('es-ES'),
         _subject: `[${origen}] Nueva solicitud — ${formData.name}`,
-        _replyto: formData.email,
+        ...(formData.email.trim() ? { _replyto: formData.email.trim() } : {}),
         _cc: FORM_CC_EMAIL,
         message: `
 Origen: ${origen}
@@ -263,7 +279,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             onChange={(e) => handleInputChange('email', e.target.value)}
             className={inputClass(Boolean(errors.email))}
             autoComplete='email'
-            placeholder='Tu email *'
+            placeholder='Tu email'
           />
           {errors.email ? <ErrorMessage error={errors.email} /> : null}
           <input
@@ -271,7 +287,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             value={formData.phone}
             onChange={(e) => handleInputChange('phone', e.target.value)}
             className={inputClass(Boolean(errors.phone))}
-            placeholder='Tu teléfono *'
+            placeholder='Tu teléfono'
             autoComplete='tel'
             inputMode='tel'
           />
@@ -289,10 +305,11 @@ Fecha: ${new Date().toLocaleString('es-ES')}
           <select
             value={formData.need}
             onChange={(e) => handleInputChange('need', e.target.value)}
-            className={`${inputClass(false)} ${
+            className={`${inputClass(Boolean(errors.need))} ${
               formData.need ? '' : 'text-gray-400'
             }`}
             aria-label='¿Qué necesitas?'
+            required
           >
             {MAINTENANCE_NEED_OPTIONS.map((option) => (
               <option
@@ -305,6 +322,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
               </option>
             ))}
           </select>
+          {errors.need ? <ErrorMessage error={errors.need} /> : null}
           <textarea
             value={formData.message}
             onChange={(e) => handleInputChange('message', e.target.value)}

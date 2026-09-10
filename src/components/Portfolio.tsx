@@ -30,14 +30,7 @@ interface PortfolioProps {
   contained?: boolean;
 }
 
-const ALL_ORDER: ProjectId[] = [
-  'chicxs',
-  'hoyviajamos',
-  'camisetas',
-  'resilience',
-  'hatena',
-  'delish',
-];
+const ALL_ORDER: ProjectId[] = ['chicxs', 'hatena', 'resilience'];
 const CASOS_ORDER: ProjectId[] = ['chicxs', 'hoyviajamos', 'camisetas'];
 
 const cardClass =

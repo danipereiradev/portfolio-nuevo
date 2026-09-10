@@ -221,7 +221,7 @@ export const getHourPackRemainderCopy = (): string =>
   `Si terminamos la tarea antes de consumir el bono, las horas restantes pueden utilizarse en pequeños trabajos dentro de esos ${HOUR_PACK_VALIDITY_MONTHS} meses.`;
 
 export const MAINTENANCE_NEED_OPTIONS = [
-  { value: '', label: '¿Qué necesitas? (opcional)' },
+  { value: '', label: '¿Qué necesitas? *' },
   { value: 'incidencia', label: 'Tengo una incidencia' },
   { value: 'cambios', label: 'Necesito cambios' },
   { value: 'mantenimiento', label: 'Quiero mantenimiento' },

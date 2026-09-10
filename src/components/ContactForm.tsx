@@ -106,14 +106,20 @@ const ContactForm = ({
     }
 
     const emailValue = formData.email.trim();
-    if (!emailValue || !validateEmail(emailValue)) {
+    const phoneValue = formData.phone.trim();
+    const emailValid = Boolean(emailValue) && validateEmail(emailValue);
+    const phoneValid = Boolean(phoneValue) && validatePhone(phoneValue);
+
+    if (emailValue && !emailValid) {
       newErrors.email = 'Introduce un email válido';
     }
-
-    const phoneValue = formData.phone.trim();
-    if (!phoneValue || !validatePhone(phoneValue)) {
+    if (phoneValue && !phoneValid) {
       newErrors.phone =
         'Introduce un teléfono válido (ej: 600 000 000 o +34 600 000 000)';
+    }
+    if (!emailValid && !phoneValid && !emailValue && !phoneValue) {
+      newErrors.email = 'Introduce un email o un teléfono';
+      newErrors.phone = 'Introduce un email o un teléfono';
     }
 
     if (!formData.plan) {
@@ -149,7 +155,11 @@ const ContactForm = ({
       [field]: sanitizedValue,
     }));
 
-    if (errors[field]) {
+    if (field === 'email' || field === 'phone') {
+      if (errors.email || errors.phone) {
+        setErrors((prev) => ({ ...prev, email: '', phone: '' }));
+      }
+    } else if (errors[field]) {
       setErrors((prev) => ({
         ...prev,
         [field]: '',
@@ -183,7 +193,7 @@ const ContactForm = ({
         description: formData.description,
         submissionDate: new Date().toLocaleString('es-ES'),
         _subject: `Nueva Solicitud de Presupuesto - ${formData.name} - ${formData.plan}`,
-        _replyto: formData.email,
+        ...(formData.email.trim() ? { _replyto: formData.email.trim() } : {}),
         _cc: FORM_CC_EMAIL,
         message: `
 Nombre: ${formData.name}
@@ -344,7 +354,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
               <div>
                 <label className='block text-sm font-medium text-gray-700 mb-2 text-center md:text-left'>
-                  Email *
+                  Email
                 </label>
                 <div className='relative'>
                   <Mail className='absolute left-3 top-3 w-5 h-5 text-gray-400' />
@@ -366,7 +376,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
               <div>
                 <label className='block text-sm font-medium text-gray-700 mb-2 text-center md:text-left'>
-                  Teléfono *
+                  Teléfono
                 </label>
                 <div className='relative'>
                   <Phone className='absolute left-3 top-3 w-5 h-5 text-gray-400' />
