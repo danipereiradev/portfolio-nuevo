@@ -26,7 +26,7 @@ const faqs = [
   {
     question: '¿Cuánto cuesta una tienda online profesional?',
     answer:
-      'El precio de una tienda online depende del alcance. Orientación: muchas tiendas quedan entre 600 € y 3.000 € + IVA. Tras hablar te mandamos un presupuesto concreto. Pedirlo es gratis.',
+      'El precio de una tienda online depende del alcance. Orientación: muchas tiendas quedan entre 590 € y 3.000 € + IVA. Tras hablar te mandamos un presupuesto concreto. Pedirlo es gratis.',
   },
   {
     question: '¿Cuánto tarda?',
@@ -228,7 +228,7 @@ const TiendasOnline = () => {
             : catálogo, pagos y envíos, listas para vender{' '}
             <strong className='font-extrabold'>desde el primer día</strong>.
             Desde{' '}
-            <strong className='font-extrabold'>600 € + IVA</strong>, según el
+            <strong className='font-extrabold'>590 € + IVA</strong>, según el
             alcance.
           </>
         }
@@ -372,7 +372,7 @@ const TiendasOnline = () => {
           <>
             No publicamos un precio único porque no sería cierto. Orientación:
             muchas tiendas quedan entre{' '}
-            <strong className='font-extrabold'>600 € y 3.000 € + IVA</strong>,
+            <strong className='font-extrabold'>590 € y 3.000 € + IVA</strong>,
             según el alcance. Te devolvemos{' '}
             <strong className='font-extrabold'>propuesta</strong>{' '}
             <strong className='font-extrabold'>en el mismo día</strong> con un

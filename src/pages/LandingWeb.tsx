@@ -22,7 +22,7 @@ import { useJsonLd } from '../hooks/useJsonLd';
 import { ADS_LANDING_PATH } from '../config/contact';
 
 const landingTrustPoints = [
-  { icon: Wallet, text: 'Desde 600€' },
+  { icon: Wallet, text: 'Desde 590€' },
   { icon: Clock, text: 'Propuesta el mismo día' },
   { icon: ShieldCheck, text: 'Hosting incluido' },
   { icon: BadgeCheck, text: 'La web es tuya' },
@@ -177,12 +177,12 @@ const faqs = [
   {
     question: '¿Cuánto cuesta y cómo se paga?',
     answer:
-      'Depende del alcance, no hay un pack fijo. Orientación: muchas webs quedan entre 600 € y 3.000 € + IVA. Tras hablar te mandamos un número concreto, por escrito. Pedirlo es gratis. El 50% se paga al aceptar y arrancar. El resto, al publicar.',
+      'Depende del alcance, no hay un pack fijo. Orientación: muchas webs quedan entre 590 € y 3.000 € + IVA. Tras hablar te mandamos un número concreto, por escrito. Pedirlo es gratis. El 50% se paga al aceptar y arrancar. El resto, al publicar.',
   },
   {
-    question: '¿Qué web cuesta 600 €?',
+    question: '¿Qué web cuesta 590 €?',
     answer:
-      'Los 600 € son para proyectos web profesional sencillos con 4-5 secciones. Si hace falta más, el número sube. Antes de empezar te mandamos un presupuesto cerrado, según lo que necesites.',
+      'Los 590 € son para proyectos web profesional sencillos con 4-5 secciones. Si hace falta más, el número sube. Antes de empezar te mandamos un presupuesto cerrado, según lo que necesites.',
   },
   {
     question: '¿Cuánto tarda?',
@@ -240,7 +240,7 @@ const LandingWeb = () => {
   return (
     <>
       <HeroCta
-        title='Te hacemos una web completa para captar clientes desde 600 € + IVA. Precio y entrega cerrados.'
+        title='Te hacemos una web completa para captar clientes desde 590 € + IVA. Precio y entrega cerrados.'
         description={
           <HeroCtaList
             items={[

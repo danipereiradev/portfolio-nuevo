@@ -191,7 +191,7 @@ const processSteps = [
 const faqs = [
   {
     question: `¿Por qué cuesta ${getLaunchPriceLabel()}?`,
-    answer: `Es el precio de lanzamiento. Nuestras webs a medida suelen partir de 600 €. Aquí montamos una web funcional, rápida y sencilla para empezar a captar clientes: se ve bien en el móvil, te pueden escribir y Google la entiende. No es una plantilla ni un proyecto inflado. Es el arranque profesional. Cuando el negocio pida más —páginas, reservas, tienda— la escalamos. Empiezas con lo que hace falta, sin pagar por lo que aún no usas. Y la web es tuya.`,
+    answer: `Es el precio de lanzamiento. Nuestras webs a medida suelen partir de 590 €. Aquí montamos una web funcional, rápida y sencilla para empezar a captar clientes: se ve bien en el móvil, te pueden escribir y Google la entiende. No es una plantilla ni un proyecto inflado. Es el arranque profesional. Cuando el negocio pida más —páginas, reservas, tienda— la escalamos. Empiezas con lo que hace falta, sin pagar por lo que aún no usas. Y la web es tuya.`,
   },
   {
     question: '¿Cuánto cuesta y cómo se paga?',
