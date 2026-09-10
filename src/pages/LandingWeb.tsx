@@ -182,7 +182,7 @@ const faqs = [
   {
     question: '¿Qué web cuesta 590 €?',
     answer:
-      'Los 590 € son para proyectos web profesional sencillos con 4-5 secciones. Si hace falta más, el número sube. Antes de empezar te mandamos un presupuesto cerrado, según lo que necesites.',
+      'Los 590 € son para proyectos web profesional con 4-5 secciones. Si hace falta más, el importe puede subir. Antes de empezar te mandamos un presupuesto cerrado, según lo que necesites.',
   },
   {
     question: '¿Cuánto tarda?',
@@ -247,8 +247,8 @@ const LandingWeb = () => {
               <>
                 Te devolvemos{' '}
                 <strong className='font-extrabold'>propuesta</strong>{' '}
-                <strong className='font-extrabold'>en el mismo día</strong> con lo
-                que entra, lo que cuesta y cuándo está.
+                <strong className='font-extrabold'>en el mismo día</strong> con
+                lo que entra, lo que cuesta y cuándo está.
               </>,
               <>
                 <strong className='font-extrabold'>
