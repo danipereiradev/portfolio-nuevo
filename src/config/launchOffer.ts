@@ -1,4 +1,4 @@
-import { formatEuro, getPaymentById } from './payments';
+import { formatEuro } from './payments';
 
 /** Tope de la oferta de lanzamiento. No cambiar. */
 export const LAUNCH_OFFER_MAX = 10;
@@ -48,10 +48,6 @@ export const getLaunchReserveLabel = (): string =>
 export const getLaunchRemainderLabel = (): string =>
   `${formatEuro(getLaunchRemainder())} + IVA`;
 
-/** Payment Link de Stripe si está pegado; si no, la página /pago. */
-export const getLaunchReserveHref = (): string => {
-  const payment = getPaymentById(LAUNCH_RESERVE_PAYMENT_ID);
-  const link = payment?.stripePaymentLink?.trim() ?? '';
-  if (link) return link;
-  return `/pago/${LAUNCH_RESERVE_PAYMENT_ID}`;
-};
+/** Landing de pago de la reserva. Stripe se abre desde esa página. */
+export const getLaunchReserveHref = (): string =>
+  `/pago/${LAUNCH_RESERVE_PAYMENT_ID}`;

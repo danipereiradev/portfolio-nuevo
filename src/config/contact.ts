@@ -4,6 +4,9 @@ export const PHONE_NUMBER = '34644665352';
 export const PHONE_DISPLAY = '+34 644 665 352';
 export const PHONE_TEL_LINK = `tel:+${PHONE_NUMBER}`;
 export const CONTACT_EMAIL = 'hola@36web.es';
+export const INSTAGRAM_HANDLE = '36web.es';
+export const INSTAGRAM_URL = `https://www.instagram.com/${INSTAGRAM_HANDLE}/`;
+export const INSTAGRAM_EMBED_URL = `${INSTAGRAM_URL}embed/`;
 // Formspree ya entrega a CONTACT_EMAIL; el CC tiene que ser otra dirección.
 export const FORM_CC_EMAIL = 'info.danipereira@gmail.com';
 export const BUSINESS_HOURS_LABEL = 'Horario: L-V de 9:00h a 18:00h';

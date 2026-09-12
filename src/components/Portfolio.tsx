@@ -19,7 +19,8 @@ type ProjectId =
   | 'camisetas'
   | 'resilience'
   | 'hatena'
-  | 'delish';
+  | 'delish'
+  | 'carper';
 
 interface PortfolioProps {
   /** En /web-profesional: badges de packs y sin proyectos de tienda online. */
@@ -28,6 +29,8 @@ interface PortfolioProps {
   casos?: boolean;
   /** Landings de ads: la card no es un enlace. */
   contained?: boolean;
+  /** Orden concreto de proyectos. Si no se pasa, usa el de la variante. */
+  ids?: ProjectId[];
 }
 
 const ALL_ORDER: ProjectId[] = ['chicxs', 'hatena', 'resilience'];
@@ -115,6 +118,7 @@ function PortfolioCard({
 const Portfolio = ({
   variant = 'default',
   casos = false,
+  ids,
 }: PortfolioProps) => {
   const { t } = useLanguage();
 
@@ -180,6 +184,14 @@ const Portfolio = ({
       urlSoon: true,
       exito: t('portfolio.hatena.desc'),
     },
+    carper: {
+      title: t('portfolio.carper.title'),
+      description: t('portfolio.carper.desc'),
+      image: '/img/portfolio/mock-carper.webp',
+      product: SITE_WEB_LABEL,
+      productHref: SITE_WEB_PATH,
+      exito: t('portfolio.carper.desc'),
+    },
     delish: {
       title: t('portfolio.delish.title'),
       description: t('portfolio.delish.desc'),
@@ -190,7 +202,7 @@ const Portfolio = ({
     },
   };
 
-  const order = isCasos ? CASOS_ORDER : ALL_ORDER;
+  const order = ids ?? (isCasos ? CASOS_ORDER : ALL_ORDER);
 
   const mapPackBadge = <
     T extends { product: string; productHref: string; url?: string },

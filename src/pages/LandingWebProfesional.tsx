@@ -1,5 +1,5 @@
 import { useEffect, useMemo } from 'react';
-import { FileCheck, Handshake, LayoutTemplate } from 'lucide-react';
+import { Check, FileCheck, Handshake, LayoutTemplate, X } from 'lucide-react';
 import Portfolio from '../components/Portfolio';
 import SEOBenefits from '../components/SEOBenefits';
 import SEOFAQ from '../components/SEOFAQ';
@@ -96,6 +96,21 @@ const includes = [
       </>
     ),
   },
+];
+
+const offerIncludes = [
+  'Hasta 4 secciones',
+  'Adaptación a tu marca',
+  'Formulario y WhatsApp',
+  'Publicación',
+];
+
+const offerExcludes = [
+  'Ecommerce',
+  'Reservas avanzadas',
+  'Áreas privadas',
+  'Desarrollos a medida',
+  'Redacción profesional de contenidos',
 ];
 
 const whyUs = [
@@ -204,7 +219,12 @@ const faqs = [
   {
     question: '¿Qué incluye?',
     answer:
-      'Diseño a tu sector, versión móvil, Formulario y WhatsApp, SEO de base, hosting y dominio. Tú aportas logo, textos y fotos. Precio cerrado. La web es tuya.',
+      'Esta oferta es para una web sencilla de presentación de negocio. Incluye estructura estándar, adaptación a tu marca, formulario, WhatsApp y publicación. Tú aportas logo, textos y fotos. Precio cerrado. La web es tuya.',
+  },
+  {
+    question: '¿Qué no incluye?',
+    answer:
+      'No incluye ecommerce, reservas avanzadas, áreas privadas, desarrollos a medida ni redacción profesional de contenidos. Si te hace falta, te hacemos una propuesta aparte.',
   },
   {
     question: '¿Qué tengo que entregar yo?',
@@ -256,12 +276,13 @@ const LandingWebProfesional = () => {
     <>
       <HeroCta
         label='Web profesional'
-        title={`Una web profesional para arrancar tu negocio por ${getLaunchPriceLabel()}`}
+        title={`Una web profesional para tu negocio por ${getLaunchPriceLabel()}`}
         description={
           <HeroCtaList
             items={[
+              'Esta oferta es para una web sencilla de presentación de negocio.',
               <>
-                Precio cerrado. Reserva con {getLaunchReserveLabel()}; el resto
+                Precio cerrado. Reserva con {getLaunchReserveLabel()}. El resto
                 ({getLaunchRemainderLabel()}) se paga antes de la publicación.
               </>,
               'Tú nos entregas logo, textos y la información de tu negocio.',
@@ -296,43 +317,60 @@ const LandingWebProfesional = () => {
         title='Qué incluye la web'
         intro={
           <>
-            Esto entra en tu web, precio cerrado.{' '}
+            Esta oferta es para una{' '}
             <strong className='font-extrabold'>
-              Tú nos entregas logo y contenidos; nosotros montamos y publicamos
+              web sencilla de presentación de negocio
             </strong>
-            .
+            . Hasta 4 secciones, tu marca, formulario, WhatsApp y publicación.
+            Precio cerrado.
           </>
         }
         items={includes}
       />
 
       <section className='page-section'>
-        <div className='container mx-auto flex flex-col items-center gap-page-gap'>
+        <div className='container mx-auto flex flex-col gap-page-gap'>
           <div className='page-title-block mx-auto max-w-5xl text-center'>
-            <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark'>
-              ¿Y después de publicar?
+            <h2 className='text-3xl font-extrabold text-ink-dark md:text-4xl lg:text-5xl'>
+              Qué entra y qué no
             </h2>
-            <p className='text-xl md:text-2xl text-ink-dark'>
-              La web es tuya y no tienes permanencia. Si prefieres que nosotros
-              sigamos ocupándonos de ella, puedes contratar mantenimiento desde{' '}
-              <strong className='font-extrabold'>60 € + IVA/mes</strong>.
+            <p className='text-xl text-ink-dark md:text-2xl'>
+              Esta oferta es para una web sencilla de presentación de negocio.
+              Si te hace falta más, lo vemos aparte.
             </p>
           </div>
-          <article className='w-full max-w-3xl rounded-lg border-2 border-ink-dark bg-white p-content-pad text-center'>
-            <p className='text-sm font-extrabold uppercase tracking-wide text-accent'>
-              Mantenimiento opcional
-            </p>
-            <p className='mt-2 text-3xl font-extrabold text-ink-dark md:text-4xl'>
-              Desde 60 € + IVA/mes
-            </p>
-            <p className='mt-text-gap text-lg text-ink-dark md:text-xl'>
-              Actualizaciones, copias de seguridad, soporte y pequeños cambios.
-            </p>
-            <p className='mt-text-gap text-lg font-extrabold text-ink-dark md:text-xl'>
-              Es opcional. No necesitas contratarlo para acceder a la oferta de{' '}
-              {getLaunchPriceLabel()}.
-            </p>
-          </article>
+          <div className='grid items-stretch gap-page-gap md:grid-cols-2'>
+            <article className='flex flex-col rounded-lg border-2 border-ink-dark bg-white p-content-pad'>
+              <h3 className='text-2xl font-extrabold text-ink-dark'>Incluye</h3>
+              <ul className='mt-6 space-y-2 text-base md:text-lg'>
+                {offerIncludes.map((item) => (
+                  <li key={item} className='flex items-start gap-2'>
+                    <Check
+                      className='mt-1 h-4 w-4 shrink-0 text-accent'
+                      aria-hidden
+                    />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+            <article className='flex flex-col rounded-lg border-2 border-ink-dark bg-white p-content-pad'>
+              <h3 className='text-2xl font-extrabold text-ink-dark'>
+                No incluye
+              </h3>
+              <ul className='mt-6 space-y-2 text-base md:text-lg'>
+                {offerExcludes.map((item) => (
+                  <li key={item} className='flex items-start gap-2'>
+                    <X
+                      className='mt-1 h-4 w-4 shrink-0 text-ink-medium'
+                      aria-hidden
+                    />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -349,7 +387,30 @@ const LandingWebProfesional = () => {
         benefits={whyUs}
       />
 
-      <Portfolio casos contained />
+      <Portfolio casos contained ids={['carper', 'hatena', 'camisetas']} />
+
+      <Testimonials hasVideo showClientReferenceCta />
+
+      <section className='page-section bg-surface-muted'>
+        <div className='container mx-auto flex flex-col items-center gap-page-gap text-center'>
+          <div className='page-title-block mx-auto max-w-5xl'>
+            <h2 className='text-3xl font-extrabold text-ink-dark md:text-4xl lg:text-5xl'>
+              ¿Quieres tener tu web lista en {LAUNCH_DELIVERY_HOURS} h
+              laborables?
+            </h2>
+            <p className='text-xl text-ink-dark md:text-2xl'>
+              {getLaunchPriceLabel()} · Reserva ahora con{' '}
+              {getLaunchReserveLabel()}
+            </p>
+          </div>
+          <LaunchReserveActions
+            location='LaunchSocialProof'
+            align='center'
+            reserveLabel='Reservar mi web'
+            showWhatsApp={false}
+          />
+        </div>
+      </section>
 
       <SEOProcess
         title='Así se hace'
@@ -363,8 +424,6 @@ const LandingWebProfesional = () => {
         }
         steps={processSteps}
       />
-
-      <Testimonials hasVideo showClientReferenceCta />
 
       <Team
         label='EL EQUIPO'

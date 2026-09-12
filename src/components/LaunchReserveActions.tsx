@@ -31,9 +31,13 @@ const buttonClassName =
 const LaunchReserveActions = ({
   location,
   align = 'start',
+  reserveLabel,
+  showWhatsApp = true,
 }: {
   location: string;
   align?: 'start' | 'center';
+  reserveLabel?: string;
+  showWhatsApp?: boolean;
 }) => {
   const soldOut = isLaunchSoldOut();
   const href = getLaunchReserveHref();
@@ -58,23 +62,25 @@ const LaunchReserveActions = ({
             trackGoogleAdsLaunchReserveConversion(href, location);
           }}
         >
-          Reservar {getLaunchReserveLabel()}
+          {reserveLabel ?? `Reservar ${getLaunchReserveLabel()}`}
         </Button>
       )}
-      <Button
-        href={whatsappUrl}
-        target='_blank'
-        rel='noopener noreferrer'
-        className={`${buttonClassName} !bg-[#25D366] hover:!bg-[#20bd5a]`}
-        onClick={(event) => {
-          event.preventDefault();
-          trackWhatsAppClick(location, ADS_LAUNCH_WHATSAPP_MESSAGE);
-          trackGoogleAdsWhatsAppConversion(whatsappUrl);
-        }}
-      >
-        <WhatsAppIcon />
-        WhatsApp
-      </Button>
+      {showWhatsApp ? (
+        <Button
+          href={whatsappUrl}
+          target='_blank'
+          rel='noopener noreferrer'
+          className={`${buttonClassName} !bg-[#25D366] hover:!bg-[#20bd5a]`}
+          onClick={(event) => {
+            event.preventDefault();
+            trackWhatsAppClick(location, ADS_LAUNCH_WHATSAPP_MESSAGE);
+            trackGoogleAdsWhatsAppConversion(whatsappUrl);
+          }}
+        >
+          <WhatsAppIcon />
+          WhatsApp
+        </Button>
+      ) : null}
     </div>
   );
 };

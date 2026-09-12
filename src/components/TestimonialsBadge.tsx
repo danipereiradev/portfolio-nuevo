@@ -1,7 +1,7 @@
 import { useEffect, useId } from 'react';
 
 const TRUSTINDEX_WIDGET_SRC =
-  'https://cdn.trustindex.io/loader.js?fcef0d1791cb395e7c263690105';
+  'https://cdn.trustindex.io/loader.js?76436bd81d2628826956c318673';
 
 declare global {
   interface Window {
@@ -9,14 +9,18 @@ declare global {
   }
 }
 
-interface TestimonialsProps {
-  id?: string;
-}
-
-function TestimonialsBadge({ id }: TestimonialsProps) {
+function TestimonialsBadge() {
   const generatedId = `ti-badge-${useId().replace(/:/g, '')}`;
-  const widgetId = id ?? generatedId;
+
   useEffect(() => {
+    if (!document.querySelector(`script[src="${TRUSTINDEX_WIDGET_SRC}"]`)) {
+      const script = document.createElement('script');
+      script.src = TRUSTINDEX_WIDGET_SRC;
+      script.async = true;
+      script.defer = true;
+      document.body.appendChild(script);
+    }
+
     let cancelled = false;
     let intervalId = 0;
 
@@ -41,7 +45,7 @@ function TestimonialsBadge({ id }: TestimonialsProps) {
 
   return (
     <>
-      <div id={widgetId} data-src={TRUSTINDEX_WIDGET_SRC} className='w-1/3' />
+      <div id={generatedId} data-src={TRUSTINDEX_WIDGET_SRC} />
       <div className='spacer'></div>
     </>
   );

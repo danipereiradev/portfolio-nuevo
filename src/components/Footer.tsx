@@ -8,6 +8,7 @@ import {
   trackGoogleAdsWhatsAppConversion,
 } from '../utils/analytics';
 import {
+  INSTAGRAM_URL,
   PHONE_DISPLAY,
   PHONE_TEL_LINK,
   buildWhatsAppUrl,
@@ -89,7 +90,7 @@ const Footer = () => {
                 </a>
 
                 <a
-                  href='https://www.instagram.com/36web.es/'
+                  href={INSTAGRAM_URL}
                   target='_blank'
                   rel='noopener noreferrer'
                   className='bg-accent hover:bg-accent-hover p-3 rounded-lg text-white transition-colors duration-150'

@@ -20,7 +20,8 @@ const LaunchOfferCard = ({ className = '' }: { className?: string }) => {
             Reserva para empezar
           </p>
           <p className='text-lg text-gray-900'>
-            El resto se paga antes de publicar.
+            Web sencilla de presentación de negocio. El resto se paga antes de
+            publicar.
           </p>
         </div>
 

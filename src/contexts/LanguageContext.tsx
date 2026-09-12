@@ -81,6 +81,9 @@ const translations = {
   'portfolio.hatena.title': 'Clínica Veterinaria Hatena',
   'portfolio.hatena.desc':
     'Web de clínica: servicios, equipo y formulario de citas integrado.',
+  'portfolio.carper.title': 'Carper Sonido',
+  'portfolio.carper.desc':
+    'Web de presentación para un negocio de sonido y eventos.',
   'portfolio.resilience.title': 'Resilience Shop',
   'portfolio.resilience.desc':
     'Tienda de equipamiento ciclista: catálogo claro y compra sencilla.',

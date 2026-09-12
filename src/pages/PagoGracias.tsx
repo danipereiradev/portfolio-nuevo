@@ -76,6 +76,13 @@ const PagoGracias = ({
         <p className='mt-4 text-base leading-relaxed text-[#4d4d4c]'>
           {copy.body}
         </p>
+        {variant === 'web-299' ? (
+          <p className='mt-6 text-sm leading-relaxed text-[#4d4d4c]'>
+            Si más adelante quieres que nos ocupemos de la web, hay
+            mantenimiento desde 59 € + IVA/mes. Es opcional. Te lo contamos
+            cuando hablemos.
+          </p>
+        ) : null}
       </div>
     </main>
   );
