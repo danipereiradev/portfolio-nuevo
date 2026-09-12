@@ -13,14 +13,6 @@ function TestimonialsBadge() {
   const generatedId = `ti-badge-${useId().replace(/:/g, '')}`;
 
   useEffect(() => {
-    if (!document.querySelector(`script[src="${TRUSTINDEX_WIDGET_SRC}"]`)) {
-      const script = document.createElement('script');
-      script.src = TRUSTINDEX_WIDGET_SRC;
-      script.async = true;
-      script.defer = true;
-      document.body.appendChild(script);
-    }
-
     let cancelled = false;
     let intervalId = 0;
 
