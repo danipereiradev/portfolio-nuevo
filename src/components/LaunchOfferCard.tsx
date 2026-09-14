@@ -9,7 +9,7 @@ const LaunchOfferCard = ({ className = '' }: { className?: string }) => {
       className={`z-10 flex w-full justify-center md:w-1/2 ${className}`.trim()}
     >
       <div
-        id='reserva'
+        id='oferta'
         className='w-full rounded-lg bg-surface-muted p-content-pad shadow-xl md:w-3/4'
       >
         <div className='page-title-block text-center'>
@@ -17,11 +17,10 @@ const LaunchOfferCard = ({ className = '' }: { className?: string }) => {
             Web profesional
           </p>
           <p className='text-2xl font-extrabold text-ink-dark md:text-3xl'>
-            Reserva para empezar
+            Quiero mi web
           </p>
           <p className='text-lg text-gray-900'>
-            Web sencilla de presentación de negocio. El resto se paga antes de
-            publicar.
+            Te contactamos, confirmamos el proyecto y se paga 50% y 50%.
           </p>
         </div>
 
@@ -33,7 +32,7 @@ const LaunchOfferCard = ({ className = '' }: { className?: string }) => {
             entregas la información de tu negocio
           </p>
           <ul className='mx-auto w-fit space-y-2 text-left text-sm text-ink-dark md:mx-0 md:text-base'>
-            {['Hosting y publicación incluido'].map((item) => (
+            {['Hosting y dominio el primer año'].map((item) => (
               <li key={item} className='flex items-start gap-2'>
                 <Check
                   className='mt-0.5 h-4 w-4 shrink-0 text-accent'
@@ -47,14 +46,8 @@ const LaunchOfferCard = ({ className = '' }: { className?: string }) => {
           <LaunchReserveActions location='LaunchHero' align='start' />
 
           <p className='text-center text-sm text-ink-medium md:text-left'>
-            <a href='#contacto' className='font-bold text-accent underline'>
-              ¿Prefieres que te llamemos?
-            </a>{' '}
-            Déjanos tus datos, sin compromiso.
-          </p>
-
-          <p className='text-center text-sm text-ink-medium md:text-left'>
-            Pago seguro con Stripe. Sin permanencia. La web es tuya.
+            Se paga 50% al empezar y 50% antes de publicar. Sin permanencia. La
+            web es tuya.
           </p>
         </div>
       </div>

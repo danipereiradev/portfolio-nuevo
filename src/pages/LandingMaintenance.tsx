@@ -505,7 +505,7 @@ const LandingMaintenance = () => {
         steps={processSteps}
       />
 
-      <Testimonials hasVideo showClientReferenceCta />
+      <Testimonials hasVideo />
 
       <Team
         label='EL EQUIPO'

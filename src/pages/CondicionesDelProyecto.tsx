@@ -24,8 +24,6 @@ import {
 import {
   LAUNCH_DELIVERY_HOURS,
   getLaunchPriceLabel,
-  getLaunchRemainderLabel,
-  getLaunchReserveLabel,
 } from '../config/launchOffer';
 import {
   formatEuro,
@@ -186,17 +184,17 @@ const CondicionesDelProyecto = () => {
               intro={
                 <>
                   Oferta cerrada cuando está activa: {getLaunchPriceLabel()}.
-                  Reserva {getLaunchReserveLabel()}. El resto (
-                  {getLaunchRemainderLabel()}) se paga antes de publicar.
+                  Primero te contactamos y confirmamos el proyecto. Se paga 50%
+                  al empezar y 50% antes de publicar.
                 </>
               }
-              href={`${ADS_LAUNCH_LANDING_PATH}#reserva`}
+              href={`${ADS_LAUNCH_LANDING_PATH}#contacto`}
               hrefLabel='Ver la oferta'
               items={[
-                `Se publica en un máximo de ${LAUNCH_DELIVERY_HOURS} h desde que nos entregas la información de tu negocio. Puedes reservar antes; el reloj empieza cuando nos llega ese material.`,
-                'Tú entregas logo, textos y fotos. Hosting y dominio incluidos. El dominio es tuyo.',
+                `Se publica en un máximo de ${LAUNCH_DELIVERY_HOURS} h desde que nos entregas la información de tu negocio. El reloj empieza cuando nos llega ese material.`,
+                'Tú entregas logo, textos y fotos. Hosting y dominio incluidos el primer año. El dominio es tuyo.',
                 'Sin permanencia. La web es tuya.',
-                'El pago de la reserva se hace por Stripe. El resto se paga antes de publicar.',
+                'Se paga 50% al empezar y 50% antes de publicar.',
                 'El mantenimiento después de publicar es opcional. No hace falta para acceder a la oferta.',
               ]}
             />

@@ -1,7 +1,6 @@
 import Hero from '../components/Hero';
 import Services from '../components/Services';
 import Portfolio from '../components/Portfolio';
-import InstagramFeed from '../components/InstagramFeed';
 import Testimonials from '../components/Testimonials';
 
 import SEOFAQ from '../components/SEOFAQ';
@@ -87,7 +86,6 @@ const Home = () => {
         }
       />
       <Portfolio />
-      <InstagramFeed />
       <Testimonials />
       <Team
         label='¿QUIÉN ESTÁ DETRÁS DE 36WEB?'

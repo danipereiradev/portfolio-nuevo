@@ -3,13 +3,8 @@ import {
   ADS_LAUNCH_WHATSAPP_MESSAGE,
   buildWhatsAppUrl,
 } from '../config/contact';
+import { isLaunchSoldOut } from '../config/launchOffer';
 import {
-  getLaunchReserveHref,
-  getLaunchReserveLabel,
-  isLaunchSoldOut,
-} from '../config/launchOffer';
-import {
-  trackGoogleAdsLaunchReserveConversion,
   trackGoogleAdsWhatsAppConversion,
   trackWhatsAppClick,
 } from '../utils/analytics';
@@ -31,16 +26,15 @@ const buttonClassName =
 const LaunchReserveActions = ({
   location,
   align = 'start',
-  reserveLabel,
+  ctaLabel = 'Quiero mi web',
   showWhatsApp = true,
 }: {
   location: string;
   align?: 'start' | 'center';
-  reserveLabel?: string;
+  ctaLabel?: string;
   showWhatsApp?: boolean;
 }) => {
   const soldOut = isLaunchSoldOut();
-  const href = getLaunchReserveHref();
   const whatsappUrl = buildWhatsAppUrl(ADS_LAUNCH_WHATSAPP_MESSAGE);
 
   return (
@@ -54,15 +48,8 @@ const LaunchReserveActions = ({
           Plazas agotadas
         </Button>
       ) : (
-        <Button
-          href={href}
-          className={buttonClassName}
-          onClick={(event) => {
-            event.preventDefault();
-            trackGoogleAdsLaunchReserveConversion(href, location);
-          }}
-        >
-          {reserveLabel ?? `Reservar ${getLaunchReserveLabel()}`}
+        <Button href='#contacto' className={buttonClassName}>
+          {ctaLabel}
         </Button>
       )}
       {showWhatsApp ? (

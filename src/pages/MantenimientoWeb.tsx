@@ -487,7 +487,7 @@ const MantenimientoWeb = () => {
         </div>
       </section>
 
-      <Testimonials hasVideo showClientReferenceCta />
+      <Testimonials hasVideo />
 
       <Team
         label='EL EQUIPO'

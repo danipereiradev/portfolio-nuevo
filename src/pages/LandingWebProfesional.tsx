@@ -8,7 +8,6 @@ import Testimonials from '../components/Testimonials';
 import LaunchTrustBar from '../components/LaunchTrustBar';
 import SEOProcess from '../components/SEOProcess';
 import HeroCta, { HeroCtaList } from '../components/HeroCta';
-import LaunchOfferCard from '../components/LaunchOfferCard';
 import LaunchPaymentTable from '../components/LaunchPaymentTable';
 import LaunchReserveActions from '../components/LaunchReserveActions';
 import { ServiceIncludes } from '../components/ServiceOnPage';
@@ -18,12 +17,7 @@ import {
   ADS_LAUNCH_FORM_ORIGIN,
   ADS_LAUNCH_LANDING_PATH,
 } from '../config/contact';
-import {
-  getLaunchPriceLabel,
-  getLaunchRemainderLabel,
-  getLaunchReserveLabel,
-  LAUNCH_DELIVERY_HOURS,
-} from '../config/launchOffer';
+import { getLaunchPriceLabel, LAUNCH_DELIVERY_HOURS } from '../config/launchOffer';
 import { trackLandingPromo299View } from '../utils/analytics';
 
 const includes = [
@@ -88,11 +82,15 @@ const includes = [
     ),
   },
   {
-    title: 'Hosting y dominio',
+    title: 'Hosting, dominio y publicación incluidos',
     description: (
       <>
-        Un año de hosting para arrancar y tu dominio.{' '}
-        <strong className='font-extrabold'>La web queda a tu nombre</strong>.
+        Incluimos{' '}
+        <strong className='font-extrabold'>
+          el hosting y el dominio durante el primer año
+        </strong>
+        . La web y el dominio quedan a tu nombre. El hosting puede renovarse
+        con nosotros o migrarse a otro proveedor.
       </>
     ),
   },
@@ -152,13 +150,14 @@ const whyUs = [
 const processSteps = [
   {
     number: '1',
-    title: 'Reservas y arrancamos',
+    title: 'Nos escribes y lo confirmamos',
     description: (
       <>
-        Pagas{' '}
-        <strong className='font-extrabold'>{getLaunchReserveLabel()}</strong> y
-        empezamos. Precio cerrado:{' '}
-        <strong className='font-extrabold'>{getLaunchPriceLabel()}</strong>.
+        Te contactamos y confirmamos el proyecto.{' '}
+        <strong className='font-extrabold'>
+          Precio cerrado: {getLaunchPriceLabel()}
+        </strong>
+        . Se paga 50% al empezar y 50% antes de publicar.
       </>
     ),
   },
@@ -194,9 +193,7 @@ const processSteps = [
     description: (
       <>
         En un máximo de {LAUNCH_DELIVERY_HOURS} h te la mostramos. Pagas el
-        resto (
-        <strong className='font-extrabold'>{getLaunchRemainderLabel()}</strong>)
-        y la publicamos a tu nombre.{' '}
+        50% restante y la publicamos a tu nombre.{' '}
         <strong className='font-extrabold'>La web es tuya</strong>.
       </>
     ),
@@ -210,16 +207,16 @@ const faqs = [
   },
   {
     question: '¿Cuánto cuesta y cómo se paga?',
-    answer: `${getLaunchPriceLabel()}, precio cerrado. Reservas con ${getLaunchReserveLabel()}. El resto (${getLaunchRemainderLabel()}) se paga antes de la publicación. Hosting y dominio incluidos. Sin permanencia. La web es tuya.`,
+    answer: `${getLaunchPriceLabel()}, precio cerrado. Se paga 50% al empezar y 50% antes de publicar. Primero te contactamos y confirmamos el proyecto. Hosting y dominio incluidos el primer año. Sin permanencia. La web es tuya.`,
   },
   {
     question: '¿Cuánto tarda?',
-    answer: `Se publica en un máximo de ${LAUNCH_DELIVERY_HOURS} h desde que nos entregas la información necesaria de tu negocio: logo, textos, fotos y datos de contacto. Puedes reservar antes; el reloj empieza cuando nos llega ese material.`,
+    answer: `Se publica en un máximo de ${LAUNCH_DELIVERY_HOURS} h desde que nos entregas la información necesaria de tu negocio: logo, textos, fotos y datos de contacto. El reloj empieza cuando nos llega ese material.`,
   },
   {
     question: '¿Qué incluye?',
     answer:
-      'Esta oferta es para una web sencilla de presentación de negocio. Incluye estructura estándar, adaptación a tu marca, formulario, WhatsApp y publicación. Tú aportas logo, textos y fotos. Precio cerrado. La web es tuya.',
+      'Esta oferta es para una web sencilla de presentación de negocio. Incluye estructura estándar, adaptación a tu marca, formulario, WhatsApp, publicación y hosting y dominio el primer año. Tú aportas logo, textos y fotos. Precio cerrado. La web es tuya.',
   },
   {
     question: '¿Qué no incluye?',
@@ -228,7 +225,7 @@ const faqs = [
   },
   {
     question: '¿Qué tengo que entregar yo?',
-    answer: `Logo, textos, fotos y la información de tu negocio (qué haces, cómo te contactan, horarios, redes). Con eso montamos y publicamos. Si prefieres reservar primero con ${getLaunchReserveLabel()}, lo hacemos; el plazo de ${LAUNCH_DELIVERY_HOURS} h cuenta desde que nos llega el material.`,
+    answer: `Logo, textos, fotos y la información de tu negocio (qué haces, cómo te contactan, horarios, redes). Con eso montamos y publicamos. El plazo de ${LAUNCH_DELIVERY_HOURS} h cuenta desde que nos llega el material.`,
   },
   {
     question: '¿WordPress o a medida?',
@@ -241,9 +238,9 @@ const faqs = [
       'Sí. Partimos de tu marca, textos, fotos y dominio, y montamos la nueva. No es un parche sobre la vieja.',
   },
   {
-    question: '¿El hosting está incluido? ¿De quién es la web?',
+    question: '¿El hosting y el dominio están incluidos?',
     answer:
-      'Hosting para publicar, sí. El dominio es tuyo. Archivos y accesos a tu nombre. La web es tuya desde el día que se publica.',
+      'Sí. Incluimos el hosting y el dominio durante el primer año para que puedas arrancar sin costes adicionales. A partir del segundo año, podrás renovarlos con nosotros o trasladarlos al proveedor que prefieras. El coste orientativo es de 80–150 € + IVA al año, según las características y el espacio. La web y el dominio quedan a tu nombre.',
   },
 ];
 
@@ -282,8 +279,7 @@ const LandingWebProfesional = () => {
             items={[
               'Esta oferta es para una web sencilla de presentación de negocio.',
               <>
-                Precio cerrado. Reserva con {getLaunchReserveLabel()}. El resto
-                ({getLaunchRemainderLabel()}) se paga antes de la publicación.
+                Precio cerrado. Se paga 50% al empezar y 50% antes de publicar.
               </>,
               'Tú nos entregas logo, textos y la información de tu negocio.',
               <>
@@ -293,22 +289,25 @@ const LandingWebProfesional = () => {
                 </strong>
                 .
               </>,
-              'Hosting y dominio incluidos.',
+              'Hosting y dominio el primer año.',
               'Sin permanencia. La web es tuya.',
             ]}
           />
         }
-        buttonText={`Reservar ${getLaunchReserveLabel()}`}
-        buttonHref='#reserva'
+        buttonText='Quiero mi web'
+        buttonHref='#contacto'
         videoUrl='/video/video%20home_2.mp4'
         backgroundUrl='/video/hero-home-2.jpg'
-        heroType='offer'
+        heroType='form'
         hasButton={false}
+        formTitle='Quiero mi web'
+        formDescription='Te contactamos y confirmamos el proyecto. Sin compromiso.'
+        formSectionInfo={ADS_LAUNCH_FORM_ORIGIN}
+        formSubmitLabel='Quiero mi web'
         hasBackground
         overlay='none'
         hasReviewBadge
         isTopHero
-        offerContent={<LaunchOfferCard className='hero-cta-form' />}
       />
 
       <LaunchTrustBar />
@@ -389,7 +388,7 @@ const LandingWebProfesional = () => {
 
       <Portfolio casos contained ids={['carper', 'hatena', 'camisetas']} />
 
-      <Testimonials hasVideo showClientReferenceCta />
+      <Testimonials hasVideo />
 
       <section className='page-section bg-surface-muted'>
         <div className='container mx-auto flex flex-col items-center gap-page-gap text-center'>
@@ -399,15 +398,12 @@ const LandingWebProfesional = () => {
               laborables?
             </h2>
             <p className='text-xl text-ink-dark md:text-2xl'>
-              {getLaunchPriceLabel()} · Reserva ahora con{' '}
-              {getLaunchReserveLabel()}
+              {getLaunchPriceLabel()} · Se paga 50% y 50%
             </p>
           </div>
           <LaunchReserveActions
             location='LaunchSocialProof'
             align='center'
-            reserveLabel='Reservar mi web'
-            showWhatsApp={false}
           />
         </div>
       </section>
@@ -416,10 +412,10 @@ const LandingWebProfesional = () => {
         title='Así se hace'
         subtitle={
           <>
-            <strong className='font-extrabold'>Cuatro pasos.</strong> Reservas,
-            nos entregas la información de tu negocio, montamos y te la
-            enseñamos. Se publica en un máximo de {LAUNCH_DELIVERY_HOURS} h
-            desde esa entrega.
+            <strong className='font-extrabold'>Cuatro pasos.</strong> Nos
+            escribes, confirmamos, nos entregas la información de tu negocio,
+            montamos y te la enseñamos. Se publica en un máximo de{' '}
+            {LAUNCH_DELIVERY_HOURS} h desde esa entrega.
           </>
         }
         steps={processSteps}
@@ -450,18 +446,18 @@ const LandingWebProfesional = () => {
         description={
           <>
             Déjanos tus datos y te contactamos.{' '}
-            <strong className='font-extrabold'>Sin compromiso.</strong> Si lo
-            tienes claro, reserva con {getLaunchReserveLabel()} y arrancamos.
+            <strong className='font-extrabold'>Sin compromiso.</strong>{' '}
+            Confirmamos el proyecto y te explicamos el pago 50% y 50%.
           </>
         }
-        buttonText='Quiero información'
+        buttonText='Quiero mi web'
         buttonHref='#contacto'
         heroType='form'
         hasButton={false}
-        formTitle='Te llamamos'
+        formTitle='Quiero mi web'
         formDescription='Nombre, email y teléfono. Te escribimos en horario laboral.'
         formSectionInfo={ADS_LAUNCH_FORM_ORIGIN}
-        formSubmitLabel='Quiero información'
+        formSubmitLabel='Quiero mi web'
         formId='contacto'
         hasBackground={false}
         hasReviewBadge
@@ -471,14 +467,14 @@ const LandingWebProfesional = () => {
         <SEOFAQ
           title='Lo que suele preguntar la gente'
           faqs={faqs}
-          ctaText='RESERVAR MI WEB'
-          ctaHref='#reserva-final'
+          ctaText='QUIERO MI WEB'
+          ctaHref='#contacto'
         />
       </div>
 
-      <div id='reserva-final'>
+      <div id='contacto-final'>
         <HeroCta
-          title='Reserva tu web profesional'
+          title='Quiero mi web profesional'
           belowDescription={<LaunchPaymentTable />}
           ctaContent={
             <LaunchReserveActions location='LaunchFinal' align='center' />

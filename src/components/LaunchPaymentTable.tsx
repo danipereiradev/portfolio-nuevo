@@ -1,20 +1,16 @@
-import {
-  getLaunchPriceLabel,
-  getLaunchRemainderLabel,
-  getLaunchReserveLabel,
-} from '../config/launchOffer';
+import { getLaunchPriceLabel } from '../config/launchOffer';
 
 const LaunchPaymentTable = () => {
   const rows = [
     {
-      title: 'Hoy',
-      detail: 'Para empezar el proyecto',
-      amount: getLaunchReserveLabel(),
+      title: 'Al empezar',
+      detail: 'Cuando confirmamos el proyecto',
+      amount: '50%',
     },
     {
       title: 'Antes de publicar',
       detail: 'Cuando te la hayamos presentado',
-      amount: getLaunchRemainderLabel(),
+      amount: '50%',
     },
   ];
 
