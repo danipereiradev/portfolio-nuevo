@@ -335,7 +335,12 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             </span>
             <span className='text-md md:text-xl italic text-gray-900 leading-relaxed pt-2 md:pt-0 text-start'>
               He leido y acepto la{' '}
-              <a href='/politica-de-privacidad' className='text-accent'>
+              <a
+                href='/politica-de-privacidad'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='text-accent'
+              >
                 política de privacidad
               </a>
             </span>

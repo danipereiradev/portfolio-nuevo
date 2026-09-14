@@ -17,18 +17,21 @@ import {
   ADS_LAUNCH_FORM_ORIGIN,
   ADS_LAUNCH_LANDING_PATH,
 } from '../config/contact';
-import { getLaunchPriceLabel, LAUNCH_DELIVERY_HOURS } from '../config/launchOffer';
+import {
+  getLaunchPriceLabel,
+  LAUNCH_DELIVERY_LABEL,
+} from '../config/launchOffer';
 import { trackLandingPromo299View } from '../utils/analytics';
 
 const includes = [
   {
-    title: `Publicación en un máximo de ${LAUNCH_DELIVERY_HOURS} h`,
+    title: `Lista en ${LAUNCH_DELIVERY_LABEL}`,
     description: (
       <>
         Cuando tenemos logo, textos y los datos de tu negocio, montamos la web y
         te la enseñamos.{' '}
         <strong className='font-extrabold'>
-          Se publica en un máximo de {LAUNCH_DELIVERY_HOURS} h desde esa entrega
+          Se publica en {LAUNCH_DELIVERY_LABEL} desde esa entrega
         </strong>
         .
       </>
@@ -41,6 +44,18 @@ const includes = [
         Adaptamos colores, estructura y presentación a tu marca y sector para
         que la web tenga{' '}
         <strong className='font-extrabold'>sentido para tu negocio</strong>.
+      </>
+    ),
+  },
+  {
+    title: 'Logo y textos',
+    description: (
+      <>
+        Tú nos entregas logo y textos.{' '}
+        <strong className='font-extrabold'>
+          Si no cuentas con ellos, te lo presupuestamos
+        </strong>
+        .
       </>
     ),
   },
@@ -89,8 +104,8 @@ const includes = [
         <strong className='font-extrabold'>
           el hosting y el dominio durante el primer año
         </strong>
-        . La web y el dominio quedan a tu nombre. El hosting puede renovarse
-        con nosotros o migrarse a otro proveedor.
+        . La web y el dominio quedan a tu nombre. El hosting puede renovarse con
+        nosotros o migrarse a otro proveedor.
       </>
     ),
   },
@@ -168,7 +183,7 @@ const processSteps = [
       <>
         Logo, textos, fotos y los datos de tu negocio. Con eso montamos la web.{' '}
         <strong className='font-extrabold'>
-          El plazo de {LAUNCH_DELIVERY_HOURS} h empieza aquí
+          El plazo de {LAUNCH_DELIVERY_LABEL} empieza aquí
         </strong>
         .
       </>
@@ -192,8 +207,8 @@ const processSteps = [
     title: 'Te la enseñamos y se publica',
     description: (
       <>
-        En un máximo de {LAUNCH_DELIVERY_HOURS} h te la mostramos. Pagas el
-        50% restante y la publicamos a tu nombre.{' '}
+        En {LAUNCH_DELIVERY_LABEL} te la mostramos. Pagas el 50% restante y la
+        publicamos a tu nombre.{' '}
         <strong className='font-extrabold'>La web es tuya</strong>.
       </>
     ),
@@ -202,35 +217,36 @@ const processSteps = [
 
 const faqs = [
   {
-    question: `¿Por qué cuesta ${getLaunchPriceLabel()}?`,
-    answer: `Es el precio de lanzamiento. Nuestras webs a medida suelen partir de 590 €. Aquí montamos una web funcional, rápida y sencilla para empezar a captar clientes: se ve bien en el móvil, te pueden escribir y Google la entiende. No es una plantilla ni un proyecto inflado. Es el arranque profesional. Cuando el negocio pida más —páginas, reservas, tienda— la escalamos. Empiezas con lo que hace falta, sin pagar por lo que aún no usas. Y la web es tuya.`,
+    question: '¿Cómo podéis ofrecer este precio?',
+    answer:
+      'Trabajamos sobre una estructura profesional propia de 36web ya preparada y adaptamos diseño, colores, contenidos e información a cada negocio. Esto nos permite reducir muchas horas de desarrollo desde cero y ofrecer una web profesional a un precio más accesible.',
   },
   {
     question: '¿Cuánto cuesta y cómo se paga?',
     answer: `${getLaunchPriceLabel()}, precio cerrado. Se paga 50% al empezar y 50% antes de publicar. Primero te contactamos y confirmamos el proyecto. Hosting y dominio incluidos el primer año. Sin permanencia. La web es tuya.`,
   },
   {
-    question: '¿Cuánto tarda?',
-    answer: `Se publica en un máximo de ${LAUNCH_DELIVERY_HOURS} h desde que nos entregas la información necesaria de tu negocio: logo, textos, fotos y datos de contacto. El reloj empieza cuando nos llega ese material.`,
-  },
-  {
     question: '¿Qué incluye?',
     answer:
-      'Esta oferta es para una web sencilla de presentación de negocio. Incluye estructura estándar, adaptación a tu marca, formulario, WhatsApp, publicación y hosting y dominio el primer año. Tú aportas logo, textos y fotos. Precio cerrado. La web es tuya.',
+      'Esta oferta es para una web sencilla de presentación de negocio. Incluye estructura estándar, adaptación a tu marca, formulario, WhatsApp, publicación y hosting y dominio el primer año. Tú aportas logo, textos y fotos. Si no cuentas con logo o textos, te lo presupuestamos. Precio cerrado. La web es tuya.',
   },
   {
     question: '¿Qué no incluye?',
     answer:
-      'No incluye ecommerce, reservas avanzadas, áreas privadas, desarrollos a medida ni redacción profesional de contenidos. Si te hace falta, te hacemos una propuesta aparte.',
+      'No incluye ecommerce, reservas avanzadas, áreas privadas ni desarrollos a medida. Logo y redacción profesional de contenidos tampoco entran en este precio: si no cuentas con ellos, te lo presupuestamos.',
+  },
+  {
+    question: '¿Cuánto tarda?',
+    answer: `Se publica en ${LAUNCH_DELIVERY_LABEL} desde que nos entregas la información necesaria de tu negocio: logo, textos, fotos y datos de contacto. El reloj empieza cuando nos llega ese material.`,
+  },
+  {
+    question: '¿El hosting y el dominio están incluidos?',
+    answer:
+      'Sí. Incluimos el hosting y el dominio durante el primer año para que puedas arrancar sin costes adicionales. A partir del segundo año, podrás renovarlos con nosotros o trasladarlos al proveedor que prefieras. El coste orientativo es de 80–150 € + IVA al año, según las características y el espacio. La web y el dominio quedan a tu nombre.',
   },
   {
     question: '¿Qué tengo que entregar yo?',
-    answer: `Logo, textos, fotos y la información de tu negocio (qué haces, cómo te contactan, horarios, redes). Con eso montamos y publicamos. El plazo de ${LAUNCH_DELIVERY_HOURS} h cuenta desde que nos llega el material.`,
-  },
-  {
-    question: '¿WordPress o a medida?',
-    answer:
-      'Lo que pida el caso. WordPress si encaja; a medida u otra base si hace falta. Te lo decimos en la propuesta, sin venderte lo más caro por sistema.',
+    answer: `Logo, textos, fotos y la información de tu negocio (qué haces, cómo te contactan, horarios, redes). Con eso montamos y publicamos. Si no cuentas con logo o textos, te lo presupuestamos. El plazo de ${LAUNCH_DELIVERY_LABEL} cuenta desde que nos llega el material.`,
   },
   {
     question: '¿Me rehacéis la web que ya tengo?',
@@ -238,9 +254,13 @@ const faqs = [
       'Sí. Partimos de tu marca, textos, fotos y dominio, y montamos la nueva. No es un parche sobre la vieja.',
   },
   {
-    question: '¿El hosting y el dominio están incluidos?',
+    question: `¿Por qué cuesta ${getLaunchPriceLabel()}?`,
+    answer: `Es el precio de lanzamiento. Nuestras webs a medida suelen partir de 590 €. Aquí montamos una web funcional, rápida y sencilla para empezar a captar clientes: se ve bien en el móvil, te pueden escribir y Google la entiende. No es una plantilla ni un proyecto inflado. Es el arranque profesional. Cuando el negocio pida más —páginas, reservas, tienda— la escalamos. Empiezas con lo que hace falta, sin pagar por lo que aún no usas. Y la web es tuya.`,
+  },
+  {
+    question: '¿WordPress o a medida?',
     answer:
-      'Sí. Incluimos el hosting y el dominio durante el primer año para que puedas arrancar sin costes adicionales. A partir del segundo año, podrás renovarlos con nosotros o trasladarlos al proveedor que prefieras. El coste orientativo es de 80–150 € + IVA al año, según las características y el espacio. La web y el dominio quedan a tu nombre.',
+      'Lo que pida el caso. WordPress si encaja; a medida u otra base si hace falta. Te lo decimos en la propuesta, sin venderte lo más caro por sistema.',
   },
 ];
 
@@ -284,13 +304,12 @@ const LandingWebProfesional = () => {
               'Tú nos entregas logo, textos y la información de tu negocio.',
               <>
                 <strong className='font-extrabold'>
-                  La web se publica en un máximo de {LAUNCH_DELIVERY_HOURS} h
-                  desde ese momento
+                  La web queda lista en {LAUNCH_DELIVERY_LABEL} desde ese
+                  momento
                 </strong>
                 .
               </>,
               'Hosting y dominio el primer año.',
-              'Sin permanencia. La web es tuya.',
             ]}
           />
         }
@@ -394,17 +413,13 @@ const LandingWebProfesional = () => {
         <div className='container mx-auto flex flex-col items-center gap-page-gap text-center'>
           <div className='page-title-block mx-auto max-w-5xl'>
             <h2 className='text-3xl font-extrabold text-ink-dark md:text-4xl lg:text-5xl'>
-              ¿Quieres tener tu web lista en {LAUNCH_DELIVERY_HOURS} h
-              laborables?
+              ¿Quieres tener tu web lista en {LAUNCH_DELIVERY_LABEL}?
             </h2>
             <p className='text-xl text-ink-dark md:text-2xl'>
               {getLaunchPriceLabel()} · Se paga 50% y 50%
             </p>
           </div>
-          <LaunchReserveActions
-            location='LaunchSocialProof'
-            align='center'
-          />
+          <LaunchReserveActions location='LaunchSocialProof' align='center' />
         </div>
       </section>
 
@@ -414,8 +429,8 @@ const LandingWebProfesional = () => {
           <>
             <strong className='font-extrabold'>Cuatro pasos.</strong> Nos
             escribes, confirmamos, nos entregas la información de tu negocio,
-            montamos y te la enseñamos. Se publica en un máximo de{' '}
-            {LAUNCH_DELIVERY_HOURS} h desde esa entrega.
+            montamos y te la enseñamos. Queda lista en {LAUNCH_DELIVERY_LABEL}{' '}
+            desde esa entrega.
           </>
         }
         steps={processSteps}

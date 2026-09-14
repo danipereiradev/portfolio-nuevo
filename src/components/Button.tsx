@@ -1,4 +1,7 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
+import { isAdsLandingPath } from '../config/contact';
+import { newTabProps } from '../utils/linkTarget';
 
 interface ButtonProps {
   children: React.ReactNode;
@@ -29,6 +32,11 @@ const Button: React.FC<ButtonProps> = ({
   fullWidth = false,
   isLoading = false,
 }) => {
+  const { pathname } = useLocation();
+  const landingNewTab =
+    href && !target && isAdsLandingPath(pathname) ? newTabProps(href) : {};
+  const linkTarget = target ?? landingNewTab.target;
+  const linkRel = rel ?? landingNewTab.rel;
   const baseStyles =
     'box-border mx-auto inline-flex items-center justify-center w-[var(--button-width)] max-w-full min-h-[3.5rem] px-6 py-4 rounded-lg font-extrabold text-base md:text-lg uppercase text-center leading-tight whitespace-normal transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed gap-2';
 
@@ -75,8 +83,8 @@ const Button: React.FC<ButtonProps> = ({
     return (
       <a
         href={href}
-        target={target}
-        rel={rel}
+        target={linkTarget}
+        rel={linkRel}
         onClick={onClick}
         className={combinedStyles}
       >

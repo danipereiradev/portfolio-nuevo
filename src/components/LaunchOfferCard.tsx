@@ -1,7 +1,7 @@
 import { Check, Clock } from 'lucide-react';
 import LaunchPaymentTable from './LaunchPaymentTable';
 import LaunchReserveActions from './LaunchReserveActions';
-import { LAUNCH_DELIVERY_HOURS } from '../config/launchOffer';
+import { LAUNCH_DELIVERY_LABEL } from '../config/launchOffer';
 
 const LaunchOfferCard = ({ className = '' }: { className?: string }) => {
   return (
@@ -28,7 +28,7 @@ const LaunchOfferCard = ({ className = '' }: { className?: string }) => {
           <LaunchPaymentTable />
           <p className='flex items-start justify-center gap-2 text-base font-bold text-ink-dark'>
             <Clock className='mt-0.5 h-5 w-5 shrink-0 text-accent' aria-hidden />
-            Se publica en un máximo de {LAUNCH_DELIVERY_HOURS} h desde que nos
+            Queda lista en {LAUNCH_DELIVERY_LABEL} desde que nos
             entregas la información de tu negocio
           </p>
           <ul className='mx-auto w-fit space-y-2 text-left text-sm text-ink-dark md:mx-0 md:text-base'>

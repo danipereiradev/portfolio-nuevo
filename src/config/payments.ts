@@ -188,7 +188,7 @@ export const paymentConfigs: Record<string, PaymentConfig> = {
     clientName: 'Oferta de lanzamiento',
     serviceName: 'Reserva — Web profesional',
     description:
-      'Reserva de 99 € + IVA para la web profesional de lanzamiento (349 € + IVA). El resto (250 € + IVA) se paga antes de la publicación. Se publica en un máximo de 72 h desde que nos entregas la información de tu negocio.',
+      'Reserva de 99 € + IVA para la web profesional de lanzamiento (349 € + IVA). El resto (250 € + IVA) se paga antes de la publicación. Queda lista en 5–7 días desde que nos entregas la información de tu negocio.',
     amount: 99,
     vatRate: 21,
     paymentType: 'one_time',
@@ -199,7 +199,7 @@ export const paymentConfigs: Record<string, PaymentConfig> = {
       'Web profesional a 349 € + IVA',
       'Tú entregas logo, textos y fotos',
       'Hosting y dominio incluidos',
-      'Publicación en un máximo de 72 h desde que nos entregas la información de tu negocio',
+      'Lista en 5–7 días desde que nos entregas la información de tu negocio',
       'Sin permanencia. La web es tuya',
     ],
     conditions:

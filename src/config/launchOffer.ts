@@ -19,8 +19,8 @@ export const LAUNCH_PRICE = 349;
 /** Reserva ahora, sin IVA. El resto se paga en la entrega. */
 export const LAUNCH_RESERVE = 99;
 
-/** Entrega máxima en horas. */
-export const LAUNCH_DELIVERY_HOURS = 72;
+/** Plazo de entrega de la oferta de lanzamiento. */
+export const LAUNCH_DELIVERY_LABEL = '5–7 días';
 
 export const LAUNCH_RESERVE_PAYMENT_ID = 'reserva-web-profesional-esencial';
 

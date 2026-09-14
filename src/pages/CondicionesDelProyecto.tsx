@@ -22,7 +22,7 @@ import {
   getPlanPriceLabel,
 } from '../config/maintenanceOffer';
 import {
-  LAUNCH_DELIVERY_HOURS,
+  LAUNCH_DELIVERY_LABEL,
   getLaunchPriceLabel,
 } from '../config/launchOffer';
 import {
@@ -191,7 +191,7 @@ const CondicionesDelProyecto = () => {
               href={`${ADS_LAUNCH_LANDING_PATH}#contacto`}
               hrefLabel='Ver la oferta'
               items={[
-                `Se publica en un máximo de ${LAUNCH_DELIVERY_HOURS} h desde que nos entregas la información de tu negocio. El reloj empieza cuando nos llega ese material.`,
+                `Queda lista en ${LAUNCH_DELIVERY_LABEL} desde que nos entregas la información de tu negocio. El reloj empieza cuando nos llega ese material.`,
                 'Tú entregas logo, textos y fotos. Hosting y dominio incluidos el primer año. El dominio es tuyo.',
                 'Sin permanencia. La web es tuya.',
                 'Se paga 50% al empezar y 50% antes de publicar.',
