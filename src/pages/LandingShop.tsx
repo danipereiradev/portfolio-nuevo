@@ -28,9 +28,9 @@ import {
 
 const landingTrustPoints = [
   { icon: Wallet, text: 'Desde 900 €' },
-  { icon: Clock, text: 'Propuesta el mismo día' },
   { icon: ShieldCheck, text: 'Hosting incluido' },
-  { icon: BadgeCheck, text: 'La tienda es tuya' },
+  { icon: BadgeCheck, text: 'Dominio incluido' },
+  { icon: Clock, text: 'Propuesta 24 h' },
 ];
 
 const whyUs = [
@@ -162,9 +162,9 @@ const faqs = [
       'Sí. Partimos de tu marca, catálogo, fotos y dominio, y montamos el ecommerce de nuevo. No es un parche sobre la vieja.',
   },
   {
-    question: '¿El hosting está incluido? ¿De quién es la tienda?',
+    question: '¿El hosting y el dominio están incluidos?',
     answer:
-      'Hosting para publicar, sí. El dominio es tuyo. Archivos y accesos a tu nombre. La tienda es tuya desde el día que se publica.',
+      'Sí. Incluimos el hosting y el dominio durante el primer año para que puedas arrancar sin costes adicionales. A partir del segundo año, podrás renovarlos con nosotros o trasladarlos al proveedor que prefieras. El coste orientativo es de 80–150 € + IVA al año, según las características y el espacio. La tienda y el dominio quedan a tu nombre.',
   },
 ];
 
@@ -251,7 +251,11 @@ const LandingShop = () => {
         benefits={whyUs}
       />
 
-      <Portfolio casos contained />
+      <Portfolio
+        casos
+        contained
+        ids={['chicxs', 'resilience', 'camisetas']}
+      />
 
       <SEOProcess
         title='Así se hace'

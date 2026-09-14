@@ -81,7 +81,8 @@ export const shopIncludes = [
         <strong className='font-extrabold'>
           el hosting para arrancar la tienda online con el dominio que tú elijas
         </strong>
-        . El hosting y el dominio siempre son tuyos.
+        . La tienda y el dominio quedan a tu nombre. El hosting puede
+        renovarse con nosotros o migrarse a otro proveedor.
       </>
     ),
   },

@@ -26,14 +26,12 @@ const infoLinks = [
   { href: '/aviso-legal', label: 'Aviso Legal' },
 ];
 
-const legalLinks = infoLinks.filter((link) =>
-  [
-    '/politica-de-privacidad',
-    '/terminos-y-condiciones',
-    '/politica-de-cookies',
-    '/aviso-legal',
-  ].includes(link.href),
-);
+const adsLandingLegalLinks = [
+  { href: '/aviso-legal', label: 'Aviso legal' },
+  { href: '/politica-de-privacidad', label: 'Política de privacidad' },
+  { href: '/politica-de-cookies', label: 'Cookies' },
+  { href: '/condiciones-del-proyecto', label: 'Condiciones' },
+];
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -46,7 +44,7 @@ const Footer = () => {
     getWhatsAppMessageForPath(pathname),
   );
   const currentYear = new Date().getFullYear();
-  const footerInfoLinks = isAdsLanding ? legalLinks : infoLinks;
+  const footerInfoLinks = isAdsLanding ? adsLandingLegalLinks : infoLinks;
 
   return (
     <footer className='bg-surface-muted text-ink-medium'>
@@ -132,6 +130,9 @@ const Footer = () => {
                 <li key={link.href}>
                   <a
                     href={link.href}
+                    {...(isAdsLanding
+                      ? { target: '_blank', rel: 'noopener noreferrer' }
+                      : {})}
                     className='hover:text-link transition-colors duration-200'
                   >
                     {link.label}
