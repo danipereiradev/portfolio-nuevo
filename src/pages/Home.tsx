@@ -33,6 +33,7 @@ const Home = () => {
         hasButton
         hasBackground
         hasReviewBadge={false}
+        cinematic
       />
       <TextImage
         label='¿QUÉ ES 36WEB?'

@@ -12,14 +12,18 @@ import {
 import { SERVICE_NAV } from '../config/nav';
 
 const navLinkClass =
-  'relative shrink-0 text-center text-sm xl:text-xl py-2 px-2 xl:px-4 rounded-lg text-ink-dark uppercase font-bold';
+  'relative shrink-0 text-center text-sm xl:text-xl py-2 px-2 xl:px-4 rounded-lg text-ink-dark uppercase font-bold transition-colors';
+
+const homeNavLinkClass = `${navLinkClass} lg:text-brand-light lg:hover:text-white`;
 
 const mobileNavLinkClass =
   'flex w-full items-center justify-end px-4 py-4 pr-10 text-md uppercase font-bold text-ink-dark transition-colors duration-200 hover:text-accent';
 
 const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
   const { pathname } = useLocation();
+  const isHome = pathname === '/';
   const isAdsLanding = isAdsLandingPath(pathname);
+  const desktopNavClass = isHome ? homeNavLinkClass : navLinkClass;
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -69,19 +73,52 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
     </span>
   );
 
+  const iconLogo = (
+    <img
+      src='/img/favicon/android-chrome-512x512.png'
+      alt='36web'
+      width={512}
+      height={512}
+      className='h-12 w-12 rounded-lg object-cover lg:h-14 lg:w-14'
+    />
+  );
+
+  const logo = isHome ? (
+    <>
+      <span className='lg:hidden'>{brand}</span>
+      <span className='hidden overflow-hidden rounded-lg bg-brand-light lg:block'>
+        {iconLogo}
+      </span>
+    </>
+  ) : (
+    brand
+  );
+
   return (
-    <div className='flex w-full justify-center'>
-      <header className='site-header fixed top-0 z-50 mx-auto mt-4 w-[95%] max-w-page rounded-lg shadow-[0_4px_16px_rgba(0,0,0,0.08)]'>
+    <div
+      className={`flex w-full justify-center ${
+        isHome
+          ? 'absolute inset-x-0 top-0 z-50'
+          : 'fixed inset-x-0 top-0 z-50'
+      }`}
+    >
+      <header
+        className={`site-header mx-auto mt-4 w-[95%] max-w-page rounded-lg ${
+          isHome
+            ? 'site-header--home max-lg:shadow-[0_4px_16px_rgba(0,0,0,0.08)]'
+            : 'shadow-[0_4px_16px_rgba(0,0,0,0.08)]'
+        }`}
+      >
         <div className='mx-auto w-full px-page-x py-4'>
           <div className='flex w-full items-center justify-between gap-3'>
             {hideNav ? (
-              <div className='flex min-w-0 shrink-0 items-center'>{brand}</div>
+              <div className='flex min-w-0 shrink-0 items-center'>{logo}</div>
             ) : (
               <a
                 href={isAdsLanding ? '#hero' : '/'}
-                className='flex min-w-0 shrink-0 items-center'
+                className='flex min-w-0 shrink-0 items-center outline-none'
               >
-                {brand}
+                {logo}
               </a>
             )}
 
@@ -96,7 +133,10 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
                   className='inline-flex items-center gap-1.5 text-ink-dark'
                   aria-label={`Llamar al ${PHONE_DISPLAY}`}
                 >
-                  <Phone className='h-4 w-4 shrink-0 md:h-5 md:w-5' strokeWidth={2.5} />
+                  <Phone
+                    className='h-4 w-4 shrink-0 md:h-5 md:w-5'
+                    strokeWidth={2.5}
+                  />
                   <span className='text-[calc(0.7rem*1.15)] font-semibold leading-none tracking-tight md:text-[calc(0.875rem*1.15)]'>
                     {PHONE_DISPLAY}
                   </span>
@@ -133,7 +173,7 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
                     onMouseLeave={() => setIsServicesOpen(false)}
                   >
                     <button
-                      className={`${navLinkClass} flex items-center gap-1 text-ink-dark`}
+                      className={`${desktopNavClass} flex items-center gap-1`}
                       aria-expanded={isServicesOpen}
                       aria-haspopup='true'
                     >
@@ -142,15 +182,31 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
                     </button>
                     {isServicesOpen ? (
                       <div className='absolute left-0 top-full z-50 w-72 pt-3'>
-                        <div className='rounded-lg bg-white py-2 uppercase shadow-[0_8px_24px_rgba(20,20,20,0.12)]'>
+                        <div
+                          className={`rounded-lg py-2 uppercase ${
+                            isHome
+                              ? 'bg-transparent'
+                              : 'bg-white shadow-[0_8px_24px_rgba(20,20,20,0.12)]'
+                          }`}
+                        >
                           {SERVICE_NAV.map((service) => (
                             <a
                               key={service.href}
                               href={service.href}
-                              className='group block px-4 py-3 transition-colors hover:bg-accent'
+                              className={`group block px-4 py-3 ${
+                                isHome
+                                  ? ''
+                                  : 'transition-colors hover:bg-accent'
+                              }`}
                               onClick={() => setIsServicesOpen(false)}
                             >
-                              <span className='text-lg text-ink-dark transition-colors group-hover:text-white'>
+                              <span
+                                className={`text-lg transition-colors ${
+                                  isHome
+                                    ? 'text-brand-light group-hover:text-white'
+                                    : 'text-ink-dark group-hover:text-white'
+                                }`}
+                              >
                                 {service.label}
                               </span>
                             </a>
@@ -159,12 +215,14 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
                       </div>
                     ) : null}
                   </div>
-                  <a href={ABOUT_PATH} className={navLinkClass}>
+                  <a href={ABOUT_PATH} className={desktopNavClass}>
                     {ABOUT_LABEL}
                   </a>
                   <a
                     href='#contacto'
-                    className={`${navLinkClass} !text-accent`}
+                    className={
+                      isHome ? desktopNavClass : `${navLinkClass} !text-accent`
+                    }
                   >
                     Contacto
                   </a>

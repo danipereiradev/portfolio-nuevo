@@ -92,70 +92,72 @@ function AppContent() {
     <div className='relative min-h-svh bg-surface-base'>
       <Header />
 
-      <Suspense fallback={<PageFallback />}>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path={ABOUT_PATH} element={<Nosotros />} />
-          <Route path={SITE_WEB_PATH} element={<DisenoWeb />} />
-          <Route
-            path={SITE_WEB_PATH_N}
-            element={<Navigate to={SITE_WEB_PATH} replace />}
-          />
-          <Route path={SITE_SHOP_PATH} element={<TiendasOnline />} />
-          <Route
-            path='/tienda-online'
-            element={<Navigate to={SITE_SHOP_PATH} replace />}
-          />
-          <Route path={SITE_MAINTENANCE_PATH} element={<MantenimientoWeb />} />
-          <Route path={BLOG_PATH} element={<Blog />} />
-          <Route path={`${BLOG_PATH}/:slug`} element={<BlogPost />} />
-          <Route path={ADS_LANDING_PATH} element={<LandingWeb />} />
-          <Route
-            path={ADS_LANDING_PATH_N}
-            element={<Navigate to={ADS_LANDING_PATH} replace />}
-          />
-          <Route
-            path={ADS_LAUNCH_LANDING_PATH}
-            element={<LandingWebProfesional />}
-          />
-          <Route path={ADS_SHOP_LANDING_PATH} element={<LandingShop />} />
-          <Route
-            path='/landing-tienda-online'
-            element={<Navigate to={ADS_SHOP_LANDING_PATH} replace />}
-          />
-          <Route
-            path={ADS_MAINTENANCE_LANDING_PATH}
-            element={<LandingMaintenance />}
-          />
-          <Route
-            path='/condiciones-del-proyecto'
-            element={<CondicionesDelProyecto />}
-          />
-          <Route
-            path='/politica-de-privacidad'
-            element={
-              <LegalDocument page='privacy' path='/politica-de-privacidad' />
-            }
-          />
-          <Route
-            path='/terminos-y-condiciones'
-            element={
-              <LegalDocument page='terms' path='/terminos-y-condiciones' />
-            }
-          />
-          <Route
-            path='/politica-de-cookies'
-            element={<LegalDocument page='cookies' path='/politica-de-cookies' />}
-          />
-          <Route
-            path='/aviso-legal'
-            element={<LegalDocument page='legal' path='/aviso-legal' />}
-          />
-          <Route path='*' element={<Navigate to='/' replace />} />
-        </Routes>
-      </Suspense>
+      <div className='overflow-x-clip'>
+        <Suspense fallback={<PageFallback />}>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path={ABOUT_PATH} element={<Nosotros />} />
+            <Route path={SITE_WEB_PATH} element={<DisenoWeb />} />
+            <Route
+              path={SITE_WEB_PATH_N}
+              element={<Navigate to={SITE_WEB_PATH} replace />}
+            />
+            <Route path={SITE_SHOP_PATH} element={<TiendasOnline />} />
+            <Route
+              path='/tienda-online'
+              element={<Navigate to={SITE_SHOP_PATH} replace />}
+            />
+            <Route path={SITE_MAINTENANCE_PATH} element={<MantenimientoWeb />} />
+            <Route path={BLOG_PATH} element={<Blog />} />
+            <Route path={`${BLOG_PATH}/:slug`} element={<BlogPost />} />
+            <Route path={ADS_LANDING_PATH} element={<LandingWeb />} />
+            <Route
+              path={ADS_LANDING_PATH_N}
+              element={<Navigate to={ADS_LANDING_PATH} replace />}
+            />
+            <Route
+              path={ADS_LAUNCH_LANDING_PATH}
+              element={<LandingWebProfesional />}
+            />
+            <Route path={ADS_SHOP_LANDING_PATH} element={<LandingShop />} />
+            <Route
+              path='/landing-tienda-online'
+              element={<Navigate to={ADS_SHOP_LANDING_PATH} replace />}
+            />
+            <Route
+              path={ADS_MAINTENANCE_LANDING_PATH}
+              element={<LandingMaintenance />}
+            />
+            <Route
+              path='/condiciones-del-proyecto'
+              element={<CondicionesDelProyecto />}
+            />
+            <Route
+              path='/politica-de-privacidad'
+              element={
+                <LegalDocument page='privacy' path='/politica-de-privacidad' />
+              }
+            />
+            <Route
+              path='/terminos-y-condiciones'
+              element={
+                <LegalDocument page='terms' path='/terminos-y-condiciones' />
+              }
+            />
+            <Route
+              path='/politica-de-cookies'
+              element={<LegalDocument page='cookies' path='/politica-de-cookies' />}
+            />
+            <Route
+              path='/aviso-legal'
+              element={<LegalDocument page='legal' path='/aviso-legal' />}
+            />
+            <Route path='*' element={<Navigate to='/' replace />} />
+          </Routes>
+        </Suspense>
 
-      <Footer />
+        <Footer />
+      </div>
       <ContactFormModal />
       <BackToTopButton />
       <WhatsAppButton />

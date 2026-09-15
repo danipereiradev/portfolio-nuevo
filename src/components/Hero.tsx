@@ -14,6 +14,8 @@ interface HeroProps {
   hasButton: boolean;
   hasBackground: boolean;
   hasReviewBadge: boolean;
+  /** Home escritorio: H1 36Web, sin CTA y vídeo con velado de película. */
+  cinematic?: boolean;
 }
 
 const prefersReducedMotion = () =>
@@ -32,6 +34,7 @@ const Hero = ({
   hasButton,
   hasBackground,
   hasReviewBadge,
+  cinematic = false,
 }: HeroProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [showVideo, setShowVideo] = useState(
@@ -83,7 +86,7 @@ const Hero = ({
       id='hero'
       className={`page-hero-compact bg-ink-dark text-ink-dark ${
         videoUrl ? 'min-h-svh' : ''
-      }`}
+      } ${cinematic ? 'hero-cinematic-section' : ''}`}
     >
       {hasBackground && backgroundUrl ? (
         <img
@@ -99,7 +102,9 @@ const Hero = ({
         <video
           ref={videoRef}
           key={videoUrl}
-          className='pointer-events-none absolute inset-0 z-0 h-full w-full object-cover object-center'
+          className={`pointer-events-none absolute inset-0 z-0 h-full w-full object-cover object-center ${
+            cinematic ? 'hero-film-video' : ''
+          }`}
           autoPlay
           muted
           loop
@@ -109,6 +114,15 @@ const Hero = ({
           src={videoUrl}
           aria-hidden='true'
         />
+      ) : null}
+
+      {cinematic ? (
+        <>
+          <div className='hero-film-grade' aria-hidden='true' />
+          <div className='hero-film-leak' aria-hidden='true' />
+          <div className='hero-film-grain' aria-hidden='true' />
+          <div className='hero-film-vignette' aria-hidden='true' />
+        </>
       ) : null}
 
       {overlayTone === 'black' ? (
@@ -134,12 +148,34 @@ const Hero = ({
         />
       ) : null}
 
-      <div className='relative z-10 mx-auto flex w-[95%] max-w-5xl flex-col items-center text-center'>
+      <div
+        className={`relative z-10 mx-auto flex w-[95%] flex-col items-center text-center ${
+          cinematic ? 'max-w-none' : 'max-w-5xl'
+        }`}
+      >
         <div className='hero-cta-enter hero-cta-enter--from-top flex w-full flex-col items-center gap-page-gap'>
           {titleOnly ? (
             <h1 className='whitespace-nowrap text-[clamp(0.7rem,2.2vw,1.35rem)] font-bold tracking-[0.28em] text-white'>
               {title}
             </h1>
+          ) : cinematic ? (
+            <>
+              <div className='page-title-block md:max-w-4xl lg:hidden'>
+                <h1 className='hero-cta-title text-4xl font-extrabold text-white md:text-6xl'>
+                  {title}
+                </h1>
+                <span
+                  className='hero-cta-underline mx-auto h-1 w-16 bg-brand'
+                  aria-hidden='true'
+                />
+                {description ? (
+                  <p className='hero-cta-desc text-xl text-white md:mx-auto md:max-w-2xl md:text-2xl'>
+                    {description}
+                  </p>
+                ) : null}
+              </div>
+              <h1 className='hero-cinematic-title hidden lg:block'>36Web</h1>
+            </>
           ) : (
             <div className='page-title-block md:max-w-4xl'>
               <h1
@@ -159,8 +195,8 @@ const Hero = ({
                 <p
                   className={`hero-cta-desc text-xl md:text-2xl md:max-w-2xl md:mx-auto ${
                     overlayTone === 'black' || copyOnVideo
-                    ? 'text-white'
-                    : 'text-ink-dark'
+                      ? 'text-white'
+                      : 'text-ink-dark'
                   }`}
                 >
                   {description}
@@ -169,12 +205,16 @@ const Hero = ({
             </div>
           )}
           {!titleOnly && hasReviewBadge ? (
-            <div className='hero-cta-badge'>
+            <div
+              className={`hero-cta-badge ${cinematic ? 'lg:hidden' : ''}`}
+            >
               <TestimonialsBadge />
             </div>
           ) : null}
           {!titleOnly && hasButton && buttonText ? (
-            <div className='hero-cta-badge'>
+            <div
+              className={`hero-cta-badge ${cinematic ? 'lg:hidden' : ''}`}
+            >
               <Button className='mx-auto text-center' href={buttonHref}>
                 {buttonText}
               </Button>
