@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import Button from './Button';
+import { PictureImg } from './PictureImg';
 import RevealOnScroll from './RevealOnScroll';
 
 interface TextImageProps {
@@ -63,12 +64,14 @@ export const TextImage = ({
         </RevealOnScroll>
         <RevealOnScroll className='w-full shrink-0 lg:w-1/2' delayMs={120}>
           {isPortfolioMock ? (
-            <img
+            <PictureImg
               className='aspect-square h-auto w-full object-contain'
               src={imageSrc}
               alt={imageAlt}
               width={1254}
               height={1254}
+              loading='lazy'
+              decoding='async'
             />
           ) : (
             <div className='relative aspect-[4/3] w-full overflow-hidden rounded-lg'>

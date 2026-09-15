@@ -1,4 +1,5 @@
 import { formatPostDate, type BlogPost } from '../blog/types';
+import { PictureImg } from './PictureImg';
 
 export const BlogFigure = ({
   src,
@@ -11,7 +12,13 @@ export const BlogFigure = ({
 }) => (
   <figure>
     <div className='overflow-hidden rounded-lg'>
-      <img src={src} alt={alt} className='aspect-[4/3] w-full object-cover' />
+      <PictureImg
+        src={src}
+        alt={alt}
+        className='aspect-[4/3] w-full object-cover'
+        loading='lazy'
+        decoding='async'
+      />
     </div>
     {caption ? <figcaption>{caption}</figcaption> : null}
   </figure>
@@ -35,7 +42,7 @@ export const BlogArticle = ({ post }: { post: BlogPost }) => (
       </header>
 
       <div className='overflow-hidden rounded-lg'>
-        <img
+        <PictureImg
           src={post.image}
           alt={post.imageAlt}
           className='aspect-[16/5] w-full object-cover'

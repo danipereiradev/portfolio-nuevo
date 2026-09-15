@@ -1,5 +1,6 @@
 import { useLanguage } from '../contexts/LanguageContext';
 import { useSectionView } from '../hooks/useSectionView';
+import { PictureImg } from './PictureImg';
 import RevealOnScroll from './RevealOnScroll';
 
 import {
@@ -65,7 +66,7 @@ function CasosCard({
 }) {
   return (
     <article className='group relative flex h-full flex-col overflow-hidden rounded-lg bg-ink-dark shadow-xl'>
-      <img
+      <PictureImg
         src={image}
         alt={`Web de ${title}`}
         width={1254}
@@ -100,7 +101,7 @@ function PortfolioCard({
   nofollow?: boolean;
 }) {
   const visual = (
-    <img
+    <PictureImg
       src={image}
       alt={`Web de ${title}`}
       width={1254}
