@@ -27,7 +27,7 @@ const Home = () => {
         }
         buttonText='CONTACTA AHORA'
         buttonHref='#contacto'
-        videoUrl='/video/video%20home_2.mp4'
+        videoUrl='/video/video-hero-36web-corto.mp4'
         backgroundUrl='/video/hero-home-2.jpg'
         overlay='none'
         hasButton
