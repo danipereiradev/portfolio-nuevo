@@ -12,18 +12,24 @@ import {
 import { SERVICE_NAV } from '../config/nav';
 
 const navLinkClass =
-  'relative shrink-0 text-center text-sm xl:text-xl py-2 px-2 xl:px-4 rounded-lg text-ink-dark uppercase font-bold transition-colors';
+  'relative shrink-0 text-center text-sm xl:text-xl py-2 px-2 xl:px-4 rounded-lg uppercase font-bold transition-colors';
 
-const homeNavLinkClass = `${navLinkClass} lg:text-brand-light lg:hover:text-white`;
+const defaultNavLinkClass = `${navLinkClass} text-ink-dark`;
+
+const homeNavLinkClass = `${navLinkClass} text-brand-light hover:text-white`;
 
 const mobileNavLinkClass =
-  'flex w-full items-center justify-end px-4 py-4 pr-10 text-md uppercase font-bold text-ink-dark transition-colors duration-200 hover:text-accent';
+  'flex w-full items-center justify-end px-4 py-4 pr-10 text-[1.15em] uppercase font-bold text-ink-dark transition-colors duration-200 hover:text-accent';
+
+const homeMobileNavLinkClass =
+  'flex w-full items-center justify-end px-4 py-4 pr-10 text-[1.15em] uppercase font-bold text-brand-light transition-colors duration-200 hover:text-white';
 
 const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
   const { pathname } = useLocation();
   const isHome = pathname === '/';
   const isAdsLanding = isAdsLandingPath(pathname);
-  const desktopNavClass = isHome ? homeNavLinkClass : navLinkClass;
+  const desktopNavClass = isHome ? homeNavLinkClass : defaultNavLinkClass;
+  const mobileLinksClass = isHome ? homeMobileNavLinkClass : mobileNavLinkClass;
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -84,12 +90,7 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
   );
 
   const logo = isHome ? (
-    <>
-      <span className='lg:hidden'>{brand}</span>
-      <span className='hidden overflow-hidden rounded-lg bg-brand-light lg:block'>
-        {iconLogo}
-      </span>
-    </>
+    <span className='overflow-hidden rounded-lg bg-brand-light'>{iconLogo}</span>
   ) : (
     brand
   );
@@ -102,10 +103,21 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
           : 'fixed inset-x-0 top-0 z-50'
       }`}
     >
+      {isHome && isMenuOpen ? (
+        <button
+          type='button'
+          className='fixed inset-0 z-0 bg-black/70 lg:hidden'
+          aria-label='Cerrar menú'
+          onClick={() => {
+            setIsMenuOpen(false);
+            setIsServicesOpen(false);
+          }}
+        />
+      ) : null}
       <header
-        className={`site-header mx-auto mt-4 w-[95%] max-w-page rounded-lg ${
+        className={`site-header relative z-10 mx-auto mt-4 w-[95%] max-w-page rounded-lg ${
           isHome
-            ? 'site-header--home max-lg:shadow-[0_4px_16px_rgba(0,0,0,0.08)]'
+            ? 'site-header--home'
             : 'shadow-[0_4px_16px_rgba(0,0,0,0.08)]'
         }`}
       >
@@ -146,7 +158,7 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
               <>
                 <div className='flex items-center justify-end lg:hidden'>
                   <button
-                    className='p-2 text-ink-dark'
+                    className={isHome ? 'text-brand-light' : 'p-2 text-ink-dark'}
                     onClick={() => {
                       setIsMenuOpen((open) => {
                         if (open) setIsServicesOpen(false);
@@ -156,15 +168,29 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
                     aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
                   >
                     {isMenuOpen ? (
-                      <X className='h-6 w-6 text-ink-dark' />
+                      <X
+                        className={
+                          isHome
+                            ? 'h-12 w-12 text-brand-light'
+                            : 'h-6 w-6 text-ink-dark'
+                        }
+                      />
                     ) : (
-                      <Menu className='h-6 w-6 text-ink-dark' />
+                      <Menu
+                        className={
+                          isHome
+                            ? 'h-12 w-12 text-brand-light'
+                            : 'h-6 w-6 text-ink-dark'
+                        }
+                      />
                     )}
                   </button>
                 </div>
 
                 <nav
-                  className='hidden shrink-0 items-center gap-1 text-ink-dark lg:flex xl:gap-4'
+                  className={`hidden shrink-0 items-center gap-1 lg:flex xl:gap-4 ${
+                    isHome ? 'text-brand-light' : 'text-ink-dark'
+                  }`}
                   aria-label='Principal'
                 >
                   <div
@@ -221,7 +247,7 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
                   <a
                     href='#contacto'
                     className={
-                      isHome ? desktopNavClass : `${navLinkClass} !text-accent`
+                      isHome ? desktopNavClass : `${defaultNavLinkClass} !text-accent`
                     }
                   >
                     Contacto
@@ -233,13 +259,15 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
 
           {!hideNav && !isAdsLanding && isMenuOpen ? (
             <nav
-              className='mt-2 divide-y divide-ink-dark/15 lg:hidden'
+              className={`mt-2 lg:hidden ${
+                isHome ? '' : 'divide-y divide-ink-dark/15'
+              }`}
               aria-label='Principal'
             >
               <div>
                 <button
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
-                  className={`${mobileNavLinkClass} relative`}
+                  className={`${mobileLinksClass} relative`}
                   aria-expanded={isServicesOpen}
                 >
                   Servicios
@@ -250,7 +278,11 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
                   />
                 </button>
                 {isServicesOpen ? (
-                  <div className='divide-y divide-ink-dark/15'>
+                  <div
+                    className={
+                      isHome ? '' : 'divide-y divide-ink-dark/15'
+                    }
+                  >
                     {SERVICE_NAV.map((service) => (
                       <a
                         key={service.href}
@@ -259,7 +291,7 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
                           setIsMenuOpen(false);
                           setIsServicesOpen(false);
                         }}
-                        className={`${mobileNavLinkClass} pr-16`}
+                        className={`${mobileLinksClass} pr-16`}
                       >
                         {service.label}
                       </a>
@@ -270,14 +302,16 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
               <a
                 href={ABOUT_PATH}
                 onClick={() => setIsMenuOpen(false)}
-                className={mobileNavLinkClass}
+                className={mobileLinksClass}
               >
                 {ABOUT_LABEL}
               </a>
               <a
                 href='#contacto'
                 onClick={() => setIsMenuOpen(false)}
-                className={`${mobileNavLinkClass} !text-accent`}
+                className={
+                  isHome ? mobileLinksClass : `${mobileNavLinkClass} !text-accent`
+                }
               >
                 Contacto
               </a>

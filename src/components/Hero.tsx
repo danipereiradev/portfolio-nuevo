@@ -159,23 +159,7 @@ const Hero = ({
               {title}
             </h1>
           ) : cinematic ? (
-            <>
-              <div className='page-title-block md:max-w-4xl lg:hidden'>
-                <h1 className='hero-cta-title text-4xl font-extrabold text-white md:text-6xl'>
-                  {title}
-                </h1>
-                <span
-                  className='hero-cta-underline mx-auto h-1 w-16 bg-brand'
-                  aria-hidden='true'
-                />
-                {description ? (
-                  <p className='hero-cta-desc text-xl text-white md:mx-auto md:max-w-2xl md:text-2xl'>
-                    {description}
-                  </p>
-                ) : null}
-              </div>
-              <h1 className='hero-cinematic-title hidden lg:block'>36Web</h1>
-            </>
+            <h1 className='hero-cinematic-title'>36Web</h1>
           ) : (
             <div className='page-title-block md:max-w-4xl'>
               <h1
@@ -204,17 +188,13 @@ const Hero = ({
               ) : null}
             </div>
           )}
-          {!titleOnly && hasReviewBadge ? (
-            <div
-              className={`hero-cta-badge ${cinematic ? 'lg:hidden' : ''}`}
-            >
+          {!titleOnly && hasReviewBadge && !cinematic ? (
+            <div className='hero-cta-badge'>
               <TestimonialsBadge />
             </div>
           ) : null}
-          {!titleOnly && hasButton && buttonText ? (
-            <div
-              className={`hero-cta-badge ${cinematic ? 'lg:hidden' : ''}`}
-            >
+          {!titleOnly && hasButton && buttonText && !cinematic ? (
+            <div className='hero-cta-badge'>
               <Button className='mx-auto text-center' href={buttonHref}>
                 {buttonText}
               </Button>

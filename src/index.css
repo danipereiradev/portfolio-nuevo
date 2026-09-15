@@ -114,11 +114,9 @@
     background: var(--color-brand-light);
   }
 
-  @media (min-width: 1024px) {
-    .site-header--home {
-      background: transparent;
-      box-shadow: none;
-    }
+  .site-header--home {
+    background: transparent;
+    box-shadow: none;
   }
 }
 
@@ -627,7 +625,7 @@ h6 {
 
 /* Home escritorio: velado de película en color antiguo */
 .hero-cinematic-title {
-  font-size: clamp(4.75rem, 12vw, 9.5rem);
+  font-size: clamp(3.25rem, 18vw, 9.5rem);
   font-weight: 700;
   letter-spacing: 0;
   line-height: 0.95;
@@ -716,23 +714,8 @@ h6 {
   }
 }
 
-@media (max-width: 1023px) {
-  .hero-film-video {
-    filter: none;
-  }
-
-  .hero-film-grade,
-  .hero-film-leak,
-  .hero-film-grain,
-  .hero-film-vignette {
-    display: none;
-  }
-}
-
-@media (min-width: 1024px) {
-  .hero-cinematic-section {
-    min-height: 100svh;
-    padding: 0;
-    justify-content: center;
-  }
+.page-hero-compact.hero-cinematic-section {
+  min-height: 100svh;
+  padding: 0;
+  justify-content: center;
 }
