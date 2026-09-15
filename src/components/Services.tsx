@@ -66,7 +66,7 @@ const Services = ({ description }: ServicesProps) => {
                   alt={service.imageAlt}
                   width={800}
                   height={600}
-                  className='h-auto w-full bg-white max-md:object-none md:aspect-[4/3] md:object-contain md:p-content-pad'
+                  className='aspect-[4/3] w-full bg-white object-cover md:object-contain md:p-content-pad'
                   loading='lazy'
                   decoding='async'
                 />
