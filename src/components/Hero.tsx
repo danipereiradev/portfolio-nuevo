@@ -85,8 +85,12 @@ const Hero = ({
     <section
       id='hero'
       className={`page-hero-compact bg-ink-dark text-ink-dark ${
-        videoUrl ? 'min-h-svh' : ''
-      } ${cinematic ? 'hero-cinematic-section' : ''}`}
+        cinematic
+          ? 'hero-cinematic-section'
+          : videoUrl
+            ? 'min-h-svh'
+            : ''
+      }`}
     >
       {hasBackground && backgroundUrl ? (
         <img

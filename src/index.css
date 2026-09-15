@@ -715,7 +715,15 @@ h6 {
 }
 
 .page-hero-compact.hero-cinematic-section {
-  min-height: 100svh;
+  height: 100vh;
+  min-height: 100vh;
   padding: 0;
   justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .page-hero-compact.hero-cinematic-section {
+    height: 100svh;
+    min-height: 100svh;
+  }
 }
