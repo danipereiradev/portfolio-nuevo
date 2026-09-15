@@ -69,9 +69,9 @@ const translations = {
   'portfolio.chicxs.title': 'Chicxsdelacalle',
   'portfolio.chicxs.desc':
     'Tienda de merch de bandas de música: catálogo, stock y pedidos.',
-  'portfolio.confusion.title': 'Confusion Wear',
-  'portfolio.confusion.desc':
-    'Streetwear con catálogo vivo y pago con tarjeta.',
+  'portfolio.micolet.title': 'Micolet',
+  'portfolio.micolet.desc':
+    'Moda de segunda mano y outlet con catálogo amplio y compra online.',
   'portfolio.camisetas.title': 'Camisetas Ahora',
   'portfolio.camisetas.desc':
     'Tienda de camisetas personalizadas con muchos diseños, filtros y panel de stock.',

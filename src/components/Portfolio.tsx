@@ -22,7 +22,7 @@ type ProjectId =
   | 'hatena'
   | 'delish'
   | 'carper'
-  | 'confusion'
+  | 'micolet'
   | 'alicornio'
   | 'desmundando';
 
@@ -41,7 +41,7 @@ interface PortfolioProps {
 const ALL_ORDER: ProjectId[] = [
   'chicxs',
   'resilience',
-  'confusion',
+  'micolet',
   'delish',
 ];
 const WEB_ORDER: ProjectId[] = [
@@ -223,15 +223,15 @@ const Portfolio = ({
       nofollow: true,
       exito: t('portfolio.delish.desc'),
     },
-    confusion: {
-      title: t('portfolio.confusion.title'),
-      description: t('portfolio.confusion.desc'),
-      image: '/img/portfolio/confusion-empty.png',
+    micolet: {
+      title: t('portfolio.micolet.title'),
+      description: t('portfolio.micolet.desc'),
+      image: '/img/portfolio/moclet-empty.png',
       product: SITE_SHOP_LABEL,
       productHref: SITE_SHOP_PATH,
-      url: 'https://www.confusionwear.com/',
+      url: 'https://www.micolet.com/',
       nofollow: true,
-      exito: t('portfolio.confusion.desc'),
+      exito: t('portfolio.micolet.desc'),
     },
     alicornio: {
       title: t('portfolio.alicornio.title'),
