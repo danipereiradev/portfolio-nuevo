@@ -96,6 +96,9 @@ const translations = {
   'portfolio.alicornio.title': 'O Alicornio - Casa Rural',
   'portfolio.alicornio.desc':
     'Casa rural en O Courel (Lugo). WordPress. En temporada alta suele ir llena por búsquedas orgánicas.',
+  'portfolio.desmundando.title': 'Desmundando',
+  'portfolio.desmundando.desc':
+    'Blog de viajes: relatos, países y la ruta de la seda.',
 
   // Categorías de contacto
   'contact.project.ecommerce': 'E-commerce',

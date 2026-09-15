@@ -251,11 +251,7 @@ const LandingShop = () => {
         benefits={whyUs}
       />
 
-      <Portfolio
-        casos
-        contained
-        ids={['chicxs', 'resilience', 'camisetas']}
-      />
+      <Portfolio />
 
       <SEOProcess
         title='Así se hace'

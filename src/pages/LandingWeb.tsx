@@ -301,7 +301,7 @@ const LandingWeb = () => {
         benefits={whyUs}
       />
 
-      <Portfolio casos contained />
+      <Portfolio />
 
       <SEOProcess
         title='Así se hace'

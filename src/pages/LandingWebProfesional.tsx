@@ -405,7 +405,7 @@ const LandingWebProfesional = () => {
         benefits={whyUs}
       />
 
-      <Portfolio casos contained ids={['carper', 'hatena', 'camisetas']} />
+      <Portfolio />
 
       <Testimonials hasVideo />
 

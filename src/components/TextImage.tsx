@@ -33,6 +33,7 @@ export const TextImage = ({
   const rowClass = imageLeft
     ? 'lg:flex-row lg:text-start'
     : 'lg:flex-row-reverse lg:text-start';
+  const isPortfolioMock = imageSrc.includes('/img/portfolio/');
 
   return (
     <section className={`page-section ${className}`.trim()}>
@@ -61,13 +62,23 @@ export const TextImage = ({
           ) : null}
         </RevealOnScroll>
         <RevealOnScroll className='w-full shrink-0 lg:w-1/2' delayMs={120}>
-          <div className='relative aspect-[4/3] w-full overflow-hidden rounded-lg'>
+          {isPortfolioMock ? (
             <img
-              className='absolute inset-0 h-full w-full object-cover'
+              className='aspect-square h-auto w-full object-contain'
               src={imageSrc}
               alt={imageAlt}
+              width={1254}
+              height={1254}
             />
-          </div>
+          ) : (
+            <div className='relative aspect-[4/3] w-full overflow-hidden rounded-lg'>
+              <img
+                className='absolute inset-0 h-full w-full object-cover'
+                src={imageSrc}
+                alt={imageAlt}
+              />
+            </div>
+          )}
         </RevealOnScroll>
       </div>
     </section>

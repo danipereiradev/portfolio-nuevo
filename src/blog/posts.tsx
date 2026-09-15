@@ -9,7 +9,7 @@ const cuantoCuesta: BlogPost = {
     'En 2026 una página web profesional en España suele ir de 590 € a 3.000 € + IVA, según alcance. Qué entra en el precio, qué no, y cómo pedimos presupuesto en 36web.',
   date: '2026-08-21',
   author: 'Dani Pereira',
-  image: '/img/portfolio/mock-delish.webp',
+  image: '/img/portfolio/delish-empty.png',
   imageAlt: 'Mock de página web profesional',
   category: 'Diseño web',
   content: (
@@ -22,7 +22,7 @@ const cuantoCuesta: BlogPost = {
         o que informen.
       </p>
       <BlogFigure
-        src='/img/portfolio/mock-carper.webp'
+        src='/img/portfolio/carper-empty.png'
         alt='Mock de página web profesional de Carper Sonido'
         caption='Una web de empresa no es una plantilla: estructura, fichas y un contacto que se usa.'
       />
@@ -107,7 +107,7 @@ const cuantoCuesta: BlogPost = {
         entra esto:
       </p>
       <BlogFigure
-        src='/img/portfolio/mock-viajamos.webp'
+        src='/img/portfolio/hoyviajamos-empty.png'
         alt='Mock de página web de Hoy Viajamos'
         caption='Diseño, móvil y publicación con tu dominio. Eso es lo que entra en el precio.'
       />
@@ -151,7 +151,7 @@ const cuantoCuesta: BlogPost = {
         adapta a tu marca, tus textos y cómo te tienen que encontrar.
       </p>
       <BlogFigure
-        src='/img/portfolio/mock-core.webp'
+        src='/img/portfolio/desmundando-empty.png'
         alt='Mock de diseño web a medida'
         caption='A medida no es más caro por sistema. Es la base que pide el caso.'
       />

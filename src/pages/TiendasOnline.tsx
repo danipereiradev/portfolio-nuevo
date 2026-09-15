@@ -275,7 +275,7 @@ const TiendasOnline = () => {
             .
           </>,
         ]}
-        imageSrc='/img/portfolio/mock-chicxs.webp'
+        imageSrc='/img/portfolio/chicxs-empty.png'
         imageAlt='Mock de tienda online de Chicxs de la Calle'
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
@@ -317,7 +317,7 @@ const TiendasOnline = () => {
             .{' '}
           </>,
         ]}
-        imageSrc='/img/portfolio/mock-camisetas.webp'
+        imageSrc='/img/portfolio/camisetas-empty.png'
         imageAlt='Mock de tienda online de Camisetas Ahora'
         imageLeft
         buttonText='PEDIR PROPUESTA'
@@ -389,7 +389,7 @@ const TiendasOnline = () => {
             online.
           </>,
         ]}
-        imageSrc='/img/portfolio/resilience-mock.webp'
+        imageSrc='/img/portfolio/resilience-empty.png'
         imageAlt='Mock de tienda online de Resilience'
         imageLeft
         buttonText='PEDIR PROPUESTA'
@@ -440,7 +440,7 @@ const TiendasOnline = () => {
             .
           </>,
         ]}
-        imageSrc='/img/portfolio/mock-carper.webp'
+        imageSrc='/img/portfolio/carper-empty.png'
         imageAlt='Mock de página web de Carper Sonido'
         buttonText='VER DISEÑO WEB'
         buttonHref={SITE_WEB_PATH}

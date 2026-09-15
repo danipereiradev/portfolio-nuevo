@@ -363,7 +363,7 @@ const DisenoWeb = () => {
             .
           </>,
         ]}
-        imageSrc='/img/portfolio/mock-carper.webp'
+        imageSrc='/img/portfolio/carper-empty.png'
         imageAlt='Mock de página web de Carper Sonido'
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
@@ -414,7 +414,7 @@ const DisenoWeb = () => {
             .
           </>,
         ]}
-        imageSrc='/img/portfolio/mock-viajamos.webp'
+        imageSrc='/img/portfolio/hoyviajamos-empty.png'
         imageAlt='Mock de página web de Hoy Viajamos'
         imageLeft
         buttonText='PEDIR PROPUESTA'
@@ -476,8 +476,8 @@ const DisenoWeb = () => {
             <strong className='font-extrabold'>tu negocio va creciendo</strong>.
           </>,
         ]}
-        imageSrc='/img/portfolio/hatena-mock.webp'
-        imageAlt='Mock de página web de Clínica Veterinaria Hatena'
+        imageSrc='/img/portfolio/alicornio-empty.png'
+        imageAlt='Mock de página web de O Alicornio'
         imageLeft
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
@@ -527,7 +527,7 @@ const DisenoWeb = () => {
             .
           </>,
         ]}
-        imageSrc='/img/portfolio/mock-chicxs.webp'
+        imageSrc='/img/portfolio/chicxs-empty.png'
         imageAlt='Mock de tienda online de Chicxs de la Calle'
         buttonText='VER TIENDAS ONLINE'
         buttonHref={SITE_SHOP_PATH}

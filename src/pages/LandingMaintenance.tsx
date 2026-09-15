@@ -492,7 +492,7 @@ const LandingMaintenance = () => {
         benefits={whyUs}
       />
 
-      <Portfolio casos contained />
+      <Portfolio />
 
       <SEOProcess
         title='Así se contrata'
