@@ -136,7 +136,7 @@ const offerIncludes = [
 
 const offerExcludes = [
   'Ecommerce',
-  'Reservas avanzadas',
+  'Funcionalidades especiales',
   'Áreas privadas',
   'Desarrollos a medida',
   'Redacción profesional de contenidos',
@@ -252,7 +252,7 @@ const faqs = [
   {
     question: '¿Qué no incluye?',
     answer:
-      'No incluye ecommerce, reservas avanzadas, áreas privadas ni desarrollos a medida. Logo y redacción profesional de contenidos tampoco entran en este precio: si no cuentas con ellos, te lo presupuestamos.',
+      'No incluye ecommerce, funcionalidades especiales, áreas privadas ni desarrollos a medida. Logo y redacción profesional de contenidos tampoco entran en este precio: si no cuentas con ellos, te lo presupuestamos.',
   },
   {
     question: '¿Cuánto tarda?',
