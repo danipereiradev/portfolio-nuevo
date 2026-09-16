@@ -328,7 +328,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
       <div className='   mx-auto'>
         <div className='bg-white rounded-lg border-2 border-ink-dark shadow-[7px_7px_0_0_#1a1a1a] overflow-hidden'>
-          <form onSubmit={handleSubmit} className='p-8 space-y-6'>
+          <form onSubmit={handleSubmit} className='space-y-6 p-8 text-ink-dark'>
             <div className='grid md:grid-cols-2 gap-6'>
               <div>
                 <label className='block text-sm font-medium text-gray-700 mb-2 text-center md:text-left'>
@@ -340,7 +340,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                     type='text'
                     value={formData.name}
                     onChange={(e) => handleInputChange('name', e.target.value)}
-                    className={`w-full pl-10 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_var(--color-accent)] transition-all duration-150 ${
+                    className={`w-full rounded-lg border-2 bg-white py-3 pl-10 pr-4 text-ink-dark caret-ink-dark transition-all duration-150 focus:border-accent focus:shadow-[3px_3px_0_0_var(--color-accent)] focus:outline-none ${
                       errors.name
                         ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
                         : 'border-ink-dark'
@@ -362,7 +362,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                     type='email'
                     value={formData.email}
                     onChange={(e) => handleInputChange('email', e.target.value)}
-                    className={`w-full pl-10 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_var(--color-accent)] transition-all duration-150 ${
+                    className={`w-full rounded-lg border-2 bg-white py-3 pl-10 pr-4 text-ink-dark caret-ink-dark transition-all duration-150 focus:border-accent focus:shadow-[3px_3px_0_0_var(--color-accent)] focus:outline-none ${
                       errors.email
                         ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
                         : 'border-ink-dark'
@@ -384,7 +384,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                     type='tel'
                     value={formData.phone}
                     onChange={(e) => handleInputChange('phone', e.target.value)}
-                    className={`w-full pl-10 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_var(--color-accent)] transition-all duration-150 ${
+                    className={`w-full rounded-lg border-2 bg-white py-3 pl-10 pr-4 text-ink-dark caret-ink-dark transition-all duration-150 focus:border-accent focus:shadow-[3px_3px_0_0_var(--color-accent)] focus:outline-none ${
                       errors.phone
                         ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
                         : 'border-ink-dark'
@@ -409,7 +409,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                     onChange={(e) =>
                       handleInputChange('businessType', e.target.value)
                     }
-                    className={`w-full pl-10 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_var(--color-accent)] transition-all duration-150 ${
+                    className={`w-full rounded-lg border-2 bg-white py-3 pl-10 pr-4 text-ink-dark caret-ink-dark transition-all duration-150 focus:border-accent focus:shadow-[3px_3px_0_0_var(--color-accent)] focus:outline-none ${
                       errors.businessType
                         ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
                         : 'border-ink-dark'
@@ -475,7 +475,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                   handleInputChange('description', e.target.value)
                 }
                 rows={3}
-                className={`w-full p-4 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_var(--color-accent)] transition-all duration-150 ${
+                className={`w-full rounded-lg border-2 bg-white p-4 text-ink-dark caret-ink-dark transition-all duration-150 focus:border-accent focus:shadow-[3px_3px_0_0_var(--color-accent)] focus:outline-none ${
                   errors.description
                     ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
                     : 'border-ink-dark'
@@ -504,7 +504,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                 type='text'
                 value={antiSpamAnswer}
                 onChange={(e) => setAntiSpamAnswer(e.target.value)}
-                className={`w-full px-4 py-2 border-2 rounded-lg bg-white focus:outline-none focus:border-accent focus:shadow-[3px_3px_0_0_var(--color-accent)] transition-all duration-150 ${
+                className={`w-full rounded-lg border-2 bg-white px-4 py-2 text-ink-dark caret-ink-dark transition-all duration-150 focus:border-accent focus:shadow-[3px_3px_0_0_var(--color-accent)] focus:outline-none ${
                   errors.antiSpam
                     ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
                     : 'border-ink-dark'

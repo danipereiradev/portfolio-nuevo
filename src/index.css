@@ -7,6 +7,27 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  input:not([type='checkbox']):not([type='radio']):not([type='submit']):not(
+      [type='button']
+    ):not([type='hidden']):not([type='file']):not([type='range']):not(
+      [type='color']
+    ),
+  textarea,
+  select {
+    color: #141414;
+    caret-color: #141414;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  select:-webkit-autofill {
+    -webkit-text-fill-color: #141414;
+  }
+}
+
 :root {
   --color-accent: #3346c1;
   --color-accent-hover: #2b3ba1;

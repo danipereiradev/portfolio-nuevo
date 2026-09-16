@@ -26,6 +26,13 @@ const PROJECT_TYPES = [
   'Todavía no lo tengo claro',
 ] as const;
 
+const fieldClass = (hasError: boolean) =>
+  `w-full text-2xl pl-4 pr-4 py-3 border-2 rounded-lg bg-white text-ink-dark caret-ink-dark focus:outline-none focus:border-accent transition-all duration-150 ${
+    hasError
+      ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
+      : 'border-gray-400'
+  }`;
+
 const emptyForm = (page: string) => ({
   name: '',
   email: '',
@@ -240,7 +247,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       <form
         id={id}
         onSubmit={handleSubmit}
-        className='w-full rounded-lg bg-surface-muted p-content-pad shadow-xl md:w-3/4'
+        className='w-full rounded-lg bg-surface-muted p-content-pad text-ink-dark shadow-xl md:w-3/4'
         action=''
       >
         <div className='page-title-block text-center'>
@@ -257,11 +264,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             type='text'
             value={formData.name}
             onChange={(e) => handleInputChange('name', e.target.value)}
-            className={`text-2xl pl-4 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent transition-all duration-150 ${
-              errors.name
-                ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
-                : 'border-gray-400'
-            }`}
+            className={fieldClass(Boolean(errors.name))}
             placeholder='Tu nombre *'
             maxLength={50}
           />
@@ -270,11 +273,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             type='email'
             value={formData.email}
             onChange={(e) => handleInputChange('email', e.target.value)}
-            className={`w-full text-2xl pl-4 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent transition-all duration-150 ${
-              errors.email
-                ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
-                : 'border-gray-400'
-            }`}
+            className={fieldClass(Boolean(errors.email))}
             autoComplete='email'
             placeholder='Tu email'
           />
@@ -283,11 +282,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             type='tel'
             value={formData.phone}
             onChange={(e) => handleInputChange('phone', e.target.value)}
-            className={`w-full text-2xl pl-4 pr-4 py-3 border-2 rounded-lg bg-white focus:outline-none focus:border-accent transition-all duration-150 ${
-              errors.phone
-                ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
-                : 'border-gray-400'
-            }`}
+            className={fieldClass(Boolean(errors.phone))}
             placeholder='Tu teléfono'
             autoComplete='tel'
             inputMode='tel'
@@ -298,11 +293,9 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             onChange={(e) => handleInputChange('projectType', e.target.value)}
             aria-label='Qué necesitas'
             required
-            className={`w-full border-2 rounded-lg bg-white py-3 pl-4 pr-4 text-xl transition-all duration-150 focus:outline-none focus:border-accent md:text-2xl ${
-              errors.projectType
-                ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
-                : 'border-gray-400'
-            } ${formData.projectType ? 'text-ink-dark' : 'text-gray-400'}`}
+            className={`${fieldClass(Boolean(errors.projectType))} text-xl md:text-2xl ${
+              formData.projectType ? 'text-ink-dark' : 'text-gray-400'
+            }`}
           >
             <option value='' disabled>
               ¿Qué necesitas? *
