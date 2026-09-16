@@ -199,6 +199,10 @@
       "destination": "/landing-mantenimiento-web/index.html"
     },
     {
+      "source": "/landing-google-ads",
+      "destination": "/landing-google-ads/index.html"
+    },
+    {
       "source": "/tiendas-online",
       "destination": "/tiendas-online/index.html"
     },

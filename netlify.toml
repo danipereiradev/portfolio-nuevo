@@ -166,6 +166,11 @@
   status = 200
 
 [[redirects]]
+  from = "/landing-google-ads"
+  to = "/landing-google-ads/index.html"
+  status = 200
+
+[[redirects]]
   from = "/web-profesional"
   to = "/web-profesional/index.html"
   status = 200

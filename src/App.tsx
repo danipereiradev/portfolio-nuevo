@@ -19,6 +19,7 @@ import {
   ADS_LANDING_PATH_N,
   ADS_LAUNCH_LANDING_PATH,
   ADS_MAINTENANCE_LANDING_PATH,
+  ADS_GOOGLE_ADS_LANDING_PATH,
   ADS_SHOP_LANDING_PATH,
   ABOUT_PATH,
   SITE_MAINTENANCE_PATH,
@@ -46,6 +47,7 @@ const LandingWebProfesional = lazy(
 );
 const LandingShop = lazy(() => import('./pages/LandingShop'));
 const LandingMaintenance = lazy(() => import('./pages/LandingMaintenance'));
+const LandingGoogleAds = lazy(() => import('./pages/LandingGoogleAds'));
 const CondicionesDelProyecto = lazy(
   () => import('./pages/CondicionesDelProyecto'),
 );
@@ -129,6 +131,10 @@ function AppContent() {
             <Route
               path={ADS_MAINTENANCE_LANDING_PATH}
               element={<LandingMaintenance />}
+            />
+            <Route
+              path={ADS_GOOGLE_ADS_LANDING_PATH}
+              element={<LandingGoogleAds />}
             />
             <Route
               path='/condiciones-del-proyecto'

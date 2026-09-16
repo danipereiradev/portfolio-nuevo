@@ -1,7 +1,7 @@
 // Datos de contacto centralizados. Cambiar el número aquí actualiza toda la
 // web (enlaces de WhatsApp, tel: y texto visible) desde un único sitio.
-export const PHONE_NUMBER = '34644665352';
-export const PHONE_DISPLAY = '+34 644 665 352';
+export const PHONE_NUMBER = '644665352';
+export const PHONE_DISPLAY = '644 665 352';
 export const PHONE_TEL_LINK = `tel:+${PHONE_NUMBER}`;
 export const CONTACT_EMAIL = 'hola@36web.es';
 export const INSTAGRAM_HANDLE = '36web.es';
@@ -33,8 +33,13 @@ export const ADS_MAINTENANCE_WHATSAPP_MESSAGE =
 export const ADS_LAUNCH_WHATSAPP_MESSAGE =
   'Estoy interesado en web profesional';
 
+export const ADS_GOOGLE_ADS_WHATSAPP_MESSAGE = 'Estoy interesado en Google Ads';
+
 /** Origen del formulario en la landing de oferta 349 €. Sale en Formspree y en el tracking. */
 export const ADS_LAUNCH_FORM_ORIGIN = 'landing promo 349';
+
+/** Origen del formulario de la landing de Google Ads. */
+export const ADS_GOOGLE_ADS_FORM_ORIGIN = 'landing google ads';
 
 /** Origen de cada formulario de la landing de mantenimiento (Formspree + GA). */
 export const ADS_MAINTENANCE_FORM_HERO = 'Landing mantenimiento web — Hero';
@@ -109,6 +114,9 @@ export const ADS_MAINTENANCE_LANDING_PATH = '/landing-mantenimiento-web';
 /** Landing de oferta de lanzamiento paquetizada. noindex. */
 export const ADS_LAUNCH_LANDING_PATH = '/landing-web-profesional';
 
+/** Landing de Ads del servicio Google Ads. */
+export const ADS_GOOGLE_ADS_LANDING_PATH = '/landing-google-ads';
+
 export const isAdsWebLandingPath = (pathname: string): boolean => {
   const path = normalizePath(pathname);
   return path === ADS_LANDING_PATH || path === ADS_LANDING_PATH_N;
@@ -123,11 +131,15 @@ export const isAdsMaintenanceLandingPath = (pathname: string): boolean =>
 export const isAdsLaunchLandingPath = (pathname: string): boolean =>
   normalizePath(pathname) === ADS_LAUNCH_LANDING_PATH;
 
+export const isAdsGoogleAdsLandingPath = (pathname: string): boolean =>
+  normalizePath(pathname) === ADS_GOOGLE_ADS_LANDING_PATH;
+
 export const isAdsLandingPath = (pathname: string): boolean =>
   isAdsWebLandingPath(pathname) ||
   isAdsShopLandingPath(pathname) ||
   isAdsMaintenanceLandingPath(pathname) ||
-  isAdsLaunchLandingPath(pathname);
+  isAdsLaunchLandingPath(pathname) ||
+  isAdsGoogleAdsLandingPath(pathname);
 
 export const isSiteWebPath = (pathname: string): boolean => {
   const path = normalizePath(pathname);
@@ -145,6 +157,7 @@ export const getWhatsAppMessageForPath = (pathname: string): string => {
       : ADS_SHOP_WHATSAPP_MESSAGE;
   }
   if (isAdsLaunchLandingPath(path)) return ADS_LAUNCH_WHATSAPP_MESSAGE;
+  if (isAdsGoogleAdsLandingPath(path)) return ADS_GOOGLE_ADS_WHATSAPP_MESSAGE;
   if (isAdsWebLandingPath(path)) return ADS_WHATSAPP_MESSAGE;
   if (isAdsMaintenanceLandingPath(path))
     return ADS_MAINTENANCE_WHATSAPP_MESSAGE;

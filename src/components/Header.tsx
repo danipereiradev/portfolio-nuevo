@@ -7,9 +7,15 @@ import {
   PHONE_TEL_LINK,
   ABOUT_PATH,
   ABOUT_LABEL,
+  isAdsGoogleAdsLandingPath,
   isAdsLandingPath,
 } from '../config/contact';
-import { LANDING_NAV, LANDING_NAV_CTA, SERVICE_NAV } from '../config/nav';
+import {
+  LANDING_NAV,
+  LANDING_NAV_CTA,
+  LANDING_NAV_GOOGLE_ADS,
+  SERVICE_NAV,
+} from '../config/nav';
 
 const navLinkClass =
   'relative shrink-0 text-center text-sm xl:text-xl py-2 px-2 xl:px-4 rounded-lg uppercase font-bold transition-colors';
@@ -28,6 +34,9 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
   const { pathname } = useLocation();
   const isHome = pathname === '/';
   const isAdsLanding = isAdsLandingPath(pathname);
+  const landingNav = isAdsGoogleAdsLandingPath(pathname)
+    ? LANDING_NAV_GOOGLE_ADS
+    : LANDING_NAV;
   const desktopNavClass = isHome ? homeNavLinkClass : defaultNavLinkClass;
   const mobileLinksClass = isHome ? homeMobileNavLinkClass : mobileNavLinkClass;
 
@@ -168,7 +177,7 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
                   className='hidden shrink-0 items-center gap-1 lg:flex xl:gap-2'
                   aria-label='En la página'
                 >
-                  {LANDING_NAV.map((item) => (
+                  {landingNav.map((item) => (
                     <a
                       key={item.href}
                       href={item.href}
@@ -296,7 +305,7 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
               className='mt-2 divide-y divide-ink-dark/15 lg:hidden'
               aria-label='En la página'
             >
-              {LANDING_NAV.map((item) => (
+              {landingNav.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}

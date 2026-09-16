@@ -37,6 +37,13 @@ export const LANDING_NAV = [
   { href: '#faq', label: 'FAQ' },
 ] as const;
 
+export const LANDING_NAV_GOOGLE_ADS = [
+  { href: '#incluye', label: 'Qué incluye' },
+  { href: '#casos', label: 'Casos' },
+  { href: '#testimonials', label: 'Opiniones' },
+  { href: '#faq', label: 'FAQ' },
+] as const;
+
 export const LANDING_NAV_CTA = {
   href: '#contacto',
   label: 'Pedir propuesta',

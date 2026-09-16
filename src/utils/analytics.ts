@@ -806,3 +806,11 @@ export const trackLandingMaintenanceView = () => {
     landing_name: 'landing-mantenimiento-web',
   });
 };
+
+export const trackLandingGoogleAdsView = () => {
+  trackEvent('landing_google_ads_view', {
+    event_category: 'landing_google_ads',
+    event_label: 'landing-google-ads',
+    landing_name: 'landing-google-ads',
+  });
+};

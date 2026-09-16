@@ -10,6 +10,7 @@ import {
   unlockGoogleAdsFormConversion,
 } from '../utils/analytics';
 import {
+  ADS_GOOGLE_ADS_FORM_ORIGIN,
   ADS_LAUNCH_FORM_ORIGIN,
   ADS_MAINTENANCE_FORM_FINAL,
   ADS_MAINTENANCE_FORM_HERO,
@@ -22,6 +23,7 @@ const PROJECT_TYPES = [
   'Web nueva',
   'Rediseñar la que ya tengo',
   'Tienda online',
+  'Google Ads',
   'Aplicación movil',
   'Mantenimiento web',
   'Todavía no lo tengo claro',
@@ -38,7 +40,7 @@ const emptyForm = (page: string) => ({
   name: '',
   email: '',
   phone: '',
-  projectType: '',
+  projectType: page === ADS_GOOGLE_ADS_FORM_ORIGIN ? 'Google Ads' : '',
   consent: false,
   page,
 });

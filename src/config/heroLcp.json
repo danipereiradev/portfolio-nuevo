@@ -27,5 +27,8 @@
   "/landing-mantenimiento-web": {
     "image": "/video/hero-home-2.jpg",
     "video": "/video/video%20home_2.mp4"
+  },
+  "/landing-google-ads": {
+    "image": "/video/hero-nubes.jpg"
   }
 }
