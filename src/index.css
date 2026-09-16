@@ -570,8 +570,11 @@ img {
 }
 
 html {
-  /* 75% de 16px = 12px: un 25% más pequeño en móvil. */
-  font-size: 75%;
+  /* 12px fijos en móvil: iOS ya respetaba el 75%; Chrome en Android
+     inflaba el texto (font boosting) y se veía más grande. */
+  font-size: 12px;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* Header fijo: el salto a #id no se esconde debajo. auto, no smooth:
