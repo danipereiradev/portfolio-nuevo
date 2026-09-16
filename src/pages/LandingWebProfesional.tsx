@@ -1,5 +1,19 @@
 import { useEffect, useMemo } from 'react';
-import { Check, FileCheck, Handshake, LayoutTemplate, X } from 'lucide-react';
+import {
+  Check,
+  Clock,
+  FileCheck,
+  Globe,
+  Handshake,
+  LayoutTemplate,
+  MessageCircle,
+  Search,
+  Share2,
+  ShieldCheck,
+  Smartphone,
+  Type,
+  X,
+} from 'lucide-react';
 import Portfolio from '../components/Portfolio';
 import SEOBenefits from '../components/SEOBenefits';
 import SEOFAQ from '../components/SEOFAQ';
@@ -25,102 +39,57 @@ import { trackLandingPromo349View } from '../utils/analytics';
 
 const includes = [
   {
+    icon: Clock,
     title: `Lista en ${LAUNCH_DELIVERY_LABEL}`,
-    description: (
-      <>
-        Cuando tenemos logo, textos y los datos de tu negocio, montamos la web y
-        te la enseñamos.{' '}
-        <strong className='font-extrabold'>
-          Se publica en {LAUNCH_DELIVERY_LABEL} desde esa entrega
-        </strong>
-        .
-      </>
-    ),
+    description: `Cuando tenemos logo, textos y datos, montamos la web y te la enseñamos. Se publica en ${LAUNCH_DELIVERY_LABEL} desde esa entrega.`,
   },
   {
+    icon: LayoutTemplate,
     title: 'Diseño adaptado a tu negocio',
-    description: (
-      <>
-        Adaptamos colores, estructura y presentación a tu marca y sector para
-        que la web tenga{' '}
-        <strong className='font-extrabold'>sentido para tu negocio</strong>.
-      </>
-    ),
+    description:
+      'Adaptamos colores, estructura y estilo a tu marca y sector.',
   },
   {
+    icon: Type,
     title: 'Logo y textos',
-    description: (
-      <>
-        Tú nos entregas logo y textos.{' '}
-        <strong className='font-extrabold'>
-          Si no cuentas con ellos, te lo presupuestamos
-        </strong>
-        .
-      </>
-    ),
+    description:
+      'Tú nos entregas logo y textos. Si no los tienes, te los presupuestamos.',
   },
   {
-    title: 'Se ve bien en el móvil',
-    description: (
-      <>
-        La mayor parte de tus visitas llegan del teléfono. La página tiene que
-        leerse y{' '}
-        <strong className='font-extrabold'>
-          dejar que te escriban desde ahí
-        </strong>
-        .
-      </>
-    ),
+    icon: Smartphone,
+    title: 'Se ve bien en móvil',
+    description:
+      'Diseño responsive para que se vea y funcione bien desde el teléfono.',
   },
   {
+    icon: MessageCircle,
     title: 'Formulario y WhatsApp',
-    description: (
-      <>
-        Si no pueden contactarte, la web no sirve. Dejamos{' '}
-        <strong className='font-extrabold'>
-          un formulario y un botón de WhatsApp
-        </strong>{' '}
-        a la vista.
-      </>
-    ),
+    description:
+      'Incluimos formulario y botón de WhatsApp para facilitar el contacto.',
   },
   {
-    title: 'Preparada para Google y para cargar rápido',
-    description: (
-      <>
-        Títulos, encabezados, URLs limpias y una página rápida.{' '}
-        <strong className='font-extrabold'>
-          Google y tus clientes lo notan
-        </strong>
-        .
-      </>
-    ),
+    icon: Share2,
+    title: 'Tus redes sociales',
+    description:
+      'Conectamos Instagram, Facebook y las redes que utilices.',
   },
   {
-    title: 'Hosting, dominio y publicación incluidos',
-    description: (
-      <>
-        Incluimos{' '}
-        <strong className='font-extrabold'>
-          el hosting y el dominio durante el primer año
-        </strong>
-        . La web y el dominio quedan a tu nombre. El hosting puede renovarse con
-        nosotros o migrarse a otro proveedor.
-      </>
-    ),
+    icon: Search,
+    title: 'Preparada para Google y rápida',
+    description:
+      'Títulos, encabezados, URLs limpias y una base técnica optimizada.',
   },
   {
+    icon: Globe,
+    title: 'Hosting, dominio y publicación',
+    description:
+      'Hosting y dominio incluidos el primer año. La web queda a tu nombre.',
+  },
+  {
+    icon: ShieldCheck,
     title: 'No se publica hasta que estés conforme',
-    description: (
-      <>
-        La ves antes de que salga a internet. Si algo importante no encaja, lo
-        ajustamos.{' '}
-        <strong className='font-extrabold'>
-          El 50% final se paga cuando apruebes. No antes
-        </strong>
-        .
-      </>
-    ),
+    description:
+      'La revisas antes de publicar. Si algo importante no encaja, lo ajustamos. El 50% final se paga tras tu aprobación.',
   },
 ];
 

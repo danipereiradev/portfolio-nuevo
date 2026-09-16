@@ -1,7 +1,9 @@
 import type { ReactNode } from 'react';
+import type { LucideIcon } from 'lucide-react';
 import RevealOnScroll from './RevealOnScroll';
 
 type IncludeItem = {
+  icon?: LucideIcon;
   title: string;
   description: ReactNode;
 };
@@ -27,14 +29,26 @@ export const ServiceIncludes = ({
         </h2>
         <p className='text-xl md:text-2xl text-ink-dark'>{intro}</p>
       </div>
-      <div className='grid items-stretch gap-page-gap md:grid-cols-2 lg:grid-cols-3'>
+      <div className='grid items-stretch gap-page-gap [grid-auto-rows:1fr] md:grid-cols-2 lg:grid-cols-3'>
         {items.map((item, index) => {
+          const Icon = item.icon;
           const card = (
-            <article className='flex h-full flex-col rounded-lg border-2 border-ink-dark bg-white p-content-pad'>
-              <h3 className='mb-heading-gap text-xl font-bold text-ink-dark md:text-2xl'>
+            <article
+              className={`flex h-full min-h-full flex-col rounded-lg border-2 border-ink-dark bg-white p-content-pad ${
+                Icon ? 'items-center text-center' : ''
+              }`}
+            >
+              {Icon ? (
+                <Icon className='mb-title-gap h-7 w-7 shrink-0 text-accent md:h-8 md:w-8' />
+              ) : null}
+              <h3
+                className={`mb-heading-gap text-xl font-bold text-ink-dark md:text-2xl ${
+                  Icon ? 'min-h-[2.6em]' : ''
+                }`}
+              >
                 {item.title}
               </h3>
-              <p className='text-base leading-relaxed text-ink-dark md:text-lg'>
+              <p className='flex-1 text-base leading-relaxed text-ink-dark md:text-lg'>
                 {item.description}
               </p>
             </article>
