@@ -177,7 +177,7 @@ const faqs = [
   {
     question: '¿Cuánto cuesta y cómo se paga?',
     answer:
-      'Depende del alcance, no hay un pack fijo. Orientación: muchas webs quedan entre 590 € y 3.000 € + IVA. Tras hablar te mandamos un número concreto, por escrito. Pedirlo es gratis. El 50% se paga al aceptar y arrancar. El resto, al publicar.',
+      'Depende del alcance, no hay un pack fijo. Orientación: muchas webs quedan entre 349 € y 1500 € + IVA. Tras hablar te mandamos un número concreto, por escrito. Pedirlo es gratis. El 50% se paga al aceptar y arrancar. El resto, al publicar.',
   },
   {
     question: '¿Qué web cuesta 590 €?',
@@ -262,17 +262,18 @@ const LandingWeb = () => {
         }
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
-        videoUrl='/video/video%20home_2.mp4'
-        backgroundUrl='/video/hero-home-2.jpg'
+        backgroundUrl='/video/hero-nubes.jpg'
         heroType='form'
         hasButton={false}
         formTitle='Pide tu propuesta'
         formDescription='Propuesta en el mismo día. Sin compromiso.'
         formSectionInfo='Landing diseño web — Hero'
+        formId='contacto'
         hasBackground
         overlay='none'
         hasReviewBadge
         isTopHero
+        convertFirstOnMobile
       />
 
       <TrustBar points={landingTrustPoints} />
@@ -365,7 +366,6 @@ const LandingWeb = () => {
         formSectionInfo='Landing diseño web — CTA final'
         hasBackground={false}
         hasReviewBadge
-        formId='contacto'
       />
     </>
   );

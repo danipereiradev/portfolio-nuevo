@@ -7,7 +7,7 @@ import { Team } from '../components/Team';
 import Testimonials from '../components/Testimonials';
 import LaunchTrustBar from '../components/LaunchTrustBar';
 import SEOProcess from '../components/SEOProcess';
-import HeroCta, { HeroCtaList } from '../components/HeroCta';
+import HeroCta from '../components/HeroCta';
 import LaunchPaymentTable from '../components/LaunchPaymentTable';
 import LaunchReserveActions from '../components/LaunchReserveActions';
 import { ServiceIncludes } from '../components/ServiceOnPage';
@@ -112,7 +112,7 @@ const includes = [
 ];
 
 const offerIncludes = [
-  'Hasta 4 secciones',
+  'Hasta 5 secciones',
   'Adaptación a tu marca',
   'Formulario y WhatsApp',
   'Publicación',
@@ -228,7 +228,7 @@ const faqs = [
   {
     question: '¿Qué incluye?',
     answer:
-      'Esta oferta es para una web sencilla de presentación de negocio. Incluye estructura estándar, adaptación a tu marca, formulario, WhatsApp, publicación y hosting y dominio el primer año. Tú aportas logo, textos y fotos. Si no cuentas con logo o textos, te lo presupuestamos. Precio cerrado. La web es tuya.',
+      'Esta oferta es para una web sencilla de presentación de negocio. Incluye hasta 5 secciones, adaptación a tu marca, formulario, WhatsApp, publicación y hosting y dominio el primer año. Tú aportas logo, textos y fotos. Si no cuentas con logo o textos, te lo presupuestamos. Precio cerrado. La web es tuya.',
   },
   {
     question: '¿Qué no incluye?',
@@ -295,34 +295,32 @@ const LandingWebProfesional = () => {
         label='Web profesional'
         title={`Una web profesional para tu negocio por ${getLaunchPriceLabel()}`}
         description={
-          <HeroCtaList
-            items={[
-              'Esta oferta es para una web sencilla de presentación de negocio.',
-              <>
-                Precio cerrado. Se paga 50% al empezar y 50% antes de publicar.
-              </>,
-              'Tú nos entregas logo, textos y la información de tu negocio.',
-              <>
-                <strong className='font-extrabold'>
-                  La web queda lista en {LAUNCH_DELIVERY_LABEL} desde ese
-                  momento
-                </strong>
-                .
-              </>,
-              'Hosting y dominio el primer año.',
-            ]}
-          />
+          <>
+            <p>
+              Web profesional para autónomos, emprendedores y pequeños negocios.
+            </p>
+            <p className='mt-2 font-extrabold'>
+              {getLaunchPriceLabel()} · Lista en {LAUNCH_DELIVERY_LABEL} · Sin
+              cuotas mensuales
+            </p>
+            <ul className='mt-4 space-y-1 text-center text-base font-bold md:text-left md:text-lg'>
+              <li>50 % al empezar · 50 % antes de publicar</li>
+              <li>Hosting y dominio incluidos el primer año</li>
+              <li>La web es tuya</li>
+            </ul>
+          </>
         }
+        convertFirstOnMobile
         buttonText='Quiero mi web'
         buttonHref='#contacto'
-        videoUrl='/video/video%20home_2.mp4'
-        backgroundUrl='/video/hero-home-2.jpg'
+        backgroundUrl='/video/hero-nubes.jpg'
         heroType='form'
         hasButton={false}
         formTitle='Quiero mi web'
         formDescription='Te contactamos y confirmamos el proyecto. Sin compromiso.'
         formSectionInfo={ADS_LAUNCH_FORM_ORIGIN}
         formSubmitLabel='Quiero mi web'
+        formId='contacto'
         hasBackground
         overlay='none'
         hasReviewBadge
@@ -339,7 +337,7 @@ const LandingWebProfesional = () => {
             <strong className='font-extrabold'>
               web sencilla de presentación de negocio
             </strong>
-            . Hasta 4 secciones, tu marca, formulario, WhatsApp y publicación.
+            . Hasta 5 secciones, tu marca, formulario, WhatsApp y publicación.
             Precio cerrado.
           </>
         }
@@ -473,7 +471,6 @@ const LandingWebProfesional = () => {
         formDescription='Nombre, email y teléfono. Te escribimos en horario laboral.'
         formSectionInfo={ADS_LAUNCH_FORM_ORIGIN}
         formSubmitLabel='Quiero mi web'
-        formId='contacto'
         hasBackground={false}
         hasReviewBadge
       />

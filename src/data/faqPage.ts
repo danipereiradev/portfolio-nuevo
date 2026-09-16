@@ -69,7 +69,7 @@ export const faqCategories: FaqCategory[] = [
       {
         question: '¿Cuánto cuesta una web?',
         answer:
-          'No hay tarifa fija en la web. Orientación: muchas quedan entre 590 € y 3.000 € + IVA. Tras hablarte, te damos un número concreto.',
+          'No hay tarifa fija en la web. Orientación: muchas quedan entre 349 € y 1500 € + IVA. Tras hablarte, te damos un número concreto.',
       },
       {
         question: '¿Y tienda o mantenimiento?',

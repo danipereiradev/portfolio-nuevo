@@ -49,6 +49,7 @@ interface ContactHeroFormHeroProps {
   id?: string;
   className?: string;
   submitLabel?: string;
+  compactOnMobile?: boolean;
 }
 
 export const ContactFormHero = ({
@@ -58,6 +59,7 @@ export const ContactFormHero = ({
   id,
   className = '',
   submitLabel = 'Pedir propuesta',
+  compactOnMobile = false,
 }: ContactHeroFormHeroProps) => {
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -250,7 +252,11 @@ Fecha: ${new Date().toLocaleString('es-ES')}
         className='w-full rounded-lg bg-surface-muted p-content-pad text-ink-dark shadow-xl md:w-3/4'
         action=''
       >
-        <div className='page-title-block text-center'>
+        <div
+          className={`page-title-block text-center ${
+            compactOnMobile ? 'hidden md:flex' : ''
+          }`}
+        >
           <h2 className='text-2xl font-extrabold text-black md:text-3xl lg:text-4xl'>
             {title}
           </h2>
@@ -259,7 +265,11 @@ Fecha: ${new Date().toLocaleString('es-ES')}
           </span>
           <p className='text-center text-lg text-gray-900'>{description}</p>
         </div>
-        <div className='form-fields mt-page-gap flex flex-col gap-content-gap'>
+        <div
+          className={`form-fields flex flex-col gap-content-gap ${
+            compactOnMobile ? 'md:mt-page-gap' : 'mt-page-gap'
+          }`}
+        >
           <input
             type='text'
             value={formData.name}

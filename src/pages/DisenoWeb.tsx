@@ -19,7 +19,7 @@ const faqs = [
   {
     question: '¿Cuánto cuesta una página web profesional?',
     answer:
-      'El precio de una página web depende del alcance. Orientación: muchas webs a medida quedan entre 590 € y 3.000 € + IVA. Tras hablar te mandamos un presupuesto concreto, con lo que entra y el plazo.',
+      'El precio de una página web depende del alcance. Orientación: muchas webs a medida quedan entre 349 € y 1500 € + IVA. Tras hablar te mandamos un presupuesto concreto, con lo que entra y el plazo.',
   },
   {
     question: '¿Cuánto tarda?',

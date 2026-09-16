@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import {
   trackWhatsAppClick,
@@ -12,67 +11,9 @@ import {
   isAdsMaintenanceLandingPath,
 } from '../config/contact';
 
-const TOOLTIP_DELAY_MS = 15000;
-const TOOLTIP_TEXT = 'Estamos en whatsapp!';
-const TOOLTIP_SHOWN_KEY = 'wa-landing-tooltip-shown';
-
-const hasShownTooltip = () => {
-  try {
-    return sessionStorage.getItem(TOOLTIP_SHOWN_KEY) === '1';
-  } catch {
-    return false;
-  }
-};
-
-const markTooltipShown = () => {
-  try {
-    sessionStorage.setItem(TOOLTIP_SHOWN_KEY, '1');
-  } catch {
-    // Safari privado / sin almacenamiento.
-  }
-};
-
 const WhatsAppButton = () => {
   const { pathname } = useLocation();
   const isLanding = isAdsLandingPath(pathname);
-  const [showTooltip, setShowTooltip] = useState(false);
-
-  useEffect(() => {
-    if (!isLanding) {
-      setShowTooltip(false);
-      return;
-    }
-    if (hasShownTooltip()) return;
-
-    let timer: number | undefined;
-
-    const startTimer = () => {
-      timer = window.setTimeout(() => {
-        if (hasShownTooltip()) return;
-        markTooltipShown();
-        setShowTooltip(true);
-      }, TOOLTIP_DELAY_MS);
-    };
-
-    if (document.visibilityState === 'visible') {
-      startTimer();
-    } else {
-      const onVisible = () => {
-        if (document.visibilityState !== 'visible') return;
-        document.removeEventListener('visibilitychange', onVisible);
-        startTimer();
-      };
-      document.addEventListener('visibilitychange', onVisible);
-      return () => {
-        document.removeEventListener('visibilitychange', onVisible);
-        if (timer) window.clearTimeout(timer);
-      };
-    }
-
-    return () => {
-      if (timer) window.clearTimeout(timer);
-    };
-  }, [isLanding]);
 
   if (!isLanding) return null;
 
@@ -80,7 +21,6 @@ const WhatsAppButton = () => {
   const whatsappUrl = buildWhatsAppUrl(message);
 
   const openWhatsApp = () => {
-    setShowTooltip(false);
     trackWhatsAppClick('LandingMobileBubble', message);
     if (isAdsMaintenanceLandingPath(pathname)) {
       trackMaintenanceWhatsAppClick('LandingMobileBubble');
@@ -90,35 +30,6 @@ const WhatsAppButton = () => {
 
   return (
     <div className='fixed bottom-6 right-6 z-40 md:hidden'>
-      {showTooltip ? (
-        <div
-          role='status'
-          className='absolute bottom-full right-0 mb-3 flex items-center gap-2 rounded-lg bg-brand-light px-3 py-2 text-sm font-semibold text-accent shadow-[0_4px_16px_rgba(0,0,0,0.08)]'
-        >
-          <button
-            type='button'
-            className='max-w-[12rem] text-left'
-            onClick={openWhatsApp}
-          >
-            {TOOLTIP_TEXT}
-          </button>
-          <button
-            type='button'
-            className='shrink-0 rounded-full p-1 text-accent'
-            aria-label='Cerrar'
-            onClick={() => setShowTooltip(false)}
-          >
-            <span aria-hidden='true' className='block leading-none'>
-              ×
-            </span>
-          </button>
-          <span
-            aria-hidden='true'
-            className='absolute -bottom-1.5 right-5 h-3 w-3 rotate-45 bg-brand-light'
-          />
-        </div>
-      ) : null}
-
       <a
         href={whatsappUrl}
         target='_blank'

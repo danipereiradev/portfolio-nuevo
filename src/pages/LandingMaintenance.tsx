@@ -342,14 +342,14 @@ const LandingMaintenance = () => {
         }
         buttonText='Pedir propuesta'
         buttonHref={`#${MAINTENANCE_CONTACT_ID}`}
-        videoUrl='/video/video%20home_2.mp4'
-        backgroundUrl='/video/hero-home-2.jpg'
+        backgroundUrl='/video/hero-nubes.jpg'
         heroType='offer'
         hasButton={false}
         hasBackground
         overlay='none'
         hasReviewBadge
         isTopHero
+        convertFirstOnMobile
         ctaContent={
           <div className='flex w-full flex-col items-center justify-center gap-3 sm:flex-row sm:items-stretch md:justify-start'>
             <Button

@@ -7,9 +7,7 @@ import { Team } from '../components/Team';
 import SEOFAQ from '../components/SEOFAQ';
 import SEOProcess from '../components/SEOProcess';
 import SEOBenefits from '../components/SEOBenefits';
-import {
-  ServiceIncludes,
-} from '../components/ServiceOnPage';
+import { ServiceIncludes } from '../components/ServiceOnPage';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { SITE_SHOP_PATH, SITE_WEB_PATH } from '../config/contact';
@@ -26,7 +24,7 @@ const faqs = [
   {
     question: '¿Cuánto cuesta una tienda online profesional?',
     answer:
-      'El precio de una tienda online depende del alcance. Orientación: muchas tiendas quedan entre 590 € y 3.000 € + IVA. Tras hablar te mandamos un presupuesto concreto. Pedirlo es gratis.',
+      'El precio de una tienda online depende del alcance. Orientación: muchas tiendas quedan entre 349 € y 1500 € + IVA. Tras hablar te mandamos un presupuesto concreto. Pedirlo es gratis.',
   },
   {
     question: '¿Cuánto tarda?',
@@ -82,8 +80,7 @@ const processSteps = [
     title: 'El mismo día te enviamos la propuesta',
     description: (
       <>
-        Te devolvemos{' '}
-        <strong className='font-extrabold'>propuesta</strong>{' '}
+        Te devolvemos <strong className='font-extrabold'>propuesta</strong>{' '}
         <strong className='font-extrabold'>en el mismo día</strong>: un{' '}
         <strong className='font-extrabold'>presupuesto cerrado</strong> con qué
         entra, cuánto sale y cuándo está. Sin pagar por pedir precio.
@@ -227,9 +224,8 @@ const TiendasOnline = () => {
             </strong>
             : catálogo, pagos y envíos, listas para vender{' '}
             <strong className='font-extrabold'>desde el primer día</strong>.
-            Desde{' '}
-            <strong className='font-extrabold'>590 € + IVA</strong>, según el
-            alcance.
+            Desde <strong className='font-extrabold'>590 € + IVA</strong>, según
+            el alcance.
           </>
         }
         buttonText='PEDIR PROPUESTA'
@@ -376,8 +372,8 @@ const TiendasOnline = () => {
             según el alcance. Te devolvemos{' '}
             <strong className='font-extrabold'>propuesta</strong>{' '}
             <strong className='font-extrabold'>en el mismo día</strong> con un
-            precio cerrado, lo que entra y el plazo. Pedir
-            presupuesto de tienda online es gratis y no te compromete.
+            precio cerrado, lo que entra y el plazo. Pedir presupuesto de tienda
+            online es gratis y no te compromete.
           </>,
           <>
             El 50% se paga al aceptar y arrancar. El resto, al publicar.

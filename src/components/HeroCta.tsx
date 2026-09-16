@@ -30,6 +30,15 @@ interface HeroCtaProps {
   label?: string;
   title: string;
   description?: ReactNode;
+  /** Sustituye `description` solo en móvil. */
+  mobileDescription?: ReactNode;
+  /** Microconfianza entre el CTA y el formulario, solo móvil. */
+  mobileProof?: ReactNode;
+  /**
+   * Móvil: CTA al form, luego pruebas, formulario y reseñas.
+   * Escritorio no cambia el orden general.
+   */
+  convertFirstOnMobile?: boolean;
   buttonText?: string;
   buttonHref?: string;
   backgroundUrl?: string;
@@ -59,6 +68,9 @@ const HeroCta = ({
   title,
   label,
   description,
+  mobileDescription,
+  mobileProof,
+  convertFirstOnMobile = false,
   buttonText,
   buttonHref,
   backgroundUrl,
@@ -87,7 +99,10 @@ const HeroCta = ({
   const isClean = heroType === 'clean';
   const overlayTone = overlay === 'none' ? undefined : overlay;
   const onVideo = Boolean(videoUrl) && overlayTone !== 'white';
-  const onDark = (hasBackground && overlay === 'black') || onVideo;
+  const onDark =
+    (hasBackground && overlay === 'black') ||
+    onVideo ||
+    (hasBackground && overlay === 'none' && Boolean(backgroundUrl));
   const copyTone = onDark ? 'text-white' : 'text-ink-dark';
   const sectionRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -95,6 +110,19 @@ const HeroCta = ({
   const [showVideo, setShowVideo] = useState(
     () => Boolean(videoUrl) && !prefersReducedMotion(),
   );
+  const [isDesktop, setIsDesktop] = useState(
+    () =>
+      typeof window !== 'undefined' &&
+      window.matchMedia('(min-width: 768px)').matches,
+  );
+
+  useEffect(() => {
+    const media = window.matchMedia('(min-width: 768px)');
+    const update = () => setIsDesktop(media.matches);
+    update();
+    media.addEventListener('change', update);
+    return () => media.removeEventListener('change', update);
+  }, []);
 
   useEffect(() => {
     if (!animateEntrance) return undefined;
@@ -225,14 +253,18 @@ const HeroCta = ({
 
       <div className='container relative z-30 mx-auto flex flex-col items-center gap-3 md:gap-4'>
         <div
-          className={`flex w-full flex-col items-center gap-page-gap text-center md:justify-center ${
-            isClean ? '' : 'md:flex-row md:text-start'
+          className={`w-full items-center gap-page-gap text-center md:justify-center ${
+            isClean
+              ? 'flex flex-col'
+              : convertFirstOnMobile
+                ? 'grid grid-cols-1 md:grid-cols-2 md:items-start md:text-start'
+                : 'flex flex-col md:flex-row md:text-start'
           }`}
         >
           <div
             className={`hero-cta-copy flex w-full min-w-0 flex-col items-center gap-page-gap ${
-              isClean ? '' : 'md:items-start md:w-1/2'
-            }`}
+              isClean || convertFirstOnMobile ? '' : 'md:w-1/2'
+            } ${isClean ? '' : 'md:items-start'}`}
           >
             <div
               className={`page-title-block w-full items-center ${
@@ -270,12 +302,34 @@ const HeroCta = ({
                 <div
                   className={`hero-cta-desc text-xl md:text-2xl text-center ${copyTone} ${
                     isClean ? 'max-w-3xl' : 'md:text-justify'
-                  }`}
+                  } ${mobileDescription ? 'hidden md:block' : ''}`}
                 >
                   {description}
                 </div>
               ) : null}
+              {mobileDescription ? (
+                <div
+                  className={`hero-cta-desc text-xl text-center md:hidden ${copyTone}`}
+                >
+                  {mobileDescription}
+                </div>
+              ) : null}
             </div>
+            {convertFirstOnMobile &&
+            !ctaContent &&
+            !hasButton &&
+            buttonText &&
+            buttonHref ? (
+              <Button
+                className={`hero-cta-badge m-0 mx-auto md:hidden ${buttonClassName}`.trim()}
+                href={buttonHref}
+              >
+                {buttonText}
+              </Button>
+            ) : null}
+            {mobileProof ? (
+              <div className={`w-full md:hidden ${copyTone}`}>{mobileProof}</div>
+            ) : null}
             {belowDescription}
             {highlights && highlights.length > 0 ? (
               <ul className='hero-cta-highlights grid w-full list-disc grid-cols-1 gap-item-gap pl-5 text-left marker:text-brand md:grid-cols-2'>
@@ -289,7 +343,7 @@ const HeroCta = ({
                 ))}
               </ul>
             ) : null}
-            {hasReviewBadge ? (
+            {hasReviewBadge && (!convertFirstOnMobile || isDesktop) ? (
               <div className='hero-cta-badge'>
                 <TestimonialsBadge />
               </div>
@@ -315,11 +369,19 @@ const HeroCta = ({
                 description={formDescription}
                 page={formSectionInfo}
                 submitLabel={formSubmitLabel}
-                className={animateEntrance ? 'hero-cta-form' : undefined}
+                compactOnMobile={convertFirstOnMobile}
+                className={`${animateEntrance ? 'hero-cta-form' : ''} ${
+                  convertFirstOnMobile ? 'md:!w-full' : ''
+                }`.trim()}
               />
             ) : heroType === 'offer' ? (
               offerContent
             ) : null
+          ) : null}
+          {hasReviewBadge && convertFirstOnMobile && !isDesktop ? (
+            <div className='hero-cta-badge flex w-full justify-center md:hidden'>
+              <TestimonialsBadge />
+            </div>
           ) : null}
         </div>
       </div>

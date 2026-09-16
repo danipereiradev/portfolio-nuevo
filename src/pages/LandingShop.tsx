@@ -214,17 +214,18 @@ const LandingShop = () => {
         }
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
-        videoUrl='/video/video%20home_2.mp4'
-        backgroundUrl='/video/hero-home-2.jpg'
+        backgroundUrl='/video/hero-nubes.jpg'
         heroType='form'
         hasButton={false}
         formTitle='Pide tu propuesta'
         formDescription='Propuesta en el mismo día. Sin compromiso.'
         formSectionInfo='Landing tiendas online — Hero'
+        formId='contacto'
         hasBackground
         overlay='none'
         hasReviewBadge
         isTopHero
+        convertFirstOnMobile
       />
 
       <TrustBar points={landingTrustPoints} />
@@ -315,7 +316,6 @@ const LandingShop = () => {
         formSectionInfo='Landing tiendas online — CTA final'
         hasBackground={false}
         hasReviewBadge
-        formId='contacto'
       />
     </>
   );
