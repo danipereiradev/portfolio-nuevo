@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, Phone } from 'lucide-react';
-import { trackPhoneClick } from '../utils/analytics';
+import { trackCtaClick, trackPhoneClick } from '../utils/analytics';
 import {
   PHONE_DISPLAY,
   PHONE_TEL_LINK,
@@ -9,7 +9,7 @@ import {
   ABOUT_LABEL,
   isAdsLandingPath,
 } from '../config/contact';
-import { SERVICE_NAV } from '../config/nav';
+import { LANDING_NAV, LANDING_NAV_CTA, SERVICE_NAV } from '../config/nav';
 
 const navLinkClass =
   'relative shrink-0 text-center text-sm xl:text-xl py-2 px-2 xl:px-4 rounded-lg uppercase font-bold transition-colors';
@@ -135,25 +135,59 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
             )}
 
             {hideNav ? null : isAdsLanding ? (
-              <nav
-                className='flex shrink-0 items-center justify-end'
-                aria-label='Contacto'
-              >
-                <a
-                  href={PHONE_TEL_LINK}
-                  onClick={() => trackPhoneClick('AdsLandingHeader')}
-                  className='inline-flex items-center gap-1.5 text-ink-dark'
-                  aria-label={`Llamar al ${PHONE_DISPLAY}`}
+              <>
+                <div className='flex items-center justify-end gap-3 lg:hidden'>
+                  <a
+                    href={PHONE_TEL_LINK}
+                    onClick={() => trackPhoneClick('AdsLandingHeader')}
+                    className='inline-flex items-center gap-1.5 text-ink-dark'
+                    aria-label={`Llamar al ${PHONE_DISPLAY}`}
+                  >
+                    <Phone
+                      className='h-4 w-4 shrink-0'
+                      strokeWidth={2.5}
+                    />
+                    <span className='text-[calc(0.7rem*1.15)] font-semibold leading-none tracking-tight'>
+                      {PHONE_DISPLAY}
+                    </span>
+                  </a>
+                  <button
+                    className='p-2 text-ink-dark'
+                    onClick={() => setIsMenuOpen((open) => !open)}
+                    aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+                  >
+                    {isMenuOpen ? (
+                      <X className='h-6 w-6 text-ink-dark' />
+                    ) : (
+                      <Menu className='h-6 w-6 text-ink-dark' />
+                    )}
+                  </button>
+                </div>
+
+                <nav
+                  className='hidden shrink-0 items-center gap-1 lg:flex xl:gap-2'
+                  aria-label='En la página'
                 >
-                  <Phone
-                    className='h-4 w-4 shrink-0 md:h-5 md:w-5'
-                    strokeWidth={2.5}
-                  />
-                  <span className='text-[calc(0.7rem*1.15)] font-semibold leading-none tracking-tight md:text-[calc(0.875rem*1.15)]'>
-                    {PHONE_DISPLAY}
-                  </span>
-                </a>
-              </nav>
+                  {LANDING_NAV.map((item) => (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      className={defaultNavLinkClass}
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                  <a
+                    href={LANDING_NAV_CTA.href}
+                    className={`${defaultNavLinkClass} !text-accent`}
+                    onClick={() =>
+                      trackCtaClick(LANDING_NAV_CTA.label, 'LandingHeader')
+                    }
+                  >
+                    {LANDING_NAV_CTA.label}
+                  </a>
+                </nav>
+              </>
             ) : (
               <>
                 <div className='flex items-center justify-end lg:hidden'>
@@ -256,6 +290,34 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
               </>
             )}
           </div>
+
+          {!hideNav && isAdsLanding && isMenuOpen ? (
+            <nav
+              className='mt-2 divide-y divide-ink-dark/15 lg:hidden'
+              aria-label='En la página'
+            >
+              {LANDING_NAV.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={mobileNavLinkClass}
+                >
+                  {item.label}
+                </a>
+              ))}
+              <a
+                href={LANDING_NAV_CTA.href}
+                onClick={() => {
+                  trackCtaClick(LANDING_NAV_CTA.label, 'LandingHeader');
+                  setIsMenuOpen(false);
+                }}
+                className={`${mobileNavLinkClass} !text-accent`}
+              >
+                {LANDING_NAV_CTA.label}
+              </a>
+            </nav>
+          ) : null}
 
           {!hideNav && !isAdsLanding && isMenuOpen ? (
             <nav

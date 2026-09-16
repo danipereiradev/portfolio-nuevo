@@ -29,3 +29,15 @@ export const FOOTER_NAV = [
     label: 'Trabaja con nosotros',
   },
 ] as const;
+
+export const LANDING_NAV = [
+  { href: '#incluye', label: 'Qué incluye' },
+  { href: '#portfolio', label: 'Trabajos' },
+  { href: '#testimonials', label: 'Opiniones' },
+  { href: '#faq', label: 'FAQ' },
+] as const;
+
+export const LANDING_NAV_CTA = {
+  href: '#contacto',
+  label: 'Pedir propuesta',
+} as const;
