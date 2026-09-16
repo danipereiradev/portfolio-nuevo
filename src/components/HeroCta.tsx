@@ -3,6 +3,7 @@ import Button from './Button';
 
 import { ContactFormHero } from './ContactFormHero';
 import TestimonialsBadge from './TestimonialsBadge';
+import { trackCtaClick } from '../utils/analytics';
 
 const prefersReducedMotion = () =>
   typeof window !== 'undefined' &&
@@ -257,14 +258,20 @@ const HeroCta = ({
             isClean
               ? 'flex flex-col'
               : convertFirstOnMobile
-                ? 'grid grid-cols-1 md:grid-cols-2 md:items-start md:text-start'
-                : 'flex flex-col md:flex-row md:text-start'
+                ? `grid grid-cols-1 md:grid-cols-2 md:text-start ${
+                    isTopHero ? 'md:items-center' : 'md:items-start'
+                  }`
+                : `flex flex-col md:flex-row md:text-start ${
+                    isTopHero ? 'md:items-center' : ''
+                  }`
           }`}
         >
           <div
             className={`hero-cta-copy flex w-full min-w-0 flex-col items-center gap-page-gap ${
               isClean || convertFirstOnMobile ? '' : 'md:w-1/2'
-            } ${isClean ? '' : 'md:items-start'}`}
+            } ${isClean ? '' : 'md:items-start'} ${
+              isTopHero && !isClean ? 'md:justify-center' : ''
+            }`}
           >
             <div
               className={`page-title-block w-full items-center ${
@@ -323,6 +330,7 @@ const HeroCta = ({
               <Button
                 className={`hero-cta-badge m-0 mx-auto md:hidden ${buttonClassName}`.trim()}
                 href={buttonHref}
+                onClick={() => trackCtaClick(buttonText, 'Hero')}
               >
                 {buttonText}
               </Button>
@@ -356,6 +364,7 @@ const HeroCta = ({
                   isClean ? 'mx-auto' : 'mx-auto md:mx-0 place-self-start'
                 } ${buttonClassName}`.trim()}
                 href={buttonHref}
+                onClick={() => trackCtaClick(buttonText ?? '', 'HeroCta')}
               >
                 {buttonText}
               </Button>

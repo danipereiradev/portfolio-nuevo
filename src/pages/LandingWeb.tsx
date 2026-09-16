@@ -265,7 +265,7 @@ const LandingWeb = () => {
         backgroundUrl='/video/hero-nubes.jpg'
         heroType='form'
         hasButton={false}
-        formTitle='Pide tu propuesta'
+        formTitle='Nosotros te llamamos'
         formDescription='Propuesta en el mismo día. Sin compromiso.'
         formSectionInfo='Landing diseño web — Hero'
         formId='contacto'
@@ -361,7 +361,7 @@ const LandingWeb = () => {
         buttonHref='#contacto'
         heroType='form'
         hasButton={false}
-        formTitle='Pide tu propuesta'
+        formTitle='Nosotros te llamamos'
         formDescription='Propuesta en el mismo día. Sin compromiso.'
         formSectionInfo='Landing diseño web — CTA final'
         hasBackground={false}

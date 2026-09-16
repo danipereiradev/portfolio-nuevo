@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { AlertCircle } from 'lucide-react';
 import Button from './Button';
 import {
   trackFormError,
+  trackFormStart,
   trackFormSubmit,
   trackGoogleAdsFormConversion,
   trackGoogleAdsMaintenanceFormConversion,
@@ -42,16 +43,25 @@ const MaintenanceLeadForm = ({
   className = '',
   origin = MAINTENANCE_FORM_ORIGIN,
   formId,
+  title = 'Cuéntanos qué le pasa',
 }: {
   className?: string;
   origin?: string;
   formId?: string;
+  title?: string;
 }) => {
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isFormSent, setIsFormSent] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'error'>('idle');
   const [formData, setFormData] = useState(emptyForm);
+  const hasStartedRef = useRef(false);
+
+  const markFormStart = () => {
+    if (hasStartedRef.current) return;
+    hasStartedRef.current = true;
+    trackFormStart(origin);
+  };
 
   const sanitizeText = (text: string): string =>
     text
@@ -60,6 +70,7 @@ const MaintenanceLeadForm = ({
       .replace(/on\w+=/gi, '');
 
   const handleInputChange = (field: string, value: string) => {
+    markFormStart();
     setFormData((prev) => ({ ...prev, [field]: sanitizeText(value) }));
     if (field === 'email' || field === 'phone') {
       if (errors.email || errors.phone) {
@@ -254,7 +265,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       >
         <div className='page-title-block text-center'>
           <h2 className='text-2xl font-extrabold text-black md:text-3xl lg:text-4xl'>
-            Cuéntanos qué le pasa
+            {title}
           </h2>
           <span className='block text-sm font-extrabold uppercase tracking-wide text-accent'>
             {BUSINESS_HOURS_LABEL}
@@ -339,6 +350,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                 required
                 checked={formData.consent}
                 onChange={(e) => {
+                  markFormStart();
                   setFormData((prev) => ({
                     ...prev,
                     consent: e.target.checked,

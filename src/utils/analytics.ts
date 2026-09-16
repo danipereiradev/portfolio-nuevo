@@ -4,6 +4,8 @@
 // configurado: comprueba la existencia de `window.gtag` y `window.dataLayer`
 // antes de enviar nada, y nunca lanza excepciones.
 
+import { isAdsLandingPath } from '../config/contact';
+
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
@@ -369,6 +371,14 @@ export const trackWhatsAppClick = (
     location_section: locationSection,
     cta_text: ctaText,
   });
+  if (typeof window !== 'undefined' && isAdsLandingPath(window.location.pathname)) {
+    trackEvent('whatsapp_click', {
+      event_category: 'contact',
+      event_label: locationSection,
+      location_section: locationSection,
+      cta_text: ctaText,
+    });
+  }
   trackAdsContactConversion('whatsapp');
 
   try {
@@ -422,12 +432,39 @@ export const trackCrispMessageSent = () => {
 export const trackFormSubmit = (serviceType: string, value?: number) => {
   // Solo evento GA4. La conversión oficial de Ads del formulario se dispara
   // aparte con trackGoogleAdsFormConversion() tras Formspree OK.
-  trackEvent('submit_contact_form', {
+  const params = {
     event_category: 'engagement',
     event_label: 'contact_form',
     service_type: serviceType,
     value: value || 0,
     currency: 'EUR',
+  };
+  trackEvent('submit_contact_form', params);
+  if (typeof window !== 'undefined' && isAdsLandingPath(window.location.pathname)) {
+    trackEvent('form_submit', params);
+  }
+};
+
+/** Primer campo tocado en un formulario de landing. Una vez por montaje. */
+export const trackFormStart = (formName: string) => {
+  if (typeof window === 'undefined') return;
+  if (!isAdsLandingPath(window.location.pathname)) return;
+  trackEvent('form_start', {
+    event_category: 'engagement',
+    event_label: formName,
+    form_name: formName,
+  });
+};
+
+/** Clic en CTA de conversión de landing (“Quiero información”, “Pedir propuesta”…). */
+export const trackCtaClick = (ctaText: string, locationSection: string) => {
+  if (typeof window === 'undefined') return;
+  if (!isAdsLandingPath(window.location.pathname)) return;
+  trackEvent('cta_click', {
+    event_category: 'engagement',
+    event_label: ctaText,
+    cta_text: ctaText,
+    location_section: locationSection,
   });
 };
 

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import Button from './Button';
+import { trackCtaClick } from '../utils/analytics';
 
 interface FAQItem {
   question: string;
@@ -77,7 +78,14 @@ const SEOFAQ = ({
             </div>
           ))}
         </div>
-        <Button href={ctaHref}>{ctaText}</Button>
+        <Button
+          href={ctaHref}
+          onClick={() => {
+            if (ctaText) trackCtaClick(ctaText, 'FAQ');
+          }}
+        >
+          {ctaText}
+        </Button>
       </div>
     </section>
   );

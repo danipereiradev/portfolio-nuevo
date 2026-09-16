@@ -217,7 +217,7 @@ const LandingShop = () => {
         backgroundUrl='/video/hero-nubes.jpg'
         heroType='form'
         hasButton={false}
-        formTitle='Pide tu propuesta'
+        formTitle='Nosotros te llamamos'
         formDescription='Propuesta en el mismo día. Sin compromiso.'
         formSectionInfo='Landing tiendas online — Hero'
         formId='contacto'
@@ -311,7 +311,7 @@ const LandingShop = () => {
         buttonHref='#contacto'
         heroType='form'
         hasButton={false}
-        formTitle='Pide tu propuesta'
+        formTitle='Nosotros te llamamos'
         formDescription='Propuesta en el mismo día. Sin compromiso.'
         formSectionInfo='Landing tiendas online — CTA final'
         hasBackground={false}

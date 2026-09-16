@@ -39,6 +39,7 @@ import {
   maintenanceListClass,
 } from '../config/maintenanceOffer';
 import {
+  trackCtaClick,
   trackGoogleAdsWhatsAppConversion,
   trackLandingMaintenanceView,
   trackMaintenanceWhatsAppClick,
@@ -355,6 +356,9 @@ const LandingMaintenance = () => {
             <Button
               href={`#${MAINTENANCE_CONTACT_ID}`}
               className='!mx-0 !mt-0 !box-border !h-14 !min-h-14 !w-full !max-w-[var(--button-width)] !whitespace-nowrap !border-2 !border-accent !px-4 !py-0 !text-sm md:!text-base sm:!w-[var(--button-width)]'
+              onClick={() =>
+                trackCtaClick('Pedir propuesta', 'LandingMaintenanceHero')
+              }
             >
               Pedir propuesta
             </Button>
@@ -372,7 +376,10 @@ const LandingMaintenance = () => {
           </div>
         }
         offerContent={
-          <MaintenanceLeadForm origin={ADS_MAINTENANCE_FORM_HERO} />
+          <MaintenanceLeadForm
+            origin={ADS_MAINTENANCE_FORM_HERO}
+            title='Nosotros te llamamos'
+          />
         }
       />
 
@@ -556,6 +563,7 @@ const LandingMaintenance = () => {
           <MaintenanceLeadForm
             origin={ADS_MAINTENANCE_FORM_FINAL}
             formId={MAINTENANCE_CONTACT_ID}
+            title='Nosotros te llamamos'
           />
         }
       />

@@ -310,16 +310,34 @@ const LandingWebProfesional = () => {
             </ul>
           </>
         }
+        mobileDescription={
+          <>
+            <p>
+              Web profesional para autónomos, emprendedores y pequeños negocios.
+            </p>
+            <p className='mt-2 font-extrabold'>
+              {getLaunchPriceLabel()} · Lista en {LAUNCH_DELIVERY_LABEL} · Sin
+              cuotas mensuales
+            </p>
+          </>
+        }
+        mobileProof={
+          <ul className='space-y-1 text-center text-base font-bold'>
+            <li>50 % al empezar · 50 % antes de publicar</li>
+            <li>Hosting y dominio incluidos el primer año</li>
+            <li>La web es tuya</li>
+          </ul>
+        }
         convertFirstOnMobile
-        buttonText='Quiero mi web'
+        buttonText='Quiero información'
         buttonHref='#contacto'
         backgroundUrl='/video/hero-nubes.jpg'
         heroType='form'
         hasButton={false}
-        formTitle='Quiero mi web'
+        formTitle='Nosotros te llamamos'
         formDescription='Te contactamos y confirmamos el proyecto. Sin compromiso.'
         formSectionInfo={ADS_LAUNCH_FORM_ORIGIN}
-        formSubmitLabel='Quiero mi web'
+        formSubmitLabel='Quiero información'
         formId='contacto'
         hasBackground
         overlay='none'
@@ -463,14 +481,14 @@ const LandingWebProfesional = () => {
             Confirmamos el proyecto y te explicamos el pago 50% y 50%.
           </>
         }
-        buttonText='Quiero mi web'
+        buttonText='Quiero información'
         buttonHref='#contacto'
         heroType='form'
         hasButton={false}
-        formTitle='Quiero mi web'
+        formTitle='Nosotros te llamamos'
         formDescription='Nombre, email y teléfono. Te escribimos en horario laboral.'
         formSectionInfo={ADS_LAUNCH_FORM_ORIGIN}
-        formSubmitLabel='Quiero mi web'
+        formSubmitLabel='Quiero información'
         hasBackground={false}
         hasReviewBadge
       />
@@ -479,7 +497,7 @@ const LandingWebProfesional = () => {
         <SEOFAQ
           title='Lo que suele preguntar la gente'
           faqs={faqs}
-          ctaText='QUIERO MI WEB'
+          ctaText='Quiero información'
           ctaHref='#contacto'
         />
       </div>

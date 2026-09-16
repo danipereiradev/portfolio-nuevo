@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Button from './Button';
 import {
   trackFormError,
+  trackFormStart,
   trackFormSubmit,
   trackGoogleAdsFormConversion,
   trackLandingPromo299FormSubmit,
@@ -66,6 +67,13 @@ export const ContactFormHero = ({
   const [isFormSent, setIsFormSent] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'error'>('idle');
   const [formData, setFormData] = useState(() => emptyForm(page));
+  const hasStartedRef = useRef(false);
+
+  const markFormStart = () => {
+    if (hasStartedRef.current) return;
+    hasStartedRef.current = true;
+    trackFormStart(page);
+  };
 
   const sanitizeText = (text: string): string => {
     return text
@@ -75,6 +83,7 @@ export const ContactFormHero = ({
   };
 
   const handleInputChange = (field: string, value: string) => {
+    markFormStart();
     const sanitizedValue = sanitizeText(value);
 
     setFormData((prev) => ({
@@ -325,6 +334,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                 required
                 checked={formData.consent}
                 onChange={(e) => {
+                  markFormStart();
                   setFormData((prev) => ({
                     ...prev,
                     consent: e.target.checked,

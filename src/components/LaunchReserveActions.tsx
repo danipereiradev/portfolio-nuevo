@@ -6,6 +6,7 @@ import {
 import { isLaunchSoldOut } from '../config/launchOffer';
 import {
   trackGoogleAdsWhatsAppConversion,
+  trackCtaClick,
   trackWhatsAppClick,
 } from '../utils/analytics';
 
@@ -26,7 +27,7 @@ const buttonClassName =
 const LaunchReserveActions = ({
   location,
   align = 'start',
-  ctaLabel = 'Quiero mi web',
+  ctaLabel = 'Quiero información',
   showWhatsApp = true,
 }: {
   location: string;
@@ -48,7 +49,11 @@ const LaunchReserveActions = ({
           Plazas agotadas
         </Button>
       ) : (
-        <Button href='#contacto' className={buttonClassName}>
+        <Button
+          href='#contacto'
+          className={buttonClassName}
+          onClick={() => trackCtaClick(ctaLabel, location)}
+        >
           {ctaLabel}
         </Button>
       )}

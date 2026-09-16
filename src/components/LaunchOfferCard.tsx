@@ -17,7 +17,7 @@ const LaunchOfferCard = ({ className = '' }: { className?: string }) => {
             Web profesional
           </p>
           <p className='text-2xl font-extrabold text-ink-dark md:text-3xl'>
-            Quiero mi web
+            Nosotros te llamamos
           </p>
           <p className='text-lg text-gray-900'>
             Te contactamos, confirmamos el proyecto y se paga 50% y 50%.

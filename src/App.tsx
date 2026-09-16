@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useScrollToHash } from './hooks/useScrollToHash';
+import { useLandingScrollDepth } from './hooks/useLandingScrollDepth';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { ContactModalProvider } from './contexts/ContactModalContext';
 import Header from './components/Header';
@@ -63,6 +64,7 @@ const PageFallback = () => (
 
 function AppContent() {
   useScrollToHash();
+  useLandingScrollDepth();
   const { pathname } = useLocation();
 
   if (isPaymentOrThankYouPath(pathname)) {
