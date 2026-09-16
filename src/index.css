@@ -570,17 +570,20 @@ img {
 }
 
 html {
-  /* 12px fijos en móvil: iOS ya respetaba el 75%; Chrome en Android
-     inflaba el texto (font boosting) y se veía más grande. */
-  font-size: 12px;
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
+  font-size: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* Header fijo: el salto a #id no se esconde debajo. auto, no smooth:
      el smooth se corta si el layout se mueve (Trustindex, imágenes). */
   scroll-padding-top: calc(var(--site-header-h) + 1rem);
   scroll-behavior: auto;
+}
+
+/* Chrome en Android infla el texto; Safari se queda en 100%. */
+html.android-chrome {
+  font-size: 12px;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 /* Los headings usan Space Grotesk (geométrica, técnica) para reforzar
@@ -604,7 +607,8 @@ h6 {
 }
 
 @media (min-width: 768px) {
-  html {
+  html,
+  html.android-chrome {
     /* 80% de 16px = 12,8px: tamaños rem en subpíxel y las letras vibran al scroll. */
     font-size: 13px;
   }

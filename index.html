@@ -2,6 +2,18 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      (function () {
+        var ua = navigator.userAgent || '';
+        if (
+          /Android/i.test(ua) &&
+          /Chrome|Chromium/i.test(ua) &&
+          !/iPhone|iPad|iPod/.test(ua)
+        ) {
+          document.documentElement.classList.add('android-chrome');
+        }
+      })();
+    </script>
     <!--hero-lcp-->
     <script>
       (function () {
