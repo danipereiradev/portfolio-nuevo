@@ -25,8 +25,7 @@ export const DEFAULT_WHATSAPP_MESSAGE =
 // en el chat (tracking de origen).
 export const ADS_WHATSAPP_MESSAGE = 'Estoy interesado en diseño web';
 
-export const ADS_SHOP_WHATSAPP_MESSAGE =
-  'Estoy interesado en tienda online';
+export const ADS_SHOP_WHATSAPP_MESSAGE = 'Estoy interesado en tienda online';
 
 export const ADS_MAINTENANCE_WHATSAPP_MESSAGE =
   'Hola, vengo de la página de mantenimiento web y quiero consultar mi caso.';
@@ -35,11 +34,10 @@ export const ADS_LAUNCH_WHATSAPP_MESSAGE =
   'Estoy interesado en web profesional';
 
 /** Origen del formulario en la landing de oferta 349 €. Sale en Formspree y en el tracking. */
-export const ADS_LAUNCH_FORM_ORIGIN = 'landing promo 299';
+export const ADS_LAUNCH_FORM_ORIGIN = 'landing promo 349';
 
 /** Origen de cada formulario de la landing de mantenimiento (Formspree + GA). */
-export const ADS_MAINTENANCE_FORM_HERO =
-  'Landing mantenimiento web — Hero';
+export const ADS_MAINTENANCE_FORM_HERO = 'Landing mantenimiento web — Hero';
 export const ADS_MAINTENANCE_FORM_FINAL =
   'Landing mantenimiento web — CTA final';
 
