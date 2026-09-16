@@ -8,7 +8,7 @@ const VIDEO_SRC = '/video/juanvi-testimonio.mp4';
 const POSTER_SRC = '/video/juanvi-testimonio.webp';
 const SITE_URL = 'https://hoyviajamosweb.com';
 
-function VideoTestimonial() {
+function VideoTestimonial({ className = '' }: { className?: string }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const hasTrackedPlay = useRef(false);
   const [showOverlay, setShowOverlay] = useState(true);
@@ -39,7 +39,9 @@ function VideoTestimonial() {
   };
 
   return (
-    <figure className='video-testimonial mx-auto w-full max-w-[20rem]'>
+    <figure
+      className={`video-testimonial mx-auto w-full max-w-[20rem] ${className}`.trim()}
+    >
       <div className='relative overflow-hidden rounded-lg bg-black'>
         <video
           ref={videoRef}

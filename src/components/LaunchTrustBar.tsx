@@ -9,7 +9,7 @@ const LaunchTrustBar = () => {
   const points = [
     { icon: Wallet, text: getLaunchPriceLabel() },
     { icon: Clock, text: `Lista en ${LAUNCH_DELIVERY_LABEL}` },
-    { icon: ShieldCheck, text: 'Pago en 2 veces' },
+    { icon: ShieldCheck, text: 'Garantía de satisfacción' },
     { icon: BadgeCheck, text: 'Hosting y Dominio incluido' },
   ];
 

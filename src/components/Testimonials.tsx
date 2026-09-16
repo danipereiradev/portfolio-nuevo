@@ -59,11 +59,17 @@ function Testimonials({
           </p>
         </RevealOnScroll>
         {hasVideo ? (
-          <RevealOnScroll delayMs={90}>
-            <VideoTestimonial />
-          </RevealOnScroll>
-        ) : null}
-        <div data-src={TRUSTINDEX_WIDGET_SRC} />
+          <div className='flex flex-col items-center gap-page-gap lg:grid lg:grid-cols-4 lg:items-center lg:gap-8'>
+            <div className='min-w-0 w-full lg:col-span-3'>
+              <div data-src={TRUSTINDEX_WIDGET_SRC} />
+            </div>
+            <RevealOnScroll className='w-full lg:col-span-1' delayMs={90}>
+              <VideoTestimonial className='lg:mx-0 lg:max-w-none' />
+            </RevealOnScroll>
+          </div>
+        ) : (
+          <div data-src={TRUSTINDEX_WIDGET_SRC} />
+        )}
       </div>
     </section>
   );

@@ -1,10 +1,13 @@
+import type { ReactNode } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useSectionView } from '../hooks/useSectionView';
 import { PictureImg } from './PictureImg';
 import RevealOnScroll from './RevealOnScroll';
+import Button from './Button';
 
 import {
+  trackCtaClick,
   trackPortfolioClick,
   trackViewPortfolioSection,
 } from '../utils/analytics';
@@ -37,15 +40,16 @@ interface PortfolioProps {
   contained?: boolean;
   /** Orden concreto de proyectos. Si no se pasa, usa el de la variante. */
   ids?: ProjectId[];
+  /** Texto bajo la parrilla (landings). */
+  note?: ReactNode;
+  /** Bloque de sector + CTA al formulario de la misma página. */
+  sectorPrompt?: string;
+  sectorCtaText?: string;
+  sectorCtaHref?: string;
 }
 
 /** Proyectos visibles. Cambiar este array para rotar los mocks. */
-const ALL_ORDER: ProjectId[] = [
-  'chicxs',
-  'resilience',
-  'micolet',
-  'delish',
-];
+const ALL_ORDER: ProjectId[] = ['chicxs', 'resilience', 'micolet', 'delish'];
 const WEB_ORDER: ProjectId[] = [
   'hoyviajamos',
   'alicornio',
@@ -120,11 +124,7 @@ function PortfolioCard({
       <a
         href={url}
         target='_blank'
-        rel={
-          nofollow
-            ? 'nofollow noopener noreferrer'
-            : 'noopener noreferrer'
-        }
+        rel={nofollow ? 'nofollow noopener noreferrer' : 'noopener noreferrer'}
         aria-label={`Ver la web de ${title}`}
         onClick={() => trackPortfolioClick(title)}
         className={cardClass}
@@ -141,6 +141,10 @@ const Portfolio = ({
   variant = 'default',
   casos = false,
   ids,
+  note,
+  sectorPrompt,
+  sectorCtaText,
+  sectorCtaHref,
 }: PortfolioProps) => {
   const { t } = useLanguage();
   const { pathname } = useLocation();
@@ -294,8 +298,7 @@ const Portfolio = ({
       : {
           label: 'Trabajos',
           title: 'Algunos proyectos que hemos publicado',
-          description:
-            'Webs y tiendas. Entras, las ves y te haces una idea.',
+          description: 'Webs y tiendas que ya están recibiendo visitas.',
         };
 
   return (
@@ -348,6 +351,30 @@ const Portfolio = ({
               ))}
             </div>
           )}
+
+          {note || sectorPrompt ? (
+            <div className='mx-auto flex max-w-3xl flex-col items-center gap-4 text-center'>
+              {note ? (
+                <p className='text-xl text-ink-dark md:text-2xl'>{note}</p>
+              ) : null}
+              {sectorPrompt ? (
+                <p className='text-xl font-extrabold text-ink-dark md:text-2xl'>
+                  {sectorPrompt}
+                </p>
+              ) : null}
+              {sectorCtaHref && sectorCtaText ? (
+                <Button
+                  href={sectorCtaHref}
+                  className='!mt-2'
+                  onClick={() =>
+                    trackCtaClick(sectorCtaText, 'LaunchPortfolio')
+                  }
+                >
+                  {sectorCtaText}
+                </Button>
+              ) : null}
+            </div>
+          ) : null}
         </div>
       </section>
     </>

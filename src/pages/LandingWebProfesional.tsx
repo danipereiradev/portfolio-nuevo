@@ -109,13 +109,29 @@ const includes = [
       </>
     ),
   },
+  {
+    title: 'No se publica hasta que estés conforme',
+    description: (
+      <>
+        La ves antes de que salga a internet. Si algo importante no encaja, lo
+        ajustamos.{' '}
+        <strong className='font-extrabold'>
+          El 50% final se paga cuando apruebes. No antes
+        </strong>
+        .
+      </>
+    ),
+  },
 ];
 
 const offerIncludes = [
   'Hasta 5 secciones',
   'Adaptación a tu marca',
+  'Estructura y estilos personalizados',
   'Formulario y WhatsApp',
+  'Integración de tus redes sociales',
   'Publicación',
+  'No se publica hasta que estés conforme',
 ];
 
 const offerExcludes = [
@@ -204,12 +220,15 @@ const processSteps = [
   },
   {
     number: '4',
-    title: 'Te la enseñamos y se publica',
+    title: 'La ves. Si estás contento, se publica',
     description: (
       <>
-        En {LAUNCH_DELIVERY_LABEL} te la mostramos. Pagas el 50% restante y la
-        publicamos a tu nombre.{' '}
-        <strong className='font-extrabold'>La web es tuya</strong>.
+        No sale a internet hasta que tú digas que sí. Si algo importante no
+        encaja, lo ajustamos.{' '}
+        <strong className='font-extrabold'>
+          Entonces pagas el 50% final y se publica a tu nombre
+        </strong>
+        .
       </>
     ),
   },
@@ -223,12 +242,12 @@ const faqs = [
   },
   {
     question: '¿Cuánto cuesta y cómo se paga?',
-    answer: `${getLaunchPriceLabel()}, precio cerrado. Se paga 50% al empezar y 50% antes de publicar. Primero te contactamos y confirmamos el proyecto. Hosting y dominio incluidos el primer año. Sin permanencia. La web es tuya.`,
+    answer: `${getLaunchPriceLabel()}, precio cerrado. 50% al empezar. El 50% final se paga cuando estés contento con el resultado, justo antes de publicar. Primero te contactamos y confirmamos el proyecto. Hosting y dominio incluidos el primer año. Sin permanencia. La web es tuya.`,
   },
   {
     question: '¿Qué incluye?',
     answer:
-      'Esta oferta es para una web sencilla de presentación de negocio. Incluye hasta 5 secciones, adaptación a tu marca, formulario, WhatsApp, publicación y hosting y dominio el primer año. Tú aportas logo, textos y fotos. Si no cuentas con logo o textos, te lo presupuestamos. Precio cerrado. La web es tuya.',
+      'Esta oferta es para una web sencilla de presentación de negocio. Incluye hasta 5 secciones, adaptación a tu marca, estructura y estilos personalizados, formulario, WhatsApp, integración de tus redes sociales, publicación y hosting y dominio el primer año. No se publica hasta que estés conforme: la ves, si algo importante no encaja lo ajustamos, y el 50% final se paga cuando apruebes. Tú aportas logo, textos y fotos. Si no cuentas con logo o textos, te lo presupuestamos. Precio cerrado. La web es tuya.',
   },
   {
     question: '¿Qué no incluye?',
@@ -247,6 +266,11 @@ const faqs = [
   {
     question: '¿Qué tengo que entregar yo?',
     answer: `Logo, textos, fotos y la información de tu negocio (qué haces, cómo te contactan, horarios, redes). Con eso montamos y publicamos. Si no cuentas con logo o textos, te lo presupuestamos. El plazo de ${LAUNCH_DELIVERY_LABEL} cuenta desde que nos llega el material.`,
+  },
+  {
+    question: '¿Y si no me convence el resultado?',
+    answer:
+      'No se publica hasta que estés conforme. La ves antes de que salga a internet. Si algo importante no encaja, lo ajustamos. El 50% final se paga cuando apruebes. No antes.',
   },
   {
     question: '¿Me rehacéis la web que ya tengo?',
@@ -421,7 +445,23 @@ const LandingWebProfesional = () => {
         benefits={whyUs}
       />
 
-      <Portfolio />
+      <Portfolio
+        ids={['chicxs', 'resilience', 'micolet', 'delish']}
+        note={
+          <>
+            También hemos trabajado webs para{' '}
+            <strong className='font-extrabold'>moda</strong>,{' '}
+            <strong className='font-extrabold'>turismo</strong>,{' '}
+            <strong className='font-extrabold'>clínicas</strong>,{' '}
+            <strong className='font-extrabold'>ecommerce</strong>,{' '}
+            <strong className='font-extrabold'>servicios locales</strong> y{' '}
+            <strong className='font-extrabold'>marcas personales</strong>.
+          </>
+        }
+        sectorPrompt='¿Quieres ver ejemplos de tu sector? Te enseñamos proyectos similares antes de empezar.'
+        sectorCtaText='Ver ejemplos de mi sector'
+        sectorCtaHref='#contacto'
+      />
 
       <Testimonials hasVideo />
 
@@ -429,10 +469,10 @@ const LandingWebProfesional = () => {
         <div className='container mx-auto flex flex-col items-center gap-page-gap text-center'>
           <div className='page-title-block mx-auto max-w-5xl'>
             <h2 className='text-3xl font-extrabold text-ink-dark md:text-4xl lg:text-5xl'>
-              ¿Quieres tener tu web lista en {LAUNCH_DELIVERY_LABEL}?
+              No se publica hasta que estés conforme
             </h2>
             <p className='text-xl text-ink-dark md:text-2xl'>
-              {getLaunchPriceLabel()} · Se paga 50% y 50%
+              {getLaunchPriceLabel()} · 50% al empezar · 50% cuando apruebes
             </p>
           </div>
           <LaunchReserveActions location='LaunchSocialProof' align='center' />
@@ -505,6 +545,14 @@ const LandingWebProfesional = () => {
       <div id='contacto-final'>
         <HeroCta
           title='Quiero mi web profesional'
+          description={
+            <>
+              <strong className='font-extrabold'>
+                No se publica hasta que estés conforme
+              </strong>
+              . La ves, si no encaja la tocamos, y entonces sale.
+            </>
+          }
           belowDescription={<LaunchPaymentTable />}
           ctaContent={
             <LaunchReserveActions location='LaunchFinal' align='center' />

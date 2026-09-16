@@ -9,7 +9,7 @@ const LaunchPaymentTable = () => {
     },
     {
       title: 'Antes de publicar',
-      detail: 'Cuando te la hayamos presentado',
+      detail: 'Cuando estés contento con el resultado',
       amount: '50%',
     },
   ];
