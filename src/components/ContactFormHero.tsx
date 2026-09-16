@@ -5,7 +5,8 @@ import {
   trackFormStart,
   trackFormSubmit,
   trackGoogleAdsFormConversion,
-  trackLandingPromo299FormSubmit,
+  trackGa4FormSubmit,
+  trackLandingPromo349FormSubmit,
   trackMaintenanceFormSubmit,
   unlockGoogleAdsFormConversion,
 } from '../utils/analytics';
@@ -70,6 +71,7 @@ export const ContactFormHero = ({
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'error'>('idle');
   const [formData, setFormData] = useState(() => emptyForm(page));
   const hasStartedRef = useRef(false);
+  const isSubmittingRef = useRef(false);
 
   const markFormStart = () => {
     if (hasStartedRef.current) return;
@@ -108,13 +110,14 @@ export const ContactFormHero = ({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (isSubmitting) return;
+    if (isSubmittingRef.current || isSubmitting) return;
 
     if (!validateForm()) {
       trackFormError('validation_error');
       return;
     }
 
+    isSubmittingRef.current = true;
     unlockGoogleAdsFormConversion();
     setIsSubmitting(true);
     setSubmitStatus('idle');
@@ -170,11 +173,11 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             `Error ${response.status}: ${response.statusText}`,
         );
       }
-      // Orden: Formspree OK , mostramos mensaje de agradecimiento y nos quedamos en la página
-
+      // Orden: Formspree OK → GA4 form_submit → Ads → mensaje en la misma página
       trackFormSubmit(origen);
+      trackGa4FormSubmit(origen);
       if (origen === ADS_LAUNCH_FORM_ORIGIN) {
-        trackLandingPromo299FormSubmit();
+        trackLandingPromo349FormSubmit();
       }
       if (
         origen === ADS_MAINTENANCE_FORM_HERO ||
@@ -189,6 +192,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       trackFormError('submit_failed');
       setSubmitStatus('error');
     } finally {
+      isSubmittingRef.current = false;
       setIsSubmitting(false);
       setTimeout(() => {
         setIsFormSent(false);

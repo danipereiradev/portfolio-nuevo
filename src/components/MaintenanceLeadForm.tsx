@@ -5,6 +5,7 @@ import {
   trackFormError,
   trackFormStart,
   trackFormSubmit,
+  trackGa4FormSubmit,
   trackGoogleAdsFormConversion,
   trackGoogleAdsMaintenanceFormConversion,
   trackMaintenanceFormSubmit,
@@ -56,6 +57,7 @@ const MaintenanceLeadForm = ({
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'error'>('idle');
   const [formData, setFormData] = useState(emptyForm);
   const hasStartedRef = useRef(false);
+  const isSubmittingRef = useRef(false);
 
   const markFormStart = () => {
     if (hasStartedRef.current) return;
@@ -158,13 +160,14 @@ const MaintenanceLeadForm = ({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (isSubmitting) return;
+    if (isSubmittingRef.current || isSubmitting) return;
 
     if (!validateForm()) {
       trackFormError('validation_error', origin);
       return;
     }
 
+    isSubmittingRef.current = true;
     unlockGoogleAdsFormConversion();
     setIsSubmitting(true);
     setSubmitStatus('idle');
@@ -225,6 +228,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       }
 
       trackFormSubmit(origen);
+      trackGa4FormSubmit(origen);
       trackMaintenanceFormSubmit(origen);
       const isLandingForm =
         origen === ADS_MAINTENANCE_FORM_HERO ||
@@ -240,6 +244,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       trackFormError('submit_failed', origin);
       setSubmitStatus('error');
     } finally {
+      isSubmittingRef.current = false;
       setIsSubmitting(false);
       setTimeout(() => {
         setIsFormSent(false);

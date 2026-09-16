@@ -4,6 +4,7 @@ import { useScrollToHash } from './hooks/useScrollToHash';
 import { useLandingScrollDepth } from './hooks/useLandingScrollDepth';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { ContactModalProvider } from './contexts/ContactModalContext';
+import AdsLandingLinkGuard from './components/AdsLandingLinkGuard';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ContactFormModal from './components/ContactFormModal';
@@ -93,11 +94,12 @@ function AppContent() {
   }
 
   return (
-    <div className='relative min-h-svh bg-surface-base'>
-      <Header />
+    <AdsLandingLinkGuard>
+      <div className='relative min-h-svh bg-surface-base'>
+        <Header />
 
-      <div className='overflow-x-clip'>
-        <Suspense fallback={<PageFallback />}>
+        <div className='overflow-x-clip'>
+          <Suspense fallback={<PageFallback />}>
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path={ABOUT_PATH} element={<Nosotros />} />
@@ -171,6 +173,7 @@ function AppContent() {
       <WhatsAppButton />
       <CrispChat />
     </div>
+    </AdsLandingLinkGuard>
   );
 }
 

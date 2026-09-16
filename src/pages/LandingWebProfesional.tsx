@@ -21,7 +21,7 @@ import {
   getLaunchPriceLabel,
   LAUNCH_DELIVERY_LABEL,
 } from '../config/launchOffer';
-import { trackLandingPromo299View } from '../utils/analytics';
+import { trackLandingPromo349View } from '../utils/analytics';
 
 const includes = [
   {
@@ -268,7 +268,7 @@ const LandingWebProfesional = () => {
   usePageMeta(ADS_LAUNCH_LANDING_PATH);
 
   useEffect(() => {
-    trackLandingPromo299View();
+    trackLandingPromo349View();
   }, []);
 
   const faqJsonLd = useMemo(

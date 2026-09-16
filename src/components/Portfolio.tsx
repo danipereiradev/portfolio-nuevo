@@ -1,3 +1,4 @@
+import { useLocation } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useSectionView } from '../hooks/useSectionView';
 import { PictureImg } from './PictureImg';
@@ -8,6 +9,7 @@ import {
   trackViewPortfolioSection,
 } from '../utils/analytics';
 import {
+  isAdsLandingPath,
   SITE_SHOP_LABEL,
   SITE_SHOP_PATH,
   SITE_WEB_LABEL,
@@ -141,6 +143,8 @@ const Portfolio = ({
   ids,
 }: PortfolioProps) => {
   const { t } = useLanguage();
+  const { pathname } = useLocation();
+  const hideOutboundLinks = isAdsLandingPath(pathname);
 
   const sectionRef = useSectionView<HTMLElement>(trackViewPortfolioSection);
   const isPackLanding = variant === 'web-profesional';
@@ -337,7 +341,7 @@ const Portfolio = ({
                   <PortfolioCard
                     title={project.title}
                     image={project.image}
-                    url={project.url}
+                    url={hideOutboundLinks ? undefined : project.url}
                     nofollow={project.nofollow}
                   />
                 </RevealOnScroll>

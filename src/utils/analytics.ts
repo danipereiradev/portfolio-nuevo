@@ -4,7 +4,7 @@
 // configurado: comprueba la existencia de `window.gtag` y `window.dataLayer`
 // antes de enviar nada, y nunca lanza excepciones.
 
-import { isAdsLandingPath } from '../config/contact';
+import { ADS_LAUNCH_FORM_ORIGIN, isAdsLandingPath } from '../config/contact';
 
 declare global {
   interface Window {
@@ -214,8 +214,8 @@ export const trackGoogleAdsLaunchReserveConversion = (
   if (typeof window === 'undefined') return false;
 
   trackPricingSplitPayment('landing promo 349');
-  trackEvent('landing_promo_299_reserve_click', {
-    event_category: 'landing_promo_299',
+  trackEvent('landing_promo_349_reserve_click', {
+    event_category: 'landing_promo_349',
     event_label: locationSection,
     location_section: locationSection,
     value: 99,
@@ -315,8 +315,8 @@ export const trackLaunchReserveThankYou = (): void => {
     // Sin sessionStorage: el candado de módulo sigue valiendo en esta sesión JS.
   }
 
-  trackEvent('landing_promo_299_purchase', {
-    event_category: 'landing_promo_299',
+  trackEvent('landing_promo_349_purchase', {
+    event_category: 'landing_promo_349',
     event_label: 'landing promo 349',
     value: 99,
     currency: 'EUR',
@@ -429,9 +429,61 @@ export const trackCrispMessageSent = () => {
 
 // Formulario de contacto
 
+/** Nombre GA4 de la landing de oferta 349 €. Sustituye landing_promo_299. */
+export const GA4_FORM_NAME_PROMO_349 = 'landing_promo_349';
+
+const FORM_START_STORAGE_PREFIX = 'ga4_form_start:';
+const formStartFired = new Set<string>();
+let lastGa4FormSubmitAt = 0;
+
+export const toGa4FormName = (origin: string): string => {
+  const value = origin.trim();
+  if (
+    value === ADS_LAUNCH_FORM_ORIGIN ||
+    value === 'landing promo 349' ||
+    value === 'landing promo 299' ||
+    value === 'landing_promo_299'
+  ) {
+    return GA4_FORM_NAME_PROMO_349;
+  }
+  return value.replace(/\s+/g, '_');
+};
+
+/**
+ * Evento GA4 `form_submit`. Solo tras Formspree HTTP 2xx y `{ ok: true }`.
+ * Una vez por envío correcto; no usar en clic del botón ni en errores.
+ */
+export const trackGa4FormSubmit = (origin: string): void => {
+  if (typeof window === 'undefined') return;
+
+  const now = Date.now();
+  if (now - lastGa4FormSubmitAt < 1500) return;
+  lastGa4FormSubmitAt = now;
+
+  const form_name = toGa4FormName(origin);
+  const page_path = window.location.pathname;
+  const payload = { form_name, page_path };
+
+  try {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'form_submit', payload);
+    }
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'form_submit',
+      form_name,
+      page_path,
+    });
+  } catch {
+    // La analítica nunca debe romper la experiencia del usuario.
+  }
+};
+
 export const trackFormSubmit = (serviceType: string, value?: number) => {
   // Solo evento GA4. La conversión oficial de Ads del formulario se dispara
   // aparte con trackGoogleAdsFormConversion() tras Formspree OK.
+  // `form_submit` se dispara aparte con trackGa4FormSubmit() tras Formspree OK.
   const params = {
     event_category: 'engagement',
     event_label: 'contact_form',
@@ -440,19 +492,28 @@ export const trackFormSubmit = (serviceType: string, value?: number) => {
     currency: 'EUR',
   };
   trackEvent('submit_contact_form', params);
-  if (typeof window !== 'undefined' && isAdsLandingPath(window.location.pathname)) {
-    trackEvent('form_submit', params);
-  }
 };
 
-/** Primer campo tocado en un formulario de landing. Una vez por montaje. */
+/** Primer campo tocado en un formulario de landing. Una vez por formulario/sesión. */
 export const trackFormStart = (formName: string) => {
   if (typeof window === 'undefined') return;
   if (!isAdsLandingPath(window.location.pathname)) return;
+
+  const ga4Name = toGa4FormName(formName);
+  const key = `${ga4Name}:${window.location.pathname.replace(/\/+$/, '') || '/'}`;
+
+  try {
+    if (sessionStorage.getItem(`${FORM_START_STORAGE_PREFIX}${key}`)) return;
+    sessionStorage.setItem(`${FORM_START_STORAGE_PREFIX}${key}`, '1');
+  } catch {
+    if (formStartFired.has(key)) return;
+    formStartFired.add(key);
+  }
+
   trackEvent('form_start', {
     event_category: 'engagement',
-    event_label: formName,
-    form_name: formName,
+    event_label: ga4Name,
+    form_name: ga4Name,
   });
 };
 
@@ -686,17 +747,17 @@ export const trackWebProfesionalFormSubmit = (plan: string, value?: number) => {
 
 // landing promo 349 (/landing-web-profesional)
 
-export const trackLandingPromo299View = () => {
-  trackEvent('landing_promo_299_view', {
-    event_category: 'landing_promo_299',
+export const trackLandingPromo349View = () => {
+  trackEvent('landing_promo_349_view', {
+    event_category: 'landing_promo_349',
     event_label: 'landing promo 349',
     landing_name: 'landing promo 349',
   });
 };
 
-export const trackLandingPromo299FormSubmit = () => {
-  trackEvent('landing_promo_299_form_submit', {
-    event_category: 'landing_promo_299',
+export const trackLandingPromo349FormSubmit = () => {
+  trackEvent('landing_promo_349_form_submit', {
+    event_category: 'landing_promo_349',
     event_label: 'landing promo 349',
     landing_name: 'landing promo 349',
     value: 349,

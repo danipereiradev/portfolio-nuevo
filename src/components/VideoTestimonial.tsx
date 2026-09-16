@@ -1,5 +1,7 @@
 import { useRef, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Play } from 'lucide-react';
+import { isAdsLandingPath } from '../config/contact';
 import { trackPlayReviewVideo } from '../utils/analytics';
 
 const VIDEO_SRC = '/video/juanvi-testimonio.mp4';
@@ -10,6 +12,8 @@ function VideoTestimonial() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const hasTrackedPlay = useRef(false);
   const [showOverlay, setShowOverlay] = useState(true);
+  const { pathname } = useLocation();
+  const hideOutboundLink = isAdsLandingPath(pathname);
 
   const startPlayback = async () => {
     const video = videoRef.current;
@@ -70,14 +74,18 @@ function VideoTestimonial() {
       </div>
       <figcaption className='mt-3 text-center'>
         <p className='text-base font-extrabold text-ink-dark'>Juanvi Raga</p>
-        <a
-          href={SITE_URL}
-          target='_blank'
-          rel='noopener noreferrer'
-          className='text-sm font-semibold text-accent hover:underline'
-        >
-          hoyviajamosweb.com
-        </a>
+        {hideOutboundLink ? (
+          <p className='text-sm font-semibold text-accent'>hoyviajamosweb.com</p>
+        ) : (
+          <a
+            href={SITE_URL}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='text-sm font-semibold text-accent hover:underline'
+          >
+            hoyviajamosweb.com
+          </a>
+        )}
       </figcaption>
     </figure>
   );
