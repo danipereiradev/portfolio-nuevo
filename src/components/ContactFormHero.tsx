@@ -261,24 +261,26 @@ Fecha: ${new Date().toLocaleString('es-ES')}
         className='w-full rounded-lg bg-surface-muted p-content-pad text-ink-dark shadow-xl md:w-3/4'
         action=''
       >
-        <div
-          className={`page-title-block text-center ${
-            compactOnMobile ? 'hidden md:flex' : ''
-          }`}
-        >
+        <div className='page-title-block text-center'>
           <h2 className='text-2xl font-extrabold text-black md:text-3xl lg:text-4xl'>
             {title}
           </h2>
-          <span className='block text-sm font-extrabold uppercase tracking-wide text-accent'>
+          <span
+            className={`${
+              compactOnMobile ? 'hidden md:block' : 'block'
+            } text-sm font-extrabold uppercase tracking-wide text-accent`}
+          >
             {BUSINESS_HOURS_LABEL}
           </span>
-          <p className='text-center text-lg text-gray-900'>{description}</p>
+          <p
+            className={`text-center text-lg text-gray-900 ${
+              compactOnMobile ? 'hidden md:block' : ''
+            }`}
+          >
+            {description}
+          </p>
         </div>
-        <div
-          className={`form-fields flex flex-col gap-content-gap ${
-            compactOnMobile ? 'md:mt-page-gap' : 'mt-page-gap'
-          }`}
-        >
+        <div className='form-fields mt-page-gap flex flex-col gap-content-gap'>
           <input
             type='text'
             value={formData.name}
