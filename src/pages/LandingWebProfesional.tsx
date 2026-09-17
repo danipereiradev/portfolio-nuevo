@@ -38,8 +38,7 @@ const includes = [
   {
     icon: LayoutTemplate,
     title: 'Diseño adaptado a tu negocio',
-    description:
-      'Adaptamos colores, estructura y estilo a tu marca y sector.',
+    description: 'Adaptamos colores, estructura y estilo a tu marca y sector.',
   },
   {
     icon: Type,
@@ -62,8 +61,7 @@ const includes = [
   {
     icon: Share2,
     title: 'Tus redes sociales',
-    description:
-      'Conectamos Instagram, Facebook y las redes que utilices.',
+    description: 'Conectamos Instagram, Facebook y las redes que utilices.',
   },
   {
     icon: Search,
@@ -244,7 +242,7 @@ const LandingWebProfesional = () => {
           <>
             Esta oferta es para una{' '}
             <strong className='font-extrabold'>
-              web sencilla de presentación de negocio
+              web profesional para negocios
             </strong>
             . Hasta 5 secciones, tu marca, formulario, WhatsApp y publicación.
             Precio cerrado.
@@ -293,9 +291,8 @@ const LandingWebProfesional = () => {
               No se publica hasta que estés conforme
             </h2>
             <p className='text-xl text-ink-dark md:text-2xl'>
-              {getLaunchPriceLabel()} · 50% al empezar · 50% cuando apruebes.
-              La ves antes de publicar. Si algo importante no encaja, lo
-              ajustamos.
+              {getLaunchPriceLabel()} · 50% al empezar · 50% cuando apruebes. La
+              ves antes de publicar. Si algo importante no encaja, lo ajustamos.
             </p>
           </div>
         </div>

@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
-import { Mail } from 'lucide-react';
+import { ArrowUpRight, Mail } from 'lucide-react';
 import RevealOnScroll from './RevealOnScroll';
 
-interface Team {
+interface TeamMember {
   fullName: string;
   description: ReactNode;
   role: string;
@@ -33,20 +33,18 @@ const memberOrder = [
 ];
 
 export const Team = ({ label, title, paragraphs }: TeamProps) => {
-  const teamMembers: Team[] = [
+  const teamMembers: TeamMember[] = [
     {
       fullName: 'Sergio Cerdá',
       description: (
         <>
           Más de 5 años desarrollando software,{' '}
-          <strong className='font-extrabold'>
-            aplicaciones web y móviles
-          </strong>
+          <strong className='font-extrabold'>aplicaciones web y móviles</strong>
           . Convierte ideas en herramientas digitales pensadas para funcionar de
           verdad.
         </>
       ),
-      role: 'Responsable de desarrollo de apps',
+      role: 'Desarrollo de apps',
       imageUrl: '/img/team/sergi.webp',
       mail: 's.cerda@36web.es',
     },
@@ -62,7 +60,7 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
           <strong className='font-extrabold'>sensibilidad visual</strong>.
         </>
       ),
-      role: 'Responsable de diseño y branding',
+      role: 'Diseño y branding',
       imageUrl: '/img/team/cristina.jpg',
       mail: 'c.recio@36web.es',
     },
@@ -75,7 +73,9 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
             desarrollando webs y posicionando webs
           </strong>
           .{' '}
-          <strong className='font-extrabold'>Máster en marketing digital</strong>
+          <strong className='font-extrabold'>
+            Máster en marketing digital
+          </strong>
           . Ha trabajado para{' '}
           <strong className='font-extrabold'>
             grandes empresas de banca y retail
@@ -83,7 +83,7 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
           .
         </>
       ),
-      role: 'Responsable de diseño web y marketing digital',
+      role: 'Diseño web y marketing digital',
       imageUrl: '/img/team/dani.webp',
       mail: 'hola@36web.es',
     },
@@ -97,7 +97,7 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
           <strong className='font-extrabold'>diseño UX/UI</strong>.
         </>
       ),
-      role: 'Responsable de desarrollo WordPress',
+      role: 'Desarrollo web WordPress',
       mail: 'k.montero@36web.es',
     },
   ];
@@ -105,79 +105,6 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
   const members = [...teamMembers].sort(
     (a, b) => memberOrder.indexOf(a.fullName) - memberOrder.indexOf(b.fullName),
   );
-
-  const checkerboardMosaic = [
-    ...members.map((member, i) => ({
-      kind: (i % 2 === 0 ? 'photo' : 'bio') as 'photo' | 'bio',
-      member,
-    })),
-    ...members.map((member, i) => ({
-      kind: (i % 2 === 0 ? 'bio' : 'photo') as 'photo' | 'bio',
-      member,
-    })),
-  ];
-
-  const mosaicTile = (
-    tile: { kind: 'photo' | 'bio'; member: Team },
-    prefix: string,
-  ) => {
-    const isMobile = prefix === 'm';
-
-    if (tile.kind === 'photo') {
-      return (
-        <article
-          key={`${prefix}-${tile.member.fullName}-photo`}
-          className={`group relative aspect-square overflow-hidden bg-accent-light ${
-            isMobile ? 'rounded-xl' : ''
-          }`}
-        >
-          {tile.member.imageUrl ? (
-            <img
-              className='absolute inset-0 h-full w-full object-cover object-top grayscale transition-[filter] duration-300 group-hover:grayscale-0'
-              src={tile.member.imageUrl}
-              alt={tile.member.fullName}
-              width={400}
-              height={400}
-              loading='lazy'
-              decoding='async'
-            />
-          ) : (
-            <span className='flex h-full items-center justify-center text-4xl font-extrabold text-accent'>
-              {memberInitials(tile.member.fullName)}
-            </span>
-          )}
-        </article>
-      );
-    }
-
-    return (
-      <article
-        key={`${prefix}-${tile.member.fullName}-bio`}
-        className={`flex aspect-square flex-col items-center justify-center bg-[#f4f4f4] px-3 py-4 text-center text-ink-dark md:px-8 md:py-6 ${
-          isMobile ? 'rounded-xl' : ''
-        }`}
-      >
-        <h3 className='text-base font-bold leading-tight md:text-2xl'>
-          {tile.member.fullName.split(' ')[0]}
-        </h3>
-        <p className='mt-1 text-[11px] font-medium leading-snug text-ink-dark/80 md:text-base'>
-          {tile.member.role}
-        </p>
-        {isMobile ? null : (
-          <p className='mt-3 line-clamp-4 text-sm leading-relaxed'>
-            {tile.member.description}
-          </p>
-        )}
-        <a
-          href={`mailto:${tile.member.mail}`}
-          className='mt-2 flex items-center gap-1.5 text-[11px] font-bold text-ink-dark transition-opacity hover:opacity-70 md:mt-4 md:gap-2 md:text-sm'
-        >
-          <Mail width={16} className='shrink-0' aria-hidden />
-          <span className='break-all'>{tile.member.mail}</span>
-        </a>
-      </article>
-    );
-  };
 
   return (
     <section className='page-section'>
@@ -196,19 +123,56 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
           ))}
         </RevealOnScroll>
         <RevealOnScroll className='w-full' delayMs={120}>
-          <div className='flex flex-col gap-3 md:hidden'>
+          <div className='grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4'>
             {members.map((member) => (
-              <div
-                key={`m-${member.fullName}`}
-                className='grid grid-cols-2 gap-2'
+              <article
+                key={member.fullName}
+                className='group relative aspect-[4/5] overflow-hidden rounded-xl bg-ink-dark'
               >
-                {mosaicTile({ kind: 'photo', member }, 'm')}
-                {mosaicTile({ kind: 'bio', member }, 'm')}
-              </div>
+                {member.imageUrl ? (
+                  <img
+                    className='absolute inset-0 h-full w-full object-cover object-top grayscale brightness-75'
+                    src={member.imageUrl}
+                    alt={member.fullName}
+                    width={480}
+                    height={600}
+                    loading='lazy'
+                    decoding='async'
+                  />
+                ) : (
+                  <span className='absolute inset-0 flex items-center justify-center bg-accent text-5xl font-extrabold text-white'>
+                    {memberInitials(member.fullName)}
+                  </span>
+                )}
+                <div className='absolute inset-x-2.5 bottom-2.5 flex h-[7.75rem] flex-col rounded-lg border border-white/15 bg-accent/10 px-3 py-2.5 text-left text-white backdrop-blur-md'>
+                  <div className='flex items-start justify-between gap-2'>
+                    <h3 className='truncate text-sm font-extrabold leading-tight md:text-base'>
+                      {member.fullName}
+                    </h3>
+                    <a
+                      href={`mailto:${member.mail}`}
+                      className='mt-0.5 shrink-0 text-white/80 transition-opacity hover:text-white'
+                      aria-label={`Escribir a ${member.fullName}`}
+                    >
+                      <ArrowUpRight className='h-4 w-4' aria-hidden />
+                    </a>
+                  </div>
+                  <p className='mt-0.5 truncate text-xs font-semibold text-white/90'>
+                    {member.role}
+                  </p>
+                  <p className='mt-1 line-clamp-2 text-xs leading-snug text-white/85'>
+                    {member.description}
+                  </p>
+                  <a
+                    href={`mailto:${member.mail}`}
+                    className='mt-auto inline-flex items-center gap-1.5 truncate text-[11px] font-bold text-white/90 transition-opacity hover:text-white'
+                  >
+                    <Mail className='h-3.5 w-3.5 shrink-0' aria-hidden />
+                    <span className='truncate'>{member.mail}</span>
+                  </a>
+                </div>
+              </article>
             ))}
-          </div>
-          <div className='hidden overflow-hidden rounded-xl md:grid md:grid-cols-4'>
-            {checkerboardMosaic.map((tile) => mosaicTile(tile, 'd'))}
           </div>
         </RevealOnScroll>
       </div>
