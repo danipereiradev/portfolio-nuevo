@@ -78,14 +78,16 @@ const SEOFAQ = ({
             </div>
           ))}
         </div>
-        <Button
-          href={ctaHref}
-          onClick={() => {
-            if (ctaText) trackCtaClick(ctaText, 'FAQ');
-          }}
-        >
-          {ctaText}
-        </Button>
+        {ctaHref ? (
+          <Button
+            href={ctaHref}
+            onClick={() => {
+              if (ctaText) trackCtaClick(ctaText, 'FAQ');
+            }}
+          >
+            {ctaText}
+          </Button>
+        ) : null}
       </div>
     </section>
   );

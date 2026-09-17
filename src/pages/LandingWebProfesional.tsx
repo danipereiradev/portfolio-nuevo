@@ -1,10 +1,7 @@
 import { useEffect, useMemo } from 'react';
 import {
-  Check,
   Clock,
-  FileCheck,
   Globe,
-  Handshake,
   LayoutTemplate,
   MessageCircle,
   Search,
@@ -12,17 +9,13 @@ import {
   ShieldCheck,
   Smartphone,
   Type,
-  X,
 } from 'lucide-react';
 import Portfolio from '../components/Portfolio';
-import SEOBenefits from '../components/SEOBenefits';
 import SEOFAQ from '../components/SEOFAQ';
 import Testimonials from '../components/Testimonials';
-import LaunchTrustBar from '../components/LaunchTrustBar';
 import SEOProcess from '../components/SEOProcess';
 import HeroCta from '../components/HeroCta';
 import LaunchPaymentTable from '../components/LaunchPaymentTable';
-import LaunchReserveActions from '../components/LaunchReserveActions';
 import { ServiceIncludes } from '../components/ServiceOnPage';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
@@ -76,7 +69,7 @@ const includes = [
     icon: Search,
     title: 'Preparada para Google y rápida',
     description:
-      'Títulos, encabezados, URLs limpias y una base técnica optimizada.',
+      'Títulos, encabezados y una página que carga rápido, para que te encuentren y te escriban.',
   },
   {
     icon: Globe,
@@ -92,80 +85,26 @@ const includes = [
   },
 ];
 
-const offerIncludes = [
-  'Hasta 5 secciones',
-  'Adaptación a tu marca',
-  'Estructura y estilos personalizados',
-  'Formulario y WhatsApp',
-  'Integración de tus redes sociales',
-  'Publicación',
-  'No se publica hasta que estés conforme',
-];
-
-const offerExcludes = [
-  'Ecommerce',
-  'Funcionalidades especiales',
-  'Áreas privadas',
-  'Desarrollos a medida',
-  'Redacción profesional de contenidos',
-];
-
-const whyUs = [
+const processSteps = [
   {
-    icon: FileCheck,
-    title: 'Precio y plazo, por escrito',
+    number: '1',
+    title: 'Nos cuentas tu negocio',
     description: (
       <>
-        Antes de empezar sabes qué entra, cuánto sale y cuándo está.{' '}
+        Nos escribes, te llamamos y confirmamos el proyecto.{' '}
         <strong className='font-extrabold'>
-          Sin packs hinchados ni “ya te digo”
+          Precio cerrado: {getLaunchPriceLabel()}
         </strong>
         .
       </>
     ),
   },
   {
-    icon: Handshake,
-    title: 'Trato directo',
-    description: (
-      <>
-        Hablas con quien la diseña y la desarrolla. Estudio pequeño.{' '}
-        <strong className='font-extrabold'>Siempre contestamos</strong>.
-      </>
-    ),
-  },
-  {
-    icon: LayoutTemplate,
-    title: 'Diseño adaptado a ti',
-    description: (
-      <>
-        A tu marca y a lo que necesitas de verdad. Si con 4 páginas vale,{' '}
-        <strong className='font-extrabold'>no te vendemos 12</strong>.
-      </>
-    ),
-  },
-];
-
-const processSteps = [
-  {
-    number: '1',
-    title: 'Nos escribes y lo confirmamos',
-    description: (
-      <>
-        Te contactamos y confirmamos el proyecto.{' '}
-        <strong className='font-extrabold'>
-          Precio cerrado: {getLaunchPriceLabel()}
-        </strong>
-        . Se paga 50% al empezar y 50% antes de publicar.
-      </>
-    ),
-  },
-  {
     number: '2',
-    title: 'Nos entregas la información',
+    title: 'Montamos y adaptamos',
     description: (
       <>
-        Logo, textos, fotos y los datos de tu negocio. Con eso montamos la web.{' '}
+        Con tu logo, textos y datos montamos la web a tu marca.{' '}
         <strong className='font-extrabold'>
           El plazo de {LAUNCH_DELIVERY_LABEL} empieza aquí
         </strong>
@@ -175,26 +114,12 @@ const processSteps = [
   },
   {
     number: '3',
-    title: 'Montamos la web',
+    title: 'Revisas y publicamos',
     description: (
       <>
-        Con tu marca y tus contenidos.{' '}
+        La ves, si algo no encaja lo ajustamos, y entonces se publica.{' '}
         <strong className='font-extrabold'>
-          Hablas con quien la está haciendo
-        </strong>
-        .
-      </>
-    ),
-  },
-  {
-    number: '4',
-    title: 'La ves. Si estás contento, se publica',
-    description: (
-      <>
-        No sale a internet hasta que tú digas que sí. Si algo importante no
-        encaja, lo ajustamos.{' '}
-        <strong className='font-extrabold'>
-          Entonces pagas el 50% final y se publica a tu nombre
+          El 50% final se paga cuando apruebes
         </strong>
         .
       </>
@@ -204,55 +129,31 @@ const processSteps = [
 
 const faqs = [
   {
-    question: '¿Cómo podéis ofrecer este precio?',
-    answer:
-      'Trabajamos sobre una estructura profesional propia de 36web ya preparada y adaptamos diseño, colores, contenidos e información a cada negocio. Esto nos permite reducir muchas horas de desarrollo desde cero y ofrecer una web profesional a un precio más accesible.',
-  },
-  {
-    question: '¿Cuánto cuesta y cómo se paga?',
-    answer: `${getLaunchPriceLabel()}, precio cerrado. 50% al empezar. El 50% final se paga cuando estés contento con el resultado, justo antes de publicar. Primero te contactamos y confirmamos el proyecto. Hosting y dominio incluidos el primer año. Sin permanencia. La web es tuya.`,
-  },
-  {
-    question: '¿Qué incluye?',
-    answer:
-      'Esta oferta es para una web sencilla de presentación de negocio. Incluye hasta 5 secciones, adaptación a tu marca, estructura y estilos personalizados, formulario, WhatsApp, integración de tus redes sociales, publicación y hosting y dominio el primer año. No se publica hasta que estés conforme: la ves, si algo importante no encaja lo ajustamos, y el 50% final se paga cuando apruebes. Tú aportas logo, textos y fotos. Si no cuentas con logo o textos, te lo presupuestamos. Precio cerrado. La web es tuya.',
-  },
-  {
-    question: '¿Qué no incluye?',
-    answer:
-      'No incluye ecommerce, funcionalidades especiales, áreas privadas ni desarrollos a medida. Logo y redacción profesional de contenidos tampoco entran en este precio: si no cuentas con ellos, te lo presupuestamos.',
+    question: '¿Cuánto cuesta?',
+    answer: `${getLaunchPriceLabel()}, precio cerrado. Hosting y dominio incluidos el primer año. Sin permanencia. La web es tuya.`,
   },
   {
     question: '¿Cuánto tarda?',
-    answer: `Se publica en ${LAUNCH_DELIVERY_LABEL} desde que nos entregas la información necesaria de tu negocio: logo, textos, fotos y datos de contacto. El reloj empieza cuando nos llega ese material.`,
+    answer: `Se publica en ${LAUNCH_DELIVERY_LABEL} desde que nos entregas logo, textos, fotos y datos de contacto. El reloj empieza cuando nos llega ese material.`,
+  },
+  {
+    question: '¿Cómo se paga?',
+    answer:
+      '50% al empezar y 50% cuando estés contento con el resultado, justo antes de publicar. Primero te contactamos y confirmamos el proyecto.',
+  },
+  {
+    question: '¿Qué contenidos tengo que entregar?',
+    answer: `Logo, textos, fotos y la información de tu negocio (qué haces, cómo te contactan, horarios, redes). Si no cuentas con logo o textos, te lo presupuestamos. El plazo de ${LAUNCH_DELIVERY_LABEL} cuenta desde que nos llega el material.`,
   },
   {
     question: '¿El hosting y el dominio están incluidos?',
     answer:
-      'Sí. Incluimos el hosting y el dominio durante el primer año para que puedas arrancar sin costes adicionales. A partir del segundo año, podrás renovarlos con nosotros o trasladarlos al proveedor que prefieras. El coste orientativo es de 80–150 € + IVA al año, según las características y el espacio. La web y el dominio quedan a tu nombre.',
+      'Sí. Incluimos el hosting y el dominio durante el primer año. A partir del segundo año, podrás renovarlos con nosotros o trasladarlos al proveedor que prefieras. El coste orientativo es de 80–150 € + IVA al año. La web y el dominio quedan a tu nombre.',
   },
   {
-    question: '¿Qué tengo que entregar yo?',
-    answer: `Logo, textos, fotos y la información de tu negocio (qué haces, cómo te contactan, horarios, redes). Con eso montamos y publicamos. Si no cuentas con logo o textos, te lo presupuestamos. El plazo de ${LAUNCH_DELIVERY_LABEL} cuenta desde que nos llega el material.`,
-  },
-  {
-    question: '¿Y si no me convence el resultado?',
+    question: '¿La web es mía? ¿Puedo pedir cambios?',
     answer:
-      'No se publica hasta que estés conforme. La ves antes de que salga a internet. Si algo importante no encaja, lo ajustamos. El 50% final se paga cuando apruebes. No antes.',
-  },
-  {
-    question: '¿Me rehacéis la web que ya tengo?',
-    answer:
-      'Sí. Partimos de tu marca, textos, fotos y dominio, y montamos la nueva. No es un parche sobre la vieja.',
-  },
-  {
-    question: `¿Por qué cuesta ${getLaunchPriceLabel()}?`,
-    answer: `Es el precio de lanzamiento. Nuestras webs a medida suelen partir de 590 €. Aquí montamos una web funcional, rápida y sencilla para empezar a captar clientes: se ve bien en el móvil, te pueden escribir y Google la entiende. No es una plantilla ni un proyecto inflado. Es el arranque profesional. Cuando el negocio pida más —páginas, reservas, tienda— la escalamos. Empiezas con lo que hace falta, sin pagar por lo que aún no usas. Y la web es tuya.`,
-  },
-  {
-    question: '¿WordPress o a medida?',
-    answer:
-      'Lo que pida el caso. WordPress si encaja; a medida u otra base si hace falta. Te lo decimos en la propuesta, sin venderte lo más caro por sistema.',
+      'Sí. La web y el dominio quedan a tu nombre. Antes de publicar la revisas; si algo importante no encaja, lo ajustamos. El 50% final se paga cuando apruebes. Cambios posteriores se presupuestan aparte.',
   },
 ];
 
@@ -337,8 +238,6 @@ const LandingWebProfesional = () => {
         isTopHero
       />
 
-      <LaunchTrustBar />
-
       <ServiceIncludes
         title='Qué incluye la web'
         intro={
@@ -354,64 +253,18 @@ const LandingWebProfesional = () => {
         items={includes}
       />
 
-      <section className='page-section'>
-        <div className='container mx-auto flex flex-col gap-page-gap'>
-          <div className='page-title-block mx-auto max-w-5xl text-center'>
-            <h2 className='text-3xl font-extrabold text-ink-dark md:text-4xl lg:text-5xl'>
-              Qué entra y qué no
-            </h2>
-            <p className='text-xl text-ink-dark md:text-2xl'>
-              Esta oferta es para una web sencilla de presentación de negocio.
-              Si te hace falta más, lo vemos aparte.
-            </p>
-          </div>
-          <div className='grid items-stretch gap-page-gap md:grid-cols-2'>
-            <article className='flex flex-col rounded-lg border-2 border-ink-dark bg-white p-content-pad'>
-              <h3 className='text-2xl font-extrabold text-ink-dark'>Incluye</h3>
-              <ul className='mt-6 space-y-2 text-base md:text-lg'>
-                {offerIncludes.map((item) => (
-                  <li key={item} className='flex items-start gap-2'>
-                    <Check
-                      className='mt-1 h-4 w-4 shrink-0 text-accent'
-                      aria-hidden
-                    />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </article>
-            <article className='flex flex-col rounded-lg border-2 border-ink-dark bg-white p-content-pad'>
-              <h3 className='text-2xl font-extrabold text-ink-dark'>
-                No incluye
-              </h3>
-              <ul className='mt-6 space-y-2 text-base md:text-lg'>
-                {offerExcludes.map((item) => (
-                  <li key={item} className='flex items-start gap-2'>
-                    <X
-                      className='mt-1 h-4 w-4 shrink-0 text-ink-medium'
-                      aria-hidden
-                    />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </article>
-          </div>
+      <section className='py-8 md:py-10'>
+        <div className='container mx-auto max-w-3xl text-center text-base leading-relaxed text-ink-dark md:text-lg'>
+          <p>
+            Ideal para autónomos, emprendedores y pequeños negocios que
+            necesitan una web profesional de presentación.
+          </p>
+          <p className='mt-3'>
+            Ecommerce, desarrollo a medida y proyectos complejos se presupuestan
+            aparte.
+          </p>
         </div>
       </section>
-
-      <SEOBenefits
-        title='Por qué encargárnosla a nosotros'
-        subtitle={
-          <>
-            Tres cosas claras:{' '}
-            <strong className='font-extrabold'>el precio</strong>,{' '}
-            <strong className='font-extrabold'>con quién hablas</strong> y{' '}
-            <strong className='font-extrabold'>cómo queda la web</strong>.
-          </>
-        }
-        benefits={whyUs}
-      />
 
       <Portfolio
         ids={['chicxs', 'resilience', 'micolet', 'delish']}
@@ -433,61 +286,30 @@ const LandingWebProfesional = () => {
 
       <Testimonials />
 
-      <section className='page-section bg-surface-muted'>
-        <div className='container mx-auto flex flex-col items-center gap-page-gap text-center'>
-          <div className='page-title-block mx-auto max-w-5xl'>
+      <section className='page-section'>
+        <div className='container mx-auto max-w-4xl text-center'>
+          <div className='page-title-block mx-auto'>
             <h2 className='text-3xl font-extrabold text-ink-dark md:text-4xl lg:text-5xl'>
               No se publica hasta que estés conforme
             </h2>
             <p className='text-xl text-ink-dark md:text-2xl'>
-              {getLaunchPriceLabel()} · 50% al empezar · 50% cuando apruebes
+              {getLaunchPriceLabel()} · 50% al empezar · 50% cuando apruebes.
+              La ves antes de publicar. Si algo importante no encaja, lo
+              ajustamos.
             </p>
           </div>
-          <LaunchReserveActions location='LaunchSocialProof' align='center' />
         </div>
       </section>
 
       <SEOProcess
         title='Así se hace'
-        subtitle={
-          <>
-            <strong className='font-extrabold'>Cuatro pasos.</strong> Nos
-            escribes, confirmamos, nos entregas la información de tu negocio,
-            montamos y te la enseñamos. Queda lista en {LAUNCH_DELIVERY_LABEL}{' '}
-            desde esa entrega.
-          </>
-        }
+        subtitle='Tres pasos. Nos cuentas tu negocio, montamos y adaptamos, revisas y publicamos.'
         steps={processSteps}
-      />
-
-      <HeroCta
-        title='¿Tienes dudas? Te llamamos'
-        description={
-          <>
-            Déjanos tus datos y te contactamos.{' '}
-            <strong className='font-extrabold'>Sin compromiso.</strong>{' '}
-            Confirmamos el proyecto y te explicamos el pago 50% y 50%.
-          </>
-        }
-        buttonText='Quiero información'
-        buttonHref='#contacto'
-        heroType='form'
-        hasButton={false}
-        formTitle='Nosotros te llamamos'
-        formDescription='Nombre, email y teléfono. Te escribimos en horario laboral.'
-        formSectionInfo={ADS_LAUNCH_FORM_ORIGIN}
-        formSubmitLabel='Quiero información'
-        hasBackground={false}
-        hasReviewBadge
+        compact
       />
 
       <div id='faq'>
-        <SEOFAQ
-          title='Lo que suele preguntar la gente'
-          faqs={faqs}
-          ctaText='Quiero información'
-          ctaHref='#contacto'
-        />
+        <SEOFAQ title='Lo que suele preguntar la gente' faqs={faqs} />
       </div>
 
       <div id='contacto-final'>
@@ -501,14 +323,17 @@ const LandingWebProfesional = () => {
               . La ves, si no encaja la tocamos, y entonces sale.
             </>
           }
-          belowDescription={<LaunchPaymentTable />}
-          ctaContent={
-            <LaunchReserveActions location='LaunchFinal' align='center' />
-          }
-          heroType='clean'
+          belowDescription={<LaunchPaymentTable className='md:mx-0' />}
+          buttonText='Quiero información'
+          buttonHref='#contacto'
+          heroType='form'
           hasButton={false}
+          formTitle='Nosotros te llamamos'
+          formDescription='Te contactamos y confirmamos el proyecto. Sin compromiso.'
+          formSectionInfo={ADS_LAUNCH_FORM_ORIGIN}
+          formSubmitLabel='Quiero información'
           hasBackground={false}
-          hasReviewBadge
+          hasReviewBadge={false}
         />
       </div>
     </>

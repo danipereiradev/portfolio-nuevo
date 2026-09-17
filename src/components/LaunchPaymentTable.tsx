@@ -1,6 +1,6 @@
 import { getLaunchPriceLabel } from '../config/launchOffer';
 
-const LaunchPaymentTable = () => {
+const LaunchPaymentTable = ({ className = '' }: { className?: string }) => {
   const rows = [
     {
       title: 'Al empezar',
@@ -15,7 +15,9 @@ const LaunchPaymentTable = () => {
   ];
 
   return (
-    <div className='mx-auto w-full max-w-xl overflow-hidden rounded-lg border-2 border-ink-dark bg-white text-left text-base text-ink-dark md:text-lg'>
+    <div
+      className={`mx-auto w-full max-w-xl overflow-hidden rounded-lg border-2 border-ink-dark bg-white text-left text-base text-ink-dark md:text-lg ${className}`.trim()}
+    >
       {rows.map((row) => (
         <div
           key={row.title}

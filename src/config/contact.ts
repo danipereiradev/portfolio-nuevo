@@ -1,6 +1,6 @@
 // Datos de contacto centralizados. Cambiar el número aquí actualiza toda la
 // web (enlaces de WhatsApp, tel: y texto visible) desde un único sitio.
-export const PHONE_NUMBER = '+34644665352';
+export const PHONE_NUMBER = '34644665352';
 export const PHONE_DISPLAY = '644 665 352';
 export const PHONE_TEL_LINK = `tel:+${PHONE_NUMBER}`;
 export const CONTACT_EMAIL = 'hola@36web.es';

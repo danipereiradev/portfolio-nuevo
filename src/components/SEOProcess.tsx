@@ -14,6 +14,7 @@ interface SEOProcessProps {
   imageSrc?: string;
   imageAlt?: string;
   stagger?: boolean;
+  compact?: boolean;
 }
 
 const SEOProcess = ({
@@ -23,6 +24,7 @@ const SEOProcess = ({
   imageSrc,
   imageAlt = 'Proceso de trabajo de 36web',
   stagger = true,
+  compact = false,
 }: SEOProcessProps) => {
   const hasImage = Boolean(imageSrc);
 
@@ -72,7 +74,7 @@ const SEOProcess = ({
               const row = (
                 <div
                   className={`relative flex gap-content-gap ${
-                    isLast ? '' : 'pb-16 md:pb-20'
+                    isLast ? '' : compact ? 'pb-8' : 'pb-16 md:pb-20'
                   }`}
                 >
                   {index !== steps.length - 1 && (
