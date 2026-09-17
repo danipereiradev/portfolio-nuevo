@@ -14,7 +14,6 @@ import HeroCta, { HeroCtaList } from '../components/HeroCta';
 import TrustBar from '../components/TrustBar';
 import SEOBenefits from '../components/SEOBenefits';
 import SEOFAQ from '../components/SEOFAQ';
-import { Team } from '../components/Team';
 import Testimonials from '../components/Testimonials';
 import Button from '../components/Button';
 import MaintenanceHourPacks from '../components/MaintenanceHourPacks';
@@ -487,22 +486,7 @@ const MantenimientoWeb = () => {
         </div>
       </section>
 
-      <Testimonials hasVideo />
-
-      <Team
-        label='EL EQUIPO'
-        title='Trato directo durante todo el soporte.'
-        compact
-        paragraphs={[
-          <>
-            Cuando escribes, hablas con{' '}
-            <strong className='font-extrabold'>
-              la persona que revisa tu web
-            </strong>
-            , por email, teléfono o videollamada.
-          </>,
-        ]}
-      />
+      <Testimonials hasVideo       />
 
       <div id='faq'>
         <SEOFAQ

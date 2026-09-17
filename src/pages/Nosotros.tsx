@@ -4,8 +4,6 @@ import { useJsonLd } from '../hooks/useJsonLd';
 import { TextImage } from '../components/TextImage';
 import { TextSection } from '../components/TextSection';
 import { Team } from '../components/Team';
-import Portfolio from '../components/Portfolio';
-import Testimonials from '../components/Testimonials';
 import HeroCta from '../components/HeroCta';
 import {
   ABOUT_LABEL,
@@ -131,9 +129,6 @@ const Nosotros = () => {
           </>,
         ]}
       />
-
-      <Portfolio />
-      <Testimonials />
 
       <Team
         label='¿QUIÉN ESTÁ DETRÁS DE 36WEB?'

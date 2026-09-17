@@ -11,7 +11,6 @@ import {
 import Portfolio from '../components/Portfolio';
 import SEOBenefits from '../components/SEOBenefits';
 import SEOFAQ from '../components/SEOFAQ';
-import { Team } from '../components/Team';
 import Testimonials from '../components/Testimonials';
 import TrustBar from '../components/TrustBar';
 import SEOProcess from '../components/SEOProcess';
@@ -265,27 +264,7 @@ const LandingShop = () => {
         steps={processSteps}
       />
 
-      <Testimonials hasVideo />
-
-      <Team
-        label='EL EQUIPO'
-        title='Trato directo durante todo el proyecto.'
-        compact
-        paragraphs={[
-          <>
-            Desde la primera reunión hasta la entrega, podrás hablar
-            directamente con{' '}
-            <strong className='font-extrabold'>
-              la persona encargada de tu tienda online
-            </strong>{' '}
-            por{' '}
-            <strong className='font-extrabold'>
-              email, teléfono o videollamada
-            </strong>
-            .
-          </>,
-        ]}
-      />
+      <Testimonials hasVideo       />
 
       <div id='faq'>
         <SEOFAQ

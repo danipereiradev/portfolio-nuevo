@@ -8,8 +8,6 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import { globalFaqs } from '../data/globalFaqs';
 
 import { TextImage } from '../components/TextImage';
-
-import { Team } from '../components/Team';
 import HeroCta from '../components/HeroCta';
 
 const Home = () => {
@@ -88,26 +86,6 @@ const Home = () => {
       />
       <Portfolio />
       <Testimonials />
-      <Team
-        label='¿QUIÉN ESTÁ DETRÁS DE 36WEB?'
-        title='Estas somos las personas que vamos a encargarnos de tu proyecto.'
-        paragraphs={[
-          <>
-            Queremos que nos pongas caras. Que puedas ver nuestros portfolios y
-            contactar con nosotros para lo que necesites:{' '}
-            <strong className='font-extrabold'>siempre contestamos</strong>.
-            Sobre todo, que sientas{' '}
-            <strong className='font-extrabold'>
-              seguridad al confiarnos la parte digital de tu negocio
-            </strong>
-            . Aunque 36web acaba de empezar,{' '}
-            <strong className='font-extrabold'>
-              nosotros llevamos años trabajando en esto
-            </strong>
-            .
-          </>,
-        ]}
-      />
 
       <div id='faq'>
         <SEOFAQ

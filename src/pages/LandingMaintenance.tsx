@@ -12,7 +12,6 @@ import {
 import Portfolio from '../components/Portfolio';
 import SEOBenefits from '../components/SEOBenefits';
 import SEOFAQ from '../components/SEOFAQ';
-import { Team } from '../components/Team';
 import Testimonials from '../components/Testimonials';
 import TrustBar from '../components/TrustBar';
 import SEOProcess from '../components/SEOProcess';
@@ -512,26 +511,7 @@ const LandingMaintenance = () => {
         steps={processSteps}
       />
 
-      <Testimonials hasVideo />
-
-      <Team
-        label='EL EQUIPO'
-        title='Trato directo durante todo el soporte.'
-        compact
-        paragraphs={[
-          <>
-            Desde la primera conversación, hablas con{' '}
-            <strong className='font-extrabold'>
-              la persona que revisa tu web
-            </strong>{' '}
-            por{' '}
-            <strong className='font-extrabold'>
-              email, teléfono o videollamada
-            </strong>
-            .
-          </>,
-        ]}
-      />
+      <Testimonials hasVideo       />
 
       <div id='faq'>
         <SEOFAQ

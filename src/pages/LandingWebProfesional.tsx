@@ -17,7 +17,6 @@ import {
 import Portfolio from '../components/Portfolio';
 import SEOBenefits from '../components/SEOBenefits';
 import SEOFAQ from '../components/SEOFAQ';
-import { Team } from '../components/Team';
 import Testimonials from '../components/Testimonials';
 import LaunchTrustBar from '../components/LaunchTrustBar';
 import SEOProcess from '../components/SEOProcess';
@@ -432,7 +431,7 @@ const LandingWebProfesional = () => {
         sectorCtaHref='#contacto'
       />
 
-      <Testimonials hasVideo />
+      <Testimonials />
 
       <section className='page-section bg-surface-muted'>
         <div className='container mx-auto flex flex-col items-center gap-page-gap text-center'>
@@ -459,26 +458,6 @@ const LandingWebProfesional = () => {
           </>
         }
         steps={processSteps}
-      />
-
-      <Team
-        label='EL EQUIPO'
-        title='Trato directo durante todo el proyecto.'
-        compact
-        paragraphs={[
-          <>
-            Desde la primera reunión hasta la entrega, podrás hablar
-            directamente con{' '}
-            <strong className='font-extrabold'>
-              la persona encargada de tu web
-            </strong>{' '}
-            por{' '}
-            <strong className='font-extrabold'>
-              email, teléfono o videollamada
-            </strong>
-            .
-          </>,
-        ]}
       />
 
       <HeroCta

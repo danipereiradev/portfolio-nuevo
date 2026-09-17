@@ -3,7 +3,6 @@ import HeroCta from '../components/HeroCta';
 import { TextImage } from '../components/TextImage';
 import Portfolio from '../components/Portfolio';
 import Testimonials from '../components/Testimonials';
-import { Team } from '../components/Team';
 import SEOFAQ from '../components/SEOFAQ';
 import SEOProcess from '../components/SEOProcess';
 import SEOBenefits from '../components/SEOBenefits';
@@ -394,24 +393,6 @@ const TiendasOnline = () => {
 
       <Portfolio variant='tiendas' contained />
       <Testimonials />
-      <Team
-        label='CONOCE A TU FUTURO EQUIPO DE TIENDAS ONLINE'
-        title='Trato directo durante todo el proyecto.'
-        paragraphs={[
-          <>
-            Desde la primera reunión hasta la entrega, podrás hablar
-            directamente con{' '}
-            <strong className='font-extrabold'>
-              la persona encargada de tu tienda online
-            </strong>{' '}
-            por{' '}
-            <strong className='font-extrabold'>
-              email, teléfono o videollamada
-            </strong>
-            .
-          </>,
-        ]}
-      />
 
       <div id='faq'>
         <SEOFAQ

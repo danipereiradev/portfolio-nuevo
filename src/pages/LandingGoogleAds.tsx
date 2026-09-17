@@ -12,7 +12,6 @@ import {
 } from 'lucide-react';
 import SEOBenefits from '../components/SEOBenefits';
 import SEOFAQ from '../components/SEOFAQ';
-import { Team } from '../components/Team';
 import Testimonials from '../components/Testimonials';
 import TrustBar from '../components/TrustBar';
 import SEOProcess from '../components/SEOProcess';
@@ -446,23 +445,6 @@ const LandingGoogleAds = () => {
           </>
         }
         steps={processSteps}
-      />
-
-      <Team
-        label='LA CUENTA'
-        title='La lleva una persona. No un panel.'
-        compact
-        paragraphs={[
-          <>
-            Email para tenerlo ordenado.{' '}
-            <strong className='font-extrabold'>Llamada o videollamada</strong>{' '}
-            cuando hay que mirar números.{' '}
-            <strong className='font-extrabold'>
-              Hablas con quien toca pujas y anuncios
-            </strong>
-            .
-          </>,
-        ]}
       />
 
       <HeroCta
