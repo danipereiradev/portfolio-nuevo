@@ -38,6 +38,7 @@ import {
 const Home = lazy(() => import('./pages/Home'));
 const Nosotros = lazy(() => import('./pages/Nosotros'));
 const DisenoWeb = lazy(() => import('./pages/DisenoWeb'));
+const DisenoWebLocal = lazy(() => import('./pages/DisenoWebLocal'));
 const TiendasOnline = lazy(() => import('./pages/TiendasOnline'));
 const MantenimientoWeb = lazy(() => import('./pages/MantenimientoWeb'));
 const Blog = lazy(() => import('./pages/Blog'));
@@ -104,6 +105,10 @@ function AppContent() {
             <Route path='/' element={<Home />} />
             <Route path={ABOUT_PATH} element={<Nosotros />} />
             <Route path={SITE_WEB_PATH} element={<DisenoWeb />} />
+            <Route
+              path={`${SITE_WEB_PATH}/:ciudad`}
+              element={<DisenoWebLocal />}
+            />
             <Route
               path={SITE_WEB_PATH_N}
               element={<Navigate to={SITE_WEB_PATH} replace />}

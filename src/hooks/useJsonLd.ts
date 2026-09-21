@@ -12,7 +12,7 @@ import { useEffect } from 'react';
  * varias páginas usan este hook a la vez (no debería ocurrir en una SPA
  * con una sola ruta activa, pero evita sorpresas en HMR/dev).
  */
-export const useJsonLd = (id: string, data: Record<string, unknown>) => {
+export const useJsonLd = (id: string, data: object) => {
   useEffect(() => {
     let script = document.getElementById(id) as HTMLScriptElement | null;
     const isNew = !script;

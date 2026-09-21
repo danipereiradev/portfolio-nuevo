@@ -93,6 +93,9 @@ export const SITE_WEB_PATH = '/diseno-web';
 export const SITE_WEB_PATH_N = '/diseño-web';
 export const SITE_WEB_LABEL = 'Páginas web';
 
+/** SEO local: /diseno-web/{slug}/. El slug vive en `src/data/localWebCities.ts`. */
+export const localWebCityPath = (slug: string) => `${SITE_WEB_PATH}/${slug}`;
+
 /** Página de servicio (orgánica). Menú Servicios → Tiendas online. */
 export const SITE_SHOP_PATH = '/tiendas-online';
 export const SITE_SHOP_LABEL = 'Tiendas Online';

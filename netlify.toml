@@ -123,10 +123,10 @@
   status = 301
   force = true
 
-# Cada ruta comercial sirve su propio index.html pre-renderizado (con
-# title/description/canonical/OG/Twitter propios), generado por
-# scripts/prerender-meta.mjs tras el build, en lugar de caer en el
-# index.html genérico de la home.
+# Cada ruta comercial sirve su propio index.html pre-renderizado,
+# generado por scripts/prerender-meta.mjs tras el build.
+# Las páginas locales publicadas viven en dist/diseno-web/{slug}/index.html
+# (fichero estático: 200). Un slug no publicado no se genera: 404 de verdad.
 [[redirects]]
   from = "/web-a-medida"
   to = "/diseno-web"
@@ -149,6 +149,13 @@
   from = "/diseno-web"
   to = "/diseno-web/index.html"
   status = 200
+
+# Ciudades no publicadas: HTTP 404. No redirigir a /diseno-web/ (soft 404).
+# Las publicadas se sirven como fichero estático y ganan a esta regla.
+[[redirects]]
+  from = "/diseno-web/*"
+  to = "/404.html"
+  status = 404
 
 [[redirects]]
   from = "/landing-diseno-web"

@@ -10,6 +10,7 @@ import { ServiceIncludes } from '../components/ServiceOnPage';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { SITE_SHOP_PATH, SITE_WEB_PATH } from '../config/contact';
+import { LocalWebSpainSection } from '../components/LocalWebSpainSection';
 import { Briefcase, Building2, RefreshCw } from 'lucide-react';
 
 const SITE_URL = 'https://36web.es';
@@ -484,6 +485,8 @@ const DisenoWeb = () => {
 
       <Portfolio variant='web' contained />
       <Testimonials />
+
+      <LocalWebSpainSection />
 
       <div id='faq'>
         <SEOFAQ

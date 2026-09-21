@@ -11,11 +11,14 @@ import {
   INSTAGRAM_URL,
   PHONE_DISPLAY,
   PHONE_TEL_LINK,
+  SITE_WEB_PATH,
   buildWhatsAppUrl,
   getWhatsAppMessageForPath,
   isAdsLandingPath,
+  localWebCityPath,
 } from '../config/contact';
 import { FOOTER_NAV } from '../config/nav';
+import { LOCAL_WEB_CITY_LIST } from '../data/localWebCities';
 
 const infoLinks = [
   { href: '/preguntas-frecuentes', label: 'Preguntas frecuentes' },
@@ -106,16 +109,32 @@ const Footer = () => {
               </h3>
               <span className='block w-10 h-1 bg-brand mb-6 mx-auto md:mx-0' />
               <ul className='space-y-3 text-ink-dark'>
-                {FOOTER_NAV.map((item) => (
-                  <li key={item.href}>
-                    <a
-                      href={item.href}
-                      className='hover:text-link transition-colors duration-200'
-                    >
-                      {item.label}
-                    </a>
-                  </li>
-                ))}
+                {FOOTER_NAV.flatMap((item) => {
+                  const link = (
+                    <li key={item.href}>
+                      <a
+                        href={item.href}
+                        className='hover:text-link transition-colors duration-200'
+                      >
+                        {item.label}
+                      </a>
+                    </li>
+                  );
+                  if (item.href !== SITE_WEB_PATH) return [link];
+                  return [
+                    link,
+                    ...LOCAL_WEB_CITY_LIST.map((city) => (
+                      <li key={city.slug}>
+                        <a
+                          href={localWebCityPath(city.slug)}
+                          className='hover:text-link transition-colors duration-200'
+                        >
+                          Diseño web en {city.ciudad}
+                        </a>
+                      </li>
+                    )),
+                  ];
+                })}
               </ul>
             </div>
           )}

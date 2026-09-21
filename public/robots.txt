@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://36web.es/sitemap.xml
