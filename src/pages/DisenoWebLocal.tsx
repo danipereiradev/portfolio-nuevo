@@ -278,7 +278,7 @@ const LocalWebCityPage = ({ city }: { city: LocalWebCity }) => {
         </div>
       </section>
 
-      <LocalWebSpainSection currentSlug={city.slug} />
+      <LocalWebSpainSection currentSlug={city.slug} includeHubLink />
 
       {/* FAQ LOCAL: no reutilices las preguntas de /diseno-web. */}
       <div id='faq'>

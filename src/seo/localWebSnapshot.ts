@@ -15,6 +15,7 @@ import {
 } from '../config/contact';
 import {
   LOCAL_WEB_CITY_LIST,
+  getRelatedCities,
   type LocalWebCity,
 } from '../data/localWebCities';
 import { buildLocalWebCityJsonLd } from './localWebCitySchema';
@@ -37,20 +38,42 @@ const cityLink = (slug: string, label: string) =>
 export const buildLocalWebSpainSectionHtml = (currentSlug?: string) => {
   if (LOCAL_WEB_CITY_LIST.length === 0) return '';
 
-  const items = LOCAL_WEB_CITY_LIST.map((city) => {
-    const label = `Diseño web en ${city.ciudad}`;
-    if (city.slug === currentSlug) {
-      return `<li><span class="font-bold text-ink-dark">${escapeHtml(label)}</span></li>`;
-    }
-    return `<li>${cityLink(city.slug, label)}</li>`;
-  }).join('');
+  const currentCity = currentSlug
+    ? LOCAL_WEB_CITY_LIST.find((city) => city.slug === currentSlug)
+    : undefined;
+  const cities = currentCity
+    ? getRelatedCities(currentCity)
+    : LOCAL_WEB_CITY_LIST;
+
+  if (currentCity && cities.length === 0) {
+    return `
+    <section class="page-section">
+      <div class="container mx-auto max-w-4xl text-center">
+        <p><a href="${SITE_WEB_PATH}" class="font-bold text-link underline">${escapeHtml(SITE_WEB_LABEL)} (toda España)</a></p>
+      </div>
+    </section>`;
+  }
+
+  const heading = currentCity
+    ? 'Otras páginas de diseño web'
+    : 'Diseño web en España';
+  const subtitle = currentCity
+    ? 'Otras páginas de diseño web con contenido propio. No son un clon.'
+    : 'Páginas de diseño web por ciudad.';
+
+  const items = cities
+    .map(
+      (city) =>
+        `<li>${cityLink(city.slug, `Diseño web en ${city.ciudad}`)}</li>`,
+    )
+    .join('');
 
   return `
     <section class="page-section">
       <div class="container mx-auto max-w-4xl text-center">
         <div class="page-title-block mx-auto">
-          <h2 class="text-3xl font-extrabold text-ink-dark md:text-4xl lg:text-5xl">Diseño web en España</h2>
-          <p class="text-xl text-ink-dark md:text-2xl">Páginas de diseño web por ciudad.</p>
+          <h2 class="text-3xl font-extrabold text-ink-dark md:text-4xl lg:text-5xl">${escapeHtml(heading)}</h2>
+          <p class="text-xl text-ink-dark md:text-2xl">${escapeHtml(subtitle)}</p>
         </div>
         <ul class="mt-page-gap flex flex-col items-center gap-3 text-lg md:text-xl">
           ${currentSlug ? `<li><a href="${SITE_WEB_PATH}" class="font-bold text-link underline">${escapeHtml(SITE_WEB_LABEL)} (toda España)</a></li>` : ''}
@@ -63,9 +86,6 @@ export const buildLocalWebSpainSectionHtml = (currentSlug?: string) => {
 export const buildLocalWebCityBodyHtml = (city: LocalWebCity) => {
   const h1 = `Diseño web en ${city.ciudad}`;
   const introHeading = `Una web para tu negocio en ${city.ciudad}. Sin inflarla.`;
-  const otherCities = LOCAL_WEB_CITY_LIST.filter(
-    (item) => item.slug !== city.slug,
-  );
 
   const intro = city.intro_local.map(p).join('\n');
   const sectores = city.sectores_locales
@@ -85,13 +105,6 @@ export const buildLocalWebCityBodyHtml = (city: LocalWebCity) => {
           <h3 class="text-xl font-extrabold text-ink-dark">${escapeHtml(faq.question)}</h3>
           ${p(faq.answer)}
         </div>`,
-    )
-    .join('');
-
-  const related = otherCities
-    .map(
-      (relatedCity) =>
-        `<li>${cityLink(relatedCity.slug, `Diseño web en ${relatedCity.ciudad}`)}</li>`,
     )
     .join('');
 
@@ -172,7 +185,6 @@ export const buildLocalWebCityBodyHtml = (city: LocalWebCity) => {
               <li><a href="${SITE_WEB_PATH}" class="font-bold text-link underline">${escapeHtml(SITE_WEB_LABEL)} (toda España)</a></li>
               <li><a href="${SITE_SHOP_PATH}" class="font-bold text-link underline">${escapeHtml(SITE_SHOP_LABEL)}</a></li>
               <li><a href="${SITE_MAINTENANCE_PATH}" class="font-bold text-link underline">${escapeHtml(SITE_MAINTENANCE_LABEL)}</a></li>
-              ${related}
             </ul>
           </div>
         </section>
