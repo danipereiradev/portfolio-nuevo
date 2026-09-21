@@ -265,7 +265,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       <form
         id={formId}
         onSubmit={handleSubmit}
-        className='hero-cta-form w-full rounded-lg bg-surface-muted p-content-pad text-ink-dark shadow-xl md:w-3/4'
+        className='hero-cta-form w-full rounded-lg bg-surface-muted p-content-pad text-ink-dark shadow-xl'
         action=''
       >
         <div className='page-title-block text-center'>

@@ -376,6 +376,7 @@ const LandingMaintenance = () => {
         }
         offerContent={
           <MaintenanceLeadForm
+            className='md:!w-full'
             origin={ADS_MAINTENANCE_FORM_HERO}
             title='Nosotros te llamamos'
           />
