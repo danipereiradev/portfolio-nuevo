@@ -106,6 +106,16 @@ export const SITE_MAINTENANCE_LABEL = 'Mantenimiento Web';
 export const ABOUT_PATH = '/sobre-36web';
 export const ABOUT_LABEL = 'nuestra agencia';
 
+/** Captación de talento. Ciudad obligatoria para cruzar con páginas locales. */
+export const TALENT_PATH = '/trabaja-con-nosotros';
+export const TALENT_LABEL = 'Trabaja con nosotros';
+export const TALENT_FORM_ORIGIN = 'trabaja-con-nosotros';
+
+export const talentApplyPath = (ciudad: string) =>
+  `${TALENT_PATH}/?ciudad=${encodeURIComponent(ciudad)}`;
+
+export const talentLandingOrigin = (slug: string) => `landing_local_${slug}`;
+
 /** Landing de Ads de este servicio. Futuros servicios: /landing-{slug}. */
 export const ADS_LANDING_PATH = '/landing-diseno-web';
 export const ADS_LANDING_PATH_N = '/landing-diseño-web';

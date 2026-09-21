@@ -7,6 +7,8 @@ import {
   SITE_SHOP_PATH,
   SITE_WEB_LABEL,
   SITE_WEB_PATH,
+  TALENT_LABEL,
+  TALENT_PATH,
 } from './contact';
 
 export const SERVICE_NAV = [
@@ -25,8 +27,8 @@ export const FOOTER_NAV = [
   ...SERVICE_NAV,
   { href: '#contacto', label: 'Contacto' },
   {
-    href: 'mailto:hola@36web.es?subject=Trabaja%20con%20nosotros',
-    label: 'Trabaja con nosotros',
+    href: TALENT_PATH,
+    label: TALENT_LABEL,
   },
 ] as const;
 

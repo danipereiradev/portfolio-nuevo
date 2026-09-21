@@ -19,6 +19,7 @@ import {
 } from '../config/contact';
 import { FOOTER_NAV } from '../config/nav';
 import { LOCAL_WEB_CITY_LIST } from '../data/localWebCities';
+import { TalentRecruitStrip } from './TalentRecruitStrip';
 
 const infoLinks = [
   { href: '/preguntas-frecuentes', label: 'Preguntas frecuentes' },
@@ -43,6 +44,9 @@ const Footer = () => {
     pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
   const isAdsLanding = isAdsLandingPath(pathname);
   const isMinimalChrome = normalizedPath === '/web-profesional' || isAdsLanding;
+  const isLocalWebCityPage = LOCAL_WEB_CITY_LIST.some(
+    (city) => normalizedPath === `${SITE_WEB_PATH}/${city.slug}`,
+  );
   const footerWhatsAppUrl = buildWhatsAppUrl(
     getWhatsAppMessageForPath(pathname),
   );
@@ -216,6 +220,10 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
+      {!isAdsLanding && !isMinimalChrome && !isLocalWebCityPage ? (
+        <TalentRecruitStrip compact />
+      ) : null}
 
       <div className='border-t border-ink-light'>
         <div className='container mx-auto py-6'>

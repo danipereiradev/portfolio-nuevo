@@ -9,6 +9,7 @@ import { globalFaqs } from '../data/globalFaqs';
 
 import { TextImage } from '../components/TextImage';
 import HeroCta from '../components/HeroCta';
+import { TalentRecruitStrip } from '../components/TalentRecruitStrip';
 
 const Home = () => {
   usePageMeta('/');
@@ -86,6 +87,8 @@ const Home = () => {
       />
       <Portfolio />
       <Testimonials />
+
+      <TalentRecruitStrip />
 
       <div id='faq'>
         <SEOFAQ

@@ -10,9 +10,13 @@ import {
   SITE_SHOP_PATH,
   SITE_WEB_LABEL,
   SITE_WEB_PATH,
+  TALENT_PATH,
   localWebCityPath,
 } from '../config/contact';
-import { LOCAL_WEB_CITY_LIST, type LocalWebCity } from '../data/localWebCities';
+import {
+  LOCAL_WEB_CITY_LIST,
+  type LocalWebCity,
+} from '../data/localWebCities';
 import { buildLocalWebCityJsonLd } from './localWebCitySchema';
 
 export { LOCAL_WEB_CITY_LIST, buildLocalWebCityJsonLd };
@@ -186,6 +190,15 @@ export const buildLocalWebCityBodyHtml = (city: LocalWebCity) => {
           <div class="container mx-auto max-w-5xl text-center">
             <h2 class="text-3xl font-extrabold text-ink-dark md:text-4xl">${escapeHtml(city.cta_local.title)}</h2>
             ${p(city.cta_local.description)}
+          </div>
+        </section>
+
+        <section class="page-section">
+          <div class="container mx-auto max-w-3xl text-center">
+            <p class="text-lg font-extrabold text-ink-dark md:text-xl">¿Eres diseñador/a o desarrollador/a?</p>
+            ${p(`Estamos ampliando el equipo de 36web en ${city.ciudad}.`)}
+            ${p('Si trabajas en diseño web, WordPress, frontend, ecommerce o marketing digital, queremos conocerte.')}
+            <p class="mt-4"><a href="${TALENT_PATH}/?ciudad=${encodeURIComponent(city.ciudad)}" class="font-bold text-link underline">Enviar candidatura</a></p>
           </div>
         </section>
       </article>

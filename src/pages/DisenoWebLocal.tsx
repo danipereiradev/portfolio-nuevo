@@ -9,6 +9,7 @@ import Portfolio from '../components/Portfolio';
 import SEOProcess from '../components/SEOProcess';
 import SEOFAQ from '../components/SEOFAQ';
 import { LocalWebSpainSection } from '../components/LocalWebSpainSection';
+import { TalentRecruitStrip } from '../components/TalentRecruitStrip';
 import NotFound from './NotFound';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
@@ -303,6 +304,8 @@ const LocalWebCityPage = ({ city }: { city: LocalWebCity }) => {
         hasBackground={false}
         hasReviewBadge
       />
+
+      <TalentRecruitStrip ciudad={city.ciudad} />
     </>
   );
 };

@@ -875,3 +875,14 @@ export const trackLandingGoogleAdsView = () => {
     landing_name: 'landing-google-ads',
   });
 };
+
+/** Candidatura de talento. Solo tras Formspree HTTP 2xx y `{ ok: true }`. */
+export const trackTalentFormSubmit = (ciudad: string, especialidad: string) => {
+  trackEvent('talent_form_submit', {
+    event_category: 'talent',
+    event_label: especialidad,
+    ciudad,
+    especialidad,
+    form_name: 'talent',
+  });
+};

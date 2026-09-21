@@ -215,6 +215,10 @@
       "destination": "/sobre-36web/index.html"
     },
     {
+      "source": "/trabaja-con-nosotros",
+      "destination": "/trabaja-con-nosotros/index.html"
+    },
+    {
       "source": "/blog",
       "destination": "/blog/index.html"
     },
