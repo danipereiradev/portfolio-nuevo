@@ -63,6 +63,7 @@ interface HeroCtaProps {
   ctaContent?: ReactNode;
   grayscale?: boolean;
   overlay?: 'white' | 'black' | 'none';
+  breadcrumbs?: { href?: string; label: string }[];
 }
 
 const HeroCta = ({
@@ -95,6 +96,7 @@ const HeroCta = ({
   ctaContent,
   grayscale = false,
   overlay = 'white',
+  breadcrumbs,
 }: HeroCtaProps) => {
   const TitleTag = isTopHero ? 'h1' : 'h2';
   const isClean = heroType === 'clean';
@@ -278,6 +280,39 @@ const HeroCta = ({
                 isClean ? '' : 'md:items-start'
               }`}
             >
+              {breadcrumbs && breadcrumbs.length > 0 ? (
+                <nav
+                  aria-label='Migas de pan'
+                  className={`-mb-1 w-full text-xs font-normal tracking-wide ${copyTone} ${
+                    isClean ? 'text-center' : 'text-center md:text-left'
+                  }`}
+                >
+                  <ol className='flex flex-wrap items-center justify-center gap-x-1.5 gap-y-0.5 opacity-70 md:justify-start'>
+                    {breadcrumbs.map((crumb, index) => (
+                      <li
+                        key={`${crumb.label}-${index}`}
+                        className='flex items-center gap-x-1.5'
+                      >
+                        {index > 0 ? (
+                          <span aria-hidden='true' className='opacity-60'>
+                            /
+                          </span>
+                        ) : null}
+                        {crumb.href ? (
+                          <a
+                            href={crumb.href}
+                            className='underline decoration-current/25 underline-offset-4 transition-opacity hover:opacity-100 hover:decoration-current/70'
+                          >
+                            {crumb.label}
+                          </a>
+                        ) : (
+                          <span className='opacity-90'>{crumb.label}</span>
+                        )}
+                      </li>
+                    ))}
+                  </ol>
+                </nav>
+              ) : null}
               {label ? (
                 <span
                   className={`hero-cta-label text-md uppercase rounded-lg font-extrabold ${

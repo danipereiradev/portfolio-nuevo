@@ -33,10 +33,10 @@ export const LocalWebSpainSection = ({
   if (currentCity && cities.length === 0 && !includeHubLink) return null;
 
   const heading = currentCity
-    ? 'Otras páginas de diseño web'
+    ? 'Tambien ofrecemos diseño web en:'
     : 'Diseño web en España';
   const subtitle = currentCity
-    ? 'Otras páginas de diseño web.'
+    ? 'Diseño web por ciudades.'
     : 'Páginas de diseño web por ciudad.';
 
   return (

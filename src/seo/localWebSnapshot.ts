@@ -46,12 +46,7 @@ export const buildLocalWebSpainSectionHtml = (currentSlug?: string) => {
     : LOCAL_WEB_CITY_LIST;
 
   if (currentCity && cities.length === 0) {
-    return `
-    <section class="page-section">
-      <div class="container mx-auto max-w-4xl text-center">
-        <p><a href="${SITE_WEB_PATH}" class="font-bold text-link underline">${escapeHtml(SITE_WEB_LABEL)} (toda España)</a></p>
-      </div>
-    </section>`;
+    return '';
   }
 
   const heading = currentCity
@@ -76,7 +71,6 @@ export const buildLocalWebSpainSectionHtml = (currentSlug?: string) => {
           <p class="text-xl text-ink-dark md:text-2xl">${escapeHtml(subtitle)}</p>
         </div>
         <ul class="mt-page-gap flex flex-col items-center gap-3 text-lg md:text-xl">
-          ${currentSlug ? `<li><a href="${SITE_WEB_PATH}" class="font-bold text-link underline">${escapeHtml(SITE_WEB_LABEL)} (toda España)</a></li>` : ''}
           ${items}
         </ul>
       </div>
@@ -113,6 +107,15 @@ export const buildLocalWebCityBodyHtml = (city: LocalWebCity) => {
       <article>
         <header class="page-hero relative overflow-hidden bg-surface-muted">
           <div class="container mx-auto max-w-5xl py-16 text-center">
+            <nav aria-label="Migas de pan" class="mb-2 text-xs font-normal tracking-wide text-ink-dark/70">
+              <ol class="flex flex-wrap items-center justify-center gap-x-1.5">
+                <li><a href="/" class="underline decoration-current/25 underline-offset-4">Inicio</a></li>
+                <li aria-hidden="true">/</li>
+                <li><a href="${SITE_WEB_PATH}" class="underline decoration-current/25 underline-offset-4">${escapeHtml(SITE_WEB_LABEL)}</a></li>
+                <li aria-hidden="true">/</li>
+                <li>${escapeHtml(h1)}</li>
+              </ol>
+            </nav>
             <h1 class="text-3xl font-extrabold text-ink-dark md:text-5xl lg:text-6xl">${escapeHtml(h1)}</h1>
             ${p(city.hero_lead)}
           </div>
@@ -182,7 +185,6 @@ export const buildLocalWebCityBodyHtml = (city: LocalWebCity) => {
             <h2 class="text-3xl font-extrabold text-ink-dark md:text-4xl">Diseño web, tienda o mantenimiento</h2>
             ${p(`Esta página es para una web de presentación en ${city.ciudad}. Si el proyecto es otra cosa, ve al servicio que toca.`)}
             <ul class="mt-page-gap flex flex-col items-center gap-3 text-lg md:text-xl">
-              <li><a href="${SITE_WEB_PATH}" class="font-bold text-link underline">${escapeHtml(SITE_WEB_LABEL)} (toda España)</a></li>
               <li><a href="${SITE_SHOP_PATH}" class="font-bold text-link underline">${escapeHtml(SITE_SHOP_LABEL)}</a></li>
               <li><a href="${SITE_MAINTENANCE_PATH}" class="font-bold text-link underline">${escapeHtml(SITE_MAINTENANCE_LABEL)}</a></li>
             </ul>

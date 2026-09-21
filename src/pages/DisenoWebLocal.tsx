@@ -50,6 +50,11 @@ const LocalWebCityPage = ({ city }: { city: LocalWebCity }) => {
       {/* HERO: H1 = "Diseño web en {ciudad}". No reutilices el H1 de /diseno-web. */}
       <HeroCta
         title={`Diseño web en ${city.ciudad}`}
+        breadcrumbs={[
+          { href: '/', label: 'Inicio' },
+          { href: SITE_WEB_PATH, label: SITE_WEB_LABEL },
+          { label: `Diseño web en ${city.ciudad}` },
+        ]}
         description={
           <p>
             {withCity(city.hero_lead, city.ciudad)}
@@ -252,14 +257,6 @@ const LocalWebCityPage = ({ city }: { city: LocalWebCity }) => {
           <ul className='mt-page-gap flex flex-col items-center gap-3 text-lg md:text-xl'>
             <li>
               <a
-                href={SITE_WEB_PATH}
-                className='font-bold text-link underline'
-              >
-                {SITE_WEB_LABEL} (toda España)
-              </a>
-            </li>
-            <li>
-              <a
                 href={SITE_SHOP_PATH}
                 className='font-bold text-link underline'
               >
@@ -278,7 +275,7 @@ const LocalWebCityPage = ({ city }: { city: LocalWebCity }) => {
         </div>
       </section>
 
-      <LocalWebSpainSection currentSlug={city.slug} includeHubLink />
+      <LocalWebSpainSection currentSlug={city.slug} />
 
       {/* FAQ LOCAL: no reutilices las preguntas de /diseno-web. */}
       <div id='faq'>
