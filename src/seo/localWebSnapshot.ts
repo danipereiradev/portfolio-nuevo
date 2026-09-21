@@ -58,7 +58,7 @@ export const buildLocalWebSpainSectionHtml = (currentSlug?: string) => {
     ? 'Otras páginas de diseño web'
     : 'Diseño web en España';
   const subtitle = currentCity
-    ? 'Otras páginas de diseño web con contenido propio. No son un clon.'
+    ? 'Otras páginas de diseño web.'
     : 'Páginas de diseño web por ciudad.';
 
   const items = cities

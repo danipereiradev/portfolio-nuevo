@@ -36,8 +36,8 @@ export const LocalWebSpainSection = ({
     ? 'Otras páginas de diseño web'
     : 'Diseño web en España';
   const subtitle = currentCity
-    ? 'Otras páginas de diseño web con contenido propio. No son un clon.'
-    : 'Páginas de diseño web por ciudad, con contenido propio. No son un clon.';
+    ? 'Otras páginas de diseño web.'
+    : 'Páginas de diseño web por ciudad.';
 
   return (
     <section className='page-section'>
