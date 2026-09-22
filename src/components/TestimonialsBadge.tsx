@@ -36,10 +36,15 @@ function TestimonialsBadge() {
   }, []);
 
   return (
-    <>
+    <div
+      className='pointer-events-none select-none'
+      ref={(node) => {
+        if (node) node.inert = true;
+      }}
+    >
       <div id={generatedId} data-src={TRUSTINDEX_WIDGET_SRC} />
       <div className='spacer'></div>
-    </>
+    </div>
   );
 }
 
