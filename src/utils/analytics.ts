@@ -494,7 +494,37 @@ export const trackFormSubmit = (serviceType: string, value?: number) => {
   trackEvent('submit_contact_form', params);
 };
 
-/** Primer campo tocado en un formulario de landing. Una vez por formulario/sesión. */
+/**
+ * True si el usuario está escribiendo o pegando en un input/textarea.
+ * Foco, select, checkbox o borrar no cuentan.
+ */
+export const isFormStartTypingEvent = (nativeEvent: Event): boolean => {
+  const target = nativeEvent.target;
+  if (
+    !(target instanceof HTMLInputElement) &&
+    !(target instanceof HTMLTextAreaElement)
+  ) {
+    return false;
+  }
+  if (target instanceof HTMLInputElement) {
+    const type = target.type;
+    if (
+      type === 'checkbox' ||
+      type === 'radio' ||
+      type === 'hidden' ||
+      type === 'button' ||
+      type === 'submit'
+    ) {
+      return false;
+    }
+  }
+  if (!target.value.trim()) return false;
+  const inputType = (nativeEvent as InputEvent).inputType;
+  if (inputType && !inputType.startsWith('insert')) return false;
+  return true;
+};
+
+/** Primer texto escrito en un input de landing. Una vez por formulario/sesión. */
 export const trackFormStart = (formName: string) => {
   if (typeof window === 'undefined') return;
   if (!isAdsLandingPath(window.location.pathname)) return;

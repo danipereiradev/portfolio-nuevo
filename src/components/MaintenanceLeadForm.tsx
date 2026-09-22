@@ -3,6 +3,7 @@ import { AlertCircle } from 'lucide-react';
 import Button from './Button';
 import {
   trackFormError,
+  isFormStartTypingEvent,
   trackFormStart,
   trackFormSubmit,
   trackGa4FormSubmit,
@@ -65,6 +66,12 @@ const MaintenanceLeadForm = ({
     trackFormStart(origin);
   };
 
+  const handleTypedInput = (
+    event: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    if (isFormStartTypingEvent(event.nativeEvent)) markFormStart();
+  };
+
   const sanitizeText = (text: string): string =>
     text
       .replace(/[<>]/g, '')
@@ -72,7 +79,6 @@ const MaintenanceLeadForm = ({
       .replace(/on\w+=/gi, '');
 
   const handleInputChange = (field: string, value: string) => {
-    markFormStart();
     setFormData((prev) => ({ ...prev, [field]: sanitizeText(value) }));
     if (field === 'email' || field === 'phone') {
       if (errors.email || errors.phone) {
@@ -283,6 +289,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
           <input
             type='text'
             value={formData.name}
+            onInput={handleTypedInput}
             onChange={(e) => handleInputChange('name', e.target.value)}
             className={inputClass(Boolean(errors.name))}
             placeholder='Tu nombre *'
@@ -292,6 +299,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
           <input
             type='email'
             value={formData.email}
+            onInput={handleTypedInput}
             onChange={(e) => handleInputChange('email', e.target.value)}
             className={inputClass(Boolean(errors.email))}
             autoComplete='email'
@@ -301,6 +309,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
           <input
             type='tel'
             value={formData.phone}
+            onInput={handleTypedInput}
             onChange={(e) => handleInputChange('phone', e.target.value)}
             className={inputClass(Boolean(errors.phone))}
             placeholder='Tu teléfono'
@@ -311,6 +320,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
           <input
             type='text'
             value={formData.website}
+            onInput={handleTypedInput}
             onChange={(e) => handleInputChange('website', e.target.value)}
             className={inputClass(Boolean(errors.website))}
             placeholder='URL de tu web'
@@ -341,6 +351,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
           {errors.need ? <ErrorMessage error={errors.need} /> : null}
           <textarea
             value={formData.message}
+            onInput={handleTypedInput}
             onChange={(e) => handleInputChange('message', e.target.value)}
             className={`${inputClass(Boolean(errors.message))} min-h-32 resize-y text-lg md:text-xl`}
             placeholder='Qué le pasa a la web *'
@@ -355,7 +366,6 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                 required
                 checked={formData.consent}
                 onChange={(e) => {
-                  markFormStart();
                   setFormData((prev) => ({
                     ...prev,
                     consent: e.target.checked,

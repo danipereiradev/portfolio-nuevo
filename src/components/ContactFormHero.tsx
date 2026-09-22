@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import Button from './Button';
 import {
   trackFormError,
+  isFormStartTypingEvent,
   trackFormStart,
   trackFormSubmit,
   trackGoogleAdsFormConversion,
@@ -79,6 +80,12 @@ export const ContactFormHero = ({
     trackFormStart(page);
   };
 
+  const handleTypedInput = (
+    event: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    if (isFormStartTypingEvent(event.nativeEvent)) markFormStart();
+  };
+
   const sanitizeText = (text: string): string => {
     return text
       .replace(/[<>]/g, '')
@@ -87,7 +94,6 @@ export const ContactFormHero = ({
   };
 
   const handleInputChange = (field: string, value: string) => {
-    markFormStart();
     const sanitizedValue = sanitizeText(value);
 
     setFormData((prev) => ({
@@ -290,6 +296,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
           <input
             type='text'
             value={formData.name}
+            onInput={handleTypedInput}
             onChange={(e) => handleInputChange('name', e.target.value)}
             className={fieldClass(Boolean(errors.name))}
             placeholder='Tu nombre *'
@@ -299,6 +306,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
           <input
             type='email'
             value={formData.email}
+            onInput={handleTypedInput}
             onChange={(e) => handleInputChange('email', e.target.value)}
             className={fieldClass(Boolean(errors.email))}
             autoComplete='email'
@@ -308,6 +316,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
           <input
             type='tel'
             value={formData.phone}
+            onInput={handleTypedInput}
             onChange={(e) => handleInputChange('phone', e.target.value)}
             className={fieldClass(Boolean(errors.phone))}
             placeholder='Tu teléfono'
@@ -342,7 +351,6 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                 required
                 checked={formData.consent}
                 onChange={(e) => {
-                  markFormStart();
                   setFormData((prev) => ({
                     ...prev,
                     consent: e.target.checked,
