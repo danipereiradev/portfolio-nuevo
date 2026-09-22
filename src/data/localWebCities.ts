@@ -683,6 +683,138 @@ const vigo: LocalWebCity = {
   relatedCitySlugs: [],
 };
 
+/**
+ * Logroño: comercio, vino, gastronomía e industria en La Portalada.
+ * Sin oficina inventada ni LocalBusiness en schema.
+ */
+const logrono: LocalWebCity = {
+  slug: 'logrono',
+  ciudad: 'Logroño',
+  provincia: 'La Rioja',
+  comunidad: 'La Rioja',
+  title: 'Diseño web en Logroño para empresas y autónomos | 36web',
+  description:
+    'Diseño web en Logroño para empresas, comercios, bodegas y profesionales. Webs claras, rápidas y pensadas para captar contactos.',
+  hero_lead:
+    'Diseño web en Logroño para negocios que quieren explicar bien lo que hacen y convertir visitas en clientes.',
+  intro_local: [
+    'Diseñamos páginas web para empresas, autónomos y negocios de Logroño que necesitan presentar bien sus servicios, generar contactos y tener una web que funcione de verdad en móvil.',
+    'Logroño combina comercio local, servicios profesionales, industria y una actividad muy vinculada al vino, la gastronomía y el turismo. Por eso no planteamos igual la web de una bodega, un despacho, un comercio del centro o una empresa de La Portalada.',
+    'La estructura se adapta a cómo compra tu cliente: reservar, pedir presupuesto, conocer tus servicios, localizar el negocio o contactar directamente contigo.',
+  ],
+  contexto_local: {
+    area: 'Logroño y su entorno',
+    zonas: ['Centro de Logroño', 'Casco Antiguo', 'La Portalada'],
+    municipios_cercanos: [
+      'Lardero',
+      'Villamediana de Iregua',
+      'Fuenmayor',
+      'Navarrete',
+    ],
+    tejido_empresarial:
+      'Comercio, vino y enoturismo, agroalimentación, industria, hostelería y servicios profesionales.',
+    rasgos_locales: [
+      'fuerte relación entre actividad empresarial, vino y gastronomía',
+      'peso relevante del comercio local',
+      'presencia de actividad industrial y empresarial en La Portalada',
+      'negocios que prestan servicio tanto en Logroño como en municipios próximos',
+    ],
+  },
+  sectores_locales: [
+    {
+      title: 'Bodegas, vino y enoturismo',
+      description:
+        'Bodegas, experiencias, tiendas especializadas y negocios relacionados con el vino. Una web que enseñe bien la propuesta, facilite reservas o contactos y funcione para público local y visitante.',
+    },
+    {
+      title: 'Comercio y hostelería',
+      description:
+        'Tiendas, restaurantes, bares y negocios de calle. Horarios, ubicación, servicios y una forma rápida de reservar o escribir desde el móvil.',
+    },
+    {
+      title: 'Industria y empresas de servicios',
+      description:
+        'Empresas de La Portalada y del entorno de Logroño que necesitan explicar actividad, capacidades y servicios sin llenar la web de lenguaje corporativo.',
+    },
+    {
+      title: 'Profesionales y clínicas',
+      description:
+        'Despachos, consultas, asesorías y servicios profesionales que necesitan transmitir confianza y facilitar una llamada, cita o solicitud de información.',
+    },
+  ],
+  necesidades_locales: [
+    {
+      title: 'Convertir visitas en reservas o contactos',
+      description:
+        'Para hostelería, vino, turismo y comercio, la web debe facilitar que quien ya está interesado pueda reservar, llamar, escribir o llegar al negocio sin fricción.',
+    },
+    {
+      title: 'Explicar bien una empresa industrial o B2B',
+      description:
+        'Si tu negocio trabaja con otras empresas, organizamos servicios, capacidades, sectores y proyectos para que un posible cliente entienda rápidamente qué podéis hacer.',
+    },
+    {
+      title: 'Captar clientes en Logroño y municipios cercanos',
+      description:
+        'Si trabajas también en Lardero, Villamediana de Iregua, Fuenmayor o Navarrete, la web puede reflejar esas zonas de servicio de forma natural.',
+    },
+    {
+      title: 'Transmitir producto y marca sin perder claridad',
+      description:
+        'En vino, gastronomía o comercio la imagen importa, pero también que el usuario encuentre rápido producto, experiencia, horario, reserva o contacto.',
+    },
+  ],
+  casos_relevantes: ['delish', 'camisetas', 'hatena', 'chicxs'],
+  casos_note:
+    'Proyectos de producto, hostelería y servicios. Te enseñamos ejemplos que encajen con tu sector antes de empezar.',
+  faq_local: [
+    {
+      question: '¿Hacéis diseño web para negocios de Logroño?',
+      answer:
+        'Sí. Trabajamos con autónomos, comercios, profesionales y empresas de Logroño y su entorno en proyectos de diseño web, ecommerce y mantenimiento.',
+    },
+    {
+      question:
+        '¿Hacéis páginas web para bodegas o negocios relacionados con el vino en Logroño?',
+      answer:
+        'Sí. Podemos plantear webs para bodegas, enoturismo, tiendas especializadas o marcas vinculadas al vino, adaptando el proyecto a si necesitas presentación, reservas, catálogo o venta online.',
+    },
+    {
+      question: '¿Trabajáis con empresas de La Portalada?',
+      answer:
+        'Sí. Para empresas industriales o B2B priorizamos explicar actividad, servicios, capacidades y una vía clara para solicitar información o presupuesto.',
+    },
+    {
+      question:
+        '¿Puede mi web dirigirse también a clientes de municipios cercanos a Logroño?',
+      answer:
+        'Sí. Si prestas servicio en Logroño y también en municipios como Lardero, Villamediana, Navarrete o Fuenmayor, la web puede reflejar ese ámbito de trabajo.',
+    },
+    {
+      question: '¿Una web para hostelería en Logroño puede incluir reservas o carta?',
+      answer:
+        'Sí. Dependiendo del proyecto podemos integrar carta, reservas, horarios, ubicación y sistemas de contacto. El alcance se define antes de empezar.',
+    },
+  ],
+  cta_local: {
+    title: 'Cuéntanos tu negocio en Logroño. Te llamamos.',
+    description:
+      'Comercio, vino, industria o servicios. Cuéntanos qué haces y qué necesitas conseguir con la web.',
+  },
+  presencia_local: {
+    tipo: 'atencion_directa',
+    mostrar: false,
+  },
+  fuentes_locales: [
+    'Ayuntamiento de Logroño - Comercio y Turismo',
+    'Ayuntamiento de Logroño - Logroño Ciudad Comercial',
+    'Gobierno de La Rioja / ADER - sector agroalimentario',
+    'Gobierno de La Rioja - actividad empresarial en La Portalada',
+  ],
+  verified_at: '2026-09-22',
+  relatedCitySlugs: [],
+};
+
 export const LOCAL_WEB_CITIES: Record<string, LocalWebCity> = {
   madrid,
   'torrejon-de-ardoz': torrejon,
@@ -690,6 +822,7 @@ export const LOCAL_WEB_CITIES: Record<string, LocalWebCity> = {
   'san-fernando-de-henares': sanFernando,
   coslada,
   vigo,
+  logrono,
 };
 
 const allSlugs = new Set(Object.keys(LOCAL_WEB_CITIES));

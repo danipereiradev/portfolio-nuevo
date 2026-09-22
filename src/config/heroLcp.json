@@ -24,6 +24,9 @@
   "/diseno-web/vigo": {
     "image": "/video/hero-nubes.jpg"
   },
+  "/diseno-web/logrono": {
+    "image": "/video/hero-nubes.jpg"
+  },
   "/landing-diseno-web": {
     "image": "/video/hero-home-2.jpg",
     "video": "/video/video%20home_2.mp4"
