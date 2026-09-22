@@ -816,6 +816,14 @@ export const trackLandingPromo349PortfolioClick = (
   });
 };
 
+export const trackLandingPromo349FitSubmit = () => {
+  trackEvent('landing_promo_349_fit_submit', {
+    event_category: 'landing_promo_349',
+    event_label: 'encaje',
+    landing_name: 'landing promo 349',
+  });
+};
+
 export const trackHoursPackCheckout = (hours: number, total: number) => {
   trackEvent('begin_checkout', {
     event_category: 'paquete_horas',

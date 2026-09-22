@@ -38,6 +38,9 @@ export const ADS_GOOGLE_ADS_WHATSAPP_MESSAGE = 'Estoy interesado en Google Ads';
 /** Origen del formulario en la landing de oferta 349 €. Sale en Formspree y en el tracking. */
 export const ADS_LAUNCH_FORM_ORIGIN = 'landing promo 349';
 
+/** Captura de email: ¿entra en 349 €? No es el formulario de llamada. */
+export const ADS_LAUNCH_FIT_FORM_ORIGIN = 'landing promo 349 encaje';
+
 /** Origen del formulario de la landing de Google Ads. */
 export const ADS_GOOGLE_ADS_FORM_ORIGIN = 'landing google ads';
 

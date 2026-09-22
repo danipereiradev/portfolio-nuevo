@@ -13,6 +13,7 @@ import Testimonials from '../components/Testimonials';
 import SEOProcess from '../components/SEOProcess';
 import HeroCta from '../components/HeroCta';
 import LaunchPaymentTable from '../components/LaunchPaymentTable';
+import LaunchFitEmailForm from '../components/LaunchFitEmailForm';
 import { ServiceIncludes } from '../components/ServiceOnPage';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
@@ -247,6 +248,8 @@ const LandingWebProfesional = () => {
           </p>
         </div>
       </section>
+
+      <LaunchFitEmailForm />
 
       <Portfolio
         ids={['hatena', 'carper']}
