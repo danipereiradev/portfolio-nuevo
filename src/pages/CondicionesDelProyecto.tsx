@@ -150,7 +150,7 @@ const CondicionesDelProyecto = () => {
 
           <div className='grid items-stretch gap-page-gap'>
             <ConditionBlock
-              title='Páginas web a medida'
+              title='Diseño web a medida'
               intro='Para un negocio que necesita una web propia, con precio y plazos en la propuesta.'
               href={SITE_WEB_PATH}
               hrefLabel='Ver diseño web'

@@ -205,6 +205,13 @@ export const buildLocalWebCityBodyHtml = (city: LocalWebCity) => {
 
         <section class="page-section">
           <div class="container mx-auto max-w-5xl">
+            <h2 class="text-3xl font-extrabold text-ink-dark md:text-4xl">Nuestros clientes están contentos con cómo lo hacemos</h2>
+            ${p('Estas son valoraciones sacadas de nuestro perfil oficial de Google con certificación Trustindex.')}
+          </div>
+        </section>
+
+        <section class="page-section">
+          <div class="container mx-auto max-w-5xl">
             <h2 class="text-3xl font-extrabold text-ink-dark md:text-4xl">Cómo trabajamos</h2>
             ${p('Atención directa. Diseño web cercano, profesional y sin intermediarios.')}
             <ol class="mt-6 list-decimal space-y-3 pl-6 text-xl text-ink-dark">

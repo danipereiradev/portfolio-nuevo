@@ -22,7 +22,7 @@ const Services = ({ description }: ServicesProps) => {
       title: SITE_WEB_LABEL,
       link: SITE_WEB_PATH,
       image: '/img/services/paginas-web.png',
-      imageAlt: 'Páginas web',
+      imageAlt: 'Diseño web',
     },
     {
       title: SITE_SHOP_LABEL,

@@ -88,10 +88,10 @@ const normalizePath = (pathname: string): string => {
   }
 };
 
-/** Página de servicio (orgánica). Menú Servicios → Páginas web. */
+/** Página de servicio (orgánica). Menú Servicios → Diseño web. */
 export const SITE_WEB_PATH = '/diseno-web';
 export const SITE_WEB_PATH_N = '/diseño-web';
-export const SITE_WEB_LABEL = 'Páginas web';
+export const SITE_WEB_LABEL = 'Diseño web';
 
 /** SEO local: /diseno-web/{slug}/. El slug vive en `src/data/localWebCities.ts`. */
 export const localWebCityPath = (slug: string) => `${SITE_WEB_PATH}/${slug}`;

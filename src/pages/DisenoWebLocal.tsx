@@ -6,6 +6,7 @@ import { TextSection } from '../components/TextSection';
 import { ServiceIncludes } from '../components/ServiceOnPage';
 import SEOBenefits from '../components/SEOBenefits';
 import Portfolio from '../components/Portfolio';
+import Testimonials from '../components/Testimonials';
 import SEOProcess from '../components/SEOProcess';
 import SEOFAQ from '../components/SEOFAQ';
 import { LocalWebSpainSection } from '../components/LocalWebSpainSection';
@@ -234,6 +235,8 @@ const LocalWebCityPage = ({ city }: { city: LocalWebCity }) => {
         sectorCtaText='Ver ejemplos de mi sector'
         sectorCtaHref='#contacto'
       />
+
+      <Testimonials />
 
       <SEOProcess
         title='Cómo trabajamos'
