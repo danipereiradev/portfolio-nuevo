@@ -15,6 +15,8 @@ import {
 } from '../config/contact';
 import {
   LOCAL_WEB_CITY_LIST,
+  getLocalGeoContext,
+  getPublishedLocalWebFaqs,
   getRelatedCities,
   type LocalWebCity,
 } from '../data/localWebCities';
@@ -82,6 +84,34 @@ export const buildLocalWebCityBodyHtml = (city: LocalWebCity) => {
   const introHeading = `Una web para tu negocio en ${city.ciudad}. Sin inflarla.`;
 
   const intro = city.intro_local.map(p).join('\n');
+  const geo = getLocalGeoContext(city);
+  const geoHtml = geo
+    ? `
+        <section class="page-section">
+          <div class="container mx-auto max-w-5xl text-center">
+            <h2 class="text-3xl font-extrabold text-ink-dark md:text-4xl lg:text-5xl">${escapeHtml(geo.heading)}</h2>
+            ${geo.body ? p(geo.body) : ''}
+          </div>
+        </section>`
+    : '';
+  const necesidadesHtml =
+    city.necesidades_locales.length >= 3
+      ? `
+        <section class="page-section">
+          <div class="container mx-auto max-w-5xl">
+            <h2 class="text-3xl font-extrabold text-ink-dark md:text-4xl">${escapeHtml(`Qué suele necesitar un negocio de ${city.ciudad} en su web`)}</h2>
+            ${city.necesidades_locales
+              .map(
+                (need) => `
+            <article>
+              <h3 class="text-2xl font-extrabold text-ink-dark">${escapeHtml(need.title)}</h3>
+              ${p(need.description)}
+            </article>`,
+              )
+              .join('')}
+          </div>
+        </section>`
+      : '';
   const sectores = city.sectores_locales
     .map(
       (sector) => `
@@ -92,7 +122,7 @@ export const buildLocalWebCityBodyHtml = (city: LocalWebCity) => {
     )
     .join('');
 
-  const faqs = city.faq_local
+  const faqs = getPublishedLocalWebFaqs(city)
     .map(
       (faq) => `
         <div>
@@ -105,9 +135,10 @@ export const buildLocalWebCityBodyHtml = (city: LocalWebCity) => {
   return `
     <main>
       <article>
-        <header class="page-hero relative overflow-hidden bg-surface-muted">
-          <div class="container mx-auto max-w-5xl py-16 text-center">
-            <nav aria-label="Migas de pan" class="mb-2 text-xs font-normal tracking-wide text-ink-dark/70">
+        <header class="page-hero relative overflow-hidden bg-ink-dark">
+          <img src="/video/hero-nubes.jpg" alt="" aria-hidden="true" class="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover object-center" />
+          <div class="container relative z-10 mx-auto max-w-5xl py-16 text-center">
+            <nav aria-label="Migas de pan" class="mb-2 text-xs font-normal tracking-wide text-white/70">
               <ol class="flex flex-wrap items-center justify-center gap-x-1.5">
                 <li><a href="/" class="underline decoration-current/25 underline-offset-4">Inicio</a></li>
                 <li aria-hidden="true">/</li>
@@ -116,8 +147,8 @@ export const buildLocalWebCityBodyHtml = (city: LocalWebCity) => {
                 <li>${escapeHtml(h1)}</li>
               </ol>
             </nav>
-            <h1 class="text-3xl font-extrabold text-ink-dark md:text-5xl lg:text-6xl">${escapeHtml(h1)}</h1>
-            ${p(city.hero_lead)}
+            <h1 class="text-3xl font-extrabold text-white md:text-5xl lg:text-6xl">${escapeHtml(h1)}</h1>
+            <p class="text-xl text-white md:text-2xl">${escapeHtml(city.hero_lead)}</p>
           </div>
         </header>
 
@@ -128,15 +159,14 @@ export const buildLocalWebCityBodyHtml = (city: LocalWebCity) => {
             ${intro}
           </div>
         </section>
+        ${geoHtml}
+        ${necesidadesHtml}
 
         <section class="page-section">
           <div class="container mx-auto max-w-5xl">
-            <h2 class="text-3xl font-extrabold text-ink-dark md:text-4xl">Para autónomos y pequeños negocios</h2>
-            <p class="text-xl text-ink-dark md:text-2xl">No hacemos webs de agencia para impresionar a otras agencias. Las hacemos para que te encuentren y te escriban.</p>
-            <h3 class="mt-8 text-2xl font-extrabold text-ink-dark">Autónomos</h3>
-            ${p('Una página que explique qué haces, se vea bien en el teléfono y deje un formulario o WhatsApp. Eso ya es una web profesional.')}
-            <h3 class="mt-8 text-2xl font-extrabold text-ink-dark">Pequeños negocios</h3>
-            ${p('Servicios, quiénes sois, cómo os contactan. Si hace falta más — citas, área privada, tienda— te lo decimos en la propuesta, no te lo colamos.')}
+            <h2 class="text-3xl font-extrabold text-ink-dark md:text-4xl">${escapeHtml(`Sectores con los que trabajamos en ${city.ciudad}`)}</h2>
+            ${p('No cubrimos “todo”. Cubrimos negocios a los que una web clara les cambia el día a día.')}
+            ${sectores}
           </div>
         </section>
 
@@ -155,9 +185,14 @@ export const buildLocalWebCityBodyHtml = (city: LocalWebCity) => {
 
         <section class="page-section">
           <div class="container mx-auto max-w-5xl">
-            <h2 class="text-3xl font-extrabold text-ink-dark md:text-4xl">${escapeHtml(`Sectores con los que trabajamos en ${city.ciudad}`)}</h2>
-            ${p('No cubrimos “todo”. Cubrimos negocios a los que una web clara les cambia el día a día.')}
-            ${sectores}
+            <h2 class="text-3xl font-extrabold text-ink-dark md:text-4xl">Para autónomos, pymes y empresas</h2>
+            <p class="text-xl text-ink-dark md:text-2xl">No hacemos webs de agencia para impresionar a otras agencias. Las hacemos para que te encuentren y te escriban.</p>
+            <h3 class="mt-8 text-2xl font-extrabold text-ink-dark">Autónomos y profesionales</h3>
+            ${p('Una página que explique qué haces, se vea bien en el teléfono y deje un formulario o WhatsApp. Eso ya es una web profesional.')}
+            <h3 class="mt-8 text-2xl font-extrabold text-ink-dark">Pequeños negocios</h3>
+            ${p('Servicios, quiénes sois, cómo os contactan. Si hace falta más — citas, área privada, tienda— te lo decimos en la propuesta, no te lo colamos.')}
+            <h3 class="mt-8 text-2xl font-extrabold text-ink-dark">Pymes y empresas</h3>
+            ${p('Servicios, zona de trabajo y cómo pedir presupuesto. Si tu cliente es otra empresa, que lo entienda a la primera.')}
           </div>
         </section>
 

@@ -4,7 +4,10 @@ import {
   SITE_WEB_LABEL,
   SITE_WEB_PATH,
 } from '../config/contact';
-import type { LocalWebCity } from '../data/localWebCities';
+import {
+  getPublishedLocalWebFaqs,
+  type LocalWebCity,
+} from '../data/localWebCities';
 
 export const SITE_URL = 'https://36web.es';
 
@@ -67,7 +70,7 @@ export const buildLocalWebCityJsonLd = (city: LocalWebCity) => {
       },
       {
         '@type': 'FAQPage',
-        mainEntity: city.faq_local.map((faq) => ({
+        mainEntity: getPublishedLocalWebFaqs(city).map((faq) => ({
           '@type': 'Question',
           name: faq.question,
           acceptedAnswer: {

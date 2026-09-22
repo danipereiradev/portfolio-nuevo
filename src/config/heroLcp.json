@@ -7,19 +7,22 @@
     "image": "/img/hero/hero-diseno-web-36web.webp"
   },
   "/diseno-web/madrid": {
-    "image": "/img/hero/hero-diseno-web-36web.webp"
+    "image": "/video/hero-nubes.jpg"
   },
   "/diseno-web/torrejon-de-ardoz": {
-    "image": "/img/hero/hero-diseno-web-36web.webp"
+    "image": "/video/hero-nubes.jpg"
   },
   "/diseno-web/alcala-de-henares": {
-    "image": "/img/hero/hero-diseno-web-36web.webp"
+    "image": "/video/hero-nubes.jpg"
   },
   "/diseno-web/san-fernando-de-henares": {
-    "image": "/img/hero/hero-diseno-web-36web.webp"
+    "image": "/video/hero-nubes.jpg"
   },
   "/diseno-web/coslada": {
-    "image": "/img/hero/hero-diseno-web-36web.webp"
+    "image": "/video/hero-nubes.jpg"
+  },
+  "/diseno-web/vigo": {
+    "image": "/video/hero-nubes.jpg"
   },
   "/landing-diseno-web": {
     "image": "/video/hero-home-2.jpg",

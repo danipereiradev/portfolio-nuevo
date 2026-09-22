@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "vite build && node scripts/prerender-meta.mjs",
     "check": "tsc --noEmit && eslint .",
+    "local-web:similar": "node scripts/local-web-similarity.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },

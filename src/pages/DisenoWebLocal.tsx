@@ -1,6 +1,6 @@
 import { Fragment, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
-import { Briefcase, Building2, MapPin } from 'lucide-react';
+import { Briefcase, Building2, ClipboardList, Factory, MapPin } from 'lucide-react';
 import HeroCta from '../components/HeroCta';
 import { TextSection } from '../components/TextSection';
 import { ServiceIncludes } from '../components/ServiceOnPage';
@@ -21,7 +21,12 @@ import {
   SITE_WEB_LABEL,
   SITE_WEB_PATH,
 } from '../config/contact';
-import { getLocalWebCity, type LocalWebCity } from '../data/localWebCities';
+import {
+  getLocalGeoContext,
+  getLocalWebCity,
+  getPublishedLocalWebFaqs,
+  type LocalWebCity,
+} from '../data/localWebCities';
 import { buildLocalWebCityJsonLd } from '../seo/localWebCitySchema';
 
 /** Resalta el nombre de la ciudad al tono de 36web (negrita). */
@@ -45,6 +50,10 @@ const LocalWebCityPage = ({ city }: { city: LocalWebCity }) => {
   const jsonLd = useMemo(() => buildLocalWebCityJsonLd(city), [city]);
   useJsonLd(`jsonld-diseno-web-${city.slug}`, jsonLd);
 
+  const geo = getLocalGeoContext(city);
+  const necesidades =
+    city.necesidades_locales.length >= 3 ? city.necesidades_locales : [];
+
   return (
     <>
       {/* HERO: H1 = "Diseño web en {ciudad}". No reutilices el H1 de /diseno-web. */}
@@ -62,7 +71,7 @@ const LocalWebCityPage = ({ city }: { city: LocalWebCity }) => {
         }
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
-        backgroundUrl='/img/hero/hero-diseno-web-36web.webp'
+        backgroundUrl='/video/hero-nubes.jpg'
         heroType='form'
         hasButton={false}
         formTitle='Te llamamos'
@@ -70,8 +79,7 @@ const LocalWebCityPage = ({ city }: { city: LocalWebCity }) => {
         formSectionInfo={`DisenoWeb Local — ${city.ciudad}`}
         formId='contacto'
         hasBackground
-        grayscale
-        overlay='black'
+        overlay='none'
         hasReviewBadge
         isTopHero
       />
@@ -85,44 +93,39 @@ const LocalWebCityPage = ({ city }: { city: LocalWebCity }) => {
         )}
       />
 
+      {geo ? (
+        <TextSection
+          muted
+          title={geo.heading}
+          paragraphs={geo.body ? [withCity(geo.body, city.ciudad)] : []}
+        />
+      ) : null}
+
+      {necesidades.length > 0 ? (
+        <SEOBenefits
+          title={`Qué suele necesitar un negocio de ${city.ciudad} en su web`}
+          benefits={necesidades.map((need) => ({
+            icon: ClipboardList,
+            title: need.title,
+            description: withCity(need.description, city.ciudad),
+          }))}
+        />
+      ) : null}
+
+      {/* SECTORES LOCALES: lista distinta por ciudad. No copies la de Valencia en A Coruña. */}
       <SEOBenefits
-        title='Para autónomos y pequeños negocios'
+        title={`Sectores con los que trabajamos en ${city.ciudad}`}
         subtitle={
           <>
-            No hacemos webs de agencia para impresionar a otras agencias. Las
-            hacemos para que{' '}
-            <strong className='font-extrabold'>te encuentren y te escriban</strong>
-            .
+            No cubrimos “todo”. Cubrimos negocios a los que una web clara les
+            cambia el día a día.
           </>
         }
-        benefits={[
-          {
-            icon: Briefcase,
-            title: 'Autónomos',
-            description: (
-              <>
-                Una página que explique qué haces, se vea bien en el teléfono y
-                deje un{' '}
-                <strong className='font-extrabold'>formulario o WhatsApp</strong>
-                . Eso ya es una web profesional.
-              </>
-            ),
-          },
-          {
-            icon: Building2,
-            title: 'Pequeños negocios',
-            description: (
-              <>
-                Servicios, quiénes sois, cómo os contactan. Si hace falta más —
-                citas, área privada, tienda—{' '}
-                <strong className='font-extrabold'>
-                  te lo decimos en la propuesta
-                </strong>
-                , no te lo colamos.
-              </>
-            ),
-          },
-        ]}
+        benefits={city.sectores_locales.map((sector) => ({
+          icon: MapPin,
+          title: sector.title,
+          description: withCity(sector.description, city.ciudad),
+        }))}
       />
 
       <ServiceIncludes
@@ -172,20 +175,55 @@ const LocalWebCityPage = ({ city }: { city: LocalWebCity }) => {
         ]}
       />
 
-      {/* SECTORES LOCALES: lista distinta por ciudad. No copies la de Valencia en A Coruña. */}
       <SEOBenefits
-        title={`Sectores con los que trabajamos en ${city.ciudad}`}
+        title='Para autónomos, pymes y empresas'
         subtitle={
           <>
-            No cubrimos “todo”. Cubrimos negocios a los que una web clara les
-            cambia el día a día.
+            No hacemos webs de agencia para impresionar a otras agencias. Las
+            hacemos para que{' '}
+            <strong className='font-extrabold'>te encuentren y te escriban</strong>
+            .
           </>
         }
-        benefits={city.sectores_locales.map((sector) => ({
-          icon: MapPin,
-          title: sector.title,
-          description: withCity(sector.description, city.ciudad),
-        }))}
+        benefits={[
+          {
+            icon: Briefcase,
+            title: 'Autónomos y profesionales',
+            description: (
+              <>
+                Una página que explique qué haces, se vea bien en el teléfono y
+                deje un{' '}
+                <strong className='font-extrabold'>formulario o WhatsApp</strong>
+                . Eso ya es una web profesional.
+              </>
+            ),
+          },
+          {
+            icon: Building2,
+            title: 'Pequeños negocios',
+            description: (
+              <>
+                Servicios, quiénes sois, cómo os contactan. Si hace falta más —
+                citas, área privada, tienda—{' '}
+                <strong className='font-extrabold'>
+                  te lo decimos en la propuesta
+                </strong>
+                , no te lo colamos.
+              </>
+            ),
+          },
+          {
+            icon: Factory,
+            title: 'Pymes y empresas',
+            description: (
+              <>
+                Servicios, zona de trabajo y cómo pedir presupuesto. Si tu
+                cliente es otra empresa, que lo entienda{' '}
+                <strong className='font-extrabold'>a la primera</strong>.
+              </>
+            ),
+          },
+        ]}
       />
 
       <Portfolio
@@ -281,7 +319,7 @@ const LocalWebCityPage = ({ city }: { city: LocalWebCity }) => {
       <div id='faq'>
         <SEOFAQ
           title={`Preguntas de diseño web en ${city.ciudad}`}
-          faqs={city.faq_local}
+          faqs={getPublishedLocalWebFaqs(city)}
           ctaText='PEDIR PROPUESTA'
           ctaHref='#contacto'
         />
