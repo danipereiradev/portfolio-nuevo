@@ -8,10 +8,7 @@ import {
   trackGa4FormSubmit,
   trackLandingPromo349FitSubmit,
 } from '../utils/analytics';
-import {
-  ADS_LAUNCH_FIT_FORM_ORIGIN,
-  FORM_CC_EMAIL,
-} from '../config/contact';
+import { ADS_LAUNCH_FIT_FORM_ORIGIN, FORM_CC_EMAIL } from '../config/contact';
 import { getLaunchPriceLabel } from '../config/launchOffer';
 
 const emptyForm = () => ({
@@ -76,7 +73,7 @@ const LaunchFitEmailForm = () => {
       newErrors.email = 'Introduce un email válido';
     }
     if (sectorValue.length < 2) {
-      newErrors.sector = 'Dime tu sector o a qué te dedicas';
+      newErrors.sector = 'Dinos tu sector o a qué te dedicas';
     }
     if (!formData.consent) {
       newErrors.consent = 'Acepta la política de privacidad';
@@ -121,7 +118,7 @@ const LaunchFitEmailForm = () => {
           newsletter: formData.newsletter ? 'sí' : 'no',
           consent: formData.consent,
           submissionDate: new Date().toLocaleString('es-ES'),
-          _subject: `[${origen}] ¿Entra en 349? — ${sector}`,
+          _subject: `[${origen}] ¿Encaja en 349? — ${sector}`,
           _replyto: email,
           _cc: FORM_CC_EMAIL,
           message: `
@@ -173,11 +170,11 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       <div className='container mx-auto flex max-w-3xl flex-col gap-page-gap'>
         <div className='page-title-block mx-auto text-center'>
           <h2 className='text-3xl font-extrabold text-ink-dark md:text-4xl lg:text-5xl'>
-            ¿Entra en {getLaunchPriceLabel()}?
+            ¿Encaja en {getLaunchPriceLabel()}?
           </h2>
           <p className='text-xl text-ink-dark md:text-2xl'>
-            Dime tu sector. Te respondo por email si cabe en esta oferta o va a
-            medida. Sin llamada.
+            Dinos tu sector. Te respondemos por email si cabe en esta oferta o
+            va a medida. Sin llamada.
           </p>
         </div>
 

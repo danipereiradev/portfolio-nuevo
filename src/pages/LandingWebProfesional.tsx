@@ -87,7 +87,8 @@ const processSteps = [
     title: 'Montamos y adaptamos',
     description: (
       <>
-        Con tu logo, textos y datos montamos la web a tu marca.{' '}
+        Con tu logo y tus textos (los creamos si no tienes) montamos la web a tu
+        gusto.{' '}
         <strong className='font-extrabold'>
           El plazo de {LAUNCH_DELIVERY_LABEL} empieza aquí
         </strong>
@@ -123,10 +124,6 @@ const faqs = [
     question: '¿Cómo se paga?',
     answer:
       '50% al empezar y 50% cuando estés contento con el resultado, justo antes de publicar. Primero te contactamos y confirmamos el proyecto.',
-  },
-  {
-    question: '¿Qué contenidos tengo que entregar?',
-    answer: `Logo, textos, fotos y la información de tu negocio (qué haces, cómo te contactan, horarios, redes). Si no cuentas con logo o textos, te lo presupuestamos. El plazo de ${LAUNCH_DELIVERY_LABEL} cuenta desde que nos llega el material.`,
   },
   {
     question: '¿El hosting y el dominio están incluidos?',
