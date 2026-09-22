@@ -805,6 +805,17 @@ export const trackLandingPromo349FormSubmit = () => {
   }
 };
 
+export const trackLandingPromo349PortfolioClick = (
+  project: 'hatena' | 'carper',
+) => {
+  trackEvent(`landing_promo_349_click_${project}`, {
+    event_category: 'landing_promo_349',
+    event_label: project,
+    project,
+    landing_name: 'landing promo 349',
+  });
+};
+
 export const trackHoursPackCheckout = (hours: number, total: number) => {
   trackEvent('begin_checkout', {
     event_category: 'paquete_horas',

@@ -1,14 +1,11 @@
 import { useEffect, useMemo } from 'react';
 import {
-  Clock,
   Globe,
-  LayoutTemplate,
   MessageCircle,
   Search,
   Share2,
   ShieldCheck,
   Smartphone,
-  Type,
 } from 'lucide-react';
 import Portfolio from '../components/Portfolio';
 import SEOFAQ from '../components/SEOFAQ';
@@ -27,25 +24,12 @@ import {
   getLaunchPriceLabel,
   LAUNCH_DELIVERY_LABEL,
 } from '../config/launchOffer';
-import { trackLandingPromo349View } from '../utils/analytics';
+import {
+  trackLandingPromo349PortfolioClick,
+  trackLandingPromo349View,
+} from '../utils/analytics';
 
 const includes = [
-  {
-    icon: Clock,
-    title: `Lista en ${LAUNCH_DELIVERY_LABEL}`,
-    description: `Cuando tenemos logo, textos y datos, montamos la web y te la enseñamos. Se publica en ${LAUNCH_DELIVERY_LABEL} desde esa entrega.`,
-  },
-  {
-    icon: LayoutTemplate,
-    title: 'Diseño adaptado a tu negocio',
-    description: 'Adaptamos colores, estructura y estilo a tu marca y sector.',
-  },
-  {
-    icon: Type,
-    title: 'Logo y textos',
-    description:
-      'Tú nos entregas logo y textos. Si no los tienes, te los presupuestamos.',
-  },
   {
     icon: Smartphone,
     title: 'Se ve bien en móvil',
@@ -265,16 +249,27 @@ const LandingWebProfesional = () => {
       </section>
 
       <Portfolio
-        ids={['chicxs', 'resilience', 'micolet', 'delish']}
-        note={
+        ids={['hatena', 'carper']}
+        images={{
+          hatena: '/img/portfolio/hatena-landing.webp',
+          carper: '/img/portfolio/carper-landing.webp',
+        }}
+        urls={{
+          hatena: 'https://hatena.es',
+          carper: 'https://carpersonido.com',
+        }}
+        onProjectClick={(id) => {
+          if (id === 'hatena' || id === 'carper') {
+            trackLandingPromo349PortfolioClick(id);
+          }
+        }}
+        headingLabel='Proyectos lanzados'
+        headingTitle='Proyectos que ya han sido lanzados'
+        headingDescription={
           <>
-            También hemos trabajado webs para{' '}
-            <strong className='font-extrabold'>moda</strong>,{' '}
-            <strong className='font-extrabold'>turismo</strong>,{' '}
-            <strong className='font-extrabold'>clínicas</strong>,{' '}
-            <strong className='font-extrabold'>ecommerce</strong>,{' '}
-            <strong className='font-extrabold'>servicios locales</strong> y{' '}
-            <strong className='font-extrabold'>marcas personales</strong>.
+            Clientes que ya tienen su web profesional. Así puede quedar la tuya
+            por{' '}
+            <strong className='font-extrabold'>{getLaunchPriceLabel()}</strong>.
           </>
         }
         sectorPrompt='¿Quieres ver ejemplos de tu sector? Te enseñamos proyectos similares antes de empezar.'

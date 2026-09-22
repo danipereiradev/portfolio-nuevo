@@ -5,7 +5,9 @@ const isAllowedHost = (hostname: string): boolean => {
     host === 'wa.me' ||
     host.endsWith('whatsapp.com') ||
     host === 'stripe.com' ||
-    host.endsWith('.stripe.com')
+    host.endsWith('.stripe.com') ||
+    host === 'hatena.es' ||
+    host === 'carpersonido.com'
   );
 };
 

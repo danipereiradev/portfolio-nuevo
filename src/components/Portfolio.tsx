@@ -40,6 +40,14 @@ interface PortfolioProps {
   contained?: boolean;
   /** Orden concreto de proyectos. Si no se pasa, usa el de la variante. */
   ids?: ProjectId[];
+  /** Sustituye la imagen de un proyecto (p. ej. mocks de la oferta). */
+  images?: Partial<Record<ProjectId, string>>;
+  /** Enlaces propios. Si se pasan, se respetan aunque la página sea de ads. */
+  urls?: Partial<Record<ProjectId, string>>;
+  onProjectClick?: (id: ProjectId) => void;
+  headingLabel?: ReactNode;
+  headingTitle?: ReactNode;
+  headingDescription?: ReactNode;
   /** Texto bajo la parrilla (landings). */
   note?: ReactNode;
   /** Bloque de sector + CTA al formulario de la misma página. */
@@ -100,11 +108,13 @@ function PortfolioCard({
   image,
   url,
   nofollow = false,
+  onClick,
 }: {
   title: string;
   image: string;
   url?: string;
   nofollow?: boolean;
+  onClick?: () => void;
 }) {
   const visual = (
     <PictureImg
@@ -126,7 +136,10 @@ function PortfolioCard({
         target='_blank'
         rel={nofollow ? 'nofollow noopener noreferrer' : 'noopener noreferrer'}
         aria-label={`Ver la web de ${title}`}
-        onClick={() => trackPortfolioClick(title)}
+        onClick={() => {
+          trackPortfolioClick(title);
+          onClick?.();
+        }}
         className={cardClass}
       >
         {visual}
@@ -141,6 +154,12 @@ const Portfolio = ({
   variant = 'default',
   casos = false,
   ids,
+  images,
+  urls,
+  onProjectClick,
+  headingLabel,
+  headingTitle,
+  headingDescription,
   note,
   sectorPrompt,
   sectorCtaText,
@@ -281,9 +300,15 @@ const Portfolio = ({
     };
   };
 
-  const projects = order.map((id) => mapPackBadge(projectsById[id]));
+  const projects = order.map((id) =>
+    mapPackBadge({
+      ...projectsById[id],
+      id,
+      image: images?.[id] ?? projectsById[id].image,
+    }),
+  );
 
-  const heading = isCasos
+  const defaultHeading = isCasos
     ? {
         label: 'Casos de éxito',
         title: t('portfolio.title'),
@@ -300,6 +325,19 @@ const Portfolio = ({
           title: 'Algunos proyectos que hemos publicado',
           description: 'Webs y tiendas que ya están recibiendo visitas.',
         };
+
+  const heading = {
+    label: headingLabel ?? defaultHeading.label,
+    title: headingTitle ?? defaultHeading.title,
+    description: headingDescription ?? defaultHeading.description,
+  };
+
+  const gridClass =
+    projects.length <= 2
+      ? 'mx-auto grid w-full max-w-5xl grid-cols-1 items-stretch gap-page-gap md:grid-cols-2'
+      : projects.length === 3
+        ? 'mx-auto grid grid-cols-1 items-stretch gap-page-gap md:grid-cols-2 lg:grid-cols-3'
+        : 'mx-auto grid grid-cols-1 items-stretch gap-page-gap md:grid-cols-2 lg:grid-cols-4';
 
   return (
     <>
@@ -318,7 +356,7 @@ const Portfolio = ({
           </div>
 
           {isCasos ? (
-            <div className='mx-auto grid grid-cols-1 items-stretch gap-page-gap md:grid-cols-2 lg:grid-cols-3'>
+            <div className={gridClass}>
               {projects.map((project, index) => (
                 <RevealOnScroll
                   key={project.title}
@@ -334,7 +372,7 @@ const Portfolio = ({
               ))}
             </div>
           ) : (
-            <div className='mx-auto grid grid-cols-1 items-stretch gap-page-gap md:grid-cols-2 lg:grid-cols-4'>
+            <div className={gridClass}>
               {projects.map((project, index) => (
                 <RevealOnScroll
                   key={project.title}
@@ -344,8 +382,16 @@ const Portfolio = ({
                   <PortfolioCard
                     title={project.title}
                     image={project.image}
-                    url={hideOutboundLinks ? undefined : project.url}
+                    url={
+                      urls?.[project.id] ??
+                      (hideOutboundLinks ? undefined : project.url)
+                    }
                     nofollow={project.nofollow}
+                    onClick={
+                      onProjectClick
+                        ? () => onProjectClick(project.id)
+                        : undefined
+                    }
                   />
                 </RevealOnScroll>
               ))}
