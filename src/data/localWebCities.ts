@@ -14,17 +14,16 @@
  *    - `faq_local` (mín. 2; solo preguntas de ESA ciudad; las generales están
  *      en LOCAL_WEB_COMMON_FAQS)
  *    - `cta_local`, `presencia_local`, `verified_at`
- *    La estructura de la página (hero, proceso, qué incluye) es común.
+ *    La estructura de la página (hero, proceso, qué incluye, demos) es común.
  *    Google mira el texto. Si dos ciudades solo cambian el topónimo, las
  *    trata como doorway pages.
- * 3. Elige `casos_relevantes` (ids de portfolio) que encajen con esos sectores.
- * 4. Pon `relatedCitySlugs` a 2–3 ciudades YA publicadas (máx. 3; [] si es la
+ * 3. Pon `relatedCitySlugs` a 2–3 ciudades YA publicadas (máx. 3; [] si es la
  *    primera). En la landing solo se enlazan esas, no el listado entero.
- * 5. Añade la misma `title`/`description` en `src/seo/pagesMeta.json`
+ * 4. Añade la misma `title`/`description` en `src/seo/pagesMeta.json`
  *    con la clave `/diseno-web/{slug}` (sin esto, el HTML estático no lleva
  *    title/canonical propios).
- * 6. Opcional: copia la entrada de `/diseno-web` en `src/config/heroLcp.json`.
- * 7. Descomenta el slug en `LOCAL_WEB_LISTED_SLUGS` cuando la página esté
+ * 5. Opcional: copia la entrada de `/diseno-web` en `src/config/heroLcp.json`.
+ * 6. Descomenta el slug en `LOCAL_WEB_LISTED_SLUGS` cuando la página esté
  *    lista: si no está ahí, no sale en la UI, ni en el sitemap, y la URL es 404.
  *
  * El build se encarga del resto: HTML inicial con H1/intro/FAQ/enlaces/schema,
@@ -46,7 +45,6 @@ export type {
   LocalWebContexto,
   LocalWebFaq,
   LocalWebNeed,
-  LocalWebPortfolioId,
   LocalWebPresencia,
   LocalWebPresenciaTipo,
   LocalWebSector,
@@ -125,9 +123,6 @@ const madrid: LocalWebCity = {
       description: 'Y cómo encargar un asunto o pedir cita.',
     },
   ],
-  casos_relevantes: ['delish', 'hatena', 'chicxs', 'micolet'],
-  casos_note:
-    'Hay proyectos de Madrid, clínicas y marca. Te enseñamos ejemplos parecidos a tu negocio antes de empezar.',
   faq_local: [
     {
       question: '¿Hacéis diseño web para negocios de Madrid capital?',
@@ -233,9 +228,6 @@ const torrejon: LocalWebCity = {
         'Una estructura clara para que quien entra entienda rápido si puedes ayudarle.',
     },
   ],
-  casos_relevantes: ['carper', 'hatena', 'camisetas', 'resilience'],
-  casos_note:
-    'Proyectos de oficios, producto y clínicas. Los enseñamos porque se parecen a lo que pide un negocio del Corredor.',
   faq_local: [
     {
       question:
@@ -329,9 +321,6 @@ const alcala: LocalWebCity = {
       description: 'O formulario para quien pasea el centro o estudia aquí.',
     },
   ],
-  casos_relevantes: ['hoyviajamos', 'hatena', 'desmundando', 'chicxs'],
-  casos_note:
-    'Hay proyectos de turismo, clínicas y marca. Te enseñamos algo parecido a tu negocio de Alcalá antes de empezar.',
   faq_local: [
     {
       question:
@@ -425,9 +414,6 @@ const sanFernando: LocalWebCity = {
       description: 'Si es polígono, actividad, zona y presupuesto.',
     },
   ],
-  casos_relevantes: ['carper', 'resilience', 'camisetas', 'hatena'],
-  casos_note:
-    'Proyectos de oficios, producto y consultas. Encajan con lo que suele pedir un negocio de San Fernando.',
   faq_local: [
     {
       question:
@@ -532,9 +518,6 @@ const coslada: LocalWebCity = {
       description: 'Para quien te busca en el barrio.',
     },
   ],
-  casos_relevantes: ['camisetas', 'carper', 'hatena', 'delish'],
-  casos_note:
-    'Hay proyectos de producto, oficios y clínicas. Te enseñamos algo parecido a un negocio de Coslada antes de empezar.',
   faq_local: [
     {
       question:
@@ -638,9 +621,6 @@ const vigo: LocalWebCity = {
         'Servicios, instalaciones, sectores, proyectos y capacidades bien ordenados para que un posible cliente pueda valorar rápidamente si encajáis.',
     },
   ],
-  casos_relevantes: ['carper', 'camisetas', 'hatena', 'delish'],
-  casos_note:
-    'Proyectos de producto, servicios y negocios con necesidades similares. Te enseñamos ejemplos que encajen con tu sector antes de empezar.',
   faq_local: [
     {
       question: '¿Hacéis diseño web para empresas de Vigo?',
@@ -769,9 +749,6 @@ const logrono: LocalWebCity = {
         'En vino, gastronomía o comercio la imagen importa, pero también que el usuario encuentre rápido producto, experiencia, horario, reserva o contacto.',
     },
   ],
-  casos_relevantes: ['delish', 'camisetas', 'hatena', 'chicxs'],
-  casos_note:
-    'Proyectos de producto, hostelería y servicios. Te enseñamos ejemplos que encajen con tu sector antes de empezar.',
   faq_local: [
     {
       question: '¿Hacéis diseño web para negocios de Logroño?',

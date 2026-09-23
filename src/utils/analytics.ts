@@ -955,6 +955,14 @@ export const trackLandingMaintenanceInfraView = () => {
   });
 };
 
+export const trackLocalWebDemoClick = (demoTitle: string, ciudad: string) => {
+  trackEvent('click_local_demo', {
+    event_category: 'seo_local',
+    event_label: demoTitle,
+    ciudad,
+  });
+};
+
 export const trackMaintenanceInfraCheckoutClick = (locationSection: string) => {
   trackEvent('begin_checkout', {
     event_category: 'ecommerce',

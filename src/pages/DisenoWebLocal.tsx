@@ -12,7 +12,7 @@ import { HeroParallaxBg, HERO_NUBES_URL } from '../components/HeroParallaxBg';
 import { TextSection } from '../components/TextSection';
 import { ServiceIncludes } from '../components/ServiceOnPage';
 import SEOBenefits from '../components/SEOBenefits';
-import Portfolio from '../components/Portfolio';
+import LocalWebDemos from '../components/LocalWebDemos';
 import Testimonials from '../components/Testimonials';
 import SEOProcess from '../components/SEOProcess';
 import SEOFAQ from '../components/SEOFAQ';
@@ -37,6 +37,7 @@ import {
   type LocalWebCity,
 } from '../data/localWebCities';
 import { LOCAL_WEB_INCLUDES } from '../data/localWebIncludes';
+import { getLocalWebDemos } from '../data/localWebDemos';
 import { buildLocalWebCityJsonLd } from '../seo/localWebCitySchema';
 
 /** Resalta el nombre de la ciudad al tono de 36web (negrita). */
@@ -206,14 +207,7 @@ const LocalWebCityPage = ({ city }: { city: LocalWebCity }) => {
         ]}
       />
 
-      <Portfolio
-        ids={city.casos_relevantes}
-        contained
-        note={<>{city.casos_note}</>}
-        sectorPrompt='¿Quieres ver algo más parecido a tu negocio? Te enseñamos proyectos similares antes de empezar.'
-        sectorCtaText='Ver ejemplos de mi sector'
-        sectorCtaHref='#contacto'
-      />
+      <LocalWebDemos ciudad={city.ciudad} demos={getLocalWebDemos(city)} />
 
       <Testimonials />
 

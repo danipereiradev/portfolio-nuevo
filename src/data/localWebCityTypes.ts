@@ -1,15 +1,3 @@
-export type LocalWebPortfolioId =
-  | 'chicxs'
-  | 'hoyviajamos'
-  | 'camisetas'
-  | 'resilience'
-  | 'hatena'
-  | 'delish'
-  | 'carper'
-  | 'micolet'
-  | 'alicornio'
-  | 'desmundando';
-
 export type LocalWebSector = {
   title: string;
   description: string;
@@ -63,9 +51,6 @@ export type LocalWebCity = {
   sectores_locales: LocalWebSector[];
   /** Qué pide un negocio de ESA plaza a una web. Mín. 3. */
   necesidades_locales: LocalWebNeed[];
-  /** Proyectos del portfolio que encajan con esos sectores. */
-  casos_relevantes: LocalWebPortfolioId[];
-  casos_note: string;
   /** Solo preguntas ligadas a la ciudad. Las generales van en LOCAL_WEB_COMMON_FAQS. */
   faq_local: LocalWebFaq[];
   cta_local: {

@@ -21,6 +21,7 @@ import {
   type LocalWebCity,
 } from '../data/localWebCities';
 import { LOCAL_WEB_INCLUDES } from '../data/localWebIncludes';
+import { getLocalWebDemos } from '../data/localWebDemos';
 import { buildLocalWebCityJsonLd } from './localWebCitySchema';
 
 export { LOCAL_WEB_LISTED_CITIES, buildLocalWebCityJsonLd };
@@ -207,8 +208,16 @@ export const buildLocalWebCityBodyHtml = (city: LocalWebCity) => {
 
         <section class="page-section">
           <div class="container mx-auto max-w-5xl">
-            <h2 class="text-3xl font-extrabold text-ink-dark md:text-4xl">Trabajos</h2>
-            ${p(city.casos_note)}
+            <h2 class="text-3xl font-extrabold text-ink-dark md:text-4xl">${escapeHtml(`Así puede quedar tu web en ${city.ciudad}`)}</h2>
+            ${p('Ejemplos reales de cómo podría verse tu web. Entra y navega cada diseño.')}
+            <ul class="mt-6 list-disc space-y-3 pl-6 text-xl text-ink-dark">
+              ${getLocalWebDemos(city)
+                .map(
+                  (demo) =>
+                    `<li><a href="${escapeHtml(demo.href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(demo.title)}</a></li>`,
+                )
+                .join('\n              ')}
+            </ul>
           </div>
         </section>
 
