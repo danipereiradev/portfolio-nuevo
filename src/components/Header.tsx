@@ -9,11 +9,14 @@ import {
   ABOUT_LABEL,
   isAdsGoogleAdsLandingPath,
   isAdsLandingPath,
+  isAdsMaintenanceInfraLandingPath,
 } from '../config/contact';
 import {
   LANDING_NAV,
   LANDING_NAV_CTA,
+  LANDING_NAV_CTA_MAINTENANCE_INFRA,
   LANDING_NAV_GOOGLE_ADS,
+  LANDING_NAV_MAINTENANCE_INFRA,
   SERVICE_NAV,
 } from '../config/nav';
 
@@ -34,9 +37,15 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
   const { pathname } = useLocation();
   const isHome = pathname === '/';
   const isAdsLanding = isAdsLandingPath(pathname);
+  const isInfraLanding = isAdsMaintenanceInfraLandingPath(pathname);
   const landingNav = isAdsGoogleAdsLandingPath(pathname)
     ? LANDING_NAV_GOOGLE_ADS
-    : LANDING_NAV;
+    : isInfraLanding
+      ? LANDING_NAV_MAINTENANCE_INFRA
+      : LANDING_NAV;
+  const landingCta = isInfraLanding
+    ? LANDING_NAV_CTA_MAINTENANCE_INFRA
+    : LANDING_NAV_CTA;
   const desktopNavClass = isHome ? homeNavLinkClass : defaultNavLinkClass;
   const mobileLinksClass = isHome ? homeMobileNavLinkClass : mobileNavLinkClass;
 
@@ -187,13 +196,13 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
                     </a>
                   ))}
                   <a
-                    href={LANDING_NAV_CTA.href}
+                    href={landingCta.href}
                     className={`${defaultNavLinkClass} !text-accent`}
                     onClick={() =>
-                      trackCtaClick(LANDING_NAV_CTA.label, 'LandingHeader')
+                      trackCtaClick(landingCta.label, 'LandingHeader')
                     }
                   >
-                    {LANDING_NAV_CTA.label}
+                    {landingCta.label}
                   </a>
                 </nav>
               </>
@@ -316,14 +325,14 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
                 </a>
               ))}
               <a
-                href={LANDING_NAV_CTA.href}
+                href={landingCta.href}
                 onClick={() => {
-                  trackCtaClick(LANDING_NAV_CTA.label, 'LandingHeader');
+                  trackCtaClick(landingCta.label, 'LandingHeader');
                   setIsMenuOpen(false);
                 }}
                 className={`${mobileNavLinkClass} !text-accent`}
               >
-                {LANDING_NAV_CTA.label}
+                {landingCta.label}
               </a>
             </nav>
           ) : null}

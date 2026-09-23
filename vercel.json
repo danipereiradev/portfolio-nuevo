@@ -203,6 +203,10 @@
       "destination": "/landing-google-ads/index.html"
     },
     {
+      "source": "/landing-mantenimiento-infra",
+      "destination": "/landing-mantenimiento-infra/index.html"
+    },
+    {
       "source": "/tiendas-online",
       "destination": "/tiendas-online/index.html"
     },
@@ -270,6 +274,10 @@
     {
       "source": "/pago/gracias/google-ads",
       "destination": "/pago/gracias/google-ads/index.html"
+    },
+    {
+      "source": "/pago/gracias/mantenimiento-infra",
+      "destination": "/pago/gracias/mantenimiento-infra/index.html"
     },
     { "source": "/pago/gracias", "destination": "/pago/gracias/index.html" },
     {

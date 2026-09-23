@@ -64,6 +64,10 @@
     "title": "Google Ads con landing incluida | 250 € + 200 €/mes | 36web",
     "description": "Campañas de Google Ads para que te encuentren. Setup 250 € + IVA y 200 € + IVA/mes. Landing incluida. Sin permanencia. La inversión la pagas tú a Google."
   },
+  "/landing-mantenimiento-infra": {
+    "title": "Mantenimiento Negocio + Infraestructura | 139 €/mes | 36web",
+    "description": "Mantenimiento WordPress, hosting, correo, monitorización y backups. Puesta en marcha 199 € + IVA. Mensual 139 € + IVA. Precio cerrado."
+  },
   "/blog": {
     "title": "Blog de diseño web y tiendas online | 36web",
     "description": "Artículos sobre diseño web, tecnologías para crear una página web, tiendas online y precios. Estudio en Madrid, toda España."
@@ -151,6 +155,11 @@
     "description": "Hoy 450 € + IVA: setup de Google Ads y primer mes. Después 200 € + IVA/mes. Sin permanencia. La inversión publicitaria la pagas tú a Google.",
     "robots": "noindex, nofollow, noarchive"
   },
+  "/pago/mantenimiento-infra": {
+    "title": "Mantenimiento Negocio + Infraestructura | 36web",
+    "description": "Puesta en marcha 199 € + IVA. Mantenimiento mensual 139 € + IVA. WordPress, hosting, correo, monitorización y backups.",
+    "robots": "noindex, nofollow, noarchive"
+  },
   "/pago/gracias": {
     "title": "Pago recibido | 36web",
     "description": "Gracias. Hemos recibido tu pago.",
@@ -179,6 +188,11 @@
   "/pago/gracias/google-ads": {
     "title": "Pago recibido | Google Ads | 36web",
     "description": "Gracias. Hemos recibido el pago del setup y la primera mensualidad de Google Ads.",
+    "robots": "noindex, nofollow, noarchive"
+  },
+  "/pago/gracias/mantenimiento-infra": {
+    "title": "Pago recibido | Mantenimiento Negocio + Infraestructura | 36web",
+    "description": "Gracias. Hemos recibido el pago de la puesta en marcha del mantenimiento Negocio + Infraestructura.",
     "robots": "noindex, nofollow, noarchive"
   },
   "/gracias/mantenimiento-web-base-mensual": {

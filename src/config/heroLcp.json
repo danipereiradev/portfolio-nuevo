@@ -51,5 +51,8 @@
   },
   "/landing-google-ads": {
     "image": "/video/hero-nubes.jpg"
+  },
+  "/landing-mantenimiento-infra": {
+    "image": "/video/hero-nubes.jpg"
   }
 }

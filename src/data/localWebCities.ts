@@ -14,7 +14,7 @@
  *    - `faq_local` (mín. 2; solo preguntas de ESA ciudad; las generales están
  *      en LOCAL_WEB_COMMON_FAQS)
  *    - `cta_local`, `presencia_local`, `verified_at`
- *    La estructura de la página (hero, proceso, qué montamos) es común.
+ *    La estructura de la página (hero, proceso, qué incluye) es común.
  *    Google mira el texto. Si dos ciudades solo cambian el topónimo, las
  *    trata como doorway pages.
  * 3. Elige `casos_relevantes` (ids de portfolio) que encajen con esos sectores.
@@ -198,36 +198,39 @@ const torrejon: LocalWebCity = {
     {
       title: 'Oficios y reformas',
       description:
-        'Reformas, electricidad, climatización, talleres. Qué haces, en qué zonas del Corredor trabajas y ejemplos de encargos reales.',
+        'Reformas, electricidad, climatización y talleres. La web puede mostrar qué haces, en qué zonas del Corredor trabajas y ejemplos de trabajos realizados.',
     },
     {
       title: 'Comercio y hostelería local',
       description:
-        'Tiendas, cafeterías y negocios de calle. Horarios, cómo llegar y un contacto que se use de verdad en el teléfono.',
+        'Tiendas, cafeterías y negocios de calle. Horarios, ubicación, servicios y una forma sencilla de contactar o reservar desde el móvil.',
     },
     {
       title: 'Empresas de polígono',
       description:
-        'Distribución, almacén, servicios a empresas. Una página que explique a qué os dedicáis y cómo pediros presupuesto, sin postureo.',
+        'Distribución, almacenes y servicios a empresas. Una web que explique actividad, capacidades y cómo solicitar información o presupuesto.',
     },
     {
       title: 'Clínicas de barrio',
       description:
-        'Fisio, dental, estética. Especialidad a la primera y cita sin fricción. Nada de plantilla de otra consulta.',
+        'Fisioterapia, dental, estética y otras especialidades. Tratamientos claros, equipo, ubicación y una forma sencilla de pedir cita.',
     },
   ],
   necesidades_locales: [
     {
-      title: 'Verse profesionales',
-      description: 'Sin montar un proyecto inflado.',
+      title: 'Explicar bien qué hace y dónde trabaja',
+      description:
+        'Especialmente si presta servicio en Torrejón y otros municipios del Corredor del Henares.',
     },
     {
-      title: 'Que te encuentre quien ya te busca',
-      description: 'Por oficio o por zona del Corredor.',
+      title: 'Recibir contactos',
+      description:
+        'Teléfono, WhatsApp, chat o formulario visibles para que pedir información o presupuesto sea rápido.',
     },
     {
-      title: 'Pocas secciones, bien hechas',
-      description: 'Y un WhatsApp o formulario a la vista.',
+      title: 'Enseñar servicios, trabajos o especialidades',
+      description:
+        'Una estructura clara para que quien entra entienda rápido si puedes ayudarle.',
     },
   ],
   casos_relevantes: ['carper', 'hatena', 'camisetas', 'resilience'],

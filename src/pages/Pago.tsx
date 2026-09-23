@@ -336,11 +336,15 @@ const SetupSubscriptionCard = ({ payment }: { payment: PaymentConfig }) => {
 
         <dl className='mt-4 space-y-2 text-sm'>
           <div className='flex justify-between gap-4'>
-            <dt className='text-[#6f6f6d]'>Setup inicial (pago único)</dt>
+            <dt className='text-[#6f6f6d]'>
+              {payment.setupLabel || 'Setup inicial (pago único)'}
+            </dt>
             <dd className='font-medium'>{formatEuro(setupAmount)} + IVA</dd>
           </div>
           <div className='flex justify-between gap-4'>
-            <dt className='text-[#6f6f6d]'>Gestión mensual</dt>
+            <dt className='text-[#6f6f6d]'>
+              {payment.monthlyLabel || 'Gestión mensual'}
+            </dt>
             <dd className='font-medium'>{formatEuro(monthlyAmount)} + IVA / mes</dd>
           </div>
           <div className='flex justify-between gap-4 border-t border-[#3346C1]/15 pt-2 text-base'>
@@ -350,8 +354,22 @@ const SetupSubscriptionCard = ({ payment }: { payment: PaymentConfig }) => {
         </dl>
       </div>
 
-      <IncludeList title='Qué incluye el setup' items={setupIncludes} />
-      <IncludeList title='Qué incluye la gestión mensual' items={monthlyIncludes} />
+      <IncludeList
+        title={
+          payment.setupLabel
+            ? 'Qué incluye la puesta en marcha'
+            : 'Qué incluye el setup'
+        }
+        items={setupIncludes}
+      />
+      <IncludeList
+        title={
+          payment.monthlyLabel
+            ? 'Qué incluye el mantenimiento mensual'
+            : 'Qué incluye la gestión mensual'
+        }
+        items={monthlyIncludes}
+      />
 
       {excludes.length > 0 ? (
         <section className='mt-6'>

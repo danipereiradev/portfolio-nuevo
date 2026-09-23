@@ -20,6 +20,7 @@ import {
   getRelatedCities,
   type LocalWebCity,
 } from '../data/localWebCities';
+import { LOCAL_WEB_INCLUDES } from '../data/localWebIncludes';
 import { buildLocalWebCityJsonLd } from './localWebCitySchema';
 
 export { LOCAL_WEB_LISTED_CITIES, buildLocalWebCityJsonLd };
@@ -178,13 +179,15 @@ export const buildLocalWebCityBodyHtml = (city: LocalWebCity) => {
 
         <section class="page-section">
           <div class="container mx-auto max-w-5xl">
-            <h2 class="text-3xl font-extrabold text-ink-dark md:text-4xl">Qué montamos</h2>
-            ${p('La base de una web de negocio. El resto va por escrito en la propuesta. Sin sorpresas.')}
+            <h2 class="text-3xl font-extrabold text-ink-dark md:text-4xl">${escapeHtml(LOCAL_WEB_INCLUDES.title)}</h2>
+            ${p(LOCAL_WEB_INCLUDES.intro)}
             <ul class="mt-6 list-disc space-y-3 pl-6 text-xl text-ink-dark">
-              <li>Diseño adaptado a tu marca. No reutilizamos el mismo diseño entre clientes.</li>
-              <li>Se ve y se usa en el móvil.</li>
-              <li>Formulario y WhatsApp. Sin eso, la web es un folleto.</li>
-              <li>Publicación a tu nombre. Dominio, hosting para arrancar y la web tuya.</li>
+              ${LOCAL_WEB_INCLUDES.items
+                .map(
+                  (item) =>
+                    `<li>${escapeHtml(item.title)}. ${escapeHtml(item.description)}</li>`,
+                )
+                .join('\n              ')}
             </ul>
           </div>
         </section>

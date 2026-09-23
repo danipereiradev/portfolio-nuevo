@@ -62,6 +62,12 @@ export const THANK_YOU_PAGES = {
     heading: 'Pago recibido',
     body: 'Gracias. Hemos recibido el pago del setup y la primera mensualidad de Google Ads. En breve nos pondremos en contacto contigo para activar las campañas.',
   },
+  'mantenimiento-infra': {
+    path: '/pago/gracias/mantenimiento-infra',
+    title: 'Pago recibido | Mantenimiento Negocio + Infraestructura | 36web',
+    heading: 'Pago recibido',
+    body: 'Gracias. Hemos recibido el pago de la puesta en marcha del mantenimiento Negocio + Infraestructura. En breve nos pondremos en contacto contigo para activar el servicio.',
+  },
 } as const satisfies Record<string, ThankYouPage>;
 
 export type ThankYouVariant = keyof typeof THANK_YOU_PAGES;
@@ -103,6 +109,8 @@ export type PaymentConfig = {
   setupIncludes?: string[];
   monthlyIncludes?: string[];
   checkoutPath?: string;
+  setupLabel?: string;
+  monthlyLabel?: string;
 };
 
 /** IDs de /pago para bonos y planes de la landing /mantenimiento-web. */
@@ -120,6 +128,14 @@ export const GOOGLE_ADS_TODAY_AMOUNT =
   GOOGLE_ADS_SETUP_AMOUNT + GOOGLE_ADS_MONTHLY_AMOUNT;
 export const GOOGLE_ADS_CHECKOUT_PATH = '/api/google-ads-checkout';
 export const GOOGLE_ADS_SUCCESS_PATH = THANK_YOU_PAGES['google-ads'].path;
+
+export const MAINTENANCE_INFRA_PAYMENT_ID = 'mantenimiento-infra';
+export const MAINTENANCE_INFRA_SETUP_AMOUNT = 199;
+export const MAINTENANCE_INFRA_MONTHLY_AMOUNT = 139;
+export const MAINTENANCE_INFRA_STRIPE_LINK =
+  'https://buy.stripe.com/fZu00j5ujeOQ4J71584AU09';
+export const MAINTENANCE_INFRA_SUCCESS_PATH =
+  THANK_YOU_PAGES['mantenimiento-infra'].path;
 
 /** Caducidad de los bonos de mantenimiento, en meses desde la compra. */
 export const HOUR_PACK_VALIDITY_MONTHS = 6;
@@ -401,6 +417,55 @@ export const paymentConfigs: Record<string, PaymentConfig> = {
     cta: 'Pagar ahora',
     conditions:
       '*Hoy: setup 250 € + IVA y primer mes de gestión 200 € + IVA.\nA partir del mes siguiente: 200 € + IVA/mes.\nSin permanencia. Puedes cancelar.\nLa inversión publicitaria no está incluida.',
+  },
+  [MAINTENANCE_INFRA_PAYMENT_ID]: {
+    id: MAINTENANCE_INFRA_PAYMENT_ID,
+    clientName: '',
+    serviceName: 'Mantenimiento Negocio + Infraestructura',
+    description:
+      'Puesta en marcha inicial de WordPress, hosting, correo, monitorización y backups. Hoy pagas el arranque. El mantenimiento mensual se activa al empezar el servicio.',
+    amount: MAINTENANCE_INFRA_SETUP_AMOUNT,
+    vatRate: 21,
+    paymentType: 'one_time',
+    pricingMode: 'setup_subscription',
+    // Success URL en Stripe: https://36web.es/pago/gracias/mantenimiento-infra
+    stripePaymentLink: MAINTENANCE_INFRA_STRIPE_LINK,
+    setupAmount: MAINTENANCE_INFRA_SETUP_AMOUNT,
+    monthlyAmount: MAINTENANCE_INFRA_MONTHLY_AMOUNT,
+    setupIncludes: [
+      'Revisión inicial de WordPress',
+      'Revisión de plugins, plantilla y usuarios',
+      'Revisión del estado de seguridad',
+      'Revisión de hosting y correo',
+      'Revisión del sistema actual de copias',
+      'Configuración de monitorización',
+      'Configuración de backups externos',
+      'Validación general del estado técnico antes de asumir el mantenimiento',
+    ],
+    monthlyIncludes: [
+      'Mantenimiento y actualización de WordPress, plugins y plantilla',
+      'Revisión técnica periódica',
+      'Revisión de seguridad e implantación de mejoras',
+      'Monitorización automatizada 24/7 de disponibilidad y seguridad',
+      'Copias de seguridad externas al hosting',
+      'Recuperación desde backup ante incidencias',
+      'Gestión técnica del hosting',
+      'Gestión de hasta 6 cuentas de correo corporativo',
+      'Soporte y asesoramiento telefónico',
+      'Gestión de incidencias de web, hosting y correo',
+      'Revisión básica de rendimiento',
+      'Hasta 2 horas mensuales de soporte y pequeñas actuaciones',
+      'Respuesta laboral objetivo ≤ 24 h',
+    ],
+    excludes: [
+      'Costes de hosting, dominio, correo, licencias o servicios de terceros',
+      'Nuevos desarrollos, rediseños o funcionalidades fuera del mantenimiento habitual',
+    ],
+    cta: 'Pagar puesta en marcha',
+    setupLabel: 'Puesta en marcha inicial (pago único)',
+    monthlyLabel: 'Mantenimiento mensual',
+    conditions:
+      '*Hoy: puesta en marcha 199 € + IVA (pago único).\nMantenimiento mensual: 139 € + IVA / mes.\nLa monitorización 24/7 es automatizada. La atención e intervención técnica se realiza dentro del horario y tiempos de respuesta establecidos.\nLas 2 horas mensuales no son acumulables.\nSi durante la puesta en marcha se detecta malware, una instalación previamente comprometida o una incidencia grave preexistente, se valorará antes de realizar trabajos adicionales.',
   },
 };
 

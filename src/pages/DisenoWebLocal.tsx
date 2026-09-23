@@ -36,6 +36,7 @@ import {
   isLocalWebCityListed,
   type LocalWebCity,
 } from '../data/localWebCities';
+import { LOCAL_WEB_INCLUDES } from '../data/localWebIncludes';
 import { buildLocalWebCityJsonLd } from '../seo/localWebCitySchema';
 
 /** Resalta el nombre de la ciudad al tono de 36web (negrita). */
@@ -130,8 +131,9 @@ const LocalWebCityPage = ({ city }: { city: LocalWebCity }) => {
         title={`Sectores con los que trabajamos en ${city.ciudad}`}
         subtitle={
           <>
-            No cubrimos “todo”. Cubrimos negocios a los que una web clara les
-            cambia el día a día.
+            Trabajamos con negocios que necesitan una web clara para explicar
+            sus servicios, generar contactos y facilitar presupuestos o
+            reservas.
           </>
         }
         benefits={city.sectores_locales.map((sector) => ({
@@ -142,62 +144,21 @@ const LocalWebCityPage = ({ city }: { city: LocalWebCity }) => {
       />
 
       <ServiceIncludes
-        title='Qué montamos'
-        intro={
-          <>
-            La base de una web de negocio. El resto va por escrito en la
-            propuesta.{' '}
-            <strong className='font-extrabold'>Sin sorpresas.</strong>
-          </>
-        }
-        items={[
-          {
-            title: 'Diseño adaptado a tu marca',
-            description: (
-              <>
-                Colores, estructura y tono de tu negocio.{' '}
-                <strong className='font-extrabold'>
-                  No reutilizamos el mismo diseño entre clientes
-                </strong>
-                .
-              </>
-            ),
-          },
-          {
-            title: 'Se ve y se usa en el móvil',
-            description:
-              'La mayor parte de tus visitas llegan del teléfono. Si ahí no se entiende, la web no sirve.',
-          },
-          {
-            title: 'Formulario y WhatsApp',
-            description: (
-              <>
-                Para que te escriban.{' '}
-                <strong className='font-extrabold'>
-                  Sin eso, la web es un folleto
-                </strong>
-                .
-              </>
-            ),
-          },
-          {
-            title: 'Publicación a tu nombre',
-            description:
-              'Dominio, hosting para arrancar y la web tuya. Google tiene títulos y encabezados limpios; el SEO continuo, si lo quieres, se habla aparte.',
-          },
-        ]}
+        title={LOCAL_WEB_INCLUDES.title}
+        intro={LOCAL_WEB_INCLUDES.intro}
+        items={LOCAL_WEB_INCLUDES.items.map((item) => ({
+          title: item.title,
+          description: item.description,
+        }))}
       />
 
       <SEOBenefits
         title='Para autónomos, pymes y empresas'
         subtitle={
           <>
-            No hacemos webs de agencia para impresionar a otras agencias. Las
-            hacemos para que{' '}
-            <strong className='font-extrabold'>
-              te encuentren y te escriban
-            </strong>
-            .
+            Creamos webs pensadas para explicar bien tu negocio,
+            <strong className='font-extrabold'> generar contactos</strong> y
+            facilitar que un cliente entienda rápido qué haces.
           </>
         }
         benefits={[
@@ -206,12 +167,12 @@ const LocalWebCityPage = ({ city }: { city: LocalWebCity }) => {
             title: 'Autónomos y profesionales',
             description: (
               <>
-                Una página que explique qué haces, se vea bien en el teléfono y
-                deje un{' '}
+                Una web clara para presentar tus servicios, mostrar cómo
+                trabajas y facilitar que te contacten por{' '}
                 <strong className='font-extrabold'>
-                  formulario o WhatsApp
+                  formulario, teléfono o WhatsApp
                 </strong>
-                . Eso ya es una web profesional.
+                .
               </>
             ),
           },
@@ -220,12 +181,11 @@ const LocalWebCityPage = ({ city }: { city: LocalWebCity }) => {
             title: 'Pequeños negocios',
             description: (
               <>
-                Servicios, quiénes sois, cómo os contactan. Si hace falta más —
-                citas, área privada, tienda—{' '}
                 <strong className='font-extrabold'>
-                  te lo decimos en la propuesta
+                  Servicios, horarios, ubicación y contacto
                 </strong>
-                , no te lo colamos.
+                . Si necesitas citas, área privada, tienda online u otras
+                funciones, se define antes de empezar.
               </>
             ),
           },
@@ -234,9 +194,12 @@ const LocalWebCityPage = ({ city }: { city: LocalWebCity }) => {
             title: 'Pymes y empresas',
             description: (
               <>
-                Servicios, zona de trabajo y cómo pedir presupuesto. Si tu
-                cliente es otra empresa, que lo entienda{' '}
-                <strong className='font-extrabold'>a la primera</strong>.
+                <strong className='font-extrabold'>
+                  Servicios, zonas de trabajo, capacidades y solicitud de
+                  presupuesto
+                </strong>
+                . Si vendes a otras empresas, la web debe dejar claro
+                rápidamente qué podéis ofrecer y cómo contactaros.
               </>
             ),
           },

@@ -16,6 +16,7 @@ import {
   ADS_LAUNCH_FORM_ORIGIN,
   ADS_MAINTENANCE_FORM_FINAL,
   ADS_MAINTENANCE_FORM_HERO,
+  ADS_MAINTENANCE_INFRA_FORM_ORIGIN,
   BUSINESS_HOURS_LABEL,
   FORM_CC_EMAIL,
 } from '../config/contact';
@@ -42,7 +43,12 @@ const emptyForm = (page: string) => ({
   name: '',
   email: '',
   phone: '',
-  projectType: page === ADS_GOOGLE_ADS_FORM_ORIGIN ? 'Google Ads' : '',
+  projectType:
+    page === ADS_GOOGLE_ADS_FORM_ORIGIN
+      ? 'Google Ads'
+      : page === ADS_MAINTENANCE_INFRA_FORM_ORIGIN
+        ? 'Mantenimiento web'
+        : '',
   consent: false,
   page,
 });

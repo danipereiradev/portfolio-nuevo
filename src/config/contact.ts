@@ -35,6 +35,9 @@ export const ADS_LAUNCH_WHATSAPP_MESSAGE =
 
 export const ADS_GOOGLE_ADS_WHATSAPP_MESSAGE = 'Estoy interesado en Google Ads';
 
+export const ADS_MAINTENANCE_INFRA_WHATSAPP_MESSAGE =
+  'Estoy interesado en mantenimiento negocio e infraestructura';
+
 /** Origen del formulario en la landing de oferta 349 €. Sale en Formspree y en el tracking. */
 export const ADS_LAUNCH_FORM_ORIGIN = 'landing promo 349';
 
@@ -43,6 +46,10 @@ export const ADS_LAUNCH_FIT_FORM_ORIGIN = 'landing promo 349 encaje';
 
 /** Origen del formulario de la landing de Google Ads. */
 export const ADS_GOOGLE_ADS_FORM_ORIGIN = 'landing google ads';
+
+/** Origen del formulario de la landing de mantenimiento + infraestructura. */
+export const ADS_MAINTENANCE_INFRA_FORM_ORIGIN =
+  'landing mantenimiento infra';
 
 /** Origen de cada formulario de la landing de mantenimiento (Formspree + GA). */
 export const ADS_MAINTENANCE_FORM_HERO = 'Landing mantenimiento web — Hero';
@@ -133,6 +140,10 @@ export const ADS_LAUNCH_LANDING_PATH = '/landing-web-profesional';
 /** Landing de Ads del servicio Google Ads. */
 export const ADS_GOOGLE_ADS_LANDING_PATH = '/landing-google-ads';
 
+/** Landing de mantenimiento Negocio + Infraestructura. */
+export const ADS_MAINTENANCE_INFRA_LANDING_PATH =
+  '/landing-mantenimiento-infra';
+
 export const isAdsWebLandingPath = (pathname: string): boolean => {
   const path = normalizePath(pathname);
   return path === ADS_LANDING_PATH || path === ADS_LANDING_PATH_N;
@@ -150,12 +161,16 @@ export const isAdsLaunchLandingPath = (pathname: string): boolean =>
 export const isAdsGoogleAdsLandingPath = (pathname: string): boolean =>
   normalizePath(pathname) === ADS_GOOGLE_ADS_LANDING_PATH;
 
+export const isAdsMaintenanceInfraLandingPath = (pathname: string): boolean =>
+  normalizePath(pathname) === ADS_MAINTENANCE_INFRA_LANDING_PATH;
+
 export const isAdsLandingPath = (pathname: string): boolean =>
   isAdsWebLandingPath(pathname) ||
   isAdsShopLandingPath(pathname) ||
   isAdsMaintenanceLandingPath(pathname) ||
   isAdsLaunchLandingPath(pathname) ||
-  isAdsGoogleAdsLandingPath(pathname);
+  isAdsGoogleAdsLandingPath(pathname) ||
+  isAdsMaintenanceInfraLandingPath(pathname);
 
 export const isSiteWebPath = (pathname: string): boolean => {
   const path = normalizePath(pathname);
@@ -174,6 +189,8 @@ export const getWhatsAppMessageForPath = (pathname: string): string => {
   }
   if (isAdsLaunchLandingPath(path)) return ADS_LAUNCH_WHATSAPP_MESSAGE;
   if (isAdsGoogleAdsLandingPath(path)) return ADS_GOOGLE_ADS_WHATSAPP_MESSAGE;
+  if (isAdsMaintenanceInfraLandingPath(path))
+    return ADS_MAINTENANCE_INFRA_WHATSAPP_MESSAGE;
   if (isAdsWebLandingPath(path)) return ADS_WHATSAPP_MESSAGE;
   if (isAdsMaintenanceLandingPath(path))
     return ADS_MAINTENANCE_WHATSAPP_MESSAGE;

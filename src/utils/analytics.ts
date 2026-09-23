@@ -947,6 +947,26 @@ export const trackLandingGoogleAdsView = () => {
   });
 };
 
+export const trackLandingMaintenanceInfraView = () => {
+  trackEvent('landing_maintenance_infra_view', {
+    event_category: 'landing_mantenimiento_infra',
+    event_label: 'landing-mantenimiento-infra',
+    landing_name: 'landing-mantenimiento-infra',
+  });
+};
+
+export const trackMaintenanceInfraCheckoutClick = (locationSection: string) => {
+  trackEvent('begin_checkout', {
+    event_category: 'ecommerce',
+    event_label: 'landing-mantenimiento-infra',
+    location_section: locationSection,
+    landing_name: 'landing-mantenimiento-infra',
+    value: 199,
+    currency: 'EUR',
+    item_name: 'Puesta en marcha mantenimiento infra',
+  });
+};
+
 /** Candidatura de talento. Solo tras Formspree HTTP 2xx y `{ ok: true }`. */
 export const trackTalentFormSubmit = (ciudad: string, especialidad: string) => {
   trackEvent('talent_form_submit', {
