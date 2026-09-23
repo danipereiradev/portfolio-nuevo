@@ -4,7 +4,7 @@ import {
   localWebCityPath,
 } from '../config/contact';
 import {
-  LOCAL_WEB_CITY_LIST,
+  LOCAL_WEB_LISTED_CITIES,
   getLocalWebCity,
   getRelatedCities,
 } from '../data/localWebCities';
@@ -27,9 +27,9 @@ export const LocalWebSpainSection = ({
   const currentCity = getLocalWebCity(currentSlug);
   const cities = currentCity
     ? getRelatedCities(currentCity)
-    : LOCAL_WEB_CITY_LIST;
+    : LOCAL_WEB_LISTED_CITIES;
 
-  if (!currentCity && LOCAL_WEB_CITY_LIST.length === 0) return null;
+  if (!currentCity && LOCAL_WEB_LISTED_CITIES.length === 0) return null;
   if (currentCity && cities.length === 0 && !includeHubLink) return null;
 
   const heading = currentCity

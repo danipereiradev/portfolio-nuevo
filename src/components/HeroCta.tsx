@@ -1,9 +1,12 @@
 import { type ReactNode, useEffect, useRef, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import Button from './Button';
 
 import { ContactFormHero } from './ContactFormHero';
 import TestimonialsBadge from './TestimonialsBadge';
+import { HeroParallaxBg } from './HeroParallaxBg';
 import { trackCtaClick } from '../utils/analytics';
+import { isAdsLandingPath } from '../config/contact';
 
 const prefersReducedMotion = () =>
   typeof window !== 'undefined' &&
@@ -64,6 +67,8 @@ interface HeroCtaProps {
   grayscale?: boolean;
   overlay?: 'white' | 'black' | 'none';
   breadcrumbs?: { href?: string; label: string }[];
+  /** Sin foto propia: va encima de un fondo del padre (SEO local). */
+  onMedia?: boolean;
 }
 
 const HeroCta = ({
@@ -97,16 +102,25 @@ const HeroCta = ({
   grayscale = false,
   overlay = 'white',
   breadcrumbs,
+  onMedia = false,
 }: HeroCtaProps) => {
+  const { pathname } = useLocation();
   const TitleTag = isTopHero ? 'h1' : 'h2';
   const isClean = heroType === 'clean';
   const overlayTone = overlay === 'none' ? undefined : overlay;
   const onVideo = Boolean(videoUrl) && overlayTone !== 'white';
   const onDark =
+    onMedia ||
     (hasBackground && overlay === 'black') ||
     onVideo ||
     (hasBackground && overlay === 'none' && Boolean(backgroundUrl));
   const copyTone = onDark ? 'text-white' : 'text-ink-dark';
+  const useParallax =
+    isTopHero &&
+    hasBackground &&
+    Boolean(backgroundUrl) &&
+    !videoUrl &&
+    isAdsLandingPath(pathname);
   const sectionRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [entered, setEntered] = useState(isTopHero);
@@ -197,27 +211,36 @@ const HeroCta = ({
       className={`${isTopHero ? 'page-hero' : 'page-section'} relative overflow-hidden ${copyTone} ${
         isTopHero ? '' : 'flex items-center'
       } ${
-        hasBackground
-          ? onDark
-            ? 'bg-ink-dark'
-            : 'bg-white'
-          : 'bg-accent-light'
+        onMedia
+          ? 'z-10 bg-transparent'
+          : hasBackground
+            ? onDark
+              ? 'bg-ink-dark'
+              : 'bg-white'
+            : 'bg-accent-light'
       } ${
         animateEntrance ? (entered ? 'hero-cta-enter' : 'hero-cta-pending') : ''
       }`}
     >
       {hasBackground && backgroundUrl ? (
-        <img
-          src={backgroundUrl}
-          alt=''
-          aria-hidden='true'
-          fetchPriority={isTopHero ? 'high' : 'low'}
-          loading={isTopHero ? 'eager' : 'lazy'}
-          decoding='async'
-          className={`pointer-events-none absolute inset-0 z-0 h-full w-full object-cover object-center ${
-            grayscale ? 'grayscale' : ''
-          }`}
-        />
+        useParallax ? (
+          <HeroParallaxBg
+            src={backgroundUrl}
+            fetchPriority={isTopHero ? 'high' : 'low'}
+          />
+        ) : (
+          <img
+            src={backgroundUrl}
+            alt=''
+            aria-hidden='true'
+            fetchPriority={isTopHero ? 'high' : 'low'}
+            loading={isTopHero ? 'eager' : 'lazy'}
+            decoding='async'
+            className={`pointer-events-none absolute inset-0 z-0 h-full w-full object-cover object-center ${
+              grayscale ? 'grayscale' : ''
+            }`}
+          />
+        )
       ) : null}
       {showVideo && videoUrl ? (
         <video

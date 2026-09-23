@@ -17,7 +17,7 @@ import {
   isAdsLandingPath,
 } from '../config/contact';
 import { FOOTER_NAV } from '../config/nav';
-import { LOCAL_WEB_CITY_LIST } from '../data/localWebCities';
+import { LOCAL_WEB_LISTED_CITIES } from '../data/localWebCities';
 import { TalentRecruitStrip } from './TalentRecruitStrip';
 
 const infoLinks = [
@@ -43,7 +43,7 @@ const Footer = () => {
     pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
   const isAdsLanding = isAdsLandingPath(pathname);
   const isMinimalChrome = normalizedPath === '/web-profesional' || isAdsLanding;
-  const isLocalWebCityPage = LOCAL_WEB_CITY_LIST.some(
+  const isLocalWebCityPage = LOCAL_WEB_LISTED_CITIES.some(
     (city) => normalizedPath === `${SITE_WEB_PATH}/${city.slug}`,
   );
   const footerWhatsAppUrl = buildWhatsAppUrl(

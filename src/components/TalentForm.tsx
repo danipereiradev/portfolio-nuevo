@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState, type FormEvent } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { AlertCircle, Check } from 'lucide-react';
-import { LOCAL_WEB_CITY_LIST } from '../data/localWebCities';
+import { LOCAL_WEB_LISTED_CITIES } from '../data/localWebCities';
 import {
   FORM_CC_EMAIL,
   TALENT_FORM_ORIGIN,
@@ -91,7 +91,7 @@ const resolveCiudadQuery = (raw: string) => {
   const value = raw.trim();
   if (!value) return { display: '', slug: undefined as string | undefined };
   const lower = value.toLowerCase();
-  const match = LOCAL_WEB_CITY_LIST.find(
+  const match = LOCAL_WEB_LISTED_CITIES.find(
     (city) => city.slug === lower || city.ciudad.toLowerCase() === lower,
   );
   if (match) return { display: match.ciudad, slug: match.slug };
@@ -128,7 +128,7 @@ const TalentForm = () => {
   }, [fromQuery.display]);
 
   const citySuggestions = useMemo(
-    () => LOCAL_WEB_CITY_LIST.map((city) => city.ciudad),
+    () => LOCAL_WEB_LISTED_CITIES.map((city) => city.ciudad),
     [],
   );
 

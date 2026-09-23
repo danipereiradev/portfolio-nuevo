@@ -1,7 +1,14 @@
 import { Fragment, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
-import { Briefcase, Building2, ClipboardList, Factory, MapPin } from 'lucide-react';
+import {
+  Briefcase,
+  Building2,
+  ClipboardList,
+  Factory,
+  MapPin,
+} from 'lucide-react';
 import HeroCta from '../components/HeroCta';
+import { HeroParallaxBg, HERO_NUBES_URL } from '../components/HeroParallaxBg';
 import { TextSection } from '../components/TextSection';
 import { ServiceIncludes } from '../components/ServiceOnPage';
 import SEOBenefits from '../components/SEOBenefits';
@@ -26,6 +33,7 @@ import {
   getLocalGeoContext,
   getLocalWebCity,
   getPublishedLocalWebFaqs,
+  isLocalWebCityListed,
   type LocalWebCity,
 } from '../data/localWebCities';
 import { buildLocalWebCityJsonLd } from '../seo/localWebCitySchema';
@@ -57,50 +65,54 @@ const LocalWebCityPage = ({ city }: { city: LocalWebCity }) => {
 
   return (
     <>
-      {/* HERO: H1 = "Diseño web en {ciudad}". No reutilices el H1 de /diseno-web. */}
-      <HeroCta
-        title={`Diseño web en ${city.ciudad}`}
-        breadcrumbs={[
-          { href: '/', label: 'Inicio' },
-          { href: SITE_WEB_PATH, label: SITE_WEB_LABEL },
-          { label: `Diseño web en ${city.ciudad}` },
-        ]}
-        description={
-          <p>
-            {withCity(city.hero_lead, city.ciudad)}
-          </p>
-        }
-        buttonText='PEDIR PROPUESTA'
-        buttonHref='#contacto'
-        backgroundUrl='/video/hero-nubes.jpg'
-        heroType='form'
-        hasButton={false}
-        formTitle='Te llamamos'
-        formDescription='Propuesta en el mismo día. Sin compromiso.'
-        formSectionInfo={`DisenoWeb Local — ${city.ciudad}`}
-        formId='contacto'
-        hasBackground
-        overlay='none'
-        hasReviewBadge
-        isTopHero
-      />
-
-      {/* INTRO LOCAL: reescribe siempre. Si vale para otra ciudad, no publiques. */}
-      <TextSection
-        label={`Diseño web en ${city.ciudad}`}
-        title={`Una web para tu negocio en ${city.ciudad}. Sin inflarla.`}
-        paragraphs={city.intro_local.map((para) =>
-          withCity(para, city.ciudad),
-        )}
-      />
-
-      {geo ? (
-        <TextSection
-          muted
-          title={geo.heading}
-          paragraphs={geo.body ? [withCity(geo.body, city.ciudad)] : []}
+      <div className='relative overflow-hidden bg-ink-dark'>
+        <HeroParallaxBg src={HERO_NUBES_URL} fetchPriority='high' />
+        <div
+          className='pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-black/20 via-black/40 to-black/55'
+          aria-hidden='true'
         />
-      ) : null}
+        {/* HERO: H1 = "Diseño web en {ciudad}". No reutilices el H1 de /diseno-web. */}
+        <HeroCta
+          title={`Diseño web en ${city.ciudad}`}
+          breadcrumbs={[
+            { href: '/', label: 'Inicio' },
+            { href: SITE_WEB_PATH, label: SITE_WEB_LABEL },
+            { label: `Diseño web en ${city.ciudad}` },
+          ]}
+          description={<p>{withCity(city.hero_lead, city.ciudad)}</p>}
+          buttonText='PEDIR PROPUESTA'
+          buttonHref='#contacto'
+          heroType='form'
+          hasButton={false}
+          formTitle='Te llamamos'
+          formDescription='Propuesta en el mismo día. Sin compromiso.'
+          formSectionInfo={`DisenoWeb Local — ${city.ciudad}`}
+          formId='contacto'
+          hasBackground={false}
+          onMedia
+          overlay='none'
+          hasReviewBadge
+          isTopHero
+        />
+
+        {/* INTRO LOCAL: reescribe siempre. Si vale para otra ciudad, no publiques. */}
+        <TextSection
+          className='bg-white'
+          label={`Diseño web en ${city.ciudad}`}
+          title={`Una web para tu negocio en ${city.ciudad}.`}
+          paragraphs={city.intro_local.map((para) =>
+            withCity(para, city.ciudad),
+          )}
+        />
+
+        {geo ? (
+          <TextSection
+            onMedia
+            title={geo.heading}
+            paragraphs={geo.body ? [withCity(geo.body, city.ciudad)] : []}
+          />
+        ) : null}
+      </div>
 
       {necesidades.length > 0 ? (
         <SEOBenefits
@@ -182,7 +194,9 @@ const LocalWebCityPage = ({ city }: { city: LocalWebCity }) => {
           <>
             No hacemos webs de agencia para impresionar a otras agencias. Las
             hacemos para que{' '}
-            <strong className='font-extrabold'>te encuentren y te escriban</strong>
+            <strong className='font-extrabold'>
+              te encuentren y te escriban
+            </strong>
             .
           </>
         }
@@ -194,7 +208,9 @@ const LocalWebCityPage = ({ city }: { city: LocalWebCity }) => {
               <>
                 Una página que explique qué haces, se vea bien en el teléfono y
                 deje un{' '}
-                <strong className='font-extrabold'>formulario o WhatsApp</strong>
+                <strong className='font-extrabold'>
+                  formulario o WhatsApp
+                </strong>
                 . Eso ya es una web profesional.
               </>
             ),
@@ -255,7 +271,9 @@ const LocalWebCityPage = ({ city }: { city: LocalWebCity }) => {
               <>
                 Formulario, WhatsApp o llamada. Qué haces y qué tiene que hacer
                 la web.{' '}
-                <strong className='font-extrabold'>Aún no hay nada que pagar</strong>
+                <strong className='font-extrabold'>
+                  Aún no hay nada que pagar
+                </strong>
                 .
               </>
             ),
@@ -266,7 +284,9 @@ const LocalWebCityPage = ({ city }: { city: LocalWebCity }) => {
             description: (
               <>
                 Diseño y desarrollo con tu marca. Te vamos mostrando el avance.{' '}
-                <strong className='font-extrabold'>Precio y plazos por escrito</strong>
+                <strong className='font-extrabold'>
+                  Precio y plazos por escrito
+                </strong>
                 .
               </>
             ),
@@ -352,7 +372,7 @@ const DisenoWebLocal = () => {
   const { ciudad: slug } = useParams<{ ciudad: string }>();
   const city = getLocalWebCity(slug);
 
-  if (!city) {
+  if (!city || !isLocalWebCityListed(city.slug)) {
     return <NotFound />;
   }
 

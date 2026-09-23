@@ -14,7 +14,7 @@ import {
   localWebCityPath,
 } from '../config/contact';
 import {
-  LOCAL_WEB_CITY_LIST,
+  LOCAL_WEB_LISTED_CITIES,
   getLocalGeoContext,
   getPublishedLocalWebFaqs,
   getRelatedCities,
@@ -22,7 +22,7 @@ import {
 } from '../data/localWebCities';
 import { buildLocalWebCityJsonLd } from './localWebCitySchema';
 
-export { LOCAL_WEB_CITY_LIST, buildLocalWebCityJsonLd };
+export { LOCAL_WEB_LISTED_CITIES, buildLocalWebCityJsonLd };
 
 const escapeHtml = (value: string) =>
   value
@@ -34,18 +34,21 @@ const escapeHtml = (value: string) =>
 const p = (text: string) =>
   `<p class="text-xl text-ink-dark md:text-2xl">${escapeHtml(text)}</p>`;
 
+const pOnMedia = (text: string) =>
+  `<p class="text-xl text-white md:text-2xl">${escapeHtml(text)}</p>`;
+
 const cityLink = (slug: string, label: string) =>
   `<a href="${escapeHtml(localWebCityPath(slug))}" class="font-bold text-link underline">${escapeHtml(label)}</a>`;
 
 export const buildLocalWebSpainSectionHtml = (currentSlug?: string) => {
-  if (LOCAL_WEB_CITY_LIST.length === 0) return '';
+  if (LOCAL_WEB_LISTED_CITIES.length === 0) return '';
 
   const currentCity = currentSlug
-    ? LOCAL_WEB_CITY_LIST.find((city) => city.slug === currentSlug)
+    ? LOCAL_WEB_LISTED_CITIES.find((city) => city.slug === currentSlug)
     : undefined;
   const cities = currentCity
     ? getRelatedCities(currentCity)
-    : LOCAL_WEB_CITY_LIST;
+    : LOCAL_WEB_LISTED_CITIES;
 
   if (currentCity && cities.length === 0) {
     return '';
@@ -81,16 +84,16 @@ export const buildLocalWebSpainSectionHtml = (currentSlug?: string) => {
 
 export const buildLocalWebCityBodyHtml = (city: LocalWebCity) => {
   const h1 = `Diseño web en ${city.ciudad}`;
-  const introHeading = `Una web para tu negocio en ${city.ciudad}. Sin inflarla.`;
+  const introHeading = `Una web para tu negocio en ${city.ciudad}.`;
 
   const intro = city.intro_local.map(p).join('\n');
   const geo = getLocalGeoContext(city);
   const geoHtml = geo
     ? `
-        <section class="page-section">
+        <section class="page-section relative z-10">
           <div class="container mx-auto max-w-5xl text-center">
-            <h2 class="text-3xl font-extrabold text-ink-dark md:text-4xl lg:text-5xl">${escapeHtml(geo.heading)}</h2>
-            ${geo.body ? p(geo.body) : ''}
+            <h2 class="text-3xl font-extrabold text-white md:text-4xl lg:text-5xl">${escapeHtml(geo.heading)}</h2>
+            ${geo.body ? pOnMedia(geo.body) : ''}
           </div>
         </section>`
     : '';
@@ -135,31 +138,34 @@ export const buildLocalWebCityBodyHtml = (city: LocalWebCity) => {
   return `
     <main>
       <article>
-        <header class="page-hero relative overflow-hidden bg-ink-dark">
-          <img src="/video/hero-nubes.jpg" alt="" aria-hidden="true" class="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover object-center" />
-          <div class="container relative z-10 mx-auto max-w-5xl py-16 text-center">
-            <nav aria-label="Migas de pan" class="mb-2 text-xs font-normal tracking-wide text-white/70">
-              <ol class="flex flex-wrap items-center justify-center gap-x-1.5">
-                <li><a href="/" class="underline decoration-current/25 underline-offset-4">Inicio</a></li>
-                <li aria-hidden="true">/</li>
-                <li><a href="${SITE_WEB_PATH}" class="underline decoration-current/25 underline-offset-4">${escapeHtml(SITE_WEB_LABEL)}</a></li>
-                <li aria-hidden="true">/</li>
-                <li>${escapeHtml(h1)}</li>
-              </ol>
-            </nav>
-            <h1 class="text-3xl font-extrabold text-white md:text-5xl lg:text-6xl">${escapeHtml(h1)}</h1>
-            <p class="text-xl text-white md:text-2xl">${escapeHtml(city.hero_lead)}</p>
-          </div>
-        </header>
+        <div class="relative overflow-hidden bg-ink-dark">
+          <img src="/video/hero-nubes.jpg" alt="" aria-hidden="true" class="pointer-events-none absolute inset-x-0 top-0 z-0 h-[135%] w-full object-cover object-center" />
+          <div class="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-black/20 via-black/40 to-black/55" aria-hidden="true"></div>
+          <header class="page-hero relative z-10 overflow-hidden">
+            <div class="container relative z-10 mx-auto max-w-5xl py-16 text-center">
+              <nav aria-label="Migas de pan" class="mb-2 text-xs font-normal tracking-wide text-white/70">
+                <ol class="flex flex-wrap items-center justify-center gap-x-1.5">
+                  <li><a href="/" class="underline decoration-current/25 underline-offset-4">Inicio</a></li>
+                  <li aria-hidden="true">/</li>
+                  <li><a href="${SITE_WEB_PATH}" class="underline decoration-current/25 underline-offset-4">${escapeHtml(SITE_WEB_LABEL)}</a></li>
+                  <li aria-hidden="true">/</li>
+                  <li>${escapeHtml(h1)}</li>
+                </ol>
+              </nav>
+              <h1 class="text-3xl font-extrabold text-white md:text-5xl lg:text-6xl">${escapeHtml(h1)}</h1>
+              <p class="text-xl text-white md:text-2xl">${escapeHtml(city.hero_lead)}</p>
+            </div>
+          </header>
 
-        <section class="page-section">
-          <div class="container mx-auto max-w-5xl text-center">
-            <p class="text-md font-extrabold text-accent underline">${escapeHtml(h1)}</p>
-            <h2 class="text-3xl font-extrabold text-ink-dark md:text-4xl lg:text-5xl">${escapeHtml(introHeading)}</h2>
-            ${intro}
-          </div>
-        </section>
-        ${geoHtml}
+          <section class="page-section relative z-10 bg-white">
+            <div class="container mx-auto max-w-5xl text-center">
+              <p class="text-md font-extrabold text-accent underline">${escapeHtml(h1)}</p>
+              <h2 class="text-3xl font-extrabold text-ink-dark md:text-4xl lg:text-5xl">${escapeHtml(introHeading)}</h2>
+              ${intro}
+            </div>
+          </section>
+          ${geoHtml}
+        </div>
         ${necesidadesHtml}
 
         <section class="page-section">

@@ -74,7 +74,7 @@ export const getLocalGeoContext = (
   if (tejido) {
     return {
       heading,
-      body: `${city.ciudad} combina ${tejido}. La web puede dejar claro qué hace la empresa, dónde trabaja y cómo pedir presupuesto.`,
+      body: `${city.ciudad} combina ${tejido}. La web ayuda a dejar claro qué hace tu empresa, en que zonas trabaja y cómo contactar o pedir presupuesto.`,
     };
   }
 

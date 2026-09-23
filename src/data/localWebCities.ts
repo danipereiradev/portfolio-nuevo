@@ -24,6 +24,8 @@
  *    con la clave `/diseno-web/{slug}` (sin esto, el HTML estático no lleva
  *    title/canonical propios).
  * 6. Opcional: copia la entrada de `/diseno-web` en `src/config/heroLcp.json`.
+ * 7. Descomenta el slug en `LOCAL_WEB_LISTED_SLUGS` cuando la página esté
+ *    lista: si no está ahí, no sale en la UI, ni en el sitemap, y la URL es 404.
  *
  * El build se encarga del resto: HTML inicial con H1/intro/FAQ/enlaces/schema,
  * entrada en sitemap.xml y enlaces en “Diseño web en España”. Un slug que no
@@ -36,10 +38,7 @@
  * trata como doorway pages.
  */
 
-import {
-  assertCity,
-  warnSimilarLocalWebCities,
-} from './localWebCityValidate';
+import { assertCity, warnSimilarLocalWebCities } from './localWebCityValidate';
 import type { LocalWebCity } from './localWebCityTypes';
 
 export type {
@@ -81,11 +80,7 @@ const madrid: LocalWebCity = {
   contexto_local: {
     area: 'Madrid capital',
     zonas: ['Chamberí', 'Usera', 'Salamanca', 'Vallecas', 'centro'],
-    municipios_cercanos: [
-      'Torrejón de Ardoz',
-      'Alcalá de Henares',
-      'Coslada',
-    ],
+    municipios_cercanos: ['Torrejón de Ardoz', 'Alcalá de Henares', 'Coslada'],
     tejido_empresarial:
       'Autónomos y pymes: despachos, clínicas, hostelería de barrio y marcas de producto.',
     rasgos_locales: [
@@ -175,13 +170,13 @@ const torrejon: LocalWebCity = {
   comunidad: 'Comunidad de Madrid',
   title: 'Diseño web en Torrejón de Ardoz para negocios | 36web',
   description:
-    'Diseño web en Torrejón de Ardoz para autónomos, comercios y empresas del Corredor del Henares. Precio y plazos por escrito.',
+    'Diseño web en Torrejón de Ardoz para autónomos y empresas. Webs desde 349 € + IVA, con precio y plazos por escrito.',
   hero_lead:
-    'Diseño web para autónomos y empresas de Torrejón de Ardoz. Clara, en el móvil y con un contacto que funciona.',
+    'Webs para autónomos y empresas de Torrejón de Ardoz, desde 349 € + IVA. Claras, rápidas y pensadas para captar clientes.',
   intro_local: [
-    'Diseñamos páginas web para negocios de Torrejón de Ardoz que necesitan verse profesionales sin montar un proyecto inflado: oficios, comercios, clínicas y empresas del Corredor.',
-    'Atención directa en Torrejón de Ardoz. Propuesta el mismo día, precio y plazos por escrito. Si no encaja, lo dices y no pasa nada.',
-    'Aquí la web sirve para que te encuentren quien ya te busca por oficio o por zona. Pocas secciones, bien hechas, y un WhatsApp o formulario a la vista.',
+    'Diseñamos páginas web y tiendas online para negocios de Torrejón de Ardoz y alrededores que necesitan una web profesional con precio ajustado. Trabajamos especialmente con comercios, autónomos, clínicas y empresas del Corredor.',
+    'Atención directa en Torrejón de Ardoz. Propuesta el mismo día, precio cerrado y plazos por escrito.',
+    'Si tu negocio está en Torrejón u otros municipios del Corredor, la web puede dejar claro qué servicios ofreces, en qué zonas trabajas y cómo pedirte presupuesto por formulario, teléfono o WhatsApp.',
   ],
   contexto_local: {
     area: 'Corredor del Henares',
@@ -240,7 +235,8 @@ const torrejon: LocalWebCity = {
     'Proyectos de oficios, producto y clínicas. Los enseñamos porque se parecen a lo que pide un negocio del Corredor.',
   faq_local: [
     {
-      question: '¿Hacéis webs en Torrejón de Ardoz para empresas del Corredor del Henares?',
+      question:
+        '¿Hacéis webs en Torrejón de Ardoz para empresas del Corredor del Henares?',
       answer:
         'Sí. Si tus clientes están en Torrejón, Alcalá, Coslada o San Fernando, la web lo deja escrito: zona, servicio y cómo encargarte el trabajo.',
     },
@@ -261,11 +257,7 @@ const torrejon: LocalWebCity = {
   },
   fuentes_locales: [],
   verified_at: '2026-09-22',
-  relatedCitySlugs: [
-    'alcala-de-henares',
-    'san-fernando-de-henares',
-    'coslada',
-  ],
+  relatedCitySlugs: ['alcala-de-henares', 'san-fernando-de-henares', 'coslada'],
 };
 
 /**
@@ -339,12 +331,14 @@ const alcala: LocalWebCity = {
     'Hay proyectos de turismo, clínicas y marca. Te enseñamos algo parecido a tu negocio de Alcalá antes de empezar.',
   faq_local: [
     {
-      question: '¿Sirve para un negocio del casco histórico o cerca de la universidad?',
+      question:
+        '¿Sirve para un negocio del casco histórico o cerca de la universidad?',
       answer:
         'Sí. Si te encuentran quienes visitan el centro o estudian aquí, la web enseña ubicación, horarios y un contacto que funciona en el móvil.',
     },
     {
-      question: '¿En Alcalá de Henares montáis la misma web que en Madrid este?',
+      question:
+        '¿En Alcalá de Henares montáis la misma web que en Madrid este?',
       answer:
         'No. Alcalá no es un barrio más del mapa. Casco histórico, universidad, comercio de toda la vida y empresas del Corredor. La web habla de tu plaza.',
     },
@@ -433,12 +427,14 @@ const sanFernando: LocalWebCity = {
     'Proyectos de oficios, producto y consultas. Encajan con lo que suele pedir un negocio de San Fernando.',
   faq_local: [
     {
-      question: '¿Hacéis webs si el negocio es pequeño y no está en Madrid capital?',
+      question:
+        '¿Hacéis webs si el negocio es pequeño y no está en Madrid capital?',
       answer:
         'Sí. El tamaño del municipio no cambia el trabajo: una página clara, móvil y un contacto que funcione. El precio va por el alcance.',
     },
     {
-      question: '¿Sirve para una empresa de polígono en San Fernando de Henares?',
+      question:
+        '¿Sirve para una empresa de polígono en San Fernando de Henares?',
       answer:
         'Sí. Actividad, zona, fotos de verdad y un formulario o teléfono a la vista. Si hace falta catálogo o área privada, te lo decimos en la propuesta.',
     },
@@ -483,7 +479,11 @@ const coslada: LocalWebCity = {
   contexto_local: {
     area: 'Corredor del Henares',
     zonas: ['aeropuerto', 'polígonos', 'comercio de barrio'],
-    municipios_cercanos: ['San Fernando de Henares', 'Madrid', 'Torrejón de Ardoz'],
+    municipios_cercanos: [
+      'San Fernando de Henares',
+      'Madrid',
+      'Torrejón de Ardoz',
+    ],
     tejido_empresarial:
       'Logística y transporte, comercio de barrio, oficios y clínicas locales.',
     rasgos_locales: [
@@ -534,7 +534,8 @@ const coslada: LocalWebCity = {
     'Hay proyectos de producto, oficios y clínicas. Te enseñamos algo parecido a un negocio de Coslada antes de empezar.',
   faq_local: [
     {
-      question: '¿Montáis webs para empresas de logística cerca del aeropuerto?',
+      question:
+        '¿Montáis webs para empresas de logística cerca del aeropuerto?',
       answer:
         'Sí. Una página que explique el servicio, la zona y cómo contactaros. Si el proyecto es un portal con tracking o área de clientes, te lo decimos en la propuesta: no es la misma web.',
     },
@@ -654,7 +655,8 @@ const vigo: LocalWebCity = {
         'Sí. Si trabajas en Vigo y también en municipios como Redondela, Mos, O Porriño o Nigrán, la web puede reflejar esas zonas de servicio sin convertir cada municipio en una página innecesaria.',
     },
     {
-      question: '¿Hacéis webs para empresas de logística o servicios portuarios de Vigo?',
+      question:
+        '¿Hacéis webs para empresas de logística o servicios portuarios de Vigo?',
       answer:
         'Sí. Para este tipo de negocio priorizamos servicios, ámbito de trabajo, capacidades y una vía directa para solicitar información o presupuesto.',
     },
@@ -791,7 +793,8 @@ const logrono: LocalWebCity = {
         'Sí. Si prestas servicio en Logroño y también en municipios como Lardero, Villamediana, Navarrete o Fuenmayor, la web puede reflejar ese ámbito de trabajo.',
     },
     {
-      question: '¿Una web para hostelería en Logroño puede incluir reservas o carta?',
+      question:
+        '¿Una web para hostelería en Logroño puede incluir reservas o carta?',
       answer:
         'Sí. Dependiendo del proyecto podemos integrar carta, reservas, horarios, ubicación y sistemas de contacto. El alcance se define antes de empezar.',
     },
@@ -825,7 +828,31 @@ export const LOCAL_WEB_CITIES: Record<string, LocalWebCity> = {
   logrono,
 };
 
+/**
+ * Ciudades visibles en UI, sitemap y URL pública.
+ * El resto de `LOCAL_WEB_CITIES` se queda en datos. Descomenta el slug
+ * cuando la landing esté lista.
+ */
+export const LOCAL_WEB_LISTED_SLUGS: string[] = [
+  'torrejon-de-ardoz',
+  // 'madrid',
+  // 'alcala-de-henares',
+  // 'san-fernando-de-henares',
+  // 'coslada',
+  // 'vigo',
+  // 'logrono',
+];
+
 const allSlugs = new Set(Object.keys(LOCAL_WEB_CITIES));
+const listedSlugSet = new Set(LOCAL_WEB_LISTED_SLUGS);
+
+for (const slug of LOCAL_WEB_LISTED_SLUGS) {
+  if (!LOCAL_WEB_CITIES[slug]) {
+    throw new Error(
+      `[local-web] LOCAL_WEB_LISTED_SLUGS incluye "${slug}" y no está en LOCAL_WEB_CITIES.`,
+    );
+  }
+}
 
 for (const city of Object.values(LOCAL_WEB_CITIES)) {
   assertCity(city, allSlugs);
@@ -835,10 +862,18 @@ warnSimilarLocalWebCities(Object.values(LOCAL_WEB_CITIES));
 
 export const LOCAL_WEB_CITY_LIST = Object.values(LOCAL_WEB_CITIES);
 
+export const LOCAL_WEB_LISTED_CITIES = LOCAL_WEB_LISTED_SLUGS.map(
+  (slug) => LOCAL_WEB_CITIES[slug],
+).filter((city): city is LocalWebCity => Boolean(city));
+
+export const isLocalWebCityListed = (slug: string): boolean =>
+  listedSlugSet.has(slug);
+
 export const getLocalWebCity = (slug: string | undefined) =>
   slug ? LOCAL_WEB_CITIES[slug] : undefined;
 
 export const getRelatedCities = (city: LocalWebCity) =>
   city.relatedCitySlugs
     .map((slug) => LOCAL_WEB_CITIES[slug])
-    .filter((item): item is LocalWebCity => Boolean(item));
+    .filter((item): item is LocalWebCity => Boolean(item))
+    .filter((item) => isLocalWebCityListed(item.slug));

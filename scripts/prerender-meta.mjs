@@ -198,9 +198,19 @@ const writeRouteHtml = (routePath, html) => {
 
 const writeSitemap = (cityList) => {
   const urls = new Set();
+  const listedCityPaths = new Set(
+    cityList.map((city) => `${SITE_WEB_PATH}/${city.slug}`),
+  );
 
   for (const [routePath, meta] of Object.entries(pagesMeta)) {
     if (typeof meta.robots === 'string' && meta.robots.includes('noindex')) {
+      continue;
+    }
+    if (
+      routePath.startsWith(`${SITE_WEB_PATH}/`) &&
+      routePath !== SITE_WEB_PATH &&
+      !listedCityPaths.has(routePath)
+    ) {
       continue;
     }
     urls.add(buildCanonicalUrl(routePath));
@@ -257,7 +267,10 @@ const writeNotFoundPage = (bodyHtml) => {
 };
 
 const localWeb = await loadLocalWebSnapshot();
-const cityList = localWeb.LOCAL_WEB_CITY_LIST ?? [];
+const cityList = localWeb.LOCAL_WEB_LISTED_CITIES ?? [];
+const listedCityPaths = new Set(
+  cityList.map((city) => `${SITE_WEB_PATH}/${city.slug}`),
+);
 const cityByRoute = new Map(
   cityList.map((city) => [`${SITE_WEB_PATH}/${city.slug}`, city]),
 );
@@ -266,6 +279,13 @@ let generated = 0;
 let localWithBody = 0;
 
 for (const [routePath, meta] of Object.entries(pagesMeta)) {
+  if (
+    routePath.startsWith(`${SITE_WEB_PATH}/`) &&
+    routePath !== SITE_WEB_PATH &&
+    !listedCityPaths.has(routePath)
+  ) {
+    continue;
+  }
   let html = buildHtmlForRoute(routePath, meta);
   const city = cityByRoute.get(routePath);
 
