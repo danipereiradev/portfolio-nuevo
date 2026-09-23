@@ -330,8 +330,14 @@ const SetupSubscriptionCard = ({ payment }: { payment: PaymentConfig }) => {
         >
           Hoy: {formatEuro(todayAmount)} + IVA
         </p>
+        {payment.scheduleNote ? (
+          <p className='mt-2 text-base font-bold leading-relaxed text-[#101010]'>
+            {payment.scheduleNote}
+          </p>
+        ) : null}
         <p className='mt-2 text-lg font-bold text-[#101010]'>
-          Después: {formatEuro(monthlyAmount)} + IVA / mes
+          {payment.afterPriceLabel || 'Después'}:{' '}
+          {formatEuro(monthlyAmount)} + IVA / mes
         </p>
 
         <dl className='mt-4 space-y-2 text-sm'>

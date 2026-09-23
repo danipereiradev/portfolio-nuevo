@@ -111,6 +111,9 @@ export type PaymentConfig = {
   checkoutPath?: string;
   setupLabel?: string;
   monthlyLabel?: string;
+  /** Frase visible en setup + mensual: plazos o cuándo empieza el mes. */
+  scheduleNote?: string;
+  afterPriceLabel?: string;
 };
 
 /** IDs de /pago para bonos y planes de la landing /mantenimiento-web. */
@@ -423,7 +426,7 @@ export const paymentConfigs: Record<string, PaymentConfig> = {
     clientName: '',
     serviceName: 'Mantenimiento Negocio + Infraestructura',
     description:
-      'Puesta en marcha inicial de WordPress, hosting, correo, monitorización y backups. Hoy pagas el arranque. El mantenimiento mensual se activa al empezar el servicio.',
+      'Puesta en marcha inicial de WordPress, hosting, correo, monitorización y backups. La puesta en marcha dura 5–7 días laborables. Después empezamos el mes.',
     amount: MAINTENANCE_INFRA_SETUP_AMOUNT,
     vatRate: 21,
     paymentType: 'one_time',
@@ -464,8 +467,10 @@ export const paymentConfigs: Record<string, PaymentConfig> = {
     cta: 'Pagar puesta en marcha',
     setupLabel: 'Puesta en marcha inicial (pago único)',
     monthlyLabel: 'Mantenimiento mensual',
+    scheduleNote: 'La puesta en marcha dura 5–7 días laborables.',
+    afterPriceLabel: 'Después empezamos el mes',
     conditions:
-      '*Hoy: puesta en marcha 199 € + IVA (pago único).\nMantenimiento mensual: 139 € + IVA / mes.\nLa monitorización 24/7 es automatizada. La atención e intervención técnica se realiza dentro del horario y tiempos de respuesta establecidos.\nLas 2 horas mensuales no son acumulables.\nSi durante la puesta en marcha se detecta malware, una instalación previamente comprometida o una incidencia grave preexistente, se valorará antes de realizar trabajos adicionales.',
+      '*La puesta en marcha dura 5–7 días laborables. Después empezamos el mes.\nHoy: puesta en marcha 199 € + IVA (pago único).\nMantenimiento mensual: 139 € + IVA / mes.\nLa monitorización 24/7 es automatizada. La atención e intervención técnica se realiza dentro del horario y tiempos de respuesta establecidos.\nLas 2 horas mensuales no son acumulables.\nSi durante la puesta en marcha se detecta malware, una instalación previamente comprometida o una incidencia grave preexistente, se valorará antes de realizar trabajos adicionales.',
   },
 };
 
