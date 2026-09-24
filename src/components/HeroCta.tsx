@@ -219,7 +219,11 @@ const HeroCta = ({
               : 'bg-white'
             : 'bg-accent-light'
       } ${
-        animateEntrance ? (entered ? 'hero-cta-enter' : 'hero-cta-pending') : ''
+        animateEntrance && !isTopHero
+          ? entered
+            ? 'hero-cta-enter'
+            : 'hero-cta-pending'
+          : ''
       }`}
     >
       {hasBackground && backgroundUrl ? (

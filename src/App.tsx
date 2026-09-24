@@ -36,10 +36,9 @@ import {
   type ThankYouVariant,
 } from './config/payments';
 
-import DisenoWeb from './pages/DisenoWeb';
-import DisenoWebLocal from './pages/DisenoWebLocal';
-
 const Home = lazy(() => import('./pages/Home'));
+const DisenoWeb = lazy(() => import('./pages/DisenoWeb'));
+const DisenoWebLocal = lazy(() => import('./pages/DisenoWebLocal'));
 const Nosotros = lazy(() => import('./pages/Nosotros'));
 const TiendasOnline = lazy(() => import('./pages/TiendasOnline'));
 const MantenimientoWeb = lazy(() => import('./pages/MantenimientoWeb'));

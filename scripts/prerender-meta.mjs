@@ -12,6 +12,7 @@
 import {
   existsSync,
   mkdirSync,
+  readdirSync,
   readFileSync,
   rmSync,
   writeFileSync,
@@ -77,6 +78,48 @@ const buildCanonicalUrl = (routePath) => {
 
 const injectRoot = (html, inner) =>
   html.replace(/<div id="root"><\/div>/, `<div id="root">${inner}</div>`);
+
+const ADS_LAUNCH_LANDING_PATH = '/landing-web-profesional';
+
+/** H1 del hero en el HTML estático: el LCP no espera a React. */
+const buildLaunchLandingHeroHtml = () => {
+  const price = '590\u00A0€\u00A0+\u00A0IVA';
+  const installment = '295\u00A0€\u00A0+\u00A0IVA';
+  return `<section id="hero" class="page-hero relative overflow-hidden text-ink-dark bg-accent-light">
+    <div class="container relative z-30 mx-auto flex flex-col items-center gap-3 md:gap-4">
+      <div class="w-full grid grid-cols-1 md:grid-cols-2 md:text-start md:items-center gap-page-gap text-center md:justify-center">
+        <div class="hero-cta-copy flex w-full min-w-0 flex-col items-center gap-page-gap md:items-start md:justify-center">
+          <div class="page-title-block w-full items-center md:items-start">
+            <span class="hero-cta-label text-md uppercase rounded-lg font-extrabold text-accent underline">Web profesional</span>
+            <h1 class="hero-cta-title text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark">Una web profesional para tu negocio desde <span class="whitespace-nowrap">${price}</span></h1>
+            <div class="hero-cta-desc text-xl md:text-2xl text-center text-ink-dark max-w-3xl md:text-justify">
+              <p class="mb-1">Web profesional para autónomos, emprendedores y pequeños negocios.</p>
+              <p class="font-bold">Lista en 1–2 semanas · Hosting incluido · Sin cuotas mensuales</p>
+              <p class="mt-2 text-xl font-extrabold md:text-left md:text-2xl"><span class="whitespace-nowrap">${installment}</span> al empezar · <span class="whitespace-nowrap">${installment}</span> antes de publicar</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>`;
+};
+
+const findAsset = (prefix) => {
+  const assetsDir = path.join(distDir, 'assets');
+  if (!existsSync(assetsDir)) return '';
+  const file = readdirSync(assetsDir).find(
+    (name) => name.startsWith(prefix) && name.endsWith('.js'),
+  );
+  return file ? `/assets/${file}` : '';
+};
+
+const injectModulePreload = (html, href) => {
+  if (!href || html.includes(href)) return html;
+  return html.replace(
+    '</head>',
+    `    <link rel="modulepreload" href="${escapeHtml(href)}" />\n  </head>`,
+  );
+};
 
 const injectJsonLd = (html, id, data) => {
   const json = JSON.stringify(data).replace(/</g, '\\u003c');
@@ -302,6 +345,9 @@ for (const [routePath, meta] of Object.entries(pagesMeta)) {
       html,
       `<main>${localWeb.buildLocalWebSpainSectionHtml()}</main>`,
     );
+  } else if (routePath === ADS_LAUNCH_LANDING_PATH) {
+    html = injectRoot(html, buildLaunchLandingHeroHtml());
+    html = injectModulePreload(html, findAsset('LandingWebProfesional-'));
   }
 
   writeRouteHtml(routePath, html);
