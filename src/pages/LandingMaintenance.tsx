@@ -343,6 +343,7 @@ const LandingMaintenance = () => {
         buttonText='Pedir propuesta'
         buttonHref={`#${MAINTENANCE_CONTACT_ID}`}
         backgroundUrl='/video/hero-nubes.jpg'
+        videoUrl='/video/hero-nubes-loop.mp4'
         heroType='offer'
         hasButton={false}
         hasBackground

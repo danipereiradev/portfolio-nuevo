@@ -212,6 +212,7 @@ const LandingWebProfesional = () => {
         buttonText='Quiero información'
         buttonHref='#contacto'
         backgroundUrl='/video/hero-nubes.jpg'
+        videoUrl='/video/hero-nubes-loop.mp4'
         heroType='form'
         hasButton={false}
         formTitle='Nosotros te llamamos'
