@@ -8,7 +8,7 @@ interface ButtonProps {
   onClick?: (
     event: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>,
   ) => void;
-  variant?: 'primary' | 'secondary' | 'ghost';
+  variant?: 'primary' | 'secondary' | 'ghost' | 'outline';
   type?: 'button' | 'submit' | 'reset';
   className?: string;
   disabled?: boolean;
@@ -45,6 +45,8 @@ const Button: React.FC<ButtonProps> = ({
     secondary:
       'bg-transparent text-white border-2 border-white hover:bg-white hover:text-ink-dark',
     ghost: 'bg-surface-muted text-ink-dark hover:bg-ink-light',
+    outline:
+      'bg-transparent text-ink-dark border-2 border-ink-dark hover:bg-ink-dark hover:text-white',
   };
 
   const widthStyles = fullWidth ? 'mx-auto' : '';

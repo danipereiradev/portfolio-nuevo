@@ -1,4 +1,5 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, type MouseEvent } from 'react';
+import { createPortal } from 'react-dom';
 import {
   AlertTriangle,
   BadgeCheck,
@@ -21,6 +22,7 @@ import MaintenancePlans from '../components/MaintenancePlans';
 import MaintenanceLeadForm from '../components/MaintenanceLeadForm';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
+import { useBootHeroSlot } from '../hooks/useBootHeroSlot';
 import {
   buildWhatsAppUrl,
   SITE_MAINTENANCE_PATH,
@@ -37,6 +39,7 @@ import {
 } from '../config/maintenanceOffer';
 import { formatEuro } from '../config/payments';
 import {
+  trackCtaClick,
   trackGoogleAdsWhatsAppConversion,
   trackMaintenancePageView,
   trackWhatsAppClick,
@@ -219,6 +222,46 @@ const MantenimientoWeb = () => {
   }, []);
 
   const whatsappUrl = buildWhatsAppUrl(MAINTENANCE_WHATSAPP_MESSAGE);
+  const formSlot = useBootHeroSlot();
+
+  const openHeroWhatsApp = (
+    event: MouseEvent<HTMLAnchorElement | HTMLButtonElement>,
+  ) => {
+    event.preventDefault();
+    trackWhatsAppClick('MaintenanceHero');
+    trackGoogleAdsWhatsAppConversion(whatsappUrl);
+  };
+
+  const heroCtas = (
+    <div className='flex w-full flex-col items-center justify-center gap-3 sm:flex-row sm:items-stretch md:justify-start'>
+      <Button
+        href={`#${MAINTENANCE_CONTACT_ID}`}
+        className='!mx-0 !mt-0 !box-border !h-14 !min-h-14 !w-full !max-w-[var(--button-width)] !whitespace-nowrap !border-2 !border-accent !px-4 !py-0 !text-sm md:!text-base sm:!w-[var(--button-width)]'
+        onClick={() => trackCtaClick('Pedir propuesta', 'MaintenanceHero')}
+      >
+        Pedir propuesta
+      </Button>
+      <Button
+        href={whatsappUrl}
+        target='_blank'
+        rel='noopener noreferrer'
+        variant='outline'
+        className='!mx-0 !mt-0 !box-border !h-14 !min-h-14 !w-full !max-w-[var(--button-width)] !whitespace-nowrap !px-4 !py-0 !text-sm md:!text-base sm:!w-[var(--button-width)]'
+        onClick={openHeroWhatsApp}
+      >
+        <WhatsAppIcon />
+        Hablar por WhatsApp
+      </Button>
+    </div>
+  );
+
+  const heroForm = (
+    <MaintenanceLeadForm
+      className='md:!w-full'
+      origin='MantenimientoWeb Hero'
+      title='Nosotros te llamamos'
+    />
+  );
 
   const jsonLd = useMemo(
     () => ({
@@ -258,61 +301,50 @@ const MantenimientoWeb = () => {
 
   return (
     <>
+      {formSlot ? (
+        createPortal(heroForm, formSlot)
+      ) : (
       <HeroCta
         label='Mantenimiento y soporte'
         title='Mantenimiento y soporte web cuando lo necesitas'
         description={
-          <HeroCtaList
-            className='mx-auto w-full list-none pl-0 text-center'
-            items={[
-              'Arreglamos incidencias, hacemos cambios y mantenemos webs, tiendas online y aplicaciones.',
-              'Puedes contratar horas puntuales o dejarnos el mantenimiento mes a mes.',
-              'Sin comerciales. Hablas directamente con quien revisa tu web.',
-            ]}
-          />
+          <>
+            <p>
+              Planes desde 59 € + IVA/mes o bonos de horas para arreglos
+              puntuales. Trabajamos también con webs hechas por otras empresas.
+            </p>
+            <HeroCtaList
+              className='mx-auto mt-text-gap w-fit max-w-[var(--button-width)] list-disc pl-5 text-left md:mx-0 md:w-full md:max-w-none'
+              items={[
+                <>
+                  <strong className='font-extrabold'>
+                    Propuesta en el mismo día
+                  </strong>
+                  .
+                </>,
+                <>
+                  <strong className='font-extrabold'>
+                    Hablas con quien revisa la web, no con un comercial
+                  </strong>
+                  .
+                </>,
+                'Sin permanencia.',
+              ]}
+            />
+          </>
         }
-        buttonText='Necesito arreglar mi web'
-        buttonHref={`#${MAINTENANCE_BONOS_ID}`}
-        backgroundUrl='/img/hero/hero-mantenimiento-36web.webp'
-        heroType='clean'
+        buttonText='Pedir propuesta'
+        buttonHref={`#${MAINTENANCE_CONTACT_ID}`}
+        heroType='offer'
         hasButton={false}
-        hasBackground
-        grayscale
-        overlay='black'
+        hasBackground={false}
         hasReviewBadge
         isTopHero
-        ctaContent={
-          <div className='flex w-full flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap sm:items-stretch'>
-            <Button
-              href={`#${MAINTENANCE_BONOS_ID}`}
-              className='!mx-0 !mt-0 shrink-0'
-            >
-              Necesito arreglar mi web
-            </Button>
-            <Button
-              href={`#${MAINTENANCE_PLANES_ID}`}
-              variant='secondary'
-              className='!mx-0 !mt-0 shrink-0'
-            >
-              Quiero mantenimiento mensual
-            </Button>
-            <Button
-              href={whatsappUrl}
-              target='_blank'
-              rel='noopener noreferrer'
-              className='!mx-0 !mt-0 shrink-0 !bg-[#25D366] hover:!bg-[#20bd5a]'
-              onClick={(event) => {
-                event.preventDefault();
-                trackWhatsAppClick('MaintenanceHero');
-                trackGoogleAdsWhatsAppConversion(whatsappUrl);
-              }}
-            >
-              <WhatsAppIcon />
-              Cuéntanos qué está pasando
-            </Button>
-          </div>
-        }
+        convertFirstOnMobile
+        ctaContent={heroCtas}
+        offerContent={heroForm}
       />
+      )}
 
       <TrustBar
         points={[

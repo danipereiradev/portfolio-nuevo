@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import {
   Globe,
@@ -12,13 +12,14 @@ import Portfolio from '../components/Portfolio';
 import SEOFAQ from '../components/SEOFAQ';
 import Testimonials from '../components/Testimonials';
 import SEOProcess from '../components/SEOProcess';
-import HeroCta from '../components/HeroCta';
+import HeroCta, { HeroCtaList } from '../components/HeroCta';
 import { ContactFormHero } from '../components/ContactFormHero';
 import LaunchPaymentTable from '../components/LaunchPaymentTable';
 import LaunchExitPopup from '../components/LaunchExitPopup';
 import { ServiceIncludes } from '../components/ServiceOnPage';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
+import { useBootHeroSlot } from '../hooks/useBootHeroSlot';
 import {
   ADS_LAUNCH_FORM_ORIGIN,
   ADS_LAUNCH_LANDING_PATH,
@@ -142,24 +143,36 @@ const faqs = [
   },
 ];
 
-const BOOT_FORM_SLOT_ID = 'hero-form-slot';
-
-const getLaunchBootFormSlot = () =>
-  typeof document === 'undefined'
-    ? null
-    : document.getElementById(BOOT_FORM_SLOT_ID);
+const launchHeroDescription = (
+  <>
+    <p>
+      Web profesional para autónomos, emprendedores y pequeños negocios.
+    </p>
+    <HeroCtaList
+      className='mx-auto mt-text-gap w-fit max-w-[var(--button-width)] list-disc pl-5 text-left md:mx-0 md:w-full md:max-w-none'
+      items={[
+        <strong className='font-bold'>
+          Lista en {LAUNCH_DELIVERY_LABEL} · Hosting incluido · Sin cuotas
+          mensuales
+        </strong>,
+        <strong className='font-extrabold'>
+          <span className='whitespace-nowrap'>
+            {getLaunchInstallmentLabel()}
+          </span>{' '}
+          al empezar ·{' '}
+          <span className='whitespace-nowrap'>
+            {getLaunchInstallmentLabel()}
+          </span>{' '}
+          antes de publicar
+        </strong>,
+        'No se publica hasta que estés conforme.',
+      ]}
+    />
+  </>
+);
 
 const LaunchLandingHero = () => {
-  const [formSlot] = useState(getLaunchBootFormSlot);
-
-  useEffect(() => {
-    const boot = document.querySelector<HTMLElement>('[data-lcp-boot-hero]');
-    if (!boot) return undefined;
-    boot.hidden = false;
-    return () => {
-      boot.hidden = true;
-    };
-  }, []);
+  const formSlot = useBootHeroSlot();
 
   const form = (
     <ContactFormHero
@@ -188,48 +201,7 @@ const LaunchLandingHero = () => {
           </span>
         </>
       }
-      description={
-        <>
-          <p className='mb-1'>
-            Web profesional para autónomos, emprendedores y pequeños negocios.
-          </p>
-          <p className='font-bold'>
-            Lista en {LAUNCH_DELIVERY_LABEL} · Hosting incluido · Sin cuotas
-            mensuales
-          </p>
-          <p className='mt-2 text-xl font-extrabold md:text-left md:text-2xl'>
-            <span className='whitespace-nowrap'>
-              {getLaunchInstallmentLabel()}
-            </span>{' '}
-            al empezar ·{' '}
-            <span className='whitespace-nowrap'>
-              {getLaunchInstallmentLabel()}
-            </span>{' '}
-            antes de publicar
-          </p>
-        </>
-      }
-      mobileDescription={
-        <>
-          <p className='mb-1'>
-            Web profesional para autónomos, emprendedores y pequeños negocios.
-          </p>
-          <p className='font-bold'>
-            Lista en {LAUNCH_DELIVERY_LABEL} · Hosting incluido · Sin cuotas
-            mensuales
-          </p>
-          <p className='mt-2 text-xl font-extrabold'>
-            <span className='whitespace-nowrap'>
-              {getLaunchInstallmentLabel()}
-            </span>{' '}
-            al empezar ·{' '}
-            <span className='whitespace-nowrap'>
-              {getLaunchInstallmentLabel()}
-            </span>{' '}
-            antes de publicar
-          </p>
-        </>
-      }
+      description={launchHeroDescription}
       convertFirstOnMobile
       buttonText='Quiero información'
       buttonHref='#contacto'

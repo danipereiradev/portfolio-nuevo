@@ -1,5 +1,7 @@
 import { useMemo } from 'react';
-import HeroCta from '../components/HeroCta';
+import { createPortal } from 'react-dom';
+import HeroCta, { HeroCtaList } from '../components/HeroCta';
+import { ContactFormHero } from '../components/ContactFormHero';
 import { TextImage } from '../components/TextImage';
 import Portfolio from '../components/Portfolio';
 import Testimonials from '../components/Testimonials';
@@ -9,6 +11,7 @@ import SEOBenefits from '../components/SEOBenefits';
 import { ServiceIncludes } from '../components/ServiceOnPage';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
+import { useBootHeroSlot } from '../hooks/useBootHeroSlot';
 import { SITE_SHOP_PATH, SITE_WEB_PATH } from '../config/contact';
 import { LocalWebSpainSection } from '../components/LocalWebSpainSection';
 import { Briefcase, Building2, RefreshCw } from 'lucide-react';
@@ -303,35 +306,72 @@ const DisenoWeb = () => {
   );
 
   useJsonLd('jsonld-diseno-web', jsonLd);
+  const formSlot = useBootHeroSlot();
+  const heroForm = (
+    <ContactFormHero
+      id='contacto'
+      title='Presupuesto de diseño web'
+      description='Propuesta en el mismo día. Sin compromiso.'
+      page='DisenoWeb Hero'
+      compactOnMobile
+      className={formSlot ? 'md:!w-full' : ''}
+    />
+  );
 
   return (
     <>
+      {formSlot ? (
+        createPortal(heroForm, formSlot)
+      ) : (
       <HeroCta
         title='Una página web con todo lo necesario para captar nuevos clientes'
         description={
           <>
-            Diseñamos páginas web claras, rápidas y pensadas para{' '}
-            <strong className='font-extrabold'>
-              convertir visitas en clientes
-            </strong>
-            . Todo lo necesario para que puedas empezar a trabajar{' '}
-            <strong className='font-extrabold'>desde el primer día</strong>.
+            <p>
+              Diseñamos páginas web claras, rápidas y pensadas para{' '}
+              <strong className='font-extrabold'>
+                convertir visitas en clientes
+              </strong>
+              .
+            </p>
+            <HeroCtaList
+              className='mx-auto mt-text-gap w-fit max-w-[var(--button-width)] list-disc pl-5 text-left md:mx-0 md:w-full md:max-w-none'
+              items={[
+                <>
+                  Todo lo necesario para empezar a trabajar{' '}
+                  <strong className='font-extrabold'>desde el primer día</strong>
+                  .
+                </>,
+                <>
+                  <strong className='font-extrabold'>
+                    Propuesta en el mismo día
+                  </strong>
+                  , con precio y plazos por escrito.
+                </>,
+                <>
+                  <strong className='font-extrabold'>
+                    Hablas con quien te va a hacer la web, no con un comercial
+                  </strong>
+                  .
+                </>,
+              ]}
+            />
           </>
         }
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
-        backgroundUrl='/img/hero/hero-diseno-web-36web.webp'
         heroType='form'
         hasButton={false}
         formTitle='Presupuesto de diseño web'
         formDescription='Propuesta en el mismo día. Sin compromiso.'
         formSectionInfo='DisenoWeb Hero'
-        hasBackground
-        grayscale
-        overlay='black'
+        formId='contacto'
+        hasBackground={false}
         hasReviewBadge
         isTopHero
+        convertFirstOnMobile
       />
+      )}
 
       <TextImage
         label='¿Por qué una página con 36web?'

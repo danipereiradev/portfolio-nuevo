@@ -83,30 +83,102 @@ const injectBeforeRoot = (html, inner) =>
   html.replace(/<div id="root"><\/div>/, `${inner}<div id="root"></div>`);
 
 const ADS_LAUNCH_LANDING_PATH = '/landing-web-profesional';
+const SITE_SHOP_PATH = '/tiendas-online';
+const SITE_MAINTENANCE_PATH = '/mantenimiento-web';
+
+const heroListClass =
+  'space-y-3 text-lg marker:text-brand md:text-xl mx-auto mt-text-gap w-fit max-w-[var(--button-width)] list-disc pl-5 text-left md:mx-0 md:w-full md:max-w-none';
 
 /** H1 fuera de #root: createRoot no lo borra y el LCP se queda en el primer pintado. */
-const buildLaunchLandingHeroHtml = () => {
-  const price = '590\u00A0€\u00A0+\u00A0IVA';
-  const installment = '295\u00A0€\u00A0+\u00A0IVA';
+const buildLightBootHeroHtml = ({
+  label,
+  h1,
+  intro,
+  bullets,
+  extraCopy = '',
+}) => {
+  const labelHtml = label
+    ? `<span class="hero-cta-label text-md uppercase rounded-lg font-extrabold text-accent underline">${label}</span>`
+    : '';
+  const bulletsHtml = bullets
+    .map((item) => `<li class="pl-1">${item}</li>`)
+    .join('');
   return `<section id="hero" data-lcp-boot-hero class="page-hero relative overflow-hidden text-ink-dark bg-accent-light">
     <div class="container relative z-30 mx-auto flex flex-col items-center gap-3 md:gap-4">
       <div class="w-full grid grid-cols-1 md:grid-cols-2 md:text-start md:items-center gap-page-gap text-center md:justify-center">
         <div class="hero-cta-copy flex w-full min-w-0 flex-col items-center gap-page-gap md:items-start md:justify-center">
           <div class="page-title-block w-full items-center md:items-start">
-            <span class="hero-cta-label text-md uppercase rounded-lg font-extrabold text-accent underline">Web profesional</span>
-            <h1 class="hero-cta-title text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark">Una web profesional para tu negocio desde <span class="whitespace-nowrap">${price}</span></h1>
+            ${labelHtml}
+            <h1 class="hero-cta-title text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark">${h1}</h1>
+            <span class="hero-cta-underline h-1 w-16 bg-brand mx-auto md:mx-0" aria-hidden="true"></span>
             <div class="hero-cta-desc text-xl md:text-2xl text-center text-ink-dark max-w-3xl md:text-justify">
-              <p class="mb-1">Web profesional para autónomos, emprendedores y pequeños negocios.</p>
-              <p class="font-bold">Lista en 1–2 semanas · Hosting incluido · Sin cuotas mensuales</p>
-              <p class="mt-2 text-xl font-extrabold md:text-left md:text-2xl"><span class="whitespace-nowrap">${installment}</span> al empezar · <span class="whitespace-nowrap">${installment}</span> antes de publicar</p>
+              ${intro ? `<p>${intro}</p>` : ''}
+              <ul class="${heroListClass}">${bulletsHtml}</ul>
             </div>
           </div>
+          ${extraCopy}
         </div>
         <div id="hero-form-slot"></div>
       </div>
     </div>
   </section>`;
 };
+
+const buildLaunchLandingHeroHtml = () => {
+  const price = '590\u00A0€\u00A0+\u00A0IVA';
+  const installment = '295\u00A0€\u00A0+\u00A0IVA';
+  return buildLightBootHeroHtml({
+    label: 'Web profesional',
+    h1: `Una web profesional para tu negocio desde <span class="whitespace-nowrap">${price}</span>`,
+    intro: 'Web profesional para autónomos, emprendedores y pequeños negocios.',
+    bullets: [
+      '<strong class="font-bold">Lista en 1–2 semanas · Hosting incluido · Sin cuotas mensuales</strong>',
+      `<strong class="font-extrabold"><span class="whitespace-nowrap">${installment}</span> al empezar · <span class="whitespace-nowrap">${installment}</span> antes de publicar</strong>`,
+      'No se publica hasta que estés conforme.',
+    ],
+  });
+};
+
+const buildDisenoWebHeroHtml = () =>
+  buildLightBootHeroHtml({
+    h1: 'Una página web con todo lo necesario para captar nuevos clientes',
+    intro:
+      'Diseñamos páginas web claras, rápidas y pensadas para <strong class="font-extrabold">convertir visitas en clientes</strong>.',
+    bullets: [
+      'Todo lo necesario para empezar a trabajar <strong class="font-extrabold">desde el primer día</strong>.',
+      '<strong class="font-extrabold">Propuesta en el mismo día</strong>, con precio y plazos por escrito.',
+      '<strong class="font-extrabold">Hablas con quien te va a hacer la web, no con un comercial</strong>.',
+    ],
+  });
+
+const buildTiendasOnlineHeroHtml = () =>
+  buildLightBootHeroHtml({
+    h1: 'Una tienda online con todo lo necesario para vender',
+    intro:
+      'Creamos tiendas online claras, rápidas y pensadas para <strong class="font-extrabold">convertir visitas en ventas de verdad</strong>.',
+    bullets: [
+      'Catálogo, pagos y envíos, listas para vender <strong class="font-extrabold">desde el primer día</strong>.',
+      'Desde <strong class="font-extrabold">590&nbsp;€&nbsp;+&nbsp;IVA</strong>, según el alcance. Precio y plazos por escrito.',
+      '<strong class="font-extrabold">Hablas con quien te va a hacer la tienda, no con un comercial</strong>.',
+    ],
+  });
+
+const buildMantenimientoWebHeroHtml = () =>
+  buildLightBootHeroHtml({
+    label: 'Mantenimiento y soporte',
+    h1: 'Mantenimiento y soporte web cuando lo necesitas',
+    intro:
+      'Planes desde 59 € + IVA/mes o bonos de horas para arreglos puntuales. Trabajamos también con webs hechas por otras empresas.',
+    bullets: [
+      '<strong class="font-extrabold">Propuesta en el mismo día</strong>.',
+      '<strong class="font-extrabold">Hablas con quien revisa la web, no con un comercial</strong>.',
+      'Sin permanencia.',
+    ],
+    extraCopy: `<div class="flex w-full flex-col items-center justify-center gap-3 sm:flex-row sm:items-stretch md:justify-start">
+      <a href="#contacto" class="box-border inline-flex items-center justify-center h-14 min-h-14 w-full max-w-[var(--button-width)] rounded-lg border-2 border-accent bg-accent px-4 font-extrabold uppercase text-white sm:w-[var(--button-width)]">Pedir propuesta</a>
+      <a href="https://wa.me/34644665352" class="box-border inline-flex items-center justify-center h-14 min-h-14 w-full max-w-[var(--button-width)] rounded-lg border-2 border-ink-dark px-4 font-extrabold uppercase text-ink-dark sm:w-[var(--button-width)]">Hablar por WhatsApp</a>
+    </div>`,
+  });
 
 const headingFromTitle = (title) =>
   String(title)
@@ -129,6 +201,8 @@ const injectLaunchBootHeroCss = (html) => {
       [data-lcp-boot-hero]{min-height:100vh;min-height:100svh;background:#edeff7;color:#141414;display:flex;align-items:center;box-sizing:border-box;padding:7.5rem 0 4rem}
       [data-lcp-boot-hero] .container{width:95%;max-width:1248px;margin-left:auto;margin-right:auto;padding-left:1rem;padding-right:1rem}
       [data-lcp-boot-hero] h1{font-family:'Space Grotesk',Inter,system-ui,sans-serif;font-size:1.875rem;line-height:2.25rem;font-weight:800;letter-spacing:-0.25px;margin:0}
+      [data-lcp-boot-hero] .hero-cta-underline{display:block;width:4rem;height:0.25rem;background:#b1d004;margin:0.75rem auto 0}
+      @media (min-width:768px){[data-lcp-boot-hero] .hero-cta-underline{margin-left:0}}
     </style>
   </head>`,
   );
@@ -380,10 +454,21 @@ for (const [routePath, meta] of Object.entries(pagesMeta)) {
     html = injectRoot(html, localWeb.buildLocalWebCityBodyHtml(city));
     localWithBody += 1;
   } else if (routePath === SITE_WEB_PATH) {
+    html = injectBeforeRoot(html, buildDisenoWebHeroHtml());
+    html = injectLaunchBootHeroCss(html);
     html = injectRoot(
       html,
       `<main>${localWeb.buildLocalWebSpainSectionHtml()}</main>`,
     );
+    html = injectModulePreload(html, findAsset('DisenoWeb-'));
+  } else if (routePath === SITE_SHOP_PATH) {
+    html = injectBeforeRoot(html, buildTiendasOnlineHeroHtml());
+    html = injectLaunchBootHeroCss(html);
+    html = injectModulePreload(html, findAsset('TiendasOnline-'));
+  } else if (routePath === SITE_MAINTENANCE_PATH) {
+    html = injectBeforeRoot(html, buildMantenimientoWebHeroHtml());
+    html = injectLaunchBootHeroCss(html);
+    html = injectModulePreload(html, findAsset('MantenimientoWeb-'));
   } else if (routePath === ADS_LAUNCH_LANDING_PATH) {
     html = injectBeforeRoot(html, buildLaunchLandingHeroHtml());
     html = injectLaunchBootHeroCss(html);

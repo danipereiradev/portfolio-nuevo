@@ -363,7 +363,7 @@ const LandingMaintenance = () => {
               href={whatsappUrl}
               target='_blank'
               rel='noopener noreferrer'
-              variant='secondary'
+              variant='outline'
               className='!mx-0 !mt-0 !box-border !h-14 !min-h-14 !w-full !max-w-[var(--button-width)] !whitespace-nowrap !px-4 !py-0 !text-sm md:!text-base sm:!w-[var(--button-width)]'
               onClick={openLandingWhatsApp}
             >

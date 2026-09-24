@@ -1,5 +1,7 @@
 import { useMemo } from 'react';
-import HeroCta from '../components/HeroCta';
+import { createPortal } from 'react-dom';
+import HeroCta, { HeroCtaList } from '../components/HeroCta';
+import { ContactFormHero } from '../components/ContactFormHero';
 import { TextImage } from '../components/TextImage';
 import Portfolio from '../components/Portfolio';
 import Testimonials from '../components/Testimonials';
@@ -9,6 +11,7 @@ import SEOBenefits from '../components/SEOBenefits';
 import { ServiceIncludes } from '../components/ServiceOnPage';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
+import { useBootHeroSlot } from '../hooks/useBootHeroSlot';
 import { SITE_SHOP_PATH, SITE_WEB_PATH } from '../config/contact';
 import {
   shopIncludes,
@@ -210,37 +213,70 @@ const TiendasOnline = () => {
   );
 
   useJsonLd('jsonld-tiendas-online', jsonLd);
+  const formSlot = useBootHeroSlot();
+  const heroForm = (
+    <ContactFormHero
+      id='contacto'
+      title='Presupuesto de tienda online'
+      description='Propuesta en el mismo día. Sin compromiso.'
+      page='TiendasOnline Hero'
+      compactOnMobile
+      className={formSlot ? 'md:!w-full' : ''}
+    />
+  );
 
   return (
     <>
+      {formSlot ? (
+        createPortal(heroForm, formSlot)
+      ) : (
       <HeroCta
         title='Una tienda online con todo lo necesario para vender'
         description={
           <>
-            Creamos tiendas online claras, rápidas y pensadas para{' '}
-            <strong className='font-extrabold'>
-              convertir visitas en ventas de verdad
-            </strong>
-            : catálogo, pagos y envíos, listas para vender{' '}
-            <strong className='font-extrabold'>desde el primer día</strong>.
-            Desde <strong className='font-extrabold'>590 € + IVA</strong>, según
-            el alcance.
+            <p>
+              Creamos tiendas online claras, rápidas y pensadas para{' '}
+              <strong className='font-extrabold'>
+                convertir visitas en ventas de verdad
+              </strong>
+              .
+            </p>
+            <HeroCtaList
+              className='mx-auto mt-text-gap w-fit max-w-[var(--button-width)] list-disc pl-5 text-left md:mx-0 md:w-full md:max-w-none'
+              items={[
+                <>
+                  Catálogo, pagos y envíos, listas para vender{' '}
+                  <strong className='font-extrabold'>desde el primer día</strong>
+                  .
+                </>,
+                <>
+                  Desde <strong className='font-extrabold'>590 € + IVA</strong>,
+                  según el alcance. Precio y plazos por escrito.
+                </>,
+                <>
+                  <strong className='font-extrabold'>
+                    Hablas con quien te va a hacer la tienda, no con un comercial
+                  </strong>
+                  .
+                </>,
+              ]}
+            />
           </>
         }
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
-        backgroundUrl='/img/hero/hero-tienda-online-36web.webp'
         heroType='form'
         hasButton={false}
         formTitle='Presupuesto de tienda online'
         formDescription='Propuesta en el mismo día. Sin compromiso.'
         formSectionInfo='TiendasOnline Hero'
-        hasBackground
-        grayscale
-        overlay='black'
+        formId='contacto'
+        hasBackground={false}
         hasReviewBadge
         isTopHero
+        convertFirstOnMobile
       />
+      )}
 
       <TextImage
         label='¿Por qué una tienda con 36web?'
