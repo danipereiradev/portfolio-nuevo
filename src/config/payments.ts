@@ -1,7 +1,7 @@
 /** URL de retorno tras el pago. En Stripe Payment Link, usarla como success URL. */
 export const PAYMENT_SUCCESS_PATH = '/pago/gracias';
 
-/** Gracias de la oferta de lanzamiento 349 €. Success URL del Payment Link. */
+/** Gracias de la oferta de lanzamiento 590 €. Success URL del Payment Link. */
 export const PAYMENT_LAUNCH_SUCCESS_PATH = '/pago/gracias/web-299';
 
 export const PAYMENT_ROBOTS = 'noindex, nofollow, noarchive';
@@ -207,7 +207,7 @@ export const paymentConfigs: Record<string, PaymentConfig> = {
     clientName: 'Oferta de lanzamiento',
     serviceName: 'Reserva — Web profesional',
     description:
-      'Reserva de 99 € + IVA para la web profesional de lanzamiento (349 € + IVA). El resto (250 € + IVA) se paga antes de la publicación. Queda lista en 5–7 días desde que nos entregas la información de tu negocio.',
+      'Reserva de 99 € + IVA para la web profesional de lanzamiento (desde 590 € + IVA). El resto (491 € + IVA) se paga antes de la publicación. Queda lista en 1–2 semanas desde que nos entregas la información de tu negocio.',
     amount: 99,
     vatRate: 21,
     paymentType: 'one_time',
@@ -215,14 +215,14 @@ export const paymentConfigs: Record<string, PaymentConfig> = {
     stripePaymentLink: 'https://buy.stripe.com/5kQ9ATcWL0Y0dfDaFI4AU01',
     includes: [
       'Reserva para empezar el proyecto',
-      'Web profesional a 349 € + IVA',
+      'Web profesional desde 590 € + IVA',
       'Tú entregas logo, textos y fotos',
-      'Hosting y dominio incluidos',
-      'Lista en 5–7 días desde que nos entregas la información de tu negocio',
+      'Hosting incluido. El dominio lo pagas tú: 12 € al año, a tu nombre',
+      'Lista en 1–2 semanas desde que nos entregas la información de tu negocio',
       'Sin permanencia. La web es tuya',
     ],
     conditions:
-      '*El importe de esta página es solo la reserva (99 € + IVA).\nEl resto (250 € + IVA) se paga antes de la publicación.',
+      '*El importe de esta página es solo la reserva (99 € + IVA).\nEl resto (491 € + IVA) se paga antes de la publicación.',
   },
   [HOURLY_PAYMENT_ID]: {
     id: HOURLY_PAYMENT_ID,

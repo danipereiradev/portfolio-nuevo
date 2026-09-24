@@ -5,6 +5,7 @@
 // antes de enviar nada, y nunca lanza excepciones.
 
 import { ADS_LAUNCH_FORM_ORIGIN, isAdsLandingPath } from '../config/contact';
+import { LAUNCH_PRICE } from '../config/launchOffer';
 
 declare global {
   interface Window {
@@ -429,7 +430,7 @@ export const trackCrispMessageSent = () => {
 
 // Formulario de contacto
 
-/** Nombre GA4 de la landing de oferta 349 €. Sustituye landing_promo_299. */
+/** Nombre GA4 de la landing de oferta 590 €. El id interno se mantiene. */
 export const GA4_FORM_NAME_PROMO_349 = 'landing_promo_349';
 
 const FORM_START_STORAGE_PREFIX = 'ga4_form_start:';
@@ -797,7 +798,7 @@ export const trackWebProfesionalFormSubmit = (plan: string, value?: number) => {
   });
 };
 
-// landing promo 349 (/landing-web-profesional)
+// landing promo (/landing-web-profesional)
 
 export const trackLandingPromo349View = () => {
   trackEvent('landing_promo_349_view', {
@@ -812,13 +813,13 @@ export const trackLandingPromo349FormSubmit = () => {
     event_category: 'landing_promo_349',
     event_label: 'landing promo 349',
     landing_name: 'landing promo 349',
-    value: 349,
+    value: LAUNCH_PRICE,
     currency: 'EUR',
   });
 
   try {
     window.gtag?.('event', 'generate_lead', {
-      value: 349,
+      value: LAUNCH_PRICE,
       currency: 'EUR',
       landing_name: 'landing promo 349',
     });

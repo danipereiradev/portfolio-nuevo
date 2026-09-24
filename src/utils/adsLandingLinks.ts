@@ -7,7 +7,12 @@ const isAllowedHost = (hostname: string): boolean => {
     host === 'stripe.com' ||
     host.endsWith('.stripe.com') ||
     host === 'hatena.es' ||
-    host === 'carpersonido.com'
+    host === 'carpersonido.com' ||
+    host === 'camisetas-ahora.com' ||
+    host === 'oalicornio.com' ||
+    host === 'beachvanscamper.com' ||
+    host === 'clinicavidalinsua.com' ||
+    host === 'demo-36web.vercel.app'
   );
 };
 

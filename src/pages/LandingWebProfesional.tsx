@@ -13,7 +13,6 @@ import Testimonials from '../components/Testimonials';
 import SEOProcess from '../components/SEOProcess';
 import HeroCta from '../components/HeroCta';
 import LaunchPaymentTable from '../components/LaunchPaymentTable';
-import LaunchFitEmailForm from '../components/LaunchFitEmailForm';
 import { ServiceIncludes } from '../components/ServiceOnPage';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
@@ -22,11 +21,11 @@ import {
   ADS_LAUNCH_LANDING_PATH,
 } from '../config/contact';
 import {
+  getLaunchPriceAmountLabel,
   getLaunchPriceLabel,
   LAUNCH_DELIVERY_LABEL,
 } from '../config/launchOffer';
 import {
-  trackLandingPromo349PortfolioClick,
   trackLandingPromo349View,
 } from '../utils/analytics';
 
@@ -56,9 +55,9 @@ const includes = [
   },
   {
     icon: Globe,
-    title: 'Hosting, dominio y publicación',
+    title: 'Publicación',
     description:
-      'Hosting y dominio incluidos el primer año. La web queda a tu nombre.',
+      'En nuestro hosting, gratis, con tu dominio. O la montamos en el hosting que tú elijas, sin coste.',
   },
   {
     icon: ShieldCheck,
@@ -76,7 +75,7 @@ const processSteps = [
       <>
         Nos escribes, te llamamos y confirmamos el proyecto.{' '}
         <strong className='font-extrabold'>
-          Precio cerrado: {getLaunchPriceLabel()}
+          {getLaunchPriceLabel()}. Te lo cerramos por escrito
         </strong>
         .
       </>
@@ -114,11 +113,16 @@ const processSteps = [
 const faqs = [
   {
     question: '¿Cuánto cuesta?',
-    answer: `${getLaunchPriceLabel()}, precio cerrado. Hosting y dominio incluidos el primer año. Sin permanencia. La web es tuya.`,
+    answer: `${getLaunchPriceLabel()}. El precio concreto va por escrito, según el alcance. Hosting incluido. El dominio lo pagas tú: 12 € al año. Sin permanencia. La web es tuya.`,
   },
   {
     question: '¿Cuánto tarda?',
-    answer: `Se publica en ${LAUNCH_DELIVERY_LABEL} desde que nos entregas logo, textos, fotos y datos de contacto. El reloj empieza cuando nos llega ese material.`,
+    answer: `Se publica en ${LAUNCH_DELIVERY_LABEL} desde que tenemos logo, textos, fotos y datos de contacto. El reloj empieza cuando ese material está listo.`,
+  },
+  {
+    question: '¿Y si no tengo logo ni textos?',
+    answer:
+      'No hace falta que los traigas. Nuestro departamento de diseño gráfico crea el logo y el de copy redacta los textos, adaptados a tu marca y a tu sector. Los revisas tú antes de publicar.',
   },
   {
     question: '¿Cómo se paga?',
@@ -128,12 +132,12 @@ const faqs = [
   {
     question: '¿El hosting y el dominio están incluidos?',
     answer:
-      'Sí. Incluimos el hosting y el dominio durante el primer año. A partir del segundo año, podrás renovarlos con nosotros o trasladarlos al proveedor que prefieras. El coste orientativo es de 80–150 € + IVA al año. La web y el dominio quedan a tu nombre.',
+      'El hosting lo incluimos gratis, con tu dominio. Si ya tienes hosting, la montamos ahí sin coste. El dominio lo pagas tú: 12 € al año, a tu nombre.',
   },
   {
     question: '¿La web es mía? ¿Puedo pedir cambios?',
     answer:
-      'Sí. La web y el dominio quedan a tu nombre. Antes de publicar la revisas; si algo importante no encaja, lo ajustamos. El 50% final se paga cuando apruebes. Cambios posteriores se presupuestan aparte.',
+      'Sí. El dominio queda a tu nombre y el hosting lo incluimos gratis. Antes de publicar la revisas; si algo importante no encaja, lo ajustamos. El 50% final se paga cuando apruebes. Cambios posteriores se presupuestan aparte.',
   },
 ];
 
@@ -166,20 +170,18 @@ const LandingWebProfesional = () => {
     <>
       <HeroCta
         label='Web profesional'
-        title={`Una web profesional para tu negocio por ${getLaunchPriceLabel()}`}
+        title={`Una web profesional para tu negocio desde ${getLaunchPriceAmountLabel()}`}
         description={
           <>
             <p>
               Web profesional para autónomos, emprendedores y pequeños negocios.
             </p>
             <p className='mt-2 font-extrabold'>
-              {getLaunchPriceLabel()} · Lista en {LAUNCH_DELIVERY_LABEL} · Sin
-              cuotas mensuales
+              {getLaunchPriceLabel()} · Lista en {LAUNCH_DELIVERY_LABEL} ·
+              Hosting incluido · Sin cuotas mensuales
             </p>
             <ul className='mt-4 space-y-1 text-center text-base font-bold md:text-left md:text-lg'>
               <li>50 % al empezar · 50 % antes de publicar</li>
-              <li>Hosting y dominio incluidos el primer año</li>
-              <li>La web es tuya</li>
             </ul>
           </>
         }
@@ -189,16 +191,15 @@ const LandingWebProfesional = () => {
               Web profesional para autónomos, emprendedores y pequeños negocios.
             </p>
             <p className='mt-2 font-extrabold'>
-              {getLaunchPriceLabel()} · Lista en {LAUNCH_DELIVERY_LABEL} · Sin
-              cuotas mensuales
+              {getLaunchPriceLabel()} · Lista en {LAUNCH_DELIVERY_LABEL} ·
+              Hosting incluido · Sin cuotas mensuales
             </p>
           </>
         }
         mobileProof={
           <ul className='space-y-1 text-center text-base font-bold'>
             <li>50 % al empezar · 50 % antes de publicar</li>
-            <li>Hosting y dominio incluidos el primer año</li>
-            <li>La web es tuya</li>
+            <li>Hosting incluido</li>
           </ul>
         }
         convertFirstOnMobile
@@ -226,8 +227,8 @@ const LandingWebProfesional = () => {
             <strong className='font-extrabold'>
               web profesional para negocios
             </strong>
-            . Hasta 5 secciones, tu marca, formulario, WhatsApp y publicación.
-            Precio cerrado.
+            . Hasta 8 secciones, tu marca, formulario, WhatsApp, hosting y
+            publicación. Desde {getLaunchPriceAmountLabel()}.
           </>
         }
         items={includes}
@@ -246,35 +247,21 @@ const LandingWebProfesional = () => {
         </div>
       </section>
 
-      <LaunchFitEmailForm />
-
       <Portfolio
-        ids={['hatena', 'carper']}
-        images={{
-          hatena: '/img/portfolio/hatena-landing.webp',
-          carper: '/img/portfolio/carper-landing.webp',
-        }}
-        urls={{
-          hatena: 'https://hatena.es',
-          carper: 'https://carpersonido.com',
-        }}
-        onProjectClick={(id) => {
-          if (id === 'hatena' || id === 'carper') {
-            trackLandingPromo349PortfolioClick(id);
-          }
-        }}
-        headingLabel='Proyectos lanzados'
-        headingTitle='Proyectos que ya han sido lanzados'
+        headingLabel='Portfolio'
+        headingTitle='Clientes reales y demos de sector'
         headingDescription={
           <>
-            Clientes que ya tienen su web profesional. Así puede quedar la tuya
-            por{' '}
-            <strong className='font-extrabold'>{getLaunchPriceLabel()}</strong>.
+            Estos son ejemplos de clientes reales y demos de lo que podría ser
+            tu web desde{' '}
+            <strong className='font-extrabold'>
+              {getLaunchPriceAmountLabel()}
+            </strong>
+            .
           </>
         }
-        sectorPrompt='¿Quieres ver ejemplos de tu sector? Te enseñamos proyectos similares antes de empezar.'
-        sectorCtaText='Ver ejemplos de mi sector'
-        sectorCtaHref='#contacto'
+        ctaText='Quiero resultados como estos'
+        ctaHref='#contacto'
       />
 
       <Testimonials />

@@ -9,7 +9,7 @@ import {
   trackLandingPromo349FitSubmit,
 } from '../utils/analytics';
 import { ADS_LAUNCH_FIT_FORM_ORIGIN, FORM_CC_EMAIL } from '../config/contact';
-import { getLaunchPriceLabel } from '../config/launchOffer';
+import { getLaunchPriceAmountLabel } from '../config/launchOffer';
 
 const emptyForm = () => ({
   email: '',
@@ -114,11 +114,11 @@ const LaunchFitEmailForm = () => {
           origen,
           page: origen,
           pagina,
-          lista: 'newsletter encaje 349',
+          lista: 'newsletter encaje 590',
           newsletter: formData.newsletter ? 'sí' : 'no',
           consent: formData.consent,
           submissionDate: new Date().toLocaleString('es-ES'),
-          _subject: `[${origen}] ¿Encaja en 349? — ${sector}`,
+          _subject: `[${origen}] ¿Encaja desde ${getLaunchPriceAmountLabel()}? — ${sector}`,
           _replyto: email,
           _cc: FORM_CC_EMAIL,
           message: `
@@ -170,7 +170,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       <div className='container mx-auto flex max-w-3xl flex-col gap-page-gap'>
         <div className='page-title-block mx-auto text-center'>
           <h2 className='text-3xl font-extrabold text-ink-dark md:text-4xl lg:text-5xl'>
-            ¿Encaja en {getLaunchPriceLabel()}?
+            ¿Encaja desde {getLaunchPriceAmountLabel()}?
           </h2>
           <p className='text-xl text-ink-dark md:text-2xl'>
             Dinos tu sector. Te respondemos por email si cabe en esta oferta o

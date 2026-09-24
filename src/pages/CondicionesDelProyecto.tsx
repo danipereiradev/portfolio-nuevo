@@ -183,16 +183,16 @@ const CondicionesDelProyecto = () => {
               title='Web profesional de lanzamiento'
               intro={
                 <>
-                  Oferta cerrada cuando está activa: {getLaunchPriceLabel()}.
-                  Primero te contactamos y confirmamos el proyecto. Se paga 50%
-                  al empezar y 50% antes de publicar.
+                  Oferta cuando está activa: {getLaunchPriceLabel()}. El precio
+                  concreto va por escrito. Primero te contactamos y confirmamos
+                  el proyecto. Se paga 50% al empezar y 50% antes de publicar.
                 </>
               }
               href={`${ADS_LAUNCH_LANDING_PATH}#contacto`}
               hrefLabel='Ver la oferta'
               items={[
                 `Queda lista en ${LAUNCH_DELIVERY_LABEL} desde que nos entregas la información de tu negocio. El reloj empieza cuando nos llega ese material.`,
-                'Tú entregas logo, textos y fotos. Hosting y dominio incluidos el primer año. El dominio es tuyo.',
+                'Tú entregas logo, textos y fotos. Hosting incluido. El dominio lo pagas tú: 12 € al año, a tu nombre.',
                 'Sin permanencia. La web es tuya.',
                 'Se paga 50% al empezar y 50% antes de publicar.',
                 'El mantenimiento después de publicar es opcional. No hace falta para acceder a la oferta.',

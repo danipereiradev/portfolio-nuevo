@@ -14,13 +14,13 @@ export const LAUNCH_OFFER_MAX = 10;
 export const soldWebs = 5;
 
 /** Precio del pack, sin IVA. */
-export const LAUNCH_PRICE = 349;
+export const LAUNCH_PRICE = 590;
 
 /** Reserva ahora, sin IVA. El resto se paga en la entrega. */
 export const LAUNCH_RESERVE = 99;
 
 /** Plazo de entrega de la oferta de lanzamiento. */
-export const LAUNCH_DELIVERY_LABEL = '5–7 días';
+export const LAUNCH_DELIVERY_LABEL = '1–2 semanas';
 
 export const LAUNCH_RESERVE_PAYMENT_ID = 'reserva-web-profesional-esencial';
 
@@ -39,8 +39,11 @@ export const getLaunchAvailabilityCopy = (remaining = soldWebs): string => {
 
 export const getLaunchRemainder = (): number => LAUNCH_PRICE - LAUNCH_RESERVE;
 
-export const getLaunchPriceLabel = (): string =>
+export const getLaunchPriceAmountLabel = (): string =>
   `${formatEuro(LAUNCH_PRICE)} + IVA`;
+
+export const getLaunchPriceLabel = (): string =>
+  `Desde ${getLaunchPriceAmountLabel()}`;
 
 export const getLaunchReserveLabel = (): string =>
   `${formatEuro(LAUNCH_RESERVE)} + IVA`;

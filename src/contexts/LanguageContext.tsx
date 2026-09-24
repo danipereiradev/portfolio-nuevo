@@ -57,9 +57,9 @@ const translations = {
     'Actualizaciones, copias, cambios de textos y fotos, y soporte cuando algo se rompe.',
 
   // Portfolio
-  'portfolio.title': 'Proyectos que ya han empezado a dar resultados',
+  'portfolio.title': 'Clientes reales y demos de sector',
   'portfolio.description':
-    'Algunos proyectos en los que el diseño, el desarrollo y el SEO ya están dando resultados.',
+    'Estos son ejemplos de clientes reales y demos de lo que podría ser tu web.',
   'portfolio.upcoming.title': 'Próximamente',
   'portfolio.upcoming.description':
     'Proyectos que estamos terminando y publicaremos en breve.',
@@ -72,18 +72,39 @@ const translations = {
   'portfolio.micolet.title': 'Micolet',
   'portfolio.micolet.desc':
     'Moda de segunda mano y outlet con catálogo amplio y compra online.',
-  'portfolio.camisetas.title': 'Camisetas Ahora',
+  'portfolio.camisetas.title': 'Tienda online Camisetas Ahora',
+  'portfolio.camisetas.sector': 'Sector Retail',
+  'portfolio.camisetas.result':
+    'Catálogo con filtros para vender camisetas personalizadas.',
   'portfolio.camisetas.desc':
     'Tienda de camisetas personalizadas con muchos diseños, filtros y panel de stock.',
   'portfolio.hoyviajamos.title': 'Hoy Viajamos',
   'portfolio.hoyviajamos.desc':
     'Blog de viajes con galerías, categorías, afiliados y servicio de guías de viaje por suscripción.',
-  'portfolio.hatena.title': 'Clínica Veterinaria Hatena',
+  'portfolio.hatena.title': 'Web para Clínica Veterinaria Hatena',
+  'portfolio.hatena.sector': 'Sector Veterinaria',
+  'portfolio.hatena.result':
+    'Equipo, servicios y formulario de citas en una sola web.',
   'portfolio.hatena.desc':
     'Web de clínica: servicios, equipo y formulario de citas integrado.',
-  'portfolio.carper.title': 'Carper Sonido',
+  'portfolio.carper.title': 'Web para Carper Sonido',
+  'portfolio.carper.sector': 'Sector Servicios',
+  'portfolio.carper.result':
+    'Presentación profesional para cerrar trabajos de sonido y eventos.',
   'portfolio.carper.desc':
     'Web de presentación para un negocio de sonido y eventos.',
+  'portfolio.vidal.title': 'Web para Clínica Vidal Insua',
+  'portfolio.vidal.sector': 'Sector Salud',
+  'portfolio.vidal.result':
+    'Servicios y citas de la clínica, claros en móvil y escritorio.',
+  'portfolio.vidal.desc':
+    'Web de clínica: especialidades, equipo y contacto para pedir cita.',
+  'portfolio.beachvans.title': 'Web para Beachvans Camper',
+  'portfolio.beachvans.sector': 'Sector Reformas',
+  'portfolio.beachvans.result':
+    'Furgonetas camperizadas a la vista, listas para consultar y pedir.',
+  'portfolio.beachvans.desc':
+    'Web de camperización: modelos, trabajos y contacto para pedir presupuesto.',
   'portfolio.resilience.title': 'Resilience Shop',
   'portfolio.resilience.desc':
     'Tienda de equipamiento ciclista: catálogo claro y compra sencilla.',
@@ -93,12 +114,29 @@ const translations = {
   'portfolio.delish.title': 'Delish Vegan Madrid',
   'portfolio.delish.desc':
     'Repostería vegana con pedidos online y envío nacional. Local conocido en Madrid.',
-  'portfolio.alicornio.title': 'O Alicornio - Casa Rural',
+  'portfolio.alicornio.title': 'Web para Casa Rural O Alicornio',
+  'portfolio.alicornio.sector': 'Sector Turismo',
+  'portfolio.alicornio.result': 'Temporada alta llena por búsquedas en Google.',
   'portfolio.alicornio.desc':
     'Casa rural en O Courel (Lugo). WordPress. En temporada alta suele ir llena por búsquedas orgánicas.',
   'portfolio.desmundando.title': 'Desmundando',
   'portfolio.desmundando.desc':
     'Blog de viajes: relatos, países y la ruta de la seda.',
+  'portfolio.silly.title': 'Silly Sally',
+  'portfolio.silly.desc':
+    'Web de banda: bio, música, entradas, noticias y merch.',
+  'portfolio.reformas.title': 'Web de reformas y oficios',
+  'portfolio.reformas.sector': 'Sector Reformas',
+  'portfolio.reformas.result':
+    'Imágenes grandes y trabajos claros, listos para mostrar el antes y el después.',
+  'portfolio.inmobiliaria.title': 'Web inmobiliaria',
+  'portfolio.inmobiliaria.sector': 'Sector Inmobiliaria',
+  'portfolio.inmobiliaria.result':
+    'Fichas de viviendas y un camino claro para captar propietarios.',
+  'portfolio.psicologa.title': 'Web para consulta de psicología',
+  'portfolio.psicologa.sector': 'Sector Salud',
+  'portfolio.psicologa.result':
+    'Tono sereno, autoridad profesional y un botón visible para agendar la primera sesión.',
 
   // Categorías de contacto
   'contact.project.ecommerce': 'E-commerce',

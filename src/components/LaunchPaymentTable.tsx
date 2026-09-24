@@ -1,4 +1,4 @@
-import { getLaunchPriceLabel } from '../config/launchOffer';
+import { getLaunchPriceAmountLabel } from '../config/launchOffer';
 
 const LaunchPaymentTable = ({ className = '' }: { className?: string }) => {
   const rows = [
@@ -35,9 +35,9 @@ const LaunchPaymentTable = ({ className = '' }: { className?: string }) => {
         </div>
       ))}
       <div className='grid grid-cols-[1fr_auto] items-center gap-4 bg-accent-light px-5 py-4'>
-        <p className='font-extrabold'>Precio total</p>
+        <p className='font-extrabold'>Desde</p>
         <p className='whitespace-nowrap text-right text-xl font-extrabold md:text-2xl'>
-          {getLaunchPriceLabel()}
+          {getLaunchPriceAmountLabel()}
         </p>
       </div>
     </div>
