@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { isAdsLandingPath } from '../config/contact';
 import pagesMeta from '../seo/pagesMeta.json';
 
 const SITE_URL = 'https://36web.es';
@@ -49,7 +50,10 @@ export const usePageMeta = (path: string) => {
   useEffect(() => {
     const meta =
       (pagesMeta as PagesMeta)[path] ?? (pagesMeta as PagesMeta)['/'];
-    const { title, description, robots, canonical, ogType } = meta;
+    const { title, description, canonical, ogType } = meta;
+    const robots =
+      meta.robots ??
+      (isAdsLandingPath(path) ? 'noindex, nofollow, noarchive' : undefined);
 
     document.title = title;
     setMetaByAttr('name', 'description', description);

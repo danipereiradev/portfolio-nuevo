@@ -136,7 +136,7 @@ export const ADS_SHOP_LANDING_PATH = '/landing-tiendas-online';
 
 export const ADS_MAINTENANCE_LANDING_PATH = '/landing-mantenimiento-web';
 
-/** Landing de oferta de lanzamiento paquetizada. noindex. */
+/** Landing de oferta de lanzamiento paquetizada. Las landings no se indexan. */
 export const ADS_LAUNCH_LANDING_PATH = '/landing-web-profesional';
 
 /** Landing de Ads del servicio Google Ads. */

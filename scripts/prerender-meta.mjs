@@ -187,6 +187,10 @@ const loadLocalWebSnapshot = async () => {
   }
 };
 
+const LANDING_ROBOTS = 'noindex, nofollow, noarchive';
+const isLandingPath = (routePath) =>
+  routePath.startsWith('/landing-') || routePath === '/landing-diseño-web';
+
 const buildHtmlForRoute = (
   routePath,
   { title, description, robots, canonical },
@@ -195,6 +199,8 @@ const buildHtmlForRoute = (
   const safeTitle = escapeHtml(title);
   const safeDescription = escapeHtml(description);
   const safeCanonical = escapeHtml(canonicalUrl);
+  const resolvedRobots =
+    robots || (isLandingPath(routePath) ? LANDING_ROBOTS : undefined);
 
   let html = template;
 
@@ -240,8 +246,8 @@ const buildHtmlForRoute = (
     `<meta name="twitter:description" content="${safeDescription}" />`,
   );
 
-  if (robots) {
-    const safeRobots = escapeHtml(robots);
+  if (resolvedRobots) {
+    const safeRobots = escapeHtml(resolvedRobots);
     if (/<meta\s+name="robots"\s+content="[^"]*"\s*\/>/.test(html)) {
       html = html.replace(
         /<meta\s+name="robots"\s+content="[^"]*"\s*\/>/,
@@ -276,7 +282,10 @@ const writeSitemap = (cityList) => {
   );
 
   for (const [routePath, meta] of Object.entries(pagesMeta)) {
-    if (typeof meta.robots === 'string' && meta.robots.includes('noindex')) {
+    if (
+      isLandingPath(routePath) ||
+      (typeof meta.robots === 'string' && meta.robots.includes('noindex'))
+    ) {
       continue;
     }
     if (
