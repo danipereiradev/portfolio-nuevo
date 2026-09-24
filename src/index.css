@@ -581,6 +581,14 @@ h6 {
   overflow-x: visible;
 }
 
+[data-lcp-boot-hero][hidden] {
+  display: none !important;
+}
+
+#hero-form-slot {
+  width: 100%;
+}
+
 @media (min-width: 768px) {
   html,
   html.android-chrome {

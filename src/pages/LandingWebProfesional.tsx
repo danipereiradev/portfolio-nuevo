@@ -1,4 +1,5 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { createPortal } from 'react-dom';
 import {
   Globe,
   MessageCircle,
@@ -12,6 +13,7 @@ import SEOFAQ from '../components/SEOFAQ';
 import Testimonials from '../components/Testimonials';
 import SEOProcess from '../components/SEOProcess';
 import HeroCta from '../components/HeroCta';
+import { ContactFormHero } from '../components/ContactFormHero';
 import LaunchPaymentTable from '../components/LaunchPaymentTable';
 import LaunchExitPopup from '../components/LaunchExitPopup';
 import { ServiceIncludes } from '../components/ServiceOnPage';
@@ -140,6 +142,111 @@ const faqs = [
   },
 ];
 
+const BOOT_FORM_SLOT_ID = 'hero-form-slot';
+
+const getLaunchBootFormSlot = () =>
+  typeof document === 'undefined'
+    ? null
+    : document.getElementById(BOOT_FORM_SLOT_ID);
+
+const LaunchLandingHero = () => {
+  const [formSlot] = useState(getLaunchBootFormSlot);
+
+  useEffect(() => {
+    const boot = document.querySelector<HTMLElement>('[data-lcp-boot-hero]');
+    if (!boot) return undefined;
+    boot.hidden = false;
+    return () => {
+      boot.hidden = true;
+    };
+  }, []);
+
+  const form = (
+    <ContactFormHero
+      id='contacto'
+      title='Nosotros te llamamos'
+      description='Te contactamos y confirmamos el proyecto. Sin compromiso.'
+      page={ADS_LAUNCH_FORM_ORIGIN}
+      submitLabel='Quiero información'
+      compactOnMobile
+      className={formSlot ? 'md:!w-full' : ''}
+    />
+  );
+
+  if (formSlot) {
+    return createPortal(form, formSlot);
+  }
+
+  return (
+    <HeroCta
+      label='Web profesional'
+      title={
+        <>
+          Una web profesional para tu negocio desde{' '}
+          <span className='whitespace-nowrap'>
+            {getLaunchPriceAmountLabel()}
+          </span>
+        </>
+      }
+      description={
+        <>
+          <p className='mb-1'>
+            Web profesional para autónomos, emprendedores y pequeños negocios.
+          </p>
+          <p className='font-bold'>
+            Lista en {LAUNCH_DELIVERY_LABEL} · Hosting incluido · Sin cuotas
+            mensuales
+          </p>
+          <p className='mt-2 text-xl font-extrabold md:text-left md:text-2xl'>
+            <span className='whitespace-nowrap'>
+              {getLaunchInstallmentLabel()}
+            </span>{' '}
+            al empezar ·{' '}
+            <span className='whitespace-nowrap'>
+              {getLaunchInstallmentLabel()}
+            </span>{' '}
+            antes de publicar
+          </p>
+        </>
+      }
+      mobileDescription={
+        <>
+          <p className='mb-1'>
+            Web profesional para autónomos, emprendedores y pequeños negocios.
+          </p>
+          <p className='font-bold'>
+            Lista en {LAUNCH_DELIVERY_LABEL} · Hosting incluido · Sin cuotas
+            mensuales
+          </p>
+          <p className='mt-2 text-xl font-extrabold'>
+            <span className='whitespace-nowrap'>
+              {getLaunchInstallmentLabel()}
+            </span>{' '}
+            al empezar ·{' '}
+            <span className='whitespace-nowrap'>
+              {getLaunchInstallmentLabel()}
+            </span>{' '}
+            antes de publicar
+          </p>
+        </>
+      }
+      convertFirstOnMobile
+      buttonText='Quiero información'
+      buttonHref='#contacto'
+      heroType='form'
+      hasButton={false}
+      formTitle='Nosotros te llamamos'
+      formDescription='Te contactamos y confirmamos el proyecto. Sin compromiso.'
+      formSectionInfo={ADS_LAUNCH_FORM_ORIGIN}
+      formSubmitLabel='Quiero información'
+      formId='contacto'
+      hasBackground={false}
+      hasReviewBadge
+      isTopHero
+    />
+  );
+};
+
 const LandingWebProfesional = () => {
   usePageMeta(ADS_LAUNCH_LANDING_PATH);
 
@@ -167,72 +274,7 @@ const LandingWebProfesional = () => {
 
   return (
     <>
-      <HeroCta
-        label='Web profesional'
-        title={
-          <>
-            Una web profesional para tu negocio desde{' '}
-            <span className='whitespace-nowrap'>
-              {getLaunchPriceAmountLabel()}
-            </span>
-          </>
-        }
-        description={
-          <>
-            <p className='mb-1'>
-              Web profesional para autónomos, emprendedores y pequeños negocios.
-            </p>
-            <p className='font-bold'>
-              Lista en {LAUNCH_DELIVERY_LABEL} · Hosting incluido · Sin cuotas
-              mensuales
-            </p>
-            <p className='mt-2 text-xl font-extrabold md:text-left md:text-2xl'>
-              <span className='whitespace-nowrap'>
-                {getLaunchInstallmentLabel()}
-              </span>{' '}
-              al empezar ·{' '}
-              <span className='whitespace-nowrap'>
-                {getLaunchInstallmentLabel()}
-              </span>{' '}
-              antes de publicar
-            </p>
-          </>
-        }
-        mobileDescription={
-          <>
-            <p className='mb-1'>
-              Web profesional para autónomos, emprendedores y pequeños negocios.
-            </p>
-            <p className='font-bold'>
-              Lista en {LAUNCH_DELIVERY_LABEL} · Hosting incluido · Sin cuotas
-              mensuales
-            </p>
-            <p className='mt-2 text-xl font-extrabold'>
-              <span className='whitespace-nowrap'>
-                {getLaunchInstallmentLabel()}
-              </span>{' '}
-              al empezar ·{' '}
-              <span className='whitespace-nowrap'>
-                {getLaunchInstallmentLabel()}
-              </span>{' '}
-              antes de publicar
-            </p>
-          </>
-        }
-        convertFirstOnMobile
-        buttonText='Quiero información'
-        buttonHref='#contacto'
-        heroType='form'
-        hasButton={false}
-        formTitle='Nosotros te llamamos'
-        formDescription='Te contactamos y confirmamos el proyecto. Sin compromiso.'
-        formSectionInfo={ADS_LAUNCH_FORM_ORIGIN}
-        formSubmitLabel='Quiero información'
-        formId='contacto'
-        hasBackground={false}
-        hasReviewBadge
-        isTopHero
-      />
+      <LaunchLandingHero />
 
       <ServiceIncludes
         title='Qué incluye la web'

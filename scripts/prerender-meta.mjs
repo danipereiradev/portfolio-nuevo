@@ -79,13 +79,16 @@ const buildCanonicalUrl = (routePath) => {
 const injectRoot = (html, inner) =>
   html.replace(/<div id="root"><\/div>/, `<div id="root">${inner}</div>`);
 
+const injectBeforeRoot = (html, inner) =>
+  html.replace(/<div id="root"><\/div>/, `${inner}<div id="root"></div>`);
+
 const ADS_LAUNCH_LANDING_PATH = '/landing-web-profesional';
 
-/** H1 del hero en el HTML estático: el LCP no espera a React. */
+/** H1 fuera de #root: createRoot no lo borra y el LCP se queda en el primer pintado. */
 const buildLaunchLandingHeroHtml = () => {
   const price = '590\u00A0€\u00A0+\u00A0IVA';
   const installment = '295\u00A0€\u00A0+\u00A0IVA';
-  return `<section id="hero" class="page-hero relative overflow-hidden text-ink-dark bg-accent-light">
+  return `<section id="hero" data-lcp-boot-hero class="page-hero relative overflow-hidden text-ink-dark bg-accent-light">
     <div class="container relative z-30 mx-auto flex flex-col items-center gap-3 md:gap-4">
       <div class="w-full grid grid-cols-1 md:grid-cols-2 md:text-start md:items-center gap-page-gap text-center md:justify-center">
         <div class="hero-cta-copy flex w-full min-w-0 flex-col items-center gap-page-gap md:items-start md:justify-center">
@@ -99,9 +102,24 @@ const buildLaunchLandingHeroHtml = () => {
             </div>
           </div>
         </div>
+        <div id="hero-form-slot"></div>
       </div>
     </div>
   </section>`;
+};
+
+const injectLaunchBootHeroCss = (html) => {
+  if (html.includes('id="lcp-boot-hero-css"')) return html;
+  return html.replace(
+    '</head>',
+    `    <style id="lcp-boot-hero-css">
+      body{background:#edeff7}
+      [data-lcp-boot-hero]{min-height:100vh;min-height:100svh;background:#edeff7;color:#141414;display:flex;align-items:center;box-sizing:border-box;padding:7.5rem 0 4rem}
+      [data-lcp-boot-hero] .container{width:95%;max-width:1248px;margin-left:auto;margin-right:auto;padding-left:1rem;padding-right:1rem}
+      [data-lcp-boot-hero] h1{font-family:'Space Grotesk',Inter,system-ui,sans-serif;font-size:1.875rem;line-height:2.25rem;font-weight:800;letter-spacing:-0.25px;margin:0}
+    </style>
+  </head>`,
+  );
 };
 
 const findAsset = (prefix) => {
@@ -346,7 +364,8 @@ for (const [routePath, meta] of Object.entries(pagesMeta)) {
       `<main>${localWeb.buildLocalWebSpainSectionHtml()}</main>`,
     );
   } else if (routePath === ADS_LAUNCH_LANDING_PATH) {
-    html = injectRoot(html, buildLaunchLandingHeroHtml());
+    html = injectBeforeRoot(html, buildLaunchLandingHeroHtml());
+    html = injectLaunchBootHeroCss(html);
     html = injectModulePreload(html, findAsset('LandingWebProfesional-'));
   }
 

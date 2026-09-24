@@ -63,9 +63,17 @@ const Maintenance = lazy(() => import('./pages/Maintenance'));
 const Pago = lazy(() => import('./pages/Pago'));
 const PagoGracias = lazy(() => import('./pages/PagoGracias'));
 
+const hasVisibleLaunchBootHero = () =>
+  typeof document !== 'undefined' &&
+  Boolean(document.querySelector('[data-lcp-boot-hero]:not([hidden])'));
+
 const PageFallback = () => (
   <main
-    className='min-h-[calc(100svh-var(--site-header-h))] bg-surface-base'
+    className={`${
+      hasVisibleLaunchBootHero()
+        ? 'min-h-0'
+        : 'min-h-[calc(100svh-var(--site-header-h))]'
+    } bg-surface-base`}
     aria-busy='true'
     aria-live='polite'
   />
@@ -101,7 +109,11 @@ function AppContent() {
 
   return (
     <AdsLandingLinkGuard>
-      <div className='relative min-h-svh bg-surface-base'>
+      <div
+        className={`relative bg-surface-base ${
+          hasVisibleLaunchBootHero() ? '' : 'min-h-svh'
+        }`}
+      >
         <Header />
 
         <div className='overflow-x-clip'>
