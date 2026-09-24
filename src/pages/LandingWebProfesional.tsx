@@ -113,31 +113,30 @@ const processSteps = [
 const faqs = [
   {
     question: '¿Cuánto cuesta?',
-    answer: `${getLaunchPriceLabel()}. El precio concreto va por escrito, según el alcance. Hosting incluido. El dominio lo pagas tú: 12 € al año. Sin permanencia. La web es tuya.`,
+    answer: `El precio cerrado es de ${getLaunchPriceAmountLabel()}. No hay sorpresas, ni letra pequeña, ni costes ocultos. Te lo cerramos por escrito antes de empezar, para que sepas exactamente lo que pagas de principio a fin. Ecommerce, desarrollo a medida o tiendas online con catálogos grandes se presupuestan aparte.`,
   },
   {
     question: '¿Cuánto tarda?',
-    answer: `Se publica en ${LAUNCH_DELIVERY_LABEL} desde que tenemos logo, textos, fotos y datos de contacto. El reloj empieza cuando ese material está listo.`,
+    answer: `Tu web está lista y publicada en ${LAUNCH_DELIVERY_LABEL}. El plazo empieza cuando nos das la información básica de tu negocio (fotos, textos e ideas). Los plazos van por escrito.`,
   },
   {
     question: '¿Y si no tengo logo ni textos?',
     answer:
-      'No hace falta que los traigas. Nuestro departamento de diseño gráfico crea el logo y el de copy redacta los textos, adaptados a tu marca y a tu sector. Los revisas tú antes de publicar.',
+      'No hace falta que los traigas. Si no tienes textos, los redactamos y los adaptamos a tu sector. Si no tienes logo, te preparamos una propuesta básica y limpia para arrancar, sin coste añadido. Lo revisas tú antes de publicar.',
   },
   {
     question: '¿Cómo se paga?',
-    answer:
-      `${getLaunchInstallmentLabel()} al empezar y ${getLaunchInstallmentLabel()} cuando estés contento con el resultado, justo antes de publicar. Primero te contactamos y confirmamos el proyecto.`,
+    answer: `Dos tramos fijos: ${getLaunchInstallmentLabel()} al empezar, para poner en marcha el diseño, y ${getLaunchInstallmentLabel()} antes de publicar. El último pago solo lo haces cuando has revisado la web y estás conforme con el resultado.`,
   },
   {
     question: '¿El hosting y el dominio están incluidos?',
     answer:
-      'El hosting lo incluimos gratis, con tu dominio. Si ya tienes hosting, la montamos ahí sin coste. El dominio lo pagas tú: 12 € al año, a tu nombre.',
+      'Sí. El primer año entran el hosting y el registro de tu dominio (.es o .com). Si ya tienes hosting, la montamos ahí sin coste.',
   },
   {
     question: '¿La web es mía? ¿Puedo pedir cambios?',
     answer:
-      `Sí. El dominio queda a tu nombre y el hosting lo incluimos gratis. Antes de publicar la revisas; si algo importante no encaja, lo ajustamos. ${getLaunchInstallmentLabel()} al publicar, cuando apruebes. Cambios posteriores se presupuestan aparte.`,
+      'Sí, la web es tuya. Sin suscripción ni permanencia mensual. Al terminar te entregamos los accesos. Podrás cambiar textos e imágenes desde el panel. Cambios posteriores o secciones nuevas se presupuestan aparte.',
   },
 ];
 
@@ -173,45 +172,37 @@ const LandingWebProfesional = () => {
         title={`Una web profesional para tu negocio desde ${getLaunchPriceAmountLabel()}`}
         description={
           <>
-            <p>
+            <p className='mb-1'>
               Web profesional para autónomos, emprendedores y pequeños negocios.
             </p>
-            <p className='mt-2 font-extrabold'>
-              {getLaunchPriceLabel()} · Lista en {LAUNCH_DELIVERY_LABEL} ·
-              Hosting incluido · Sin cuotas mensuales
+            <p className='font-bold'>
+              Lista en {LAUNCH_DELIVERY_LABEL} · Hosting incluido · Sin cuotas
+              mensuales
             </p>
-            <ul className='mt-4 space-y-1 text-center text-base font-bold md:text-left md:text-lg'>
-              <li>
-                {getLaunchInstallmentLabel()} al empezar ·{' '}
-                {getLaunchInstallmentLabel()} antes de publicar
-              </li>
-            </ul>
+            <p className='mt-2 text-xl font-extrabold md:text-left md:text-2xl'>
+              {getLaunchInstallmentLabel()} al empezar ·{' '}
+              {getLaunchInstallmentLabel()} antes de publicar
+            </p>
           </>
         }
         mobileDescription={
           <>
-            <p>
+            <p className='mb-1'>
               Web profesional para autónomos, emprendedores y pequeños negocios.
             </p>
-            <p className='mt-2 font-extrabold'>
-              {getLaunchPriceLabel()} · Lista en {LAUNCH_DELIVERY_LABEL} ·
-              Hosting incluido · Sin cuotas mensuales
+            <p className='font-bold'>
+              Lista en {LAUNCH_DELIVERY_LABEL} · Hosting incluido · Sin cuotas
+              mensuales
             </p>
-          </>
-        }
-        mobileProof={
-          <ul className='space-y-1 text-center text-base font-bold'>
-            <li>
+            <p className='mt-2 text-xl font-extrabold'>
               {getLaunchInstallmentLabel()} al empezar ·{' '}
               {getLaunchInstallmentLabel()} antes de publicar
-            </li>
-            <li>Hosting incluido</li>
-          </ul>
+            </p>
+          </>
         }
         convertFirstOnMobile
         buttonText='Quiero información'
         buttonHref='#contacto'
-        backgroundUrl='/video/hero-nubes.jpg'
         heroType='form'
         hasButton={false}
         formTitle='Nosotros te llamamos'
@@ -219,8 +210,7 @@ const LandingWebProfesional = () => {
         formSectionInfo={ADS_LAUNCH_FORM_ORIGIN}
         formSubmitLabel='Quiero información'
         formId='contacto'
-        hasBackground
-        overlay='none'
+        hasBackground={false}
         hasReviewBadge
         isTopHero
       />

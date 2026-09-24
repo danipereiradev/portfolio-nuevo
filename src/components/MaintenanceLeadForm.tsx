@@ -136,12 +136,8 @@ const MaintenanceLeadForm = ({
     if (emailValue && !emailValid) {
       newErrors.email = 'Introduce un email válido';
     }
-    if (phoneValue && !phoneValid) {
+    if (!phoneValid) {
       newErrors.phone = 'Introduce un teléfono válido';
-    }
-    if (!emailValid && !phoneValid && !emailValue && !phoneValue) {
-      newErrors.email = 'Introduce un email o un teléfono';
-      newErrors.phone = 'Introduce un email o un teléfono';
     }
 
     if (!validateWebsite(formData.website)) {
@@ -294,6 +290,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             className={inputClass(Boolean(errors.name))}
             placeholder='Tu nombre *'
             maxLength={50}
+            required
           />
           {errors.name ? <ErrorMessage error={errors.name} /> : null}
           <input
@@ -312,9 +309,10 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             onInput={handleTypedInput}
             onChange={(e) => handleInputChange('phone', e.target.value)}
             className={inputClass(Boolean(errors.phone))}
-            placeholder='Tu teléfono'
+            placeholder='Tu teléfono *'
             autoComplete='tel'
             inputMode='tel'
+            required
           />
           {errors.phone ? <ErrorMessage error={errors.phone} /> : null}
           <input
@@ -323,9 +321,10 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             onInput={handleTypedInput}
             onChange={(e) => handleInputChange('website', e.target.value)}
             className={inputClass(Boolean(errors.website))}
-            placeholder='URL de tu web'
+            placeholder='URL de tu web *'
             inputMode='url'
             autoComplete='url'
+            required
           />
           {errors.website ? <ErrorMessage error={errors.website} /> : null}
           <select
@@ -334,7 +333,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             className={`${inputClass(Boolean(errors.need))} ${
               formData.need ? '' : 'text-gray-400'
             }`}
-            aria-label='¿Qué necesitas?'
+            aria-label='¿Qué necesitas? *'
             required
           >
             {MAINTENANCE_NEED_OPTIONS.map((option) => (
@@ -356,6 +355,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             className={`${inputClass(Boolean(errors.message))} min-h-32 resize-y text-lg md:text-xl`}
             placeholder='Qué le pasa a la web *'
             maxLength={2000}
+            required
           />
           {errors.message ? <ErrorMessage error={errors.message} /> : null}
 

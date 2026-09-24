@@ -332,7 +332,6 @@ const LandingGoogleAds = () => {
         convertFirstOnMobile
         buttonText='Quiero información'
         buttonHref='#contacto'
-        backgroundUrl='/video/hero-nubes.jpg'
         heroType='form'
         hasButton={false}
         formTitle='Nosotros te llamamos'
@@ -340,8 +339,7 @@ const LandingGoogleAds = () => {
         formSectionInfo={ADS_GOOGLE_ADS_FORM_ORIGIN}
         formSubmitLabel='Quiero información'
         formId='contacto'
-        hasBackground
-        overlay='none'
+        hasBackground={false}
         hasReviewBadge
         isTopHero
       />

@@ -261,15 +261,13 @@ const LandingWeb = () => {
         }
         buttonText='PEDIR PROPUESTA'
         buttonHref='#contacto'
-        backgroundUrl='/video/hero-nubes.jpg'
         heroType='form'
         hasButton={false}
         formTitle='Nosotros te llamamos'
         formDescription='Propuesta en el mismo día. Sin compromiso.'
         formSectionInfo='Landing diseño web — Hero'
         formId='contacto'
-        hasBackground
-        overlay='none'
+        hasBackground={false}
         hasReviewBadge
         isTopHero
         convertFirstOnMobile

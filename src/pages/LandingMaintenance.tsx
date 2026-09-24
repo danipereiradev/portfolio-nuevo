@@ -342,11 +342,9 @@ const LandingMaintenance = () => {
         }
         buttonText='Pedir propuesta'
         buttonHref={`#${MAINTENANCE_CONTACT_ID}`}
-        backgroundUrl='/video/hero-nubes.jpg'
         heroType='offer'
         hasButton={false}
-        hasBackground
-        overlay='none'
+        hasBackground={false}
         hasReviewBadge
         isTopHero
         convertFirstOnMobile

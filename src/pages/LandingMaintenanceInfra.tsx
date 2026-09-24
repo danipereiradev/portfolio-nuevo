@@ -117,7 +117,6 @@ const LandingMaintenanceInfra = () => {
         convertFirstOnMobile
         buttonText='Pagar puesta en marcha'
         buttonHref='#precio'
-        backgroundUrl='/video/hero-nubes.jpg'
         heroType='form'
         hasButton={false}
         formTitle='Nosotros te llamamos'
@@ -125,8 +124,7 @@ const LandingMaintenanceInfra = () => {
         formSectionInfo={ADS_MAINTENANCE_INFRA_FORM_ORIGIN}
         formSubmitLabel='Quiero información'
         formId='contacto'
-        hasBackground
-        overlay='none'
+        hasBackground={false}
         hasReviewBadge
         isTopHero
       />

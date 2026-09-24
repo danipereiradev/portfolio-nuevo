@@ -446,7 +446,7 @@ const HeroCta = ({
             ) : null
           ) : null}
           {hasReviewBadge && convertFirstOnMobile && !isDesktop ? (
-            <div className='hero-cta-badge flex w-full justify-center md:hidden'>
+            <div className='hero-cta-badge mt-2 flex w-full justify-center pb-4 md:hidden'>
               <TestimonialsBadge />
             </div>
           ) : null}

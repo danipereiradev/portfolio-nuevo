@@ -219,10 +219,10 @@ Fecha: ${new Date().toLocaleString('es-ES')}
     const emailValue = formData.email.trim();
     const phoneValue = formData.phone.trim();
 
-    if (!emailValue || !validateEmail(emailValue)) {
+    if (emailValue && !validateEmail(emailValue)) {
       newErrors.email = 'Introduce un email válido';
     }
-    if (phoneValue && !validatePhone(phoneValue)) {
+    if (!phoneValue || !validatePhone(phoneValue)) {
       newErrors.phone = 'Introduce un teléfono válido';
     }
 
@@ -275,6 +275,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             className={fieldClass(Boolean(errors.name))}
             placeholder='Tu nombre *'
             maxLength={50}
+            required
           />
           {errors.name && <ErrorMessage error={errors.name} />}
           <input
@@ -284,8 +285,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             onChange={(e) => handleInputChange('email', e.target.value)}
             className={fieldClass(Boolean(errors.email))}
             autoComplete='email'
-            placeholder='Tu email *'
-            required
+            placeholder='Tu email'
           />
           {errors.email && <ErrorMessage error={errors.email} />}
           <input
@@ -294,9 +294,10 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             onInput={handleTypedInput}
             onChange={(e) => handleInputChange('phone', e.target.value)}
             className={fieldClass(Boolean(errors.phone))}
-            placeholder='Tu teléfono'
+            placeholder='Tu teléfono *'
             autoComplete='tel'
             inputMode='tel'
+            required
           />
           {errors.phone && <ErrorMessage error={errors.phone} />}
 

@@ -108,10 +108,10 @@ const ContactForm = ({
     const emailValue = formData.email.trim();
     const phoneValue = formData.phone.trim();
 
-    if (!emailValue || !validateEmail(emailValue)) {
+    if (emailValue && !validateEmail(emailValue)) {
       newErrors.email = 'Introduce un email válido';
     }
-    if (phoneValue && !validatePhone(phoneValue)) {
+    if (!phoneValue || !validatePhone(phoneValue)) {
       newErrors.phone =
         'Introduce un teléfono válido (ej: 600 000 000 o +34 600 000 000)';
     }
@@ -337,6 +337,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                     }`}
                     placeholder='Tu nombre completo'
                     maxLength={50}
+                    required
                   />
                 </div>
                 {errors.name && <ErrorMessage error={errors.name} />}
@@ -344,7 +345,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
               <div>
                 <label className='block text-sm font-medium text-gray-700 mb-2 text-center md:text-left'>
-                  Email *
+                  Email
                 </label>
                 <div className='relative'>
                   <Mail className='absolute left-3 top-3 w-5 h-5 text-gray-400' />
@@ -359,7 +360,6 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                     }`}
                     placeholder='tu@email.com'
                     autoComplete='email'
-                    required
                   />
                 </div>
                 {errors.email && <ErrorMessage error={errors.email} />}
@@ -367,7 +367,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
               <div>
                 <label className='block text-sm font-medium text-gray-700 mb-2 text-center md:text-left'>
-                  Teléfono
+                  Teléfono *
                 </label>
                 <div className='relative'>
                   <Phone className='absolute left-3 top-3 w-5 h-5 text-gray-400' />
@@ -383,6 +383,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                     placeholder='600 000 000'
                     autoComplete='tel'
                     inputMode='tel'
+                    required
                   />
                 </div>
                 {errors.phone && <ErrorMessage error={errors.phone} />}

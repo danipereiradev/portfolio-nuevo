@@ -66,7 +66,7 @@ const SEOFAQ = ({
               </button>
               <div
                 className={`overflow-hidden transition-all duration-300 ${
-                  openIndex === index ? 'max-h-[32rem]' : 'max-h-0'
+                  openIndex === index ? 'max-h-[48rem]' : 'max-h-0'
                 }`}
               >
                 <div className='px-content-pad pb-content-pad'>
