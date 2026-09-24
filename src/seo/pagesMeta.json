@@ -45,7 +45,8 @@
   },
   "/landing-diseno-web": {
     "title": "Diseño web | 36web",
-    "description": "Te montamos la web de tu negocio: estructura, diseño, móvil, formulario y WhatsApp. Te decimos precio y plazos antes de cobrar nada."
+    "description": "Te montamos la web de tu negocio: estructura, diseño, móvil, formulario y WhatsApp. Te decimos precio y plazos antes de cobrar nada.",
+    "robots": "noindex, nofollow, noarchive"
   },
   "/landing-web-profesional": {
     "title": "Una web profesional para arrancar tu negocio desde 590 € + IVA | 36web",
@@ -54,19 +55,23 @@
   },
   "/landing-tiendas-online": {
     "title": "Tiendas online | 36web",
-    "description": "Te montamos la tienda online: catálogo, pagos, envíos y móvil. WooCommerce, Shopify o a medida. Te decimos precio y plazos antes de cobrar nada."
+    "description": "Te montamos la tienda online: catálogo, pagos, envíos y móvil. WooCommerce, Shopify o a medida. Te decimos precio y plazos antes de cobrar nada.",
+    "robots": "noindex, nofollow, noarchive"
   },
   "/landing-mantenimiento-web": {
     "title": "Mantenimiento y soporte web cuando lo necesitas | 36web",
-    "description": "Planes desde 59 € + IVA/mes o bonos de horas para arreglos puntuales. Trabajamos también con webs hechas por otras empresas. Propuesta el mismo día. Sin permanencia."
+    "description": "Planes desde 59 € + IVA/mes o bonos de horas para arreglos puntuales. Trabajamos también con webs hechas por otras empresas. Propuesta el mismo día. Sin permanencia.",
+    "robots": "noindex, nofollow, noarchive"
   },
   "/landing-google-ads": {
     "title": "Google Ads con landing incluida | 250 € + 200 €/mes | 36web",
-    "description": "Campañas de Google Ads para que te encuentren. Setup 250 € + IVA y 200 € + IVA/mes. Landing incluida. Sin permanencia. La inversión la pagas tú a Google."
+    "description": "Campañas de Google Ads para que te encuentren. Setup 250 € + IVA y 200 € + IVA/mes. Landing incluida. Sin permanencia. La inversión la pagas tú a Google.",
+    "robots": "noindex, nofollow, noarchive"
   },
   "/landing-mantenimiento-infra": {
     "title": "Mantenimiento Negocio + Infraestructura | 139 €/mes | 36web",
-    "description": "Mantenimiento WordPress, hosting, correo, monitorización y backups. Puesta en marcha 199 € + IVA. Mensual 139 € + IVA. Precio cerrado."
+    "description": "Mantenimiento WordPress, hosting, correo, monitorización y backups. Puesta en marcha 199 € + IVA. Mensual 139 € + IVA. Precio cerrado.",
+    "robots": "noindex, nofollow, noarchive"
   },
   "/blog": {
     "title": "Blog de diseño web y tiendas online | 36web",
