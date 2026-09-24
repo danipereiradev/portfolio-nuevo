@@ -14,7 +14,10 @@ export type LocalWebFaq = {
 };
 
 /** Cómo está 36web en esa plaza. Sin dirección: no hay campo de calle a propósito. */
-export type LocalWebPresenciaTipo = 'estudio' | 'atencion_directa' | 'cobertura';
+export type LocalWebPresenciaTipo =
+  | 'estudio'
+  | 'atencion_directa'
+  | 'cobertura';
 
 export type LocalWebPresencia = {
   tipo: LocalWebPresenciaTipo;
@@ -79,7 +82,7 @@ export const LOCAL_WEB_COMMON_FAQS: LocalWebFaq[] = [
   {
     question: '¿Cuánto cuesta una web?',
     answer:
-      'Opciones desde 349 € + IVA. Si el proyecto pide más, presupuesto cerrado antes de empezar. Precio y plazo por escrito.',
+      'Opciones desde 590 € + IVA. Si el proyecto pide más, presupuesto cerrado antes de empezar. Precio y plazo por escrito.',
   },
   {
     question: '¿El plazo cuenta desde que os escribo?',

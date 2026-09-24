@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import RevealOnScroll from './RevealOnScroll';
 import VideoTestimonial from './VideoTestimonial';
+import { isAdsLandingPath } from '../config/contact';
 
 const TRUSTINDEX_WIDGET_SRC =
   'https://cdn.trustindex.io/loader.js?7268074797d8717b3c668cae8f6';
@@ -20,6 +22,9 @@ function Testimonials({
   id = 'testimonials',
   hasVideo = false,
 }: TestimonialsProps) {
+  const { pathname } = useLocation();
+  const lockOutbound = isAdsLandingPath(pathname);
+
   useEffect(() => {
     let cancelled = false;
     let intervalId = 0;
@@ -61,14 +66,28 @@ function Testimonials({
         {hasVideo ? (
           <div className='flex flex-col items-center gap-page-gap lg:grid lg:grid-cols-4 lg:items-center lg:gap-8'>
             <div className='min-w-0 w-full lg:col-span-3'>
-              <div data-src={TRUSTINDEX_WIDGET_SRC} />
+              <div
+                className={lockOutbound ? 'pointer-events-none select-none' : undefined}
+                ref={(node) => {
+                  if (node) node.inert = lockOutbound;
+                }}
+              >
+                <div data-src={TRUSTINDEX_WIDGET_SRC} />
+              </div>
             </div>
             <RevealOnScroll className='w-full lg:col-span-1' delayMs={90}>
               <VideoTestimonial className='lg:mx-0 lg:max-w-none' />
             </RevealOnScroll>
           </div>
         ) : (
-          <div data-src={TRUSTINDEX_WIDGET_SRC} />
+          <div
+            className={lockOutbound ? 'pointer-events-none select-none' : undefined}
+            ref={(node) => {
+              if (node) node.inert = lockOutbound;
+            }}
+          >
+            <div data-src={TRUSTINDEX_WIDGET_SRC} />
+          </div>
         )}
       </div>
     </section>

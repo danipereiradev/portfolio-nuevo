@@ -1,6 +1,8 @@
-import { useState, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
+import { X } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useSectionView } from '../hooks/useSectionView';
+import { useBodyScrollLock } from '../hooks/useBodyScrollLock';
 import { PictureImg } from './PictureImg';
 import RevealOnScroll from './RevealOnScroll';
 import Button from './Button';
@@ -16,10 +18,7 @@ import {
   SITE_WEB_LABEL,
   SITE_WEB_PATH,
 } from '../config/contact';
-import {
-  localWebDemoHref,
-  localWebDemoImage,
-} from '../data/localWebDemos';
+import { localWebDemoImage } from '../data/localWebDemos';
 
 type ProjectId =
   | 'chicxs'
@@ -66,27 +65,17 @@ interface PortfolioProps {
   ctaHref?: string;
 }
 
-/** Pool de clientes reales. En cada carga se eligen 3 al azar. */
-const REAL_CLIENTS: ProjectId[] = [
-  'hatena',
-  'carper',
-  'alicornio',
+/** Fila 1: clientes reales. Fila 2: demos de sector. */
+const ALL_ORDER: ProjectId[] = [
   'beachvans',
   'vidal',
   'camisetas',
+  'reformas',
+  'inmobiliaria',
+  'psicologa',
 ];
-const DEMO_ORDER: ProjectId[] = ['reformas', 'inmobiliaria', 'psicologa'];
 const SHOP_ORDER: ProjectId[] = ['camisetas'];
 const CASOS_ORDER: ProjectId[] = ['chicxs', 'hoyviajamos', 'camisetas'];
-
-function pickRandomIds(pool: ProjectId[], count: number): ProjectId[] {
-  const next = [...pool];
-  for (let i = next.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [next[i], next[j]] = [next[j], next[i]];
-  }
-  return next.slice(0, count);
-}
 
 const cardClass =
   'flex h-full flex-col overflow-hidden rounded-lg border-2 border-ink-dark bg-white';
@@ -125,35 +114,84 @@ function CasosCard({
   );
 }
 
-const DEMO_CITY_SLUG = 'tu-ciudad';
+function CaptureLightbox({
+  title,
+  image,
+  onClose,
+}: {
+  title: string;
+  image: string;
+  onClose: () => void;
+}) {
+  useBodyScrollLock(true);
+
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') onClose();
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [onClose]);
+
+  return (
+    <div
+      className='fixed inset-0 z-[9999] flex items-center justify-center p-4'
+      role='dialog'
+      aria-modal='true'
+      aria-label={title}
+      onClick={onClose}
+    >
+      <div className='absolute inset-0 bg-black/80 backdrop-blur-sm' />
+      <button
+        type='button'
+        onClick={onClose}
+        className='absolute right-4 top-4 z-10 rounded-full border-2 border-ink-dark bg-white p-2 shadow-[3px_3px_0_0_#1a1a1a] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[1px_1px_0_0_#1a1a1a]'
+        aria-label='Cerrar captura'
+      >
+        <X className='h-6 w-6 text-ink-dark' />
+      </button>
+      <div
+        className='relative max-h-[90vh] w-full max-w-6xl'
+        onClick={(event) => event.stopPropagation()}
+      >
+        <PictureImg
+          src={image}
+          alt={title}
+          width={1536}
+          height={1024}
+          className='mx-auto max-h-[90vh] w-auto object-contain'
+        />
+      </div>
+    </div>
+  );
+}
 
 function ShowcaseCard({
-  badge,
   sector,
   title,
-  result,
+  description,
   image,
-  url,
   ctaLabel,
-  nofollow = false,
-  onClick,
+  onOpen,
 }: {
-  badge: string;
   sector: string;
   title: string;
-  result?: string;
+  description: string;
   image: string;
-  url?: string;
   ctaLabel: string;
-  nofollow?: boolean;
-  onClick?: () => void;
+  onOpen: () => void;
 }) {
   return (
     <article className={cardClass}>
-      <div className='relative bg-ink-dark'>
+      <button
+        type='button'
+        onClick={onOpen}
+        className='bg-ink-dark'
+        aria-label={`${ctaLabel}: ${title}`}
+      >
         <PictureImg
           src={image}
-          alt={`Web de ${title}`}
+          alt={`Mockup de escritorio y móvil de ${title}`}
           width={1536}
           height={1024}
           className='w-full object-contain'
@@ -161,10 +199,7 @@ function ShowcaseCard({
           decoding='async'
           draggable={false}
         />
-        <span className='pointer-events-none absolute left-3 top-3 z-10 rounded-md bg-white px-2.5 py-1 text-xs font-extrabold uppercase tracking-wide text-ink-dark'>
-          {badge}
-        </span>
-      </div>
+      </button>
       <div className='flex flex-1 flex-col items-center gap-2 p-content-pad text-center'>
         <p className='text-sm font-extrabold uppercase tracking-wide text-accent'>
           {sector}
@@ -172,30 +207,16 @@ function ShowcaseCard({
         <h3 className='text-xl font-extrabold text-ink-dark md:text-2xl'>
           {title}
         </h3>
-        {result ? (
-          <p className='text-base font-bold text-ink-dark md:text-lg'>
-            {result}
-          </p>
-        ) : null}
-        {url ? (
-          <a
-            href={url}
-            target='_blank'
-            rel={
-              nofollow
-                ? 'nofollow noopener noreferrer'
-                : 'noopener noreferrer'
-            }
-            aria-label={`${ctaLabel} de ${title}`}
-            onClick={() => {
-              trackPortfolioClick(title);
-              onClick?.();
-            }}
-            className='mt-auto inline-flex min-h-12 items-center justify-center rounded-lg bg-accent px-5 py-3 text-sm font-extrabold uppercase text-white hover:bg-accent-hover md:text-base'
-          >
-            {ctaLabel}
-          </a>
-        ) : null}
+        <p className='text-base leading-snug text-ink-dark md:text-lg'>
+          {description}
+        </p>
+        <button
+          type='button'
+          onClick={onOpen}
+          className='mt-auto inline-flex min-h-12 items-center justify-center rounded-lg bg-accent px-5 py-3 text-sm font-extrabold uppercase text-white hover:bg-accent-hover md:text-base'
+        >
+          {ctaLabel}
+        </button>
       </div>
     </article>
   );
@@ -206,7 +227,6 @@ const Portfolio = ({
   casos = false,
   ids,
   images,
-  urls,
   titles,
   onProjectClick,
   headingLabel,
@@ -221,7 +241,10 @@ const Portfolio = ({
   const sectionRef = useSectionView<HTMLElement>(trackViewPortfolioSection);
   const isPackLanding = variant === 'web-profesional';
   const isCasos = casos || isPackLanding;
-  const [randomReals] = useState(() => pickRandomIds(REAL_CLIENTS, 3));
+  const [lightbox, setLightbox] = useState<{
+    title: string;
+    image: string;
+  } | null>(null);
 
   const projectsById: Record<
     ProjectId,
@@ -266,11 +289,9 @@ const Portfolio = ({
       image: '/img/portfolio/new/camisetas.png',
       product: SITE_SHOP_LABEL,
       productHref: SITE_SHOP_PATH,
-      url: 'https://camisetas-ahora.com',
       nofollow: true,
       exito: t('portfolio.camisetas.desc'),
       sector: t('portfolio.camisetas.sector'),
-      result: t('portfolio.camisetas.result'),
     },
     resilience: {
       title: t('portfolio.resilience.title'),
@@ -312,11 +333,9 @@ const Portfolio = ({
       image: '/img/portfolio/new/clinica-vidal.png',
       product: SITE_WEB_LABEL,
       productHref: SITE_WEB_PATH,
-      url: 'https://clinicavidalinsua.com',
       nofollow: true,
       exito: t('portfolio.vidal.desc'),
       sector: t('portfolio.vidal.sector'),
-      result: t('portfolio.vidal.result'),
     },
     beachvans: {
       title: t('portfolio.beachvans.title'),
@@ -324,11 +343,9 @@ const Portfolio = ({
       image: '/img/portfolio/new/beachvans.png',
       product: SITE_WEB_LABEL,
       productHref: SITE_WEB_PATH,
-      url: 'https://beachvanscamper.com',
       nofollow: true,
       exito: t('portfolio.beachvans.desc'),
       sector: t('portfolio.beachvans.sector'),
-      result: t('portfolio.beachvans.result'),
     },
     delish: {
       title: t('portfolio.delish.title'),
@@ -390,44 +407,37 @@ const Portfolio = ({
     },
     reformas: {
       title: t('portfolio.reformas.title'),
-      description: t('portfolio.reformas.result'),
+      description: t('portfolio.reformas.desc'),
       image: localWebDemoImage('reformas.webp'),
       product: SITE_WEB_LABEL,
       productHref: SITE_WEB_PATH,
-      url: localWebDemoHref('reparaciones', DEMO_CITY_SLUG),
       sector: t('portfolio.reformas.sector'),
-      result: t('portfolio.reformas.result'),
-      exito: t('portfolio.reformas.result'),
+      exito: t('portfolio.reformas.desc'),
       kind: 'demo',
     },
     inmobiliaria: {
       title: t('portfolio.inmobiliaria.title'),
-      description: t('portfolio.inmobiliaria.result'),
+      description: t('portfolio.inmobiliaria.desc'),
       image: localWebDemoImage('inmobiliaria.webp'),
       product: SITE_WEB_LABEL,
       productHref: SITE_WEB_PATH,
-      url: localWebDemoHref('inmobiliaria', DEMO_CITY_SLUG),
       sector: t('portfolio.inmobiliaria.sector'),
-      result: t('portfolio.inmobiliaria.result'),
-      exito: t('portfolio.inmobiliaria.result'),
+      exito: t('portfolio.inmobiliaria.desc'),
       kind: 'demo',
     },
     psicologa: {
       title: t('portfolio.psicologa.title'),
-      description: t('portfolio.psicologa.result'),
+      description: t('portfolio.psicologa.desc'),
       image: localWebDemoImage('psicologa.webp'),
       product: SITE_WEB_LABEL,
       productHref: SITE_WEB_PATH,
-      url: localWebDemoHref('psicologia', DEMO_CITY_SLUG),
       sector: t('portfolio.psicologa.sector'),
-      result: t('portfolio.psicologa.result'),
-      exito: t('portfolio.psicologa.result'),
+      exito: t('portfolio.psicologa.desc'),
       kind: 'demo',
     },
   };
 
-  const showcaseOrder = [...randomReals, ...DEMO_ORDER];
-  const fallbackOrder = variant === 'tiendas' ? SHOP_ORDER : showcaseOrder;
+  const fallbackOrder = variant === 'tiendas' ? SHOP_ORDER : ALL_ORDER;
   const order = ids ?? (isCasos ? CASOS_ORDER : fallbackOrder);
 
   const mapPackBadge = <
@@ -524,25 +534,23 @@ const Portfolio = ({
                   delayMs={index * 90}
                 >
                   <ShowcaseCard
-                    badge={
-                      project.kind === 'demo'
-                        ? 'Plantilla / Demo en vivo'
-                        : 'Cliente real'
-                    }
                     sector={project.sector ?? ''}
                     title={project.title}
-                    result={project.result}
+                    description={project.description}
                     image={project.image}
-                    url={urls?.[project.id] ?? project.url}
                     ctaLabel={
-                      project.kind === 'demo' ? 'Ver demo' : 'Ver web real'
+                      project.kind === 'demo'
+                        ? 'Ver diseño base'
+                        : 'Ver captura completa'
                     }
-                    nofollow={project.nofollow}
-                    onClick={
-                      onProjectClick
-                        ? () => onProjectClick(project.id)
-                        : undefined
-                    }
+                    onOpen={() => {
+                      trackPortfolioClick(project.title);
+                      onProjectClick?.(project.id);
+                      setLightbox({
+                        title: project.title,
+                        image: project.image,
+                      });
+                    }}
                   />
                 </RevealOnScroll>
               ))}
@@ -567,6 +575,13 @@ const Portfolio = ({
           ) : null}
         </div>
       </section>
+      {lightbox ? (
+        <CaptureLightbox
+          title={lightbox.title}
+          image={lightbox.image}
+          onClose={() => setLightbox(null)}
+        />
+      ) : null}
     </>
   );
 };

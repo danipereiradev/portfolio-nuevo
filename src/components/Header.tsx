@@ -9,6 +9,7 @@ import {
   ABOUT_LABEL,
   isAdsGoogleAdsLandingPath,
   isAdsLandingPath,
+  isAdsLaunchLandingPath,
   isAdsMaintenanceInfraLandingPath,
 } from '../config/contact';
 import {
@@ -37,6 +38,7 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
   const { pathname } = useLocation();
   const isHome = pathname === '/';
   const isAdsLanding = isAdsLandingPath(pathname);
+  const isLaunchLanding = isAdsLaunchLandingPath(pathname);
   const isInfraLanding = isAdsMaintenanceInfraLandingPath(pathname);
   const landingNav = isAdsGoogleAdsLandingPath(pathname)
     ? LANDING_NAV_GOOGLE_ADS
@@ -152,7 +154,22 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
               </a>
             )}
 
-            {hideNav ? null : isAdsLanding ? (
+            {hideNav ? null : isLaunchLanding ? (
+              <a
+                href={PHONE_TEL_LINK}
+                onClick={() => trackPhoneClick('AdsLandingHeader')}
+                className='inline-flex shrink-0 items-center gap-1.5 text-ink-dark md:gap-2'
+                aria-label={`Llamar al ${PHONE_DISPLAY}`}
+              >
+                <Phone
+                  className='h-4 w-4 shrink-0 md:h-6 md:w-6'
+                  strokeWidth={2.5}
+                />
+                <span className='text-[calc(0.7rem*1.15)] font-semibold leading-none tracking-tight md:text-[calc(1.05rem*1.15)]'>
+                  {PHONE_DISPLAY}
+                </span>
+              </a>
+            ) : isAdsLanding ? (
               <>
                 <div className='flex items-center justify-end gap-3 lg:hidden'>
                   <a
@@ -309,7 +326,7 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
             )}
           </div>
 
-          {!hideNav && isAdsLanding && isMenuOpen ? (
+          {!hideNav && isAdsLanding && !isLaunchLanding && isMenuOpen ? (
             <nav
               className='mt-2 divide-y divide-ink-dark/15 lg:hidden'
               aria-label='En la página'

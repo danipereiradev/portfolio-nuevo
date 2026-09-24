@@ -73,11 +73,9 @@ const translations = {
   'portfolio.micolet.desc':
     'Moda de segunda mano y outlet con catálogo amplio y compra online.',
   'portfolio.camisetas.title': 'Tienda online Camisetas Ahora',
-  'portfolio.camisetas.sector': 'Sector Retail',
-  'portfolio.camisetas.result':
-    'Catálogo con filtros para vender camisetas personalizadas.',
+  'portfolio.camisetas.sector': 'Sector Retail y Moda · Cliente real',
   'portfolio.camisetas.desc':
-    'Tienda de camisetas personalizadas con muchos diseños, filtros y panel de stock.',
+    'Creamos un comercio electrónico ligero y rápido utilizando WordPress y WooCommerce. Implementamos un sistema de filtros avanzados por sectores para que los clientes encuentren y compren camisetas personalizadas sin fricciones.',
   'portfolio.hoyviajamos.title': 'Hoy Viajamos',
   'portfolio.hoyviajamos.desc':
     'Blog de viajes con galerías, categorías, afiliados y servicio de guías de viaje por suscripción.',
@@ -93,18 +91,14 @@ const translations = {
     'Presentación profesional para cerrar trabajos de sonido y eventos.',
   'portfolio.carper.desc':
     'Web de presentación para un negocio de sonido y eventos.',
-  'portfolio.vidal.title': 'Web para Clínica Vidal Insua',
-  'portfolio.vidal.sector': 'Sector Salud',
-  'portfolio.vidal.result':
-    'Servicios y citas de la clínica, claros en móvil y escritorio.',
+  'portfolio.vidal.title': 'Web corporativa para Clínica Vidal Insua',
+  'portfolio.vidal.sector': 'Sector Salud y Bienestar · Cliente real',
   'portfolio.vidal.desc':
-    'Web de clínica: especialidades, equipo y contacto para pedir cita.',
-  'portfolio.beachvans.title': 'Web para Beachvans Camper',
-  'portfolio.beachvans.sector': 'Sector Reformas',
-  'portfolio.beachvans.result':
-    'Furgonetas camperizadas a la vista, listas para consultar y pedir.',
+    'Desarrollamos una web médica enfocada a la confianza y la claridad. Priorizamos la visibilidad de los servicios y creamos un sistema directo para incentivar la reserva de citas tanto en ordenadores como en pantallas móviles.',
+  'portfolio.beachvans.title': 'Web catálogo para Beachvans Camper',
+  'portfolio.beachvans.sector': 'Sector Automoción y Ocio · Cliente real',
   'portfolio.beachvans.desc':
-    'Web de camperización: modelos, trabajos y contacto para pedir presupuesto.',
+    'Diseñamos una interfaz limpia y optimizada para móviles, logrando que su catálogo de furgonetas camperizadas sea fácil de consultar. Estructuramos la navegación para que el usuario pueda solicitar un presupuesto en menos de 3 clics.',
   'portfolio.resilience.title': 'Resilience Shop',
   'portfolio.resilience.desc':
     'Tienda de equipamiento ciclista: catálogo claro y compra sencilla.',
@@ -126,17 +120,17 @@ const translations = {
   'portfolio.silly.desc':
     'Web de banda: bio, música, entradas, noticias y merch.',
   'portfolio.reformas.title': 'Web de reformas y oficios',
-  'portfolio.reformas.sector': 'Sector Reformas',
-  'portfolio.reformas.result':
-    'Imágenes grandes y trabajos claros, listos para mostrar el antes y el después.',
+  'portfolio.reformas.sector': 'Sector Reformas · Ejemplo sectorial',
+  'portfolio.reformas.desc':
+    'Diseño pensado para oficios que viven de la foto: imágenes grandes, trabajos claros y un recorrido sencillo para pedir visita. Así un reformista enseña el antes y el después y captura encargos sin rodeos.',
   'portfolio.inmobiliaria.title': 'Web inmobiliaria',
-  'portfolio.inmobiliaria.sector': 'Sector Inmobiliaria',
-  'portfolio.inmobiliaria.result':
-    'Fichas de viviendas y un camino claro para captar propietarios.',
+  'portfolio.inmobiliaria.sector': 'Sector Inmobiliaria · Ejemplo sectorial',
+  'portfolio.inmobiliaria.desc':
+    'Estructura clara de fichas de viviendas y un camino directo para captar propietarios. Pensada para que una inmobiliaria muestre cartera y reciba consultas desde el móvil.',
   'portfolio.psicologa.title': 'Web para consulta de psicología',
-  'portfolio.psicologa.sector': 'Sector Salud',
-  'portfolio.psicologa.result':
-    'Tono sereno, autoridad profesional y un botón visible para agendar la primera sesión.',
+  'portfolio.psicologa.sector': 'Sector Psicología · Ejemplo sectorial',
+  'portfolio.psicologa.desc':
+    'Diseño estratégico con tono sereno y de autoridad profesional. Incluye una arquitectura pensada exclusivamente para profesionales de la salud que necesitan agendar primeras sesiones de forma automática.',
 
   // Categorías de contacto
   'contact.project.ecommerce': 'E-commerce',

@@ -45,6 +45,11 @@ export const getLaunchPriceAmountLabel = (): string =>
 export const getLaunchPriceLabel = (): string =>
   `Desde ${getLaunchPriceAmountLabel()}`;
 
+export const getLaunchInstallment = (): number => LAUNCH_PRICE / 2;
+
+export const getLaunchInstallmentLabel = (): string =>
+  `${formatEuro(getLaunchInstallment())} + IVA`;
+
 export const getLaunchReserveLabel = (): string =>
   `${formatEuro(LAUNCH_RESERVE)} + IVA`;
 

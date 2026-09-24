@@ -8,7 +8,7 @@ export const globalFaqs: GlobalFaqItem[] = [
   {
     question: '¿Cuánto cuesta una página web?',
     answer:
-      'No hay tarifa fija pública. Orientación: muchas webs quedan entre 349 € y 1500 € + IVA, según páginas y funciones. Tras hablarte, te enviamos un número concreto con plazos y lo incluido.',
+      'No hay tarifa fija pública. Orientación: muchas webs quedan entre 590 € y 1500 € + IVA, según páginas y funciones. Tras hablarte, te enviamos un número concreto con plazos y lo incluido.',
   },
   {
     question: '¿Cuánto tarda?',

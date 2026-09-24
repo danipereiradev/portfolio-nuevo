@@ -176,7 +176,7 @@ const faqs = [
   {
     question: '¿Cuánto cuesta y cómo se paga?',
     answer:
-      'Depende del alcance, no hay un pack fijo. Orientación: muchas webs quedan entre 349 € y 1500 € + IVA. Tras hablar te mandamos un número concreto, por escrito. Pedirlo es gratis. El 50% se paga al aceptar y arrancar. El resto, al publicar.',
+      'Depende del alcance, no hay un pack fijo. Orientación: muchas webs quedan entre 590 € y 1500 € + IVA. Tras hablar te mandamos un número concreto, por escrito. Pedirlo es gratis. El 50% se paga al aceptar y arrancar. El resto, al publicar.',
   },
   {
     question: '¿Qué web cuesta 590 €?',
@@ -314,7 +314,7 @@ const LandingWeb = () => {
         steps={processSteps}
       />
 
-      <Testimonials hasVideo       />
+      <Testimonials hasVideo />
 
       <div id='faq'>
         <SEOFAQ

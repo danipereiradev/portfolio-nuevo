@@ -1,19 +1,30 @@
+const ADS_LANDING_SAFE_PATHS = new Set([
+  '/aviso-legal',
+  '/politica-de-privacidad',
+  '/politica-de-cookies',
+  '/condiciones-del-proyecto',
+  '/terminos-y-condiciones',
+]);
+
 const isAllowedHost = (hostname: string): boolean => {
   const host = hostname.replace(/^www\./, '');
   return (
-    host === '36web.es' ||
     host === 'wa.me' ||
     host.endsWith('whatsapp.com') ||
     host === 'stripe.com' ||
-    host.endsWith('.stripe.com') ||
-    host === 'hatena.es' ||
-    host === 'carpersonido.com' ||
-    host === 'camisetas-ahora.com' ||
-    host === 'oalicornio.com' ||
-    host === 'beachvanscamper.com' ||
-    host === 'clinicavidalinsua.com' ||
-    host === 'demo-36web.vercel.app'
+    host.endsWith('.stripe.com')
   );
+};
+
+const normalizePath = (pathname: string): string =>
+  pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
+
+const isSafeSameOriginPath = (pathname: string): boolean => {
+  const path = normalizePath(pathname);
+  if (ADS_LANDING_SAFE_PATHS.has(path)) return true;
+  if (path === '/pago' || path.startsWith('/pago/')) return true;
+  if (path.startsWith('/gracias/')) return true;
+  return false;
 };
 
 export const isAllowedAdsLandingHref = (href: string): boolean => {
@@ -27,15 +38,28 @@ export const isAllowedAdsLandingHref = (href: string): boolean => {
   ) {
     return true;
   }
-  if (value.startsWith('/') && !value.startsWith('//')) return true;
 
   try {
     const url = new URL(value, window.location.origin);
-    if (url.origin === window.location.origin) return true;
+    if (url.origin === window.location.origin) {
+      return isSafeSameOriginPath(url.pathname);
+    }
     return isAllowedHost(url.hostname);
   } catch {
-    return true;
+    return false;
   }
+};
+
+const neutralizeAnchor = (anchor: Element): void => {
+  const href = anchor.getAttribute('href') || '';
+  if (!href || isAllowedAdsLandingHref(href)) return;
+  anchor.removeAttribute('href');
+  anchor.removeAttribute('target');
+  if (anchor.getAttribute('rel')) anchor.removeAttribute('rel');
+};
+
+export const neutralizeAdsLandingOutbound = (root: ParentNode): void => {
+  root.querySelectorAll('a[href]').forEach(neutralizeAnchor);
 };
 
 export const preventAdsLandingOutbound = (event: {

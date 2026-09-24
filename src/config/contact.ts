@@ -39,17 +39,19 @@ export const ADS_MAINTENANCE_INFRA_WHATSAPP_MESSAGE =
   'Estoy interesado en mantenimiento negocio e infraestructura';
 
 /** Origen del formulario en la landing de oferta 590 €. Sale en Formspree y en el tracking. */
-export const ADS_LAUNCH_FORM_ORIGIN = 'landing promo 349';
+export const ADS_LAUNCH_FORM_ORIGIN = 'landing promo 590';
 
 /** Captura de email: ¿entra en 590 €? No es el formulario de llamada. */
-export const ADS_LAUNCH_FIT_FORM_ORIGIN = 'landing promo 349 encaje';
+export const ADS_LAUNCH_FIT_FORM_ORIGIN = 'landing promo 590 encaje';
+
+/** Popup de salida en la landing de oferta 590 €. */
+export const ADS_LAUNCH_EXIT_FORM_ORIGIN = 'landing promo 590 salida';
 
 /** Origen del formulario de la landing de Google Ads. */
 export const ADS_GOOGLE_ADS_FORM_ORIGIN = 'landing google ads';
 
 /** Origen del formulario de la landing de mantenimiento + infraestructura. */
-export const ADS_MAINTENANCE_INFRA_FORM_ORIGIN =
-  'landing mantenimiento infra';
+export const ADS_MAINTENANCE_INFRA_FORM_ORIGIN = 'landing mantenimiento infra';
 
 /** Origen de cada formulario de la landing de mantenimiento (Formspree + GA). */
 export const ADS_MAINTENANCE_FORM_HERO = 'Landing mantenimiento web — Hero';
@@ -58,7 +60,7 @@ export const ADS_MAINTENANCE_FORM_FINAL =
 
 // Mensaje para el botón de WhatsApp de /web-profesional (landing de packs).
 export const WEB_PROFESIONAL_WHATSAPP_MESSAGE =
-  'Hola, quiero información sobre la web profesional (249 € / 349 €).';
+  'Hola, quiero información sobre la web profesional (590 € / 590 €).';
 
 // Mensaje para el botón de WhatsApp de /tiendas-online.
 export const ECOMMERCE_WHATSAPP_MESSAGE =

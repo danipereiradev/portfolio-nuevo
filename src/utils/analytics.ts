@@ -4,7 +4,11 @@
 // configurado: comprueba la existencia de `window.gtag` y `window.dataLayer`
 // antes de enviar nada, y nunca lanza excepciones.
 
-import { ADS_LAUNCH_FORM_ORIGIN, isAdsLandingPath } from '../config/contact';
+import {
+  ADS_LAUNCH_EXIT_FORM_ORIGIN,
+  ADS_LAUNCH_FORM_ORIGIN,
+  isAdsLandingPath,
+} from '../config/contact';
 import { LAUNCH_PRICE } from '../config/launchOffer';
 
 declare global {
@@ -214,9 +218,9 @@ export const trackGoogleAdsLaunchReserveConversion = (
 ): boolean => {
   if (typeof window === 'undefined') return false;
 
-  trackPricingSplitPayment('landing promo 349');
-  trackEvent('landing_promo_349_reserve_click', {
-    event_category: 'landing_promo_349',
+  trackPricingSplitPayment('landing promo 590');
+  trackEvent('landing_promo_590_reserve_click', {
+    event_category: 'landing_promo_590',
     event_label: locationSection,
     location_section: locationSection,
     value: 99,
@@ -224,9 +228,9 @@ export const trackGoogleAdsLaunchReserveConversion = (
   });
   trackEvent('begin_checkout', {
     event_category: 'ecommerce',
-    event_label: 'landing promo 349',
+    event_label: 'landing promo 590',
     location_section: locationSection,
-    landing_name: 'landing promo 349',
+    landing_name: 'landing promo 590',
     value: 99,
     currency: 'EUR',
     item_name: 'Reserva web profesional',
@@ -316,16 +320,16 @@ export const trackLaunchReserveThankYou = (): void => {
     // Sin sessionStorage: el candado de módulo sigue valiendo en esta sesión JS.
   }
 
-  trackEvent('landing_promo_349_purchase', {
-    event_category: 'landing_promo_349',
-    event_label: 'landing promo 349',
+  trackEvent('landing_promo_590_purchase', {
+    event_category: 'landing_promo_590',
+    event_label: 'landing promo 590',
     value: 99,
     currency: 'EUR',
   });
   trackEvent('purchase', {
     event_category: 'ecommerce',
-    event_label: 'landing promo 349',
-    landing_name: 'landing promo 349',
+    event_label: 'landing promo 590',
+    landing_name: 'landing promo 590',
     value: 99,
     currency: 'EUR',
     item_name: 'Reserva web profesional',
@@ -372,7 +376,10 @@ export const trackWhatsAppClick = (
     location_section: locationSection,
     cta_text: ctaText,
   });
-  if (typeof window !== 'undefined' && isAdsLandingPath(window.location.pathname)) {
+  if (
+    typeof window !== 'undefined' &&
+    isAdsLandingPath(window.location.pathname)
+  ) {
     trackEvent('whatsapp_click', {
       event_category: 'contact',
       event_label: locationSection,
@@ -431,7 +438,7 @@ export const trackCrispMessageSent = () => {
 // Formulario de contacto
 
 /** Nombre GA4 de la landing de oferta 590 €. El id interno se mantiene. */
-export const GA4_FORM_NAME_PROMO_349 = 'landing_promo_349';
+export const GA4_FORM_NAME_PROMO_590 = 'landing_promo_590';
 
 const FORM_START_STORAGE_PREFIX = 'ga4_form_start:';
 const formStartFired = new Set<string>();
@@ -441,11 +448,12 @@ export const toGa4FormName = (origin: string): string => {
   const value = origin.trim();
   if (
     value === ADS_LAUNCH_FORM_ORIGIN ||
-    value === 'landing promo 349' ||
+    value === ADS_LAUNCH_EXIT_FORM_ORIGIN ||
+    value === 'landing promo 590' ||
     value === 'landing promo 299' ||
     value === 'landing_promo_299'
   ) {
-    return GA4_FORM_NAME_PROMO_349;
+    return GA4_FORM_NAME_PROMO_590;
   }
   return value.replace(/\s+/g, '_');
 };
@@ -753,7 +761,7 @@ export const trackWebStartFaqOpen = (question: string) => {
   });
 };
 
-// Landing /web-profesional (packs 249 € / 349 €)
+// Landing /web-profesional (packs 590 € / 590 €)
 
 export const trackWebProfesionalView = () => {
   trackEvent('web_profesional_view', {
@@ -800,19 +808,19 @@ export const trackWebProfesionalFormSubmit = (plan: string, value?: number) => {
 
 // landing promo (/landing-web-profesional)
 
-export const trackLandingPromo349View = () => {
-  trackEvent('landing_promo_349_view', {
-    event_category: 'landing_promo_349',
-    event_label: 'landing promo 349',
-    landing_name: 'landing promo 349',
+export const trackLandingPromo590View = () => {
+  trackEvent('landing_promo_590_view', {
+    event_category: 'landing_promo_590',
+    event_label: 'landing promo 590',
+    landing_name: 'landing promo 590',
   });
 };
 
-export const trackLandingPromo349FormSubmit = () => {
-  trackEvent('landing_promo_349_form_submit', {
-    event_category: 'landing_promo_349',
-    event_label: 'landing promo 349',
-    landing_name: 'landing promo 349',
+export const trackLandingPromo590FormSubmit = () => {
+  trackEvent('landing_promo_590_form_submit', {
+    event_category: 'landing_promo_590',
+    event_label: 'landing promo 590',
+    landing_name: 'landing promo 590',
     value: LAUNCH_PRICE,
     currency: 'EUR',
   });
@@ -821,29 +829,29 @@ export const trackLandingPromo349FormSubmit = () => {
     window.gtag?.('event', 'generate_lead', {
       value: LAUNCH_PRICE,
       currency: 'EUR',
-      landing_name: 'landing promo 349',
+      landing_name: 'landing promo 590',
     });
   } catch {
     // La analítica nunca debe romper la experiencia del usuario.
   }
 };
 
-export const trackLandingPromo349PortfolioClick = (
+export const trackLandingPromo590PortfolioClick = (
   project: 'hatena' | 'carper',
 ) => {
-  trackEvent(`landing_promo_349_click_${project}`, {
-    event_category: 'landing_promo_349',
+  trackEvent(`landing_promo_590_click_${project}`, {
+    event_category: 'landing_promo_590',
     event_label: project,
     project,
-    landing_name: 'landing promo 349',
+    landing_name: 'landing promo 590',
   });
 };
 
-export const trackLandingPromo349FitSubmit = () => {
-  trackEvent('landing_promo_349_fit_submit', {
-    event_category: 'landing_promo_349',
+export const trackLandingPromo590FitSubmit = () => {
+  trackEvent('landing_promo_590_fit_submit', {
+    event_category: 'landing_promo_590',
     event_label: 'encaje',
-    landing_name: 'landing promo 349',
+    landing_name: 'landing promo 590',
   });
 };
 

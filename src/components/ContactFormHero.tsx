@@ -7,30 +7,18 @@ import {
   trackFormSubmit,
   trackGoogleAdsFormConversion,
   trackGa4FormSubmit,
-  trackLandingPromo349FormSubmit,
+  trackLandingPromo590FormSubmit,
   trackMaintenanceFormSubmit,
   unlockGoogleAdsFormConversion,
 } from '../utils/analytics';
 import {
-  ADS_GOOGLE_ADS_FORM_ORIGIN,
   ADS_LAUNCH_FORM_ORIGIN,
   ADS_MAINTENANCE_FORM_FINAL,
   ADS_MAINTENANCE_FORM_HERO,
-  ADS_MAINTENANCE_INFRA_FORM_ORIGIN,
   BUSINESS_HOURS_LABEL,
   FORM_CC_EMAIL,
 } from '../config/contact';
 import { AlertCircle } from 'lucide-react';
-
-const PROJECT_TYPES = [
-  'Web nueva',
-  'Rediseñar la que ya tengo',
-  'Tienda online',
-  'Google Ads',
-  'Aplicación movil',
-  'Mantenimiento web',
-  'Todavía no lo tengo claro',
-] as const;
 
 const fieldClass = (hasError: boolean) =>
   `w-full text-2xl pl-4 pr-4 py-3 border-2 rounded-lg bg-white text-ink-dark caret-ink-dark focus:outline-none focus:border-accent transition-all duration-150 ${
@@ -43,12 +31,6 @@ const emptyForm = (page: string) => ({
   name: '',
   email: '',
   phone: '',
-  projectType:
-    page === ADS_GOOGLE_ADS_FORM_ORIGIN
-      ? 'Google Ads'
-      : page === ADS_MAINTENANCE_INFRA_FORM_ORIGIN
-        ? 'Mantenimiento web'
-        : '',
   consent: false,
   page,
 });
@@ -107,11 +89,7 @@ export const ContactFormHero = ({
       [field]: sanitizedValue,
     }));
 
-    if (field === 'email' || field === 'phone') {
-      if (errors.email || errors.phone) {
-        setErrors((prev) => ({ ...prev, email: '', phone: '' }));
-      }
-    } else if (errors[field]) {
+    if (errors[field]) {
       setErrors((prev) => ({
         ...prev,
         [field]: '',
@@ -144,7 +122,6 @@ export const ContactFormHero = ({
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
-        projectType: formData.projectType,
         origen,
         page: origen,
         pagina,
@@ -159,7 +136,6 @@ Página: ${pagina}
 Nombre: ${formData.name}
 Email: ${formData.email}
 Teléfono: ${formData.phone}
-Qué necesita: ${formData.projectType}
 consent: ${formData.consent}
 Fecha: ${new Date().toLocaleString('es-ES')}
         `,
@@ -189,7 +165,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       trackFormSubmit(origen);
       trackGa4FormSubmit(origen);
       if (origen === ADS_LAUNCH_FORM_ORIGIN) {
-        trackLandingPromo349FormSubmit();
+        trackLandingPromo590FormSubmit();
       }
       if (
         origen === ADS_MAINTENANCE_FORM_HERO ||
@@ -242,22 +218,12 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
     const emailValue = formData.email.trim();
     const phoneValue = formData.phone.trim();
-    const emailValid = Boolean(emailValue) && validateEmail(emailValue);
-    const phoneValid = Boolean(phoneValue) && validatePhone(phoneValue);
 
-    if (emailValue && !emailValid) {
+    if (!emailValue || !validateEmail(emailValue)) {
       newErrors.email = 'Introduce un email válido';
     }
-    if (phoneValue && !phoneValid) {
+    if (phoneValue && !validatePhone(phoneValue)) {
       newErrors.phone = 'Introduce un teléfono válido';
-    }
-    if (!emailValid && !phoneValid && !emailValue && !phoneValue) {
-      newErrors.email = 'Introduce un email o un teléfono';
-      newErrors.phone = 'Introduce un email o un teléfono';
-    }
-
-    if (!formData.projectType) {
-      newErrors.projectType = 'Elige qué necesitas';
     }
 
     setErrors(newErrors);
@@ -272,7 +238,9 @@ Fecha: ${new Date().toLocaleString('es-ES')}
   );
 
   return (
-    <div className={`z-10 flex w-full justify-center md:w-1/2 ${className}`.trim()}>
+    <div
+      className={`z-10 flex w-full justify-center md:w-1/2 ${className}`.trim()}
+    >
       <form
         id={id}
         onSubmit={handleSubmit}
@@ -316,7 +284,8 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             onChange={(e) => handleInputChange('email', e.target.value)}
             className={fieldClass(Boolean(errors.email))}
             autoComplete='email'
-            placeholder='Tu email'
+            placeholder='Tu email *'
+            required
           />
           {errors.email && <ErrorMessage error={errors.email} />}
           <input
@@ -330,25 +299,6 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             inputMode='tel'
           />
           {errors.phone && <ErrorMessage error={errors.phone} />}
-          <select
-            value={formData.projectType}
-            onChange={(e) => handleInputChange('projectType', e.target.value)}
-            aria-label='Qué necesitas'
-            required
-            className={`${fieldClass(Boolean(errors.projectType))} text-xl md:text-2xl ${
-              formData.projectType ? 'text-ink-dark' : 'text-gray-400'
-            }`}
-          >
-            <option value='' disabled>
-              ¿Qué necesitas? *
-            </option>
-            {PROJECT_TYPES.map((type) => (
-              <option key={type} value={type} className='text-ink-dark'>
-                {type}
-              </option>
-            ))}
-          </select>
-          {errors.projectType && <ErrorMessage error={errors.projectType} />}
 
           <div className='flex items-center gap-2'>
             <span className='relative flex-shrink-0 text-neutral-300 flex items-center justify-center w-11 h-11 -ml-2 -mt-1 md:w-5 md:h-5 md:ml-0 md:mt-0.5'>
@@ -386,7 +336,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             disabled={isSubmitting}
             isLoading={isSubmitting}
             variant='primary'
-            className='self-center !mx-0 md:self-start'
+            className='self-center'
           >
             {isSubmitting ? 'Enviando...' : submitLabel}
           </Button>

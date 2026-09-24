@@ -13,6 +13,7 @@ import Testimonials from '../components/Testimonials';
 import SEOProcess from '../components/SEOProcess';
 import HeroCta from '../components/HeroCta';
 import LaunchPaymentTable from '../components/LaunchPaymentTable';
+import LaunchExitPopup from '../components/LaunchExitPopup';
 import { ServiceIncludes } from '../components/ServiceOnPage';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
@@ -21,13 +22,12 @@ import {
   ADS_LAUNCH_LANDING_PATH,
 } from '../config/contact';
 import {
+  getLaunchInstallmentLabel,
   getLaunchPriceAmountLabel,
   getLaunchPriceLabel,
   LAUNCH_DELIVERY_LABEL,
 } from '../config/launchOffer';
-import {
-  trackLandingPromo349View,
-} from '../utils/analytics';
+import { trackLandingPromo590View } from '../utils/analytics';
 
 const includes = [
   {
@@ -63,7 +63,7 @@ const includes = [
     icon: ShieldCheck,
     title: 'No se publica hasta que estés conforme',
     description:
-      'La revisas antes de publicar. Si algo importante no encaja, lo ajustamos. El 50% final se paga tras tu aprobación.',
+      `La revisas antes de publicar. Si algo importante no encaja, lo ajustamos. ${getLaunchInstallmentLabel()} al publicar, tras tu aprobación.`,
   },
 ];
 
@@ -102,7 +102,7 @@ const processSteps = [
       <>
         La ves, si algo no encaja lo ajustamos, y entonces se publica.{' '}
         <strong className='font-extrabold'>
-          El 50% final se paga cuando apruebes
+          {getLaunchInstallmentLabel()} al publicar, cuando apruebes
         </strong>
         .
       </>
@@ -127,7 +127,7 @@ const faqs = [
   {
     question: '¿Cómo se paga?',
     answer:
-      '50% al empezar y 50% cuando estés contento con el resultado, justo antes de publicar. Primero te contactamos y confirmamos el proyecto.',
+      `${getLaunchInstallmentLabel()} al empezar y ${getLaunchInstallmentLabel()} cuando estés contento con el resultado, justo antes de publicar. Primero te contactamos y confirmamos el proyecto.`,
   },
   {
     question: '¿El hosting y el dominio están incluidos?',
@@ -137,7 +137,7 @@ const faqs = [
   {
     question: '¿La web es mía? ¿Puedo pedir cambios?',
     answer:
-      'Sí. El dominio queda a tu nombre y el hosting lo incluimos gratis. Antes de publicar la revisas; si algo importante no encaja, lo ajustamos. El 50% final se paga cuando apruebes. Cambios posteriores se presupuestan aparte.',
+      `Sí. El dominio queda a tu nombre y el hosting lo incluimos gratis. Antes de publicar la revisas; si algo importante no encaja, lo ajustamos. ${getLaunchInstallmentLabel()} al publicar, cuando apruebes. Cambios posteriores se presupuestan aparte.`,
   },
 ];
 
@@ -145,7 +145,7 @@ const LandingWebProfesional = () => {
   usePageMeta(ADS_LAUNCH_LANDING_PATH);
 
   useEffect(() => {
-    trackLandingPromo349View();
+    trackLandingPromo590View();
   }, []);
 
   const faqJsonLd = useMemo(
@@ -181,7 +181,10 @@ const LandingWebProfesional = () => {
               Hosting incluido · Sin cuotas mensuales
             </p>
             <ul className='mt-4 space-y-1 text-center text-base font-bold md:text-left md:text-lg'>
-              <li>50 % al empezar · 50 % antes de publicar</li>
+              <li>
+                {getLaunchInstallmentLabel()} al empezar ·{' '}
+                {getLaunchInstallmentLabel()} antes de publicar
+              </li>
             </ul>
           </>
         }
@@ -198,7 +201,10 @@ const LandingWebProfesional = () => {
         }
         mobileProof={
           <ul className='space-y-1 text-center text-base font-bold'>
-            <li>50 % al empezar · 50 % antes de publicar</li>
+            <li>
+              {getLaunchInstallmentLabel()} al empezar ·{' '}
+              {getLaunchInstallmentLabel()} antes de publicar
+            </li>
             <li>Hosting incluido</li>
           </ul>
         }
@@ -273,7 +279,8 @@ const LandingWebProfesional = () => {
               No se publica hasta que estés conforme
             </h2>
             <p className='text-xl text-ink-dark md:text-2xl'>
-              {getLaunchPriceLabel()} · 50% al empezar · 50% cuando apruebes. La
+              {getLaunchPriceLabel()} · {getLaunchInstallmentLabel()} al empezar
+              · {getLaunchInstallmentLabel()} cuando apruebes. La
               ves antes de publicar. Si algo importante no encaja, lo ajustamos.
             </p>
           </div>
@@ -315,6 +322,7 @@ const LandingWebProfesional = () => {
           hasReviewBadge={false}
         />
       </div>
+      <LaunchExitPopup />
     </>
   );
 };

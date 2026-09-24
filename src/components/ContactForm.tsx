@@ -32,9 +32,9 @@ const ContactForm = ({
     getWhatsAppMessageForPath(pathname),
   );
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'error' | 'success'>(
-    'idle',
-  );
+  const [submitStatus, setSubmitStatus] = useState<
+    'idle' | 'error' | 'success'
+  >('idle');
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [antiSpamAnswer, setAntiSpamAnswer] = useState('');
   const [antiSpamQuestion] = useState(() => {
@@ -107,19 +107,13 @@ const ContactForm = ({
 
     const emailValue = formData.email.trim();
     const phoneValue = formData.phone.trim();
-    const emailValid = Boolean(emailValue) && validateEmail(emailValue);
-    const phoneValid = Boolean(phoneValue) && validatePhone(phoneValue);
 
-    if (emailValue && !emailValid) {
+    if (!emailValue || !validateEmail(emailValue)) {
       newErrors.email = 'Introduce un email válido';
     }
-    if (phoneValue && !phoneValid) {
+    if (phoneValue && !validatePhone(phoneValue)) {
       newErrors.phone =
         'Introduce un teléfono válido (ej: 600 000 000 o +34 600 000 000)';
-    }
-    if (!emailValid && !phoneValid && !emailValue && !phoneValue) {
-      newErrors.email = 'Introduce un email o un teléfono';
-      newErrors.phone = 'Introduce un email o un teléfono';
     }
 
     if (!formData.plan) {
@@ -155,11 +149,7 @@ const ContactForm = ({
       [field]: sanitizedValue,
     }));
 
-    if (field === 'email' || field === 'phone') {
-      if (errors.email || errors.phone) {
-        setErrors((prev) => ({ ...prev, email: '', phone: '' }));
-      }
-    } else if (errors[field]) {
+    if (errors[field]) {
       setErrors((prev) => ({
         ...prev,
         [field]: '',
@@ -231,8 +221,8 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       }
 
       const planPrices: { [key: string]: number } = {
-        'Web Esencial': 249,
-        'Web Profesional': 349,
+        'Web Esencial': 590,
+        'Web Profesional': 590,
         'Web a Medida': 0,
         'Tienda Online': 0,
         'Mantenimiento Web': 0,
@@ -284,11 +274,11 @@ Fecha: ${new Date().toLocaleString('es-ES')}
     ? [
         {
           value: 'Web Esencial',
-          description: 'Una página desde 249 € + IVA, hosting incluido',
+          description: 'Una página desde 590 € + IVA, hosting incluido',
         },
         {
           value: 'Web Profesional',
-          description: 'Web de 3 páginas por 349 € + IVA, hosting incluido',
+          description: 'Web de 3 páginas por 590 € + IVA, hosting incluido',
         },
         {
           value: 'No sé cuál elegir',
@@ -354,7 +344,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
               <div>
                 <label className='block text-sm font-medium text-gray-700 mb-2 text-center md:text-left'>
-                  Email
+                  Email *
                 </label>
                 <div className='relative'>
                   <Mail className='absolute left-3 top-3 w-5 h-5 text-gray-400' />
@@ -369,6 +359,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                     }`}
                     placeholder='tu@email.com'
                     autoComplete='email'
+                    required
                   />
                 </div>
                 {errors.email && <ErrorMessage error={errors.email} />}

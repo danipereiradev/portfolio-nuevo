@@ -6,7 +6,7 @@ import {
   trackFormError,
   trackFormStart,
   trackGa4FormSubmit,
-  trackLandingPromo349FitSubmit,
+  trackLandingPromo590FitSubmit,
 } from '../utils/analytics';
 import { ADS_LAUNCH_FIT_FORM_ORIGIN, FORM_CC_EMAIL } from '../config/contact';
 import { getLaunchPriceAmountLabel } from '../config/launchOffer';
@@ -144,7 +144,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       }
 
       trackGa4FormSubmit(origen);
-      trackLandingPromo349FitSubmit();
+      trackLandingPromo590FitSubmit();
       setIsFormSent(true);
       setFormData(emptyForm());
       hasStartedRef.current = false;

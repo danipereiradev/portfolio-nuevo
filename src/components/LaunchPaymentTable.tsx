@@ -1,16 +1,17 @@
-import { getLaunchPriceAmountLabel } from '../config/launchOffer';
+import { getLaunchInstallmentLabel, getLaunchPriceAmountLabel } from '../config/launchOffer';
 
 const LaunchPaymentTable = ({ className = '' }: { className?: string }) => {
+  const installment = getLaunchInstallmentLabel();
   const rows = [
     {
       title: 'Al empezar',
       detail: 'Cuando confirmamos el proyecto',
-      amount: '50%',
+      amount: installment,
     },
     {
       title: 'Antes de publicar',
       detail: 'Cuando estés contento con el resultado',
-      amount: '50%',
+      amount: installment,
     },
   ];
 
