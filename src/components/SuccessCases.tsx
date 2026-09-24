@@ -35,9 +35,13 @@ export const SuccessCases = ({
       </div>
       <div className='overflow-hidden rounded-lg md:w-1/2'>
         <img
-          className='aspect-[4/3] w-full object-cover'
+          className='aspect-[4/3] h-auto w-full object-cover'
           src={images[0]}
           alt='charles-deluvio'
+          width={1600}
+          height={1200}
+          loading='lazy'
+          decoding='async'
         />
       </div>
     </section>

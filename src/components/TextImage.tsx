@@ -79,6 +79,10 @@ export const TextImage = ({
                 className='absolute inset-0 h-full w-full object-cover'
                 src={imageSrc}
                 alt={imageAlt}
+                width={1200}
+                height={900}
+                loading='lazy'
+                decoding='async'
               />
             </div>
           )}

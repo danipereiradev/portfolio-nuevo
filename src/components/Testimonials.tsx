@@ -3,15 +3,10 @@ import { useLocation } from 'react-router-dom';
 import RevealOnScroll from './RevealOnScroll';
 import VideoTestimonial from './VideoTestimonial';
 import { isAdsLandingPath } from '../config/contact';
+import { scheduleTrustindex } from '../utils/trustindex';
 
 const TRUSTINDEX_WIDGET_SRC =
   'https://cdn.trustindex.io/loader.js?7268074797d8717b3c668cae8f6';
-
-declare global {
-  interface Window {
-    renderTrustindexWidgets?: () => void;
-  }
-}
 
 interface TestimonialsProps {
   id?: string;
@@ -26,26 +21,7 @@ function Testimonials({
   const lockOutbound = isAdsLandingPath(pathname);
 
   useEffect(() => {
-    let cancelled = false;
-    let intervalId = 0;
-
-    const tryRender = () => {
-      if (cancelled) return true;
-      if (typeof window.renderTrustindexWidgets !== 'function') return false;
-      window.renderTrustindexWidgets();
-      return true;
-    };
-
-    if (!tryRender()) {
-      intervalId = window.setInterval(() => {
-        if (tryRender()) window.clearInterval(intervalId);
-      }, 50);
-    }
-
-    return () => {
-      cancelled = true;
-      if (intervalId) window.clearInterval(intervalId);
-    };
+    scheduleTrustindex();
   }, []);
 
   return (
@@ -72,7 +48,7 @@ function Testimonials({
                   if (node) node.inert = lockOutbound;
                 }}
               >
-                <div data-src={TRUSTINDEX_WIDGET_SRC} />
+                <div data-src={TRUSTINDEX_WIDGET_SRC} className='min-h-[24rem]' />
               </div>
             </div>
             <RevealOnScroll className='w-full lg:col-span-1' delayMs={90}>
@@ -86,7 +62,7 @@ function Testimonials({
               if (node) node.inert = lockOutbound;
             }}
           >
-            <div data-src={TRUSTINDEX_WIDGET_SRC} />
+            <div data-src={TRUSTINDEX_WIDGET_SRC} className='min-h-[24rem]' />
           </div>
         )}
       </div>

@@ -66,7 +66,7 @@ const PagoGracias = lazy(() => import('./pages/PagoGracias'));
 
 const PageFallback = () => (
   <main
-    className='min-h-[50vh] bg-surface-base'
+    className='min-h-[calc(100svh-var(--site-header-h))] bg-surface-base'
     aria-busy='true'
     aria-live='polite'
   />

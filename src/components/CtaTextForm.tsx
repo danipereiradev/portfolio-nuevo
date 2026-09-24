@@ -33,9 +33,13 @@ export const CtaTextForm = () => {
 
           <div className='mt-4 overflow-hidden rounded-lg'>
             <img
-              className='aspect-[4/3] w-full object-cover'
+              className='aspect-[4/3] h-auto w-full object-cover'
               src='/img/fikret-tozak-rfNLa1HL7eY-unsplash.jpg'
               alt='charles-deluvio'
+              width={1600}
+              height={1200}
+              loading='lazy'
+              decoding='async'
             />
           </div>
         </div>

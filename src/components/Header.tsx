@@ -105,6 +105,7 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
       alt='36web'
       width={512}
       height={512}
+      decoding='async'
       className='h-12 w-12 rounded-lg object-cover lg:h-14 lg:w-14'
     />
   );

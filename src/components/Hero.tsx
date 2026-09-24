@@ -98,6 +98,7 @@ const Hero = ({
           alt=''
           aria-hidden='true'
           fetchPriority='high'
+          loading='eager'
           decoding='async'
           className='pointer-events-none absolute inset-0 z-0 h-full w-full object-cover object-center'
         />

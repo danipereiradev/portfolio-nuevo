@@ -15,7 +15,9 @@ export const BlogFigure = ({
       <PictureImg
         src={src}
         alt={alt}
-        className='aspect-[4/3] w-full object-cover'
+        width={1200}
+        height={900}
+        className='aspect-[4/3] h-auto w-full object-cover'
         loading='lazy'
         decoding='async'
       />

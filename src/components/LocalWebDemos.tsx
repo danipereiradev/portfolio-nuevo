@@ -48,7 +48,7 @@ const LocalWebDemos = ({
                   alt={demo.title}
                   width={1254}
                   height={1254}
-                  className='w-full object-contain'
+                  className='aspect-square h-auto w-full object-contain'
                   loading='lazy'
                   decoding='async'
                 />

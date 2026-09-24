@@ -91,15 +91,15 @@ function CasosCard({
 }) {
   return (
     <article className='group relative flex h-full flex-col overflow-hidden rounded-lg bg-ink-dark shadow-xl'>
-      <PictureImg
-        src={image}
-        alt={`Web de ${title}`}
-        width={1254}
-        height={1254}
-        className='aspect-square w-full object-contain'
-        loading='lazy'
-        decoding='async'
-      />
+        <PictureImg
+          src={image}
+          alt={`Web de ${title}`}
+          width={1254}
+          height={1254}
+          className='aspect-square h-auto w-full object-contain'
+          loading='lazy'
+          decoding='async'
+        />
       <div className='absolute inset-0 bg-gradient-to-t from-ink-dark via-ink-dark/70 to-transparent' />
       <div className='absolute inset-x-4 bottom-5 z-10 flex flex-col items-center text-center'>
         <h3 className='text-2xl font-extrabold text-white md:text-3xl'>
@@ -194,7 +194,7 @@ function ShowcaseCard({
           alt={`Mockup de escritorio y móvil de ${title}`}
           width={1536}
           height={1024}
-          className='w-full object-contain'
+          className='h-auto w-full object-contain'
           loading='lazy'
           decoding='async'
           draggable={false}
