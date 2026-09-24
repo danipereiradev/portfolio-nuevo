@@ -118,7 +118,6 @@ const LandingMaintenanceInfra = () => {
         buttonText='Pagar puesta en marcha'
         buttonHref='#precio'
         backgroundUrl='/video/hero-nubes.jpg'
-        videoUrl='/video/hero-nubes-loop.mp4'
         heroType='form'
         hasButton={false}
         formTitle='Nosotros te llamamos'

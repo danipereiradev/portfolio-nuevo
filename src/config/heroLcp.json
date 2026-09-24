@@ -28,33 +28,31 @@
     "image": "/video/hero-nubes.jpg"
   },
   "/landing-diseno-web": {
-    "image": "/video/hero-nubes.jpg",
-    "video": "/video/hero-nubes-loop.mp4"
+    "image": "/video/hero-home-2.jpg",
+    "video": "/video/video%20home_2.mp4"
   },
   "/landing-web-profesional": {
-    "image": "/video/hero-nubes.jpg",
-    "video": "/video/hero-nubes-loop.mp4"
+    "image": "/video/hero-home-2.jpg",
+    "video": "/video/video%20home_2.mp4"
   },
   "/tiendas-online": {
     "image": "/img/hero/hero-tienda-online-36web.webp"
   },
   "/landing-tiendas-online": {
-    "image": "/video/hero-nubes.jpg",
-    "video": "/video/hero-nubes-loop.mp4"
+    "image": "/video/hero-home-2.jpg",
+    "video": "/video/video%20home_2.mp4"
   },
   "/mantenimiento-web": {
     "image": "/img/hero/hero-mantenimiento-36web.webp"
   },
   "/landing-mantenimiento-web": {
-    "image": "/video/hero-nubes.jpg",
-    "video": "/video/hero-nubes-loop.mp4"
+    "image": "/video/hero-home-2.jpg",
+    "video": "/video/video%20home_2.mp4"
   },
   "/landing-google-ads": {
-    "image": "/video/hero-nubes.jpg",
-    "video": "/video/hero-nubes-loop.mp4"
+    "image": "/video/hero-nubes.jpg"
   },
   "/landing-mantenimiento-infra": {
-    "image": "/video/hero-nubes.jpg",
-    "video": "/video/hero-nubes-loop.mp4"
+    "image": "/video/hero-nubes.jpg"
   }
 }

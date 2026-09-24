@@ -25,15 +25,14 @@
           '/': '/video/hero-home-2.jpg',
           '/diseño-web': '/img/hero/hero-diseno-web-36web.webp',
           '/diseno-web': '/img/hero/hero-diseno-web-36web.webp',
-          '/landing-diseno-web': '/video/hero-nubes.jpg',
-          '/landing-diseño-web': '/video/hero-nubes.jpg',
-          '/landing-web-profesional': '/video/hero-nubes.jpg',
+          '/landing-diseno-web': '/video/hero-home-2.jpg',
+          '/landing-diseño-web': '/video/hero-home-2.jpg',
+          '/landing-web-profesional': '/video/hero-home-2.jpg',
           '/tiendas-online': '/img/hero/hero-tienda-online-36web.webp',
-          '/landing-tiendas-online': '/video/hero-nubes.jpg',
+          '/landing-tiendas-online': '/video/hero-home-2.jpg',
           '/mantenimiento-web': '/img/hero/hero-mantenimiento-36web.webp',
-          '/landing-mantenimiento-web': '/video/hero-nubes.jpg',
+          '/landing-mantenimiento-web': '/video/hero-home-2.jpg',
           '/landing-google-ads': '/video/hero-nubes.jpg',
-          '/landing-mantenimiento-infra': '/video/hero-nubes.jpg',
         };
         var warm = {};
         var image = images[path];
@@ -43,26 +42,19 @@
           warm.img.fetchPriority = 'high';
           warm.img.src = image;
         }
-        if (path === '/') {
-          warm.video = document.createElement('video');
-          warm.video.preload = 'auto';
-          warm.video.muted = true;
-          warm.video.playsInline = true;
-          warm.video.src = '/video/video%20home_2.mp4';
-        } else if (
+        if (
+          path === '/' ||
           path === '/landing-diseno-web' ||
           path === '/landing-diseño-web' ||
           path === '/landing-web-profesional' ||
           path === '/landing-tiendas-online' ||
-          path === '/landing-mantenimiento-web' ||
-          path === '/landing-google-ads' ||
-          path === '/landing-mantenimiento-infra'
+          path === '/landing-mantenimiento-web'
         ) {
           warm.video = document.createElement('video');
           warm.video.preload = 'auto';
           warm.video.muted = true;
           warm.video.playsInline = true;
-          warm.video.src = '/video/hero-nubes-loop.mp4';
+          warm.video.src = '/video/video%20home_2.mp4';
         }
         window.__36webHeroWarm = warm;
       })();
