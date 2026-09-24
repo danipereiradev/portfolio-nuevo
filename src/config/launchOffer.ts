@@ -1,4 +1,4 @@
-import { formatEuro } from './payments';
+import { formatEuroWithVat } from './payments';
 
 /** Tope de la oferta de lanzamiento. No cambiar. */
 export const LAUNCH_OFFER_MAX = 10;
@@ -40,7 +40,7 @@ export const getLaunchAvailabilityCopy = (remaining = soldWebs): string => {
 export const getLaunchRemainder = (): number => LAUNCH_PRICE - LAUNCH_RESERVE;
 
 export const getLaunchPriceAmountLabel = (): string =>
-  `${formatEuro(LAUNCH_PRICE)} + IVA`;
+  formatEuroWithVat(LAUNCH_PRICE);
 
 export const getLaunchPriceLabel = (): string =>
   `Desde ${getLaunchPriceAmountLabel()}`;
@@ -48,13 +48,13 @@ export const getLaunchPriceLabel = (): string =>
 export const getLaunchInstallment = (): number => LAUNCH_PRICE / 2;
 
 export const getLaunchInstallmentLabel = (): string =>
-  `${formatEuro(getLaunchInstallment())} + IVA`;
+  formatEuroWithVat(getLaunchInstallment());
 
 export const getLaunchReserveLabel = (): string =>
-  `${formatEuro(LAUNCH_RESERVE)} + IVA`;
+  formatEuroWithVat(LAUNCH_RESERVE);
 
 export const getLaunchRemainderLabel = (): string =>
-  `${formatEuro(getLaunchRemainder())} + IVA`;
+  formatEuroWithVat(getLaunchRemainder());
 
 /** Landing de pago de la reserva. Stripe se abre desde esa página. */
 export const getLaunchReserveHref = (): string =>

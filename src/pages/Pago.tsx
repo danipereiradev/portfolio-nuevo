@@ -7,6 +7,7 @@ import {
   buildStripeHoursCheckoutUrl,
   clampHours,
   formatEuro,
+  formatEuroWithVat,
   getHourlyTotals,
   getPaymentById,
   getPaymentTotals,
@@ -114,8 +115,8 @@ const PaymentCard = ({ payment }: { payment: PaymentConfig }) => {
     (isSubscription ? 'Activar pago mensual' : 'Pagar ahora');
 
   const amountLabel = isSubscription
-    ? `${formatEuro(payment.amount)} + IVA / mes`
-    : `${formatEuro(payment.amount)} + IVA`;
+    ? formatEuroWithVat(payment.amount, ' / mes')
+    : formatEuroWithVat(payment.amount);
 
   const totalLabel = isSubscription
     ? `${formatEuro(total)} / mes`
@@ -328,7 +329,7 @@ const SetupSubscriptionCard = ({ payment }: { payment: PaymentConfig }) => {
           className='text-2xl font-bold md:text-3xl'
           style={{ fontFamily: "'Space Grotesk', sans-serif" }}
         >
-          Hoy: {formatEuro(todayAmount)} + IVA
+          Hoy: {formatEuroWithVat(todayAmount)}
         </p>
         {payment.scheduleNote ? (
           <p className='mt-2 text-base font-bold leading-relaxed text-[#101010]'>
@@ -337,7 +338,7 @@ const SetupSubscriptionCard = ({ payment }: { payment: PaymentConfig }) => {
         ) : null}
         <p className='mt-2 text-lg font-bold text-[#101010]'>
           {payment.afterPriceLabel || 'Después'}:{' '}
-          {formatEuro(monthlyAmount)} + IVA / mes
+          {formatEuroWithVat(monthlyAmount, ' / mes')}
         </p>
 
         <dl className='mt-4 space-y-2 text-sm'>
@@ -345,13 +346,13 @@ const SetupSubscriptionCard = ({ payment }: { payment: PaymentConfig }) => {
             <dt className='text-[#6f6f6d]'>
               {payment.setupLabel || 'Setup inicial (pago único)'}
             </dt>
-            <dd className='font-medium'>{formatEuro(setupAmount)} + IVA</dd>
+            <dd className='font-medium'>{formatEuroWithVat(setupAmount)}</dd>
           </div>
           <div className='flex justify-between gap-4'>
             <dt className='text-[#6f6f6d]'>
               {payment.monthlyLabel || 'Gestión mensual'}
             </dt>
-            <dd className='font-medium'>{formatEuro(monthlyAmount)} + IVA / mes</dd>
+            <dd className='font-medium'>{formatEuroWithVat(monthlyAmount, ' / mes')}</dd>
           </div>
           <div className='flex justify-between gap-4 border-t border-[#3346C1]/15 pt-2 text-base'>
             <dt className='font-semibold'>Total hoy con IVA</dt>
@@ -494,7 +495,7 @@ const HourlyPaymentCard = ({ payment }: { payment: PaymentConfig }) => {
         <div>
           <dt className='text-sm text-[#6f6f6d]'>Tarifa</dt>
           <dd className='mt-0.5 text-lg font-bold'>
-            {formatEuro(payment.amount)} / h + IVA
+            {formatEuro(payment.amount)}{'\u00A0'}/{'\u00A0'}h{'\u00A0'}+{'\u00A0'}IVA
           </dd>
         </div>
       </dl>
@@ -566,8 +567,8 @@ const HourlyPaymentCard = ({ payment }: { payment: PaymentConfig }) => {
           style={{ fontFamily: "'Space Grotesk', sans-serif" }}
         >
           {hours
-            ? `${hours} ${hours === 1 ? 'hora' : 'horas'} · ${formatEuro(payment.amount)} / h + IVA`
-            : `${formatEuro(payment.amount)} / h + IVA`}
+            ? `${hours} ${hours === 1 ? 'hora' : 'horas'} · ${formatEuro(payment.amount)}\u00A0/\u00A0h\u00A0+\u00A0IVA`
+            : `${formatEuro(payment.amount)}\u00A0/\u00A0h\u00A0+\u00A0IVA`}
         </p>
 
         <dl className='mt-4 space-y-2 text-sm'>

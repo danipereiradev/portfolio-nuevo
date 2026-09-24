@@ -1,5 +1,6 @@
 import {
   formatEuro,
+  formatEuroWithVat,
   MAINTENANCE_PACK_10H_ID,
   MAINTENANCE_PACK_3H_ID,
   MAINTENANCE_PACK_6H_ID,
@@ -204,14 +205,14 @@ export const getHourPackHref = (pack: HourPack): string => {
 };
 
 export const getHourPackPriceLabel = (pack: HourPack): string =>
-  `${formatEuro(pack.amount)} + IVA`;
+  formatEuroWithVat(pack.amount);
 
 export const getHourPackRateLabel = (pack: HourPack): string =>
   `${formatEuro(pack.hourlyRate)}/hora`;
 
 export const getPlanPriceLabel = (plan: MaintenancePlan): string => {
   const prefix = plan.from ? 'Desde ' : '';
-  return `${prefix}${formatEuro(plan.amount)} + IVA${plan.interval}`;
+  return `${prefix}${formatEuroWithVat(plan.amount, plan.interval)}`;
 };
 
 export const getHourPackValidityCopy = (): string =>

@@ -1,5 +1,5 @@
 import {
-  formatEuro,
+  formatEuroWithVat,
   GOOGLE_ADS_MONTHLY_AMOUNT,
   GOOGLE_ADS_PAYMENT_ID,
   GOOGLE_ADS_SETUP_AMOUNT,
@@ -8,13 +8,13 @@ import {
 } from './payments';
 
 export const getGoogleAdsSetupLabel = (): string =>
-  `${formatEuro(GOOGLE_ADS_SETUP_AMOUNT)} + IVA`;
+  formatEuroWithVat(GOOGLE_ADS_SETUP_AMOUNT);
 
 export const getGoogleAdsMonthlyLabel = (): string =>
-  `${formatEuro(GOOGLE_ADS_MONTHLY_AMOUNT)} + IVA/mes`;
+  formatEuroWithVat(GOOGLE_ADS_MONTHLY_AMOUNT, '/mes');
 
 export const getGoogleAdsTodayLabel = (): string =>
-  `${formatEuro(GOOGLE_ADS_TODAY_AMOUNT)} + IVA`;
+  formatEuroWithVat(GOOGLE_ADS_TODAY_AMOUNT);
 
 export const getGoogleAdsFirstPaymentLabel = (): string =>
   `${getGoogleAdsTodayLabel()} (setup + primer mes)`;

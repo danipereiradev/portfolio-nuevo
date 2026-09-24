@@ -169,7 +169,14 @@ const LandingWebProfesional = () => {
     <>
       <HeroCta
         label='Web profesional'
-        title={`Una web profesional para tu negocio desde ${getLaunchPriceAmountLabel()}`}
+        title={
+          <>
+            Una web profesional para tu negocio desde{' '}
+            <span className='whitespace-nowrap'>
+              {getLaunchPriceAmountLabel()}
+            </span>
+          </>
+        }
         description={
           <>
             <p className='mb-1'>
@@ -180,8 +187,14 @@ const LandingWebProfesional = () => {
               mensuales
             </p>
             <p className='mt-2 text-xl font-extrabold md:text-left md:text-2xl'>
-              {getLaunchInstallmentLabel()} al empezar ·{' '}
-              {getLaunchInstallmentLabel()} antes de publicar
+              <span className='whitespace-nowrap'>
+                {getLaunchInstallmentLabel()}
+              </span>{' '}
+              al empezar ·{' '}
+              <span className='whitespace-nowrap'>
+                {getLaunchInstallmentLabel()}
+              </span>{' '}
+              antes de publicar
             </p>
           </>
         }
@@ -195,8 +208,14 @@ const LandingWebProfesional = () => {
               mensuales
             </p>
             <p className='mt-2 text-xl font-extrabold'>
-              {getLaunchInstallmentLabel()} al empezar ·{' '}
-              {getLaunchInstallmentLabel()} antes de publicar
+              <span className='whitespace-nowrap'>
+                {getLaunchInstallmentLabel()}
+              </span>{' '}
+              al empezar ·{' '}
+              <span className='whitespace-nowrap'>
+                {getLaunchInstallmentLabel()}
+              </span>{' '}
+              antes de publicar
             </p>
           </>
         }

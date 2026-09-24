@@ -32,7 +32,7 @@ export const HeroCtaList = ({
 
 interface HeroCtaProps {
   label?: string;
-  title: string;
+  title: ReactNode;
   description?: ReactNode;
   /** Sustituye `description` solo en móvil. */
   mobileDescription?: ReactNode;

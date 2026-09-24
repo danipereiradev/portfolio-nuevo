@@ -520,13 +520,18 @@ export const buildStripeHoursCheckoutUrl = (
   return url.toString();
 };
 
+const NBSP = '\u00A0';
+
 export const formatEuro = (value: number): string => {
   const hasCents = Math.round(value * 100) % 100 !== 0;
   return `${new Intl.NumberFormat('es-ES', {
     minimumFractionDigits: hasCents ? 2 : 0,
     maximumFractionDigits: 2,
-  }).format(value)} €`;
+  }).format(value)}${NBSP}€`;
 };
+
+export const formatEuroWithVat = (value: number, suffix = ''): string =>
+  `${formatEuro(value)}${NBSP}+${NBSP}IVA${suffix}`;
 
 export const BILLING_INTERVAL_LABEL: Record<BillingInterval, string> = {
   monthly: 'Mensual',

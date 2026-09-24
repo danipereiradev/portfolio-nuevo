@@ -13,7 +13,7 @@ import {
   type MaintenancePlan,
   type MaintenancePlanId,
 } from '../config/maintenanceOffer';
-import { formatEuro } from '../config/payments';
+import { formatEuroWithVat } from '../config/payments';
 import { trackMaintenancePlanClick } from '../utils/analytics';
 
 const MaintenancePlans = () => {
@@ -58,8 +58,8 @@ const MaintenancePlans = () => {
             datos, Nginx, Vercel, servidores e integraciones externas.
           </p>
           <p className='mt-text-gap text-2xl font-extrabold text-ink-dark md:text-3xl'>
-            Mantenimiento de aplicaciones desde {formatEuro(APP_MAINTENANCE_FROM)}{' '}
-            + IVA/mes
+            Mantenimiento de aplicaciones desde{' '}
+            {formatEuroWithVat(APP_MAINTENANCE_FROM, '/mes')}
           </p>
           <Button
             href={`#${MAINTENANCE_CONTACT_ID}`}

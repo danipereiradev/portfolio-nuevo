@@ -1,5 +1,5 @@
 import {
-  formatEuro,
+  formatEuroWithVat,
   MAINTENANCE_INFRA_MONTHLY_AMOUNT,
   MAINTENANCE_INFRA_PAYMENT_ID,
   MAINTENANCE_INFRA_SETUP_AMOUNT,
@@ -7,10 +7,10 @@ import {
 } from './payments';
 
 export const getMaintenanceInfraSetupLabel = (): string =>
-  `${formatEuro(MAINTENANCE_INFRA_SETUP_AMOUNT)} + IVA`;
+  formatEuroWithVat(MAINTENANCE_INFRA_SETUP_AMOUNT);
 
 export const getMaintenanceInfraMonthlyLabel = (): string =>
-  `${formatEuro(MAINTENANCE_INFRA_MONTHLY_AMOUNT)} + IVA / mes`;
+  formatEuroWithVat(MAINTENANCE_INFRA_MONTHLY_AMOUNT, ' / mes');
 
 export const MAINTENANCE_INFRA_PAY_PATH = paymentPath(
   MAINTENANCE_INFRA_PAYMENT_ID,
