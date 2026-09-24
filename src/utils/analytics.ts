@@ -421,20 +421,6 @@ export const trackPhoneClick = (locationSection: string) => {
   trackAdsContactConversion('phone');
 };
 
-export const trackCrispChatOpened = () => {
-  trackEvent('crisp_chat_opened', {
-    event_category: 'contact',
-    event_label: 'Crisp',
-  });
-};
-
-export const trackCrispMessageSent = () => {
-  trackEvent('crisp_message_sent', {
-    event_category: 'contact',
-    event_label: 'Crisp',
-  });
-};
-
 // Formulario de contacto
 
 /** Nombre GA4 de la landing de oferta 590 €. El id interno se mantiene. */

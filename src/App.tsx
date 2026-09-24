@@ -10,7 +10,6 @@ import Footer from './components/Footer';
 import ContactFormModal from './components/ContactFormModal';
 import BackToTopButton from './components/BackToTopButton';
 import WhatsAppButton from './components/WhatsAppButton';
-import CrispChat from './components/CrispChat';
 import {
   isMaintenanceActive,
   isMaintenancePreviewPath,
@@ -188,7 +187,6 @@ function AppContent() {
       <ContactFormModal />
       <BackToTopButton />
       <WhatsAppButton />
-      <CrispChat />
     </div>
     </AdsLandingLinkGuard>
   );

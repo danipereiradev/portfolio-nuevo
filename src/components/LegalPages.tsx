@@ -79,10 +79,6 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                     <strong>Cookies:</strong> Para mejorar la experiencia de
                     usuario
                   </li>
-                  <li>
-                    <strong>Chat:</strong> Mensajes que nos envías por el chat
-                    de la web (Crisp), junto con datos técnicos de la sesión
-                  </li>
                 </ul>
               </section>
 
@@ -190,30 +186,6 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                   proteger tus datos personales contra acceso no autorizado,
                   alteración, divulgación o destrucción.
                 </p>
-              </section>
-
-              <section className='mb-8'>
-                <h2 className='text-2xl font-bold text-gray-900 mb-4'>
-                  8. Encargados del tratamiento
-                </h2>
-                <p className='mb-4'>
-                  Uso proveedores que tratan datos en mi nombre, con las
-                  garantías del RGPD:
-                </p>
-                <ul className='list-disc pl-6 space-y-2'>
-                  <li>
-                    <strong>Crisp IM SAS</strong> (Francia, UE): chat de la web.
-                    Conserva los mensajes para que podamos atenderte.{' '}
-                    <a
-                      href='https://crisp.chat/en/privacy/'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                      className='text-link underline'
-                    >
-                      Política de privacidad de Crisp
-                    </a>
-                  </li>
-                </ul>
               </section>
 
               <section className='mb-8'>
@@ -575,10 +547,6 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                       <li>Recordar formularios completados</li>
                       <li>Preferencias de visualización</li>
                       <li>Configuración personalizada</li>
-                      <li>
-                        Crisp: sesión del chat para que no se pierda la
-                        conversación si recargas
-                      </li>
                     </ul>
                   </div>
                 </div>
@@ -646,9 +614,6 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                   </li>
                   <li>
                     <strong>Pexels:</strong> Para mostrar imágenes optimizadas
-                  </li>
-                  <li>
-                    <strong>Crisp:</strong> Chat de atención
                   </li>
                 </ul>
               </section>

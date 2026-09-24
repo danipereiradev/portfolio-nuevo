@@ -169,31 +169,6 @@ img {
   }
 }
 
-/* Globo de Crisp: mismo lima que el header; icono oscuro para contraste */
-.crisp-client .cc-1yy0g,
-.crisp-client .cc-unoo {
-  background-color: var(--color-brand-light) !important;
-}
-
-@media (max-width: 767px) {
-  #crisp-chatbox,
-  .crisp-client {
-    display: none !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
-    width: 0 !important;
-    height: 0 !important;
-    overflow: hidden !important;
-  }
-}
-
-.crisp-client .cc-1yy0g svg,
-.crisp-client .cc-unoo svg,
-.crisp-client .cc-1yy0g path,
-.crisp-client .cc-unoo path {
-  fill: #141414 !important;
-}
-
 .animation-delay-2000 {
   animation-delay: 2s;
 }
