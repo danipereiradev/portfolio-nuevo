@@ -108,6 +108,18 @@ const buildLaunchLandingHeroHtml = () => {
   </section>`;
 };
 
+const headingFromTitle = (title) =>
+  String(title)
+    .replace(/\s*\|\s*36web\s*$/i, '')
+    .trim();
+
+/** H1 + descripción en el HTML inicial para que Google no vea un #root vacío. */
+const buildIndexableShellHtml = ({ title, description }) => {
+  const heading = escapeHtml(headingFromTitle(title));
+  const lead = escapeHtml(description);
+  return `<main class="page-section" style="padding-top:7.5rem"><div class="container mx-auto"><h1 class="text-3xl font-extrabold text-ink-dark">${heading}</h1><p class="text-lg text-ink-dark">${lead}</p></div></main>`;
+};
+
 const injectLaunchBootHeroCss = (html) => {
   if (html.includes('id="lcp-boot-hero-css"')) return html;
   return html.replace(
@@ -367,6 +379,11 @@ for (const [routePath, meta] of Object.entries(pagesMeta)) {
     html = injectBeforeRoot(html, buildLaunchLandingHeroHtml());
     html = injectLaunchBootHeroCss(html);
     html = injectModulePreload(html, findAsset('LandingWebProfesional-'));
+  } else if (
+    routePath !== '/' &&
+    !(typeof meta.robots === 'string' && meta.robots.includes('noindex'))
+  ) {
+    html = injectRoot(html, buildIndexableShellHtml(meta));
   }
 
   writeRouteHtml(routePath, html);

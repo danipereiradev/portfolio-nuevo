@@ -815,12 +815,12 @@ export const LOCAL_WEB_CITIES: Record<string, LocalWebCity> = {
  */
 export const LOCAL_WEB_LISTED_SLUGS: string[] = [
   'torrejon-de-ardoz',
-  // 'madrid',
-  // 'alcala-de-henares',
-  // 'san-fernando-de-henares',
-  // 'coslada',
-  // 'vigo',
-  // 'logrono',
+  'madrid',
+  'alcala-de-henares',
+  'san-fernando-de-henares',
+  'coslada',
+  'vigo',
+  'logrono',
 ];
 
 const allSlugs = new Set(Object.keys(LOCAL_WEB_CITIES));

@@ -21,6 +21,26 @@
       "permanent": true
     },
     {
+      "source": "/diseno-web/a-coruna",
+      "destination": "/diseno-web",
+      "permanent": true
+    },
+    {
+      "source": "/diseno-web/a-coruna/",
+      "destination": "/diseno-web",
+      "permanent": true
+    },
+    {
+      "source": "/diseno-web/valencia",
+      "destination": "/diseno-web",
+      "permanent": true
+    },
+    {
+      "source": "/diseno-web/valencia/",
+      "destination": "/diseno-web",
+      "permanent": true
+    },
+    {
       "source": "/web-profesional-a-medida",
       "destination": "/landing-diseno-web",
       "permanent": true
@@ -181,6 +201,10 @@
     {
       "source": "/diseno-web",
       "destination": "/diseno-web/index.html"
+    },
+    {
+      "source": "/diseno-web/:slug",
+      "destination": "/diseno-web/:slug/index.html"
     },
     {
       "source": "/landing-diseno-web",

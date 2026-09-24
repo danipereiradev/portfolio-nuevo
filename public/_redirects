@@ -38,6 +38,10 @@
 /ia                /landing-diseno-web   301!
 
 /diseno-web                     /diseno-web/index.html                     200
+/diseno-web/a-coruna            /diseno-web   301!
+/diseno-web/a-coruna/           /diseno-web   301!
+/diseno-web/valencia            /diseno-web   301!
+/diseno-web/valencia/           /diseno-web   301!
 /diseno-web/*                   /404.html                                  404
 /landing-diseno-web             /landing-diseno-web/index.html             200
 /landing-web-profesional        /landing-web-profesional/index.html        200

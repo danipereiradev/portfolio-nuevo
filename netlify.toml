@@ -150,6 +150,31 @@
   to = "/diseno-web/index.html"
   status = 200
 
+# URLs locales antiguas que nunca se publicaron.
+[[redirects]]
+  from = "/diseno-web/a-coruna"
+  to = "/diseno-web"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/diseno-web/a-coruna/"
+  to = "/diseno-web"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/diseno-web/valencia"
+  to = "/diseno-web"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/diseno-web/valencia/"
+  to = "/diseno-web"
+  status = 301
+  force = true
+
 # Ciudades no publicadas: HTTP 404. No redirigir a /diseno-web/ (soft 404).
 # Las publicadas se sirven como fichero estático y ganan a esta regla.
 [[redirects]]

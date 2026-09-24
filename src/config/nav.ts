@@ -25,6 +25,7 @@ export const MAIN_NAV = [
 export const FOOTER_NAV = [
   { href: ABOUT_PATH, label: ABOUT_LABEL },
   ...SERVICE_NAV,
+  { href: '/blog', label: 'Blog' },
   { href: '#contacto', label: 'Contacto' },
   {
     href: TALENT_PATH,
