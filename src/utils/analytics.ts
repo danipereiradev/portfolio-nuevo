@@ -15,8 +15,22 @@ declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
     dataLayer?: unknown[];
+    __36webNoAnalytics?: boolean;
   }
 }
+
+const ANALYTICS_EXCLUDE_KEY = '36web_exclude_analytics';
+
+/** Tráfico propio (localhost o ?noanalytics=1). No envía a GA4 ni a Ads. */
+export const isAnalyticsDisabled = (): boolean => {
+  if (typeof window === 'undefined') return true;
+  if (window.__36webNoAnalytics) return true;
+  try {
+    return window.localStorage.getItem(ANALYTICS_EXCLUDE_KEY) === '1';
+  } catch {
+    return false;
+  }
+};
 
 /**
  * Envía un evento a Google Analytics/Ads (vía gtag) y/o a Google Tag Manager
@@ -32,6 +46,7 @@ export const trackEvent = (
   params: Record<string, unknown> = {},
 ) => {
   if (typeof window === 'undefined') return;
+  if (isAnalyticsDisabled()) return;
 
   const enrichedParams = {
     page_path: window.location?.pathname,
@@ -75,6 +90,7 @@ type ContactConversionType = 'whatsapp' | 'email' | 'phone';
 
 const trackAdsContactConversion = (contactType: ContactConversionType) => {
   if (typeof window === 'undefined') return;
+  if (isAnalyticsDisabled()) return;
 
   try {
     if (typeof window.gtag === 'function') {
@@ -105,6 +121,7 @@ export const unlockGoogleAdsFormConversion = (): void => {
  */
 export const trackGoogleAdsFormConversion = (): void => {
   if (typeof window === 'undefined') return;
+  if (isAnalyticsDisabled()) return;
   if (formAdsConversionLocked) return;
   formAdsConversionLocked = true;
 
@@ -144,7 +161,7 @@ export const trackGoogleAdsWhatsAppConversion = (url: string): boolean => {
     }
   };
 
-  if (typeof window.gtag !== 'function') {
+  if (isAnalyticsDisabled() || typeof window.gtag !== 'function') {
     openWhatsAppOnce();
     return false;
   }
@@ -189,6 +206,7 @@ export const GOOGLE_ADS_MAINTENANCE_FORM_SEND_TO = '';
  */
 export const trackGoogleAdsMaintenanceFormConversion = (): void => {
   if (typeof window === 'undefined') return;
+  if (isAnalyticsDisabled()) return;
   if (!GOOGLE_ADS_MAINTENANCE_FORM_SEND_TO) return;
 
   try {
@@ -245,7 +263,7 @@ export const trackGoogleAdsLaunchReserveConversion = (
     }
   };
 
-  if (typeof window.gtag !== 'function') {
+  if (isAnalyticsDisabled() || typeof window.gtag !== 'function') {
     go();
     return false;
   }
@@ -302,6 +320,7 @@ let launchReserveThankYouLocked = false;
  */
 export const trackLaunchReserveThankYou = (): void => {
   if (typeof window === 'undefined') return;
+  if (isAnalyticsDisabled()) return;
 
   const path = window.location.pathname.replace(/\/+$/, '') || '/';
   if (path !== LAUNCH_THANKYOU_PATH) return;
@@ -450,6 +469,7 @@ export const toGa4FormName = (origin: string): string => {
  */
 export const trackGa4FormSubmit = (origin: string): void => {
   if (typeof window === 'undefined') return;
+  if (isAnalyticsDisabled()) return;
 
   const now = Date.now();
   if (now - lastGa4FormSubmitAt < 1500) return;
@@ -803,6 +823,7 @@ export const trackLandingPromo590View = () => {
 };
 
 export const trackLandingPromo590FormSubmit = () => {
+  if (isAnalyticsDisabled()) return;
   trackEvent('landing_promo_590_form_submit', {
     event_category: 'landing_promo_590',
     event_label: 'landing promo 590',

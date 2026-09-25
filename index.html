@@ -43,17 +43,60 @@
       })();
     </script>
 
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-V288FHTPLQ"
-    ></script>
+    <!-- Excluir tráfico propio: ?noanalytics=1 (se guarda en este navegador).
+         ?noanalytics=0 lo reactiva. Localhost no envía. -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-V288FHTPLQ');
-      gtag('config', 'AW-18305239496');
+      (function () {
+        var KEY = '36web_exclude_analytics';
+        var disabled = false;
+        try {
+          var params = new URLSearchParams(location.search);
+          if (params.has('noanalytics')) {
+            var on =
+              params.get('noanalytics') !== '0' &&
+              params.get('noanalytics') !== 'false';
+            if (on) localStorage.setItem(KEY, '1');
+            else localStorage.removeItem(KEY);
+            params.delete('noanalytics');
+            var query = params.toString();
+            history.replaceState(
+              null,
+              '',
+              location.pathname + (query ? '?' + query : '') + location.hash,
+            );
+          }
+          disabled = localStorage.getItem(KEY) === '1';
+        } catch (e) {}
+        var host = location.hostname;
+        if (
+          host === 'localhost' ||
+          host === '127.0.0.1' ||
+          host === '[::1]' ||
+          /\.local$/.test(host)
+        ) {
+          disabled = true;
+        }
+        if (!disabled) return;
+        window.__36webNoAnalytics = true;
+        window['ga-disable-G-V288FHTPLQ'] = true;
+        window['ga-disable-AW-18305239496'] = true;
+      })();
+    </script>
+    <script>
+      (function () {
+        if (window.__36webNoAnalytics) return;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-V288FHTPLQ';
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () {
+          window.dataLayer.push(arguments);
+        };
+        window.gtag('js', new Date());
+        window.gtag('config', 'G-V288FHTPLQ');
+        window.gtag('config', 'AW-18305239496');
+      })();
     </script>
     <link
       rel="apple-touch-icon"
