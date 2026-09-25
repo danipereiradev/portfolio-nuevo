@@ -316,12 +316,19 @@ const LandingMaintenance = () => {
         description={
           <>
             <p>
-              Planes desde 59 € + IVA/mes o bonos de horas para arreglos
-              puntuales. Trabajamos también con webs hechas por otras empresas.
+              <strong className='font-extrabold'>Planes desde 59 €</strong> +
+              IVA/mes o bonos de horas para arreglos puntuales. Trabajamos
+              también con webs hechas por otras empresas.
             </p>
             <HeroCtaList
               className='mx-auto mt-text-gap w-full list-none text-center md:mx-0 md:list-disc md:list-outside md:pl-5 md:text-left'
               items={[
+                <>
+                  <strong className='font-extrabold'>
+                    Monitorización 24/7
+                  </strong>
+                  .
+                </>,
                 <>
                   <strong className='font-extrabold'>
                     Propuesta en el mismo día
