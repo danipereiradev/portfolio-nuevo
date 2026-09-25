@@ -11,6 +11,7 @@ import {
   isAdsLandingPath,
   isAdsLaunchLandingPath,
   isAdsMaintenanceInfraLandingPath,
+  isAdsMaintenanceLandingPath,
 } from '../config/contact';
 import {
   LANDING_NAV,
@@ -40,6 +41,8 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
   const isAdsLanding = isAdsLandingPath(pathname);
   const isLaunchLanding = isAdsLaunchLandingPath(pathname);
   const isInfraLanding = isAdsMaintenanceInfraLandingPath(pathname);
+  const isMinimalAdsHeader =
+    isLaunchLanding || isAdsMaintenanceLandingPath(pathname);
   const landingNav = isAdsGoogleAdsLandingPath(pathname)
     ? LANDING_NAV_GOOGLE_ADS
     : isInfraLanding
@@ -164,7 +167,7 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
               </a>
             )}
 
-            {hideNav ? null : isLaunchLanding ? (
+            {hideNav ? null : isMinimalAdsHeader ? (
               <a
                 href={PHONE_TEL_LINK}
                 onClick={() => trackPhoneClick('AdsLandingHeader')}
@@ -336,7 +339,7 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
             )}
           </div>
 
-          {!hideNav && isAdsLanding && !isLaunchLanding && isMenuOpen ? (
+          {!hideNav && isAdsLanding && !isMinimalAdsHeader && isMenuOpen ? (
             <nav
               className='mt-2 divide-y divide-ink-dark/15 lg:hidden'
               aria-label='En la página'

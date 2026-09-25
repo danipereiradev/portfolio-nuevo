@@ -9,7 +9,6 @@ import {
   Wrench,
   X,
 } from 'lucide-react';
-import Portfolio from '../components/Portfolio';
 import SEOBenefits from '../components/SEOBenefits';
 import SEOFAQ from '../components/SEOFAQ';
 import Testimonials from '../components/Testimonials';
@@ -496,8 +495,6 @@ const LandingMaintenance = () => {
         }
         benefits={whyUs}
       />
-
-      <Portfolio />
 
       <SEOProcess
         title='Así se contrata'
