@@ -444,6 +444,8 @@ export const trackPhoneClick = (locationSection: string) => {
 
 /** Nombre GA4 de la landing de oferta 590 €. El id interno se mantiene. */
 export const GA4_FORM_NAME_PROMO_590 = 'landing_promo_590';
+/** Popup de salida: distinto al formulario del hero para poder filtrarlo en GA4. */
+export const GA4_FORM_NAME_PROMO_590_SALIDA = 'landing_promo_590_salida';
 
 const FORM_START_STORAGE_PREFIX = 'ga4_form_start:';
 const formStartFired = new Set<string>();
@@ -451,9 +453,11 @@ let lastGa4FormSubmitAt = 0;
 
 export const toGa4FormName = (origin: string): string => {
   const value = origin.trim();
+  if (value === ADS_LAUNCH_EXIT_FORM_ORIGIN) {
+    return GA4_FORM_NAME_PROMO_590_SALIDA;
+  }
   if (
     value === ADS_LAUNCH_FORM_ORIGIN ||
-    value === ADS_LAUNCH_EXIT_FORM_ORIGIN ||
     value === 'landing promo 590' ||
     value === 'landing promo 299' ||
     value === 'landing_promo_299'
@@ -837,6 +841,37 @@ export const trackLandingPromo590FormSubmit = () => {
       value: LAUNCH_PRICE,
       currency: 'EUR',
       landing_name: 'landing promo 590',
+    });
+  } catch {
+    // La analítica nunca debe romper la experiencia del usuario.
+  }
+};
+
+export const trackExitPopupView = () => {
+  trackEvent('exit_popup_view', {
+    event_category: 'landing_promo_590',
+    event_label: 'landing promo 590 salida',
+    landing_name: 'landing promo 590',
+    location_section: 'exit_popup',
+  });
+};
+
+export const trackExitPopupSubmit = () => {
+  if (isAnalyticsDisabled()) return;
+  trackEvent('exit_popup_submit', {
+    event_category: 'landing_promo_590',
+    event_label: 'landing promo 590 salida',
+    landing_name: 'landing promo 590',
+    location_section: 'exit_popup',
+    value: LAUNCH_PRICE,
+    currency: 'EUR',
+  });
+
+  try {
+    window.gtag?.('event', 'generate_lead', {
+      value: LAUNCH_PRICE,
+      currency: 'EUR',
+      landing_name: 'landing promo 590 salida',
     });
   } catch {
     // La analítica nunca debe romper la experiencia del usuario.

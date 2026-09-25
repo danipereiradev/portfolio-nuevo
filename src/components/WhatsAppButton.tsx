@@ -38,7 +38,7 @@ const WhatsAppButton = () => {
           e.preventDefault();
           openWhatsApp();
         }}
-        className='flex rounded-full bg-brand-light p-4 text-accent shadow-[0_4px_16px_rgba(0,0,0,0.08)] hover:bg-brand'
+        className='flex rounded-full bg-accent p-4 text-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] hover:bg-accent-hover'
         aria-label='Escríbenos por WhatsApp'
       >
         <svg

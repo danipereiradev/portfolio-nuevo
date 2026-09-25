@@ -8,12 +8,13 @@ import {
 } from '../config/contact';
 import {
   isFormStartTypingEvent,
+  trackExitPopupSubmit,
+  trackExitPopupView,
   trackFormError,
   trackFormStart,
   trackFormSubmit,
   trackGa4FormSubmit,
   trackGoogleAdsFormConversion,
-  trackLandingPromo590FormSubmit,
   unlockGoogleAdsFormConversion,
 } from '../utils/analytics';
 
@@ -77,6 +78,7 @@ const LaunchExitPopup = () => {
     openedRef.current = true;
     markPopupSeen();
     setIsOpen(true);
+    trackExitPopupView();
   };
 
   const closePopup = () => {
@@ -201,7 +203,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
       trackFormSubmit(origen);
       trackGa4FormSubmit(origen);
-      trackLandingPromo590FormSubmit();
+      trackExitPopupSubmit();
       trackGoogleAdsFormConversion();
       setIsFormSent(true);
       setPhone('');

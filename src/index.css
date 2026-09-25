@@ -139,6 +139,10 @@
     background: transparent;
     box-shadow: none;
   }
+
+  .site-header--landing {
+    background: #fff;
+  }
 }
 
 /* Mismo eje que el header flotante: 95% y tope 1248px en pantallas grandes. */

@@ -18,17 +18,24 @@ export const HeroCtaList = ({
 }: {
   items: ReactNode[];
   className?: string;
-}) => (
-  <ul
-    className={`space-y-3 text-lg marker:text-brand md:text-xl ${className}`}
-  >
-    {items.map((item, index) => (
-      <li key={index} className='pl-1'>
-        {item}
-      </li>
-    ))}
-  </ul>
-);
+}) => {
+  const { pathname } = useLocation();
+  const markerClass = isAdsLandingPath(pathname)
+    ? 'marker:text-accent'
+    : 'marker:text-brand';
+
+  return (
+    <ul
+      className={`space-y-3 text-lg ${markerClass} md:text-xl ${className}`}
+    >
+      {items.map((item, index) => (
+        <li key={index} className='pl-1'>
+          {item}
+        </li>
+      ))}
+    </ul>
+  );
+};
 
 interface HeroCtaProps {
   label?: string;
@@ -105,6 +112,7 @@ const HeroCta = ({
   onMedia = false,
 }: HeroCtaProps) => {
   const { pathname } = useLocation();
+  const isAdsLanding = isAdsLandingPath(pathname);
   const TitleTag = isTopHero ? 'h1' : 'h2';
   const isClean = heroType === 'clean';
   const overlayTone = overlay === 'none' ? undefined : overlay;
@@ -367,9 +375,9 @@ const HeroCta = ({
               </TitleTag>
               {animateEntrance ? (
                 <span
-                  className={`hero-cta-underline h-1 w-16 bg-brand mx-auto ${
-                    isClean ? '' : 'md:mx-0'
-                  }`}
+                  className={`hero-cta-underline h-1 w-16 mx-auto ${
+                    isAdsLanding ? 'bg-accent' : 'bg-brand'
+                  } ${isClean ? '' : 'md:mx-0'}`}
                   aria-hidden='true'
                 />
               ) : null}
