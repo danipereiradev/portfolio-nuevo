@@ -356,7 +356,13 @@ const HeroCta = ({
                   {labelNote}
                 </span>
               ) : null}
-              <TitleTag className={`hero-cta-title text-3xl md:text-4xl lg:text-5xl font-extrabold ${copyTone}`}>
+              <TitleTag
+                className={`hero-cta-title font-extrabold ${copyTone} ${
+                  isTopHero
+                    ? 'text-4xl md:text-5xl lg:text-6xl'
+                    : 'text-3xl md:text-4xl lg:text-5xl'
+                }`}
+              >
                 {title}
               </TitleTag>
               {animateEntrance ? (

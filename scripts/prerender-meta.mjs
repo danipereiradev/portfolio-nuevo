@@ -109,7 +109,7 @@ const buildLightBootHeroHtml = ({
         <div class="hero-cta-copy flex w-full min-w-0 flex-col items-center gap-page-gap md:items-start md:justify-center">
           <div class="page-title-block w-full items-center md:items-start">
             ${labelHtml}
-            <h1 class="hero-cta-title text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark">${h1}</h1>
+            <h1 class="hero-cta-title text-4xl md:text-5xl lg:text-6xl font-extrabold text-ink-dark">${h1}</h1>
             <span class="hero-cta-underline h-1 w-16 bg-brand mx-auto md:mx-0" aria-hidden="true"></span>
             <div class="hero-cta-desc text-xl md:text-2xl text-center text-ink-dark max-w-3xl md:text-justify">
               ${intro ? `<p>${intro}</p>` : ''}
@@ -200,7 +200,9 @@ const injectLaunchBootHeroCss = (html) => {
       body{background:#edeff7}
       [data-lcp-boot-hero]{min-height:100vh;min-height:100svh;background:#edeff7;color:#141414;display:flex;align-items:center;box-sizing:border-box;padding:7.5rem 0 4rem}
       [data-lcp-boot-hero] .container{width:95%;max-width:1248px;margin-left:auto;margin-right:auto;padding-left:1rem;padding-right:1rem}
-      [data-lcp-boot-hero] h1{font-family:'Space Grotesk',Inter,system-ui,sans-serif;font-size:1.875rem;line-height:2.25rem;font-weight:800;letter-spacing:-0.25px;margin:0}
+      [data-lcp-boot-hero] h1{font-family:'Space Grotesk',Inter,system-ui,sans-serif;font-size:2.25rem;line-height:2.5rem;font-weight:800;letter-spacing:-0.25px;margin:0}
+      @media (min-width:768px){[data-lcp-boot-hero] h1{font-size:3rem;line-height:1}}
+      @media (min-width:1024px){[data-lcp-boot-hero] h1{font-size:3.75rem}}
       [data-lcp-boot-hero] .hero-cta-underline{display:block;width:4rem;height:0.25rem;background:#b1d004;margin:0.75rem auto 0}
       @media (min-width:768px){[data-lcp-boot-hero] .hero-cta-underline{margin-left:0}}
     </style>
