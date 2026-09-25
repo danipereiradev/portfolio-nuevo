@@ -21,7 +21,7 @@ import { useJsonLd } from '../hooks/useJsonLd';
 import { ADS_LANDING_PATH } from '../config/contact';
 
 const landingTrustPoints = [
-  { icon: Wallet, text: 'Desde 590€' },
+  { icon: Wallet, text: 'Por 590€' },
   { icon: Clock, text: 'Propuesta el mismo día' },
   { icon: ShieldCheck, text: 'Hosting incluido' },
   { icon: BadgeCheck, text: 'La web es tuya' },
@@ -239,7 +239,7 @@ const LandingWeb = () => {
   return (
     <>
       <HeroCta
-        title='Te hacemos una web completa para captar clientes desde 590 € + IVA. Precio y entrega cerrados.'
+        title='Te hacemos una web completa para captar clientes Por 590 € + IVA. Precio y entrega cerrados.'
         description={
           <HeroCtaList
             items={[

@@ -207,7 +207,7 @@ export const paymentConfigs: Record<string, PaymentConfig> = {
     clientName: 'Oferta de lanzamiento',
     serviceName: 'Reserva — Web profesional',
     description:
-      'Reserva de 99 € + IVA para la web profesional de lanzamiento (desde 590 € + IVA). El resto (491 € + IVA) se paga antes de la publicación. Queda lista en 1–2 semanas desde que nos entregas la información de tu negocio.',
+      'Reserva de 99 € + IVA para la web profesional de lanzamiento (Por 590 € + IVA). El resto (491 € + IVA) se paga antes de la publicación. Queda lista en 1–2 semanas desde que nos entregas la información de tu negocio.',
     amount: 99,
     vatRate: 21,
     paymentType: 'one_time',
@@ -215,7 +215,7 @@ export const paymentConfigs: Record<string, PaymentConfig> = {
     stripePaymentLink: 'https://buy.stripe.com/5kQ9ATcWL0Y0dfDaFI4AU01',
     includes: [
       'Reserva para empezar el proyecto',
-      'Web profesional desde 590 € + IVA',
+      'Web profesional Por 590 € + IVA',
       'Tú entregas logo, textos y fotos',
       'Hosting incluido. El dominio lo pagas tú: 12 € al año, a tu nombre',
       'Lista en 1–2 semanas desde que nos entregas la información de tu negocio',

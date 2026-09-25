@@ -274,7 +274,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
     ? [
         {
           value: 'Web Esencial',
-          description: 'Una página desde 590 € + IVA, hosting incluido',
+          description: 'Una página Por 590 € + IVA, hosting incluido',
         },
         {
           value: 'Web Profesional',

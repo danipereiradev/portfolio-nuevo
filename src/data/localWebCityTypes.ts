@@ -82,7 +82,7 @@ export const LOCAL_WEB_COMMON_FAQS: LocalWebFaq[] = [
   {
     question: '¿Cuánto cuesta una web?',
     answer:
-      'Opciones desde 590 € + IVA. Si el proyecto pide más, presupuesto cerrado antes de empezar. Precio y plazo por escrito.',
+      'Opciones Por 590 € + IVA. Si el proyecto pide más, presupuesto cerrado antes de empezar. Precio y plazo por escrito.',
   },
   {
     question: '¿El plazo cuenta desde que os escribo?',

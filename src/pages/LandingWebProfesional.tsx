@@ -65,8 +65,7 @@ const includes = [
   {
     icon: ShieldCheck,
     title: 'No se publica hasta que estés conforme',
-    description:
-      `La revisas antes de publicar. Si algo importante no encaja, lo ajustamos. ${getLaunchInstallmentLabel()} al publicar, tras tu aprobación.`,
+    description: `La revisas antes de publicar. Si algo importante no encaja, lo ajustamos. ${getLaunchInstallmentLabel()} al publicar, tras tu aprobación.`,
   },
 ];
 
@@ -145,9 +144,7 @@ const faqs = [
 
 const launchHeroDescription = (
   <>
-    <p>
-      Web profesional para autónomos, emprendedores y pequeños negocios.
-    </p>
+    <p>Web profesional para autónomos, emprendedores y pequeños negocios.</p>
     <HeroCtaList
       className='mx-auto mt-text-gap w-full list-none text-center md:mx-0 md:list-disc md:list-outside md:pl-5 md:text-left'
       items={[
@@ -180,7 +177,7 @@ const LaunchLandingHero = () => {
       title='Nosotros te llamamos'
       description='Te contactamos y confirmamos el proyecto. Sin compromiso.'
       page={ADS_LAUNCH_FORM_ORIGIN}
-      submitLabel='Quiero información'
+      submitLabel='Quiero que me llaméis'
       compactOnMobile
       className={formSlot ? 'md:!w-full' : ''}
     />
@@ -195,7 +192,7 @@ const LaunchLandingHero = () => {
       label='Web profesional'
       title={
         <>
-          Una web profesional para tu negocio desde{' '}
+          Una web profesional para tu negocio por{' '}
           <span className='whitespace-nowrap'>
             {getLaunchPriceAmountLabel()}
           </span>
@@ -210,7 +207,7 @@ const LaunchLandingHero = () => {
       formTitle='Nosotros te llamamos'
       formDescription='Te contactamos y confirmamos el proyecto. Sin compromiso.'
       formSectionInfo={ADS_LAUNCH_FORM_ORIGIN}
-      formSubmitLabel='Quiero información'
+      formSubmitLabel='Quiero que me llaméis'
       formId='contacto'
       hasBackground={false}
       hasReviewBadge
@@ -303,8 +300,8 @@ const LandingWebProfesional = () => {
             </h2>
             <p className='text-xl text-ink-dark md:text-2xl'>
               {getLaunchPriceLabel()} · {getLaunchInstallmentLabel()} al empezar
-              · {getLaunchInstallmentLabel()} cuando apruebes. La
-              ves antes de publicar. Si algo importante no encaja, lo ajustamos.
+              · {getLaunchInstallmentLabel()} cuando apruebes. La ves antes de
+              publicar. Si algo importante no encaja, lo ajustamos.
             </p>
           </div>
         </div>
@@ -340,7 +337,7 @@ const LandingWebProfesional = () => {
           formTitle='Nosotros te llamamos'
           formDescription='Te contactamos y confirmamos el proyecto. Sin compromiso.'
           formSectionInfo={ADS_LAUNCH_FORM_ORIGIN}
-          formSubmitLabel='Quiero información'
+          formSubmitLabel='Quiero que me llaméis'
           hasBackground={false}
           hasReviewBadge={false}
         />

@@ -1,7 +1,7 @@
 const rows = [
   {
     label: 'Precio',
-    us: 'Desde 590 € + IVA. El número concreto va por escrito, según alcance.',
+    us: 'Por 590 € + IVA. El número concreto va por escrito, según alcance.',
     ia: 'Más barato, a veces gratis. Sale rápido y sirve para probar.',
   },
   {
@@ -64,9 +64,7 @@ const CompareVsAi = () => {
               {rows.map((row, index) => (
                 <tr
                   key={row.label}
-                  className={
-                    index % 2 === 0 ? 'bg-white' : 'bg-surface-muted'
-                  }
+                  className={index % 2 === 0 ? 'bg-white' : 'bg-surface-muted'}
                 >
                   <th className='px-content-pad py-content-pad align-top text-base font-extrabold text-ink-dark'>
                     {row.label}

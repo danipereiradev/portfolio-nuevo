@@ -132,7 +132,7 @@ const madrid: LocalWebCity = {
     {
       question: '¿Es más cara una web por estar en Madrid?',
       answer:
-        'No hay recargo de capital. Tenemos opciones desde 590 € + IVA. El precio va por el alcance, no por el código postal. Tras hablar, presupuesto cerrado por escrito.',
+        'No hay recargo de capital. Tenemos opciones Por 590 € + IVA. El precio va por el alcance, no por el código postal. Tras hablar, presupuesto cerrado por escrito.',
     },
     {
       question: '¿Hacéis webs para un barrio concreto de Madrid?',
@@ -165,9 +165,9 @@ const torrejon: LocalWebCity = {
   comunidad: 'Comunidad de Madrid',
   title: 'Diseño web en Torrejón de Ardoz para negocios | 36web',
   description:
-    'Diseño web en Torrejón de Ardoz para autónomos y empresas. Webs desde 590 € + IVA, con precio y plazos por escrito.',
+    'Diseño web en Torrejón de Ardoz para autónomos y empresas. Webs Por 590 € + IVA, con precio y plazos por escrito.',
   hero_lead:
-    'Webs para autónomos y empresas de Torrejón de Ardoz, desde 590 € + IVA. Claras, rápidas y pensadas para captar clientes.',
+    'Webs para autónomos y empresas de Torrejón de Ardoz, Por 590 € + IVA. Claras, rápidas y pensadas para captar clientes.',
   intro_local: [
     'Diseñamos páginas web y tiendas online para negocios de Torrejón de Ardoz y alrededores que necesitan una web profesional con precio ajustado. Trabajamos especialmente con comercios, autónomos, clínicas y empresas del Corredor.',
     'Atención directa en Torrejón de Ardoz. Propuesta el mismo día, precio cerrado y plazos por escrito.',
