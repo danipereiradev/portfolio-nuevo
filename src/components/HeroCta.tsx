@@ -14,7 +14,7 @@ const prefersReducedMotion = () =>
 
 export const HeroCtaList = ({
   items,
-  className = 'mx-auto w-full list-disc pl-5 text-left md:mx-0',
+  className = 'mx-auto w-full list-none text-center md:mx-0 md:list-disc md:list-outside md:pl-5 md:text-left',
 }: {
   items: ReactNode[];
   className?: string;

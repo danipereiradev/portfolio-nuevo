@@ -335,7 +335,7 @@ const DisenoWeb = () => {
               .
             </p>
             <HeroCtaList
-              className='mx-auto mt-text-gap w-fit max-w-[var(--button-width)] list-disc pl-5 text-left md:mx-0 md:w-full md:max-w-none'
+              className='mx-auto mt-text-gap w-full list-none text-center md:mx-0 md:list-disc md:list-outside md:pl-5 md:text-left'
               items={[
                 <>
                   Todo lo necesario para empezar a trabajar{' '}

@@ -251,11 +251,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
           <h2 className='text-2xl font-extrabold text-black md:text-3xl lg:text-4xl'>
             {title}
           </h2>
-          <span
-            className={`${
-              compactOnMobile ? 'hidden md:block' : 'block'
-            } text-sm font-extrabold uppercase tracking-wide text-accent`}
-          >
+          <span className='block text-sm font-extrabold uppercase tracking-wide text-accent'>
             {BUSINESS_HOURS_LABEL}
           </span>
           <p

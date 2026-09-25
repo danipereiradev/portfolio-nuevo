@@ -87,7 +87,7 @@ const SITE_SHOP_PATH = '/tiendas-online';
 const SITE_MAINTENANCE_PATH = '/mantenimiento-web';
 
 const heroListClass =
-  'space-y-3 text-lg marker:text-brand md:text-xl mx-auto mt-text-gap w-fit max-w-[var(--button-width)] list-disc pl-5 text-left md:mx-0 md:w-full md:max-w-none';
+  'space-y-3 text-lg marker:text-brand md:text-xl mx-auto mt-text-gap w-full list-none text-center md:mx-0 md:list-disc md:list-outside md:pl-5 md:text-left';
 
 /** H1 fuera de #root: createRoot no lo borra y el LCP se queda en el primer pintado. */
 const buildLightBootHeroHtml = ({

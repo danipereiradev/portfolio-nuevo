@@ -8,6 +8,10 @@ import {
   trackGoogleAdsWhatsAppConversion,
 } from '../utils/analytics';
 import {
+  BUSINESS_ADDRESS,
+  BUSINESS_HOURS,
+  CONTACT_EMAIL,
+  GOOGLE_MAPS_FOOTER_EMBED_URL,
   INSTAGRAM_URL,
   PHONE_DISPLAY,
   PHONE_TEL_LINK,
@@ -153,23 +157,19 @@ const Footer = () => {
               {t('footer.contact_title')}
             </h3>
             <span className='block w-10 h-1 bg-brand mb-6 mx-auto md:mx-0' />
-            <ul className='space-y-4 text-ink-dark'>
-              <li className='flex flex-col items-center md:flex-row md:items-start gap-3 md:justify-start'>
-                <Mail className='w-5 h-5 text-accent flex-shrink-0' />
-                <div className='text-center md:text-left'>
+            {isAdsLanding ? (
+              <div className='space-y-4 text-ink-dark'>
+                <div>
                   <p className='font-medium text-ink-medium'>Email</p>
                   <a
-                    href='mailto:hola@36web.es'
+                    href={`mailto:${CONTACT_EMAIL}`}
                     onClick={() => trackEmailClick('FooterList')}
                     className='hover:text-link transition-colors duration-200 break-all'
                   >
-                    hola@36web.es
+                    {CONTACT_EMAIL}
                   </a>
                 </div>
-              </li>
-              <li className='flex flex-col items-center md:flex-row md:items-start gap-3 md:justify-start'>
-                <Phone className='w-5 h-5 text-accent flex-shrink-0' />
-                <div className='text-center md:text-left'>
+                <div>
                   <p className='font-medium text-ink-medium'>Teléfono</p>
                   <a
                     href={PHONE_TEL_LINK}
@@ -179,27 +179,82 @@ const Footer = () => {
                     {PHONE_DISPLAY}
                   </a>
                 </div>
-              </li>
-              <li className='flex flex-col items-center md:flex-row md:items-start gap-3 md:justify-start'>
-                <MessageCircle className='w-5 h-5 text-accent flex-shrink-0' />
-                <div className='text-center md:text-left'>
-                  <p className='font-medium text-ink-medium'>WhatsApp</p>
-                  <a
-                    href={footerWhatsAppUrl}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    onClick={(e) => {
-                      e.preventDefault();
-                      trackWhatsAppClick('FooterList');
-                      trackGoogleAdsWhatsAppConversion(footerWhatsAppUrl);
-                    }}
-                    className='hover:text-link transition-colors duration-200'
-                  >
-                    Escríbenos por WhatsApp
-                  </a>
+                <div>
+                  <p className='font-medium text-ink-medium'>Horario</p>
+                  <p>{BUSINESS_HOURS}</p>
                 </div>
-              </li>
-            </ul>
+                <div>
+                  <p className='flex flex-wrap items-baseline justify-center gap-x-2 md:justify-start'>
+                    <span className='font-medium text-ink-medium'>
+                      Ubicación
+                    </span>
+                    <address className='not-italic'>{BUSINESS_ADDRESS}</address>
+                  </p>
+                  <div
+                    className='pointer-events-none relative mt-3 h-[160px] w-full max-w-[280px] overflow-hidden rounded-md mx-auto md:mx-0'
+                    aria-hidden='true'
+                    inert
+                  >
+                    <iframe
+                      src={GOOGLE_MAPS_FOOTER_EMBED_URL}
+                      title='Mapa de Calle Condega 7, Torrejón de Ardoz'
+                      loading='lazy'
+                      tabIndex={-1}
+                      referrerPolicy='no-referrer-when-downgrade'
+                      className='h-full w-full border-0'
+                    />
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <ul className='space-y-4 text-ink-dark'>
+                <li className='flex flex-col items-center md:flex-row md:items-start gap-3 md:justify-start'>
+                  <Mail className='w-5 h-5 text-accent flex-shrink-0' />
+                  <div className='text-center md:text-left'>
+                    <p className='font-medium text-ink-medium'>Email</p>
+                    <a
+                      href={`mailto:${CONTACT_EMAIL}`}
+                      onClick={() => trackEmailClick('FooterList')}
+                      className='hover:text-link transition-colors duration-200 break-all'
+                    >
+                      {CONTACT_EMAIL}
+                    </a>
+                  </div>
+                </li>
+                <li className='flex flex-col items-center md:flex-row md:items-start gap-3 md:justify-start'>
+                  <Phone className='w-5 h-5 text-accent flex-shrink-0' />
+                  <div className='text-center md:text-left'>
+                    <p className='font-medium text-ink-medium'>Teléfono</p>
+                    <a
+                      href={PHONE_TEL_LINK}
+                      onClick={() => trackPhoneClick('FooterList')}
+                      className='hover:text-link transition-colors duration-200'
+                    >
+                      {PHONE_DISPLAY}
+                    </a>
+                  </div>
+                </li>
+                <li className='flex flex-col items-center md:flex-row md:items-start gap-3 md:justify-start'>
+                  <MessageCircle className='w-5 h-5 text-accent flex-shrink-0' />
+                  <div className='text-center md:text-left'>
+                    <p className='font-medium text-ink-medium'>WhatsApp</p>
+                    <a
+                      href={footerWhatsAppUrl}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      onClick={(e) => {
+                        e.preventDefault();
+                        trackWhatsAppClick('FooterList');
+                        trackGoogleAdsWhatsAppConversion(footerWhatsAppUrl);
+                      }}
+                      className='hover:text-link transition-colors duration-200'
+                    >
+                      Escríbenos por WhatsApp
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            )}
           </div>
         </div>
       </div>

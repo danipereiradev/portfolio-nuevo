@@ -4,12 +4,14 @@ export const PHONE_NUMBER = '34644665352';
 export const PHONE_DISPLAY = '644 665 352';
 export const PHONE_TEL_LINK = `tel:+${PHONE_NUMBER}`;
 export const CONTACT_EMAIL = 'hola@36web.es';
+export const BUSINESS_ADDRESS = 'Calle Condega 7, 28850, Torrejón de Ardoz, Madrid';
 export const INSTAGRAM_HANDLE = '36web.es';
 export const INSTAGRAM_URL = `https://www.instagram.com/${INSTAGRAM_HANDLE}/`;
 export const INSTAGRAM_EMBED_URL = `${INSTAGRAM_URL}embed/`;
 // Formspree ya entrega a CONTACT_EMAIL; el CC tiene que ser otra dirección.
 export const FORM_CC_EMAIL = 'info.danipereira@gmail.com';
-export const BUSINESS_HOURS_LABEL = 'Horario: L-V de 9:00h a 18:00h';
+export const BUSINESS_HOURS = 'L-V de 9:00h a 20:00h';
+export const BUSINESS_HOURS_LABEL = `Horario: ${BUSINESS_HOURS}`;
 
 // Ficha oficial de Google Maps (Pereira Web) para el mapa embebido en /contacto.
 export const GOOGLE_MAPS_EMBED_URL =
@@ -17,6 +19,9 @@ export const GOOGLE_MAPS_EMBED_URL =
 
 export const GOOGLE_MAPS_PLACE_URL =
   'https://www.google.com/maps/place/Pereira+Web/data=!4m6!3m5!1s0x8fbfaf5298cafb17:0xeff7a55bec419fb2!8m2!3d40.4380986!4d-3.8443501!16s%2Fg%2F11zkg96x_g?hl=es&entry=ttu';
+
+export const GOOGLE_MAPS_FOOTER_EMBED_URL =
+  'https://maps.google.com/maps?q=Calle+Condega+7,+28850+Torrej%C3%B3n+de+Ardoz,+Madrid&hl=es&z=16&output=embed';
 
 export const DEFAULT_WHATSAPP_MESSAGE =
   'Hola, quiero información para un proyecto web.';
