@@ -129,7 +129,7 @@ const buildLaunchLandingHeroHtml = () => {
   const installment = '295\u00A0€\u00A0+\u00A0IVA';
   return buildLightBootHeroHtml({
     label: 'Web profesional',
-    h1: `Una web profesional para tu negocio desde <span class="whitespace-nowrap">${price}</span>`,
+    h1: `Una web profesional para tu negocio por <span class="whitespace-nowrap">${price}</span>`,
     intro: 'Web profesional para autónomos, emprendedores y pequeños negocios.',
     bullets: [
       '<strong class="font-bold">Lista en 1–2 semanas · Hosting incluido · Sin cuotas mensuales</strong>',
@@ -416,10 +416,7 @@ const writeNotFoundPage = (bodyHtml) => {
       '<meta name="description" content="Esta página no existe." />\n    <meta name="robots" content="noindex, nofollow" />',
     );
   }
-  html = html.replace(
-    /<link\s+rel="canonical"\s+href="[^"]*"\s*\/>/,
-    '',
-  );
+  html = html.replace(/<link\s+rel="canonical"\s+href="[^"]*"\s*\/>/, '');
   html = injectRoot(html, bodyHtml);
   writeFileSync(path.join(distDir, '404.html'), html, 'utf-8');
 };
@@ -508,8 +505,13 @@ const patchDistRedirects = (cities) => {
     .join('\n');
 
   let text = readFileSync(redirectsPath, 'utf-8');
-  const splat = '/diseno-web/*                   /404.html                                  404';
-  if (cityRules && text.includes(splat) && !text.includes(`${SITE_WEB_PATH}/${cities[0]?.slug} `)) {
+  const splat =
+    '/diseno-web/*                   /404.html                                  404';
+  if (
+    cityRules &&
+    text.includes(splat) &&
+    !text.includes(`${SITE_WEB_PATH}/${cities[0]?.slug} `)
+  ) {
     text = text.replace(splat, `${cityRules}\n${splat}`);
     writeFileSync(redirectsPath, text, 'utf-8');
   }
