@@ -5,7 +5,7 @@ const LaunchPaymentTable = ({ className = '' }: { className?: string }) => {
   const rows = [
     {
       title: 'Al empezar',
-      detail: 'Cuando confirmamos el proyecto',
+      detail: 'Tras aceptar alcance y condiciones por escrito',
       amount: installment,
     },
     {
@@ -36,7 +36,7 @@ const LaunchPaymentTable = ({ className = '' }: { className?: string }) => {
         </div>
       ))}
       <div className='grid grid-cols-[1fr_auto] items-center gap-4 bg-accent-light px-5 py-4'>
-        <p className='font-extrabold'>Desde</p>
+        <p className='font-extrabold'>Total del paquete</p>
         <p className='whitespace-nowrap text-right text-xl font-extrabold md:text-2xl'>
           {getLaunchPriceAmountLabel()}
         </p>

@@ -1,8 +1,7 @@
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import RevealOnScroll from './RevealOnScroll';
 import VideoTestimonial from './VideoTestimonial';
-import { isAdsLandingPath } from '../config/contact';
+import { GOOGLE_MAPS_PLACE_URL } from '../config/contact';
 import { scheduleTrustindex } from '../utils/trustindex';
 
 const TRUSTINDEX_WIDGET_SRC =
@@ -17,8 +16,6 @@ function Testimonials({
   id = 'testimonials',
   hasVideo = false,
 }: TestimonialsProps) {
-  const { pathname } = useLocation();
-  const lockOutbound = isAdsLandingPath(pathname);
 
   useEffect(() => {
     scheduleTrustindex();
@@ -39,15 +36,11 @@ function Testimonials({
             con certificación Trustindex.
           </p>
         </RevealOnScroll>
+        <a href={GOOGLE_MAPS_PLACE_URL} target='_blank' rel='noopener noreferrer' className='self-center text-accent underline font-bold'>Ver opiniones en Google (se abre en otra pestaña)</a>
         {hasVideo ? (
           <div className='flex flex-col items-center gap-page-gap lg:grid lg:grid-cols-4 lg:items-center lg:gap-8'>
             <div className='min-w-0 w-full lg:col-span-3'>
-              <div
-                className={lockOutbound ? 'pointer-events-none select-none' : undefined}
-                ref={(node) => {
-                  if (node) node.inert = lockOutbound;
-                }}
-              >
+<div>
                 <div data-src={TRUSTINDEX_WIDGET_SRC} className='min-h-[24rem]' />
               </div>
             </div>
@@ -56,12 +49,7 @@ function Testimonials({
             </RevealOnScroll>
           </div>
         ) : (
-          <div
-            className={lockOutbound ? 'pointer-events-none select-none' : undefined}
-            ref={(node) => {
-              if (node) node.inert = lockOutbound;
-            }}
-          >
+<div>
             <div data-src={TRUSTINDEX_WIDGET_SRC} className='min-h-[24rem]' />
           </div>
         )}

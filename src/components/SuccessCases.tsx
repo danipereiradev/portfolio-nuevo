@@ -14,7 +14,6 @@ export const SuccessCases = ({
   description,
   images,
   reverse,
-  link,
 }: SuccessCasesProps) => {
   return (
     <section

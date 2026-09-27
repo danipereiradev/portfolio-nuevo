@@ -102,7 +102,7 @@ const Home = () => {
         title='¿Necesitas que te contemos más?'
         description={
           <>
-            Déjanos tu email y teléfono y{' '}
+            Déjanos email y teléfono y{' '}
             <strong className='font-extrabold'>
               nosotros mismos nos ponemos en contacto contigo
             </strong>{' '}

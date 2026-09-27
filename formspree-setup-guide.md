@@ -1,16 +1,18 @@
-# 📧 Guía Rápida: Conectar Formulario a tu Email
+# 📧 Guía Rápida: Conectar Formulario a email
 
 ## 🚀 OPCIÓN 1: Formspree (Recomendado - Más Fácil)
 
 ### ✅ Ventajas:
+
 - ✅ **Súper fácil** - Solo 2 pasos
 - ✅ **Funciona en cualquier hosting** (Netlify, Vercel, etc.)
 - ✅ **Plan gratuito** - 50 envíos/mes
 - ✅ **Sin código adicional**
 
 ### 📋 Pasos:
+
 1. **Ve a [formspree.io](https://formspree.io)** y crea cuenta gratis
-2. **Crea un nuevo formulario** con tu email: `info.danipereira@gmail.com`
+2. **Crea un nuevo formulario** con email: `info.danipereira@gmail.com`
 3. **Copia el Form ID** (algo como `xpzgkqyw`)
 4. **Reemplaza en el código:**
    ```javascript
@@ -23,11 +25,13 @@
 ## 🚀 OPCIÓN 2: Netlify Forms (Si despliegas en Netlify)
 
 ### ✅ Ventajas:
+
 - ✅ **Completamente gratis**
 - ✅ **Cero configuración**
 - ✅ **Integrado con Netlify**
 
 ### 📋 Pasos:
+
 1. **Descomenta las líneas en el código:**
    ```html
    name="contact-form"
@@ -49,11 +53,13 @@
 ## 🎯 ¿Cuál Elegir?
 
 ### 👍 **Usa Formspree si:**
+
 - Quieres la solución más fácil
 - Despliegas en cualquier plataforma
 - No te importa el límite de 50 emails/mes
 
 ### 👍 **Usa Netlify Forms si:**
+
 - Despliegas específicamente en Netlify
 - Quieres completamente gratis sin límites
 - Prefieres todo integrado

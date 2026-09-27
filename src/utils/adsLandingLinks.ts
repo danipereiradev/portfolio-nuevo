@@ -12,8 +12,19 @@ const isAllowedHost = (hostname: string): boolean => {
     host === 'wa.me' ||
     host.endsWith('whatsapp.com') ||
     host === 'stripe.com' ||
-    host.endsWith('.stripe.com')
+    host.endsWith('.stripe.com') ||
+    host === 'maps.google.com' ||
+    host === 'maps.app.goo.gl'
   );
+};
+
+const isGoogleMapsUrl = (url: URL): boolean => {
+  const host = url.hostname.replace(/^www\./, '');
+  if (host === 'maps.google.com' || host === 'maps.app.goo.gl') return true;
+  if (host === 'google.com' || host === 'google.es') {
+    return url.pathname.startsWith('/maps');
+  }
+  return false;
 };
 
 const normalizePath = (pathname: string): string =>
@@ -44,7 +55,7 @@ export const isAllowedAdsLandingHref = (href: string): boolean => {
     if (url.origin === window.location.origin) {
       return isSafeSameOriginPath(url.pathname);
     }
-    return isAllowedHost(url.hostname);
+    return isAllowedHost(url.hostname) || isGoogleMapsUrl(url);
   } catch {
     return false;
   }

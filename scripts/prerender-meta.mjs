@@ -96,6 +96,7 @@ const buildLightBootHeroHtml = ({
   intro,
   bullets,
   extraCopy = '',
+  descriptionAlign = 'md:text-justify',
 }) => {
   const labelHtml = label
     ? `<span class="hero-cta-label text-md uppercase rounded-lg font-extrabold text-accent underline">${label}</span>`
@@ -111,7 +112,7 @@ const buildLightBootHeroHtml = ({
             ${labelHtml}
             <h1 class="hero-cta-title text-4xl md:text-5xl lg:text-6xl font-extrabold text-ink-dark">${h1}</h1>
             <span class="hero-cta-underline h-1 w-16 bg-brand mx-auto md:mx-0" aria-hidden="true"></span>
-            <div class="hero-cta-desc text-xl md:text-2xl text-center text-ink-dark max-w-3xl md:text-justify">
+            <div class="hero-cta-desc text-xl md:text-2xl text-center text-ink-dark max-w-3xl ${descriptionAlign}">
               ${intro ? `<p>${intro}</p>` : ''}
               <ul class="${heroListClass}">${bulletsHtml}</ul>
             </div>
@@ -124,20 +125,17 @@ const buildLightBootHeroHtml = ({
   </section>`;
 };
 
-const buildLaunchLandingHeroHtml = () => {
-  const price = '590\u00A0€\u00A0+\u00A0IVA';
-  const installment = '295\u00A0€\u00A0+\u00A0IVA';
-  return buildLightBootHeroHtml({
-    label: 'Web profesional',
-    h1: `Una web profesional para tu negocio por <span class="whitespace-nowrap">${price}</span>`,
-    intro: 'Web profesional para autónomos, emprendedores y pequeños negocios.',
-    bullets: [
-      '<strong class="font-bold">Lista en 1–2 semanas · Hosting incluido · Sin cuotas mensuales</strong>',
-      `<strong class="font-extrabold"><span class="whitespace-nowrap">${installment}</span> al empezar · <span class="whitespace-nowrap">${installment}</span> antes de publicar</strong>`,
-      'No se publica hasta que estés conforme.',
-    ],
-  });
-};
+const buildLaunchLandingHeroHtml = () => buildLightBootHeroHtml({
+  descriptionAlign: 'md:text-left',
+  label: 'Web profesional',
+  h1: 'Tu web profesional por <span class="whitespace-nowrap">590&nbsp;€&nbsp;+&nbsp;IVA</span>',
+  intro: 'Para autónomos y pequeños negocios de toda España. Trabajamos online.',
+  bullets: [
+    '<strong class="font-bold">Diseño, textos y logo incluidos · Lista en 1–2 semanas.</strong>',
+    'Hosting y dominio incluidos el primer año.',
+  ],
+  extraCopy: '<a href="#contacto" class="inline-flex rounded-lg bg-accent px-6 py-3 font-bold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">Hablemos de tu web</a><p class="text-base">Sin compromiso y sin pagar ahora.</p>',
+});
 
 const buildDisenoWebHeroHtml = () =>
   buildLightBootHeroHtml({

@@ -6,7 +6,7 @@
 
 1. Ve a [https://www.emailjs.com/](https://www.emailjs.com/)
 2. Haz clic en "Sign Up" y crea tu cuenta gratuita
-3. Verifica tu email
+3. Verifica email
 
 ### 2. Configurar Servicio de Email
 
@@ -91,7 +91,7 @@ const publicKey = 'user_def456';         // Ejemplo
 
 1. Completa el formulario en tu web
 2. Envía una solicitud de prueba
-3. Revisa tu email info.danipereira@gmail.com
+3. Revisa email info.danipereira@gmail.com
 4. ¡Deberías recibir el email formateado!
 
 ## 🚨 Importante
@@ -110,4 +110,4 @@ Si tienes problemas:
 - Comprueba que el servicio de Gmail esté activo
 - Revisa la carpeta de spam
 
-¡Una vez configurado, recibirás todos los formularios directamente en tu email! 🎉
+¡Una vez configurado, recibirás todos los formularios directamente en email! 🎉

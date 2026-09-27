@@ -5,6 +5,7 @@ import { useBodyScrollLock } from '../hooks/useBodyScrollLock';
 import {
   ADS_LAUNCH_EXIT_FORM_ORIGIN,
   FORM_CC_EMAIL,
+  BUSINESS_HOURS_LABEL,
 } from '../config/contact';
 import {
   isFormStartTypingEvent,
@@ -19,7 +20,6 @@ import {
 } from '../utils/analytics';
 
 const STORAGE_KEY = 'launch-exit-popup-seen';
-const MOBILE_DELAY_MS = 30_000;
 const EXIT_ARM_MS = 1_500;
 const MOBILE_QUERY = '(max-width: 767px)';
 
@@ -87,14 +87,18 @@ const LaunchExitPopup = () => {
   };
 
   useEffect(() => {
-    if (hasSeenPopup()) return undefined;
+    if (hasSeenPopup() || isMobileViewport()) return undefined;
 
     let armed = false;
-    let armTimer: number | undefined;
-    let mobileTimer: number | undefined;
+    let hasInteractedWithForm = false;
+    const onFormInteraction = (event: Event) => {
+      if (event.target instanceof Element && event.target.closest('form')) {
+        hasInteractedWithForm = true;
+      }
+    };
 
     const onMouseOut = (event: MouseEvent) => {
-      if (!armed || isMobileViewport()) return;
+      if (!armed || hasInteractedWithForm || isMobileViewport()) return;
       if (event.clientY > 8) return;
       if (
         event.relatedTarget instanceof Node &&
@@ -105,19 +109,18 @@ const LaunchExitPopup = () => {
       openPopup();
     };
 
-    armTimer = window.setTimeout(() => {
+    const armTimer = window.setTimeout(() => {
       armed = true;
     }, EXIT_ARM_MS);
 
-    if (isMobileViewport()) {
-      mobileTimer = window.setTimeout(openPopup, MOBILE_DELAY_MS);
-    } else {
-      document.documentElement.addEventListener('mouseout', onMouseOut);
-    }
+    document.documentElement.addEventListener('mouseout', onMouseOut);
+    document.addEventListener('focusin', onFormInteraction);
+    document.addEventListener('input', onFormInteraction);
 
     return () => {
       if (armTimer) window.clearTimeout(armTimer);
-      if (mobileTimer) window.clearTimeout(mobileTimer);
+      document.removeEventListener('focusin', onFormInteraction);
+      document.removeEventListener('input', onFormInteraction);
       document.documentElement.removeEventListener('mouseout', onMouseOut);
     };
   }, []);
@@ -244,7 +247,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
         {isFormSent ? (
           <p className='pr-10 text-lg font-extrabold text-ink-dark md:text-xl'>
-            Te llamamos en cinco minutos. Gracias.
+            Solicitud recibida. Te contactaremos en nuestro horario de atención: {BUSINESS_HOURS_LABEL}. Gracias.
           </p>
         ) : (
           <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
@@ -257,14 +260,13 @@ Fecha: ${new Date().toLocaleString('es-ES')}
               </h2>
               <p className='text-base text-ink-dark md:text-lg'>
                 ¿No sabes si esta web incluye lo que necesitas o si tu sector
-                requiere algo más complejo? Déjanos tu teléfono. Te llamamos en
-                5 minutos, resolvemos tus dudas en un minuto y no te vendemos
-                nada. Sin presiones.
+                requiere algo más complejo? Déjanos tu teléfono y resolvemos tus dudas en nuestro horario de atención. Sin compromiso y sin pagar ahora.
               </p>
             </div>
 
             <input
               ref={phoneInputRef}
+              aria-label='Teléfono'
               type='tel'
               value={phone}
               onInput={(event) => {
@@ -275,7 +277,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                 if (errors.phone) setErrors((prev) => ({ ...prev, phone: '' }));
               }}
               className={fieldClass(Boolean(errors.phone))}
-              placeholder='Tu teléfono *'
+              placeholder='Teléfono *'
               autoComplete='tel'
               inputMode='tel'
               required
@@ -289,6 +291,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
             <div className='flex items-center gap-2'>
               <input
+                aria-label='He leído y acepto la política de privacidad'
                 type='checkbox'
                 required
                 checked={consent}

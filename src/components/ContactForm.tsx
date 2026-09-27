@@ -335,7 +335,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                         ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
                         : 'border-ink-dark'
                     }`}
-                    placeholder='Tu nombre completo'
+                    placeholder='Nombre completo'
                     maxLength={50}
                     required
                   />
@@ -501,7 +501,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                     ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
                     : 'border-ink-dark'
                 }`}
-                placeholder='Tu respuesta...'
+                placeholder='Respuesta...'
                 required
               />
               {errors.antiSpam && <ErrorMessage error={errors.antiSpam} />}

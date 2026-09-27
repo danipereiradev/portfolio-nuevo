@@ -5,11 +5,7 @@ import { TextImage } from '../components/TextImage';
 import { TextSection } from '../components/TextSection';
 import { Team } from '../components/Team';
 import HeroCta from '../components/HeroCta';
-import {
-  ABOUT_LABEL,
-  ABOUT_PATH,
-  SITE_WEB_PATH,
-} from '../config/contact';
+import { ABOUT_LABEL, ABOUT_PATH, SITE_WEB_PATH } from '../config/contact';
 
 const SITE_URL = 'https://36web.es';
 
@@ -156,7 +152,7 @@ const Nosotros = () => {
         title='¿Necesitas que te contemos más?'
         description={
           <>
-            Déjanos tu email y teléfono y{' '}
+            Déjanos email y teléfono y{' '}
             <strong className='font-extrabold'>
               nosotros mismos nos ponemos en contacto contigo
             </strong>{' '}

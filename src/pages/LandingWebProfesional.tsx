@@ -12,7 +12,7 @@ import Portfolio from '../components/Portfolio';
 import SEOFAQ from '../components/SEOFAQ';
 import Testimonials from '../components/Testimonials';
 import SEOProcess from '../components/SEOProcess';
-import HeroCta, { HeroCtaList } from '../components/HeroCta';
+import HeroCta from '../components/HeroCta';
 import { ContactFormHero } from '../components/ContactFormHero';
 import LaunchPaymentTable from '../components/LaunchPaymentTable';
 import LaunchExitPopup from '../components/LaunchExitPopup';
@@ -27,7 +27,6 @@ import {
 import {
   getLaunchInstallmentLabel,
   getLaunchPriceAmountLabel,
-  getLaunchPriceLabel,
   LAUNCH_DELIVERY_LABEL,
 } from '../config/launchOffer';
 import { trackLandingPromo590View } from '../utils/analytics';
@@ -60,12 +59,12 @@ const includes = [
     icon: Globe,
     title: 'Publicación',
     description:
-      'En nuestro hosting, gratis, con tu dominio. O la montamos en el hosting que tú elijas, sin coste.',
+      'Hosting y dominio (.es o .com) incluidos el primer año. También podemos publicar en tu hosting.',
   },
   {
     icon: ShieldCheck,
     title: 'No se publica hasta que estés conforme',
-    description: `La revisas antes de publicar. Si algo importante no encaja, lo ajustamos. ${getLaunchInstallmentLabel()} al publicar, tras tu aprobación.`,
+    description: `La revisas antes de publicar. Si algo importante no encaja, lo ajustamos. ${getLaunchInstallmentLabel()} antes de publicar, tras tu aprobación.`,
   },
 ];
 
@@ -75,9 +74,9 @@ const processSteps = [
     title: 'Nos cuentas tu negocio',
     description: (
       <>
-        Nos escribes, te llamamos y confirmamos el proyecto.{' '}
+        Hablamos sin compromiso. Si decides contratar, confirmamos alcance, plazos y condiciones antes del anticipo.{' '}
         <strong className='font-extrabold'>
-          {getLaunchPriceLabel()}. Te lo cerramos por escrito
+          {getLaunchPriceAmountLabel()}. Te lo cerramos por escrito
         </strong>
         .
       </>
@@ -104,7 +103,7 @@ const processSteps = [
       <>
         La ves, si algo no encaja lo ajustamos, y entonces se publica.{' '}
         <strong className='font-extrabold'>
-          {getLaunchInstallmentLabel()} al publicar, cuando apruebes
+          {getLaunchInstallmentLabel()} antes de publicar, cuando apruebes
         </strong>
         .
       </>
@@ -113,6 +112,8 @@ const processSteps = [
 ];
 
 const faqs = [
+  { question: '¿Tengo que pagar para pedir información?', answer: 'No. La primera conversación es sin compromiso y sin pagar. Si decides contratar, te enviamos alcance, plazos y condiciones por escrito antes de abonar el primer tramo.' },
+  { question: '¿Trabajáis con negocios de mi ciudad?', answer: 'Trabajamos online con autónomos y negocios de toda España. Hablamos por teléfono o videollamada y revisamos juntos la web antes de publicarla.' },
   {
     question: '¿Cuánto cuesta?',
     answer: `El precio cerrado es de ${getLaunchPriceAmountLabel()}. No hay sorpresas, ni letra pequeña, ni costes ocultos. Te lo cerramos por escrito antes de empezar, para que sepas exactamente lo que pagas de principio a fin. Ecommerce, desarrollo a medida o tiendas online con catálogos grandes se presupuestan aparte.`,
@@ -133,7 +134,7 @@ const faqs = [
   {
     question: '¿El hosting y el dominio están incluidos?',
     answer:
-      'Sí. El primer año entran el hosting y el registro de tu dominio (.es o .com). Si ya tienes hosting, la montamos ahí sin coste.',
+      'Sí. El primer año incluye hosting y registro de dominio (.es o .com). A partir del segundo año se renuevan aparte; te indicamos su coste por escrito antes de contratar. No es obligatorio contratar mantenimiento. Si ya tienes hosting, la montamos ahí sin coste.',
   },
   {
     question: '¿La web es mía? ¿Puedo pedir cambios?',
@@ -144,27 +145,9 @@ const faqs = [
 
 const launchHeroDescription = (
   <>
-    <p>Web profesional para autónomos, emprendedores y pequeños negocios.</p>
-    <HeroCtaList
-      className='mx-auto mt-text-gap w-full list-none text-center md:mx-0 md:list-disc md:list-outside md:pl-5 md:text-left'
-      items={[
-        <strong className='font-bold'>
-          Lista en {LAUNCH_DELIVERY_LABEL} · Hosting incluido · Sin cuotas
-          mensuales
-        </strong>,
-        <strong className='font-extrabold'>
-          <span className='whitespace-nowrap'>
-            {getLaunchInstallmentLabel()}
-          </span>{' '}
-          al empezar ·{' '}
-          <span className='whitespace-nowrap'>
-            {getLaunchInstallmentLabel()}
-          </span>{' '}
-          antes de publicar
-        </strong>,
-        'No se publica hasta que estés conforme.',
-      ]}
-    />
+    <p>Para autónomos y pequeños negocios de toda España. Trabajamos online.</p>
+    <p className='mt-3 font-bold'>Diseño, textos y logo incluidos · Lista en {LAUNCH_DELIVERY_LABEL}.</p>
+    <p className='mt-3 text-base'>Hosting y dominio incluidos el primer año.</p>
   </>
 );
 
@@ -174,11 +157,10 @@ const LaunchLandingHero = () => {
   const form = (
     <ContactFormHero
       id='contacto'
-      title='Nosotros te llamamos'
-      description='Te contactamos y confirmamos el proyecto. Sin compromiso.'
+      title='Hablemos de tu web'
+      description='Sin compromiso y sin pagar ahora. Resolvemos tus dudas antes de contratar.'
       page={ADS_LAUNCH_FORM_ORIGIN}
       submitLabel='Quiero que me llaméis'
-      compactOnMobile
       className={formSlot ? 'md:!w-full' : ''}
     />
   );
@@ -192,7 +174,7 @@ const LaunchLandingHero = () => {
       label='Web profesional'
       title={
         <>
-          Una web profesional para tu negocio por{' '}
+          Tu web profesional por{' '}
           <span className='whitespace-nowrap'>
             {getLaunchPriceAmountLabel()}
           </span>
@@ -200,12 +182,12 @@ const LaunchLandingHero = () => {
       }
       description={launchHeroDescription}
       convertFirstOnMobile
-      buttonText='Quiero información'
+      buttonText='Hablemos de tu web'
       buttonHref='#contacto'
       heroType='form'
-      hasButton={false}
-      formTitle='Nosotros te llamamos'
-      formDescription='Te contactamos y confirmamos el proyecto. Sin compromiso.'
+      hasButton
+      formTitle='Hablemos de tu web'
+      formDescription='Sin compromiso y sin pagar ahora. Resolvemos tus dudas antes de contratar.'
       formSectionInfo={ADS_LAUNCH_FORM_ORIGIN}
       formSubmitLabel='Quiero que me llaméis'
       formId='contacto'
@@ -254,7 +236,7 @@ const LandingWebProfesional = () => {
               web profesional para negocios
             </strong>
             . Hasta 8 secciones, tu marca, formulario, WhatsApp, hosting y
-            publicación. Desde {getLaunchPriceAmountLabel()}.
+            publicación. Precio del paquete: {getLaunchPriceAmountLabel()}.
           </>
         }
         items={includes}
@@ -278,15 +260,15 @@ const LandingWebProfesional = () => {
         headingTitle='Clientes reales y demos de sector'
         headingDescription={
           <>
-            Estos son ejemplos de clientes reales y demos de lo que podría ser
-            tu web desde{' '}
+            Explora trabajos reales y demos de sector. El paquete incluye
+            una web de presentación por{' '}
             <strong className='font-extrabold'>
               {getLaunchPriceAmountLabel()}
             </strong>
-            .
+            . Las tiendas online y funcionalidades a medida se presupuestan aparte.
           </>
         }
-        ctaText='Quiero resultados como estos'
+        ctaText='Hablemos de mi proyecto'
         ctaHref='#contacto'
       />
 
@@ -299,9 +281,10 @@ const LandingWebProfesional = () => {
               No se publica hasta que estés conforme
             </h2>
             <p className='text-xl text-ink-dark md:text-2xl'>
-              {getLaunchPriceLabel()} · {getLaunchInstallmentLabel()} al empezar
-              · {getLaunchInstallmentLabel()} cuando apruebes. La ves antes de
-              publicar. Si algo importante no encaja, lo ajustamos.
+              <strong className='font-extrabold'>
+                {getLaunchPriceAmountLabel()} en total
+              </strong>
+              {`, en dos pagos de ${getLaunchInstallmentLabel()}: al empezar y cuando apruebes. La ves antes de publicar. Si algo importante no encaja, lo ajustamos.`}
             </p>
           </div>
         </div>
@@ -330,12 +313,12 @@ const LandingWebProfesional = () => {
             </>
           }
           belowDescription={<LaunchPaymentTable className='md:mx-0' />}
-          buttonText='Quiero información'
+          buttonText='Hablemos de tu web'
           buttonHref='#contacto'
           heroType='form'
           hasButton={false}
-          formTitle='Nosotros te llamamos'
-          formDescription='Te contactamos y confirmamos el proyecto. Sin compromiso.'
+          formTitle='Hablemos de tu web'
+          formDescription='Sin compromiso y sin pagar ahora. Resolvemos tus dudas antes de contratar.'
           formSectionInfo={ADS_LAUNCH_FORM_ORIGIN}
           formSubmitLabel='Quiero que me llaméis'
           hasBackground={false}

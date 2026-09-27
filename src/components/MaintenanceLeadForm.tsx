@@ -149,7 +149,8 @@ const MaintenanceLeadForm = ({
     }
 
     if (formData.message.trim().length < 10) {
-      newErrors.message = 'Cuéntanos qué le pasa a la web (mínimo 10 caracteres)';
+      newErrors.message =
+        'Cuéntanos qué le pasa a la web (mínimo 10 caracteres)';
     }
 
     if (!formData.consent) {
@@ -178,8 +179,9 @@ const MaintenanceLeadForm = ({
       const origen = origin;
       const pagina = window.location.pathname;
       const needLabel =
-        MAINTENANCE_NEED_OPTIONS.find((option) => option.value === formData.need)
-          ?.label || '';
+        MAINTENANCE_NEED_OPTIONS.find(
+          (option) => option.value === formData.need,
+        )?.label || '';
 
       const formDataToSend: Record<string, string | boolean> = {
         name: formData.name,
@@ -263,7 +265,9 @@ Fecha: ${new Date().toLocaleString('es-ES')}
   );
 
   return (
-    <div className={`z-10 flex w-full justify-center md:w-1/2 ${className}`.trim()}>
+    <div
+      className={`z-10 flex w-full justify-center md:w-1/2 ${className}`.trim()}
+    >
       <form
         id={formId}
         onSubmit={handleSubmit}
@@ -278,7 +282,8 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             {BUSINESS_HOURS_LABEL}
           </span>
           <p className='text-center text-lg text-gray-900'>
-            URL, síntoma y cómo te localizamos. Te respondemos en horario laboral.
+            URL, síntoma y cómo te localizamos. Te respondemos en horario
+            laboral.
           </p>
         </div>
         <div className='form-fields mt-page-gap flex flex-col gap-content-gap'>
@@ -288,7 +293,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             onInput={handleTypedInput}
             onChange={(e) => handleInputChange('name', e.target.value)}
             className={inputClass(Boolean(errors.name))}
-            placeholder='Tu nombre *'
+            placeholder='Nombre *'
             maxLength={50}
             required
           />
@@ -300,7 +305,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             onChange={(e) => handleInputChange('email', e.target.value)}
             className={inputClass(Boolean(errors.email))}
             autoComplete='email'
-            placeholder='Tu email'
+            placeholder='Email'
           />
           {errors.email ? <ErrorMessage error={errors.email} /> : null}
           <input
@@ -309,7 +314,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             onInput={handleTypedInput}
             onChange={(e) => handleInputChange('phone', e.target.value)}
             className={inputClass(Boolean(errors.phone))}
-            placeholder='Tu teléfono *'
+            placeholder='Teléfono *'
             autoComplete='tel'
             inputMode='tel'
             required
@@ -321,7 +326,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             onInput={handleTypedInput}
             onChange={(e) => handleInputChange('website', e.target.value)}
             className={inputClass(Boolean(errors.website))}
-            placeholder='URL de tu web *'
+            placeholder='URL de la web *'
             inputMode='url'
             autoComplete='url'
             required
@@ -413,8 +418,8 @@ Fecha: ${new Date().toLocaleString('es-ES')}
         ) : null}
         {isFormSent ? (
           <span className='text-lg font-bold text-black'>
-            Tus datos han sido enviados correctamente. Nos pondremos en
-            contacto en breve. ¡Gracias!
+            Tus datos han sido enviados correctamente. Nos pondremos en contacto
+            en breve. ¡Gracias!
           </span>
         ) : null}
       </form>

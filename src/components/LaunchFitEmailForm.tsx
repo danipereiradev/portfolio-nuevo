@@ -198,8 +198,8 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                   onChange={(e) => handleInputChange('email', e.target.value)}
                   className={fieldClass(Boolean(errors.email))}
                   autoComplete='email'
-                  placeholder='Tu email *'
-                  aria-label='Tu email'
+                  placeholder='Email *'
+                  aria-label='Email'
                 />
                 {errors.email ? <ErrorMessage error={errors.email} /> : null}
               </div>
@@ -210,8 +210,8 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                   onInput={handleTypedInput}
                   onChange={(e) => handleInputChange('sector', e.target.value)}
                   className={fieldClass(Boolean(errors.sector))}
-                  placeholder='Tu sector (ej. clínica, reformas, sonido) *'
-                  aria-label='Tu sector'
+                  placeholder='Sector (ej. clínica, reformas, sonido) *'
+                  aria-label='Sector'
                   maxLength={80}
                 />
                 {errors.sector ? <ErrorMessage error={errors.sector} /> : null}
