@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { createPortal } from 'react-dom';
 import {
   Globe,
@@ -8,7 +8,11 @@ import {
   ShieldCheck,
   Smartphone,
 } from 'lucide-react';
-import Portfolio from '../components/Portfolio';
+import Portfolio, {
+  pickRandomProjectIds,
+  REAL_WEB_PROJECT_IDS,
+} from '../components/Portfolio';
+import { Team } from '../components/Team';
 import SEOFAQ from '../components/SEOFAQ';
 import Testimonials from '../components/Testimonials';
 import SEOProcess from '../components/SEOProcess';
@@ -63,8 +67,8 @@ const includes = [
   },
   {
     icon: ShieldCheck,
-    title: 'No se publica hasta que estés conforme',
-    description: `La revisas antes de publicar. Si algo importante no encaja, lo ajustamos. ${getLaunchInstallmentLabel()} antes de publicar, tras tu aprobación.`,
+    title: 'Revisión antes de publicar',
+    description: 'Revisamos contigo el diseño y los contenidos para que la web represente bien tu negocio.',
   },
 ];
 
@@ -101,11 +105,7 @@ const processSteps = [
     title: 'Revisas y publicamos',
     description: (
       <>
-        La ves, si algo no encaja lo ajustamos, y entonces se publica.{' '}
-        <strong className='font-extrabold'>
-          {getLaunchInstallmentLabel()} antes de publicar, cuando apruebes
-        </strong>
-        .
+        Revisamos juntos la web, ajustamos lo acordado y la publicamos con tu aprobación.
       </>
     ),
   },
@@ -200,6 +200,9 @@ const LaunchLandingHero = () => {
 
 const LandingWebProfesional = () => {
   usePageMeta(ADS_LAUNCH_LANDING_PATH);
+  const [realWebIds] = useState(() =>
+    pickRandomProjectIds(REAL_WEB_PROJECT_IDS, 3),
+  );
 
   useEffect(() => {
     trackLandingPromo590View();
@@ -256,11 +259,12 @@ const LandingWebProfesional = () => {
       </section>
 
       <Portfolio
+        ids={realWebIds}
         headingLabel='Portfolio'
-        headingTitle='Clientes reales y demos de sector'
+        headingTitle='Proyectos de diseño web'
         headingDescription={
           <>
-            Explora trabajos reales y demos de sector. El paquete incluye
+            Conoce algunos proyectos realizados para nuestros clientes. El paquete incluye
             una web de presentación por{' '}
             <strong className='font-extrabold'>
               {getLaunchPriceAmountLabel()}
@@ -272,23 +276,16 @@ const LandingWebProfesional = () => {
         ctaHref='#contacto'
       />
 
-      <Testimonials />
+      <Team
+        compact
+        label='El equipo de 36WEB'
+        title='Quién está detrás de tu web'
+        paragraphs={[
+          'Cuatro profesionales de diseño y desarrollo trabajando en equipo para dar forma a tu web.',
+        ]}
+      />
 
-      <section className='page-section'>
-        <div className='container mx-auto max-w-4xl text-center'>
-          <div className='page-title-block mx-auto'>
-            <h2 className='text-3xl font-extrabold text-ink-dark md:text-4xl lg:text-5xl'>
-              No se publica hasta que estés conforme
-            </h2>
-            <p className='text-xl text-ink-dark md:text-2xl'>
-              <strong className='font-extrabold'>
-                {getLaunchPriceAmountLabel()} en total
-              </strong>
-              {`, en dos pagos de ${getLaunchInstallmentLabel()}: al empezar y cuando apruebes. La ves antes de publicar. Si algo importante no encaja, lo ajustamos.`}
-            </p>
-          </div>
-        </div>
-      </section>
+      <Testimonials />
 
       <SEOProcess
         title='Así se hace'
@@ -304,14 +301,7 @@ const LandingWebProfesional = () => {
       <div id='contacto-final'>
         <HeroCta
           title='Quiero mi web profesional'
-          description={
-            <>
-              <strong className='font-extrabold'>
-                No se publica hasta que estés conforme
-              </strong>
-              . La ves, si no encaja la tocamos, y entonces sale.
-            </>
-          }
+          description='Cuéntanos qué necesita tu negocio y resolvemos tus dudas antes de empezar.'
           belowDescription={<LaunchPaymentTable className='md:mx-0' />}
           buttonText='Hablemos de tu web'
           buttonHref='#contacto'

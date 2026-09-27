@@ -32,8 +32,7 @@ function Testimonials({
             Nuestros clientes están contentos con cómo lo hacemos
           </h2>
           <p className='text-xl md:text-2xl text-ink-dark'>
-            Estas son valoraciones sacadas de nuestro perfil oficial de Google
-            con certificación Trustindex.
+            Opiniones de clientes sobre nuestro trabajo.
           </p>
         </RevealOnScroll>
         <a href={GOOGLE_MAPS_PLACE_URL} target='_blank' rel='noopener noreferrer' className='self-center text-accent underline font-bold'>Ver opiniones en Google (se abre en otra pestaña)</a>

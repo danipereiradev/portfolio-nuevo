@@ -94,7 +94,7 @@ const translations = {
   'portfolio.vidal.title': 'Web corporativa para Clínica Vidal Insua',
   'portfolio.vidal.sector': 'Sector Salud y Bienestar · Cliente real',
   'portfolio.vidal.desc':
-    'Desarrollamos una web médica enfocada a la confianza y la claridad. Priorizamos la visibilidad de los servicios y creamos un sistema directo para incentivar la reserva de citas tanto en ordenadores como en pantallas móviles.',
+    'Web médica con servicios claros y acceso directo a la reserva de citas desde móvil y ordenador.',
   'portfolio.beachvans.title': 'Web catálogo para Beachvans Camper',
   'portfolio.beachvans.sector': 'Sector Automoción y Ocio · Cliente real',
   'portfolio.beachvans.desc':

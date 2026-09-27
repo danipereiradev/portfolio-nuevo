@@ -259,7 +259,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
           </span>
           <p
             className={`text-center text-lg text-gray-900 ${
-              compactOnMobile ? 'hidden md:block' : ''
+              compactOnMobile ? 'text-base md:text-lg' : ''
             }`}
           >
             {description}

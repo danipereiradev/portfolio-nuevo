@@ -23,6 +23,7 @@ interface TeamProps {
   label: string;
   title: string;
   paragraphs: ReactNode[];
+  compact?: boolean;
 }
 
 const memberOrder = [
@@ -32,7 +33,7 @@ const memberOrder = [
   'Karen Montero',
 ];
 
-export const Team = ({ label, title, paragraphs }: TeamProps) => {
+export const Team = ({ label, title, paragraphs, compact = false }: TeamProps) => {
   const teamMembers: TeamMember[] = [
     {
       fullName: 'Sergio Cerdá',
@@ -105,6 +106,51 @@ export const Team = ({ label, title, paragraphs }: TeamProps) => {
   const members = [...teamMembers].sort(
     (a, b) => memberOrder.indexOf(a.fullName) - memberOrder.indexOf(b.fullName),
   );
+
+  if (compact) {
+    return (
+      <section className='page-section' aria-labelledby='landing-team-title'>
+        <div className='container mx-auto max-w-5xl'>
+          <div className='page-title-block mx-auto mb-6 max-w-3xl text-center'>
+            <span className='font-extrabold text-accent'>{label}</span>
+            <h2 id='landing-team-title' className='text-3xl font-extrabold text-ink-dark md:text-4xl'>
+              {title}
+            </h2>
+            {paragraphs.map((paragraph, index) => (
+              <p key={index} className='text-xl md:text-2xl text-ink-dark'>
+                {paragraph}
+              </p>
+            ))}
+          </div>
+          <div className='grid grid-cols-2 gap-4 md:grid-cols-4'>
+            {members.map((member) => (
+              <article key={member.fullName} className='overflow-hidden rounded-xl bg-surface-muted text-center'>
+                {member.imageUrl ? (
+                  <img
+                    src={member.imageUrl}
+                    alt={member.fullName}
+                    className='aspect-square w-full object-cover object-top'
+                    width={320}
+                    height={320}
+                    loading='lazy'
+                    decoding='async'
+                  />
+                ) : (
+                  <div aria-hidden='true' className='flex aspect-square items-center justify-center bg-gray-200 text-4xl font-extrabold text-ink-dark'>
+                    {memberInitials(member.fullName)}
+                  </div>
+                )}
+                <div className='p-3'>
+                  <h3 className='text-base font-extrabold leading-snug text-ink-dark'>{member.fullName}</h3>
+                  <p className='mt-1 text-sm leading-snug text-ink-dark'>{member.role}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className='page-section'>

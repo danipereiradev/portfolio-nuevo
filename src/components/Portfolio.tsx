@@ -20,7 +20,7 @@ import {
 } from '../config/contact';
 import { localWebDemoImage } from '../data/localWebDemos';
 
-type ProjectId =
+export type ProjectId =
   | 'chicxs'
   | 'hoyviajamos'
   | 'camisetas'
@@ -76,6 +76,30 @@ const ALL_ORDER: ProjectId[] = [
 ];
 const SHOP_ORDER: ProjectId[] = ['camisetas'];
 const CASOS_ORDER: ProjectId[] = ['chicxs', 'hoyviajamos', 'camisetas'];
+
+/** Clientes reales de diseño web (no tiendas, no demos de sector). */
+export const REAL_WEB_PROJECT_IDS: readonly ProjectId[] = [
+  'beachvans',
+  'vidal',
+  'hatena',
+  'carper',
+  'alicornio',
+  'hoyviajamos',
+  'elefantes',
+  'silly',
+];
+
+export const pickRandomProjectIds = (
+  pool: readonly ProjectId[],
+  count: number,
+): ProjectId[] => {
+  const shuffled = [...pool];
+  for (let i = shuffled.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled.slice(0, Math.min(count, shuffled.length));
+};
 
 const cardClass =
   'flex h-full flex-col overflow-hidden rounded-lg border-2 border-ink-dark bg-white';
