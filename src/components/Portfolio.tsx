@@ -511,7 +511,9 @@ const Portfolio = ({
   };
 
   const gridClass =
-    projects.length <= 2
+    projects.length === 1
+      ? 'mx-auto grid w-full max-w-3xl grid-cols-1 gap-page-gap'
+      : projects.length <= 2
       ? 'mx-auto grid w-full max-w-5xl grid-cols-1 items-stretch gap-page-gap md:grid-cols-2'
       : projects.length === 4
         ? 'mx-auto grid grid-cols-1 items-stretch gap-page-gap md:grid-cols-2 lg:grid-cols-4'

@@ -44,6 +44,7 @@
 /diseno-web/valencia/           /diseno-web   301!
 /diseno-web/*                   /404.html                                  404
 /landing-diseno-web             /landing-diseno-web/index.html             200
+/landing-web-profesional-inmobiliarias /landing-web-profesional-inmobiliarias/index.html 200
 /landing-web-profesional        /landing-web-profesional/index.html        200
 /landing-tiendas-online         /landing-tiendas-online/index.html         200
 /landing-mantenimiento-web      /landing-mantenimiento-web/index.html      200

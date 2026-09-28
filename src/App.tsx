@@ -18,6 +18,7 @@ import {
   ADS_LANDING_PATH,
   ADS_LANDING_PATH_N,
   ADS_LAUNCH_LANDING_PATH,
+  ADS_REAL_ESTATE_LANDING_PATH,
   ADS_MAINTENANCE_LANDING_PATH,
   ADS_MAINTENANCE_INFRA_LANDING_PATH,
   ADS_GOOGLE_ADS_LANDING_PATH,
@@ -48,6 +49,7 @@ const LandingWeb = lazy(() => import('./pages/LandingWeb'));
 const LandingWebProfesional = lazy(
   () => import('./pages/LandingWebProfesional'),
 );
+const LandingWebInmobiliarias = lazy(() => import('./pages/LandingWebInmobiliarias'));
 const LandingShop = lazy(() => import('./pages/LandingShop'));
 const LandingMaintenance = lazy(() => import('./pages/LandingMaintenance'));
 const LandingGoogleAds = lazy(() => import('./pages/LandingGoogleAds'));
@@ -147,6 +149,7 @@ function AppContent() {
               path={ADS_LAUNCH_LANDING_PATH}
               element={<LandingWebProfesional />}
             />
+            <Route path={ADS_REAL_ESTATE_LANDING_PATH} element={<LandingWebInmobiliarias />} />
             <Route path={ADS_SHOP_LANDING_PATH} element={<LandingShop />} />
             <Route
               path='/landing-tienda-online'

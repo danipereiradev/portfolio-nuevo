@@ -143,6 +143,8 @@ export const ADS_MAINTENANCE_LANDING_PATH = '/landing-mantenimiento-web';
 
 /** Landing de oferta de lanzamiento paquetizada. Las landings no se indexan. */
 export const ADS_LAUNCH_LANDING_PATH = '/landing-web-profesional';
+export const ADS_REAL_ESTATE_LANDING_PATH = '/landing-web-profesional-inmobiliarias';
+export const ADS_REAL_ESTATE_FORM_ORIGIN = 'landing inmobiliarias 590';
 
 /** Landing de Ads del servicio Google Ads. */
 export const ADS_GOOGLE_ADS_LANDING_PATH = '/landing-google-ads';
@@ -163,7 +165,7 @@ export const isAdsMaintenanceLandingPath = (pathname: string): boolean =>
   normalizePath(pathname) === ADS_MAINTENANCE_LANDING_PATH;
 
 export const isAdsLaunchLandingPath = (pathname: string): boolean =>
-  normalizePath(pathname) === ADS_LAUNCH_LANDING_PATH;
+  [ADS_LAUNCH_LANDING_PATH, ADS_REAL_ESTATE_LANDING_PATH].includes(normalizePath(pathname));
 
 export const isAdsGoogleAdsLandingPath = (pathname: string): boolean =>
   normalizePath(pathname) === ADS_GOOGLE_ADS_LANDING_PATH;
@@ -194,6 +196,7 @@ export const getWhatsAppMessageForPath = (pathname: string): string => {
       ? ECOMMERCE_WHATSAPP_MESSAGE
       : ADS_SHOP_WHATSAPP_MESSAGE;
   }
+  if (path === ADS_REAL_ESTATE_LANDING_PATH) return 'Hola, me interesa la web para mi inmobiliaria por 590 € + IVA. Quiero información sobre el catálogo y el panel de edición.';
   if (isAdsLaunchLandingPath(path)) return ADS_LAUNCH_WHATSAPP_MESSAGE;
   if (isAdsGoogleAdsLandingPath(path)) return ADS_GOOGLE_ADS_WHATSAPP_MESSAGE;
   if (isAdsMaintenanceInfraLandingPath(path))
