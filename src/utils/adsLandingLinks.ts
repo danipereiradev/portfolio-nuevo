@@ -1,3 +1,7 @@
+import { LOCAL_WEB_DEMO_BASE } from '../data/localWebDemos';
+
+export const ADS_OUTBOUND_ALLOW_ATTR = 'data-ads-outbound';
+
 const ADS_LANDING_SAFE_PATHS = new Set([
   '/aviso-legal',
   '/politica-de-privacidad',
@@ -5,6 +9,14 @@ const ADS_LANDING_SAFE_PATHS = new Set([
   '/condiciones-del-proyecto',
   '/terminos-y-condiciones',
 ]);
+
+const DEMO_HOST = (() => {
+  try {
+    return new URL(LOCAL_WEB_DEMO_BASE).hostname.replace(/^www\./, '');
+  } catch {
+    return 'demo-36web.vercel.app';
+  }
+})();
 
 const isAllowedHost = (hostname: string): boolean => {
   const host = hostname.replace(/^www\./, '');
@@ -14,7 +26,8 @@ const isAllowedHost = (hostname: string): boolean => {
     host === 'stripe.com' ||
     host.endsWith('.stripe.com') ||
     host === 'maps.google.com' ||
-    host === 'maps.app.goo.gl'
+    host === 'maps.app.goo.gl' ||
+    host === DEMO_HOST
   );
 };
 
@@ -61,7 +74,11 @@ export const isAllowedAdsLandingHref = (href: string): boolean => {
   }
 };
 
+const isExplicitlyAllowedAnchor = (anchor: Element): boolean =>
+  anchor.getAttribute(ADS_OUTBOUND_ALLOW_ATTR) === 'allow';
+
 const neutralizeAnchor = (anchor: Element): void => {
+  if (isExplicitlyAllowedAnchor(anchor)) return;
   const href = anchor.getAttribute('href') || '';
   if (!href || isAllowedAdsLandingHref(href)) return;
   anchor.removeAttribute('href');
@@ -82,6 +99,7 @@ export const preventAdsLandingOutbound = (event: {
   if (!(target instanceof Element)) return;
   const anchor = target.closest('a');
   if (!anchor) return;
+  if (isExplicitlyAllowedAnchor(anchor)) return;
   const href = anchor.getAttribute('href') || '';
   if (!href || isAllowedAdsLandingHref(href)) return;
   event.preventDefault();

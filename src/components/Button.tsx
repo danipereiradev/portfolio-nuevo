@@ -2,6 +2,7 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { isAdsLandingPath } from '../config/contact';
 import { newTabProps } from '../utils/linkTarget';
+import { ADS_OUTBOUND_ALLOW_ATTR } from '../utils/adsLandingLinks';
 
 interface ButtonProps {
   children: React.ReactNode;
@@ -17,6 +18,8 @@ interface ButtonProps {
   rel?: string;
   fullWidth?: boolean;
   isLoading?: boolean;
+  /** En landings de ads, no recortar este enlace de salida. */
+  allowAdsOutbound?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -31,6 +34,7 @@ const Button: React.FC<ButtonProps> = ({
   rel,
   fullWidth = false,
   isLoading = false,
+  allowAdsOutbound = false,
 }) => {
   const { pathname } = useLocation();
   const landingNewTab =
@@ -89,6 +93,9 @@ const Button: React.FC<ButtonProps> = ({
         rel={linkRel}
         onClick={onClick}
         className={combinedStyles}
+        {...(allowAdsOutbound
+          ? { [ADS_OUTBOUND_ALLOW_ATTR]: 'allow' }
+          : {})}
       >
         {content}
       </a>

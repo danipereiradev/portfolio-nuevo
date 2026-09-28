@@ -592,6 +592,13 @@ const Portfolio = ({
                 <Button
                   href={ctaHref}
                   className='!mt-2'
+                  target={ctaHref.startsWith('http') ? '_blank' : undefined}
+                  rel={
+                    ctaHref.startsWith('http')
+                      ? 'noopener noreferrer'
+                      : undefined
+                  }
+                  allowAdsOutbound={ctaHref.startsWith('http')}
                   onClick={() => trackCtaClick(ctaText, 'LaunchPortfolio')}
                 >
                   {ctaText}

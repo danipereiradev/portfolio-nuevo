@@ -35,7 +35,7 @@ function Testimonials({
             Opiniones de clientes sobre nuestro trabajo.
           </p>
         </RevealOnScroll>
-        <a href={GOOGLE_MAPS_PLACE_URL} target='_blank' rel='noopener noreferrer' className='self-center text-accent underline font-bold'>Ver opiniones en Google (se abre en otra pestaña)</a>
+        <a href={GOOGLE_MAPS_PLACE_URL} target='_blank' rel='noopener noreferrer' data-ads-outbound='allow' className='self-center text-accent underline font-bold'>Ver opiniones en Google (se abre en otra pestaña)</a>
         {hasVideo ? (
           <div className='flex flex-col items-center gap-page-gap lg:grid lg:grid-cols-4 lg:items-center lg:gap-8'>
             <div className='min-w-0 w-full lg:col-span-3'>
