@@ -8,6 +8,7 @@ import {
   Smartphone,
 } from 'lucide-react';
 import Portfolio from '../components/Portfolio';
+import { localWebDemoHref } from '../data/localWebDemos';
 import { Team } from '../components/Team';
 import SEOFAQ from '../components/SEOFAQ';
 import Testimonials from '../components/Testimonials';
@@ -240,8 +241,9 @@ const LandingWebInmobiliarias = () => {
             <strong className='font-extrabold'>{getLaunchPriceAmountLabel()}</strong>.
           </>
         }
-        ctaText='Hablemos de mi proyecto'
-        ctaHref='#contacto'
+        note='Entra en la demo y recorre sus secciones. Se abre en otra pestaña para que puedas volver aquí cuando quieras.'
+        ctaText='Entrar y probar la demo'
+        ctaHref={localWebDemoHref('inmobiliaria', 'torrejon-de-ardoz')}
       />
 
       <Team
