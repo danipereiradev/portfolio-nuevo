@@ -127,6 +127,10 @@ const translations = {
   'portfolio.inmobiliaria.sector': 'Sector Inmobiliaria · Ejemplo sectorial',
   'portfolio.inmobiliaria.desc':
     'Estructura clara de fichas de viviendas y un camino directo para captar propietarios. Pensada para que una inmobiliaria muestre cartera y reciba consultas desde el móvil.',
+  'portfolio.mhin.title': 'Web para MH Projects',
+  'portfolio.mhin.sector': 'Sector Inmobiliaria · Cliente real',
+  'portfolio.mhin.desc':
+    'Web de servicios inmobiliarios desde Lleida: presentación de la marca, lo que hacen y un contacto directo para empezar el proyecto.',
   'portfolio.psicologa.title': 'Web para consulta de psicología',
   'portfolio.psicologa.sector': 'Sector Psicología · Ejemplo sectorial',
   'portfolio.psicologa.desc':

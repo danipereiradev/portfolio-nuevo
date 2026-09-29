@@ -37,6 +37,7 @@ export type ProjectId =
   | 'vidal'
   | 'reformas'
   | 'inmobiliaria'
+  | 'mhin'
   | 'psicologa';
 
 interface PortfolioProps {
@@ -448,6 +449,17 @@ const Portfolio = ({
       sector: t('portfolio.inmobiliaria.sector'),
       exito: t('portfolio.inmobiliaria.desc'),
       kind: 'demo',
+    },
+    mhin: {
+      title: t('portfolio.mhin.title'),
+      description: t('portfolio.mhin.desc'),
+      image: '/img/portfolio/equipo/mhin-desktop.png',
+      product: SITE_WEB_LABEL,
+      productHref: SITE_WEB_PATH,
+      url: 'https://mhinprojects.com/',
+      nofollow: true,
+      sector: t('portfolio.mhin.sector'),
+      exito: t('portfolio.mhin.desc'),
     },
     psicologa: {
       title: t('portfolio.psicologa.title'),

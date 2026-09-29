@@ -231,12 +231,12 @@ const LandingWebInmobiliarias = () => {
       </section>
 
       <Portfolio
-        ids={['inmobiliaria']}
-        headingLabel='Demo inmobiliaria'
+        ids={['inmobiliaria', 'mhin']}
+        headingLabel='Portfolio inmobiliaria'
         headingTitle='Así puede verse tu inmobiliaria'
         headingDescription={
           <>
-            Este es un ejemplo de diseño, no una web de un cliente. Adaptamos la marca,
+            Una demo de diseño y un proyecto real del sector. Adaptamos la marca,
             los textos y las imágenes a tu agencia. Paquete por{' '}
             <strong className='font-extrabold'>{getLaunchPriceAmountLabel()}</strong>.
           </>
