@@ -1,3 +1,4 @@
+import { getMeasurementConsent } from './measurementConsent';
 // Utilidad de tracking de eventos para Google Analytics 4 / Google Ads / GTM.
 //
 // Diseñada para no romper la web si todavía no hay ningún proveedor
@@ -119,13 +120,30 @@ export const unlockGoogleAdsFormConversion = (): void => {
  * Llamar UNA sola vez tras Formspree OK ({ ok: true }).
  * No usar en WhatsApp, newsletter, errores ni carga de página.
  */
-export const trackGoogleAdsFormConversion = (): void => {
+export const trackGoogleAdsFormConversion = async (contact: { email?: string; phone?: string } = {}): Promise<void> => {
   if (typeof window === 'undefined') return;
   if (isAnalyticsDisabled()) return;
   if (formAdsConversionLocked) return;
   formAdsConversionLocked = true;
 
+  let userData: Record<string, string> | null = null;
   try {
+    if (getMeasurementConsent()?.advertising && contact.email) {
+      let email = contact.email.trim().toLowerCase();
+      const [local, domain] = email.split('@');
+      if (domain === 'gmail.com' || domain === 'googlemail.com') email = local.replace(/\./g, '') + '@' + domain;
+      const hash = async (value: string) => Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(value))), byte => byte.toString(16).padStart(2, '0')).join('');
+      if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        userData = { sha256_email_address: await hash(email) };
+        let phone = (contact.phone || '').replace(/[\s().-]/g, '').replace(/^00/, '+');
+        if (/^[6789]\d{8}$/.test(phone)) phone = '+34' + phone;
+        if (/^\+[1-9]\d{10,14}$/.test(phone)) userData.sha256_phone_number = await hash(phone);
+      }
+    }
+  } catch { /* Hash failure must not lose the standard conversion. */ }
+  if (isAnalyticsDisabled()) return;
+  try {
+    window.gtag?.('set', 'user_data', getMeasurementConsent()?.advertising ? userData : null);
     window.gtag?.('event', 'conversion', {
       send_to: 'AW-18305239496/augtCPDI39kcEMiTz5hE',
       value: 1,
@@ -133,6 +151,8 @@ export const trackGoogleAdsFormConversion = (): void => {
     });
   } catch {
     // La analítica nunca debe romper la experiencia del usuario.
+  } finally {
+    try { window.gtag?.('set', 'user_data', null); } catch { /* Tracking must not affect the form. */ }
   }
 };
 

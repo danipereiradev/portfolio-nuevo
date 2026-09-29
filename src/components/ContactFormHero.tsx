@@ -175,7 +175,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       ) {
         trackMaintenanceFormSubmit(origen);
       }
-      trackGoogleAdsFormConversion();
+      void trackGoogleAdsFormConversion({ email: formData.email, phone: formData.phone });
       setIsFormSent(true);
       setFormData(emptyForm(page));
     } catch (error) {

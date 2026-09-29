@@ -623,10 +623,13 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                   Consentimiento
                 </h2>
                 <p>
-                  Al continuar navegando por este sitio web, aceptas el uso de
-                  cookies según se describe en esta política. Puedes retirar tu
-                  consentimiento en cualquier momento modificando la
-                  configuración de tu navegador.
+                  Puedes aceptar, rechazar o elegir las categorías en el panel de privacidad.
+                  Navegar o enviar un formulario no implica aceptar la medición publicitaria.
+                  Puedes cambiar tu elección desde el botón Privacidad; se recuerda durante 180 días.
+                  Con tu permiso, Google Ads recibe el email y teléfono del formulario mediante
+                  hash SHA-256 para atribuir contactos a nuestros anuncios. No usamos estos datos
+                  para personalización publicitaria. Sin consentimiento, Consent Mode puede enviar
+                  señales de medición sin cookies publicitarias ni datos de contacto.
                 </p>
               </section>
 

@@ -93,6 +93,17 @@
         window.gtag = function () {
           window.dataLayer.push(arguments);
         };
+        var consent = { analytics: false, advertising: false };
+        try {
+          var saved = JSON.parse(localStorage.getItem('36web_measurement_consent_v1') || 'null');
+          if (saved && Date.now() - saved.updatedAt < 180 * 86400000) consent = saved;
+        } catch (_) {}
+        window.gtag('consent', 'default', {
+          analytics_storage: consent.analytics === true ? 'granted' : 'denied',
+          ad_storage: consent.advertising === true ? 'granted' : 'denied',
+          ad_user_data: consent.advertising === true ? 'granted' : 'denied',
+          ad_personalization: 'denied'
+        });
         window.gtag('js', new Date());
         window.gtag('config', 'G-V288FHTPLQ');
         window.gtag('config', 'AW-18305239496');

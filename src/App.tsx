@@ -7,6 +7,7 @@ import { ContactModalProvider } from './contexts/ContactModalContext';
 import AdsLandingLinkGuard from './components/AdsLandingLinkGuard';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import MeasurementConsent from './components/MeasurementConsent';
 import ContactFormModal from './components/ContactFormModal';
 import BackToTopButton from './components/BackToTopButton';
 import WhatsAppButton from './components/WhatsAppButton';
@@ -37,6 +38,7 @@ import {
   type ThankYouVariant,
 } from './config/payments';
 
+const LandingWebAMedida = lazy(() => import('./pages/LandingWebAMedida'));
 const Home = lazy(() => import('./pages/Home'));
 const DisenoWeb = lazy(() => import('./pages/DisenoWeb'));
 const DisenoWebLocal = lazy(() => import('./pages/DisenoWebLocal'));
@@ -122,6 +124,7 @@ function AppContent() {
           <Suspense fallback={<PageFallback />}>
           <Routes>
             <Route path='/' element={<Home />} />
+            <Route path='/landing-web-a-medida' element={<LandingWebAMedida />} />
             <Route path={ABOUT_PATH} element={<Nosotros />} />
             <Route path={SITE_WEB_PATH} element={<DisenoWeb />} />
             <Route
@@ -225,6 +228,7 @@ function App() {
     <LanguageProvider>
       <ContactModalProvider>
         <AppContent />
+        <MeasurementConsent />
       </ContactModalProvider>
     </LanguageProvider>
   );

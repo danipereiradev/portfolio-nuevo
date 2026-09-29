@@ -174,6 +174,7 @@ export const isAdsMaintenanceInfraLandingPath = (pathname: string): boolean =>
   normalizePath(pathname) === ADS_MAINTENANCE_INFRA_LANDING_PATH;
 
 export const isAdsLandingPath = (pathname: string): boolean =>
+  normalizePath(pathname) === '/landing-web-a-medida' ||
   isAdsWebLandingPath(pathname) ||
   isAdsShopLandingPath(pathname) ||
   isAdsMaintenanceLandingPath(pathname) ||

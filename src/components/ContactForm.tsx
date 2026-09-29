@@ -239,7 +239,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       if (path === '/web-profesional') {
         trackWebProfesionalFormSubmit(formData.plan, planValue);
       }
-      trackGoogleAdsFormConversion();
+      void trackGoogleAdsFormConversion({ email: formData.email, phone: formData.phone });
       setSubmitStatus('success');
       setFormData({
         name: '',

@@ -241,7 +241,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
         trackMaintenanceFormSubmitSuccess(origen);
         trackGoogleAdsMaintenanceFormConversion();
       }
-      trackGoogleAdsFormConversion();
+      void trackGoogleAdsFormConversion({ email: formData.email, phone: formData.phone });
       setIsFormSent(true);
     } catch (error) {
       console.error('Error al enviar formulario:', error);
