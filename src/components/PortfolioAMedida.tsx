@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import Button from './Button';
+import { localWebDemoHref, localWebDemoImage } from '../data/localWebDemos';
 
-type Project = { id: string; name: string; sector: string; url?: string; image: string };
+type Project = { id: string; name: string; sector: string; url?: string; image: string; demo?: boolean };
 
 // Solo proyectos reales con portada WebP de escritorio, tableta y móvil.
 const projects: Project[] = [
@@ -28,8 +29,14 @@ const projects: Project[] = [
   {id:'noemi',name:'Noemí Bonet Psicología',sector:'Psicología deportiva',image:'/img/portfolio/new/noemi.webp',url:'https://noemibonetpsicologia.com/'},
 ];
 
-export default function PortfolioAMedida() {
+type PortfolioAMedidaProps = { ids?: string[]; title?: string; description?: string };
+
+export default function PortfolioAMedida({ ids, title = 'Proyectos de nuestro equipo', description = 'Negocios distintos. Identidades propias. Explora las webs y descubre el cuidado detrás de cada diseño.' }: PortfolioAMedidaProps = {}) {
   const [selection] = useState(() => {
+    if (ids) {
+      const available = [...projects, { id: 'demo-psicologia', name: 'Demo de psicología', sector: 'Demo sectorial', image: localWebDemoImage('psicologa.webp'), url: localWebDemoHref('psicologia', 'torrejon-de-ardoz'), demo: true }];
+      return ids.flatMap(id => available.filter(project => project.id === id));
+    }
     const shuffled = [...projects];
     for (let i = shuffled.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -43,8 +50,8 @@ export default function PortfolioAMedida() {
       <div className='container mx-auto flex flex-col gap-page-gap'>
         <div className='page-title-block mx-auto max-w-5xl text-center'>
           <span className='text-md uppercase rounded-lg font-extrabold text-accent underline'>Portfolio</span>
-          <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark'>Proyectos de nuestro equipo</h2>
-          <p className='text-xl md:text-2xl text-ink-dark'>Negocios distintos. Identidades propias. Explora las webs y descubre el cuidado detrás de cada diseño.</p>
+          <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink-dark'>{title}</h2>
+          <p className='text-xl md:text-2xl text-ink-dark'>{description}</p>
         </div>
         <div className='grid grid-cols-1 gap-page-gap md:grid-cols-2 lg:grid-cols-3'>
           {selection.map((p) => (
@@ -76,7 +83,7 @@ export default function PortfolioAMedida() {
                   data-ads-outbound='allow'
                   className='mt-auto inline-flex min-h-12 items-center justify-center rounded-lg bg-accent px-5 py-3 text-sm font-extrabold uppercase text-white hover:bg-accent-hover'
                 >
-                  {p.url ? 'Visitar web' : 'Ver proyecto'}
+                  {p.demo ? 'Entrar y probar la demo' : p.url ? 'Visitar web' : 'Ver proyecto'}
                 </a>
               </div>
             </article>

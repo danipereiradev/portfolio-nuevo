@@ -38,6 +38,7 @@ import {
   type ThankYouVariant,
 } from './config/payments';
 
+const LandingWebPsicologos = lazy(() => import('./pages/LandingWebPsicologos'));
 const LandingWebAMedida = lazy(() => import('./pages/LandingWebAMedida'));
 const Home = lazy(() => import('./pages/Home'));
 const DisenoWeb = lazy(() => import('./pages/DisenoWeb'));
@@ -124,6 +125,7 @@ function AppContent() {
           <Suspense fallback={<PageFallback />}>
           <Routes>
             <Route path='/' element={<Home />} />
+            <Route path='/landing-web-psicologos' element={<LandingWebPsicologos />} />
             <Route path='/landing-web-a-medida' element={<LandingWebAMedida />} />
             <Route path={ABOUT_PATH} element={<Nosotros />} />
             <Route path={SITE_WEB_PATH} element={<DisenoWeb />} />

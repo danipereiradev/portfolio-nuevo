@@ -174,7 +174,7 @@ export const isAdsMaintenanceInfraLandingPath = (pathname: string): boolean =>
   normalizePath(pathname) === ADS_MAINTENANCE_INFRA_LANDING_PATH;
 
 export const isAdsLandingPath = (pathname: string): boolean =>
-  normalizePath(pathname) === '/landing-web-a-medida' ||
+  ['/landing-web-a-medida', '/landing-web-psicologos'].includes(normalizePath(pathname)) ||
   isAdsWebLandingPath(pathname) ||
   isAdsShopLandingPath(pathname) ||
   isAdsMaintenanceLandingPath(pathname) ||
@@ -197,6 +197,7 @@ export const getWhatsAppMessageForPath = (pathname: string): string => {
       ? ECOMMERCE_WHATSAPP_MESSAGE
       : ADS_SHOP_WHATSAPP_MESSAGE;
   }
+  if (path === '/landing-web-psicologos') return 'Hola, me interesa una web para mi consulta de psicología. Me gustaría comentar mi proyecto y pedir una propuesta.';
   if (path === ADS_REAL_ESTATE_LANDING_PATH) return 'Hola, me interesa la web para mi inmobiliaria por 590 € + IVA. Quiero información sobre el catálogo y el panel de edición.';
   if (isAdsLaunchLandingPath(path)) return ADS_LAUNCH_WHATSAPP_MESSAGE;
   if (isAdsGoogleAdsLandingPath(path)) return ADS_GOOGLE_ADS_WHATSAPP_MESSAGE;

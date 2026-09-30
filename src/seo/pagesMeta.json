@@ -218,5 +218,10 @@
   "/landing-web-a-medida": {
     "title": "Diseño y desarrollo web a medida | 36WEB",
     "description": "Una web que represente tu negocio. Descubre proyectos de nuestro equipo y cuéntanos tu idea. Propuesta personalizada y trato directo, sin compromiso."
+  },
+  "/landing-web-psicologos": {
+    "title": "Diseño web para psicólogos y consultas | 36WEB",
+    "description": "Webs a medida para profesionales y centros de psicología. Visita proyectos reales y una demo de psicología y pide una propuesta sin compromiso.",
+    "robots": "noindex, nofollow, noarchive"
   }
 }
