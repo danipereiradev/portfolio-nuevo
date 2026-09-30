@@ -16,7 +16,7 @@ import {
 import { formatEuroWithVat } from '../config/payments';
 import { trackMaintenancePlanClick } from '../utils/analytics';
 
-const MaintenancePlans = () => {
+const MaintenancePlans = ({ contactFirst = false }: { contactFirst?: boolean }) => {
   return (
     <section
       id='planes'
@@ -35,7 +35,7 @@ const MaintenancePlans = () => {
 
         <div className='grid items-stretch gap-page-gap lg:grid-cols-3'>
           {MAINTENANCE_PLANS.map((plan) => (
-            <PlanCard key={plan.id} plan={plan} />
+            <PlanCard key={plan.id} plan={plan} contactFirst={contactFirst} />
           ))}
         </div>
 
@@ -74,7 +74,7 @@ const MaintenancePlans = () => {
   );
 };
 
-const PlanCard = ({ plan }: { plan: MaintenancePlan }) => {
+const PlanCard = ({ plan, contactFirst }: { plan: MaintenancePlan; contactFirst: boolean }) => {
   const planId = plan.id as Exclude<MaintenancePlanId, 'apps'>;
 
   return (
@@ -109,11 +109,11 @@ const PlanCard = ({ plan }: { plan: MaintenancePlan }) => {
           </p>
         ))}
         <Button
-          href={plan.ctaHref}
+          href={contactFirst ? '#contacto' : plan.ctaHref}
           className='!mx-0 !mt-0 w-full max-w-none'
           onClick={() => trackMaintenancePlanClick(planId)}
         >
-          {plan.cta}
+          {contactFirst ? 'Consultar este plan' : plan.cta}
         </Button>
       </div>
     </article>

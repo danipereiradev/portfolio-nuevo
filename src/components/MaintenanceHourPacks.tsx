@@ -15,7 +15,7 @@ import {
 } from '../config/maintenanceOffer';
 import { trackHourPackClick } from '../utils/analytics';
 
-const MaintenanceHourPacks = () => {
+const MaintenanceHourPacks = ({ contactFirst = false }: { contactFirst?: boolean }) => {
   return (
     <section
       id='bonos'
@@ -34,7 +34,7 @@ const MaintenanceHourPacks = () => {
 
         <div className='grid items-stretch gap-page-gap md:grid-cols-3'>
           {HOUR_PACKS.map((pack) => (
-            <HourPackCard key={pack.id} pack={pack} />
+            <HourPackCard key={pack.id} pack={pack} contactFirst={contactFirst} />
           ))}
         </div>
 
@@ -56,8 +56,8 @@ const MaintenanceHourPacks = () => {
   );
 };
 
-const HourPackCard = ({ pack }: { pack: HourPack }) => {
-  const href = getHourPackHref(pack);
+const HourPackCard = ({ pack, contactFirst }: { pack: HourPack; contactFirst: boolean }) => {
+  const href = contactFirst ? '#contacto' : getHourPackHref(pack);
   const hours = pack.hours as HourPackId;
 
   return (
@@ -94,7 +94,7 @@ const HourPackCard = ({ pack }: { pack: HourPack }) => {
           className='!mx-0 !mt-0 w-full max-w-none'
           onClick={() => trackHourPackClick(Number(hours) as 3 | 6 | 10)}
         >
-          {pack.cta}
+          {contactFirst ? 'Consultar este bono' : pack.cta}
         </Button>
       </div>
     </article>

@@ -60,26 +60,6 @@ const cases: CaseStudy[] = [
     chartValues: [9, 14, 16, 19, 22, 24, 28, 31, 27, 33, 36, 42],
     chartTicks: ['1', '6', '12'],
   },
-  {
-    name: 'Micolet',
-    sector: 'Moda de segunda mano',
-    campaign: 'Búsqueda',
-    period: '12 semanas',
-    story:
-      'Había tráfico. Faltaban compras. Recortamos palabras que no convertían, subimos las que ya buscaban talla y marca, y medimos la compra, no el clic. El coste por pedido bajó mientras subían los pedidos.',
-    kpis: [
-      { label: 'ROAS', value: '5,1×' },
-      { label: 'Coste por compra', value: '5,40 €' },
-      { label: 'Compras', value: '518' },
-    ],
-    spend: '2.800 €',
-    spendLabel: 'Gasto en Google',
-    result: '14.280 €',
-    resultLabel: 'Ventas atribuidas',
-    chartLabel: 'Compras por semana',
-    chartValues: [18, 22, 26, 29, 33, 36, 41, 44, 47, 52, 58, 62],
-    chartTicks: ['1', '6', '12'],
-  },
 ];
 
 const BarChart = ({
@@ -217,7 +197,7 @@ const GoogleAdsCaseStudies = () => (
           <strong className='font-extrabold'>
             Si has llegado, el producto funciona
           </strong>
-          . Abajo, otras dos cuentas.
+          . Abajo, otra cuenta.
         </p>
       </div>
 

@@ -144,14 +144,6 @@ const MaintenanceLeadForm = ({
       newErrors.website = 'Introduce una URL válida';
     }
 
-    if (!formData.need) {
-      newErrors.need = 'Elige qué necesitas';
-    }
-
-    if (formData.message.trim().length < 10) {
-      newErrors.message =
-        'Cuéntanos qué le pasa a la web (mínimo 10 caracteres)';
-    }
 
     if (!formData.consent) {
       newErrors.consent = 'Acepta la política de privacidad';
@@ -243,6 +235,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       }
       void trackGoogleAdsFormConversion({ email: formData.email, phone: formData.phone });
       setIsFormSent(true);
+      setFormData(emptyForm());
     } catch (error) {
       console.error('Error al enviar formulario:', error);
       trackFormError('submit_failed', origin);
@@ -253,7 +246,6 @@ Fecha: ${new Date().toLocaleString('es-ES')}
       setTimeout(() => {
         setIsFormSent(false);
       }, 10000);
-      setFormData(emptyForm());
     }
   };
 
@@ -282,8 +274,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             {BUSINESS_HOURS_LABEL}
           </span>
           <p className='text-center text-lg text-gray-900'>
-            URL, síntoma y cómo te localizamos. Te respondemos en horario
-            laboral.
+            Déjanos tu teléfono y la dirección de tu web. Te llamamos en horario laboral, sin compromiso.
           </p>
         </div>
         <div className='form-fields mt-page-gap flex flex-col gap-content-gap'>
@@ -305,7 +296,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             onChange={(e) => handleInputChange('email', e.target.value)}
             className={inputClass(Boolean(errors.email))}
             autoComplete='email'
-            placeholder='Email'
+            placeholder='Email (opcional)'
           />
           {errors.email ? <ErrorMessage error={errors.email} /> : null}
           <input
@@ -338,8 +329,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             className={`${inputClass(Boolean(errors.need))} ${
               formData.need ? '' : 'text-gray-400'
             }`}
-            aria-label='¿Qué necesitas? *'
-            required
+            aria-label='¿Qué necesitas? (opcional)'
           >
             {MAINTENANCE_NEED_OPTIONS.map((option) => (
               <option
@@ -348,7 +338,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
                 disabled={option.value === ''}
                 className='text-ink-dark'
               >
-                {option.label}
+                {option.value === '' ? '¿Qué necesitas? (opcional)' : option.label}
               </option>
             ))}
           </select>
@@ -358,9 +348,8 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             onInput={handleTypedInput}
             onChange={(e) => handleInputChange('message', e.target.value)}
             className={`${inputClass(Boolean(errors.message))} min-h-32 resize-y text-lg md:text-xl`}
-            placeholder='Qué le pasa a la web *'
+            placeholder='Cuéntanos lo que necesitas (opcional)'
             maxLength={2000}
-            required
           />
           {errors.message ? <ErrorMessage error={errors.message} /> : null}
 
@@ -383,7 +372,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
               />
             </span>
             <span className='text-md pt-2 text-start italic leading-relaxed text-gray-900 md:pt-0 md:text-xl'>
-              He leido y acepto la{' '}
+              He leído y acepto la{' '}
               <a
                 href='/politica-de-privacidad'
                 target='_blank'
@@ -403,7 +392,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             variant='primary'
             className='self-center !mx-0 md:self-start'
           >
-            {isSubmitting ? 'Enviando...' : 'Enviar'}
+            {isSubmitting ? 'Enviando...' : 'Quiero que reviséis mi web'}
           </Button>
         </div>
         {submitStatus === 'error' ? (

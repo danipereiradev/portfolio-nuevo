@@ -195,7 +195,7 @@ const faqs = [
   {
     question: '¿Puedo contrataros si la web la hizo otra empresa?',
     answer:
-      'Sí. La mayoría de incidencias que vemos vienen de webs hechas por otros. Primero la revisamos y te decimos si podemos hacernos cargo. Si es un pozo, también te lo decimos.',
+      'Sí. La mayoría de incidencias que vemos vienen de webs hechas por otros. Primero la revisamos y te decimos si podemos hacernos cargo. Si necesita una reparación previa, te explicamos las opciones y el coste antes de empezar.',
   },
   {
     question: '¿Qué pasa si mi web ya está rota?',
@@ -223,7 +223,7 @@ const faqs = [
   {
     question: '¿Mantenéis WordPress?',
     answer:
-      'Sí. WordPress, temas, plugins y lo habitual de una web de negocio. Primero vemos el estado; no cogemos un sitio irrecuperable a ciegas.',
+      'Sí. WordPress, temas, plugins y lo habitual de una web de negocio. Primero vemos el estado; confirmamos qué necesita tu web antes de contratar.',
   },
   {
     question: '¿Mantenéis WooCommerce?',
@@ -325,7 +325,7 @@ const LandingMaintenance = () => {
               items={[
                 <>
                   <strong className='font-extrabold'>
-                    Monitorización 24/7
+                    Monitorización según plan
                   </strong>
                   .
                 </>,
@@ -421,8 +421,8 @@ const LandingMaintenance = () => {
         </div>
       </section>
 
-      <MaintenanceHourPacks />
-      <MaintenancePlans />
+      <MaintenanceHourPacks contactFirst />
+      <MaintenancePlans contactFirst />
 
       <section id='incluye' className='page-section'>
         <div className='container mx-auto flex flex-col gap-page-gap'>

@@ -24,11 +24,9 @@ export type ProjectId =
   | 'chicxs'
   | 'hoyviajamos'
   | 'camisetas'
-  | 'resilience'
   | 'hatena'
   | 'delish'
   | 'carper'
-  | 'micolet'
   | 'alicornio'
   | 'desmundando'
   | 'elefantes'
@@ -216,7 +214,7 @@ function ShowcaseCard({
       >
         <PictureImg
           src={image}
-          alt={`Mockup de escritorio y móvil de ${title}`}
+          alt={`Mockup de escritorio, tableta y móvil de ${title}`}
           width={1536}
           height={1024}
           className='h-auto w-full object-contain'
@@ -291,7 +289,7 @@ const Portfolio = ({
     chicxs: {
       title: t('portfolio.chicxs.title'),
       description: t('portfolio.chicxs.desc'),
-      image: '/img/portfolio/chicxs-empty.png',
+      image: '/img/portfolio/new/chicxs.webp',
       product: SITE_SHOP_LABEL,
       productHref: SITE_SHOP_PATH,
       url: 'https://chicxsdelacalle.com',
@@ -301,7 +299,7 @@ const Portfolio = ({
     hoyviajamos: {
       title: t('portfolio.hoyviajamos.title'),
       description: t('portfolio.hoyviajamos.desc'),
-      image: '/img/portfolio/new/hoyviajamos.png',
+      image: '/img/portfolio/new/hoyviajamos.webp',
       product: SITE_WEB_LABEL,
       productHref: SITE_WEB_PATH,
       url: 'https://hoyviajamosweb.com',
@@ -311,27 +309,17 @@ const Portfolio = ({
     camisetas: {
       title: t('portfolio.camisetas.title'),
       description: t('portfolio.camisetas.desc'),
-      image: '/img/portfolio/new/camisetas.png',
+      image: '/img/portfolio/new/camisetas.webp',
       product: SITE_SHOP_LABEL,
       productHref: SITE_SHOP_PATH,
       nofollow: true,
       exito: t('portfolio.camisetas.desc'),
       sector: t('portfolio.camisetas.sector'),
     },
-    resilience: {
-      title: t('portfolio.resilience.title'),
-      description: t('portfolio.resilience.desc'),
-      image: '/img/portfolio/resilience-empty.png',
-      product: SITE_SHOP_LABEL,
-      productHref: SITE_SHOP_PATH,
-      url: 'https://shopresilience.es/',
-      nofollow: true,
-      exito: t('portfolio.resilience.desc'),
-    },
     hatena: {
       title: t('portfolio.hatena.title'),
       description: t('portfolio.hatena.desc'),
-      image: '/img/portfolio/new/hatena.png',
+      image: '/img/portfolio/new/hatena.webp',
       product: SITE_WEB_LABEL,
       productHref: SITE_WEB_PATH,
       url: 'https://hatena.es',
@@ -343,7 +331,7 @@ const Portfolio = ({
     carper: {
       title: t('portfolio.carper.title'),
       description: t('portfolio.carper.desc'),
-      image: '/img/portfolio/new/carper.png',
+      image: '/img/portfolio/new/carper.webp',
       product: SITE_WEB_LABEL,
       productHref: SITE_WEB_PATH,
       url: 'https://carpersonido.com',
@@ -355,7 +343,7 @@ const Portfolio = ({
     vidal: {
       title: t('portfolio.vidal.title'),
       description: t('portfolio.vidal.desc'),
-      image: '/img/portfolio/new/clinica-vidal.png',
+      image: '/img/portfolio/new/clinica-vidal.webp',
       product: SITE_WEB_LABEL,
       productHref: SITE_WEB_PATH,
       nofollow: true,
@@ -365,7 +353,7 @@ const Portfolio = ({
     beachvans: {
       title: t('portfolio.beachvans.title'),
       description: t('portfolio.beachvans.desc'),
-      image: '/img/portfolio/new/beachvans.png',
+      image: '/img/portfolio/new/beachvans.webp',
       product: SITE_WEB_LABEL,
       productHref: SITE_WEB_PATH,
       nofollow: true,
@@ -375,27 +363,17 @@ const Portfolio = ({
     delish: {
       title: t('portfolio.delish.title'),
       description: t('portfolio.delish.desc'),
-      image: '/img/portfolio/delish-empty.png',
+      image: '/img/portfolio/new/delish.webp',
       product: SITE_SHOP_LABEL,
       productHref: SITE_SHOP_PATH,
       url: 'https://delishvegan.com/',
       nofollow: true,
       exito: t('portfolio.delish.desc'),
     },
-    micolet: {
-      title: t('portfolio.micolet.title'),
-      description: t('portfolio.micolet.desc'),
-      image: '/img/portfolio/moclet-empty.png',
-      product: SITE_SHOP_LABEL,
-      productHref: SITE_SHOP_PATH,
-      url: 'https://www.micolet.com/',
-      nofollow: true,
-      exito: t('portfolio.micolet.desc'),
-    },
     alicornio: {
       title: t('portfolio.alicornio.title'),
       description: t('portfolio.alicornio.desc'),
-      image: '/img/portfolio/new/casa-rural-oalicornio.png',
+      image: '/img/portfolio/new/casa-rural-oalicornio.webp',
       product: SITE_WEB_LABEL,
       productHref: SITE_WEB_PATH,
       url: 'https://oalicornio.com',
@@ -407,7 +385,7 @@ const Portfolio = ({
     desmundando: {
       title: t('portfolio.desmundando.title'),
       description: t('portfolio.desmundando.desc'),
-      image: '/img/portfolio/desmundando-empty.png',
+      image: '/img/portfolio/new/desmundando.webp',
       product: SITE_WEB_LABEL,
       productHref: SITE_WEB_PATH,
       exito: t('portfolio.desmundando.desc'),
@@ -415,7 +393,7 @@ const Portfolio = ({
     elefantes: {
       title: t('portfolio.elefantes.title'),
       description: t('portfolio.elefantes.desc'),
-      image: '/img/portfolio/new/elefantes.png',
+      image: '/img/portfolio/new/elefantes.webp',
       product: SITE_WEB_LABEL,
       productHref: SITE_WEB_PATH,
       url: 'https://elviajedeloselefantes.com',
@@ -425,7 +403,7 @@ const Portfolio = ({
     silly: {
       title: t('portfolio.silly.title'),
       description: t('portfolio.silly.desc'),
-      image: '/img/portfolio/new/silly.png',
+      image: '/img/portfolio/new/silly.webp',
       product: SITE_WEB_LABEL,
       productHref: SITE_WEB_PATH,
       exito: t('portfolio.silly.desc'),
@@ -453,7 +431,7 @@ const Portfolio = ({
     mhin: {
       title: t('portfolio.mhin.title'),
       description: t('portfolio.mhin.desc'),
-      image: '/img/portfolio/equipo/mhin-desktop.png',
+      image: '/img/portfolio/new/mhin.webp',
       product: SITE_WEB_LABEL,
       productHref: SITE_WEB_PATH,
       url: 'https://mhinprojects.com/',
