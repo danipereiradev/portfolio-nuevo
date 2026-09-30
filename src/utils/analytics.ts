@@ -128,17 +128,20 @@ export const trackGoogleAdsFormConversion = async (contact: { email?: string; ph
 
   let userData: Record<string, string> | null = null;
   try {
-    if (getMeasurementConsent()?.advertising && contact.email) {
-      let email = contact.email.trim().toLowerCase();
+    if (getMeasurementConsent()?.advertising) {
+      const hash = async (value: string) => Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(value))), byte => byte.toString(16).padStart(2, '0')).join('');
+      const identifiers: Record<string, string> = {};
+      let email = (contact.email || '').trim().toLowerCase();
       const [local, domain] = email.split('@');
       if (domain === 'gmail.com' || domain === 'googlemail.com') email = local.replace(/\./g, '') + '@' + domain;
-      const hash = async (value: string) => Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(value))), byte => byte.toString(16).padStart(2, '0')).join('');
       if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        userData = { sha256_email_address: await hash(email) };
-        let phone = (contact.phone || '').replace(/[\s().-]/g, '').replace(/^00/, '+');
-        if (/^[6789]\d{8}$/.test(phone)) phone = '+34' + phone;
-        if (/^\+[1-9]\d{10,14}$/.test(phone)) userData.sha256_phone_number = await hash(phone);
+        identifiers.sha256_email_address = await hash(email);
       }
+      // Email is optional in the landing form; normalize phone independently.
+      let phone = (contact.phone || '').replace(/[\s().-]/g, '').replace(/^00/, '+');
+      if (/^[6789]\d{8}$/.test(phone)) phone = '+34' + phone;
+      if (/^\+[1-9]\d{10,14}$/.test(phone)) identifiers.sha256_phone_number = await hash(phone);
+      if (Object.keys(identifiers).length) userData = identifiers;
     }
   } catch { /* Hash failure must not lose the standard conversion. */ }
   if (isAnalyticsDisabled()) return;

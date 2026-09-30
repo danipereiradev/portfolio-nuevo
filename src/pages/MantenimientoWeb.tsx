@@ -236,7 +236,7 @@ const MantenimientoWeb = () => {
     <div className='flex w-full flex-col items-center justify-center gap-3 sm:flex-row sm:items-stretch md:justify-start'>
       <Button
         href={`#${MAINTENANCE_CONTACT_ID}`}
-        className='!mx-0 !mt-0 !box-border !h-14 !min-h-14 !w-full !max-w-[var(--button-width)] !whitespace-nowrap !border-2 !border-accent !px-4 !py-0 !text-sm md:!text-base sm:!w-[var(--button-width)]'
+        className='!mx-0 !mt-0 !w-full !border-2 !border-accent sm:!w-auto sm:flex-1 sm:max-w-[var(--button-width)]'
         onClick={() => trackCtaClick('Pedir propuesta', 'MaintenanceHero')}
       >
         Pedir propuesta
@@ -246,7 +246,7 @@ const MantenimientoWeb = () => {
         target='_blank'
         rel='noopener noreferrer'
         variant='outline'
-        className='!mx-0 !mt-0 !box-border !h-14 !min-h-14 !w-full !max-w-[var(--button-width)] !whitespace-nowrap !px-4 !py-0 !text-sm md:!text-base sm:!w-[var(--button-width)]'
+        className='!mx-0 !mt-0 !w-full sm:!w-auto sm:flex-1 sm:max-w-[var(--button-width)]'
         onClick={openHeroWhatsApp}
       >
         <WhatsAppIcon />
