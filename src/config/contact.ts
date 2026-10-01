@@ -20,9 +20,6 @@ export const GOOGLE_MAPS_EMBED_URL =
 export const GOOGLE_MAPS_PLACE_URL =
   'https://www.google.com/maps/place/Pereira+Web/data=!4m6!3m5!1s0x8fbfaf5298cafb17:0xeff7a55bec419fb2!8m2!3d40.4380986!4d-3.8443501!16s%2Fg%2F11zkg96x_g?hl=es&entry=ttu';
 
-export const GOOGLE_MAPS_FOOTER_EMBED_URL =
-  'https://maps.google.com/maps?q=Calle+Condega+7,+28850+Torrej%C3%B3n+de+Ardoz,+Madrid&hl=es&z=16&output=embed';
-
 export const DEFAULT_WHATSAPP_MESSAGE =
   'Hola, quiero información para un proyecto web.';
 

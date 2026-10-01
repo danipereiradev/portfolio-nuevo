@@ -421,7 +421,7 @@ const LandingMaintenance = () => {
         </div>
       </section>
 
-      <MaintenanceHourPacks contactFirst />
+      <MaintenanceHourPacks />
       <MaintenancePlans contactFirst />
 
       <section id='incluye' className='page-section'>

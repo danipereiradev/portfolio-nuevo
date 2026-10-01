@@ -8,10 +8,8 @@ import {
   trackGoogleAdsWhatsAppConversion,
 } from '../utils/analytics';
 import {
-  BUSINESS_ADDRESS,
   BUSINESS_HOURS,
   CONTACT_EMAIL,
-  GOOGLE_MAPS_FOOTER_EMBED_URL,
   INSTAGRAM_URL,
   PHONE_DISPLAY,
   PHONE_TEL_LINK,
@@ -182,28 +180,6 @@ const Footer = () => {
                 <div>
                   <p className='font-medium text-ink-medium'>Horario</p>
                   <p>{BUSINESS_HOURS}</p>
-                </div>
-                <div>
-                  <p className='flex flex-wrap items-baseline justify-center gap-x-2 md:justify-start'>
-                    <span className='font-medium text-ink-medium'>
-                      Ubicación
-                    </span>
-                    <address className='not-italic'>{BUSINESS_ADDRESS}</address>
-                  </p>
-                  <div
-                    className='pointer-events-none relative mt-3 h-[160px] w-full max-w-[280px] overflow-hidden rounded-md mx-auto md:mx-0'
-                    aria-hidden='true'
-                    inert
-                  >
-                    <iframe
-                      src={GOOGLE_MAPS_FOOTER_EMBED_URL}
-                      title='Mapa de Calle Condega 7, Torrejón de Ardoz'
-                      loading='lazy'
-                      tabIndex={-1}
-                      referrerPolicy='no-referrer-when-downgrade'
-                      className='h-full w-full border-0'
-                    />
-                  </div>
                 </div>
               </div>
             ) : (
