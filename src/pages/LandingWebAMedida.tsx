@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Globe, MessageCircle, Search, ShieldCheck, Smartphone, Layers } from 'lucide-react';
 import HeroCta from '../components/HeroCta';
 import { ServiceIncludes } from '../components/ServiceOnPage';
@@ -5,7 +6,10 @@ import { Team } from '../components/Team';
 import Testimonials from '../components/Testimonials';
 import SEOProcess from '../components/SEOProcess';
 import SEOFAQ from '../components/SEOFAQ';
-import PortfolioAMedida from '../components/PortfolioAMedida';
+import Portfolio, {
+  ALL_SHOWCASE_PROJECT_IDS,
+  pickRandomProjectIds,
+} from '../components/Portfolio';
 import LaunchExitPopup from '../components/LaunchExitPopup';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { ADS_CUSTOM_WEB_EXIT_FORM_ORIGIN } from '../config/contact';
@@ -29,13 +33,32 @@ const faqs = [
 ];
 export default function LandingWebAMedida() {
   usePageMeta('/landing-web-a-medida');
+  const [showcaseIds] = useState(() =>
+    pickRandomProjectIds(
+      ALL_SHOWCASE_PROJECT_IDS,
+      ALL_SHOWCASE_PROJECT_IDS.length,
+    ),
+  );
   return <>
     <HeroCta label='Diseño y desarrollo web a medida' title={<>Tu negocio no es como los demás.<br />Tu web tampoco debería serlo.</>}
       description={<><p>Una web que represente tu marca, explique lo que haces y facilite que tus próximos clientes contacten contigo.</p><p className='mt-3 font-bold'>Diseño con personalidad. Desarrollo pensado para tu proyecto. Trato directo con el equipo.</p></>}
       convertFirstOnMobile buttonText='Cuéntanos tu proyecto' buttonHref='#contacto' heroType='form' hasButton formTitle='Hablemos de tu proyecto'
       formDescription='Déjanos tus datos y hablamos de lo que necesitas. Sin compromiso.' formSectionInfo='landing_web_a_medida' formSubmitLabel='Quiero hablar de mi proyecto' formId='contacto' hasBackground={false} hasReviewBadge isTopHero />
     <ServiceIncludes title='Una web pensada para tu negocio' intro='Empezamos por entender tus objetivos. A partir de ahí, damos forma al diseño, los contenidos y la experiencia que necesita tu proyecto.' items={items} />
-    <PortfolioAMedida />
+    <Portfolio
+      ids={showcaseIds}
+      pageSize={3}
+      headingLabel='Portfolio'
+      headingTitle='Proyectos de diseño web'
+      headingDescription={
+        <>
+          Mira todos los diseños, de 3 en 3, sin salir de esta página. Cada
+          proyecto se diseña a medida del negocio.
+        </>
+      }
+      ctaText='Hablemos de mi proyecto'
+      ctaHref='#contacto'
+    />
     <Team compact label='El equipo de 36WEB' title='Personas que se implican en tu proyecto' paragraphs={['Diseño y desarrollo trabajando juntos, con comunicación directa y revisiones contigo durante el proceso.']} />
     <Testimonials />
     <SEOProcess compact title='De tu idea a una web que te representa' subtitle='Nos cuentas tu proyecto. Le damos forma contigo. Revisas y publicamos.' steps={[
