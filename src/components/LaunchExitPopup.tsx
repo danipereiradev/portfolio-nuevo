@@ -56,7 +56,13 @@ const validatePhone = (value: string): boolean => {
   return spanishPhone.test(cleanPhone) || internationalPhone.test(cleanPhone);
 };
 
-const LaunchExitPopup = () => {
+type LaunchExitPopupProps = {
+  origin?: string;
+};
+
+const LaunchExitPopup = ({
+  origin = ADS_LAUNCH_EXIT_FORM_ORIGIN,
+}: LaunchExitPopupProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [phone, setPhone] = useState('');
   const [consent, setConsent] = useState(false);
@@ -78,7 +84,7 @@ const LaunchExitPopup = () => {
     openedRef.current = true;
     markPopupSeen();
     setIsOpen(true);
-    trackExitPopupView();
+    trackExitPopupView(origin);
   };
 
   const closePopup = () => {
@@ -140,7 +146,7 @@ const LaunchExitPopup = () => {
   const markFormStart = () => {
     if (hasStartedRef.current) return;
     hasStartedRef.current = true;
-    trackFormStart(ADS_LAUNCH_EXIT_FORM_ORIGIN);
+    trackFormStart(origin);
   };
 
   const handleSubmit = async (event: FormEvent) => {
@@ -167,7 +173,7 @@ const LaunchExitPopup = () => {
     setSubmitStatus('idle');
 
     try {
-      const origen = ADS_LAUNCH_EXIT_FORM_ORIGIN;
+      const origen = origin;
       const pagina = window.location.pathname;
 
       const response = await fetch('https://formspree.io/f/movlevkj', {
@@ -206,7 +212,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
 
       trackFormSubmit(origen);
       trackGa4FormSubmit(origen);
-      trackExitPopupSubmit();
+      trackExitPopupSubmit(origen);
       trackGoogleAdsFormConversion();
       setIsFormSent(true);
       setPhone('');

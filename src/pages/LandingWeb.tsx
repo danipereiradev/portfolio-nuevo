@@ -18,7 +18,8 @@ import HeroCta, { HeroCtaList } from '../components/HeroCta';
 import { ServiceIncludes } from '../components/ServiceOnPage';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
-import { ADS_LANDING_PATH } from '../config/contact';
+import LaunchExitPopup from '../components/LaunchExitPopup';
+import { ADS_LANDING_PATH, ADS_WEB_EXIT_FORM_ORIGIN } from '../config/contact';
 
 const landingTrustPoints = [
   { icon: Wallet, text: 'Por 590€' },
@@ -344,6 +345,7 @@ const LandingWeb = () => {
         hasBackground={false}
         hasReviewBadge
       />
+      <LaunchExitPopup origin={ADS_WEB_EXIT_FORM_ORIGIN} />
     </>
   );
 };

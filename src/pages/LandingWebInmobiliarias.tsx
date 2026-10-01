@@ -18,7 +18,9 @@ import LaunchPaymentTable from '../components/LaunchPaymentTable';
 import { ServiceIncludes } from '../components/ServiceOnPage';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
+import LaunchExitPopup from '../components/LaunchExitPopup';
 import {
+  ADS_REAL_ESTATE_EXIT_FORM_ORIGIN,
   ADS_REAL_ESTATE_FORM_ORIGIN,
   ADS_REAL_ESTATE_LANDING_PATH,
 } from '../config/contact';
@@ -285,6 +287,7 @@ const LandingWebInmobiliarias = () => {
           hasReviewBadge={false}
         />
       </div>
+      <LaunchExitPopup origin={ADS_REAL_ESTATE_EXIT_FORM_ORIGIN} />
     </>
   );
 };

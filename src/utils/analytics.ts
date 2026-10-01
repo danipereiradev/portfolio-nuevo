@@ -8,6 +8,8 @@ import { getMeasurementConsent } from './measurementConsent';
 import {
   ADS_LAUNCH_EXIT_FORM_ORIGIN,
   ADS_LAUNCH_FORM_ORIGIN,
+  ADS_REAL_ESTATE_EXIT_FORM_ORIGIN,
+  ADS_WEB_EXIT_FORM_ORIGIN,
   isAdsLandingPath,
 } from '../config/contact';
 import { LAUNCH_PRICE } from '../config/launchOffer';
@@ -870,31 +872,40 @@ export const trackLandingPromo590FormSubmit = () => {
   }
 };
 
-export const trackExitPopupView = () => {
+const EXIT_POPUP_LAUNCH_ORIGINS = new Set([
+  ADS_LAUNCH_EXIT_FORM_ORIGIN,
+  ADS_WEB_EXIT_FORM_ORIGIN,
+  ADS_REAL_ESTATE_EXIT_FORM_ORIGIN,
+]);
+
+export const trackExitPopupView = (
+  origin = ADS_LAUNCH_EXIT_FORM_ORIGIN,
+) => {
   trackEvent('exit_popup_view', {
-    event_category: 'landing_promo_590',
-    event_label: 'landing promo 590 salida',
-    landing_name: 'landing promo 590',
+    event_category: origin,
+    event_label: origin,
+    landing_name: origin,
     location_section: 'exit_popup',
   });
 };
 
-export const trackExitPopupSubmit = () => {
+export const trackExitPopupSubmit = (
+  origin = ADS_LAUNCH_EXIT_FORM_ORIGIN,
+) => {
   if (isAnalyticsDisabled()) return;
+  const isLaunchOffer = EXIT_POPUP_LAUNCH_ORIGINS.has(origin);
   trackEvent('exit_popup_submit', {
-    event_category: 'landing_promo_590',
-    event_label: 'landing promo 590 salida',
-    landing_name: 'landing promo 590',
+    event_category: origin,
+    event_label: origin,
+    landing_name: origin,
     location_section: 'exit_popup',
-    value: LAUNCH_PRICE,
-    currency: 'EUR',
+    ...(isLaunchOffer ? { value: LAUNCH_PRICE, currency: 'EUR' } : {}),
   });
 
   try {
     window.gtag?.('event', 'generate_lead', {
-      value: LAUNCH_PRICE,
-      currency: 'EUR',
-      landing_name: 'landing promo 590 salida',
+      landing_name: origin,
+      ...(isLaunchOffer ? { value: LAUNCH_PRICE, currency: 'EUR' } : {}),
     });
   } catch {
     // La analítica nunca debe romper la experiencia del usuario.
