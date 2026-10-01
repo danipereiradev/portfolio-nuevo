@@ -238,7 +238,7 @@ const LandingWebProfesional = () => {
             <strong className='font-extrabold'>
               web profesional para negocios
             </strong>
-            . Hasta 8 secciones, tu marca, formulario, WhatsApp, hosting y
+            . Hasta 5 secciones, tu marca, formulario, WhatsApp, hosting y
             publicación. Precio del paquete: {getLaunchPriceAmountLabel()}.
           </>
         }
