@@ -36,7 +36,15 @@ export type ProjectId =
   | 'reformas'
   | 'inmobiliaria'
   | 'mhin'
-  | 'psicologa';
+  | 'psicologa'
+  | 'bonobo'
+  | 'detectives'
+  | 'mcauto'
+  | 'somatica'
+  | 'itzalak'
+  | 'noma'
+  | 'obrador'
+  | 'noemi';
 
 interface PortfolioProps {
   /** En /web-profesional: badges de packs y sin proyectos de tienda online. */
@@ -62,6 +70,8 @@ interface PortfolioProps {
   /** CTA bajo el grid. Por defecto: Quiero resultados como estos. */
   ctaText?: string;
   ctaHref?: string;
+  /** Muestra el portfolio de N en N, con anteriores/siguientes. Sin carrusel. */
+  pageSize?: number;
 }
 
 /** Fila 1: clientes reales. Fila 2: demos de sector. */
@@ -86,6 +96,31 @@ export const REAL_WEB_PROJECT_IDS: readonly ProjectId[] = [
   'hoyviajamos',
   'elefantes',
   'silly',
+];
+
+/** Mockups WebP de escritorio, tableta y móvil en /img/portfolio/new. */
+export const ALL_SHOWCASE_PROJECT_IDS: readonly ProjectId[] = [
+  'beachvans',
+  'vidal',
+  'hatena',
+  'carper',
+  'alicornio',
+  'hoyviajamos',
+  'elefantes',
+  'silly',
+  'desmundando',
+  'mhin',
+  'chicxs',
+  'camisetas',
+  'delish',
+  'bonobo',
+  'detectives',
+  'mcauto',
+  'somatica',
+  'itzalak',
+  'noma',
+  'obrador',
+  'noemi',
 ];
 
 export const pickRandomProjectIds = (
@@ -258,8 +293,10 @@ const Portfolio = ({
   note,
   ctaText = 'Quiero resultados como estos',
   ctaHref = '#contacto',
+  pageSize,
 }: PortfolioProps) => {
   const { t } = useLanguage();
+  const [page, setPage] = useState(0);
 
   const sectionRef = useSectionView<HTMLElement>(trackViewPortfolioSection);
   const isPackLanding = variant === 'web-profesional';
@@ -449,6 +486,94 @@ const Portfolio = ({
       exito: t('portfolio.psicologa.desc'),
       kind: 'demo',
     },
+    bonobo: {
+      title: t('portfolio.bonobo.title'),
+      description: t('portfolio.bonobo.desc'),
+      image: '/img/portfolio/new/escuela-estudio-bonobo.webp',
+      product: SITE_WEB_LABEL,
+      productHref: SITE_WEB_PATH,
+      url: 'https://www.estudobonobo.com/',
+      nofollow: true,
+      sector: t('portfolio.bonobo.sector'),
+      exito: t('portfolio.bonobo.desc'),
+    },
+    detectives: {
+      title: t('portfolio.detectives.title'),
+      description: t('portfolio.detectives.desc'),
+      image: '/img/portfolio/new/detectives-vigo.webp',
+      product: SITE_WEB_LABEL,
+      productHref: SITE_WEB_PATH,
+      url: 'https://www.betadetectives.com/',
+      nofollow: true,
+      sector: t('portfolio.detectives.sector'),
+      exito: t('portfolio.detectives.desc'),
+    },
+    mcauto: {
+      title: t('portfolio.mcauto.title'),
+      description: t('portfolio.mcauto.desc'),
+      image: '/img/portfolio/new/mcauto.webp',
+      product: SITE_WEB_LABEL,
+      productHref: SITE_WEB_PATH,
+      url: 'https://mcautoclassic.com/',
+      nofollow: true,
+      sector: t('portfolio.mcauto.sector'),
+      exito: t('portfolio.mcauto.desc'),
+    },
+    somatica: {
+      title: t('portfolio.somatica.title'),
+      description: t('portfolio.somatica.desc'),
+      image: '/img/portfolio/new/somatica.webp',
+      product: SITE_WEB_LABEL,
+      productHref: SITE_WEB_PATH,
+      url: 'https://psicoterapiasomatica.es/',
+      nofollow: true,
+      sector: t('portfolio.somatica.sector'),
+      exito: t('portfolio.somatica.desc'),
+    },
+    itzalak: {
+      title: t('portfolio.itzalak.title'),
+      description: t('portfolio.itzalak.desc'),
+      image: '/img/portfolio/new/itzalak.webp',
+      product: SITE_WEB_LABEL,
+      productHref: SITE_WEB_PATH,
+      url: 'https://itzalakpsicologia.com/',
+      nofollow: true,
+      sector: t('portfolio.itzalak.sector'),
+      exito: t('portfolio.itzalak.desc'),
+    },
+    noma: {
+      title: t('portfolio.noma.title'),
+      description: t('portfolio.noma.desc'),
+      image: '/img/portfolio/new/noma.webp',
+      product: SITE_WEB_LABEL,
+      productHref: SITE_WEB_PATH,
+      url: 'https://nomaabogados.com/',
+      nofollow: true,
+      sector: t('portfolio.noma.sector'),
+      exito: t('portfolio.noma.desc'),
+    },
+    obrador: {
+      title: t('portfolio.obrador.title'),
+      description: t('portfolio.obrador.desc'),
+      image: '/img/portfolio/new/obrador.webp',
+      product: SITE_WEB_LABEL,
+      productHref: SITE_WEB_PATH,
+      url: 'https://lobradordeponent.com/',
+      nofollow: true,
+      sector: t('portfolio.obrador.sector'),
+      exito: t('portfolio.obrador.desc'),
+    },
+    noemi: {
+      title: t('portfolio.noemi.title'),
+      description: t('portfolio.noemi.desc'),
+      image: '/img/portfolio/new/noemi.webp',
+      product: SITE_WEB_LABEL,
+      productHref: SITE_WEB_PATH,
+      url: 'https://noemibonetpsicologia.com/',
+      nofollow: true,
+      sector: t('portfolio.noemi.sector'),
+      exito: t('portfolio.noemi.desc'),
+    },
   };
 
   const fallbackOrder = variant === 'tiendas' ? SHOP_ORDER : ALL_ORDER;
@@ -476,6 +601,17 @@ const Portfolio = ({
     }),
   );
 
+  const size = pageSize && pageSize > 0 ? pageSize : projects.length;
+  const pageCount = Math.max(1, Math.ceil(projects.length / size));
+  const currentPage = Math.min(page, pageCount - 1);
+  const pageStart = currentPage * size;
+  const visibleProjects = projects.slice(pageStart, pageStart + size);
+
+  const goToPage = (nextPage: number) => {
+    setPage(nextPage);
+    document.getElementById('portfolio')?.scrollIntoView({ block: 'start' });
+  };
+
   const defaultHeading = isCasos
     ? {
         label: 'Casos de éxito',
@@ -501,11 +637,11 @@ const Portfolio = ({
   };
 
   const gridClass =
-    projects.length === 1
+    visibleProjects.length === 1
       ? 'mx-auto grid w-full max-w-3xl grid-cols-1 gap-page-gap'
-      : projects.length <= 2
+      : visibleProjects.length <= 2
       ? 'mx-auto grid w-full max-w-5xl grid-cols-1 items-stretch gap-page-gap md:grid-cols-2'
-      : projects.length === 4
+      : visibleProjects.length === 4
         ? 'mx-auto grid grid-cols-1 items-stretch gap-page-gap md:grid-cols-2 lg:grid-cols-4'
         : 'mx-auto grid grid-cols-1 items-stretch gap-page-gap md:grid-cols-2 lg:grid-cols-3';
 
@@ -527,9 +663,9 @@ const Portfolio = ({
 
           {isCasos ? (
             <div className={gridClass}>
-              {projects.map((project, index) => (
+              {visibleProjects.map((project, index) => (
                 <RevealOnScroll
-                  key={project.title}
+                  key={project.id}
                   className='h-full'
                   delayMs={index * 90}
                 >
@@ -543,9 +679,9 @@ const Portfolio = ({
             </div>
           ) : (
             <div className={gridClass}>
-              {projects.map((project, index) => (
+              {visibleProjects.map((project, index) => (
                 <RevealOnScroll
-                  key={project.title}
+                  key={project.id}
                   className='h-full'
                   delayMs={index * 90}
                 >
@@ -572,6 +708,29 @@ const Portfolio = ({
               ))}
             </div>
           )}
+
+          {pageCount > 1 ? (
+            <div className='mx-auto flex w-full max-w-3xl flex-col items-center gap-3 sm:flex-row sm:justify-center'>
+              <Button
+                type='button'
+                variant='outline'
+                className='!mx-0 !mt-0'
+                disabled={currentPage === 0}
+                onClick={() => goToPage(currentPage - 1)}
+              >
+                Anterior
+              </Button>
+              <Button
+                type='button'
+                variant='outline'
+                className='!mx-0 !mt-0'
+                disabled={currentPage >= pageCount - 1}
+                onClick={() => goToPage(currentPage + 1)}
+              >
+                Siguiente
+              </Button>
+            </div>
+          ) : null}
 
           {note || ctaHref ? (
             <div className='mx-auto flex max-w-3xl flex-col items-center gap-4 text-center'>

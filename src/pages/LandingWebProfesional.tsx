@@ -9,8 +9,8 @@ import {
   Smartphone,
 } from 'lucide-react';
 import Portfolio, {
+  ALL_SHOWCASE_PROJECT_IDS,
   pickRandomProjectIds,
-  REAL_WEB_PROJECT_IDS,
 } from '../components/Portfolio';
 import { Team } from '../components/Team';
 import SEOFAQ from '../components/SEOFAQ';
@@ -200,8 +200,11 @@ const LaunchLandingHero = () => {
 
 const LandingWebProfesional = () => {
   usePageMeta(ADS_LAUNCH_LANDING_PATH);
-  const [realWebIds] = useState(() =>
-    pickRandomProjectIds(REAL_WEB_PROJECT_IDS, 3),
+  const [showcaseIds] = useState(() =>
+    pickRandomProjectIds(
+      ALL_SHOWCASE_PROJECT_IDS,
+      ALL_SHOWCASE_PROJECT_IDS.length,
+    ),
   );
 
   useEffect(() => {
@@ -259,13 +262,14 @@ const LandingWebProfesional = () => {
       </section>
 
       <Portfolio
-        ids={realWebIds}
+        ids={showcaseIds}
+        pageSize={3}
         headingLabel='Portfolio'
         headingTitle='Proyectos de diseño web'
         headingDescription={
           <>
-            Conoce algunos proyectos realizados para nuestros clientes. El paquete incluye
-            una web de presentación por{' '}
+            Mira todos los diseños, de 3 en 3, sin salir de esta página. El
+            paquete incluye una web de presentación por{' '}
             <strong className='font-extrabold'>
               {getLaunchPriceAmountLabel()}
             </strong>

@@ -135,6 +135,38 @@ const translations = {
   'portfolio.psicologa.sector': 'Sector Psicología · Ejemplo sectorial',
   'portfolio.psicologa.desc':
     'Diseño estratégico con tono sereno y de autoridad profesional. Incluye una arquitectura pensada exclusivamente para profesionales de la salud que necesitan agendar primeras sesiones de forma automática.',
+  'portfolio.bonobo.title': 'Estudo Bonobo',
+  'portfolio.bonobo.sector': 'Sector Escuela de artes',
+  'portfolio.bonobo.desc':
+    'Web de escuela de artes: cursos, taller y una identidad visual propia.',
+  'portfolio.detectives.title': 'Beta Detectives',
+  'portfolio.detectives.sector': 'Sector Investigación privada',
+  'portfolio.detectives.desc':
+    'Web de detectives: servicios claros y un contacto directo para consultar el caso.',
+  'portfolio.mcauto.title': 'McAuto Lleida Classic',
+  'portfolio.mcauto.sector': 'Sector Eventos y motor',
+  'portfolio.mcauto.desc':
+    'Web de eventos de motor clásico: agenda, fotos y un contacto directo.',
+  'portfolio.somatica.title': 'Psicoterapia Somática',
+  'portfolio.somatica.sector': 'Sector Salud y bienestar',
+  'portfolio.somatica.desc':
+    'Web de consulta: enfoque, sesiones y un camino sencillo para pedir cita.',
+  'portfolio.itzalak.title': 'Itzalak Psicología',
+  'portfolio.itzalak.sector': 'Sector Psicología',
+  'portfolio.itzalak.desc':
+    'Web de consulta de psicología: servicios, enfoque y contacto para primera sesión.',
+  'portfolio.noma.title': 'Noma Abogados',
+  'portfolio.noma.sector': 'Sector Servicios jurídicos',
+  'portfolio.noma.desc':
+    'Web de despacho: áreas de práctica y un contacto directo para consultar el caso.',
+  'portfolio.obrador.title': 'L’Obrador de Ponent',
+  'portfolio.obrador.sector': 'Sector Alimentación artesanal',
+  'portfolio.obrador.desc':
+    'Web de obrador: productos, historia y un pedido o contacto sin rodeos.',
+  'portfolio.noemi.title': 'Noemí Bonet Psicología',
+  'portfolio.noemi.sector': 'Sector Psicología deportiva',
+  'portfolio.noemi.desc':
+    'Web de psicología deportiva: método, servicios y un contacto para empezar.',
 
   // Categorías de contacto
   'contact.project.ecommerce': 'E-commerce',
