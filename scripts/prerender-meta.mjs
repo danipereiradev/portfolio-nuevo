@@ -131,7 +131,7 @@ const buildLaunchLandingHeroHtml = () => buildLightBootHeroHtml({
   h1: 'Tu web profesional por <span class="whitespace-nowrap">590&nbsp;€&nbsp;+&nbsp;IVA</span>',
   intro: 'Para autónomos y pequeños negocios de toda España. Trabajamos online.',
   bullets: [
-    '<strong class="font-bold">Diseño, textos y logo incluidos · Lista en 1–2 semanas.</strong>',
+    '<strong class="font-bold">Web adaptada a tu negocio, lista en 1–2 semanas.</strong>',
     'Hosting y dominio incluidos el primer año.',
   ],
   extraCopy: '<a href="#contacto" class="inline-flex rounded-lg bg-accent px-6 py-3 font-bold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">Hablemos de tu web</a><p class="text-base">Sin compromiso y sin pagar ahora.</p>',

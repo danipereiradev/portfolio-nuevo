@@ -91,8 +91,8 @@ const processSteps = [
     title: 'Montamos y adaptamos',
     description: (
       <>
-        Con tu logo y tus textos (los creamos si no tienes) montamos la web a tu
-        gusto.{' '}
+        Adaptamos la web a tu negocio y te ayudamos a preparar los textos
+        para explicar tus servicios con claridad.{' '}
         <strong className='font-extrabold'>
           El plazo de {LAUNCH_DELIVERY_LABEL} empieza aquí
         </strong>
@@ -123,9 +123,9 @@ const faqs = [
     answer: `Tu web está lista y publicada en ${LAUNCH_DELIVERY_LABEL}. El plazo empieza cuando nos das la información básica de tu negocio (fotos, textos e ideas). Los plazos van por escrito.`,
   },
   {
-    question: '¿Y si no tengo logo ni textos?',
+    question: '¿Y si no tengo los textos preparados?',
     answer:
-      'No hace falta que los traigas. Si no tienes textos, los redactamos y los adaptamos a tu sector. Si no tienes logo, te preparamos una propuesta básica y limpia para arrancar, sin coste añadido. Lo revisas tú antes de publicar.',
+      'Te ayudamos a preparar los textos de tu web a partir de lo que nos cuentes sobre tu negocio y tus servicios. Los revisamos contigo antes de publicar.',
   },
   {
     question: '¿Cómo se paga?',
@@ -146,7 +146,7 @@ const faqs = [
 const launchHeroDescription = (
   <>
     <p>Para autónomos y pequeños negocios de toda España. Trabajamos online.</p>
-    <p className='mt-3 font-bold'>Diseño, textos y logo incluidos · Lista en {LAUNCH_DELIVERY_LABEL}.</p>
+    <p className='mt-3 font-bold'>Web adaptada a tu negocio, lista en {LAUNCH_DELIVERY_LABEL}.</p>
     <p className='mt-3 text-base'>Hosting y dominio incluidos el primer año.</p>
   </>
 );
