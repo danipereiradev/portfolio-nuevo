@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import HeroCta from '../components/HeroCta';
+import AppPortfolio from '../components/AppPortfolio';
 import { PictureImg } from '../components/PictureImg';
 import RevealOnScroll from '../components/RevealOnScroll';
 import { useJsonLd } from '../hooks/useJsonLd';
@@ -106,10 +107,10 @@ const PortfolioPage = () => {
         },
         {
           '@type': 'CollectionPage',
-          name: 'Portfolio de webs y tiendas online | 36web',
+          name: 'Portfolio de webs, tiendas online y aplicaciones | 36web',
           url: `${SITE_URL}${PORTFOLIO_PATH}/`,
           description:
-            'Webs y tiendas online reales. Entra en cada proyecto y recórrelo.',
+            'Webs, tiendas online y aplicaciones. Visita los proyectos y recorre sus capturas.',
         },
       ],
     }),
@@ -130,8 +131,8 @@ const PortfolioPage = () => {
               Proyectos reales, para entrar y recorrerlos.
             </h1>
             <p className='text-xl text-ink-dark md:text-2xl'>
-              Webs y tiendas online que ya están publicadas. Cada tarjeta abre
-              el sitio en otra pestaña. Las apps, un poco más adelante.
+              Webs, tiendas online y aplicaciones en las que ha trabajado nuestro equipo.
+              Visita los proyectos y recorre las capturas de las apps.
             </p>
           </div>
           <nav aria-label='Categorías del portfolio'>
@@ -180,25 +181,7 @@ const PortfolioPage = () => {
         </div>
       </section>
 
-      <section id='aplicaciones' className='page-section'>
-        <div className='container mx-auto flex flex-col gap-page-gap'>
-          <div className='page-title-block mx-auto max-w-5xl text-center'>
-            <h2 className='text-3xl font-extrabold text-ink-dark md:text-4xl lg:text-5xl'>
-              Aplicaciones web/móvil
-            </h2>
-            <p className='text-xl text-ink-dark md:text-2xl'>Próximamente</p>
-          </div>
-          <div className='mx-auto max-w-3xl rounded-lg border-2 border-ink-dark bg-white p-8 text-center md:p-12'>
-            <p className='text-xl font-extrabold text-ink-dark md:text-2xl'>
-              Estamos preparando casos de apps web y móvil.
-            </p>
-            <p className='mt-3 text-base text-ink-dark md:text-lg'>
-              Si lo que necesitas es una aplicación, cuéntanoslo y lo vemos en
-              la propuesta. Sin compromiso.
-            </p>
-          </div>
-        </div>
-      </section>
+      <AppPortfolio id='aplicaciones' showCta={false} />
 
       <HeroCta
         title='¿Quieres una web así para tu negocio?'

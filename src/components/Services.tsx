@@ -1,9 +1,13 @@
 import type { ReactNode } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import RevealOnScroll from './RevealOnScroll';
+import { AppProjectVisual } from './AppPortfolio';
+import { APP_PROJECTS } from '../data/appProjects';
 import {
   SITE_MAINTENANCE_LABEL,
   SITE_MAINTENANCE_PATH,
+  SITE_APPS_PATH,
+  SITE_APPS_LABEL,
   SITE_SHOP_LABEL,
   SITE_SHOP_PATH,
   SITE_WEB_LABEL,
@@ -31,6 +35,12 @@ const Services = ({ description }: ServicesProps) => {
       imageAlt: 'Tiendas online',
     },
     {
+      title: SITE_APPS_LABEL,
+      link: SITE_APPS_PATH,
+      image: '',
+      imageAlt: 'Aplicaciones web y móviles',
+    },
+    {
       title: SITE_MAINTENANCE_LABEL,
       link: SITE_MAINTENANCE_PATH,
       image: '/img/services/mantenimiento-web.png',
@@ -50,7 +60,7 @@ const Services = ({ description }: ServicesProps) => {
           </h2>
           <p className='text-xl md:text-2xl text-ink-dark'>{description}</p>
         </div>
-        <div className='mx-auto  grid w-full grid-cols-1 items-stretch gap-page-gap md:grid-cols-3'>
+        <div className='mx-auto  grid w-full grid-cols-1 items-stretch gap-page-gap md:grid-cols-2 lg:grid-cols-4'>
           {mainServices.map((service, index) => (
             <RevealOnScroll
               key={service.title}
@@ -61,7 +71,7 @@ const Services = ({ description }: ServicesProps) => {
                 href={service.link}
                 className='group relative flex h-full flex-col overflow-hidden rounded-lg bg-white'
               >
-                <img
+                {service.link === SITE_APPS_PATH ? <div className='flex aspect-[4/3] items-center justify-center overflow-hidden'><div className='w-3/4'><AppProjectVisual project={APP_PROJECTS[0]} /></div></div> : <img
                   src={service.image}
                   alt={service.imageAlt}
                   width={800}
@@ -69,7 +79,7 @@ const Services = ({ description }: ServicesProps) => {
                   className='aspect-[4/3] w-full bg-white object-cover md:object-contain md:p-content-pad'
                   loading='lazy'
                   decoding='async'
-                />
+                />}
                 <h3 className='px-content-pad pb-content-pad text-center text-2xl font-extrabold text-ink-dark md:text-3xl z-20'>
                   {service.title}
                 </h3>

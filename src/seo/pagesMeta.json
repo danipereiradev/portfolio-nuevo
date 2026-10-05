@@ -82,8 +82,8 @@
     "description": "36web es una agencia de diseño web y marketing digital en Madrid. Más de 12 años montando webs y tiendas online. Hablas con quien las hace."
   },
   "/portfolio": {
-    "title": "Portfolio de webs y tiendas online | 36web",
-    "description": "Webs y tiendas online reales de 36web. Entra en cada proyecto, recórrelo y pide propuesta si encaja con lo que necesitas."
+    "title": "Portfolio de webs, tiendas y aplicaciones | 36web",
+    "description": "Webs, tiendas online y aplicaciones en las que ha trabajado nuestro equipo. Visita los proyectos y recorre sus capturas."
   },
   "/trabaja-con-nosotros": {
     "title": "Únete al equipo de 36web | Trabaja con nosotros",
@@ -227,5 +227,9 @@
     "title": "Diseño web para psicólogos y consultas | 36WEB",
     "description": "Webs a medida para profesionales y centros de psicología. Visita proyectos reales y una demo de psicología y pide una propuesta sin compromiso.",
     "robots": "noindex, nofollow, noarchive"
+  },
+  "/aplicaciones": {
+    "title": "Desarrollo de aplicaciones web y móviles a medida | 36web",
+    "description": "Creamos aplicaciones web, Android e iOS a medida. Herramientas de gestión, plataformas y apps para tu negocio. Precio y plazos por escrito. Trato directo."
   }
 }

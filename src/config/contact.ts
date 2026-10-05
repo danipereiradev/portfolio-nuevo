@@ -125,6 +125,9 @@ export const localWebCityPath = (slug: string) => `${SITE_WEB_PATH}/${slug}`;
 export const SITE_SHOP_PATH = '/tiendas-online';
 export const SITE_SHOP_LABEL = 'Tiendas Online';
 
+export const SITE_APPS_PATH = '/aplicaciones';
+export const SITE_APPS_LABEL = 'Aplicaciones';
+
 export const SITE_MAINTENANCE_PATH = '/mantenimiento-web';
 export const SITE_MAINTENANCE_LABEL = 'Mantenimiento Web';
 
@@ -228,6 +231,7 @@ export const getWhatsAppMessageForPath = (pathname: string): string => {
   if (isAdsMaintenanceLandingPath(path))
     return ADS_MAINTENANCE_WHATSAPP_MESSAGE;
   if (path === '/web-profesional') return WEB_PROFESIONAL_WHATSAPP_MESSAGE;
+  if (path === SITE_APPS_PATH) return 'Hola, quiero contaros mi proyecto de aplicación y pedir una propuesta.';
   if (path === ABOUT_PATH) return ABOUT_PAGE_WHATSAPP_MESSAGE;
   if (path === PORTFOLIO_PATH) return PORTFOLIO_WHATSAPP_MESSAGE;
   if (path === SITE_MAINTENANCE_PATH) return MAINTENANCE_WHATSAPP_MESSAGE;

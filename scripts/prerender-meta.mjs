@@ -161,6 +161,17 @@ const buildTiendasOnlineHeroHtml = () =>
     ],
   });
 
+const buildAplicacionesHeroHtml = () =>
+  buildLightBootHeroHtml({
+    h1: 'Una aplicación hecha para lo que necesita tu negocio',
+    intro: 'Desarrollamos aplicaciones web y móviles pensadas para <strong class="font-extrabold">hacer más fácil el día a día de tus usuarios</strong>.',
+    bullets: [
+      'Web, Android o iOS. <strong class="font-extrabold">Lo que necesite tu proyecto.</strong>',
+      'Propuesta personalizada, con <strong class="font-extrabold">precio y plazos por escrito</strong>.',
+      '<strong class="font-extrabold">Hablas con quien va a desarrollar la aplicación, no con un comercial.</strong>',
+    ],
+  });
+
 const buildMantenimientoWebHeroHtml = () =>
   buildLightBootHeroHtml({
     label: 'Mantenimiento y soporte',
@@ -462,6 +473,10 @@ for (const [routePath, meta] of Object.entries(pagesMeta)) {
     html = injectBeforeRoot(html, buildTiendasOnlineHeroHtml());
     html = injectLaunchBootHeroCss(html);
     html = injectModulePreload(html, findAsset('TiendasOnline-'));
+  } else if (routePath === '/aplicaciones') {
+    html = injectBeforeRoot(html, buildAplicacionesHeroHtml());
+    html = injectLaunchBootHeroCss(html);
+    html = injectModulePreload(html, findAsset('Aplicaciones-'));
   } else if (routePath === SITE_MAINTENANCE_PATH) {
     html = injectBeforeRoot(html, buildMantenimientoWebHeroHtml());
     html = injectLaunchBootHeroCss(html);

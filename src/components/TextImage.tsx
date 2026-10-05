@@ -8,6 +8,7 @@ interface TextImageProps {
   title: string;
   paragraphs: ReactNode[];
   imageSrc?: string;
+  imageContent?: ReactNode;
   imageAlt?: string;
   imageLeft?: boolean;
   buttonText?: string;
@@ -21,6 +22,7 @@ export const TextImage = ({
   label,
   title,
   paragraphs,
+  imageContent,
   imageSrc = '/img/sections/servicio-web.webp',
   imageAlt = 'Diseño y desarrollo web',
   imageLeft = false,
@@ -63,7 +65,7 @@ export const TextImage = ({
           ) : null}
         </RevealOnScroll>
         <RevealOnScroll className='w-full shrink-0 lg:w-1/2' delayMs={120}>
-          {isPortfolioMock ? (
+          {imageContent ?? (isPortfolioMock ? (
             <PictureImg
               className='aspect-square h-auto w-full object-contain'
               src={imageSrc}
@@ -85,7 +87,7 @@ export const TextImage = ({
                 decoding='async'
               />
             </div>
-          )}
+          ))}
         </RevealOnScroll>
       </div>
     </section>

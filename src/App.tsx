@@ -27,6 +27,7 @@ import {
   ABOUT_PATH,
   SITE_MAINTENANCE_PATH,
   SITE_SHOP_PATH,
+  SITE_APPS_PATH,
   SITE_WEB_PATH,
   SITE_WEB_PATH_N,
   PORTFOLIO_PATH,
@@ -46,6 +47,7 @@ const DisenoWeb = lazy(() => import('./pages/DisenoWeb'));
 const DisenoWebLocal = lazy(() => import('./pages/DisenoWebLocal'));
 const Nosotros = lazy(() => import('./pages/Nosotros'));
 const TiendasOnline = lazy(() => import('./pages/TiendasOnline'));
+const Aplicaciones = lazy(() => import('./pages/Aplicaciones'));
 const MantenimientoWeb = lazy(() => import('./pages/MantenimientoWeb'));
 const Blog = lazy(() => import('./pages/Blog'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
@@ -140,6 +142,7 @@ function AppContent() {
               element={<Navigate to={SITE_WEB_PATH} replace />}
             />
             <Route path={SITE_SHOP_PATH} element={<TiendasOnline />} />
+            <Route path={SITE_APPS_PATH} element={<Aplicaciones />} />
             <Route
               path='/tienda-online'
               element={<Navigate to={SITE_SHOP_PATH} replace />}
