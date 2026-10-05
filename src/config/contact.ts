@@ -190,6 +190,19 @@ export const isAdsLandingPath = (pathname: string): boolean =>
   isAdsGoogleAdsLandingPath(pathname) ||
   isAdsMaintenanceInfraLandingPath(pathname);
 
+const LEGAL_PATHS = new Set([
+  '/aviso-legal',
+  '/politica-de-privacidad',
+  '/politica-de-cookies',
+  '/terminos-y-condiciones',
+]);
+
+export const isHomePath = (pathname: string): boolean =>
+  normalizePath(pathname) === '/';
+
+export const isLegalPath = (pathname: string): boolean =>
+  LEGAL_PATHS.has(normalizePath(pathname));
+
 export const isSiteWebPath = (pathname: string): boolean => {
   const path = normalizePath(pathname);
   return path === SITE_WEB_PATH || path === SITE_WEB_PATH_N;

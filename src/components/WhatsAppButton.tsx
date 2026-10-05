@@ -7,15 +7,15 @@ import {
 import {
   buildWhatsAppUrl,
   getWhatsAppMessageForPath,
-  isAdsLandingPath,
   isAdsMaintenanceLandingPath,
+  isHomePath,
+  isLegalPath,
 } from '../config/contact';
 
 const WhatsAppButton = () => {
   const { pathname } = useLocation();
-  const isLanding = isAdsLandingPath(pathname);
 
-  if (!isLanding) return null;
+  if (isHomePath(pathname) || isLegalPath(pathname)) return null;
 
   const message = getWhatsAppMessageForPath(pathname);
   const whatsappUrl = buildWhatsAppUrl(message);

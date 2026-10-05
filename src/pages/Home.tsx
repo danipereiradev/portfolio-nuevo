@@ -6,6 +6,7 @@ import Testimonials from '../components/Testimonials';
 import SEOFAQ from '../components/SEOFAQ';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { globalFaqs } from '../data/globalFaqs';
+import { PORTFOLIO_PATH } from '../config/contact';
 
 import { TextImage } from '../components/TextImage';
 import HeroCta from '../components/HeroCta';
@@ -85,7 +86,11 @@ const Home = () => {
           </>
         }
       />
-      <Portfolio />
+      <Portfolio
+        ids={['beachvans', 'vidal', 'camisetas']}
+        ctaText='Ver más'
+        ctaHref={PORTFOLIO_PATH}
+      />
       <Testimonials />
 
       <TalentRecruitStrip />
