@@ -12,7 +12,11 @@ import { ServiceIncludes } from '../components/ServiceOnPage';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { useBootHeroSlot } from '../hooks/useBootHeroSlot';
-import { SITE_SHOP_PATH, SITE_WEB_PATH } from '../config/contact';
+import {
+  PORTFOLIO_PATH,
+  SITE_SHOP_PATH,
+  SITE_WEB_PATH,
+} from '../config/contact';
 import { LocalWebSpainSection } from '../components/LocalWebSpainSection';
 import { Briefcase, Building2, RefreshCw } from 'lucide-react';
 
@@ -523,7 +527,13 @@ const DisenoWeb = () => {
         buttonHref='#contacto'
       />
 
-      <Portfolio variant='web' contained />
+      <Portfolio
+        variant='web'
+        contained
+        ids={['beachvans', 'vidal', 'hatena']}
+        ctaText='Ver más páginas web'
+        ctaHref={`${PORTFOLIO_PATH}#paginas-web`}
+      />
       <Testimonials />
 
       <LocalWebSpainSection />

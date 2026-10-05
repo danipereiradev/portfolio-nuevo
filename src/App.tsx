@@ -29,6 +29,7 @@ import {
   SITE_SHOP_PATH,
   SITE_WEB_PATH,
   SITE_WEB_PATH_N,
+  PORTFOLIO_PATH,
   TALENT_PATH,
 } from './config/contact';
 import { BLOG_PATH } from './blog/posts';
@@ -64,6 +65,7 @@ const CondicionesDelProyecto = lazy(
 );
 const LegalDocument = lazy(() => import('./pages/LegalDocument'));
 const TrabajaConNosotros = lazy(() => import('./pages/TrabajaConNosotros'));
+const PortfolioPage = lazy(() => import('./pages/PortfolioPage'));
 const Maintenance = lazy(() => import('./pages/Maintenance'));
 const Pago = lazy(() => import('./pages/Pago'));
 const PagoGracias = lazy(() => import('./pages/PagoGracias'));
@@ -197,6 +199,7 @@ function AppContent() {
               element={<LegalDocument page='legal' path='/aviso-legal' />}
             />
             <Route path={TALENT_PATH} element={<TrabajaConNosotros />} />
+            <Route path={PORTFOLIO_PATH} element={<PortfolioPage />} />
             <Route path='*' element={<Navigate to='/' replace />} />
           </Routes>
         </Suspense>

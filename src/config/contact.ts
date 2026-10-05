@@ -110,6 +110,9 @@ const normalizePath = (pathname: string): string => {
   }
 };
 
+/** Catálogo de trabajos. No va en el menú: se entra por URL. */
+export const PORTFOLIO_PATH = '/portfolio';
+
 /** Página de servicio (orgánica). Menú Servicios → Diseño web. */
 export const SITE_WEB_PATH = '/diseno-web';
 export const SITE_WEB_PATH_N = '/diseño-web';
@@ -213,6 +216,7 @@ export const getWhatsAppMessageForPath = (pathname: string): string => {
     return ADS_MAINTENANCE_WHATSAPP_MESSAGE;
   if (path === '/web-profesional') return WEB_PROFESIONAL_WHATSAPP_MESSAGE;
   if (path === ABOUT_PATH) return ABOUT_PAGE_WHATSAPP_MESSAGE;
+  if (path === PORTFOLIO_PATH) return PORTFOLIO_WHATSAPP_MESSAGE;
   if (path === SITE_MAINTENANCE_PATH) return MAINTENANCE_WHATSAPP_MESSAGE;
   return DEFAULT_WHATSAPP_MESSAGE;
 };
