@@ -58,7 +58,7 @@ const Services = ({ description }: ServicesProps) => {
           </h2>
           <p className='text-xl md:text-2xl text-ink-dark'>{description}</p>
         </div>
-        <div className='mx-auto  grid w-full grid-cols-1 items-stretch gap-page-gap md:grid-cols-2 lg:grid-cols-4'>
+        <div className='mx-auto  grid w-full grid-cols-1 items-stretch gap-page-gap md:grid-cols-2'>
           {mainServices.map((service, index) => (
             <RevealOnScroll
               key={service.title}
