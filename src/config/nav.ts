@@ -35,34 +35,3 @@ export const FOOTER_NAV = [
     label: TALENT_LABEL,
   },
 ] as const;
-
-export const LANDING_NAV = [
-  { href: '#incluye', label: 'Qué incluye' },
-  { href: '#portfolio', label: 'Trabajos' },
-  { href: '#testimonials', label: 'Opiniones' },
-  { href: '#faq', label: 'FAQ' },
-] as const;
-
-export const LANDING_NAV_GOOGLE_ADS = [
-  { href: '#incluye', label: 'Qué incluye' },
-  { href: '#casos', label: 'Casos' },
-  { href: '#testimonials', label: 'Opiniones' },
-  { href: '#faq', label: 'FAQ' },
-] as const;
-
-export const LANDING_NAV_MAINTENANCE_INFRA = [
-  { href: '#incluye', label: 'Qué incluye' },
-  { href: '#puesta-en-marcha', label: 'Puesta en marcha' },
-  { href: '#condiciones', label: 'Condiciones' },
-  { href: '#precio', label: 'Precio' },
-] as const;
-
-export const LANDING_NAV_CTA = {
-  href: '#contacto',
-  label: 'Pedir propuesta',
-} as const;
-
-export const LANDING_NAV_CTA_MAINTENANCE_INFRA = {
-  href: '#precio',
-  label: 'Pagar ahora',
-} as const;
