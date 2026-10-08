@@ -9,6 +9,7 @@ import {
   getWhatsAppMessageForPath,
   isAdsMaintenanceLandingPath,
   isHomePath,
+  isAdsLaunchLandingPath,
   isLegalPath,
 } from '../config/contact';
 
@@ -29,7 +30,7 @@ const WhatsAppButton = () => {
   };
 
   return (
-    <div className='fixed bottom-6 right-6 z-40 md:hidden'>
+    <div className={`fixed bottom-6 right-6 z-40 ${isAdsLaunchLandingPath(pathname) ? '' : 'md:hidden'}`}>
       <a
         href={whatsappUrl}
         target='_blank'

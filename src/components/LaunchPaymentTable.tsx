@@ -1,7 +1,10 @@
 import { getLaunchInstallmentLabel, getLaunchPriceAmountLabel } from '../config/launchOffer';
 
-const LaunchPaymentTable = ({ className = '' }: { className?: string }) => {
-  const installment = getLaunchInstallmentLabel();
+const LaunchPaymentTable = ({
+  className = '',
+  installment = getLaunchInstallmentLabel(),
+  total = getLaunchPriceAmountLabel(),
+}: { className?: string; installment?: string; total?: string }) => {
   const rows = [
     {
       title: 'Al empezar',
@@ -38,7 +41,7 @@ const LaunchPaymentTable = ({ className = '' }: { className?: string }) => {
       <div className='grid grid-cols-[1fr_auto] items-center gap-4 bg-accent-light px-5 py-4'>
         <p className='font-extrabold'>Total del paquete</p>
         <p className='whitespace-nowrap text-right text-xl font-extrabold md:text-2xl'>
-          {getLaunchPriceAmountLabel()}
+          {total}
         </p>
       </div>
     </div>

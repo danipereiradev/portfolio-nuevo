@@ -23,7 +23,6 @@ import {
 } from '../config/maintenanceOffer';
 import {
   LAUNCH_DELIVERY_LABEL,
-  getLaunchPriceLabel,
 } from '../config/launchOffer';
 import {
   formatEuro,
@@ -183,7 +182,7 @@ const CondicionesDelProyecto = () => {
               title='Web profesional de lanzamiento'
               intro={
                 <>
-                  Oferta cuando está activa: {getLaunchPriceLabel()}. El precio
+                  Web de servicios de hasta cinco secciones: 399 € + IVA. El precio
                   concreto va por escrito. Primero te contactamos y confirmamos
                   el proyecto. Se paga 50% al empezar y 50% antes de publicar.
                 </>
@@ -191,6 +190,7 @@ const CondicionesDelProyecto = () => {
               href={`${ADS_LAUNCH_LANDING_PATH}#contacto`}
               hrefLabel='Ver la oferta'
               items={[
+                'Garantía técnica de 60 días desde la publicación: corrección sin coste de fallos atribuibles a nuestra entrega dentro del alcance acordado. No incluye cambios de alcance, diseño o contenido, mantenimiento ni incidencias de terceros o servicios externos; no garantiza visitas, ventas o posicionamiento.',
                 `Queda lista en ${LAUNCH_DELIVERY_LABEL} desde que nos entregas la información de tu negocio. El reloj empieza cuando nos llega ese material.`,
                 'Tú entregas logo, textos y fotos. Hosting incluido. El dominio lo pagas tú: 12 € al año, a tu nombre.',
                 'Sin permanencia. La web es tuya.',

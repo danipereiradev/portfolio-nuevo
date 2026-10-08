@@ -43,6 +43,7 @@ interface ContactHeroFormHeroProps {
   className?: string;
   submitLabel?: string;
   compactOnMobile?: boolean;
+  emailOnly?: boolean;
 }
 
 export const ContactFormHero = ({
@@ -53,6 +54,7 @@ export const ContactFormHero = ({
   className = '',
   submitLabel = 'Pedir propuesta',
   compactOnMobile = false,
+  emailOnly = false,
 }: ContactHeroFormHeroProps) => {
   const fieldId = useId();
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
@@ -220,10 +222,10 @@ Fecha: ${new Date().toLocaleString('es-ES')}
     const emailValue = formData.email.trim();
     const phoneValue = formData.phone.trim();
 
-    if (emailValue && !validateEmail(emailValue)) {
+    if ((emailOnly || emailValue) && !validateEmail(emailValue)) {
       newErrors.email = 'Introduce un email válido';
     }
-    if (!phoneValue || !validatePhone(phoneValue)) {
+    if (!emailOnly && (!phoneValue || !validatePhone(phoneValue))) {
       newErrors.phone = 'Introduce un teléfono válido';
     }
 
@@ -296,7 +298,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             htmlFor={`${fieldId}-email`}
             className='font-bold text-base -mb-3'
           >
-            Email (opcional)
+            {emailOnly ? 'Email *' : 'Email (opcional)'}
           </label>
           <input
             id={`${fieldId}-email`}
@@ -312,12 +314,14 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             className={fieldClass(Boolean(errors.email))}
             autoComplete='email'
             placeholder='Email'
+            required={emailOnly}
           />
           {errors.email && (
             <div id={`${fieldId}-email-error`}>
               <ErrorMessage error={errors.email} />
             </div>
           )}
+          {!emailOnly && <>
           <label
             htmlFor={`${fieldId}-phone`}
             className='font-bold text-base -mb-3'
@@ -346,6 +350,8 @@ Fecha: ${new Date().toLocaleString('es-ES')}
               <ErrorMessage error={errors.phone} />
             </div>
           )}
+
+          </>}
 
           <div className='flex items-center gap-2'>
             <span className='relative flex-shrink-0 text-neutral-300 flex items-center justify-center w-11 h-11 -ml-2 -mt-1 md:w-5 md:h-5 md:ml-0 md:mt-0.5'>
@@ -415,8 +421,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
             aria-live='polite'
             className='block mt-4 text-black font-bold text-lg'
           >
-            Tus datos han sido enviados correctamente. Nos pondremos en contacto
-            en breve. ¡Gracias!
+            {emailOnly ? 'Solicitud recibida. Te escribiremos por email para conocer tu negocio y preparar tu propuesta. No necesitas reservar una llamada.' : 'Tus datos han sido enviados correctamente. Nos pondremos en contacto en breve. ¡Gracias!'}
           </span>
         )}
       </form>

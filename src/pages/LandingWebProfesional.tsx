@@ -1,40 +1,23 @@
-import { useEffect, useMemo, useState } from 'react';
-import { createPortal } from 'react-dom';
-import {
-  Globe,
-  MessageCircle,
-  Search,
-  Share2,
-  ShieldCheck,
-  Smartphone,
-} from 'lucide-react';
-import Portfolio, {
-  ALL_SHOWCASE_PROJECT_IDS,
-  pickRandomProjectIds,
-} from '../components/Portfolio';
+import { useEffect, useMemo } from 'react';
+import { Globe, MessageCircle, Search, Share2, ShieldCheck, Smartphone } from 'lucide-react';
 import { Team } from '../components/Team';
-import SEOFAQ from '../components/SEOFAQ';
-import Testimonials from '../components/Testimonials';
-import SEOProcess from '../components/SEOProcess';
-import HeroCta from '../components/HeroCta';
-import { ContactFormHero } from '../components/ContactFormHero';
+import Button from '../components/Button';
 import LaunchPaymentTable from '../components/LaunchPaymentTable';
-import LaunchExitPopup from '../components/LaunchExitPopup';
+import SEOFAQ from '../components/SEOFAQ';
+import SEOProcess from '../components/SEOProcess';
+import { ContactFormHero } from '../components/ContactFormHero';
 import { ServiceIncludes } from '../components/ServiceOnPage';
+import { allTestimonials } from '../data/testimonials';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
-import { useBootHeroSlot } from '../hooks/useBootHeroSlot';
-import {
-  ADS_LAUNCH_FORM_ORIGIN,
-  ADS_LAUNCH_LANDING_PATH,
-} from '../config/contact';
-import {
-  getLaunchInstallmentLabel,
-  getLaunchPriceAmountLabel,
-  LAUNCH_DELIVERY_LABEL,
-} from '../config/launchOffer';
-import { trackLandingPromo590View } from '../utils/analytics';
+import { ADS_LAUNCH_LANDING_PATH, buildWhatsAppUrl, ADS_LAUNCH_WHATSAPP_MESSAGE } from '../config/contact';
+import { trackLandingPromo590View, trackWhatsAppClick, trackGoogleAdsWhatsAppConversion } from '../utils/analytics';
 
+// Oferta de esta landing; no modifica los paquetes inmobiliarios ni pagos existentes.
+const getLaunchPriceAmountLabel = () => '399 € + IVA';
+const getLaunchInstallmentLabel = () => '199,50 € + IVA';
+const LAUNCH_DELIVERY_LABEL = '1–2 semanas';
+const FORM_ORIGIN = 'landing web servicios 399';
 const includes = [
   {
     icon: Smartphone,
@@ -112,8 +95,9 @@ const processSteps = [
 ];
 
 const faqs = [
+  { question: '¿Qué cubre la garantía técnica de 60 días?', answer: 'Durante los 60 días posteriores a la publicación corregimos sin coste los fallos de funcionamiento atribuibles a nuestra entrega, dentro del alcance acordado: formularios, enlaces y visualización en móvil, tablet y ordenador. No incluye nuevas secciones, cambios de diseño o contenido, mantenimiento ni incidencias causadas por modificaciones de terceros o servicios externos. No es una garantía de visitas, ventas ni posicionamiento.' },
   { question: '¿Tengo que pagar para pedir información?', answer: 'No. La primera conversación es sin compromiso y sin pagar. Si decides contratar, te enviamos alcance, plazos y condiciones por escrito antes de abonar el primer tramo.' },
-  { question: '¿Trabajáis con negocios de mi ciudad?', answer: 'Trabajamos online con autónomos y negocios de toda España. Hablamos por teléfono o videollamada y revisamos juntos la web antes de publicarla.' },
+  { question: '¿Trabajáis con negocios de mi ciudad?', answer: 'Trabajamos online con negocios de toda España. Puedes gestionar tu propuesta por email o WhatsApp.' },
   {
     question: '¿Cuánto cuesta?',
     answer: `El precio cerrado es de ${getLaunchPriceAmountLabel()}. No hay sorpresas, ni letra pequeña, ni costes ocultos. Te lo cerramos por escrito antes de empezar, para que sepas exactamente lo que pagas de principio a fin. Ecommerce, desarrollo a medida o tiendas online con catálogos grandes se presupuestan aparte.`,
@@ -143,185 +127,72 @@ const faqs = [
   },
 ];
 
-const launchHeroDescription = (
-  <>
-    <p>Para autónomos y pequeños negocios de toda España. Trabajamos online.</p>
-    <p className='mt-3 font-bold'>Web adaptada a tu negocio, lista en {LAUNCH_DELIVERY_LABEL}.</p>
-    <p className='mt-3 text-base'>Hosting y dominio incluidos el primer año.</p>
-  </>
+const projects = [
+  { name: 'Noemí Bonet · Psicología', image: 'noemi', url: 'https://noemibonetpsicologia.com/', description: 'Presentación de la profesional y sus servicios de psicología, con una estructura clara para conocer su enfoque y contactar.' },
+  { name: 'Hatena · Clínica veterinaria', image: 'hatena', url: 'https://hatena.es/', description: 'Una web para presentar la clínica, explicar sus servicios y facilitar que los dueños de mascotas encuentren cómo contactar.' },
+  { name: 'Noma · Abogados', image: 'noma', url: 'https://nomaabogados.com/', description: 'Presentación del despacho y sus áreas de práctica para que quien necesita asesoramiento pueda conocer al equipo y consultar.' },
+];
+
+const WhatsAppCta = () => {
+  const url = buildWhatsAppUrl(ADS_LAUNCH_WHATSAPP_MESSAGE);
+  return <Button href={url} variant='outline' className='!m-0 !w-full md:!w-auto' onClick={e => { e.preventDefault(); trackWhatsAppClick(FORM_ORIGIN); trackGoogleAdsWhatsAppConversion(url); }}><MessageCircle size={20} aria-hidden='true' /> Preguntar por WhatsApp</Button>;
+};
+const Actions = ({ centered = false }: { centered?: boolean }) => (
+  <div
+    className={`flex flex-wrap justify-center gap-3 ${
+      centered ? '' : 'md:justify-start'
+    }`}
+  >
+    <Button href='#contacto' className='!m-0 !w-full md:!w-auto'>
+      Recibir una propuesta para mi negocio
+    </Button>
+    <WhatsAppCta />
+  </div>
 );
 
-const LaunchLandingHero = () => {
-  const formSlot = useBootHeroSlot();
-
-  const form = (
-    <ContactFormHero
-      id='contacto'
-      title='Hablemos de tu web'
-      description='Sin compromiso y sin pagar ahora. Resolvemos tus dudas antes de contratar.'
-      page={ADS_LAUNCH_FORM_ORIGIN}
-      submitLabel='Quiero que me llaméis'
-      className={formSlot ? 'md:!w-full' : ''}
-    />
-  );
-
-  if (formSlot) {
-    return createPortal(form, formSlot);
-  }
-
-  return (
-    <HeroCta
-      label='Web profesional'
-      title={
-        <>
-          Tu web profesional por{' '}
-          <span className='whitespace-nowrap'>
-            {getLaunchPriceAmountLabel()}
-          </span>
-        </>
-      }
-      description={launchHeroDescription}
-      convertFirstOnMobile
-      buttonText='Hablemos de tu web'
-      buttonHref='#contacto'
-      heroType='form'
-      hasButton
-      formTitle='Hablemos de tu web'
-      formDescription='Sin compromiso y sin pagar ahora. Resolvemos tus dudas antes de contratar.'
-      formSectionInfo={ADS_LAUNCH_FORM_ORIGIN}
-      formSubmitLabel='Quiero que me llaméis'
-      formId='contacto'
-      hasBackground={false}
-      hasReviewBadge
-      isTopHero
-    />
-  );
-};
-
-const LandingWebProfesional = () => {
+export default function LandingWebProfesional() {
   usePageMeta(ADS_LAUNCH_LANDING_PATH);
-  const [showcaseIds] = useState(() =>
-    pickRandomProjectIds(
-      ALL_SHOWCASE_PROJECT_IDS,
-      ALL_SHOWCASE_PROJECT_IDS.length,
-    ),
-  );
-
-  useEffect(() => {
-    trackLandingPromo590View();
-  }, []);
-
-  const faqJsonLd = useMemo(
-    () => ({
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: faqs.map((faq) => ({
-        '@type': 'Question',
-        name: faq.question,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: faq.answer,
-        },
-      })),
-    }),
-    [],
-  );
-
-  useJsonLd('jsonld-landing-web-profesional-faq', faqJsonLd);
-
-  return (
-    <>
-      <LaunchLandingHero />
-
-      <ServiceIncludes
-        title='Qué incluye la web'
-        intro={
-          <>
-            Esta oferta es para una{' '}
-            <strong className='font-extrabold'>
-              web profesional para negocios
-            </strong>
-            . Hasta 5 secciones, tu marca, formulario, WhatsApp, hosting y
-            publicación. Precio del paquete: {getLaunchPriceAmountLabel()}.
-          </>
-        }
-        items={includes}
-      />
-
-      <section className='py-8 md:py-10'>
-        <div className='container mx-auto max-w-3xl text-center text-base leading-relaxed text-ink-dark md:text-lg'>
-          <p>
-            Ideal para autónomos, emprendedores y pequeños negocios que
-            necesitan una web profesional de presentación.
-          </p>
-          <p className='mt-3'>
-            Ecommerce, desarrollo a medida y proyectos complejos se presupuestan
-            aparte.
-          </p>
+  useEffect(() => { trackLandingPromo590View(); }, []);
+  const schema = useMemo(() => ({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(faq => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })) }), []);
+  useJsonLd('jsonld-landing-web-profesional-faq', schema);
+  return <>
+    <section id='hero' className='page-hero bg-accent-light text-ink-dark'>
+      <div className='container mx-auto grid items-center gap-8 lg:grid-cols-2'>
+        <div className='space-y-4 md:space-y-6 text-center md:text-left'>
+          <p className='font-extrabold uppercase text-accent'>Para estrenar o renovar tu web de servicios</p>
+          <h1 className='text-3xl font-extrabold md:text-5xl lg:text-6xl'>Una web a la altura de tu negocio. <span className='block mt-3 text-accent'>399 € + IVA.</span></h1>
+          <a href='https://noemibonetpsicologia.com/' target='_blank' rel='noopener noreferrer' data-ads-outbound='allow' className='block lg:hidden'><img src='/img/portfolio/new/noemi.webp' alt='Proyecto real: web de Noemí Bonet en ordenador, tablet y móvil' fetchPriority='high' className='mx-auto h-40 w-auto rounded-lg' /><span className='text-sm text-accent underline'>Ver proyecto real: Noemí Bonet ↗</span></a>
+          <p className='text-xl md:text-2xl'>Presenta lo que haces, transmite confianza y facilita que te contacten. Diseñamos y publicamos tu web, contigo en cada paso.</p>
+          <p className='text-lg font-bold'>Hasta 5 secciones · Lista en 1–2 semanas desde recibir el material · Hosting y dominio el primer año</p>
+          <p className='inline-flex items-center justify-center gap-2 rounded-lg bg-white px-4 py-3 font-bold text-accent border border-accent'><ShieldCheck size={24} aria-hidden='true' /> Garantía técnica de 60 días</p>
+          <Actions />
+          <p>Alcance, precio y plazo por escrito. Sin compromiso ni pago para pedir información.</p>
         </div>
-      </section>
-
-      <Portfolio
-        ids={showcaseIds}
-        pageSize={3}
-        headingLabel='Portfolio'
-        headingTitle='Proyectos de diseño web'
-        headingDescription={
-          <>
-            Mira todos los diseños, de 3 en 3, sin salir de esta página. El
-            paquete incluye una web de presentación por{' '}
-            <strong className='font-extrabold'>
-              {getLaunchPriceAmountLabel()}
-            </strong>
-            . Las tiendas online y funcionalidades a medida se presupuestan aparte.
-          </>
-        }
-        ctaText='Hablemos de mi proyecto'
-        ctaHref='#contacto'
-      />
-
-      <Team
-        compact
-        label='El equipo de 36WEB'
-        title='Quién está detrás de tu web'
-        paragraphs={[
-          'Cuatro profesionales de diseño y desarrollo trabajando en equipo para dar forma a tu web.',
-        ]}
-      />
-
-      <Testimonials />
-
-      <SEOProcess
-        title='Así se hace'
-        subtitle='Tres pasos. Nos cuentas tu negocio, montamos y adaptamos, revisas y publicamos.'
-        steps={processSteps}
-        compact
-      />
-
-      <div id='faq'>
-        <SEOFAQ title='Lo que suele preguntar la gente' faqs={faqs} />
+        <figure className='hidden lg:block rounded-2xl border border-gray-200 bg-white p-4 shadow-lg'>
+          <img src='/img/portfolio/new/noemi.webp' alt='Proyecto real de Noemí Bonet Psicología en ordenador, tablet y móvil' className='w-full rounded-lg' fetchPriority='high' width={1200} height={900} />
+          <figcaption className='mt-3 text-center'><strong>Noemí Bonet · Psicología</strong><p className='mt-1'>Un proyecto real de nuestro equipo. Tu web se adapta a tu negocio.</p><a href='https://noemibonetpsicologia.com/' target='_blank' rel='noopener noreferrer' data-ads-outbound='allow' className='mt-2 inline-block font-bold text-accent underline'>Visitar esta web ↗</a></figcaption>
+        </figure>
       </div>
-
-      <div id='contacto-final'>
-        <HeroCta
-          title='Quiero mi web profesional'
-          description='Cuéntanos qué necesita tu negocio y resolvemos tus dudas antes de empezar.'
-          belowDescription={<LaunchPaymentTable className='md:mx-0' />}
-          buttonText='Hablemos de tu web'
-          buttonHref='#contacto'
-          heroType='form'
-          hasButton={false}
-          formTitle='Hablemos de tu web'
-          formDescription='Sin compromiso y sin pagar ahora. Resolvemos tus dudas antes de contratar.'
-          formSectionInfo={ADS_LAUNCH_FORM_ORIGIN}
-          formSubmitLabel='Quiero que me llaméis'
-          hasBackground={false}
-          hasReviewBadge={false}
-        />
+    </section>
+    <section className='page-section text-ink-dark'>
+      <div className='container mx-auto max-w-5xl text-center space-y-5'>
+        <h2 className='text-3xl md:text-4xl font-extrabold'>Tu negocio funciona. Ahora tu web tiene que representarlo.</h2>
+        <p className='text-xl md:text-2xl'>Si aún no tienes web, o la que tienes se ha quedado atrás, te ayudamos a explicar tus servicios y dar una buena primera impresión cuando alguien te busca.</p>
+        <p className='text-lg'>Una web de presentación para profesionales, consultas, despachos y negocios de servicios. Sin tienda online, áreas privadas ni integraciones a medida: esas necesidades se valoran aparte.</p>
       </div>
-      <LaunchExitPopup />
-    </>
-  );
-};
-
-export default LandingWebProfesional;
+    </section>
+    <ServiceIncludes title='Lo necesario para presentar bien tu negocio' intro='399 € + IVA, precio cerrado para una web de hasta cinco secciones. Revisamos contigo los contenidos y dejamos por escrito lo que vamos a entregar antes de empezar.' items={includes} />
+    <section id='portfolio' className='page-section text-ink-dark'>
+      <div className='container mx-auto space-y-8'>
+        <div className='page-title-block text-center'><h2 className='text-3xl md:text-4xl font-extrabold'>Así presentamos otros negocios de servicios</h2><p className='text-xl md:text-2xl'>Tres proyectos reales que puedes visitar. Son referencias de nuestro trabajo; tu propuesta concreta las secciones y funciones incluidas en el paquete.</p></div>
+        <div className='grid gap-6 md:grid-cols-3'>{projects.map(project => <article key={project.image} className='flex flex-col rounded-xl border border-gray-200 bg-white overflow-hidden shadow-sm'><img src={`/img/portfolio/new/${project.image}.webp`} alt={`Web de ${project.name} en ordenador, tablet y móvil`} loading='lazy' className='w-full' /><div className='p-6 flex flex-col gap-4 flex-1'><h3 className='text-2xl font-bold'>{project.name}</h3><p className='flex-1'>{project.description}</p><a href={project.url} target='_blank' rel='noopener noreferrer' data-ads-outbound='allow' className='font-bold text-accent underline'>Visitar la web ↗</a></div></article>)}</div>
+        <Actions centered />
+      </div>
+    </section>
+    <section id='testimonials' className='page-section bg-accent-light text-ink-dark'><div className='container mx-auto space-y-8'><div className='page-title-block text-center'><h2 className='text-3xl md:text-4xl font-extrabold'>Lo que cuentan quienes han trabajado con nosotros</h2><p className='text-xl md:text-2xl'>Opiniones reales sobre el trabajo y el trato recibido.</p></div><div className='grid gap-6 md:grid-cols-2'>{allTestimonials.filter(t => ['Bruno Tomás', 'Juanvi Raga'].includes(t.name)).map(t => <figure key={t.name} className='rounded-xl bg-white p-6 shadow-sm'><blockquote className='text-lg'>“{[t.text.trim(), t.highlight].filter(Boolean).join(" ")}”</blockquote><figcaption className='mt-4'><strong>{t.name}</strong><p>{t.company}</p><a href={t.sourceUrl} target='_blank' rel='noopener noreferrer' data-ads-outbound='allow' className='text-accent underline'>Ver reseñas en Google ↗</a></figcaption></figure>)}</div></div></section>
+    <Team compact label='El equipo de 36WEB' title='Personas que te acompañan de principio a fin' paragraphs={['Diseño y desarrollo trabajando juntos. Puedes resolver tus dudas por email o WhatsApp.']} />
+    <SEOProcess title='Sabes qué vas a recibir antes de empezar' subtitle='Propuesta por escrito, revisión contigo y publicación con tu aprobación.' steps={processSteps} compact />
+    <div id='faq'><SEOFAQ title='Todo claro antes de decidir' faqs={faqs} /></div>
+    <section id='contacto' className='page-section bg-accent-light text-ink-dark'><div className='container mx-auto grid gap-8 items-center lg:grid-cols-2'><div className='space-y-5'><h2 className='text-3xl md:text-4xl font-extrabold'>Recibe una propuesta para tu negocio</h2><p className='text-xl md:text-2xl'>Déjanos tu nombre y email. Te escribiremos para conocer tu negocio y concretar alcance, precio y plazo. Tú decides después.</p><LaunchPaymentTable installment={getLaunchInstallmentLabel()} total={getLaunchPriceAmountLabel()} className='md:mx-0' /><p>La web es tuya. Sin mantenimiento obligatorio ni permanencia mensual.</p><WhatsAppCta /></div><ContactFormHero title='Recibe tu propuesta por email' description='Solo nombre y email. Sin compromiso. Te pediremos los detalles de tu proyecto por escrito.' page={FORM_ORIGIN} emailOnly submitLabel='Recibir una propuesta para mi negocio' className='!w-full [&_form]:!w-full' /></div></section>
+  </>;
+}

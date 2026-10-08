@@ -33,7 +33,7 @@ export const ADS_MAINTENANCE_WHATSAPP_MESSAGE =
   'Hola, vengo de la página de mantenimiento web y quiero consultar mi caso.';
 
 export const ADS_LAUNCH_WHATSAPP_MESSAGE =
-  'Estoy interesado en web profesional';
+  'Hola, me interesa la web de servicios por 399 € + IVA. Quiero información para mi negocio.';
 
 export const ADS_GOOGLE_ADS_WHATSAPP_MESSAGE = 'Estoy interesado en Google Ads';
 

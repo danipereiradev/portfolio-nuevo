@@ -125,18 +125,6 @@ const buildLightBootHeroHtml = ({
   </section>`;
 };
 
-const buildLaunchLandingHeroHtml = () => buildLightBootHeroHtml({
-  descriptionAlign: 'md:text-left',
-  label: 'Web profesional',
-  h1: 'Tu web profesional por <span class="whitespace-nowrap">590&nbsp;€&nbsp;+&nbsp;IVA</span>',
-  intro: 'Para autónomos y pequeños negocios de toda España. Trabajamos online.',
-  bullets: [
-    '<strong class="font-bold">Web adaptada a tu negocio, lista en 1–2 semanas.</strong>',
-    'Hosting y dominio incluidos el primer año.',
-  ],
-  extraCopy: '<a href="#contacto" class="inline-flex rounded-lg bg-accent px-6 py-3 font-bold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">Hablemos de tu web</a><p class="text-base">Sin compromiso y sin pagar ahora.</p>',
-});
-
 const buildDisenoWebHeroHtml = () =>
   buildLightBootHeroHtml({
     h1: 'Una página web con todo lo necesario para captar nuevos clientes',
@@ -482,8 +470,6 @@ for (const [routePath, meta] of Object.entries(pagesMeta)) {
     html = injectLaunchBootHeroCss(html);
     html = injectModulePreload(html, findAsset('MantenimientoWeb-'));
   } else if (routePath === ADS_LAUNCH_LANDING_PATH) {
-    html = injectBeforeRoot(html, buildLaunchLandingHeroHtml());
-    html = injectLaunchBootHeroCss(html);
     html = injectModulePreload(html, findAsset('LandingWebProfesional-'));
   } else if (
     routePath !== '/' &&
