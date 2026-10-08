@@ -1,10 +1,10 @@
+import Breadcrumbs from './components/Breadcrumbs';
 import { lazy, Suspense } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useScrollToHash } from './hooks/useScrollToHash';
 import { useLandingScrollDepth } from './hooks/useLandingScrollDepth';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { ContactModalProvider } from './contexts/ContactModalContext';
-import AdsLandingLinkGuard from './components/AdsLandingLinkGuard';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import MeasurementConsent from './components/MeasurementConsent';
@@ -117,13 +117,14 @@ function AppContent() {
   }
 
   return (
-    <AdsLandingLinkGuard>
+    <>
       <div
         className={`relative bg-surface-base ${
           hasVisibleLaunchBootHero() ? '' : 'min-h-svh'
         }`}
       >
         <Header />
+        <Breadcrumbs />
 
         <div className='overflow-x-clip'>
           <Suspense fallback={<PageFallback />}>
@@ -213,7 +214,7 @@ function AppContent() {
       <BackToTopButton />
       <WhatsAppButton />
     </div>
-    </AdsLandingLinkGuard>
+    </>
   );
 }
 

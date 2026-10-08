@@ -8,7 +8,6 @@ import {
   trackGoogleAdsWhatsAppConversion,
 } from '../utils/analytics';
 import {
-  BUSINESS_HOURS,
   CONTACT_EMAIL,
   INSTAGRAM_URL,
   PHONE_DISPLAY,
@@ -16,7 +15,6 @@ import {
   SITE_WEB_PATH,
   buildWhatsAppUrl,
   getWhatsAppMessageForPath,
-  isAdsLandingPath,
 } from '../config/contact';
 import { FOOTER_NAV } from '../config/nav';
 import { LOCAL_WEB_LISTED_CITIES } from '../data/localWebCities';
@@ -31,20 +29,11 @@ const infoLinks = [
   { href: '/aviso-legal', label: 'Aviso Legal' },
 ];
 
-const adsLandingLegalLinks = [
-  { href: '/aviso-legal', label: 'Aviso legal' },
-  { href: '/politica-de-privacidad', label: 'Política de privacidad' },
-  { href: '/politica-de-cookies', label: 'Cookies' },
-  { href: '/condiciones-del-proyecto', label: 'Condiciones' },
-];
-
 const Footer = () => {
   const { t } = useLanguage();
   const { pathname } = useLocation();
   const normalizedPath =
     pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
-  const isAdsLanding = isAdsLandingPath(pathname);
-  const isMinimalChrome = normalizedPath === '/web-profesional' || isAdsLanding;
   const isLocalWebCityPage = LOCAL_WEB_LISTED_CITIES.some(
     (city) => normalizedPath === `${SITE_WEB_PATH}/${city.slug}`,
   );
@@ -52,21 +41,13 @@ const Footer = () => {
     getWhatsAppMessageForPath(pathname),
   );
   const currentYear = new Date().getFullYear();
-  const footerInfoLinks = isAdsLanding ? adsLandingLegalLinks : infoLinks;
 
   return (
     <footer className='bg-surface-muted text-ink-medium'>
       <div className='container mx-auto py-16'>
         <div
-          className={`grid gap-10 lg:gap-6 xl:gap-8 lg:divide-x-2 lg:divide-ink-light md:grid-cols-2 ${
-            isAdsLanding
-              ? 'lg:grid-cols-2'
-              : isMinimalChrome
-                ? 'lg:grid-cols-3'
-                : 'lg:grid-cols-4'
-          }`}
+          className='grid gap-10 lg:gap-6 xl:gap-8 lg:divide-x-2 lg:divide-ink-light md:grid-cols-2 lg:grid-cols-4'
         >
-          {!isAdsLanding && (
             <div className='lg:col-span-1 text-center md:text-left lg:pr-6 xl:pr-8'>
               <div className='flex items-center mb-6 justify-center md:justify-start'>
                 <span className='flex items-baseline whitespace-nowrap font-display text-[calc(0.875rem*1.15)] font-normal tracking-tight md:text-[calc(1rem*1.15)]'>
@@ -105,9 +86,7 @@ const Footer = () => {
                 </a>
               </div>
             </div>
-          )}
 
-          {!isMinimalChrome && (
             <div className='text-center md:text-left lg:px-6 xl:px-8'>
               <h3 className='text-xl md:text-2xl font-bold mb-1 text-ink-medium'>
                 36web
@@ -126,21 +105,17 @@ const Footer = () => {
                 ))}
               </ul>
             </div>
-          )}
 
           <div className='text-center md:text-left lg:px-6 xl:px-8'>
             <h3 className='text-xl md:text-2xl font-bold mb-1 text-ink-medium'>
-              {isAdsLanding ? 'Legal' : 'Info'}
+              Info
             </h3>
             <span className='block w-10 h-1 bg-brand mb-6 mx-auto md:mx-0' />
             <ul className='space-y-3 text-ink-dark'>
-              {footerInfoLinks.map((link) => (
+              {infoLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    {...(isAdsLanding
-                      ? { target: '_blank', rel: 'noopener noreferrer' }
-                      : {})}
                     className='hover:text-link transition-colors duration-200'
                   >
                     {link.label}
@@ -155,34 +130,6 @@ const Footer = () => {
               {t('footer.contact_title')}
             </h3>
             <span className='block w-10 h-1 bg-brand mb-6 mx-auto md:mx-0' />
-            {isAdsLanding ? (
-              <div className='space-y-4 text-ink-dark'>
-                <div>
-                  <p className='font-medium text-ink-medium'>Email</p>
-                  <a
-                    href={`mailto:${CONTACT_EMAIL}`}
-                    onClick={() => trackEmailClick('FooterList')}
-                    className='hover:text-link transition-colors duration-200 break-all'
-                  >
-                    {CONTACT_EMAIL}
-                  </a>
-                </div>
-                <div>
-                  <p className='font-medium text-ink-medium'>Teléfono</p>
-                  <a
-                    href={PHONE_TEL_LINK}
-                    onClick={() => trackPhoneClick('FooterList')}
-                    className='hover:text-link transition-colors duration-200'
-                  >
-                    {PHONE_DISPLAY}
-                  </a>
-                </div>
-                <div>
-                  <p className='font-medium text-ink-medium'>Horario</p>
-                  <p>{BUSINESS_HOURS}</p>
-                </div>
-              </div>
-            ) : (
               <ul className='space-y-4 text-ink-dark'>
                 <li className='flex flex-col items-center md:flex-row md:items-start gap-3 md:justify-start'>
                   <Mail className='w-5 h-5 text-accent flex-shrink-0' />
@@ -230,12 +177,11 @@ const Footer = () => {
                   </div>
                 </li>
               </ul>
-            )}
           </div>
         </div>
       </div>
 
-      {!isAdsLanding && !isMinimalChrome && !isLocalWebCityPage ? (
+      {!isLocalWebCityPage ? (
         <TalentRecruitStrip compact />
       ) : null}
 

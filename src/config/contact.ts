@@ -4,7 +4,8 @@ export const PHONE_NUMBER = '34644665352';
 export const PHONE_DISPLAY = '644 665 352';
 export const PHONE_TEL_LINK = `tel:+${PHONE_NUMBER}`;
 export const CONTACT_EMAIL = 'hola@36web.es';
-export const BUSINESS_ADDRESS = 'Calle Condega 7, 28850, Torrejón de Ardoz, Madrid';
+export const BUSINESS_ADDRESS =
+  'Calle Condega 7, 28850, Torrejón de Ardoz, Madrid';
 export const INSTAGRAM_HANDLE = '36web.es';
 export const INSTAGRAM_URL = `https://www.instagram.com/${INSTAGRAM_HANDLE}/`;
 export const INSTAGRAM_EMBED_URL = `${INSTAGRAM_URL}embed/`;
@@ -132,7 +133,7 @@ export const SITE_MAINTENANCE_PATH = '/mantenimiento-web';
 export const SITE_MAINTENANCE_LABEL = 'Mantenimiento Web';
 
 export const ABOUT_PATH = '/sobre-36web';
-export const ABOUT_LABEL = 'nuestra agencia';
+export const ABOUT_LABEL = 'Nuestra agencia';
 
 /** Captación de talento. Ciudad obligatoria para cruzar con páginas locales. */
 export const TALENT_PATH = '/trabaja-con-nosotros';
@@ -154,7 +155,8 @@ export const ADS_MAINTENANCE_LANDING_PATH = '/landing-mantenimiento-web';
 
 /** Landing de oferta de lanzamiento paquetizada. Las landings no se indexan. */
 export const ADS_LAUNCH_LANDING_PATH = '/landing-web-profesional';
-export const ADS_REAL_ESTATE_LANDING_PATH = '/landing-web-profesional-inmobiliarias';
+export const ADS_REAL_ESTATE_LANDING_PATH =
+  '/landing-web-profesional-inmobiliarias';
 export const ADS_REAL_ESTATE_FORM_ORIGIN = 'landing inmobiliarias 590';
 
 /** Landing de Ads del servicio Google Ads. */
@@ -176,7 +178,9 @@ export const isAdsMaintenanceLandingPath = (pathname: string): boolean =>
   normalizePath(pathname) === ADS_MAINTENANCE_LANDING_PATH;
 
 export const isAdsLaunchLandingPath = (pathname: string): boolean =>
-  [ADS_LAUNCH_LANDING_PATH, ADS_REAL_ESTATE_LANDING_PATH].includes(normalizePath(pathname));
+  [ADS_LAUNCH_LANDING_PATH, ADS_REAL_ESTATE_LANDING_PATH].includes(
+    normalizePath(pathname),
+  );
 
 export const isAdsGoogleAdsLandingPath = (pathname: string): boolean =>
   normalizePath(pathname) === ADS_GOOGLE_ADS_LANDING_PATH;
@@ -185,7 +189,9 @@ export const isAdsMaintenanceInfraLandingPath = (pathname: string): boolean =>
   normalizePath(pathname) === ADS_MAINTENANCE_INFRA_LANDING_PATH;
 
 export const isAdsLandingPath = (pathname: string): boolean =>
-  ['/landing-web-a-medida', '/landing-web-psicologos'].includes(normalizePath(pathname)) ||
+  ['/landing-web-a-medida', '/landing-web-psicologos'].includes(
+    normalizePath(pathname),
+  ) ||
   isAdsWebLandingPath(pathname) ||
   isAdsShopLandingPath(pathname) ||
   isAdsMaintenanceLandingPath(pathname) ||
@@ -221,8 +227,10 @@ export const getWhatsAppMessageForPath = (pathname: string): string => {
       ? ECOMMERCE_WHATSAPP_MESSAGE
       : ADS_SHOP_WHATSAPP_MESSAGE;
   }
-  if (path === '/landing-web-psicologos') return 'Hola, me interesa una web para mi consulta de psicología. Me gustaría comentar mi proyecto y pedir una propuesta.';
-  if (path === ADS_REAL_ESTATE_LANDING_PATH) return 'Hola, me interesa la web para mi inmobiliaria por 590 € + IVA. Quiero información sobre el catálogo y el panel de edición.';
+  if (path === '/landing-web-psicologos')
+    return 'Hola, me interesa una web para mi consulta de psicología. Me gustaría comentar mi proyecto y pedir una propuesta.';
+  if (path === ADS_REAL_ESTATE_LANDING_PATH)
+    return 'Hola, me interesa la web para mi inmobiliaria por 590 € + IVA. Quiero información sobre el catálogo y el panel de edición.';
   if (isAdsLaunchLandingPath(path)) return ADS_LAUNCH_WHATSAPP_MESSAGE;
   if (isAdsGoogleAdsLandingPath(path)) return ADS_GOOGLE_ADS_WHATSAPP_MESSAGE;
   if (isAdsMaintenanceInfraLandingPath(path))
@@ -231,7 +239,8 @@ export const getWhatsAppMessageForPath = (pathname: string): string => {
   if (isAdsMaintenanceLandingPath(path))
     return ADS_MAINTENANCE_WHATSAPP_MESSAGE;
   if (path === '/web-profesional') return WEB_PROFESIONAL_WHATSAPP_MESSAGE;
-  if (path === SITE_APPS_PATH) return 'Hola, quiero contaros mi proyecto de aplicación y pedir una propuesta.';
+  if (path === SITE_APPS_PATH)
+    return 'Hola, quiero contaros mi proyecto de aplicación y pedir una propuesta.';
   if (path === ABOUT_PATH) return ABOUT_PAGE_WHATSAPP_MESSAGE;
   if (path === PORTFOLIO_PATH) return PORTFOLIO_WHATSAPP_MESSAGE;
   if (path === SITE_MAINTENANCE_PATH) return MAINTENANCE_WHATSAPP_MESSAGE;

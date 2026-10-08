@@ -1,3 +1,4 @@
+import InstagramShowcase from '../components/InstagramShowcase';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
 import Portfolio from '../components/Portfolio';
@@ -87,18 +88,20 @@ const Home = () => {
         }
       />
       <Portfolio
-        ids={['beachvans', 'vidal', 'camisetas']}
+        ids={['beachvans', 'vidal', 'noemi']}
         ctaText='Ver más'
         ctaHref={PORTFOLIO_PATH}
       />
       <Testimonials />
+      <InstagramShowcase />
 
       <TalentRecruitStrip />
 
       <div id='faq'>
         <SEOFAQ
-          title='No te quedes con la duda'
+          title='Antes de dar el paso, hablemos claro'
           faqs={globalFaqs}
+          ctaText='Cuéntanos tu proyecto'
           ctaHref='#contacto'
         />
       </div>

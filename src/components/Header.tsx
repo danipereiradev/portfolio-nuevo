@@ -1,13 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, Phone } from 'lucide-react';
-import { trackPhoneClick } from '../utils/analytics';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import {
-  PHONE_DISPLAY,
-  PHONE_TEL_LINK,
   ABOUT_PATH,
   ABOUT_LABEL,
-  isAdsLandingPath,
 } from '../config/contact';
 import { SERVICE_NAV } from '../config/nav';
 
@@ -27,7 +23,6 @@ const homeMobileNavLinkClass =
 const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
   const { pathname } = useLocation();
   const isHome = pathname === '/';
-  const isAdsLanding = isAdsLandingPath(pathname);
   const desktopNavClass = isHome ? homeNavLinkClass : defaultNavLinkClass;
   const mobileLinksClass = isHome ? homeMobileNavLinkClass : mobileNavLinkClass;
 
@@ -66,9 +61,7 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
     return () => clearInterval(typingInterval);
   }, [hasTyped]);
 
-  const brandAccentClass = isAdsLanding
-    ? 'text-ink-dark'
-    : 'text-accent';
+  const brandAccentClass = 'text-accent';
   const brand = (
     <span className='flex items-baseline whitespace-nowrap font-display text-[calc(1.875rem*1.15*0.8)] font-normal tracking-tight md:text-[calc(1.875rem*1.15)]'>
       <span
@@ -126,9 +119,7 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
         className={`site-header relative z-10 mx-auto mt-4 w-[95%] max-w-page rounded-lg ${
           isHome
             ? 'site-header--home'
-            : isAdsLanding
-              ? 'site-header--landing shadow-[0_4px_16px_rgba(0,0,0,0.08)]'
-              : 'shadow-[0_4px_16px_rgba(0,0,0,0.08)]'
+            : 'shadow-[0_4px_16px_rgba(0,0,0,0.08)]'
         }`}
       >
         <div className='mx-auto w-full px-page-x py-4'>
@@ -137,29 +128,14 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
               <div className='flex min-w-0 shrink-0 items-center'>{logo}</div>
             ) : (
               <a
-                href={isAdsLanding ? '#hero' : '/'}
+                href='/'
                 className='flex min-w-0 shrink-0 items-center outline-none'
               >
                 {logo}
               </a>
             )}
 
-            {hideNav ? null : isAdsLanding ? (
-              <a
-                href={PHONE_TEL_LINK}
-                onClick={() => trackPhoneClick('AdsLandingHeader')}
-                className='inline-flex shrink-0 items-center gap-1.5 text-ink-dark md:gap-2'
-                aria-label={`Llamar al ${PHONE_DISPLAY}`}
-              >
-                <Phone
-                  className='h-4 w-4 shrink-0 md:h-6 md:w-6'
-                  strokeWidth={2.5}
-                />
-                <span className='text-[calc(0.7rem*1.15)] font-semibold leading-none tracking-tight md:text-[calc(1.05rem*1.15)]'>
-                  {PHONE_DISPLAY}
-                </span>
-              </a>
-            ) : (
+            {hideNav ? null : (
               <>
                 <div className='flex items-center justify-end lg:hidden'>
                   <button
@@ -246,6 +222,9 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
                       </div>
                     ) : null}
                   </div>
+                  <a href='/portfolio' className={desktopNavClass}>
+                    Portfolio
+                  </a>
                   <a href={ABOUT_PATH} className={desktopNavClass}>
                     {ABOUT_LABEL}
                   </a>
@@ -262,7 +241,7 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
             )}
           </div>
 
-          {!hideNav && !isAdsLanding && isMenuOpen ? (
+          {!hideNav && isMenuOpen ? (
             <nav
               className={`mt-2 lg:hidden ${
                 isHome ? '' : 'divide-y divide-ink-dark/15'
@@ -304,6 +283,13 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
                   </div>
                 ) : null}
               </div>
+              <a
+                href='/portfolio'
+                onClick={() => setIsMenuOpen(false)}
+                className={mobileLinksClass}
+              >
+                Portfolio
+              </a>
               <a
                 href={ABOUT_PATH}
                 onClick={() => setIsMenuOpen(false)}
