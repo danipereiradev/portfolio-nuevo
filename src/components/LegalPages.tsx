@@ -549,6 +549,19 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                       <li>Configuración personalizada</li>
                     </ul>
                   </div>
+
+                  <div className='border-l-4 border-ink-dark pl-4'>
+                    <h3 className='text-xl font-semibold text-gray-900 mb-2'>
+                      Cookies de publicidad
+                    </h3>
+                    <p className='text-gray-600 mb-2'>
+                      Solo si las aceptas. Sirven para medir si nuestros anuncios
+                      funcionan, no para mostrarte publicidad personalizada.
+                    </p>
+                    <ul className='list-disc pl-6 space-y-1 text-sm'>
+                      <li>Google Ads (medición de campañas)</li>
+                    </ul>
+                  </div>
                 </div>
               </section>
 
@@ -606,7 +619,11 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                 <ul className='list-disc pl-6 space-y-2'>
                   <li>
                     <strong>Google Analytics:</strong> Para análisis de tráfico
-                    web
+                    web, si aceptas las cookies de estadísticas.
+                  </li>
+                  <li>
+                    <strong>Google Ads:</strong> Para medir el resultado de
+                    nuestras campañas, si aceptas las cookies de publicidad.
                   </li>
                   <li>
                     <strong>Google Fonts:</strong> Para cargar fuentes
@@ -622,14 +639,19 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
                 <h2 className='text-2xl font-bold text-gray-900 mb-4'>
                   Consentimiento
                 </h2>
+                <p className='mb-4'>
+                  Puedes aceptar, rechazar o elegir las categorías en el aviso
+                  de cookies. Navegar o enviar un formulario no implica aceptar
+                  estadísticas ni campañas. Puedes cambiar tu elección desde el
+                  botón Cookies; se recuerda durante 180 días.
+                </p>
                 <p>
-                  Puedes aceptar, rechazar o elegir las categorías en el panel de privacidad.
-                  Navegar o enviar un formulario no implica aceptar la medición publicitaria.
-                  Puedes cambiar tu elección desde el botón Privacidad; se recuerda durante 180 días.
-                  Con tu permiso, Google Ads recibe el email y teléfono del formulario mediante
-                  hash SHA-256 para atribuir contactos a nuestros anuncios. No usamos estos datos
-                  para personalización publicitaria. Sin consentimiento, Consent Mode puede enviar
-                  señales de medición sin cookies publicitarias ni datos de contacto.
+                  Con tu permiso, Google Ads recibe el email y teléfono del
+                  formulario mediante hash SHA-256 para atribuir contactos a
+                  nuestros anuncios. No usamos estos datos para personalización
+                  publicitaria. Sin consentimiento, Consent Mode puede enviar
+                  señales de medición sin cookies publicitarias ni datos de
+                  contacto.
                 </p>
               </section>
 
