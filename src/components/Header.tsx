@@ -174,6 +174,9 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
                   }`}
                   aria-label='Principal'
                 >
+                  <a href='/' className={desktopNavClass}>
+                    Inicio
+                  </a>
                   <div
                     className='relative'
                     onMouseEnter={() => setIsServicesOpen(true)}
@@ -248,6 +251,13 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
               }`}
               aria-label='Principal'
             >
+              <a
+                href='/'
+                onClick={() => setIsMenuOpen(false)}
+                className={mobileLinksClass}
+              >
+                Inicio
+              </a>
               <div>
                 <button
                   onClick={() => setIsServicesOpen(!isServicesOpen)}

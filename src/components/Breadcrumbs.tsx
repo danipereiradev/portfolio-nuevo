@@ -24,12 +24,25 @@ export default function Breadcrumbs() {
   const label = labels[pathname.replace(/\/+$/, '')];
   if (!label) return null;
   return (
-    <nav aria-label='Migas de pan' className='absolute inset-x-0 top-[6.5rem] z-10 mx-auto w-[95%] max-w-page px-page-x text-sm text-ink-dark'>
-      <ol className='flex flex-wrap items-center gap-2'>
-        <li><a href='/' className='underline underline-offset-4 hover:text-accent'>Inicio</a></li>
-        <li aria-hidden='true'>/</li>
-        <li aria-current='page'>{label}</li>
-      </ol>
-    </nav>
+    <>
+      <div className='h-12 md:hidden' aria-hidden='true' />
+      <nav
+        aria-label='Migas de pan'
+        className='absolute inset-x-0 top-[6.5rem] z-10 mx-auto mb-4 w-[95%] max-w-page px-page-x text-center text-sm text-ink-dark md:mb-0 md:text-left'
+      >
+        <ol className='mb-4 flex flex-wrap items-center justify-center gap-2 md:mb-0 md:justify-start'>
+          <li>
+            <a
+              href='/'
+              className='underline underline-offset-4 hover:text-accent'
+            >
+              Inicio
+            </a>
+          </li>
+          <li aria-hidden='true'>/</li>
+          <li aria-current='page'>{label}</li>
+        </ol>
+      </nav>
+    </>
   );
 }

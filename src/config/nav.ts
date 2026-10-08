@@ -21,12 +21,14 @@ export const SERVICE_NAV = [
 ] as const;
 
 export const MAIN_NAV = [
+  { href: '/', label: 'Inicio' },
   { href: '/portfolio', label: 'Portfolio' },
   { href: ABOUT_PATH, label: ABOUT_LABEL },
   { href: '#contacto', label: 'Contacto' },
 ] as const;
 
 export const FOOTER_NAV = [
+  { href: '/', label: 'Inicio' },
   { href: ABOUT_PATH, label: ABOUT_LABEL },
   ...SERVICE_NAV,
   { href: '/portfolio', label: 'Portfolio' },

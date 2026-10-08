@@ -21,7 +21,7 @@ const SEOBenefits = ({
   subtitle,
   benefits,
   stagger = true,
-  mobileCenter = false,
+  mobileCenter = true,
 }: SEOBenefitsProps) => (
   <section className='page-section'>
     <div className='container mx-auto flex flex-col gap-page-gap'>
