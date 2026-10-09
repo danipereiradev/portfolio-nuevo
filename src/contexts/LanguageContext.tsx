@@ -57,9 +57,9 @@ const translations = {
     'Actualizaciones, copias, cambios de textos y fotos, y soporte cuando algo se rompe.',
 
   // Portfolio
-  'portfolio.title': 'Clientes reales y demos de sector',
+  'portfolio.title': 'Algunos de los últimos proyectos que hemos desarrollado.',
   'portfolio.description':
-    'Estos son ejemplos de clientes reales y demos de lo que podría ser tu web.',
+    'Estos son ejemplos de webs, tiendas online y aplicaciones desarrolladas por nuestro equipo.',
   'portfolio.upcoming.title': 'Próximamente',
   'portfolio.upcoming.description':
     'Proyectos que estamos terminando y publicaremos en breve.',

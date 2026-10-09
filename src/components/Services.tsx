@@ -58,27 +58,29 @@ const Services = ({ description }: ServicesProps) => {
           </h2>
           <p className='text-xl md:text-2xl text-ink-dark'>{description}</p>
         </div>
-        <div className='mx-auto  grid w-full grid-cols-1 items-stretch gap-page-gap md:grid-cols-2'>
+        <div className='mx-auto grid w-full grid-cols-1 items-stretch gap-page-gap md:grid-cols-2 lg:grid-cols-4'>
           {mainServices.map((service, index) => (
             <RevealOnScroll
               key={service.title}
-              className='h-full'
+              className='h-full min-w-0'
               delayMs={index * 90}
             >
               <a
                 href={service.link}
-                className='group relative flex h-full flex-col overflow-hidden rounded-lg bg-white'
+                className='group relative flex h-full min-w-0 flex-col rounded-lg bg-white'
               >
-                <img
-                  src={service.image}
-                  alt={service.imageAlt}
-                  width={800}
-                  height={600}
-                  className='aspect-[4/3] w-full bg-white object-cover md:object-contain md:p-content-pad'
-                  loading='lazy'
-                  decoding='async'
-                />
-                <h3 className='px-content-pad pb-content-pad text-center text-2xl font-extrabold text-ink-dark md:text-3xl z-20'>
+                <span className='flex w-full min-w-0 items-center justify-center overflow-hidden'>
+                  <img
+                    src={service.image}
+                    alt={service.imageAlt}
+                    width={800}
+                    height={600}
+                    className='aspect-[4/3] w-full bg-white object-cover md:object-contain md:p-content-pad lg:w-[130%] lg:max-w-none lg:shrink-0 lg:p-0'
+                    loading='lazy'
+                    decoding='async'
+                  />
+                </span>
+                <h3 className='z-20 px-content-pad pb-content-pad text-center text-2xl font-extrabold text-ink-dark md:text-3xl lg:text-2xl'>
                   {service.title}
                 </h3>
               </a>

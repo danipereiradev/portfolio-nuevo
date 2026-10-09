@@ -65,6 +65,11 @@ const faqs = [
     answer:
       'Tuya. Te la entregamos funcionando: dominio, móvil, Formulario y WhatsApp. Archivos y accesos a tu nombre. El mantenimiento mensual es opcional.',
   },
+  {
+    question: '¿Qué cubre la garantía técnica de 60 días?',
+    answer:
+      'Durante los 60 días posteriores a la publicación corregimos sin coste los fallos de funcionamiento atribuibles a nuestra entrega, dentro del alcance acordado: formularios, enlaces y visualización en móvil, tablet y ordenador. No incluye nuevas secciones, cambios de diseño o contenido, mantenimiento ni incidencias causadas por modificaciones de terceros o servicios externos. No es una garantía de visitas, ventas ni posicionamiento.',
+  },
 ];
 
 const includes = [

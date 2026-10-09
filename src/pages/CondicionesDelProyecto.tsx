@@ -154,6 +154,7 @@ const CondicionesDelProyecto = () => {
               href={SITE_WEB_PATH}
               hrefLabel='Ver diseño web'
               items={[
+                'Garantía técnica de 60 días desde la publicación: corrección sin coste de fallos atribuibles a nuestra entrega dentro del alcance acordado. No incluye cambios de alcance, diseño o contenido, mantenimiento ni incidencias de terceros o servicios externos; no garantiza visitas, ventas o posicionamiento.',
                 'Habitualmente: 50 % al empezar y 50 % antes de publicar. También se puede acordar otro fraccionamiento o pago único.',
                 'Si llega el plazo estimado de la propuesta y aún no nos has enviado textos, fotos o accesos, el 50 % restante se cobra igual, aunque no se haya publicado. Cuando nos lleguen, estimamos una fecha nueva de entrega.',
                 'Las rondas de cambios son las de la propuesta. Sirven para afinar lo acordado, no para añadir páginas o funciones nuevas.',

@@ -36,45 +36,48 @@ const Home = () => {
         hasReviewBadge={false}
         cinematic
       />
-      <TextImage
-        label='¿QUÉ ES 36WEB?'
-        title='Agencia de diseño web y marketing digital con atención directa.'
-        paragraphs={[
-          <>
-            Somos una agencia{' '}
-            <strong className='font-extrabold'>100% online</strong> y trabajamos
-            contigo de tu a tu. Tendrás{' '}
-            <strong className='font-extrabold'>
-              contacto directo en todo momento con quien lleva tu proyecto
-            </strong>
-            : correo, teléfono, videollamada o presencial (si estás en Madrid,
-            Galicia o Valencia).
-          </>,
-          <>
-            <strong className='font-extrabold'>Tocamos todos los palos</strong>,
-            y eso nos permite elegir la mejor solución para cada proyecto:
-          </>,
-          <>
-            Desarrollo web con{' '}
-            <strong className='font-extrabold'>WordPress</strong>, desarrollo{' '}
-            <strong className='font-extrabold'>a medida</strong>,{' '}
-            <strong className='font-extrabold'>aplicaciones móviles</strong>,{' '}
-            <strong className='font-extrabold'>
-              Posicionamiento en Google
-            </strong>{' '}
-            y <strong className='font-extrabold'>branding</strong>. Todo en
-            función de{' '}
-            <strong className='font-extrabold'>
-              lo que realmente necesitas
-            </strong>
-            .
-          </>,
-        ]}
-        imageAlt='Setup de 36web'
-        buttonText='LEER MÁS'
-        buttonHref='/sobre-36web#about2'
-        imageSrc='/img/sections/setup-dani-36web-milo-front.webp'
-      />
+      {/* Sección "¿Qué es 36web?" — oculta temporalmente */}
+      {false && (
+        <TextImage
+          label='¿QUÉ ES 36WEB?'
+          title='Agencia de diseño web y marketing digital con atención directa.'
+          paragraphs={[
+            <>
+              Somos una agencia{' '}
+              <strong className='font-extrabold'>100% online</strong> y
+              trabajamos contigo de tu a tu. Tendrás{' '}
+              <strong className='font-extrabold'>
+                contacto directo en todo momento con quien lleva tu proyecto
+              </strong>
+              : correo, teléfono, videollamada o presencial (si estás en
+              Madrid, Galicia o Valencia).
+            </>,
+            <>
+              <strong className='font-extrabold'>Tocamos todos los palos</strong>
+              , y eso nos permite elegir la mejor solución para cada proyecto:
+            </>,
+            <>
+              Desarrollo web con{' '}
+              <strong className='font-extrabold'>WordPress</strong>, desarrollo{' '}
+              <strong className='font-extrabold'>a medida</strong>,{' '}
+              <strong className='font-extrabold'>aplicaciones móviles</strong>,{' '}
+              <strong className='font-extrabold'>
+                Posicionamiento en Google
+              </strong>{' '}
+              y <strong className='font-extrabold'>branding</strong>. Todo en
+              función de{' '}
+              <strong className='font-extrabold'>
+                lo que realmente necesitas
+              </strong>
+              .
+            </>,
+          ]}
+          imageAlt='Setup de 36web'
+          buttonText='LEER MÁS'
+          buttonHref='/sobre-36web#about2'
+          imageSrc='/img/sections/setup-dani-36web-milo-front.webp'
+        />
+      )}
       <Services
         description={
           <>

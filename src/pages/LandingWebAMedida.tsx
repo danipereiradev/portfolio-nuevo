@@ -96,6 +96,11 @@ const items = [
 ];
 const faqs = [
   {
+    question: '¿Qué cubre la garantía técnica de 60 días?',
+    answer:
+      'Durante los 60 días posteriores a la publicación corregimos sin coste los fallos de funcionamiento atribuibles a nuestra entrega, dentro del alcance acordado: formularios, enlaces y visualización en móvil, tablet y ordenador. No incluye nuevas secciones, cambios de diseño o contenido, mantenimiento ni incidencias causadas por modificaciones de terceros o servicios externos. No es una garantía de visitas, ventas ni posicionamiento.',
+  },
+  {
     question: '¿Cuánto cuesta una web a medida?',
     answer:
       'Como orientación, una web puede costar entre 350 y 3.000 € + IVA, según el diseño y las funcionalidades. Cuéntanos qué necesitas y recibirás un presupuesto personalizado por escrito antes de decidir.',
@@ -145,6 +150,12 @@ export default function LandingWebAMedida() {
         label='Diseño y desarrollo web a medida'
         title='Diseño web a medida para tu negocio'
         description='Diseñamos y desarrollamos tu web con una identidad propia y las funcionalidades que necesita tu proyecto. Cuéntanos tu idea y te orientamos.'
+        belowDescription={
+          <p className='inline-flex items-center justify-center gap-2 rounded-lg border border-accent bg-white px-4 py-3 font-bold text-accent mx-auto md:mx-0'>
+            <ShieldCheck size={24} aria-hidden='true' /> Garantía técnica de
+            60 días
+          </p>
+        }
         ctaContent={<WhatsAppContact />}
         convertFirstOnMobile
         buttonText='Cuéntanos tu proyecto'
