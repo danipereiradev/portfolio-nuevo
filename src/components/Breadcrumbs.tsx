@@ -4,6 +4,7 @@ import { SERVICE_NAV } from '../config/nav';
 const labels: Record<string, string> = {
   ...Object.fromEntries(SERVICE_NAV.map(({ href, label }) => [href, label])),
   '/portfolio': 'Portfolio',
+  '/contacto': 'Contacto',
   '/sobre-36web': 'Nuestra agencia',
   '/blog': 'Blog',
   '/trabaja-con-nosotros': 'Trabaja con nosotros',
@@ -19,9 +20,13 @@ const labels: Record<string, string> = {
   '/aviso-legal': 'Aviso legal',
 };
 
+const HERO_BREADCRUMB_PATHS = new Set(SERVICE_NAV.map(({ href }) => href));
+
 export default function Breadcrumbs() {
   const { pathname } = useLocation();
-  const label = labels[pathname.replace(/\/+$/, '')];
+  const path = pathname.replace(/\/+$/, '');
+  if (HERO_BREADCRUMB_PATHS.has(path)) return null;
+  const label = labels[path];
   if (!label) return null;
   return (
     <>

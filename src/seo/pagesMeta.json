@@ -81,6 +81,15 @@
     "title": "La Agencia | Estudio de diseño web en Madrid | 36web",
     "description": "36web es una agencia de diseño web y marketing digital en Madrid. Más de 12 años montando webs y tiendas online. Hablas con quien las hace."
   },
+  "/contacto": {
+    "title": "Contacto | Cuéntanos tu proyecto | 36web",
+    "description": "Cuéntanos tu proyecto. Nombre, email, teléfono y qué necesitas. Te respondemos con una propuesta, con precio y plazos por escrito."
+  },
+  "/gracias": {
+    "title": "Mensaje enviado | 36web",
+    "description": "Hemos recibido tu mensaje. Te escribimos o te llamamos en breve.",
+    "robots": "noindex, nofollow, noarchive"
+  },
   "/portfolio": {
     "title": "Portfolio de webs, tiendas y aplicaciones | 36web",
     "description": "Webs, tiendas online y aplicaciones en las que ha trabajado nuestro equipo. Visita los proyectos y recorre sus capturas."

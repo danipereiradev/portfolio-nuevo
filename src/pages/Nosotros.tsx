@@ -5,7 +5,12 @@ import { TextImage } from '../components/TextImage';
 import { TextSection } from '../components/TextSection';
 import { Team } from '../components/Team';
 import HeroCta from '../components/HeroCta';
-import { ABOUT_LABEL, ABOUT_PATH, SITE_WEB_PATH } from '../config/contact';
+import {
+  ABOUT_LABEL,
+  ABOUT_PATH,
+  CONTACT_PATH,
+  SITE_WEB_PATH,
+} from '../config/contact';
 
 const SITE_URL = 'https://36web.es';
 
@@ -91,7 +96,7 @@ const Nosotros = () => {
         ]}
         imageAlt='Setup de 36web'
         buttonText='PEDIR PROPUESTA'
-        buttonHref='#contacto'
+        buttonHref={CONTACT_PATH}
         imageSrc='/img/sections/setup-dani-36web-milo-front.webp'
       />
 

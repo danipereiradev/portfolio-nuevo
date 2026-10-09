@@ -13,7 +13,9 @@ import {
   PHONE_DISPLAY,
   PHONE_TEL_LINK,
   SITE_WEB_PATH,
+  CONTACT_PATH,
   buildWhatsAppUrl,
+  contactHrefForPath,
   getWhatsAppMessageForPath,
 } from '../config/contact';
 import { FOOTER_NAV } from '../config/nav';
@@ -96,7 +98,11 @@ const Footer = () => {
                 {FOOTER_NAV.map((item) => (
                   <li key={item.href}>
                     <a
-                      href={item.href}
+                      href={
+                        item.href === CONTACT_PATH
+                          ? contactHrefForPath(pathname)
+                          : item.href
+                      }
                       className='hover:text-link transition-colors duration-200'
                     >
                       {item.label}

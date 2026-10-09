@@ -4,6 +4,7 @@ import { APP_PROJECTS, appImage, type AppProject } from '../data/appProjects';
 import { useBodyScrollLock } from '../hooks/useBodyScrollLock';
 import { trackPortfolioClick } from '../utils/analytics';
 import Button from './Button';
+import { CONTACT_PATH } from '../config/contact';
 
 /** Las capturas se muestran completas, en el dispositivo para el que se diseñaron. */
 export function AppProjectVisual({ project }: { project: AppProject }) {
@@ -87,7 +88,7 @@ export default function AppPortfolio({ id = 'portfolio', showCta = true }: { id?
             </article>
           ))}
         </div>
-        {showCta && <Button href='#contacto'>PEDIR PROPUESTA</Button>}
+        {showCta && <Button href={CONTACT_PATH}>PEDIR PROPUESTA</Button>}
       </div>
       {selected && <AppGallery project={selected} onClose={() => setSelected(null)} />}
     </section>

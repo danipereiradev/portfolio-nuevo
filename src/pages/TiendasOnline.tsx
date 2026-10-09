@@ -13,7 +13,9 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { useBootHeroSlot } from '../hooks/useBootHeroSlot';
 import {
+  CONTACT_PATH,
   PORTFOLIO_PATH,
+  SITE_SHOP_LABEL,
   SITE_SHOP_PATH,
   SITE_WEB_PATH,
 } from '../config/contact';
@@ -235,6 +237,10 @@ const TiendasOnline = () => {
         createPortal(heroForm, formSlot)
       ) : (
       <HeroCta
+        breadcrumbs={[
+          { href: '/', label: 'Inicio' },
+          { label: SITE_SHOP_LABEL },
+        ]}
         title='Una tienda online con todo lo necesario para vender'
         description={
           <>
@@ -268,7 +274,7 @@ const TiendasOnline = () => {
           </>
         }
         buttonText='PEDIR PROPUESTA'
-        buttonHref='#contacto'
+        buttonHref={CONTACT_PATH}
         heroType='form'
         hasButton={false}
         formTitle='Presupuesto de tienda online'
@@ -313,7 +319,7 @@ const TiendasOnline = () => {
         imageSrc='/img/portfolio/new/camisetas.webp'
         imageAlt='Mock de tienda online de Chicxs de la Calle'
         buttonText='PEDIR PROPUESTA'
-        buttonHref='#contacto'
+        buttonHref={CONTACT_PATH}
       />
 
       <ServiceIncludes
@@ -356,7 +362,7 @@ const TiendasOnline = () => {
         imageAlt='Mock de tienda online de Camisetas Ahora'
         imageLeft
         buttonText='PEDIR PROPUESTA'
-        buttonHref='#contacto'
+        buttonHref={CONTACT_PATH}
       />
 
       <SEOBenefits
@@ -428,7 +434,7 @@ const TiendasOnline = () => {
         imageAlt='Mock de tienda online de Camisetas Ahora'
         imageLeft
         buttonText='PEDIR PROPUESTA'
-        buttonHref='#contacto'
+        buttonHref={CONTACT_PATH}
       />
 
       <Portfolio
@@ -445,7 +451,7 @@ const TiendasOnline = () => {
           title='No queremos que te quedes con dudas'
           faqs={faqs}
           ctaText='PEDIR PROPUESTA'
-          ctaHref='#contacto'
+          ctaHref={CONTACT_PATH}
         />
       </div>
 
@@ -484,7 +490,7 @@ const TiendasOnline = () => {
           </>
         }
         buttonText='PEDIR PROPUESTA'
-        buttonHref='#contacto'
+        buttonHref={CONTACT_PATH}
         heroType='form'
         hasButton={false}
         formTitle='Presupuesto de tienda online'

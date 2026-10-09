@@ -4,6 +4,7 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 import {
   ABOUT_PATH,
   ABOUT_LABEL,
+  contactHrefForPath,
 } from '../config/contact';
 import { SERVICE_NAV } from '../config/nav';
 
@@ -232,7 +233,7 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
                     {ABOUT_LABEL}
                   </a>
                   <a
-                    href='#contacto'
+                    href={contactHrefForPath(pathname)}
                     className={
                       isHome ? desktopNavClass : `${defaultNavLinkClass} !text-accent`
                     }
@@ -308,7 +309,7 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
                 {ABOUT_LABEL}
               </a>
               <a
-                href='#contacto'
+                href={contactHrefForPath(pathname)}
                 onClick={() => setIsMenuOpen(false)}
                 className={
                   isHome ? mobileLinksClass : `${mobileNavLinkClass} !text-accent`

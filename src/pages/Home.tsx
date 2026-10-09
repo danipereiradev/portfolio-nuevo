@@ -7,7 +7,7 @@ import Testimonials from '../components/Testimonials';
 import SEOFAQ from '../components/SEOFAQ';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { globalFaqs } from '../data/globalFaqs';
-import { PORTFOLIO_PATH } from '../config/contact';
+import { CONTACT_PATH, PORTFOLIO_PATH } from '../config/contact';
 
 import { TextImage } from '../components/TextImage';
 import HeroCta from '../components/HeroCta';
@@ -27,7 +27,7 @@ const Home = () => {
           </>
         }
         buttonText='CONTACTA AHORA'
-        buttonHref='#contacto'
+        buttonHref={CONTACT_PATH}
         videoUrl='/video/video-hero-36web-corto.mp4'
         backgroundUrl='/video/hero-home-2.jpg'
         overlay='none'
@@ -102,7 +102,7 @@ const Home = () => {
           title='Antes de dar el paso, hablemos claro'
           faqs={globalFaqs}
           ctaText='Cuéntanos tu proyecto'
-          ctaHref='#contacto'
+          ctaHref={CONTACT_PATH}
         />
       </div>
       <HeroCta

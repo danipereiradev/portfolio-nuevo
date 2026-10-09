@@ -25,6 +25,7 @@ import { useJsonLd } from '../hooks/useJsonLd';
 import { useBootHeroSlot } from '../hooks/useBootHeroSlot';
 import {
   buildWhatsAppUrl,
+  SITE_MAINTENANCE_LABEL,
   SITE_MAINTENANCE_PATH,
   MAINTENANCE_WHATSAPP_MESSAGE,
 } from '../config/contact';
@@ -305,6 +306,10 @@ const MantenimientoWeb = () => {
         createPortal(heroForm, formSlot)
       ) : (
       <HeroCta
+        breadcrumbs={[
+          { href: '/', label: 'Inicio' },
+          { label: SITE_MAINTENANCE_LABEL },
+        ]}
         label='Mantenimiento y soporte'
         title='Mantenimiento y soporte web cuando lo necesitas'
         description={

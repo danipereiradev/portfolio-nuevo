@@ -13,8 +13,10 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { useBootHeroSlot } from '../hooks/useBootHeroSlot';
 import {
+  CONTACT_PATH,
   PORTFOLIO_PATH,
   SITE_SHOP_PATH,
+  SITE_WEB_LABEL,
   SITE_WEB_PATH,
 } from '../config/contact';
 import { LocalWebSpainSection } from '../components/LocalWebSpainSection';
@@ -328,6 +330,10 @@ const DisenoWeb = () => {
         createPortal(heroForm, formSlot)
       ) : (
       <HeroCta
+        breadcrumbs={[
+          { href: '/', label: 'Inicio' },
+          { label: SITE_WEB_LABEL },
+        ]}
         title='Una página web con todo lo necesario para captar nuevos clientes'
         description={
           <>
@@ -363,7 +369,7 @@ const DisenoWeb = () => {
           </>
         }
         buttonText='PEDIR PROPUESTA'
-        buttonHref='#contacto'
+        buttonHref={CONTACT_PATH}
         heroType='form'
         hasButton={false}
         formTitle='Presupuesto de diseño web'
@@ -410,7 +416,7 @@ const DisenoWeb = () => {
         imageSrc='/img/portfolio/new/carper.webp'
         imageAlt='Mock de página web de Carper Sonido'
         buttonText='PEDIR PROPUESTA'
-        buttonHref='#contacto'
+        buttonHref={CONTACT_PATH}
       />
 
       <ServiceIncludes
@@ -462,7 +468,7 @@ const DisenoWeb = () => {
         imageAlt='Mock de página web de Hoy Viajamos'
         imageLeft
         buttonText='PEDIR PROPUESTA'
-        buttonHref='#contacto'
+        buttonHref={CONTACT_PATH}
       />
 
       <SEOBenefits
@@ -524,7 +530,7 @@ const DisenoWeb = () => {
         imageAlt='Mock de página web de O Alicornio'
         imageLeft
         buttonText='PEDIR PROPUESTA'
-        buttonHref='#contacto'
+        buttonHref={CONTACT_PATH}
       />
 
       <Portfolio
@@ -543,7 +549,7 @@ const DisenoWeb = () => {
           title='No queremos que te quedes con dudas'
           faqs={faqs}
           ctaText='PEDIR PROPUESTA'
-          ctaHref='#contacto'
+          ctaHref={CONTACT_PATH}
         />
       </div>
 
@@ -582,7 +588,7 @@ const DisenoWeb = () => {
           </>
         }
         buttonText='PEDIR PROPUESTA'
-        buttonHref='#contacto'
+        buttonHref={CONTACT_PATH}
         heroType='form'
         hasButton={false}
         formTitle='Presupuesto de diseño web'

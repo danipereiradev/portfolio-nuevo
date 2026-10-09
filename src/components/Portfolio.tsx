@@ -13,6 +13,7 @@ import {
   trackViewPortfolioSection,
 } from '../utils/analytics';
 import {
+  CONTACT_PATH,
   SITE_SHOP_LABEL,
   SITE_SHOP_PATH,
   SITE_WEB_LABEL,
@@ -292,7 +293,7 @@ const Portfolio = ({
   headingDescription,
   note,
   ctaText = 'Quiero resultados como estos',
-  ctaHref = '#contacto',
+  ctaHref = CONTACT_PATH,
   pageSize,
 }: PortfolioProps) => {
   const { t } = useLanguage();

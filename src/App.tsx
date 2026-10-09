@@ -25,6 +25,8 @@ import {
   ADS_GOOGLE_ADS_LANDING_PATH,
   ADS_SHOP_LANDING_PATH,
   ABOUT_PATH,
+  CONTACT_PATH,
+  FORM_THANKS_PATH,
   SITE_MAINTENANCE_PATH,
   SITE_SHOP_PATH,
   SITE_APPS_PATH,
@@ -68,6 +70,8 @@ const CondicionesDelProyecto = lazy(
 const LegalDocument = lazy(() => import('./pages/LegalDocument'));
 const TrabajaConNosotros = lazy(() => import('./pages/TrabajaConNosotros'));
 const PortfolioPage = lazy(() => import('./pages/PortfolioPage'));
+const Contacto = lazy(() => import('./pages/Contacto'));
+const Gracias = lazy(() => import('./pages/Gracias'));
 const Maintenance = lazy(() => import('./pages/Maintenance'));
 const Pago = lazy(() => import('./pages/Pago'));
 const PagoGracias = lazy(() => import('./pages/PagoGracias'));
@@ -204,6 +208,8 @@ function AppContent() {
             />
             <Route path={TALENT_PATH} element={<TrabajaConNosotros />} />
             <Route path={PORTFOLIO_PATH} element={<PortfolioPage />} />
+            <Route path={CONTACT_PATH} element={<Contacto />} />
+            <Route path={FORM_THANKS_PATH} element={<Gracias />} />
             <Route path='*' element={<Navigate to='/' replace />} />
           </Routes>
         </Suspense>

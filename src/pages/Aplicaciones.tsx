@@ -13,7 +13,7 @@ import { ServiceIncludes } from '../components/ServiceOnPage';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { useBootHeroSlot } from '../hooks/useBootHeroSlot';
-import { SITE_APPS_PATH, SITE_WEB_PATH, SITE_SHOP_PATH } from '../config/contact';
+import { CONTACT_PATH, SITE_APPS_LABEL, SITE_APPS_PATH, SITE_WEB_PATH, SITE_SHOP_PATH } from '../config/contact';
 import { APP_PROJECTS } from '../data/appProjects';
 
 const faqs = [
@@ -65,38 +65,39 @@ export default function Aplicaciones() {
   const heroForm = <ContactFormHero id='contacto' title='Presupuesto de tu aplicación' description='Cuéntanos tu idea. Sin compromiso.' page='Aplicaciones Hero' compactOnMobile className={formSlot ? 'md:!w-full' : ''} />;
   return <>
     {formSlot ? createPortal(heroForm, formSlot) : <HeroCta
+      breadcrumbs={[{ href: '/', label: 'Inicio' }, { label: SITE_APPS_LABEL }]}
       title='Una aplicación hecha para lo que necesita tu negocio'
       description={<><p>Desarrollamos aplicaciones web y móviles pensadas para <strong className='font-extrabold'>hacer más fácil el día a día de tus usuarios</strong>.</p><HeroCtaList className='mx-auto mt-text-gap w-full list-none text-center md:mx-0 md:list-disc md:list-outside md:pl-5 md:text-left' items={[
         <>Web, Android o iOS. <strong className='font-extrabold'>Lo que necesite tu proyecto.</strong></>,
         <>Propuesta personalizada, con <strong className='font-extrabold'>precio y plazos por escrito</strong>.</>,
         <><strong className='font-extrabold'>Hablas con quien va a desarrollar la aplicación, no con un comercial.</strong></>,
       ]} /></>}
-      buttonText='PEDIR PROPUESTA' buttonHref='#contacto' heroType='form' hasButton={false} formTitle='Presupuesto de tu aplicación' formDescription='Cuéntanos tu idea. Sin compromiso.' formSectionInfo='Aplicaciones Hero' formId='contacto' hasBackground={false} hasReviewBadge isTopHero convertFirstOnMobile
+      buttonText='PEDIR PROPUESTA' buttonHref={CONTACT_PATH} heroType='form' hasButton={false} formTitle='Presupuesto de tu aplicación' formDescription='Cuéntanos tu idea. Sin compromiso.' formSectionInfo='Aplicaciones Hero' formId='contacto' hasBackground={false} hasReviewBadge isTopHero convertFirstOnMobile
     />}
     <TextImage label='¿Por qué una aplicación con 36web?' title='Desarrollamos aplicaciones que resuelven algo de verdad.' paragraphs={[
       <>Puede que tengas una idea para un nuevo negocio o que necesites una herramienta para trabajar mejor. Lo primero es entender <strong className='font-extrabold'>qué tiene que hacer la aplicación y para quién</strong>.</>,
       <>Tendremos muy en cuenta <strong className='font-extrabold'>tus necesidades y presupuesto</strong>. Podemos crear una herramienta sencilla o una plataforma con usuarios, mapas, datos en tiempo real y otras funciones. Siempre vamos a aconsejarte <strong className='font-extrabold'>lo mejor para ti, no lo más caro</strong>.</>,
-    ]} imageContent={<AppProjectVisual project={APP_PROJECTS[0]} />} buttonText='PEDIR PROPUESTA' buttonHref='#contacto' />
+    ]} imageContent={<AppProjectVisual project={APP_PROJECTS[0]} />} buttonText='PEDIR PROPUESTA' buttonHref={CONTACT_PATH} />
     <ServiceIncludes title='Qué hacemos en el desarrollo de tu aplicación' intro={<>Esta es la base desde la que trabajamos. Las funciones que necesita tu aplicación y todo lo que entra irán especificados en la propuesta final. <strong className='font-extrabold'>Sin sorpresas.</strong></>} items={includes} />
     <TextImage label='APLICACIONES WEB, ANDROID E IOS' title='La tecnología la elegimos según tu proyecto.' paragraphs={[
       <>Una aplicación web se utiliza desde el navegador. Una app móvil se instala en el teléfono. <strong className='font-extrabold'>No todos los proyectos necesitan las dos cosas.</strong></>,
       <>Trabajamos con <strong className='font-extrabold'>React, React Native, Expo y TypeScript</strong> para crear las pantallas y la experiencia de uso. Para la parte de datos y las funciones del servidor, trabajamos también con Node.js, Express y MongoDB.</>,
       <>Nuestro equipo ha desarrollado aplicaciones para Android e iOS, plataformas de juegos y marcadores para Android TV. Te explicamos <strong className='font-extrabold'>qué opción tiene sentido en tu caso y por qué</strong>, sin llenarte la propuesta de palabras que no necesitas.</>,
-    ]} imageContent={<AppProjectVisual project={APP_PROJECTS[1]} />} imageLeft buttonText='PEDIR PROPUESTA' buttonHref='#contacto' />
+    ]} imageContent={<AppProjectVisual project={APP_PROJECTS[1]} />} imageLeft buttonText='PEDIR PROPUESTA' buttonHref={CONTACT_PATH} />
     <SEOBenefits title='Una aplicación distinta según lo que necesite tu negocio.' subtitle={<>Trabajamos con empresas que necesitan <strong className='font-extrabold'>herramientas propias</strong>, nuevos proyectos y aplicaciones que ya están en marcha.</>} benefits={audiences} />
     <SEOProcess title='Cómo es el proceso de contratación' subtitle={<><strong className='font-extrabold'>Cuatro sencillos pasos.</strong> Nos cuentas tu idea, estudiamos el proyecto y te pasamos una propuesta. Aceptas y empezamos a trabajar.</>} steps={processSteps} />
     <TextImage label='APLICACIONES A MEDIDA' title='Empezamos por lo que realmente necesitas.' paragraphs={[
       <><strong className='font-extrabold'>No tenemos un pack cerrado de aplicaciones.</strong> El presupuesto depende de las pantallas, las funciones, las integraciones y las plataformas donde se va a utilizar.</>,
       <>Recomendamos definir una primera versión que puedas poner a trabajar. <strong className='font-extrabold'>No necesitas hacerlo todo de golpe.</strong> Después podemos añadir funciones según lo que necesiten tu negocio y tus usuarios.</>,
       <>En la propuesta dejamos claro <strong className='font-extrabold'>qué entra, cuánto cuesta y cuándo estará</strong>. También los servicios externos que haya que contratar. Pedir presupuesto es gratis y no te compromete.</>,
-    ]} imageContent={<AppProjectVisual project={APP_PROJECTS[2]} />} imageLeft buttonText='PEDIR PROPUESTA' buttonHref='#contacto' />
+    ]} imageContent={<AppProjectVisual project={APP_PROJECTS[2]} />} imageLeft buttonText='PEDIR PROPUESTA' buttonHref={CONTACT_PATH} />
     <AppPortfolio />
     <Testimonials />
-    <div id='faq'><SEOFAQ title='No queremos que te quedes con dudas' faqs={faqs} ctaText='PEDIR PROPUESTA' ctaHref='#contacto' /></div>
+    <div id='faq'><SEOFAQ title='No queremos que te quedes con dudas' faqs={faqs} ctaText='PEDIR PROPUESTA' ctaHref={CONTACT_PATH} /></div>
     <TextImage label='TAMBIÉN HACEMOS' title='¿Lo que necesitas es una página web?' paragraphs={[
       <>Si quieres presentar tu negocio, mostrar tus servicios y recibir contactos, podemos hacerte una <a href={SITE_WEB_PATH} className='font-bold text-link underline'>página web profesional</a>. Si lo que necesitas es vender productos, te ofrecemos una <a href={SITE_SHOP_PATH} className='font-bold text-link underline'>tienda online</a>.</>,
       <>Cuéntanos qué quieres conseguir. <strong className='font-extrabold'>Te ayudamos a elegir.</strong></>,
     ]} imageSrc='/img/portfolio/new/carper.webp' imageAlt='Página web de Carper Sonido' buttonText='VER DISEÑO WEB' buttonHref={SITE_WEB_PATH} />
-    <HeroCta title='Pide presupuesto de tu aplicación' description={<>Cuéntanos tu idea y qué tiene que hacer la aplicación. Te preparamos una <strong className='font-extrabold'>propuesta personalizada, con precio y plazos por escrito</strong>. Si no encaja, lo dices y no pasa nada.</>} buttonText='PEDIR PROPUESTA' buttonHref='#contacto' heroType='form' hasButton={false} formTitle='Hablemos de tu aplicación' formDescription='Cuéntanos tu idea. Sin compromiso.' formSectionInfo='Aplicaciones CTA final' hasBackground={false} hasReviewBadge formId='contacto-final' />
+    <HeroCta title='Pide presupuesto de tu aplicación' description={<>Cuéntanos tu idea y qué tiene que hacer la aplicación. Te preparamos una <strong className='font-extrabold'>propuesta personalizada, con precio y plazos por escrito</strong>. Si no encaja, lo dices y no pasa nada.</>} buttonText='PEDIR PROPUESTA' buttonHref={CONTACT_PATH} heroType='form' hasButton={false} formTitle='Hablemos de tu aplicación' formDescription='Cuéntanos tu idea. Sin compromiso.' formSectionInfo='Aplicaciones CTA final' hasBackground={false} hasReviewBadge formId='contacto-final' />
   </>;
 }

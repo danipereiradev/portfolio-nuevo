@@ -90,6 +90,14 @@ const heroListClass =
   'space-y-3 text-lg marker:text-brand md:text-xl mx-auto mt-text-gap w-full list-none text-center md:mx-0 md:list-disc md:list-outside md:pl-5 md:text-left';
 
 /** H1 fuera de #root: createRoot no lo borra y el LCP se queda en el primer pintado. */
+const bootHeroCrumbs = (currentLabel) =>
+  `<nav aria-label="Migas de pan" class="-mb-1 w-full text-xs font-normal tracking-wide text-center md:text-left">
+      <ol class="flex flex-wrap items-center justify-center gap-x-1.5 gap-y-0.5 opacity-70 md:justify-start">
+        <li class="flex items-center gap-x-1.5"><a href="/" class="underline decoration-current/25 underline-offset-4">Inicio</a></li>
+        <li class="flex items-center gap-x-1.5"><span aria-hidden="true" class="opacity-60">/</span><span class="opacity-90">${currentLabel}</span></li>
+      </ol>
+    </nav>`;
+
 const buildLightBootHeroHtml = ({
   label,
   h1,
@@ -97,10 +105,12 @@ const buildLightBootHeroHtml = ({
   bullets,
   extraCopy = '',
   descriptionAlign = 'md:text-justify',
+  crumbsLabel = '',
 }) => {
   const labelHtml = label
     ? `<span class="hero-cta-label text-md uppercase rounded-lg font-extrabold text-accent underline">${label}</span>`
     : '';
+  const crumbsHtml = crumbsLabel ? bootHeroCrumbs(crumbsLabel) : '';
   const bulletsHtml = bullets
     .map((item) => `<li class="pl-1">${item}</li>`)
     .join('');
@@ -109,6 +119,7 @@ const buildLightBootHeroHtml = ({
       <div class="w-full grid grid-cols-1 md:grid-cols-2 md:text-start md:items-center gap-page-gap text-center md:justify-center">
         <div class="hero-cta-copy flex w-full min-w-0 flex-col items-center gap-page-gap md:items-start md:justify-center">
           <div class="page-title-block w-full items-center md:items-start">
+            ${crumbsHtml}
             ${labelHtml}
             <h1 class="hero-cta-title text-4xl md:text-5xl lg:text-6xl font-extrabold text-ink-dark">${h1}</h1>
             <span class="hero-cta-underline h-1 w-16 bg-brand mx-auto md:mx-0" aria-hidden="true"></span>
@@ -127,6 +138,7 @@ const buildLightBootHeroHtml = ({
 
 const buildDisenoWebHeroHtml = () =>
   buildLightBootHeroHtml({
+    crumbsLabel: 'Diseño web',
     h1: 'Una página web con todo lo necesario para captar nuevos clientes',
     intro:
       'Diseñamos páginas web claras, rápidas y pensadas para <strong class="font-extrabold">convertir visitas en clientes</strong>.',
@@ -139,6 +151,7 @@ const buildDisenoWebHeroHtml = () =>
 
 const buildTiendasOnlineHeroHtml = () =>
   buildLightBootHeroHtml({
+    crumbsLabel: 'Tiendas Online',
     h1: 'Una tienda online con todo lo necesario para vender',
     intro:
       'Creamos tiendas online claras, rápidas y pensadas para <strong class="font-extrabold">convertir visitas en ventas de verdad</strong>.',
@@ -151,6 +164,7 @@ const buildTiendasOnlineHeroHtml = () =>
 
 const buildAplicacionesHeroHtml = () =>
   buildLightBootHeroHtml({
+    crumbsLabel: 'Aplicaciones',
     h1: 'Una aplicación hecha para lo que necesita tu negocio',
     intro: 'Desarrollamos aplicaciones web y móviles pensadas para <strong class="font-extrabold">hacer más fácil el día a día de tus usuarios</strong>.',
     bullets: [
@@ -162,6 +176,7 @@ const buildAplicacionesHeroHtml = () =>
 
 const buildMantenimientoWebHeroHtml = () =>
   buildLightBootHeroHtml({
+    crumbsLabel: 'Mantenimiento Web',
     label: 'Mantenimiento y soporte',
     h1: 'Mantenimiento y soporte web cuando lo necesitas',
     intro:

@@ -135,6 +135,10 @@ export const SITE_MAINTENANCE_LABEL = 'Mantenimiento Web';
 export const ABOUT_PATH = '/sobre-36web';
 export const ABOUT_LABEL = 'Nuestra agencia';
 
+export const CONTACT_PATH = '/contacto';
+export const CONTACT_LABEL = 'Contacto';
+export const FORM_THANKS_PATH = '/gracias';
+
 /** Captación de talento. Ciudad obligatoria para cruzar con páginas locales. */
 export const TALENT_PATH = '/trabaja-con-nosotros';
 export const TALENT_LABEL = 'Trabaja con nosotros';
@@ -212,6 +216,12 @@ export const isHomePath = (pathname: string): boolean =>
 export const isLegalPath = (pathname: string): boolean =>
   LEGAL_PATHS.has(normalizePath(pathname));
 
+export const isFormThanksPath = (pathname: string): boolean =>
+  normalizePath(pathname) === FORM_THANKS_PATH;
+
+export const contactHrefForPath = (pathname: string): string =>
+  isAdsLandingPath(pathname) ? '#contacto' : CONTACT_PATH;
+
 export const isSiteWebPath = (pathname: string): boolean => {
   const path = normalizePath(pathname);
   return path === SITE_WEB_PATH || path === SITE_WEB_PATH_N;
@@ -242,6 +252,7 @@ export const getWhatsAppMessageForPath = (pathname: string): string => {
   if (path === SITE_APPS_PATH)
     return 'Hola, quiero contaros mi proyecto de aplicación y pedir una propuesta.';
   if (path === ABOUT_PATH) return ABOUT_PAGE_WHATSAPP_MESSAGE;
+  if (path === CONTACT_PATH) return CONTACT_PAGE_WHATSAPP_MESSAGE;
   if (path === PORTFOLIO_PATH) return PORTFOLIO_WHATSAPP_MESSAGE;
   if (path === SITE_MAINTENANCE_PATH) return MAINTENANCE_WHATSAPP_MESSAGE;
   return DEFAULT_WHATSAPP_MESSAGE;

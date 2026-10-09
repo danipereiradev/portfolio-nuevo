@@ -11,12 +11,18 @@ import {
   isHomePath,
   isAdsLaunchLandingPath,
   isLegalPath,
+  isFormThanksPath,
 } from '../config/contact';
 
 const WhatsAppButton = () => {
   const { pathname } = useLocation();
 
-  if (isHomePath(pathname) || isLegalPath(pathname)) return null;
+  if (
+    isHomePath(pathname) ||
+    isLegalPath(pathname) ||
+    isFormThanksPath(pathname)
+  )
+    return null;
 
   const message = getWhatsAppMessageForPath(pathname);
   const whatsappUrl = buildWhatsAppUrl(message);

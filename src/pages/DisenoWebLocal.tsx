@@ -22,6 +22,7 @@ import NotFound from './NotFound';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
 import {
+  CONTACT_PATH,
   SITE_MAINTENANCE_LABEL,
   SITE_MAINTENANCE_PATH,
   SITE_SHOP_LABEL,
@@ -83,7 +84,7 @@ const LocalWebCityPage = ({ city }: { city: LocalWebCity }) => {
           ]}
           description={<p>{withCity(city.hero_lead, city.ciudad)}</p>}
           buttonText='PEDIR PROPUESTA'
-          buttonHref='#contacto'
+          buttonHref={CONTACT_PATH}
           heroType='form'
           hasButton={false}
           formTitle='Te llamamos'
@@ -301,7 +302,7 @@ const LocalWebCityPage = ({ city }: { city: LocalWebCity }) => {
           title={`Preguntas de diseño web en ${city.ciudad}`}
           faqs={getPublishedLocalWebFaqs(city)}
           ctaText='PEDIR PROPUESTA'
-          ctaHref='#contacto'
+          ctaHref={CONTACT_PATH}
         />
       </div>
 
@@ -310,7 +311,7 @@ const LocalWebCityPage = ({ city }: { city: LocalWebCity }) => {
         title={city.cta_local.title}
         description={<p>{withCity(city.cta_local.description, city.ciudad)}</p>}
         buttonText='PEDIR PROPUESTA'
-        buttonHref='#contacto'
+        buttonHref={CONTACT_PATH}
         heroType='form'
         hasButton={false}
         formTitle='Te llamamos'

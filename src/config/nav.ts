@@ -3,6 +3,8 @@ import {
   SITE_APPS_LABEL,
   ABOUT_LABEL,
   ABOUT_PATH,
+  CONTACT_LABEL,
+  CONTACT_PATH,
   SITE_MAINTENANCE_LABEL,
   SITE_MAINTENANCE_PATH,
   SITE_SHOP_LABEL,
@@ -24,7 +26,7 @@ export const MAIN_NAV = [
   { href: '/', label: 'Inicio' },
   { href: '/portfolio', label: 'Portfolio' },
   { href: ABOUT_PATH, label: ABOUT_LABEL },
-  { href: '#contacto', label: 'Contacto' },
+  { href: CONTACT_PATH, label: CONTACT_LABEL },
 ] as const;
 
 export const FOOTER_NAV = [
@@ -33,7 +35,7 @@ export const FOOTER_NAV = [
   ...SERVICE_NAV,
   { href: '/portfolio', label: 'Portfolio' },
   { href: '/blog', label: 'Blog' },
-  { href: '#contacto', label: 'Contacto' },
+  { href: CONTACT_PATH, label: CONTACT_LABEL },
   {
     href: TALENT_PATH,
     label: TALENT_LABEL,
