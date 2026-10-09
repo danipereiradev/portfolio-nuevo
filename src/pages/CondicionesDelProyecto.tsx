@@ -5,7 +5,6 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import { useContactModal } from '../contexts/ContactModalContext';
 import Button from '../components/Button';
 import {
-  ADS_LAUNCH_LANDING_PATH,
   SITE_MAINTENANCE_PATH,
   SITE_SHOP_PATH,
   SITE_WEB_PATH,
@@ -21,9 +20,6 @@ import {
   getHourPackValidityCopy,
   getPlanPriceLabel,
 } from '../config/maintenanceOffer';
-import {
-  LAUNCH_DELIVERY_LABEL,
-} from '../config/launchOffer';
 import {
   formatEuro,
   GOOGLE_ADS_MONTHLY_AMOUNT,
@@ -176,27 +172,6 @@ const CondicionesDelProyecto = () => {
                 'Incluye formación de 1 h para gestionar productos, pedidos y el día a día.',
                 'El dominio es tuyo. Hosting para arrancar, confirmado en la propuesta.',
                 'El mantenimiento de la tienda se valora aparte. No se activa solo por publicar.',
-              ]}
-            />
-
-            <ConditionBlock
-              title='Web profesional de lanzamiento'
-              intro={
-                <>
-                  Web de servicios de hasta cinco secciones: 399 € + IVA. El precio
-                  concreto va por escrito. Primero te contactamos y confirmamos
-                  el proyecto. Se paga 50% al empezar y 50% antes de publicar.
-                </>
-              }
-              href={`${ADS_LAUNCH_LANDING_PATH}#contacto`}
-              hrefLabel='Ver la oferta'
-              items={[
-                'Garantía técnica de 60 días desde la publicación: corrección sin coste de fallos atribuibles a nuestra entrega dentro del alcance acordado. No incluye cambios de alcance, diseño o contenido, mantenimiento ni incidencias de terceros o servicios externos; no garantiza visitas, ventas o posicionamiento.',
-                `Queda lista en ${LAUNCH_DELIVERY_LABEL} desde que nos entregas la información de tu negocio. El reloj empieza cuando nos llega ese material.`,
-                'Tú entregas logo, textos y fotos. Hosting incluido. El dominio lo pagas tú: 12 € al año, a tu nombre.',
-                'Sin permanencia. La web es tuya.',
-                'Se paga 50% al empezar y 50% antes de publicar.',
-                'El mantenimiento después de publicar es opcional. No hace falta para acceder a la oferta.',
               ]}
             />
 

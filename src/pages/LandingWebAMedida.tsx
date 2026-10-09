@@ -26,6 +26,7 @@ import LaunchExitPopup from '../components/LaunchExitPopup';
 import { usePageMeta } from '../hooks/usePageMeta';
 import {
   ADS_CUSTOM_WEB_EXIT_FORM_ORIGIN,
+  ADS_CUSTOM_WEB_LANDING_PATH,
   buildWhatsAppUrl,
 } from '../config/contact';
 
@@ -137,7 +138,7 @@ const faqs = [
   },
 ];
 export default function LandingWebAMedida() {
-  usePageMeta('/landing-web-a-medida');
+  usePageMeta(ADS_CUSTOM_WEB_LANDING_PATH);
   const [showcaseIds] = useState(() =>
     pickRandomProjectIds(
       ALL_SHOWCASE_PROJECT_IDS,

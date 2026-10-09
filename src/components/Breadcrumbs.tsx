@@ -8,7 +8,6 @@ const labels: Record<string, string> = {
   '/sobre-36web': 'Nuestra agencia',
   '/blog': 'Blog',
   '/trabaja-con-nosotros': 'Trabaja con nosotros',
-  '/landing-web-profesional': 'Web profesional',
   '/landing-web-a-medida': 'Web a medida',
   '/landing-web-psicologos': 'Web para psicólogos',
   '/landing-web-profesional-inmobiliarias': 'Web para inmobiliarias',

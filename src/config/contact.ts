@@ -149,15 +149,18 @@ export const talentApplyPath = (ciudad: string) =>
 
 export const talentLandingOrigin = (slug: string) => `landing_local_${slug}`;
 
-/** Landing de Ads de este servicio. Futuros servicios: /landing-{slug}. */
+/** Landing de Ads de diseño web. Redirige a web a medida. */
 export const ADS_LANDING_PATH = '/landing-diseno-web';
 export const ADS_LANDING_PATH_N = '/landing-diseño-web';
+
+/** Landing de Ads de diseño web. Destino de campañas y de las URLs retiradas. */
+export const ADS_CUSTOM_WEB_LANDING_PATH = '/landing-web-a-medida';
 
 export const ADS_SHOP_LANDING_PATH = '/landing-tiendas-online';
 
 export const ADS_MAINTENANCE_LANDING_PATH = '/landing-mantenimiento-web';
 
-/** Landing de oferta de lanzamiento paquetizada. Las landings no se indexan. */
+/** Antigua oferta 399 €. Redirige a web a medida. */
 export const ADS_LAUNCH_LANDING_PATH = '/landing-web-profesional';
 export const ADS_REAL_ESTATE_LANDING_PATH =
   '/landing-web-profesional-inmobiliarias';
@@ -182,9 +185,7 @@ export const isAdsMaintenanceLandingPath = (pathname: string): boolean =>
   normalizePath(pathname) === ADS_MAINTENANCE_LANDING_PATH;
 
 export const isAdsLaunchLandingPath = (pathname: string): boolean =>
-  [ADS_LAUNCH_LANDING_PATH, ADS_REAL_ESTATE_LANDING_PATH].includes(
-    normalizePath(pathname),
-  );
+  normalizePath(pathname) === ADS_REAL_ESTATE_LANDING_PATH;
 
 export const isAdsGoogleAdsLandingPath = (pathname: string): boolean =>
   normalizePath(pathname) === ADS_GOOGLE_ADS_LANDING_PATH;
@@ -193,9 +194,11 @@ export const isAdsMaintenanceInfraLandingPath = (pathname: string): boolean =>
   normalizePath(pathname) === ADS_MAINTENANCE_INFRA_LANDING_PATH;
 
 export const isAdsLandingPath = (pathname: string): boolean =>
-  ['/landing-web-a-medida', '/landing-web-psicologos'].includes(
-    normalizePath(pathname),
-  ) ||
+  [
+    ADS_CUSTOM_WEB_LANDING_PATH,
+    '/landing-web-psicologos',
+    ADS_LAUNCH_LANDING_PATH,
+  ].includes(normalizePath(pathname)) ||
   isAdsWebLandingPath(pathname) ||
   isAdsShopLandingPath(pathname) ||
   isAdsMaintenanceLandingPath(pathname) ||

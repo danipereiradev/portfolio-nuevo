@@ -82,7 +82,6 @@ const injectRoot = (html, inner) =>
 const injectBeforeRoot = (html, inner) =>
   html.replace(/<div id="root"><\/div>/, `${inner}<div id="root"></div>`);
 
-const ADS_LAUNCH_LANDING_PATH = '/landing-web-profesional';
 const SITE_SHOP_PATH = '/tiendas-online';
 const SITE_MAINTENANCE_PATH = '/mantenimiento-web';
 
@@ -484,8 +483,6 @@ for (const [routePath, meta] of Object.entries(pagesMeta)) {
     html = injectBeforeRoot(html, buildMantenimientoWebHeroHtml());
     html = injectLaunchBootHeroCss(html);
     html = injectModulePreload(html, findAsset('MantenimientoWeb-'));
-  } else if (routePath === ADS_LAUNCH_LANDING_PATH) {
-    html = injectModulePreload(html, findAsset('LandingWebProfesional-'));
   } else if (
     routePath !== '/' &&
     !(typeof meta.robots === 'string' && meta.robots.includes('noindex'))

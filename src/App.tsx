@@ -19,6 +19,7 @@ import {
   ADS_LANDING_PATH,
   ADS_LANDING_PATH_N,
   ADS_LAUNCH_LANDING_PATH,
+  ADS_CUSTOM_WEB_LANDING_PATH,
   ADS_REAL_ESTATE_LANDING_PATH,
   ADS_MAINTENANCE_LANDING_PATH,
   ADS_MAINTENANCE_INFRA_LANDING_PATH,
@@ -53,10 +54,6 @@ const Aplicaciones = lazy(() => import('./pages/Aplicaciones'));
 const MantenimientoWeb = lazy(() => import('./pages/MantenimientoWeb'));
 const Blog = lazy(() => import('./pages/Blog'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
-const LandingWeb = lazy(() => import('./pages/LandingWeb'));
-const LandingWebProfesional = lazy(
-  () => import('./pages/LandingWebProfesional'),
-);
 const LandingWebInmobiliarias = lazy(() => import('./pages/LandingWebInmobiliarias'));
 const LandingShop = lazy(() => import('./pages/LandingShop'));
 const LandingMaintenance = lazy(() => import('./pages/LandingMaintenance'));
@@ -135,7 +132,7 @@ function AppContent() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/landing-web-psicologos' element={<LandingWebPsicologos />} />
-            <Route path='/landing-web-a-medida' element={<LandingWebAMedida />} />
+            <Route path={ADS_CUSTOM_WEB_LANDING_PATH} element={<LandingWebAMedida />} />
             <Route path={ABOUT_PATH} element={<Nosotros />} />
             <Route path={SITE_WEB_PATH} element={<DisenoWeb />} />
             <Route
@@ -155,14 +152,17 @@ function AppContent() {
             <Route path={SITE_MAINTENANCE_PATH} element={<MantenimientoWeb />} />
             <Route path={BLOG_PATH} element={<Blog />} />
             <Route path={`${BLOG_PATH}/:slug`} element={<BlogPost />} />
-            <Route path={ADS_LANDING_PATH} element={<LandingWeb />} />
+            <Route
+              path={ADS_LANDING_PATH}
+              element={<Navigate to={ADS_CUSTOM_WEB_LANDING_PATH} replace />}
+            />
             <Route
               path={ADS_LANDING_PATH_N}
-              element={<Navigate to={ADS_LANDING_PATH} replace />}
+              element={<Navigate to={ADS_CUSTOM_WEB_LANDING_PATH} replace />}
             />
             <Route
               path={ADS_LAUNCH_LANDING_PATH}
-              element={<LandingWebProfesional />}
+              element={<Navigate to={ADS_CUSTOM_WEB_LANDING_PATH} replace />}
             />
             <Route path={ADS_REAL_ESTATE_LANDING_PATH} element={<LandingWebInmobiliarias />} />
             <Route path={ADS_SHOP_LANDING_PATH} element={<LandingShop />} />

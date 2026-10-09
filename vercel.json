@@ -41,58 +41,78 @@
       "permanent": true
     },
     {
+      "source": "/landing-diseno-web",
+      "destination": "/landing-web-a-medida",
+      "permanent": true
+    },
+    {
+      "source": "/landing-diseno-web/",
+      "destination": "/landing-web-a-medida",
+      "permanent": true
+    },
+    {
+      "source": "/landing-web-profesional",
+      "destination": "/landing-web-a-medida",
+      "permanent": true
+    },
+    {
+      "source": "/landing-web-profesional/",
+      "destination": "/landing-web-a-medida",
+      "permanent": true
+    },
+    {
       "source": "/web-profesional-a-medida",
-      "destination": "/landing-diseno-web",
+      "destination": "/landing-web-a-medida",
       "permanent": true
     },
     {
       "source": "/web-profesional-a-medida/",
-      "destination": "/landing-diseno-web",
+      "destination": "/landing-web-a-medida",
       "permanent": true
     },
     {
       "source": "/landing-diseño-web",
-      "destination": "/landing-diseno-web",
+      "destination": "/landing-web-a-medida",
       "permanent": true
     },
     {
       "source": "/landing-diseño-web/",
-      "destination": "/landing-diseno-web",
+      "destination": "/landing-web-a-medida",
       "permanent": true
     },
     {
       "source": "/landing-express",
-      "destination": "/landing-diseno-web",
+      "destination": "/landing-web-a-medida",
       "permanent": true
     },
     {
       "source": "/web-autonomos-pymes",
-      "destination": "/landing-diseno-web",
+      "destination": "/landing-web-a-medida",
       "permanent": true
     },
     {
       "source": "/web-profesional-360",
-      "destination": "/landing-diseno-web",
+      "destination": "/landing-web-a-medida",
       "permanent": true
     },
     {
       "source": "/web-profesional-360/",
-      "destination": "/landing-diseno-web",
+      "destination": "/landing-web-a-medida",
       "permanent": true
     },
     {
       "source": "/web-profesional-negocios",
-      "destination": "/landing-diseno-web",
+      "destination": "/landing-web-a-medida",
       "permanent": true
     },
     {
       "source": "/web-start",
-      "destination": "/landing-diseno-web",
+      "destination": "/landing-web-a-medida",
       "permanent": true
     },
     {
       "source": "/web-start/",
-      "destination": "/landing-diseno-web",
+      "destination": "/landing-web-a-medida",
       "permanent": true
     },
     {
@@ -117,77 +137,22 @@
     },
     {
       "source": "/web-profesional",
-      "destination": "/landing-diseno-web",
-      "permanent": true
-    },
-    {
-      "source": "/mantenimiento-web",
-      "destination": "/landing-diseno-web",
-      "permanent": true
-    },
-    {
-      "source": "/about",
-      "destination": "/landing-diseno-web",
-      "permanent": true
-    },
-    {
-      "source": "/about-me",
-      "destination": "/landing-diseno-web",
-      "permanent": true
-    },
-    {
-      "source": "/sobre-mi",
-      "destination": "/landing-diseno-web",
-      "permanent": true
-    },
-    {
-      "source": "/sobre-el-estudio",
-      "destination": "/landing-diseno-web",
-      "permanent": true
-    },
-    {
-      "source": "/contact",
-      "destination": "/landing-diseno-web",
-      "permanent": true
-    },
-    {
-      "source": "/contacto",
-      "destination": "/landing-diseno-web",
-      "permanent": true
-    },
-    {
-      "source": "/preguntas-frecuentes",
-      "destination": "/landing-diseno-web",
-      "permanent": true
-    },
-    {
-      "source": "/casos-de-exito",
-      "destination": "/landing-diseno-web",
-      "permanent": true
-    },
-    {
-      "source": "/testimonios-clientes",
-      "destination": "/landing-diseno-web",
-      "permanent": true
-    },
-    {
-      "source": "/gracias",
-      "destination": "/landing-diseno-web",
+      "destination": "/landing-web-a-medida",
       "permanent": true
     },
     {
       "source": "/paginas-web-empresas",
-      "destination": "/landing-diseno-web",
+      "destination": "/landing-web-a-medida",
       "permanent": true
     },
     {
       "source": "/desarrollo-aplicaciones-web",
-      "destination": "/landing-diseno-web",
+      "destination": "/landing-web-a-medida",
       "permanent": true
     },
     {
       "source": "/posicionamiento-web-seo",
-      "destination": "/landing-diseno-web",
+      "destination": "/landing-web-a-medida",
       "permanent": true
     },
     {
@@ -195,7 +160,7 @@
       "destination": "/tiendas-online",
       "permanent": true
     },
-    { "source": "/ia", "destination": "/landing-diseno-web", "permanent": true }
+    { "source": "/ia", "destination": "/landing-web-a-medida", "permanent": true }
   ],
   "rewrites": [
     {
@@ -207,12 +172,8 @@
       "destination": "/diseno-web/:slug/index.html"
     },
     {
-      "source": "/landing-diseno-web",
-      "destination": "/landing-diseno-web/index.html"
-    },
-    {
-      "source": "/landing-web-profesional",
-      "destination": "/landing-web-profesional/index.html"
+      "source": "/landing-web-a-medida",
+      "destination": "/landing-web-a-medida/index.html"
     },
     {
       "source": "/landing-tiendas-online",
