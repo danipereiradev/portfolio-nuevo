@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import {
   Globe,
   MessageCircle,
@@ -24,35 +25,67 @@ import {
   buildWhatsAppUrl,
 } from '../config/contact';
 
+const punch = (text: string) => (
+  <strong className='font-extrabold text-accent'>{text}</strong>
+);
+
 function SuccessCases() {
-  const cases = [
+  const cases: {
+    name: string;
+    category: string;
+    title: ReactNode;
+    image: string;
+    url: string;
+    challenge: ReactNode;
+    solution: ReactNode;
+    result: ReactNode;
+    note?: string;
+  }[] = [
     {
       name: 'Clínica Hatena',
       category: 'Web de servicios · Ourense',
-      title:
-        'Menos de 2 segundos para cargar. Más fácil conocer la clínica y contactar.',
+      title: (
+        <>
+          {punch('Menos de 2 segundos para cargar.')} Más fácil conocer la
+          clínica y contactar.
+        </>
+      ),
       image: '/img/portfolio/new/hatena.webp',
       url: 'https://hatena.es/',
       challenge:
         'Presentar la clínica y sus servicios con claridad, facilitar el contacto y trabajar su presencia en las búsquedas locales de Ourense.',
       solution:
         'Diseñamos una web a medida que da protagonismo a la clínica, ordena sus servicios y cuida la velocidad y la estructura para el posicionamiento local.',
-      result:
-        'Páginas que cargan en menos de 1 segundo y un recorrido directo para conocer la clínica y contactar. Una base rápida y clara para su presencia en Ourense.',
+      result: (
+        <>
+          Páginas que cargan {punch('en menos de 1 segundo')} y un recorrido
+          directo para conocer la clínica y contactar. Una base rápida y clara
+          para su presencia en Ourense.
+        </>
+      ),
       note: 'El tiempo de carga puede variar según la conexión y el dispositivo.',
     },
     {
       name: 'Camisetas Ahora',
       category: 'Tienda online · Productos personalizados',
-      title: 'De un personalizador limitado a diseñar con libertad.',
+      title: (
+        <>
+          De un personalizador limitado a {punch('diseñar con libertad')}.
+        </>
+      ),
       image: '/img/portfolio/new/camisetas.webp',
       url: 'https://camisetas-ahora.com/',
       challenge:
         'El personalizador basado en un plugin funcionaba, pero su experiencia de uso era limitada. Crear un producto con tu propio diseño debía ser mucho más cómodo.',
       solution:
         'Rediseñamos la tienda WooCommerce con un tema creado especialmente para ellas y desarrollamos un personalizador visual adaptado a sus productos.',
-      result:
-        'Ahora puedes subir tu diseño, moverlo, cambiar su tamaño y preparar una o dos impresiones. Ves cómo queda antes de añadirlo al carrito: una experiencia más rápida, visual y cómoda.',
+      result: (
+        <>
+          Ahora puedes subir tu diseño, moverlo, cambiar su tamaño y preparar
+          una o dos impresiones. {punch('Ves cómo queda antes de añadirlo al carrito')}
+          : una experiencia {punch('más rápida, visual y cómoda')}.
+        </>
+      ),
     },
   ];
   return (
