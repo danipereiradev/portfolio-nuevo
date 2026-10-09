@@ -98,7 +98,7 @@ const faqs = [
   {
     question: '¿Cuánto cuesta una web a medida?',
     answer:
-      'Depende de lo que necesite tu proyecto. Primero hablamos de tus objetivos, diseño y funcionalidades. Después recibes una propuesta personalizada, con presupuesto y condiciones por escrito antes de decidir.',
+      'Como orientación, una web puede costar entre 350 y 3.000 € + IVA, según el diseño y las funcionalidades. Cuéntanos qué necesitas y recibirás un presupuesto personalizado por escrito antes de decidir.',
   },
   {
     question: '¿Tengo que tener claro todo lo que necesito?',
