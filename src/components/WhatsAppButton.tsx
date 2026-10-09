@@ -1,8 +1,11 @@
 import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { MessageCircle, Phone } from 'lucide-react';
 import {
   trackWhatsAppClick,
   trackGoogleAdsWhatsAppConversion,
   trackMaintenanceWhatsAppClick,
+  trackPhoneClick,
 } from '../utils/analytics';
 import {
   buildWhatsAppUrl,
@@ -12,10 +15,47 @@ import {
   isAdsLaunchLandingPath,
   isLegalPath,
   isFormThanksPath,
+  PHONE_TEL_LINK,
+  ADS_CUSTOM_WEB_LANDING_PATH,
 } from '../config/contact';
+
+function CustomWebContactBar() {
+  const [editing, setEditing] = useState(false);
+  useEffect(() => {
+    const update = () => setEditing(Boolean(document.activeElement?.matches('input, textarea, select, [contenteditable="true"]')));
+    document.addEventListener('focusin', update);
+    document.addEventListener('focusout', update);
+    return () => {
+      document.removeEventListener('focusin', update);
+      document.removeEventListener('focusout', update);
+    };
+  }, []);
+  const url = buildWhatsAppUrl(getWhatsAppMessageForPath(ADS_CUSTOM_WEB_LANDING_PATH));
+  return (
+    <>
+      <style>{`@media (max-width: 767px) { body { padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px)); } }`}</style>
+      <nav aria-label='Contactar con 36WEB' hidden={editing} className={`${editing ? 'hidden' : 'flex'} md:hidden fixed bottom-0 inset-x-0 z-40 gap-3 border-t border-gray-200 bg-white px-4 pt-3 shadow-[0_-4px_16px_rgba(0,0,0,0.08)]`} style={{ paddingBottom: 'calc(12px + env(safe-area-inset-bottom, 0px))' }}>
+        <a href={url} target='_blank' rel='noopener noreferrer' onClick={(event) => {
+          event.preventDefault();
+          trackWhatsAppClick('CustomWebMobileBar');
+          trackGoogleAdsWhatsAppConversion(url);
+        }} className='flex min-h-12 flex-1 items-center justify-center gap-2 rounded-lg bg-[#128C4A] px-3 py-3 font-bold text-white'>
+          <MessageCircle className='h-5 w-5' aria-hidden='true' /> WhatsApp
+        </a>
+        <a href={PHONE_TEL_LINK} onClick={() => trackPhoneClick('CustomWebMobileBar')} className='flex min-h-12 flex-1 items-center justify-center gap-2 rounded-lg border-2 border-accent px-3 py-3 font-bold text-accent'>
+          <Phone className='h-5 w-5' aria-hidden='true' /> Llamar
+        </a>
+      </nav>
+    </>
+  );
+}
 
 const WhatsAppButton = () => {
   const { pathname } = useLocation();
+
+  if (pathname.replace(/\/$/, '') === ADS_CUSTOM_WEB_LANDING_PATH.replace(/\/$/, '')) {
+    return <CustomWebContactBar />;
+  }
 
   if (
     isHomePath(pathname) ||

@@ -62,6 +62,7 @@ interface PortfolioProps {
   urls?: Partial<Record<ProjectId, string>>;
   /** Sustituye el título visible. */
   titles?: Partial<Record<ProjectId, string>>;
+  descriptions?: Partial<Record<ProjectId, string>>;
   onProjectClick?: (id: ProjectId) => void;
   headingLabel?: ReactNode;
   headingTitle?: ReactNode;
@@ -287,6 +288,7 @@ const Portfolio = ({
   ids,
   images,
   titles,
+  descriptions,
   onProjectClick,
   headingLabel,
   headingTitle,
@@ -598,6 +600,7 @@ const Portfolio = ({
       ...projectsById[id],
       id,
       title: titles?.[id] ?? projectsById[id].title,
+      description: descriptions?.[id] ?? projectsById[id].description,
       image: images?.[id] ?? projectsById[id].image,
     }),
   );

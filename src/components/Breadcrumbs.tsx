@@ -1,5 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import { SERVICE_NAV } from '../config/nav';
+import { isAdsLandingPath } from '../config/contact';
 
 const labels: Record<string, string> = {
   ...Object.fromEntries(SERVICE_NAV.map(({ href, label }) => [href, label])),
@@ -8,10 +9,6 @@ const labels: Record<string, string> = {
   '/sobre-36web': 'Nuestra agencia',
   '/blog': 'Blog',
   '/trabaja-con-nosotros': 'Trabaja con nosotros',
-  '/landing-web-a-medida': 'Web a medida',
-  '/landing-web-psicologos': 'Web para psicólogos',
-  '/landing-web-profesional-inmobiliarias': 'Web para inmobiliarias',
-  '/landing-mantenimiento-web': 'Mantenimiento web',
   '/condiciones-del-proyecto': 'Condiciones del proyecto',
   '/politica-de-privacidad': 'Política de privacidad',
   '/terminos-y-condiciones': 'Términos y condiciones',
@@ -24,7 +21,7 @@ const HERO_BREADCRUMB_PATHS = new Set(SERVICE_NAV.map(({ href }) => href));
 export default function Breadcrumbs() {
   const { pathname } = useLocation();
   const path = pathname.replace(/\/+$/, '');
-  if (HERO_BREADCRUMB_PATHS.has(path)) return null;
+  if (isAdsLandingPath(pathname) || HERO_BREADCRUMB_PATHS.has(path)) return null;
   const label = labels[path];
   if (!label) return null;
   return (
