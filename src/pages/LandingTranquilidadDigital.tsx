@@ -19,7 +19,7 @@ import {
 import Button from '../components/Button';
 import SEOFAQ from '../components/SEOFAQ';
 import { usePageMeta } from '../hooks/usePageMeta';
-import { buildWhatsAppUrl, PHONE_TEL_LINK } from '../config/contact';
+import { buildWhatsAppUrl, PHONE_TEL_LINK, getTranquilitySource } from '../config/contact';
 import {
   trackWhatsAppClick,
   trackGoogleAdsWhatsAppConversion,
@@ -231,13 +231,14 @@ function SuccessCases() {
 }
 
 export default function LandingTranquilidadDigital({ adsLanding = false }: { adsLanding?: boolean }) {
+  const contactOrigin = getTranquilitySource();
   const pagePath = adsLanding ? '/landing-tranquilidad-digital' : '/tranquilidad-digital';
   const [openCondition, setOpenCondition] = useState<number | null>(null);
   usePageMeta(pagePath);
   useEffect(() => {
     if (getMeasurementConsent()?.analytics)
-      trackEvent('tranquilidad_view', { service: 'tranquilidad_digital', landing_path: pagePath });
-  }, [pagePath]);
+      trackEvent('tranquilidad_view', { service: 'tranquilidad_digital', landing_path: pagePath, acquisition_source: contactOrigin ?? 'direct_or_other' });
+  }, [pagePath, contactOrigin]);
   return (
     <>
       <section className='bg-surface-muted px-5 pb-16 pt-[calc(var(--site-header-h)+var(--page-hero-offset)+0.5rem)] md:pb-24'>
@@ -359,7 +360,7 @@ export default function LandingTranquilidadDigital({ adsLanding = false }: { ads
                 <p className='text-sm mb-7'>{plan.detail}</p>
                 <div className='mt-auto'>
                   <Button
-                    href={`/pago/tranquilidad-digital?plan=${plan.name.toLowerCase()}${adsLanding ? '&origin=ads' : ''}`}
+                    href={`/pago/tranquilidad-digital?plan=${plan.name.toLowerCase()}${contactOrigin ? `&origin=${contactOrigin}` : ''}`}
                     allowAdsOutbound
                     className='!m-0 !w-full'
                     onClick={() =>

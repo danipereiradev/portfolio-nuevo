@@ -85,8 +85,22 @@ export const PORTFOLIO_WHATSAPP_MESSAGE =
 export const CLIENT_REFERENCE_WHATSAPP_MESSAGE =
   'Hola, estoy valorando trabajar con 36web y me gustaría hablar con uno de vuestros clientes para conocer su experiencia.';
 
-export const buildWhatsAppUrl = (message: string = DEFAULT_WHATSAPP_MESSAGE) =>
-  `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`;
+/** Origen explícito; no identifica como Instagram las visitas directas. */
+export const getTranquilitySource = (): string | undefined => {
+  if (typeof window === 'undefined') return undefined;
+  const { pathname, search } = window.location;
+  if (!pathname.includes('tranquilidad-digital')) return undefined;
+  const params = new URLSearchParams(search);
+  if (pathname.includes('landing-tranquilidad-digital') || params.get('origin') === 'ads' || params.has('gclid')) return 'ads';
+  if (params.get('utm_source')?.toLowerCase() === 'instagram' || params.get('origin') === 'instagram') return 'instagram';
+  return undefined;
+};
+
+export const buildWhatsAppUrl = (message: string = DEFAULT_WHATSAPP_MESSAGE) => {
+  const source = getTranquilitySource();
+  const origin = source === 'ads' ? ' Vengo de Google Ads.' : source === 'instagram' ? ' Vengo de Instagram.' : '';
+  return `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message + origin)}`;
+};
 
 // Quita la barra final de una ruta (salvo si es la raíz "/"), para que las
 // comparaciones exactas de pathname no fallen si la URL llega con "/" al
