@@ -1,14 +1,23 @@
+import { Team } from '../components/Team';
+import { useEffect, useState } from 'react';
+import {
+  tranquilityPlans as plans,
+  tranquilityScope,
+  tranquilityCancellation,
+  tranquilityAttention,
+} from '../config/tranquility';
+import { allTestimonials } from '../data/testimonials';
+import { getMeasurementConsent } from '../utils/measurementConsent';
 import {
   Check,
   MessageCircle,
   Phone,
   ShieldCheck,
-  Frown,
   ArrowRight,
+  ChevronDown,
 } from 'lucide-react';
 import Button from '../components/Button';
 import SEOFAQ from '../components/SEOFAQ';
-import Testimonials from '../components/Testimonials';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { buildWhatsAppUrl, PHONE_TEL_LINK } from '../config/contact';
 import {
@@ -16,65 +25,11 @@ import {
   trackGoogleAdsWhatsAppConversion,
   trackPhoneClick,
   trackCtaClick,
+  trackEvent,
 } from '../utils/analytics';
 
-const plans = [
-  {
-    name: 'Esencial',
-    price: '59,90',
-    total: '72,48',
-    checkout: 'https://buy.stripe.com/aFaaEX7CrfSU1wV29c4AU0b',
-    intro: 'Tu negocio en internet, con alguien que se ocupa.',
-    features: [
-      'Web o tienda online incluida, con hasta 5 secciones',
-      'Dominio estándar y su renovación, alojamiento, SSL y mantenimiento técnico',
-      'Configuración inicial de herramientas de Google que correspondan a tu negocio',
-      'Enlaces e integración básica de tus redes sociales',
-      'Atención personal para las incidencias del servicio',
-    ],
-    detail:
-      'Sin cambios de contenido incluidos. Si necesitas uno, lo valoramos contigo antes de hacerlo.',
-  },
-  {
-    name: 'Impulso',
-    price: '99,90',
-    total: '120,88',
-    checkout: 'https://buy.stripe.com/fZucN55uj7mo7Vjg024AU0c',
-    intro: 'Una presencia digital que avanza contigo.',
-    features: [
-      'Web o tienda online incluida, sin límite de secciones',
-      'Los servicios de Esencial, ampliando su límite de secciones',
-      'Monitorización automatizada 24/7',
-      '3 pequeños cambios al mes: textos, imágenes, horarios o precios',
-      'Revisión SEO y mejoras sobre las páginas existentes',
-      'Seguimiento de las prioridades de tu web',
-      'Orientación para tus próximos pasos digitales',
-    ],
-    detail:
-      'Incluye 3 ajustes puntuales al mes sobre el contenido existente. Las nuevas funcionalidades se valoran aparte. Concretamos las tareas SEO antes de contratar.',
-  },
-  {
-    name: 'Integral',
-    price: '199,90',
-    total: '241,88',
-    checkout: 'https://buy.stripe.com/9B6dR99Kz6ikfnL4hk4AU0d',
-    intro: 'Tu web evoluciona al ritmo de tus ideas.',
-    features: [
-      'Web o tienda online incluida, sin límite de secciones',
-      'Todo lo incluido en Impulso',
-      'Monitorización automatizada 24/7',
-      'Cambios ilimitados: una petición a la vez',
-      'Seguimiento SEO continuado',
-      'Planificación de mejoras de contenido y diseño',
-      'Atención prioritaria dentro del horario de servicio',
-    ],
-    detail:
-      'Sin límite de peticiones de cambios sobre tu web. Trabajamos una a la vez y, al terminarla, pasamos a la siguiente. Los desarrollos nuevos se valoran aparte.',
-  },
-];
-
 function ContactButton({
-  label = 'Hablemos de tu negocio',
+  label = 'Cuéntanos qué necesitas',
   plan,
 }: {
   label?: string;
@@ -104,20 +59,6 @@ function ContactButton({
 
 const successCases = [
   {
-    name: 'Micolet',
-    sector: 'Moda de segunda mano',
-    image: 'micolet',
-    url: 'https://www.micolet.com/',
-    nofollow: true,
-    title: 'Un catálogo amplio, fácil de comprar online.',
-    challenge:
-      'Presentar moda de segunda mano y outlet con un catálogo muy amplio y que encontrar y comprar fuera sencillo.',
-    solution:
-      'Una tienda online con categorías claras, búsqueda y un recorrido de compra directo.',
-    result:
-      'Los clientes exploran mujer, hombre e infantil, ven las ofertas y compran online. Catálogo, envíos y devoluciones a la vista.',
-  },
-  {
     name: 'Camisetas Ahora',
     sector: 'Productos personalizados',
     image: 'camisetas',
@@ -131,172 +72,86 @@ const successCases = [
       'Personalizar es ahora más cómodo y visual: el cliente sube su diseño, lo mueve y ajusta el tamaño, prepara una o dos impresiones y ve el resultado antes de añadirlo al carrito. Menos dudas sobre lo que está comprando y más control sobre su pedido.',
   },
   {
-    name: 'Chicxsdelacalle',
-    sector: 'Merch de bandas',
-    image: 'chicxs',
-    url: 'https://chicxsdelacalle.com/',
-    title: 'Más ventas para una marca con identidad propia.',
-    challenge:
-      'Dar una presencia online al merchandising de bandas y organizar su venta.',
-    solution:
-      'Una tienda con catálogo, gestión de stock y pedidos para sus productos.',
-    result:
-      'Desde que trabaja con 36WEB, Chicxsdelacalle ha aumentado sus ventas. Su tienda reúne el merchandising, facilita la compra online y permite gestionar catálogo, stock y pedidos en un mismo lugar.',
-  },
-  {
     name: 'Clínica Hatena',
     sector: 'Clínica veterinaria · Ourense',
     image: 'hatena',
     url: 'https://hatena.es/',
-    title: 'Menos de 2 segundos para cargar. Más fácil contactar.',
+    title: 'Servicios claros y un camino directo para contactar.',
     challenge:
       'Presentar la clínica y sus servicios con claridad y cuidar su presencia local en Ourense.',
     solution:
       'Diseño a medida, estructura orientada al SEO local y optimización de carga.',
     result:
-      'Páginas que cargan en menos de 2 segundos y un recorrido claro para conocer la clínica y contactar.',
-  },
-  {
-    name: 'Delish Vegan',
-    sector: 'Repostería vegana · Madrid',
-    image: 'delish',
-    url: 'https://delishvegan.com/',
-    nofollow: true,
-    title: 'Más ventas, más allá de las puertas de su local.',
-    challenge:
-      'Llevar sus productos más allá del local y facilitar la compra a distancia.',
-    solution:
-      'Una tienda online para presentar su repostería vegana y recibir pedidos con envío nacional.',
-    result:
-      'Delish Vegan ha aumentado sus ventas desde que trabaja con 36WEB. Sus clientes pueden descubrir la repostería, elegir sus productos y hacer pedidos con envío nacional sin acercarse al local.',
+      'Una web optimizada para móvil, con los servicios de la clínica y el contacto a la vista. Puedes comprobar el recorrido visitando la web.',
   },
 ];
 
-const comparisonRows = [
-  {
-    label: '¿Quién hace la web?',
-    diy: 'Tú. Montas plantillas y decides cada detalle.',
-    ai: 'Tú, con ayuda de un generador. Luego tienes que pulirlo.',
-    us: 'El equipo. Solo aportas textos y fotos.',
-  },
-  {
-    label: 'Cuota aproximada',
-    diy: 'Una cuota baja de la plataforma, cada mes.',
-    ai: 'Suele salir barato, a menudo con pago anual.',
-    us: 'Desde 59,90 € + IVA / mes. Web o tienda online incluida.',
-  },
-  {
-    label: 'Si necesitas ayuda',
-    diy: 'Chat automático o tickets.',
-    ai: 'Centro de ayuda o un chat genérico.',
-    us: 'Una persona que conoce tu proyecto. Por teléfono o videollamada',
-  },
-  {
-    label: 'Tu tiempo',
-    diy: 'Alto. Horas de diseño, ajustes y dudas.',
-    ai: 'Medio. Empieza rápido, pero lo tienes que dejar listo tú.',
-    us: 'Bajo. Nos das contenidos y revisas. El resto lo hacemos.',
-  },
-  {
-    label: 'Errores, bugs y diseño',
-    diy: 'Los resuelves tú: foros, tutoriales y prueba-error.',
-    ai: 'Suelen quedar fallos. Los detectas y los arreglas tú.',
-    us: 'Nos lo dices y lo corregimos nosotros.',
-  },
-  {
-    label: 'Mantenimiento y SEO',
-    diy: 'Lo gestionas tú.',
-    ai: 'Lo gestionas tú.',
-    us: 'Incluido en el plan.',
-  },
-];
-
-function Comparison() {
+function TrustSection() {
+  const review = allTestimonials.find((item) => item.name === 'Juanvi Raga');
   return (
     <section
-      className='px-5 py-16 md:py-24 bg-surface-muted'
-      aria-labelledby='compare-title'
+      id='testimonials'
+      className='max-w-6xl mx-auto px-5 py-12'
+      aria-label='Equipo y opiniones de clientes'
     >
-      <div className='max-w-6xl mx-auto'>
-        <p className='font-bold text-accent mb-3'>Por qué no es lo mismo</p>
-        <h2 id='compare-title' className='text-3xl md:text-5xl font-bold mb-5'>
-          La diferencia es quién trabaja.
-        </h2>
-        <p className='text-lg max-w-3xl mb-10'>
-          Con plantillas o con un creador de IA montas tú la web y sigues
-          ocupándote. Con nosotros aportas textos y fotos: diseñamos, publicamos
-          y mantenemos.
-        </p>
-        <div className='hidden overflow-hidden rounded-2xl border border-accent/20 bg-white md:block'>
-          <table className='w-full text-left'>
-            <caption className='sr-only'>
-              Comparativa entre hacerlo tú con plantillas, con un creador de IA
-              y Tranquilidad Digital.
-            </caption>
-            <thead>
-              <tr className='bg-surface-muted'>
-                <th scope='col' className='w-[22%] px-5 py-4 text-sm font-bold'>
-                  <span className='sr-only'>Criterio</span>
-                </th>
-                <th scope='col' className='w-[26%] px-5 py-4 font-bold'>
-                  Plantillas, tú mismo
-                </th>
-                <th scope='col' className='w-[26%] px-5 py-4 font-bold'>
-                  Creador con IA
-                </th>
-                <th
-                  scope='col'
-                  className='w-[26%] px-5 py-4 font-bold text-accent bg-accent/10'
-                >
-                  36WEB por suscripción
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {comparisonRows.map((row, index) => (
-                <tr
-                  key={row.label}
-                  className={
-                    index % 2 === 0 ? 'bg-white' : 'bg-surface-muted/60'
-                  }
-                >
-                  <th scope='row' className='px-5 py-4 align-top font-bold'>
-                    {row.label}
-                  </th>
-                  <td className='px-5 py-4 align-top'>{row.diy}</td>
-                  <td className='px-5 py-4 align-top'>{row.ai}</td>
-                  <td className='px-5 py-4 align-top font-semibold bg-accent/5'>
-                    {row.us}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <div className='flex flex-col gap-5 md:hidden'>
-          {comparisonRows.map((row) => (
-            <article
-              key={row.label}
-              className='rounded-2xl border border-accent/20 bg-white p-5'
+      <Team
+        compact
+        label='El equipo de 36WEB'
+        title='Una persona de referencia. Un equipo detrás.'
+        paragraphs={['Te asignamos un desarrollador que será tu contacto habitual durante el servicio, con el respaldo del resto del equipo.']}
+      />
+      <div className='max-w-3xl mx-auto'>
+        {review && (
+          <figure className='rounded-2xl border border-accent/20 p-6'>
+            <blockquote className='text-lg'>«{review.highlight}»</blockquote>
+            <figcaption className='mt-4 font-bold'>
+              {review.name} · {review.company}
+            </figcaption>
+            <a
+              href={review.sourceUrl}
+              target='_blank'
+              rel='noopener noreferrer'
+              data-ads-outbound='allow'
+              className='inline-block underline mt-3 text-accent'
             >
-              <h3 className='font-bold text-xl mb-4'>{row.label}</h3>
-              <p className='text-sm font-bold mb-1'>Plantillas, tú mismo</p>
-              <p className='mb-4'>{row.diy}</p>
-              <p className='text-sm font-bold mb-1'>Creador con IA</p>
-              <p className='mb-4'>{row.ai}</p>
-              <p className='text-sm font-bold text-accent mb-1'>
-                36WEB por suscripción
-              </p>
-              <p className='font-semibold'>{row.us}</p>
-            </article>
-          ))}
-        </div>
-        <div className='mt-10'>
-          <Button href='#planes' className='!m-0'>
-            Ver planes <ArrowRight className='h-5 w-5' />
-          </Button>
-        </div>
+              Leer la reseña en Google
+            </a>
+            <p className='text-sm mt-2'>
+              Opinión sobre un proyecto de 36WEB; no acredita una contratación
+              de estos planes.
+            </p>
+          </figure>
+        )}
       </div>
+      <a
+        href='https://camisetas-ahora.com/'
+        target='_blank'
+        rel='noopener noreferrer'
+        data-ads-outbound='allow'
+        className='mt-6 flex flex-col sm:flex-row items-center gap-5 rounded-2xl border border-accent/20 p-5'
+      >
+        <img
+          src='/img/portfolio/new/camisetas.webp'
+          alt='Tienda online Camisetas Ahora'
+          width='240'
+          height='160'
+          loading='lazy'
+          className='w-full sm:w-60 rounded-lg'
+        />
+        <div>
+          <h3 className='text-xl font-bold'>
+            Camisetas Ahora: una compra más visual.
+          </h3>
+          <p className='my-2'>
+            Tema propio y personalizador para colocar el diseño y ver el
+            resultado antes de comprar. Es un desarrollo especial; no forma
+            parte automática de la cuota.
+          </p>
+          <span className='text-accent underline font-bold'>
+            Visitar la tienda →
+          </span>
+        </div>
+      </a>
     </section>
   );
 }
@@ -313,9 +168,10 @@ function SuccessCases() {
         Una web que cambia la experiencia de sus clientes.
       </h2>
       <p className='text-lg max-w-3xl mb-10'>
-        Estas webs y tiendas muestran cómo trabajamos. Los desarrollos
-        especiales como gestor de reservas, personalizadores online etc... se
-        incluyen la suscripción.
+        Proyectos reales de 36WEB que puedes visitar. Son ejemplos de nuestro
+        trabajo, no casos acreditados de esta suscripción. Los desarrollos
+        especiales tienen un alcance independiente; los resultados de cada
+        negocio no son una promesa para el tuyo.
       </p>
       <div className='grid md:grid-cols-2 gap-7'>
         {successCases.map((project) => (
@@ -354,11 +210,7 @@ function SuccessCases() {
               <Button
                 href={project.url}
                 target='_blank'
-                rel={
-                  project.nofollow
-                    ? 'nofollow noopener noreferrer'
-                    : 'noopener noreferrer'
-                }
+                rel={'noopener noreferrer'}
                 allowAdsOutbound
                 variant='outline'
                 className='!mt-auto !mx-0 !w-full'
@@ -375,36 +227,48 @@ function SuccessCases() {
 }
 
 export default function LandingTranquilidadDigital() {
+  const [openCondition, setOpenCondition] = useState<number | null>(null);
   usePageMeta('/tranquilidad-digital');
+  useEffect(() => {
+    if (getMeasurementConsent()?.analytics)
+      trackEvent('tranquilidad_view', { service: 'tranquilidad_digital' });
+  }, []);
   return (
     <>
-      <section className='bg-surface-muted px-5 pb-16 pt-[calc(var(--site-header-h)+var(--page-hero-offset)+1.5rem)] md:pb-24'>
+      <section className='bg-surface-muted px-5 pb-16 pt-[calc(var(--site-header-h)+var(--page-hero-offset)+0.5rem)] md:pb-24'>
         <div className='max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 items-center'>
           <div>
-            <p className='font-bold text-accent mb-4'>
-              36WEB · Tu equipo digital por suscripción
+            <p className='font-bold text-sm text-accent mb-3'>
+              36WEB · Acompañamiento digital
             </p>
-            <h1 className='text-4xl md:text-6xl font-bold leading-tight mb-6'>
-              Tú llevas tu negocio.
-              <br />
-              Nosotros cuidamos de lo digital.
+            <h1 className='text-[1.75rem] md:text-5xl font-bold leading-tight mb-4'>
+              Tu web y su mantenimiento, con una persona a quien acudir.
             </h1>
-            <p className='text-xl mb-6'>
-              Tu web o tienda online, su mantenimiento y una persona a quien acudir. Un servicio
-              mensual para dejar de resolverlo todo por tu cuenta, vendas online
-              o no.
+            <p className='text-lg mb-4'>
+              Para autónomos y pequeños negocios que necesitan una web o tienda
+              online, o quieren delegar la que ya tienen.
             </p>
             <p className='text-2xl font-bold mb-2'>Desde 59,90 € + IVA / mes</p>
             <p className='inline-block rounded-lg border border-accent/20 bg-white px-4 py-3 font-bold text-accent mb-3'>
               Tu web o tienda online y dominio incluidos. 0 € de alta.
             </p>
-            <p className='mb-7'>
-              Al contratar, solo pagas la primera cuota mensual. Sin
-              permanencia. Web o tienda online incluida mientras la suscripción esté activa.
+            <div className='flex flex-col sm:flex-row gap-3'>
+              <ContactButton />
+              <Button
+                href='#planes'
+                variant='outline'
+                className='!m-0 !w-full'
+                onClick={() =>
+                  trackCtaClick('Ver planes', 'TranquilidadDigital')
+                }
+              >
+                Ver planes
+              </Button>
+            </div>
+            <p className='mt-4 text-sm'>
+              Sin permanencia. Primero revisamos tu proyecto y recibes alcance,
+              precio y plazo por escrito. Después decides.
             </p>
-            <Button href='#planes' className='!m-0'>
-              Encuentra tu plan <ArrowRight className='h-5 w-5' />
-            </Button>
             <p className='mt-5 text-sm'>
               WhatsApp, llamada o videollamada. Trato directo con una persona
               que conoce tu proyecto.
@@ -424,7 +288,7 @@ export default function LandingTranquilidadDigital() {
               ponemos con ello.
             </p>
             {[
-              'Una web para tu negocio',
+              'Una web o tienda para tu negocio',
               'Lo técnico, acompañado',
               'Una cuota que conoces',
               'Libertad para cancelar',
@@ -440,48 +304,7 @@ export default function LandingTranquilidadDigital() {
           </div>
         </div>
       </section>
-      <section className='max-w-6xl mx-auto px-5 py-16 md:py-20'>
-        <h2 className='text-3xl md:text-4xl font-bold mb-9'>
-          ¿Lo digital te está quitando demasiado tiempo?
-        </h2>
-        <div className='grid sm:grid-cols-2 lg:grid-cols-4 gap-5'>
-          {[
-            [
-              'Tu negocio merece una web mejor',
-              'Pero nunca encuentras el momento de empezar o de renovar la que tienes.',
-            ],
-            [
-              'Cada cambio es un lío',
-              'No sabes a quién pedirlo, cuánto costará o si alguien te responderá.',
-            ],
-            [
-              'Lo técnico te preocupa',
-              'Actualizaciones, errores y mantenimiento que no quieres resolver tú.',
-            ],
-            [
-              'Tienes demasiados interlocutores',
-              'Necesitas a alguien que vea el conjunto y te ayude a decidir.',
-            ],
-          ].map(([title, text]) => (
-            <article
-              key={title}
-              className='rounded-2xl border border-gray-200 p-6'
-            >
-              <Frown
-                className='mx-auto mb-4 h-7 w-7 text-accent md:mx-0'
-                aria-hidden='true'
-              />
-              <h3 className='font-bold text-xl mb-3'>{title}</h3>
-              <p>{text}</p>
-            </article>
-          ))}
-        </div>
-        <p className='text-xl mt-8 max-w-3xl'>
-          No necesitas aprender a hacerlo todo. Necesitas un equipo que entienda
-          tu negocio y se ocupe contigo.
-        </p>
-      </section>
-      <Comparison />
+      <TrustSection />
       <section
         id='planes'
         className='scroll-mt-28 border-t border-accent/10 bg-white px-5 py-16 md:py-24'
@@ -511,10 +334,11 @@ export default function LandingTranquilidadDigital() {
                 </p>
                 <p className='text-sm mt-2 mb-3'>+ IVA · Sin permanencia</p>
                 <p className='rounded-lg bg-surface-muted p-3 font-bold text-accent mb-6'>
-                  Web y dominio .es .com incluidos · 0 € de alta
+                  Web o tienda y dominio incluidos · 0 € de alta
                 </p>
                 <p className='text-sm mb-5'>
-                  Para empezar, solo la primera cuota de {plan.price} € + IVA.
+                  Tras acordar el proyecto, solo la primera cuota de{' '}
+                  {plan.price} € + IVA.
                 </p>
                 <ul className='space-y-4 mb-6'>
                   {plan.features.map((feature) => (
@@ -530,17 +354,17 @@ export default function LandingTranquilidadDigital() {
                 <p className='text-sm mb-7'>{plan.detail}</p>
                 <div className='mt-auto'>
                   <Button
-                    href={plan.checkout}
+                    href={`/pago/tranquilidad-digital?plan=${plan.name.toLowerCase()}`}
                     allowAdsOutbound
                     className='!m-0 !w-full'
                     onClick={() =>
                       trackCtaClick(
-                        `Contratar ${plan.name}`,
-                        'TranquilidadDigital_Stripe',
+                        `Ver condiciones ${plan.name}`,
+                        'TranquilidadDigital_Condiciones',
                       )
                     }
                   >
-                    Contratar {plan.name}
+                    Ver alcance de {plan.name}
                     <ArrowRight
                       className='h-5 w-5 shrink-0'
                       aria-hidden='true'
@@ -570,6 +394,70 @@ export default function LandingTranquilidadDigital() {
                   </a>
                 </div>
               </article>
+            ))}
+          </div>
+          <div className='mt-8 overflow-hidden rounded-2xl border border-accent/20 divide-y divide-accent/20'>
+            {[
+              {
+                title: 'Qué acordamos antes de cobrar',
+                content: (
+                  <ul className='list-disc pl-5 space-y-3'>
+                    {tranquilityScope.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                ),
+              },
+              {
+                title: 'Si decides cancelar',
+                content: <p>{tranquilityCancellation}</p>,
+              },
+              {
+                title: 'Preparación y atención',
+                content: (
+                  <>
+                    <p>
+                      Necesitaremos textos, fotos, datos del negocio y accesos;
+                      en tiendas, también catálogo, precios y datos de envío.
+                      Recibirás la fecha de entrega por escrito antes de pagar,
+                      según el proyecto y los materiales disponibles.
+                    </p>
+                    <p className='mt-3'>{tranquilityAttention}</p>
+                  </>
+                ),
+              },
+            ].map((item, index) => (
+              <section key={item.title} className='bg-surface-muted'>
+                <h3>
+                  <button
+                    id={`condition-trigger-${index}`}
+                    type='button'
+                    aria-expanded={openCondition === index}
+                    aria-controls={`condition-panel-${index}`}
+                    onClick={() =>
+                      setOpenCondition((current) =>
+                        current === index ? null : index,
+                      )
+                    }
+                    className='flex w-full items-center justify-between gap-4 px-5 py-5 text-left text-lg font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:-outline-offset-2 md:px-6'
+                  >
+                    {item.title}
+                    <ChevronDown
+                      aria-hidden='true'
+                      className={`h-5 w-5 shrink-0 transition-transform ${openCondition === index ? 'rotate-180' : ''}`}
+                    />
+                  </button>
+                </h3>
+                <div
+                  id={`condition-panel-${index}`}
+                  role='region'
+                  aria-labelledby={`condition-trigger-${index}`}
+                  hidden={openCondition !== index}
+                  className='px-5 pb-6 text-base leading-relaxed md:px-6'
+                >
+                  {item.content}
+                </div>
+              </section>
             ))}
           </div>
           <div className='mt-8 rounded-2xl border border-accent/20 bg-white p-6 text-center'>
@@ -609,40 +497,8 @@ export default function LandingTranquilidadDigital() {
           </p>
         </div>
       </section>
-      <section className='px-5 py-16 md:py-24 max-w-6xl mx-auto'>
-        <div className='grid md:grid-cols-2 gap-10'>
-          <div>
-            <p className='font-bold text-accent mb-3'>
-              Más que tener una web alojada
-            </p>
-            <h2 className='text-3xl md:text-4xl font-bold mb-5'>
-              Una persona que conoce tu negocio. Un equipo detrás.
-            </h2>
-            <p className='text-lg'>
-              No tienes que empezar de cero cada vez que necesitas ayuda.
-              Hablamos contigo y seguimos el contexto de tu proyecto por
-              WhatsApp, teléfono o videollamada cuando haga falta.
-            </p>
-          </div>
-          <div className='rounded-2xl bg-surface-muted p-7'>
-            <h3 className='text-2xl font-bold mb-4'>
-              Y cuando tu proyecto necesita más, seguimos contigo.
-            </h3>
-            <p className='mb-4'>
-              Desarrollo web y de aplicaciones, tiendas online, diseño gráfico
-              para redes y marketing digital. Podemos ayudarte a coordinar el
-              siguiente paso y presupuestarlo según lo que necesites.
-            </p>
-            <p>
-              Si prefieres un colaborador de tu zona, consultamos
-              disponibilidad. Estos trabajos adicionales no están incluidos
-              automáticamente en la cuota.
-            </p>
-          </div>
-        </div>
-      </section>
       <SuccessCases />
-      <Testimonials />
+
       <section className='max-w-6xl mx-auto px-5 py-16'>
         <h2 className='text-3xl md:text-4xl font-bold mb-9'>
           Así empieza tu tranquilidad digital.
@@ -657,12 +513,12 @@ export default function LandingTranquilidadDigital() {
             [
               '02',
               'Lo dejamos claro',
-              'Recibes el alcance, las tareas incluidas, los plazos y las condiciones de tu suscripción.',
+              'Recibes por escrito secciones, catálogo inicial, funciones, tareas SEO, calendario y condiciones de salida. Lo revisamos contigo antes de pedir el pago.',
             ],
             [
               '03',
               'Te asignamos tu desarrollador y empezamos',
-              'Te asignamos un desarrollador que crea tu web y te acompaña mes a mes. Hablarás siempre directamente con él para consultas, cambios y próximos pasos: la misma persona al frente de tu proyecto durante todo el servicio.',
+              'Cuando aceptas la propuesta, revisas las condiciones y pagas la primera cuota en Stripe. Te asignamos un desarrollador que prepara tu web o tienda y será tu interlocutor durante el servicio.',
             ],
           ].map(([number, title, text]) => (
             <div key={number}>
@@ -693,8 +549,7 @@ export default function LandingTranquilidadDigital() {
           },
           {
             question: '¿Qué ocurre con mi web si cancelo?',
-            answer:
-              'Contratas una web como servicio, disponible mientras la suscripción está activa. Al terminar el periodo abonado deja de prestarse el alojamiento y la web deja de estar publicada con nosotros. La entrega del código o la compra de la web no están incluidas en la cuota. Te explicaremos las opciones antes de contratar.',
+            answer: tranquilityCancellation,
           },
           {
             question: '¿El dominio está incluido?',
@@ -704,17 +559,17 @@ export default function LandingTranquilidadDigital() {
           {
             question: '¿Qué pasa con mis contenidos y datos?',
             answer:
-              'Tus textos, imágenes, marca y datos de clientes no se reutilizan para otros negocios. Al finalizar el servicio recuperas tus contenidos y datos sin coste. Antes de contratar concretamos la titularidad del dominio y cómo te los entregamos.',
+              'Tus textos, imágenes, marca y datos de clientes no se reutilizan para otros negocios. Al finalizar el servicio recuperas tus contenidos y datos sin coste. Transferimos el dominio y acordamos contigo la entrega de los contenidos y, si es una tienda, pedidos, categorías y demás datos.',
           },
           {
             question: '¿Puedo contratarlo si ya tengo una web?',
             answer:
-              'Sí. Revisamos cómo está construida y qué necesita antes de confirmar el plan. La migración de tu web actual está incluida, sin coste adicional. Un desarrollo especial se valora por separado si hace falta.',
+              'Sí. Revisamos cómo está construida y qué necesita antes de confirmar el plan. Confirmamos por escrito qué traslado y adaptación incluye tu caso y si necesita trabajo adicional antes de cobrar.',
           },
           {
             question: '¿Incluye una tienda online o una aplicación?',
             answer:
-              'Sí, los tres planes incluyen la creación de una web o tienda online, sin pago de alta: solo la primera cuota. Acordamos contigo la estructura y el catálogo inicial antes de empezar. Las aplicaciones, los personalizadores y las integraciones especiales se valoran aparte.',
+              'Sí, los tres planes incluyen la creación de una web o tienda online, sin pago de alta: solo la primera cuota. Acordamos contigo la estructura y el catálogo inicial antes de empezar. Las reservas, aplicaciones, personalizadores e integraciones especiales se revisan y presupuestan aparte, salvo inclusión expresa en tu propuesta.',
           },
           {
             question: '¿Qué cambios y SEO incluye cada plan?',
@@ -728,8 +583,7 @@ export default function LandingTranquilidadDigital() {
           },
           {
             question: '¿Cómo hablo con vosotros?',
-            answer:
-              'Por WhatsApp o teléfono y, cuando el proyecto lo requiere, por videollamada. Tienes atención personal dentro del horario de servicio; no es un servicio de asistencia 24 horas.',
+            answer: tranquilityAttention,
           },
         ]}
       />

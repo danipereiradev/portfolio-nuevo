@@ -235,5 +235,10 @@
   "/aplicaciones": {
     "title": "Desarrollo de aplicaciones web y móviles a medida | 36web",
     "description": "Creamos aplicaciones web, Android e iOS a medida. Herramientas de gestión, plataformas y apps para tu negocio. Precio y plazos por escrito. Trato directo."
+  },
+  "/pago/tranquilidad-digital": {
+    "title": "Alcance y condiciones de Tranquilidad Digital | 36WEB",
+    "description": "Revisa tu plan, alcance, cuota y condiciones antes de pagar. Primero estudiamos tu web o tienda online.",
+    "robots": "noindex, nofollow"
   }
 }

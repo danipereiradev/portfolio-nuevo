@@ -62,7 +62,7 @@ function LandingMobileContactBar({
         </a>
         {plansHref ? (
           <a href={plansHref} className={`${actionClass} bg-accent text-white`}>
-            <CreditCard className='h-4 w-4 shrink-0' aria-hidden='true' /> Contratar
+            <CreditCard className='h-4 w-4 shrink-0' aria-hidden='true' /> Ver planes
           </a>
         ) : null}
       </nav>
