@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { MessageCircle, Phone } from 'lucide-react';
+import { CreditCard, MessageCircle, Phone } from 'lucide-react';
 import {
   trackWhatsAppClick,
   trackGoogleAdsWhatsAppConversion,
@@ -25,7 +25,13 @@ const MOBILE_CONTACT_BAR_PATHS = new Set([
   TRANQUILIDAD_DIGITAL_PATH,
 ]);
 
-function LandingMobileContactBar({ source }: { source: string }) {
+function LandingMobileContactBar({
+  source,
+  plansHref,
+}: {
+  source: string;
+  plansHref?: string;
+}) {
   const { pathname } = useLocation();
   const [editing, setEditing] = useState(false);
   useEffect(() => {
@@ -38,20 +44,27 @@ function LandingMobileContactBar({ source }: { source: string }) {
     };
   }, []);
   const url = buildWhatsAppUrl(getWhatsAppMessageForPath(pathname));
+  const actionClass =
+    'flex min-h-12 min-w-0 flex-1 items-center justify-center gap-1.5 rounded-lg px-2 py-3 text-sm font-bold';
   return (
     <>
       <style>{`@media (max-width: 767px) { body { padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px)); } }`}</style>
-      <nav aria-label='Contactar con 36WEB' hidden={editing} className={`${editing ? 'hidden' : 'flex'} md:hidden fixed bottom-0 inset-x-0 z-40 gap-3 border-t border-gray-200 bg-white px-4 pt-3 shadow-[0_-4px_16px_rgba(0,0,0,0.08)]`} style={{ paddingBottom: 'calc(12px + env(safe-area-inset-bottom, 0px))' }}>
+      <nav aria-label='Contactar con 36WEB' hidden={editing} className={`${editing ? 'hidden' : 'flex'} md:hidden fixed bottom-0 inset-x-0 z-40 gap-2 border-t border-gray-200 bg-white px-3 pt-3 shadow-[0_-4px_16px_rgba(0,0,0,0.08)]`} style={{ paddingBottom: 'calc(12px + env(safe-area-inset-bottom, 0px))' }}>
         <a href={url} target='_blank' rel='noopener noreferrer' onClick={(event) => {
           event.preventDefault();
           trackWhatsAppClick(source);
           trackGoogleAdsWhatsAppConversion(url);
-        }} className='flex min-h-12 flex-1 items-center justify-center gap-2 rounded-lg bg-[#128C4A] px-3 py-3 font-bold text-white'>
-          <MessageCircle className='h-5 w-5' aria-hidden='true' /> WhatsApp
+        }} className={`${actionClass} bg-[#128C4A] text-white`}>
+          <MessageCircle className='h-4 w-4 shrink-0' aria-hidden='true' /> WhatsApp
         </a>
-        <a href={PHONE_TEL_LINK} onClick={() => trackPhoneClick(source)} className='flex min-h-12 flex-1 items-center justify-center gap-2 rounded-lg border-2 border-accent px-3 py-3 font-bold text-accent'>
-          <Phone className='h-5 w-5' aria-hidden='true' /> Llamar
+        <a href={PHONE_TEL_LINK} onClick={() => trackPhoneClick(source)} className={`${actionClass} border-2 border-accent text-accent`}>
+          <Phone className='h-4 w-4 shrink-0' aria-hidden='true' /> Llamar
         </a>
+        {plansHref ? (
+          <a href={plansHref} className={`${actionClass} bg-accent text-white`}>
+            <CreditCard className='h-4 w-4 shrink-0' aria-hidden='true' /> Contratar
+          </a>
+        ) : null}
       </nav>
     </>
   );
@@ -68,6 +81,9 @@ const WhatsAppButton = () => {
           path === TRANQUILIDAD_DIGITAL_PATH
             ? 'TranquilidadDigitalMobileBar'
             : 'CustomWebMobileBar'
+        }
+        plansHref={
+          path === TRANQUILIDAD_DIGITAL_PATH ? '#planes' : undefined
         }
       />
     );

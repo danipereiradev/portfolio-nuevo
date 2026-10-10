@@ -26,7 +26,7 @@ const plans = [
     checkout: 'https://buy.stripe.com/aFaaEX7CrfSU1wV29c4AU0b',
     intro: 'Tu negocio en internet, con alguien que se ocupa.',
     features: [
-      'Web de presentación con hasta 5 secciones',
+      'Web o tienda online incluida, con hasta 5 secciones',
       'Dominio estándar y su renovación, alojamiento, SSL y mantenimiento técnico',
       'Configuración inicial de herramientas de Google que correspondan a tu negocio',
       'Enlaces e integración básica de tus redes sociales',
@@ -42,8 +42,9 @@ const plans = [
     checkout: 'https://buy.stripe.com/fZucN55uj7mo7Vjg024AU0c',
     intro: 'Una presencia digital que avanza contigo.',
     features: [
-      'Web de presentación sin límite de secciones',
+      'Web o tienda online incluida, sin límite de secciones',
       'Los servicios de Esencial, ampliando su límite de secciones',
+      'Monitorización automatizada 24/7',
       '3 pequeños cambios al mes: textos, imágenes, horarios o precios',
       'Revisión SEO y mejoras sobre las páginas existentes',
       'Seguimiento de las prioridades de tu web',
@@ -59,8 +60,9 @@ const plans = [
     checkout: 'https://buy.stripe.com/9B6dR99Kz6ikfnL4hk4AU0d',
     intro: 'Tu web evoluciona al ritmo de tus ideas.',
     features: [
-      'Web de presentación sin límite de secciones',
+      'Web o tienda online incluida, sin límite de secciones',
       'Todo lo incluido en Impulso',
+      'Monitorización automatizada 24/7',
       'Cambios ilimitados: una petición a la vez',
       'Seguimiento SEO continuado',
       'Planificación de mejoras de contenido y diseño',
@@ -101,6 +103,20 @@ function ContactButton({
 }
 
 const successCases = [
+  {
+    name: 'Micolet',
+    sector: 'Moda de segunda mano',
+    image: 'micolet',
+    url: 'https://www.micolet.com/',
+    nofollow: true,
+    title: 'Un catálogo amplio, fácil de comprar online.',
+    challenge:
+      'Presentar moda de segunda mano y outlet con un catálogo muy amplio y que encontrar y comprar fuera sencillo.',
+    solution:
+      'Una tienda online con categorías claras, búsqueda y un recorrido de compra directo.',
+    result:
+      'Los clientes exploran mujer, hombre e infantil, ven las ofertas y compran online. Catálogo, envíos y devoluciones a la vista.',
+  },
   {
     name: 'Camisetas Ahora',
     sector: 'Productos personalizados',
@@ -155,6 +171,135 @@ const successCases = [
       'Delish Vegan ha aumentado sus ventas desde que trabaja con 36WEB. Sus clientes pueden descubrir la repostería, elegir sus productos y hacer pedidos con envío nacional sin acercarse al local.',
   },
 ];
+
+const comparisonRows = [
+  {
+    label: '¿Quién hace la web?',
+    diy: 'Tú. Montas plantillas y decides cada detalle.',
+    ai: 'Tú, con ayuda de un generador. Luego tienes que pulirlo.',
+    us: 'El equipo. Solo aportas textos y fotos.',
+  },
+  {
+    label: 'Cuota aproximada',
+    diy: 'Una cuota baja de la plataforma, cada mes.',
+    ai: 'Suele salir barato, a menudo con pago anual.',
+    us: 'Desde 59,90 € + IVA / mes. Web o tienda online incluida.',
+  },
+  {
+    label: 'Si necesitas ayuda',
+    diy: 'Chat automático o tickets.',
+    ai: 'Centro de ayuda o un chat genérico.',
+    us: 'Una persona que conoce tu proyecto. Por teléfono o videollamada',
+  },
+  {
+    label: 'Tu tiempo',
+    diy: 'Alto. Horas de diseño, ajustes y dudas.',
+    ai: 'Medio. Empieza rápido, pero lo tienes que dejar listo tú.',
+    us: 'Bajo. Nos das contenidos y revisas. El resto lo hacemos.',
+  },
+  {
+    label: 'Errores, bugs y diseño',
+    diy: 'Los resuelves tú: foros, tutoriales y prueba-error.',
+    ai: 'Suelen quedar fallos. Los detectas y los arreglas tú.',
+    us: 'Nos lo dices y lo corregimos nosotros.',
+  },
+  {
+    label: 'Mantenimiento y SEO',
+    diy: 'Lo gestionas tú.',
+    ai: 'Lo gestionas tú.',
+    us: 'Incluido en el plan.',
+  },
+];
+
+function Comparison() {
+  return (
+    <section
+      className='px-5 py-16 md:py-24 bg-surface-muted'
+      aria-labelledby='compare-title'
+    >
+      <div className='max-w-6xl mx-auto'>
+        <p className='font-bold text-accent mb-3'>Por qué no es lo mismo</p>
+        <h2 id='compare-title' className='text-3xl md:text-5xl font-bold mb-5'>
+          La diferencia es quién trabaja.
+        </h2>
+        <p className='text-lg max-w-3xl mb-10'>
+          Con plantillas o con un creador de IA montas tú la web y sigues
+          ocupándote. Con nosotros aportas textos y fotos: diseñamos, publicamos
+          y mantenemos.
+        </p>
+        <div className='hidden overflow-hidden rounded-2xl border border-accent/20 bg-white md:block'>
+          <table className='w-full text-left'>
+            <caption className='sr-only'>
+              Comparativa entre hacerlo tú con plantillas, con un creador de IA
+              y Tranquilidad Digital.
+            </caption>
+            <thead>
+              <tr className='bg-surface-muted'>
+                <th scope='col' className='w-[22%] px-5 py-4 text-sm font-bold'>
+                  <span className='sr-only'>Criterio</span>
+                </th>
+                <th scope='col' className='w-[26%] px-5 py-4 font-bold'>
+                  Plantillas, tú mismo
+                </th>
+                <th scope='col' className='w-[26%] px-5 py-4 font-bold'>
+                  Creador con IA
+                </th>
+                <th
+                  scope='col'
+                  className='w-[26%] px-5 py-4 font-bold text-accent bg-accent/10'
+                >
+                  36WEB por suscripción
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {comparisonRows.map((row, index) => (
+                <tr
+                  key={row.label}
+                  className={
+                    index % 2 === 0 ? 'bg-white' : 'bg-surface-muted/60'
+                  }
+                >
+                  <th scope='row' className='px-5 py-4 align-top font-bold'>
+                    {row.label}
+                  </th>
+                  <td className='px-5 py-4 align-top'>{row.diy}</td>
+                  <td className='px-5 py-4 align-top'>{row.ai}</td>
+                  <td className='px-5 py-4 align-top font-semibold bg-accent/5'>
+                    {row.us}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className='flex flex-col gap-5 md:hidden'>
+          {comparisonRows.map((row) => (
+            <article
+              key={row.label}
+              className='rounded-2xl border border-accent/20 bg-white p-5'
+            >
+              <h3 className='font-bold text-xl mb-4'>{row.label}</h3>
+              <p className='text-sm font-bold mb-1'>Plantillas, tú mismo</p>
+              <p className='mb-4'>{row.diy}</p>
+              <p className='text-sm font-bold mb-1'>Creador con IA</p>
+              <p className='mb-4'>{row.ai}</p>
+              <p className='text-sm font-bold text-accent mb-1'>
+                36WEB por suscripción
+              </p>
+              <p className='font-semibold'>{row.us}</p>
+            </article>
+          ))}
+        </div>
+        <div className='mt-10'>
+          <Button href='#planes' className='!m-0'>
+            Ver planes <ArrowRight className='h-5 w-5' />
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 function SuccessCases() {
   return (
@@ -245,17 +390,17 @@ export default function LandingTranquilidadDigital() {
               Nosotros cuidamos de lo digital.
             </h1>
             <p className='text-xl mb-6'>
-              Tu web, su mantenimiento y una persona a quien acudir. Un servicio
+              Tu web o tienda online, su mantenimiento y una persona a quien acudir. Un servicio
               mensual para dejar de resolverlo todo por tu cuenta, vendas online
               o no.
             </p>
             <p className='text-2xl font-bold mb-2'>Desde 59,90 € + IVA / mes</p>
             <p className='inline-block rounded-lg border border-accent/20 bg-white px-4 py-3 font-bold text-accent mb-3'>
-              Tu web y dominio incluidos. 0 € de alta.
+              Tu web o tienda online y dominio incluidos. 0 € de alta.
             </p>
             <p className='mb-7'>
               Al contratar, solo pagas la primera cuota mensual. Sin
-              permanencia. Web incluida mientras la suscripción esté activa.
+              permanencia. Web o tienda online incluida mientras la suscripción esté activa.
             </p>
             <Button href='#planes' className='!m-0'>
               Encuentra tu plan <ArrowRight className='h-5 w-5' />
@@ -336,9 +481,10 @@ export default function LandingTranquilidadDigital() {
           tu negocio y se ocupe contigo.
         </p>
       </section>
+      <Comparison />
       <section
         id='planes'
-        className='scroll-mt-28 bg-surface-muted px-5 py-16 md:py-24'
+        className='scroll-mt-28 border-t border-accent/10 bg-white px-5 py-16 md:py-24'
       >
         <div className='max-w-6xl mx-auto'>
           <p className='font-bold text-accent mb-3'>
@@ -383,25 +529,83 @@ export default function LandingTranquilidadDigital() {
                 </ul>
                 <p className='text-sm mb-7'>{plan.detail}</p>
                 <div className='mt-auto'>
-                  <Button href={plan.checkout} allowAdsOutbound className='!m-0 !w-full' onClick={() => trackCtaClick(`Contratar ${plan.name}`, 'TranquilidadDigital_Stripe')}>
-                    Contratar {plan.name}<ArrowRight className='h-5 w-5 shrink-0' aria-hidden='true' />
+                  <Button
+                    href={plan.checkout}
+                    allowAdsOutbound
+                    className='!m-0 !w-full'
+                    onClick={() =>
+                      trackCtaClick(
+                        `Contratar ${plan.name}`,
+                        'TranquilidadDigital_Stripe',
+                      )
+                    }
+                  >
+                    Contratar {plan.name}
+                    <ArrowRight
+                      className='h-5 w-5 shrink-0'
+                      aria-hidden='true'
+                    />
                   </Button>
-                  <p className='text-sm mt-3 text-center'>{plan.total} €/mes con IVA. Primera cuota al contratar y renovación mensual. Sin alta ni permanencia.</p>
-                  <a href={buildWhatsAppUrl(`Hola, tengo una duda sobre el plan ${plan.name} de Tranquilidad Digital antes de contratar.`)} className='flex min-h-12 items-center justify-center gap-2 underline mt-2' onClick={(event) => { event.preventDefault(); trackWhatsAppClick(`TranquilidadDigital_${plan.name}`); trackGoogleAdsWhatsAppConversion(buildWhatsAppUrl(`Hola, tengo una duda sobre el plan ${plan.name} de Tranquilidad Digital antes de contratar.`)); }}><MessageCircle className='h-4 w-4' aria-hidden='true' />Tengo una duda</a>
+                  <p className='text-sm mt-3 text-center'>
+                    {plan.total} €/mes con IVA. Primera cuota al contratar y
+                    renovación mensual. Sin alta ni permanencia.
+                  </p>
+                  <a
+                    href={buildWhatsAppUrl(
+                      `Hola, tengo una duda sobre el plan ${plan.name} de Tranquilidad Digital antes de contratar.`,
+                    )}
+                    className='flex min-h-12 items-center justify-center gap-2 underline mt-2'
+                    onClick={(event) => {
+                      event.preventDefault();
+                      trackWhatsAppClick(`TranquilidadDigital_${plan.name}`);
+                      trackGoogleAdsWhatsAppConversion(
+                        buildWhatsAppUrl(
+                          `Hola, tengo una duda sobre el plan ${plan.name} de Tranquilidad Digital antes de contratar.`,
+                        ),
+                      );
+                    }}
+                  >
+                    <MessageCircle className='h-4 w-4' aria-hidden='true' />
+                    Tengo una duda
+                  </a>
                 </div>
               </article>
             ))}
           </div>
           <div className='mt-8 rounded-2xl border border-accent/20 bg-white p-6 text-center'>
-            <h3 className='text-xl font-bold mb-2'>¿Prefieres un pago único?</h3>
-            <p className='mb-4'>También creamos tu web o tienda a medida como proyecto independiente. Cuéntanos qué necesitas y recibe un presupuesto con alcance, precio y plazo por escrito.</p>
-            <a className='inline-flex min-h-12 items-center justify-center gap-2 font-bold text-accent underline' href={buildWhatsAppUrl('Hola, me interesa un proyecto web con pago único. Quiero pedir un presupuesto a medida.')} onClick={(event) => { event.preventDefault(); trackWhatsAppClick('TranquilidadDigital_PagoUnico'); trackGoogleAdsWhatsAppConversion(buildWhatsAppUrl('Hola, me interesa un proyecto web con pago único. Quiero pedir un presupuesto a medida.')); }}>Pedir presupuesto de pago único <ArrowRight className='h-5 w-5' aria-hidden='true' /></a>
+            <h3 className='text-xl font-bold mb-2'>
+              ¿Prefieres un pago único?
+            </h3>
+            <p className='mb-4'>
+              También creamos tu web o tienda a medida como proyecto
+              independiente. Cuéntanos qué necesitas y recibe un presupuesto con
+              alcance, precio y plazo por escrito.
+            </p>
+            <a
+              className='inline-flex min-h-12 items-center justify-center gap-2 font-bold text-accent underline'
+              href={buildWhatsAppUrl(
+                'Hola, me interesa un proyecto web con pago único. Quiero pedir un presupuesto a medida.',
+              )}
+              onClick={(event) => {
+                event.preventDefault();
+                trackWhatsAppClick('TranquilidadDigital_PagoUnico');
+                trackGoogleAdsWhatsAppConversion(
+                  buildWhatsAppUrl(
+                    'Hola, me interesa un proyecto web con pago único. Quiero pedir un presupuesto a medida.',
+                  ),
+                );
+              }}
+            >
+              Pedir presupuesto de pago único{' '}
+              <ArrowRight className='h-5 w-5' aria-hidden='true' />
+            </a>
           </div>
           <p className='text-sm mt-6'>
             La cuota corresponde al servicio descrito. Publicidad, licencias de
             pago, desarrollos especiales y servicios externos no están incluidos
             salvo acuerdo expreso. No se garantizan posiciones en Google ni
-            ventas.
+            ventas. La monitorización 24/7 de Impulso e Integral es
+            automatizada.
           </p>
         </div>
       </section>
@@ -475,7 +679,7 @@ export default function LandingTranquilidadDigital() {
           {
             question: '¿Cuántas secciones puede tener mi web?',
             answer:
-              'Esencial incluye hasta 5 secciones. Impulso e Integral incluyen una web de presentación sin límite de secciones. Organizamos contigo la estructura y el calendario de entrega. Las funcionalidades especiales se valoran aparte; el número de secciones no limita la estructura de tu web en estos dos planes.',
+              'Esencial incluye una web o tienda online con hasta 5 secciones. Impulso e Integral incluyen una web o tienda online sin límite de secciones. Organizamos contigo la estructura, el catálogo cuando corresponda y el calendario de entrega. Concretamos el alcance por escrito antes de empezar; las funcionalidades especiales se valoran aparte.',
           },
           {
             question: '¿Tengo que pagar la creación de la web al empezar?',
@@ -510,7 +714,7 @@ export default function LandingTranquilidadDigital() {
           {
             question: '¿Incluye una tienda online o una aplicación?',
             answer:
-              'La web incluida es de presentación, con el alcance acordado. Una tienda, una aplicación, un personalizador o una integración especial necesitan una valoración propia. Podemos desarrollarlos y acordar su acompañamiento mensual.',
+              'Sí, los tres planes incluyen la creación de una web o tienda online, sin pago de alta: solo la primera cuota. Acordamos contigo la estructura y el catálogo inicial antes de empezar. Las aplicaciones, los personalizadores y las integraciones especiales se valoran aparte.',
           },
           {
             question: '¿Qué cambios y SEO incluye cada plan?',
@@ -520,7 +724,7 @@ export default function LandingTranquilidadDigital() {
           {
             question: '¿Cómo funcionan los cambios ilimitados de Integral?',
             answer:
-              'Puedes solicitar tantos cambios sobre tu web como necesites mientras tu suscripción esté activa. Los priorizamos contigo y trabajamos una petición a la vez: terminamos una y continuamos con la siguiente. El plazo depende de la complejidad de cada petición; no implica entregas inmediatas ni un número garantizado de cambios al mes. Nuevas aplicaciones, tiendas o integraciones especiales se valoran aparte.',
+              'Puedes solicitar tantos cambios sobre tu web o tienda online como necesites mientras tu suscripción esté activa. Los priorizamos contigo y trabajamos una petición a la vez: terminamos una y continuamos con la siguiente. El plazo depende de la complejidad de cada petición; no implica entregas inmediatas ni un número garantizado de cambios al mes. Las aplicaciones y las integraciones especiales se valoran aparte.',
           },
           {
             question: '¿Cómo hablo con vosotros?',
