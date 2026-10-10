@@ -45,7 +45,7 @@ export const Team = ({ label, title, paragraphs, compact = false }: TeamProps) =
           verdad.
         </>
       ),
-      role: 'Desarrollo de apps',
+      role: 'Desarrollo app',
       imageUrl: '/img/team/sergi.webp',
       mail: 's.cerda@36web.es',
     },
@@ -84,7 +84,7 @@ export const Team = ({ label, title, paragraphs, compact = false }: TeamProps) =
           .
         </>
       ),
-      role: 'Diseño web y marketing digital',
+      role: 'Diseño web',
       imageUrl: '/img/team/dani.webp',
       mail: 'hola@36web.es',
     },
@@ -98,7 +98,7 @@ export const Team = ({ label, title, paragraphs, compact = false }: TeamProps) =
           <strong className='font-extrabold'>diseño UX/UI</strong>.
         </>
       ),
-      role: 'Desarrollo web WordPress',
+      role: 'WordPress',
       mail: 'k.montero@36web.es',
     },
   ];
@@ -142,7 +142,9 @@ export const Team = ({ label, title, paragraphs, compact = false }: TeamProps) =
                 )}
                 <div className='p-3'>
                   <h3 className='text-base font-extrabold leading-snug text-ink-dark'>{member.fullName}</h3>
-                  <p className='mt-1 text-sm leading-snug text-ink-dark'>{member.role}</p>
+                  <p className='mt-1 text-sm leading-snug text-ink-dark'>
+                    Responsable del equipo {member.role}
+                  </p>
                 </div>
               </article>
             ))}
@@ -190,7 +192,7 @@ export const Team = ({ label, title, paragraphs, compact = false }: TeamProps) =
                     {memberInitials(member.fullName)}
                   </span>
                 )}
-                <div className='absolute inset-x-2.5 bottom-2.5 flex h-[7.75rem] flex-col rounded-lg border border-white/15 bg-accent/10 px-3 py-2.5 text-left text-white backdrop-blur-md'>
+                <div className='absolute inset-x-2.5 bottom-2.5 flex min-h-[8.5rem] flex-col rounded-lg border border-white/15 bg-accent/10 px-3 py-2.5 text-left text-white backdrop-blur-md'>
                   <div className='flex items-start justify-between gap-2'>
                     <h3 className='truncate text-sm font-extrabold leading-tight md:text-base'>
                       {member.fullName}
@@ -203,8 +205,8 @@ export const Team = ({ label, title, paragraphs, compact = false }: TeamProps) =
                       <ArrowUpRight className='h-4 w-4' aria-hidden />
                     </a>
                   </div>
-                  <p className='mt-0.5 truncate text-xs font-semibold text-white/90'>
-                    {member.role}
+                  <p className='mt-0.5 text-xs font-semibold leading-snug text-white/90'>
+                    Responsable del equipo {member.role}
                   </p>
                   <p className='mt-1 line-clamp-2 text-xs leading-snug text-white/85'>
                     {member.description}

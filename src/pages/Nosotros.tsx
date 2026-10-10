@@ -133,21 +133,17 @@ const Nosotros = () => {
 
       <Team
         label='¿QUIÉN ESTÁ DETRÁS DE 36WEB?'
-        title='Estas somos las personas que vamos a encargarnos de tu proyecto.'
+        title='Las personas que lideran cada equipo.'
         paragraphs={[
           <>
-            Queremos que nos pongas caras. Que puedas ver nuestros portfolios y
-            contactar con nosotros para lo que necesites:{' '}
-            <strong className='font-extrabold'>siempre contestamos</strong>.
-            Sobre todo, que sientas{' '}
+            Cada una es responsable de un área: diseño, web, apps o WordPress.
+            Detrás hay más diseñadores y desarrolladores trabajando en tu
+            proyecto:{' '}
             <strong className='font-extrabold'>
-              seguridad al confiarnos la parte digital de tu negocio
+              no somos solo estas cuatro caras
             </strong>
-            . Aunque 36web acaba de empezar,{' '}
-            <strong className='font-extrabold'>
-              nosotros llevamos años trabajando en esto
-            </strong>
-            .
+            . Queremos que nos pongas cara y sepas con quién hablas.{' '}
+            <strong className='font-extrabold'>Siempre contestamos</strong>.
           </>,
         ]}
       />

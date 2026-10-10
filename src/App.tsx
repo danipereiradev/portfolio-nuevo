@@ -45,6 +45,7 @@ import {
 
 const LandingWebPsicologos = lazy(() => import('./pages/LandingWebPsicologos'));
 const LandingWebAMedida = lazy(() => import('./pages/LandingWebAMedida'));
+const LandingTranquilidadDigital = lazy(() => import('./pages/LandingTranquilidadDigital'));
 const Home = lazy(() => import('./pages/Home'));
 const DisenoWeb = lazy(() => import('./pages/DisenoWeb'));
 const DisenoWebLocal = lazy(() => import('./pages/DisenoWebLocal'));
@@ -133,6 +134,7 @@ function AppContent() {
             <Route path='/' element={<Home />} />
             <Route path='/landing-web-psicologos' element={<LandingWebPsicologos />} />
             <Route path={ADS_CUSTOM_WEB_LANDING_PATH} element={<LandingWebAMedida />} />
+            <Route path='/tranquilidad-digital' element={<LandingTranquilidadDigital />} />
             <Route path={ABOUT_PATH} element={<Nosotros />} />
             <Route path={SITE_WEB_PATH} element={<DisenoWeb />} />
             <Route

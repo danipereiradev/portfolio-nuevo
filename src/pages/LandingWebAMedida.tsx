@@ -39,7 +39,6 @@ function SuccessCases() {
     challenge: ReactNode;
     solution: ReactNode;
     result: ReactNode;
-    note?: string;
   }[] = [
     {
       name: 'Clínica Hatena',
@@ -63,7 +62,6 @@ function SuccessCases() {
           para su presencia en Ourense.
         </>
       ),
-      note: 'El tiempo de carga puede variar según la conexión y el dispositivo.',
     },
     {
       name: 'Camisetas Ahora',
@@ -139,7 +137,6 @@ function SuccessCases() {
                     <dd>{project.result}</dd>
                   </div>
                 </dl>
-                {project.note && <p className='text-sm mt-3'>{project.note}</p>}
                 <Button
                   href={project.url}
                   allowAdsOutbound

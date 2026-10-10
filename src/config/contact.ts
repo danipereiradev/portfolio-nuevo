@@ -156,6 +156,11 @@ export const ADS_LANDING_PATH_N = '/landing-diseño-web';
 /** Landing de Ads de diseño web. Destino de campañas y de las URLs retiradas. */
 export const ADS_CUSTOM_WEB_LANDING_PATH = '/landing-web-a-medida';
 
+/** Web y acompañamiento por suscripción. */
+export const TRANQUILIDAD_DIGITAL_PATH = '/tranquilidad-digital';
+export const TRANQUILIDAD_DIGITAL_WHATSAPP_MESSAGE =
+  'Hola, me interesa Tranquilidad Digital por suscripción. Quiero contaros lo que necesita mi negocio.';
+
 export const ADS_SHOP_LANDING_PATH = '/landing-tiendas-online';
 
 export const ADS_MAINTENANCE_LANDING_PATH = '/landing-mantenimiento-web';
@@ -251,6 +256,8 @@ export const getWhatsAppMessageForPath = (pathname: string): string => {
   if (isAdsWebLandingPath(path)) return ADS_WHATSAPP_MESSAGE;
   if (isAdsMaintenanceLandingPath(path))
     return ADS_MAINTENANCE_WHATSAPP_MESSAGE;
+  if (path === TRANQUILIDAD_DIGITAL_PATH)
+    return TRANQUILIDAD_DIGITAL_WHATSAPP_MESSAGE;
   if (path === '/web-profesional') return WEB_PROFESIONAL_WHATSAPP_MESSAGE;
   if (path === SITE_APPS_PATH)
     return 'Hola, quiero contaros mi proyecto de aplicación y pedir una propuesta.';

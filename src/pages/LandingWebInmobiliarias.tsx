@@ -253,7 +253,7 @@ const LandingWebInmobiliarias = () => {
         label='El equipo de 36WEB'
         title='Quién está detrás de tu web'
         paragraphs={[
-          'Cuatro profesionales de diseño y desarrollo trabajando en equipo para dar forma a tu web.',
+          'Los responsables de cada equipo. Detrás hay más diseñadores y desarrolladores trabajando en tu web.',
         ]}
       />
 
