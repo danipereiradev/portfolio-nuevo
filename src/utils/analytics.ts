@@ -6,10 +6,7 @@ import { getMeasurementConsent } from './measurementConsent';
 // antes de enviar nada, y nunca lanza excepciones.
 
 import {
-  ADS_LAUNCH_EXIT_FORM_ORIGIN,
   ADS_LAUNCH_FORM_ORIGIN,
-  ADS_REAL_ESTATE_EXIT_FORM_ORIGIN,
-  ADS_WEB_EXIT_FORM_ORIGIN,
   isAdsLandingPath,
 } from '../config/contact';
 import { LAUNCH_PRICE } from '../config/launchOffer';
@@ -469,8 +466,6 @@ export const trackPhoneClick = (locationSection: string) => {
 
 /** Nombre GA4 de la landing de oferta 590 €. El id interno se mantiene. */
 export const GA4_FORM_NAME_PROMO_590 = 'landing_promo_590';
-/** Popup de salida: distinto al formulario del hero para poder filtrarlo en GA4. */
-export const GA4_FORM_NAME_PROMO_590_SALIDA = 'landing_promo_590_salida';
 
 const FORM_START_STORAGE_PREFIX = 'ga4_form_start:';
 const formStartFired = new Set<string>();
@@ -478,9 +473,6 @@ let lastGa4FormSubmitAt = 0;
 
 export const toGa4FormName = (origin: string): string => {
   const value = origin.trim();
-  if (value === ADS_LAUNCH_EXIT_FORM_ORIGIN) {
-    return GA4_FORM_NAME_PROMO_590_SALIDA;
-  }
   if (
     value === ADS_LAUNCH_FORM_ORIGIN ||
     value === 'landing promo 590' ||
@@ -866,46 +858,6 @@ export const trackLandingPromo590FormSubmit = () => {
       value: LAUNCH_PRICE,
       currency: 'EUR',
       landing_name: 'landing promo 590',
-    });
-  } catch {
-    // La analítica nunca debe romper la experiencia del usuario.
-  }
-};
-
-const EXIT_POPUP_LAUNCH_ORIGINS = new Set([
-  ADS_LAUNCH_EXIT_FORM_ORIGIN,
-  ADS_WEB_EXIT_FORM_ORIGIN,
-  ADS_REAL_ESTATE_EXIT_FORM_ORIGIN,
-]);
-
-export const trackExitPopupView = (
-  origin = ADS_LAUNCH_EXIT_FORM_ORIGIN,
-) => {
-  trackEvent('exit_popup_view', {
-    event_category: origin,
-    event_label: origin,
-    landing_name: origin,
-    location_section: 'exit_popup',
-  });
-};
-
-export const trackExitPopupSubmit = (
-  origin = ADS_LAUNCH_EXIT_FORM_ORIGIN,
-) => {
-  if (isAnalyticsDisabled()) return;
-  const isLaunchOffer = EXIT_POPUP_LAUNCH_ORIGINS.has(origin);
-  trackEvent('exit_popup_submit', {
-    event_category: origin,
-    event_label: origin,
-    landing_name: origin,
-    location_section: 'exit_popup',
-    ...(isLaunchOffer ? { value: LAUNCH_PRICE, currency: 'EUR' } : {}),
-  });
-
-  try {
-    window.gtag?.('event', 'generate_lead', {
-      landing_name: origin,
-      ...(isLaunchOffer ? { value: LAUNCH_PRICE, currency: 'EUR' } : {}),
     });
   } catch {
     // La analítica nunca debe romper la experiencia del usuario.

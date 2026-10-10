@@ -17,10 +17,8 @@ import { ServiceIncludes } from '../components/ServiceOnPage';
 import Testimonials from '../components/Testimonials';
 import SEOProcess from '../components/SEOProcess';
 import SEOFAQ from '../components/SEOFAQ';
-import LaunchExitPopup from '../components/LaunchExitPopup';
 import { usePageMeta } from '../hooks/usePageMeta';
 import {
-  ADS_CUSTOM_WEB_EXIT_FORM_ORIGIN,
   ADS_CUSTOM_WEB_LANDING_PATH,
   buildWhatsAppUrl,
 } from '../config/contact';
@@ -485,7 +483,6 @@ export default function LandingWebAMedida() {
           hasReviewBadge={false}
         />
       </div>
-      <LaunchExitPopup origin={ADS_CUSTOM_WEB_EXIT_FORM_ORIGIN} />
     </>
   );
 }

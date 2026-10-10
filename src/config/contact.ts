@@ -47,17 +47,6 @@ export const ADS_LAUNCH_FORM_ORIGIN = 'landing promo 590';
 /** Captura de email: ¿entra en 590 €? No es el formulario de llamada. */
 export const ADS_LAUNCH_FIT_FORM_ORIGIN = 'landing promo 590 encaje';
 
-/** Popup de salida en la landing de oferta 590 €. */
-export const ADS_LAUNCH_EXIT_FORM_ORIGIN = 'landing promo 590 salida';
-
-/** Popup de salida en las demás landings de diseño web. */
-export const ADS_WEB_EXIT_FORM_ORIGIN = 'landing diseño web salida';
-export const ADS_CUSTOM_WEB_EXIT_FORM_ORIGIN = 'landing web a medida salida';
-export const ADS_PSYCHOLOGISTS_EXIT_FORM_ORIGIN =
-  'landing web psicologos salida';
-export const ADS_REAL_ESTATE_EXIT_FORM_ORIGIN =
-  'landing inmobiliarias 590 salida';
-
 /** Origen del formulario de la landing de Google Ads. */
 export const ADS_GOOGLE_ADS_FORM_ORIGIN = 'landing google ads';
 
