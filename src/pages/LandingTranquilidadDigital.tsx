@@ -230,13 +230,14 @@ function SuccessCases() {
   );
 }
 
-export default function LandingTranquilidadDigital() {
+export default function LandingTranquilidadDigital({ adsLanding = false }: { adsLanding?: boolean }) {
+  const pagePath = adsLanding ? '/landing-tranquilidad-digital' : '/tranquilidad-digital';
   const [openCondition, setOpenCondition] = useState<number | null>(null);
-  usePageMeta('/tranquilidad-digital');
+  usePageMeta(pagePath);
   useEffect(() => {
     if (getMeasurementConsent()?.analytics)
-      trackEvent('tranquilidad_view', { service: 'tranquilidad_digital' });
-  }, []);
+      trackEvent('tranquilidad_view', { service: 'tranquilidad_digital', landing_path: pagePath });
+  }, [pagePath]);
   return (
     <>
       <section className='bg-surface-muted px-5 pb-16 pt-[calc(var(--site-header-h)+var(--page-hero-offset)+0.5rem)] md:pb-24'>
@@ -358,7 +359,7 @@ export default function LandingTranquilidadDigital() {
                 <p className='text-sm mb-7'>{plan.detail}</p>
                 <div className='mt-auto'>
                   <Button
-                    href={`/pago/tranquilidad-digital?plan=${plan.name.toLowerCase()}`}
+                    href={`/pago/tranquilidad-digital?plan=${plan.name.toLowerCase()}${adsLanding ? '&origin=ads' : ''}`}
                     allowAdsOutbound
                     className='!m-0 !w-full'
                     onClick={() =>

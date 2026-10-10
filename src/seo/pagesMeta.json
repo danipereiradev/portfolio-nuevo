@@ -240,5 +240,10 @@
     "title": "Alcance y condiciones de Tranquilidad Digital | 36WEB",
     "description": "Revisa tu plan, alcance, cuota y condiciones antes de pagar. Primero estudiamos tu web o tienda online.",
     "robots": "noindex, nofollow"
+  },
+  "/landing-tranquilidad-digital": {
+    "title": "Tranquilidad Digital · Web y acompañamiento por suscripción | 36WEB",
+    "description": "Tu web, mantenimiento y acompañamiento personal desde 59,90 € + IVA al mes. Tres planes sin permanencia para delegar lo digital de tu negocio.",
+    "robots": "noindex, nofollow, noarchive"
   }
 }

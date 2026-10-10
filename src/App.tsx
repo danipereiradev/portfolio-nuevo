@@ -139,6 +139,7 @@ function AppContent() {
             <Route path='/landing-web-psicologos' element={<LandingWebPsicologos />} />
             <Route path={ADS_CUSTOM_WEB_LANDING_PATH} element={<LandingWebAMedida />} />
             <Route path='/tranquilidad-digital' element={<LandingTranquilidadDigital />} />
+            <Route path='/landing-tranquilidad-digital' element={<LandingTranquilidadDigital adsLanding />} />
             <Route path={ABOUT_PATH} element={<Nosotros />} />
             <Route path={SITE_WEB_PATH} element={<DisenoWeb />} />
             <Route

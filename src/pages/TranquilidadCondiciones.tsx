@@ -19,6 +19,9 @@ import { usePageMeta } from '../hooks/usePageMeta';
 
 export default function TranquilidadCondiciones() {
   const [params] = useSearchParams();
+  const plansHref = params.get('origin') === 'ads'
+    ? '/landing-tranquilidad-digital/#planes'
+    : '/tranquilidad-digital/#planes';
   const plan = tranquilityPlans.find(
     (item) => item.name.toLowerCase() === params.get('plan'),
   );
@@ -41,7 +44,7 @@ export default function TranquilidadCondiciones() {
           Primero revisamos tu proyecto y sus condiciones. Todavía no hay ningún
           cobro.
         </p>
-        <Button href='/tranquilidad-digital/#planes'>Ver planes</Button>
+        <Button href={plansHref}>Ver planes</Button>
       </main>
     );
   const contact = buildWhatsAppUrl(
@@ -49,7 +52,7 @@ export default function TranquilidadCondiciones() {
   );
   return (
     <main className='max-w-3xl mx-auto px-5 pt-[calc(var(--site-header-h)+2rem)] pb-16'>
-      <a href='/tranquilidad-digital/#planes' className='underline text-accent'>
+      <a href={plansHref} className='underline text-accent'>
         ← Volver a los planes
       </a>
       <p className='text-accent font-bold mt-7 mb-3'>

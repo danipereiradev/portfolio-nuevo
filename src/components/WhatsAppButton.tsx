@@ -23,6 +23,7 @@ import {
 const MOBILE_CONTACT_BAR_PATHS = new Set([
   ADS_CUSTOM_WEB_LANDING_PATH,
   TRANQUILIDAD_DIGITAL_PATH,
+  '/landing-tranquilidad-digital',
 ]);
 
 function LandingMobileContactBar({
@@ -78,18 +79,20 @@ const WhatsAppButton = () => {
   const { pathname } = useLocation();
   const path = pathname.replace(/\/$/, '') || '/';
 
+  const isTranquility = path === TRANQUILIDAD_DIGITAL_PATH || path === '/landing-tranquilidad-digital';
+
   if (MOBILE_CONTACT_BAR_PATHS.has(path)) {
     return (
       <LandingMobileContactBar
         source={
-          path === TRANQUILIDAD_DIGITAL_PATH
+          isTranquility
             ? 'TranquilidadDigitalMobileBar'
             : 'CustomWebMobileBar'
         }
         plansHref={
-          path === TRANQUILIDAD_DIGITAL_PATH ? '#planes' : undefined
+          isTranquility ? '#planes' : undefined
         }
-        showCall={path !== TRANQUILIDAD_DIGITAL_PATH}
+        showCall={!isTranquility}
       />
     );
   }

@@ -246,7 +246,7 @@ export const getWhatsAppMessageForPath = (pathname: string): string => {
   if (isAdsWebLandingPath(path)) return ADS_WHATSAPP_MESSAGE;
   if (isAdsMaintenanceLandingPath(path))
     return ADS_MAINTENANCE_WHATSAPP_MESSAGE;
-  if (path === TRANQUILIDAD_DIGITAL_PATH)
+  if (path === TRANQUILIDAD_DIGITAL_PATH || path === '/landing-tranquilidad-digital')
     return TRANQUILIDAD_DIGITAL_WHATSAPP_MESSAGE;
   if (path === '/web-profesional') return WEB_PROFESIONAL_WHATSAPP_MESSAGE;
   if (path === SITE_APPS_PATH)
