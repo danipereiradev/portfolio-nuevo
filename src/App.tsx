@@ -73,6 +73,7 @@ const Gracias = lazy(() => import('./pages/Gracias'));
 const Maintenance = lazy(() => import('./pages/Maintenance'));
 const Pago = lazy(() => import('./pages/Pago'));
 const PagoGracias = lazy(() => import('./pages/PagoGracias'));
+const SuscripcionGracias = lazy(() => import('./pages/SuscripcionGracias'));
 
 const hasVisibleLaunchBootHero = () =>
   typeof document !== 'undefined' &&
@@ -101,6 +102,7 @@ function AppContent() {
         <Header hideNav />
         <Suspense fallback={<PageFallback />}>
           <Routes>
+            <Route path='/pago/gracias/tranquilidad-digital' element={<SuscripcionGracias />} />
             {(Object.keys(THANK_YOU_PAGES) as ThankYouVariant[]).map(
               (variant) => (
                 <Route

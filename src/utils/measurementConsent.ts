@@ -19,4 +19,5 @@ export function saveMeasurementConsent(analytics: boolean, advertising: boolean)
     ad_personalization: 'denied',
   });
   if (!advertising) window.gtag?.('set', 'user_data', null);
+  window.dispatchEvent(new Event('36web:consent-updated'));
 }
