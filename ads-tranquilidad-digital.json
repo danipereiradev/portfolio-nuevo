@@ -1,0 +1,55 @@
+{
+  "status": "Pendiente de guardar el anuncio: Google Ads bloquea el editor por ad blocker. Campaña pausada. Landing pública redirige a home.",
+  "campaignId": "24191339719",
+  "account": "158-515-4327",
+  "budgetDailyEUR": 20,
+  "adGroup": "Tranquilidad Digital | Web por suscripción",
+  "url": "https://36web.es/tranquilidad-digital/",
+  "headlines": [
+    "Contratar Diseño Web",
+    "Tu Web Desde 59,90 € + IVA/Mes",
+    "Web Incluida en Tu Cuota",
+    "Sin Alta Ni Permanencia",
+    "Tu Desarrollador Asignado",
+    "Dominio y Hosting Incluidos",
+    "Web a Medida Para Tu Negocio",
+    "Diseño Web Por Suscripción",
+    "Mantenimiento Incluido",
+    "Trato Directo Por WhatsApp",
+    "Impulso: 3 Cambios al Mes",
+    "Integral: Cambios Ilimitados",
+    "Una Petición Cada Vez",
+    "Contrata Tu Plan Online",
+    "36WEB · Tranquilidad Digital"
+  ],
+  "descriptions": [
+    "Web incluida desde 59,90 € + IVA/mes. Sin alta ni permanencia. Solo la primera cuota.",
+    "Tu desarrollador asignado crea tu web y te acompaña. Habla siempre con la misma persona.",
+    "Dominio, hosting y mantenimiento incluidos. Elige tu plan y contrata online.",
+    "Impulso: 3 cambios/mes y SEO. Integral: cambios ilimitados, una petición cada vez."
+  ],
+  "keywords": [
+    "[contratar diseño web]",
+    "[contratar diseñador web]",
+    "[contratar pagina web]",
+    "[pagina web por suscripcion]",
+    "[diseño web por suscripcion]",
+    "[web con mantenimiento incluido]",
+    "[web sin pago inicial]",
+    "[web sin permanencia]",
+    "\"contratar diseño web\"",
+    "\"contratar pagina web\"",
+    "\"diseño web cuota mensual\"",
+    "\"pagina web pago mensual\"",
+    "\"web por suscripcion\"",
+    "\"web sin pago inicial\"",
+    "\"web sin permanencia\"",
+    "\"diseño web con mantenimiento\""
+  ],
+  "remaining": [
+    "Guardar anuncio con URL correcta, títulos y descripciones; formulario heredó anuncio anterior y URL antigua bloqueada",
+    "Revisar negativas y recursos heredados; añadir recursos de suscripción",
+    "Pausar grupos antiguos antes de activar solo suscripción",
+    "Verificar publicación de landing y enlaces Stripe antes de reactivar"
+  ]
+}
