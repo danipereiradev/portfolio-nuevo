@@ -60,6 +60,7 @@ function ContactButton({
 const successCases = [
   {
     name: 'Camisetas Ahora',
+    plan: 'Impulso',
     sector: 'Productos personalizados',
     image: 'camisetas',
     url: 'https://camisetas-ahora.com/',
@@ -73,6 +74,7 @@ const successCases = [
   },
   {
     name: 'Clínica Hatena',
+    plan: 'Esencial',
     sector: 'Clínica veterinaria · Ourense',
     image: 'hatena',
     url: 'https://hatena.es/',
@@ -142,6 +144,7 @@ function TrustSection() {
           <h3 className='text-xl font-bold'>
             Camisetas Ahora: una compra más visual.
           </h3>
+          <span className='inline-flex rounded-full bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-accent mt-3'>Suscripción Impulso</span>
           <p className='my-2'>
             Tema propio y personalizador para colocar el diseño y ver el
             resultado antes de comprar. Es un desarrollo especial; no forma
@@ -168,10 +171,10 @@ function SuccessCases() {
         Una web que cambia la experiencia de sus clientes.
       </h2>
       <p className='text-lg max-w-3xl mb-10'>
-        Proyectos reales de 36WEB que puedes visitar. Son ejemplos de nuestro
-        trabajo, no casos acreditados de esta suscripción. Los desarrollos
-        especiales tienen un alcance independiente; los resultados de cada
-        negocio no son una promesa para el tuyo.
+        Camisetas Ahora nos acompaña con el plan Impulso y Clínica Hatena con
+        Esencial. Visita sus proyectos y conoce el trabajo realizado. Los
+        desarrollos especiales, como el personalizador, tienen un alcance
+        independiente de la suscripción.
       </p>
       <div className='grid md:grid-cols-2 gap-7'>
         {successCases.map((project) => (
@@ -192,6 +195,7 @@ function SuccessCases() {
                 {project.sector}
               </p>
               <h3 className='text-2xl font-bold mb-3'>{project.name}</h3>
+              <span className='self-start inline-flex rounded-full bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-accent mb-4'>Suscripción {project.plan}</span>
               <p className='text-xl font-semibold mb-5'>{project.title}</p>
               <dl className='space-y-4 mb-6'>
                 <div>
