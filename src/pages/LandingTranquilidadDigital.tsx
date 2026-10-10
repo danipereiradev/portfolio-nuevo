@@ -363,12 +363,12 @@ export default function LandingTranquilidadDigital() {
                     className='!m-0 !w-full'
                     onClick={() =>
                       trackCtaClick(
-                        `Ver condiciones ${plan.name}`,
+                        `Quiero plan ${plan.name}`,
                         'TranquilidadDigital_Condiciones',
                       )
                     }
                   >
-                    Ver alcance de {plan.name}
+                    Quiero plan {plan.name}
                     <ArrowRight
                       className='h-5 w-5 shrink-0'
                       aria-hidden='true'
