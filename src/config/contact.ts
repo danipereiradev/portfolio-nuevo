@@ -156,8 +156,9 @@ export const ADS_LANDING_PATH_N = '/landing-diseño-web';
 /** Landing de Ads de diseño web. Destino de campañas y de las URLs retiradas. */
 export const ADS_CUSTOM_WEB_LANDING_PATH = '/landing-web-a-medida';
 
-/** Web y acompañamiento por suscripción. */
+/** Web y acompañamiento por suscripción. Menú Servicios → Tranquilidad Digital. */
 export const TRANQUILIDAD_DIGITAL_PATH = '/tranquilidad-digital';
+export const TRANQUILIDAD_DIGITAL_LABEL = 'Tranquilidad Digital';
 export const TRANQUILIDAD_DIGITAL_WHATSAPP_MESSAGE =
   'Hola, me interesa Tranquilidad Digital por suscripción. Quiero contaros lo que necesita mi negocio.';
 

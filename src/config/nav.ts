@@ -13,6 +13,8 @@ import {
   SITE_WEB_PATH,
   TALENT_LABEL,
   TALENT_PATH,
+  TRANQUILIDAD_DIGITAL_LABEL,
+  TRANQUILIDAD_DIGITAL_PATH,
 } from './contact';
 
 export const SERVICE_NAV = [
@@ -20,6 +22,7 @@ export const SERVICE_NAV = [
   { href: SITE_SHOP_PATH, label: SITE_SHOP_LABEL },
   { href: SITE_APPS_PATH, label: SITE_APPS_LABEL },
   { href: SITE_MAINTENANCE_PATH, label: SITE_MAINTENANCE_LABEL },
+  { href: TRANQUILIDAD_DIGITAL_PATH, label: TRANQUILIDAD_DIGITAL_LABEL },
 ] as const;
 
 export const MAIN_NAV = [
