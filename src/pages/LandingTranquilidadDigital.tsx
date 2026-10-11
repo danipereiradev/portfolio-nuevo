@@ -16,7 +16,7 @@ import {
   ArrowRight,
   ChevronDown,
 } from 'lucide-react';
-import Button from '../components/Button';
+import Button, { dualCtaButtonClass, dualCtaRowClass } from '../components/Button';
 import SEOFAQ from '../components/SEOFAQ';
 import { usePageMeta } from '../hooks/usePageMeta';
 import {
@@ -35,9 +35,11 @@ import {
 function ContactButton({
   label = 'Cuéntanos qué necesitas',
   plan,
+  className = '!m-0 !w-full',
 }: {
   label?: string;
   plan?: string;
+  className?: string;
 }) {
   const url = buildWhatsAppUrl(
     plan
@@ -48,7 +50,7 @@ function ContactButton({
     <Button
       href={url}
       allowAdsOutbound
-      className='!m-0 !w-full'
+      className={className}
       onClick={(event) => {
         event.preventDefault();
         trackWhatsAppClick(`TranquilidadDigital_${plan ?? 'contacto'}`);
@@ -97,7 +99,7 @@ function TrustSection() {
   return (
     <section
       id='testimonials'
-      className='max-w-6xl mx-auto px-5 py-12'
+      className='container mx-auto py-12'
       aria-label='Equipo y opiniones de clientes'
     >
       <Team
@@ -171,7 +173,7 @@ function SuccessCases() {
   return (
     <section
       id='casos-de-exito'
-      className='max-w-6xl mx-auto px-5 py-16 md:py-24'
+      className='container mx-auto py-16 md:py-24'
       aria-labelledby='cases-title'
     >
       <p className='font-bold text-accent mb-3'>Casos de éxito</p>
@@ -261,9 +263,9 @@ export default function LandingTranquilidadDigital({
   }, [pagePath, contactOrigin]);
   return (
     <>
-      <section className='bg-surface-muted px-5 pb-16 pt-[calc(var(--site-header-h)+var(--page-hero-offset)+0.5rem)] md:pb-24'>
-        <div className='max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 items-center'>
-          <div>
+      <section className='bg-surface-muted pb-16 pt-[calc(var(--site-header-h)+var(--page-hero-offset)+0.5rem)] md:pb-24'>
+        <div className='container mx-auto grid lg:grid-cols-2 gap-10 items-start lg:items-center'>
+          <div className='min-w-0'>
             <p className='font-bold text-sm text-accent mb-3'>
               36WEB · Tranquilidad digital
             </p>
@@ -278,12 +280,12 @@ export default function LandingTranquilidadDigital({
             <p className='inline-block rounded-lg border border-accent/20 bg-white px-4 py-3 font-bold text-accent mb-3'>
               Tu web o tienda online y dominio incluidos. 0 € de alta.
             </p>
-            <div className='flex flex-col sm:flex-row gap-3'>
-              <ContactButton />
+            <div className={dualCtaRowClass}>
+              <ContactButton className={dualCtaButtonClass} />
               <Button
                 href='#planes'
                 variant='outline'
-                className='!m-0 !w-full'
+                className={dualCtaButtonClass}
                 onClick={() =>
                   trackCtaClick('Ver planes', 'TranquilidadDigital')
                 }
@@ -300,7 +302,7 @@ export default function LandingTranquilidadDigital({
               que conoce tu proyecto.
             </p>
           </div>
-          <div className='rounded-3xl bg-white p-7 md:p-10 border border-accent/20 shadow-lg'>
+          <div className='min-w-0 rounded-3xl bg-white p-7 md:p-10 border border-accent/20 shadow-lg'>
             <ShieldCheck
               className='mx-auto mb-5 h-12 w-12 text-accent md:mx-0'
               aria-hidden='true'
@@ -333,9 +335,9 @@ export default function LandingTranquilidadDigital({
       <TrustSection />
       <section
         id='planes'
-        className='scroll-mt-28 border-t border-accent/10 bg-white px-5 py-16 md:py-24'
+        className='scroll-mt-28 border-t border-accent/10 bg-white py-16 md:py-24'
       >
-        <div className='max-w-6xl mx-auto'>
+        <div className='container mx-auto'>
           <p className='font-bold text-accent mb-3'>
             Tres formas de estar acompañado
           </p>
@@ -528,7 +530,7 @@ export default function LandingTranquilidadDigital({
       </section>
       <SuccessCases />
 
-      <section className='max-w-6xl mx-auto px-5 py-16'>
+      <section className='container mx-auto py-16'>
         <h2 className='text-3xl md:text-4xl font-bold mb-9'>
           Así empieza tu tranquilidad digital.
         </h2>
@@ -618,9 +620,9 @@ export default function LandingTranquilidadDigital({
       />
       <section
         id='contacto'
-        className='bg-surface-muted px-5 py-16 md:py-24 text-center'
+        className='bg-surface-muted py-16 md:py-24 text-center'
       >
-        <div className='max-w-2xl mx-auto'>
+        <div className='container mx-auto max-w-2xl'>
           <h2 className='text-3xl md:text-5xl font-bold mb-5'>
             Deja de llevar también el departamento digital.
           </h2>
