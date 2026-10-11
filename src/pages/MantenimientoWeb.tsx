@@ -269,6 +269,23 @@ const MantenimientoWeb = () => {
       '@context': 'https://schema.org',
       '@graph': [
         {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Inicio',
+              item: `${SITE_URL}/`,
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: SITE_MAINTENANCE_LABEL,
+              item: `${SITE_URL}${SITE_MAINTENANCE_PATH}/`,
+            },
+          ],
+        },
+        {
           '@type': 'Service',
           name: 'Mantenimiento web y soporte técnico',
           serviceType: 'Mantenimiento web',
@@ -310,7 +327,6 @@ const MantenimientoWeb = () => {
           { href: '/', label: 'Inicio' },
           { label: SITE_MAINTENANCE_LABEL },
         ]}
-        label='Mantenimiento y soporte'
         title='Mantenimiento y soporte web cuando lo necesitas'
         description={
           <>

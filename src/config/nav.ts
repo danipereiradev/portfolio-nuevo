@@ -18,11 +18,11 @@ import {
 } from './contact';
 
 export const SERVICE_NAV = [
+  { href: TRANQUILIDAD_DIGITAL_PATH, label: TRANQUILIDAD_DIGITAL_LABEL },
   { href: SITE_WEB_PATH, label: SITE_WEB_LABEL },
   { href: SITE_SHOP_PATH, label: SITE_SHOP_LABEL },
   { href: SITE_APPS_PATH, label: SITE_APPS_LABEL },
   { href: SITE_MAINTENANCE_PATH, label: SITE_MAINTENANCE_LABEL },
-  { href: TRANQUILIDAD_DIGITAL_PATH, label: TRANQUILIDAD_DIGITAL_LABEL },
 ] as const;
 
 export const MAIN_NAV = [

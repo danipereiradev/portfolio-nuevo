@@ -318,21 +318,18 @@ const HeroCta = ({
               {breadcrumbs && breadcrumbs.length > 0 ? (
                 <nav
                   aria-label='Migas de pan'
-                  className={`-mb-1 w-full text-xs font-normal tracking-wide ${copyTone} ${
+                  className={`-mb-1 w-full text-sm font-normal tracking-wide ${copyTone} ${
                     isClean ? 'text-center' : 'text-center md:text-left'
                   }`}
                 >
-                  <ol className='flex flex-wrap items-center justify-center gap-x-1.5 gap-y-0.5 opacity-70 md:justify-start'>
-                    {breadcrumbs.map((crumb, index) => (
-                      <li
-                        key={`${crumb.label}-${index}`}
-                        className='flex items-center gap-x-1.5'
-                      >
-                        {index > 0 ? (
-                          <span aria-hidden='true' className='opacity-60'>
-                            /
-                          </span>
-                        ) : null}
+                  <ol className='flex list-none flex-nowrap items-center justify-center gap-x-1.5 md:justify-start'>
+                    {breadcrumbs.flatMap((crumb, index) => [
+                      index > 0 ? (
+                        <li key={`sep-${index}`} aria-hidden='true'>
+                          /
+                        </li>
+                      ) : null,
+                      <li key={`${crumb.label}-${index}`} className='shrink-0'>
                         {crumb.href ? (
                           <a
                             href={crumb.href}
@@ -341,10 +338,10 @@ const HeroCta = ({
                             {crumb.label}
                           </a>
                         ) : (
-                          <span className='opacity-90'>{crumb.label}</span>
+                          <span aria-current='page'>{crumb.label}</span>
                         )}
-                      </li>
-                    ))}
+                      </li>,
+                    ])}
                   </ol>
                 </nav>
               ) : null}

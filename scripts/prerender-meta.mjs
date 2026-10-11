@@ -90,10 +90,11 @@ const heroListClass =
 
 /** H1 fuera de #root: createRoot no lo borra y el LCP se queda en el primer pintado. */
 const bootHeroCrumbs = (currentLabel) =>
-  `<nav aria-label="Migas de pan" class="-mb-1 w-full text-xs font-normal tracking-wide text-center md:text-left">
-      <ol class="flex flex-wrap items-center justify-center gap-x-1.5 gap-y-0.5 opacity-70 md:justify-start">
-        <li class="flex items-center gap-x-1.5"><a href="/" class="underline decoration-current/25 underline-offset-4">Inicio</a></li>
-        <li class="flex items-center gap-x-1.5"><span aria-hidden="true" class="opacity-60">/</span><span class="opacity-90">${currentLabel}</span></li>
+  `<nav aria-label="Migas de pan" class="-mb-1 w-full text-sm font-normal tracking-wide text-center md:text-left">
+      <ol class="flex list-none flex-nowrap items-center justify-center gap-x-1.5 md:justify-start">
+        <li class="shrink-0"><a href="/" class="underline decoration-current/25 underline-offset-4">Inicio</a></li>
+        <li aria-hidden="true">/</li>
+        <li class="shrink-0" aria-current="page">${currentLabel}</li>
       </ol>
     </nav>`;
 
@@ -176,7 +177,6 @@ const buildAplicacionesHeroHtml = () =>
 const buildMantenimientoWebHeroHtml = () =>
   buildLightBootHeroHtml({
     crumbsLabel: 'Mantenimiento Web',
-    label: 'Mantenimiento y soporte',
     h1: 'Mantenimiento y soporte web cuando lo necesitas',
     intro:
       'Planes desde 59 € + IVA/mes o bonos de horas para arreglos puntuales. Trabajamos también con webs hechas por otras empresas.',
