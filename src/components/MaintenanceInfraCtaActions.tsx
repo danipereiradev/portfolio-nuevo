@@ -1,4 +1,4 @@
-import Button from './Button';
+import Button, { dualCtaButtonClass, dualCtaRowClass } from './Button';
 import {
   ADS_MAINTENANCE_INFRA_WHATSAPP_MESSAGE,
   buildWhatsAppUrl,
@@ -21,9 +21,6 @@ const WhatsAppIcon = () => (
   </svg>
 );
 
-const buttonClassName =
-  '!mx-0 !mt-0 !w-full sm:!w-auto sm:flex-1 sm:max-w-[var(--button-width)]';
-
 const MaintenanceInfraCtaActions = ({
   location,
   align = 'start',
@@ -37,13 +34,13 @@ const MaintenanceInfraCtaActions = ({
 
   return (
     <div
-      className={`flex w-full flex-col gap-3 sm:flex-row sm:flex-nowrap ${
+      className={`${dualCtaRowClass} ${
         align === 'center' ? 'justify-center' : 'justify-center md:justify-start'
       }`}
     >
       <Button
         href={MAINTENANCE_INFRA_STRIPE_LINK}
-        className={buttonClassName}
+        className={dualCtaButtonClass}
         rel='noopener noreferrer'
         onClick={() => {
           trackCtaClick(payLabel, location);
@@ -56,7 +53,7 @@ const MaintenanceInfraCtaActions = ({
         href={whatsappUrl}
         target='_blank'
         rel='noopener noreferrer'
-        className={`${buttonClassName} !bg-[#25D366] hover:!bg-[#20bd5a]`}
+        className={`${dualCtaButtonClass} !bg-[#25D366] hover:!bg-[#20bd5a]`}
         onClick={() => {
           trackWhatsAppClick(location, ADS_MAINTENANCE_INFRA_WHATSAPP_MESSAGE);
         }}

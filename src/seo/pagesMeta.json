@@ -40,8 +40,8 @@
     "description": "Creamos tiendas online: WooCommerce, Shopify o a medida. Catálogo, pagos y envíos. Estudio en Madrid, toda España. Presupuesto y plazos por escrito."
   },
   "/mantenimiento-web": {
-    "title": "Mantenimiento Web y Soporte Técnico | Desde 59 €/mes | 36web",
-    "description": "Mantenimiento y soporte para webs, WordPress, ecommerce y aplicaciones. Planes mensuales y bonos de horas. Soporte técnico directo desde 59 €/mes."
+    "title": "Mantenimiento Web y Soporte Técnico | Desde 39,90 €/mes | 36web",
+    "description": "Mantenimiento y soporte para webs, WordPress, ecommerce y aplicaciones. Planes mensuales y bonos de horas. Soporte técnico directo desde 39,90 €/mes."
   },
   "/landing-tiendas-online": {
     "title": "Tiendas online | 36web",
@@ -50,7 +50,7 @@
   },
   "/landing-mantenimiento-web": {
     "title": "Mantenimiento y soporte web cuando lo necesitas | 36web",
-    "description": "Planes desde 59 € + IVA/mes o bonos de horas para arreglos puntuales. Trabajamos también con webs hechas por otras empresas. Propuesta el mismo día. Sin permanencia.",
+    "description": "Planes desde 39,90 € + IVA/mes o bonos de horas para arreglos puntuales. Trabajamos también con webs hechas por otras empresas. Propuesta el mismo día. Sin permanencia.",
     "robots": "noindex, nofollow, noarchive"
   },
   "/landing-google-ads": {
@@ -145,12 +145,12 @@
   },
   "/pago/mantenimiento-web": {
     "title": "Mantenimiento Web · Plan Base | 36web",
-    "description": "Mantenimiento mensual de tu web: 59 € + IVA/mes. Sin permanencia. Puedes cancelar.",
+    "description": "Mantenimiento mensual de tu web: 39,90 € + IVA/mes. Sin permanencia. Puedes cancelar.",
     "robots": "noindex, nofollow, noarchive"
   },
   "/pago/mantenimiento-negocio": {
     "title": "Mantenimiento Web · Plan Negocio | 36web",
-    "description": "Mantenimiento mensual para webs activas: 99 € + IVA/mes. Sin permanencia.",
+    "description": "Mantenimiento mensual para webs activas: 79,90 € + IVA/mes. Sin permanencia.",
     "robots": "noindex, nofollow, noarchive"
   },
   "/pago/mantenimiento-ecommerce": {

@@ -16,7 +16,10 @@ import TrustBar from '../components/TrustBar';
 import SEOBenefits from '../components/SEOBenefits';
 import SEOFAQ from '../components/SEOFAQ';
 import Testimonials from '../components/Testimonials';
-import Button from '../components/Button';
+import Button, {
+  dualCtaButtonClass,
+  dualCtaRowClass,
+} from '../components/Button';
 import MaintenanceHourPacks from '../components/MaintenanceHourPacks';
 import MaintenancePlans from '../components/MaintenancePlans';
 import MaintenanceLeadForm from '../components/MaintenanceLeadForm';
@@ -50,18 +53,6 @@ const SITE_URL = 'https://36web.es';
 
 const needCards = [
   {
-    title: 'Algo se ha roto',
-    text: 'Errores, caídas, HTTPS, formularios, vídeos, integraciones, problemas después de una actualización…',
-    cta: 'Ver bonos de horas',
-    href: `#${MAINTENANCE_BONOS_ID}`,
-  },
-  {
-    title: 'Necesito hacer cambios',
-    text: 'Textos, imágenes, nuevas secciones, ajustes responsive, pequeños desarrollos o mejoras.',
-    cta: 'Ver bonos de horas',
-    href: `#${MAINTENANCE_BONOS_ID}`,
-  },
-  {
     title: 'Quiero olvidarme del mantenimiento',
     text: 'Nos ocupamos de actualizaciones, copias, seguridad e incidencias. Los pequeños cambios dependen del plan contratado.',
     cta: 'Ver mantenimiento mensual',
@@ -72,6 +63,18 @@ const needCards = [
     text: 'WooCommerce, Shopify, ecommerce, frontend/backend o desarrollo a medida.',
     cta: 'Solicitar valoración',
     href: `#${MAINTENANCE_CONTACT_ID}`,
+  },
+  {
+    title: 'Algo se ha roto',
+    text: 'Errores, caídas, HTTPS, formularios, vídeos, integraciones, problemas después de una actualización…',
+    cta: 'Ver bonos de horas',
+    href: `#${MAINTENANCE_BONOS_ID}`,
+  },
+  {
+    title: 'Necesito hacer cambios',
+    text: 'Textos, imágenes, nuevas secciones, ajustes responsive, pequeños desarrollos o mejoras.',
+    cta: 'Ver bonos de horas',
+    href: `#${MAINTENANCE_BONOS_ID}`,
   },
 ];
 
@@ -107,7 +110,7 @@ const included = [
   'Actualizaciones',
   'Copias',
   'Pequeñas incidencias',
-  'Pequeñas modificaciones',
+  'Pequeñas modificaciones (según el plan)',
   'Soporte técnico',
   'Monitorización según plan',
   'Seguridad básica',
@@ -128,8 +131,7 @@ const excluded = [
 const faqs = [
   {
     question: '¿Cuánto cuesta el mantenimiento de una página web?',
-    answer:
-      `El plan Web empieza en 39,90 € + IVA/mes. El plan Negocio son 79,90 € + IVA/mes. Ecommerce, desde 149 € + IVA/mes, según la tienda. Si solo necesitas algo puntual, hay bonos de 3, 6 y 10 horas, válidos durante ${HOUR_PACK_VALIDITY_MONTHS} meses desde la compra. Antes de cobrar, te decimos si el plan encaja.`,
+    answer: `El plan Web empieza en 39,90 € + IVA/mes. El plan Negocio son 79,90 € + IVA/mes. Ecommerce, desde 149 € + IVA/mes, según la tienda. Si solo necesitas algo puntual, hay bonos de 3, 6 y 10 horas, válidos durante ${HOUR_PACK_VALIDITY_MONTHS} meses desde la compra. Antes de cobrar, te decimos si el plan encaja.`,
   },
   {
     question: '¿Puedo contrataros si la web la hizo otra empresa?',
@@ -157,8 +159,7 @@ const faqs = [
   },
   {
     question: '¿Las horas mensuales se acumulan?',
-    answer:
-      'No. Las horas del plan mensual son de ese mes. No se acumulan.',
+    answer: 'No. Las horas del plan mensual son de ese mes. No se acumulan.',
   },
   {
     question: '¿Mantenéis WordPress?',
@@ -196,7 +197,8 @@ const faqs = [
       'En horario laboral. Objetivo: ≤ 48 h en el plan Web y ≤ 24 h en Negocio y Ecommerce. No es un servicio 24/7. Si algo es urgente, WhatsApp o el formulario y lo vemos en cuanto estemos.',
   },
   {
-    question: '¿Puedo empezar con un bono y pasar después a mantenimiento mensual?',
+    question:
+      '¿Puedo empezar con un bono y pasar después a mantenimiento mensual?',
     answer:
       'Sí. Es el camino habitual: arreglar lo que falla, y si encaja, dejarla en un plan mes a mes.',
   },
@@ -234,10 +236,10 @@ const MantenimientoWeb = () => {
   };
 
   const heroCtas = (
-    <div className='flex w-full flex-col items-center justify-center gap-3 sm:flex-row sm:items-stretch md:justify-start'>
+    <div className={`${dualCtaRowClass} justify-center md:justify-start`}>
       <Button
         href={`#${MAINTENANCE_CONTACT_ID}`}
-        className='!mx-0 !mt-0 !w-full !border-2 !border-accent sm:!w-auto sm:flex-1 sm:max-w-[var(--button-width)]'
+        className={`${dualCtaButtonClass} !border-2 !border-accent`}
         onClick={() => trackCtaClick('Pedir propuesta', 'MaintenanceHero')}
       >
         Pedir propuesta
@@ -247,7 +249,7 @@ const MantenimientoWeb = () => {
         target='_blank'
         rel='noopener noreferrer'
         variant='outline'
-        className='!mx-0 !mt-0 !w-full sm:!w-auto sm:flex-1 sm:max-w-[var(--button-width)]'
+        className={dualCtaButtonClass}
         onClick={openHeroWhatsApp}
       >
         <WhatsAppIcon />
@@ -322,55 +324,56 @@ const MantenimientoWeb = () => {
       {formSlot ? (
         createPortal(heroForm, formSlot)
       ) : (
-      <HeroCta
-        breadcrumbs={[
-          { href: '/', label: 'Inicio' },
-          { label: SITE_MAINTENANCE_LABEL },
-        ]}
-        title='Mantenimiento y soporte web cuando lo necesitas'
-        description={
-          <>
-            <p>
-              Planes desde 39,90 € + IVA/mes o bonos de horas para arreglos
-              puntuales. Trabajamos también con webs hechas por otras empresas.
-            </p>
-            <HeroCtaList
-              className='mx-auto mt-text-gap w-full list-none text-center md:mx-0 md:list-disc md:list-outside md:pl-5 md:text-left'
-              items={[
-                <>
-                  <strong className='font-extrabold'>
-                    Propuesta en el mismo día
-                  </strong>
-                  .
-                </>,
-                <>
-                  <strong className='font-extrabold'>
-                    Hablas con quien revisa la web, no con un comercial
-                  </strong>
-                  .
-                </>,
-                'Sin permanencia.',
-              ]}
-            />
-          </>
-        }
-        buttonText='Pedir propuesta'
-        buttonHref={`#${MAINTENANCE_CONTACT_ID}`}
-        heroType='offer'
-        hasButton={false}
-        hasBackground={false}
-        hasReviewBadge
-        isTopHero
-        convertFirstOnMobile
-        ctaContent={heroCtas}
-        offerContent={heroForm}
-      />
+        <HeroCta
+          breadcrumbs={[
+            { href: '/', label: 'Inicio' },
+            { label: SITE_MAINTENANCE_LABEL },
+          ]}
+          title='Mantenimiento y soporte web cuando lo necesitas'
+          description={
+            <>
+              <p>
+                Planes desde 39,90 € + IVA/mes o bonos de horas para arreglos
+                puntuales. Trabajamos también con webs hechas por otras
+                empresas.
+              </p>
+              <HeroCtaList
+                className='mx-auto mt-text-gap w-full list-none text-center md:mx-0 md:list-disc md:list-outside md:pl-5 md:text-left'
+                items={[
+                  <>
+                    <strong className='font-extrabold'>
+                      Propuesta en el mismo día
+                    </strong>
+                    .
+                  </>,
+                  <>
+                    <strong className='font-extrabold'>
+                      Hablas con quien revisa la web, no con un comercial
+                    </strong>
+                    .
+                  </>,
+                  'Sin permanencia.',
+                ]}
+              />
+            </>
+          }
+          buttonText='Pedir propuesta'
+          buttonHref={`#${MAINTENANCE_CONTACT_ID}`}
+          heroType='offer'
+          hasButton={false}
+          hasBackground={false}
+          hasReviewBadge
+          isTopHero
+          convertFirstOnMobile
+          ctaContent={heroCtas}
+          offerContent={heroForm}
+        />
       )}
 
       <TrustBar
         points={[
-          { icon: Wrench, text: 'Bonos de horas' },
           { icon: ShieldCheck, text: 'Desde 39,90 €/mes' },
+          { icon: Wrench, text: 'Bonos de horas' },
           { icon: BadgeCheck, text: 'Sin permanencia' },
           { icon: Handshake, text: 'Webs de otros, también' },
         ]}
@@ -408,8 +411,8 @@ const MantenimientoWeb = () => {
         </div>
       </section>
 
-      <MaintenanceHourPacks />
       <MaintenancePlans />
+      <MaintenanceHourPacks />
 
       <section className='page-section'>
         <div className='container mx-auto max-w-4xl'>
@@ -462,9 +465,15 @@ const MantenimientoWeb = () => {
             </p>
           </div>
           <div className='grid items-stretch gap-page-gap md:grid-cols-2'>
-            <article className={`flex flex-col ${maintenanceCardAlignClass} rounded-lg border-2 border-ink-dark bg-white p-content-pad`}>
-              <h3 className='text-2xl font-extrabold text-ink-dark'>Incluido</h3>
-              <ul className={`mt-6 space-y-2 text-base md:text-lg ${maintenanceListClass}`}>
+            <article
+              className={`flex flex-col ${maintenanceCardAlignClass} rounded-lg border-2 border-ink-dark bg-white p-content-pad`}
+            >
+              <h3 className='text-2xl font-extrabold text-ink-dark'>
+                Incluido
+              </h3>
+              <ul
+                className={`mt-6 space-y-2 text-base md:text-lg ${maintenanceListClass}`}
+              >
                 {included.map((item) => (
                   <li key={item} className='flex items-start gap-2'>
                     <Check
@@ -476,11 +485,15 @@ const MantenimientoWeb = () => {
                 ))}
               </ul>
             </article>
-            <article className={`flex flex-col ${maintenanceCardAlignClass} rounded-lg border-2 border-ink-dark bg-white p-content-pad`}>
+            <article
+              className={`flex flex-col ${maintenanceCardAlignClass} rounded-lg border-2 border-ink-dark bg-white p-content-pad`}
+            >
               <h3 className='text-2xl font-extrabold text-ink-dark'>
                 No incluido
               </h3>
-              <ul className={`mt-6 space-y-2 text-base md:text-lg ${maintenanceListClass}`}>
+              <ul
+                className={`mt-6 space-y-2 text-base md:text-lg ${maintenanceListClass}`}
+              >
                 {excluded.map((item) => (
                   <li key={item} className='flex items-start gap-2'>
                     <X
@@ -516,7 +529,9 @@ const MantenimientoWeb = () => {
 
       <section className='page-section bg-surface-muted'>
         <div className='container mx-auto max-w-3xl'>
-          <article className={`flex flex-col ${maintenanceCardAlignClass} rounded-lg border-2 border-ink-dark bg-white p-content-pad`}>
+          <article
+            className={`flex flex-col ${maintenanceCardAlignClass} rounded-lg border-2 border-ink-dark bg-white p-content-pad`}
+          >
             <h2 className='text-2xl font-extrabold text-ink-dark md:text-3xl'>
               Un ejemplo
             </h2>
@@ -532,14 +547,17 @@ const MantenimientoWeb = () => {
               Revisamos, solucionamos y probamos. Si después prefieres que nos
               ocupemos cada mes, puedes pasar a mantenimiento.
             </p>
-            <Button href={`#${MAINTENANCE_BONOS_ID}`} className='mt-6 mx-auto md:mx-0'>
+            <Button
+              href={`#${MAINTENANCE_BONOS_ID}`}
+              className='mt-6 mx-auto md:mx-0'
+            >
               Ver bonos de horas
             </Button>
           </article>
         </div>
       </section>
 
-      <Testimonials hasVideo       />
+      <Testimonials hasVideo />
 
       <div id='faq'>
         <SEOFAQ

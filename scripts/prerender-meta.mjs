@@ -179,15 +179,15 @@ const buildMantenimientoWebHeroHtml = () =>
     crumbsLabel: 'Mantenimiento Web',
     h1: 'Mantenimiento y soporte web cuando lo necesitas',
     intro:
-      'Planes desde 59 € + IVA/mes o bonos de horas para arreglos puntuales. Trabajamos también con webs hechas por otras empresas.',
+      'Planes desde 39,90 € + IVA/mes o bonos de horas para arreglos puntuales. Trabajamos también con webs hechas por otras empresas.',
     bullets: [
       '<strong class="font-extrabold">Propuesta en el mismo día</strong>.',
       '<strong class="font-extrabold">Hablas con quien revisa la web, no con un comercial</strong>.',
       'Sin permanencia.',
     ],
-    extraCopy: `<div class="flex w-full flex-col items-center justify-center gap-3 sm:flex-row sm:items-stretch md:justify-start">
-      <a href="#contacto" class="box-border inline-flex items-center justify-center h-14 min-h-14 w-full max-w-[var(--button-width)] rounded-lg border-2 border-accent bg-accent px-4 font-extrabold uppercase text-white sm:w-[var(--button-width)]">Pedir propuesta</a>
-      <a href="https://wa.me/34644665352" class="box-border inline-flex items-center justify-center h-14 min-h-14 w-full max-w-[var(--button-width)] rounded-lg border-2 border-ink-dark px-4 font-extrabold uppercase text-ink-dark sm:w-[var(--button-width)]">Hablar por WhatsApp</a>
+    extraCopy: `<div class="flex w-full flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-stretch justify-center md:justify-start">
+      <a href="#contacto" class="box-border inline-flex h-auto min-h-14 w-full max-w-full shrink-0 items-center justify-center whitespace-normal rounded-lg border-2 border-accent bg-accent px-5 font-extrabold uppercase text-white sm:w-auto sm:min-w-[var(--button-width)] sm:max-w-none sm:flex-none sm:whitespace-nowrap">Pedir propuesta</a>
+      <a href="https://wa.me/34644665352" class="box-border inline-flex h-auto min-h-14 w-full max-w-full shrink-0 items-center justify-center whitespace-normal rounded-lg border-2 border-ink-dark px-5 font-extrabold uppercase text-ink-dark sm:w-auto sm:min-w-[var(--button-width)] sm:max-w-none sm:flex-none sm:whitespace-nowrap">Hablar por WhatsApp</a>
     </div>`,
   });
 

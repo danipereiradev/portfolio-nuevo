@@ -1,4 +1,4 @@
-import Button from './Button';
+import Button, { dualCtaButtonClass, dualCtaRowClass } from './Button';
 import {
   ADS_GOOGLE_ADS_WHATSAPP_MESSAGE,
   buildWhatsAppUrl,
@@ -20,9 +20,6 @@ const WhatsAppIcon = () => (
   </svg>
 );
 
-const buttonClassName =
-  '!mx-0 !mt-0 !w-full sm:!w-auto sm:flex-1 sm:max-w-[var(--button-width)]';
-
 const GoogleAdsCtaActions = ({
   location,
   align = 'start',
@@ -36,13 +33,13 @@ const GoogleAdsCtaActions = ({
 
   return (
     <div
-      className={`flex w-full flex-col gap-3 sm:flex-row sm:flex-nowrap ${
+      className={`${dualCtaRowClass} ${
         align === 'center' ? 'justify-center' : 'justify-center md:justify-start'
       }`}
     >
       <Button
         href='#contacto'
-        className={buttonClassName}
+        className={dualCtaButtonClass}
         onClick={() => trackCtaClick(ctaLabel, location)}
       >
         {ctaLabel}
@@ -51,7 +48,7 @@ const GoogleAdsCtaActions = ({
         href={whatsappUrl}
         target='_blank'
         rel='noopener noreferrer'
-        className={`${buttonClassName} !bg-[#25D366] hover:!bg-[#20bd5a]`}
+        className={`${dualCtaButtonClass} !bg-[#25D366] hover:!bg-[#20bd5a]`}
         onClick={(event) => {
           event.preventDefault();
           trackWhatsAppClick(location, ADS_GOOGLE_ADS_WHATSAPP_MESSAGE);

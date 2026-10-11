@@ -4,6 +4,13 @@ import { isAdsLandingPath } from '../config/contact';
 import { newTabProps } from '../utils/linkTarget';
 import { ADS_OUTBOUND_ALLOW_ATTR } from '../utils/adsLandingLinks';
 
+/** Fila de dos CTAs: no se aplastan; si no caben, pasan a la línea siguiente. */
+export const dualCtaRowClass =
+  'flex w-full flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-stretch';
+
+export const dualCtaButtonClass =
+  '!mx-0 !mt-0 h-auto min-h-14 w-full max-w-full shrink-0 whitespace-normal px-5 sm:!w-auto sm:!max-w-none sm:!min-w-[var(--button-width)] sm:flex-none sm:whitespace-nowrap';
+
 interface ButtonProps {
   children: React.ReactNode;
   onClick?: (
@@ -42,7 +49,7 @@ const Button: React.FC<ButtonProps> = ({
   const linkTarget = target ?? landingNewTab.target;
   const linkRel = rel ?? landingNewTab.rel;
   const baseStyles =
-    'box-border mx-auto inline-flex items-center justify-center w-[var(--button-width)] max-w-full min-h-[3.5rem] px-6 py-4 rounded-lg font-extrabold text-base md:text-lg uppercase text-center leading-tight whitespace-normal transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed gap-2';
+    'box-border mx-auto inline-flex shrink-0 items-center justify-center w-[var(--button-width)] max-w-full min-h-[3.5rem] h-auto px-6 py-4 rounded-lg font-extrabold text-base md:text-lg uppercase text-center leading-tight whitespace-normal transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed gap-2';
 
   const variantStyles = {
     primary: 'bg-accent text-white hover:bg-accent-hover',

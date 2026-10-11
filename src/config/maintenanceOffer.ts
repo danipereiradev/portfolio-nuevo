@@ -1,6 +1,7 @@
 import {
   formatEuro,
   formatEuroWithVat,
+  getTotalsFromNet,
   MAINTENANCE_PACK_10H_ID,
   MAINTENANCE_PACK_3H_ID,
   MAINTENANCE_PACK_6H_ID,
@@ -16,7 +17,6 @@ export const MAINTENANCE_FORM_ORIGIN = 'mantenimiento-web';
 export const MAINTENANCE_BONOS_ID = 'bonos';
 export const MAINTENANCE_PLANES_ID = 'planes';
 export const MAINTENANCE_CONTACT_ID = 'contacto';
-export const MAINTENANCE_APPS_ID = 'aplicaciones';
 
 export { HOUR_PACK_VALIDITY_MONTHS };
 
@@ -30,8 +30,7 @@ export const PLAN_NEGOCIO_URL = paymentPath(MAINTENANCE_PLAN_NEGOCIO_ID);
 export const maintenanceCardAlignClass =
   'items-center text-center md:items-stretch md:text-left';
 
-export const maintenanceListClass =
-  'mx-auto w-fit text-left md:mx-0 md:w-full';
+export const maintenanceListClass = 'mx-auto w-fit text-left md:mx-0 md:w-full';
 
 export const maintenancePriceCardClass = (featured?: boolean): string =>
   `relative flex h-full flex-col ${maintenanceCardAlignClass} rounded-lg bg-white p-content-pad text-ink-dark shadow-xl ${
@@ -110,7 +109,7 @@ export const HOUR_PACKS: HourPack[] = [
   },
 ];
 
-export type MaintenancePlanId = 'web' | 'negocio' | 'ecommerce' | 'apps';
+export type MaintenancePlanId = 'web' | 'negocio' | 'ecommerce';
 
 export type MaintenancePlan = {
   id: MaintenancePlanId;
@@ -131,7 +130,7 @@ export const MAINTENANCE_PLANS: MaintenancePlan[] = [
   {
     id: 'web',
     name: 'Mantenimiento Web',
-    amount: 39.90,
+    amount: 39.9,
     interval: ' / mes',
     ideal: 'Web corporativa, landing, portfolio o WordPress sencillo.',
     includes: [
@@ -146,14 +145,16 @@ export const MAINTENANCE_PLANS: MaintenancePlan[] = [
       'Sin cambios de contenido incluidos',
       'Respuesta laboral objetivo ≤ 48 h',
     ],
-    notes: ['Cambios de contenido y nuevas funcionalidades se presupuestan aparte.'],
+    notes: [
+      'Cambios de contenido y nuevas funcionalidades se presupuestan aparte.',
+    ],
     cta: 'Contratar',
     ctaHref: PLAN_WEB_URL,
   },
   {
     id: 'negocio',
     name: 'Mantenimiento Negocio',
-    amount: 79.90,
+    amount: 79.9,
     interval: ' / mes',
     featured: true,
     featuredLabel: 'Recomendado',
@@ -175,7 +176,7 @@ export const MAINTENANCE_PLANS: MaintenancePlan[] = [
   {
     id: 'ecommerce',
     name: 'Mantenimiento Ecommerce',
-    amount: 149,
+    amount: 149.9,
     from: true,
     interval: ' / mes',
     ideal: 'WooCommerce, Shopify, Prestashop y otras tiendas.',
@@ -186,7 +187,7 @@ export const MAINTENANCE_PLANS: MaintenancePlan[] = [
       'Copias cuando corresponda',
       'Rendimiento',
       'Soporte prioritario',
-      'Pequeñas modificaciones',
+      'Pequeñas modificaciones (según el plan)',
       'Hasta 2 horas mensuales para soporte y pequeños cambios (no acumulables)',
     ],
     notes: [
@@ -213,6 +214,14 @@ export const getHourPackRateLabel = (pack: HourPack): string =>
 export const getPlanPriceLabel = (plan: MaintenancePlan): string => {
   const prefix = plan.from ? 'Desde ' : '';
   return `${prefix}${formatEuroWithVat(plan.amount, plan.interval)}`;
+};
+
+const MAINTENANCE_VAT_RATE = 21;
+
+export const getPlanGrossPriceLabel = (plan: MaintenancePlan): string => {
+  const prefix = plan.from ? 'Desde ' : '';
+  const { total } = getTotalsFromNet(plan.amount, MAINTENANCE_VAT_RATE);
+  return `${prefix}${formatEuro(total)}/mes con IVA`;
 };
 
 export const getHourPackValidityCopy = (): string =>

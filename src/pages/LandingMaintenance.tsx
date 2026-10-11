@@ -15,7 +15,10 @@ import Testimonials from '../components/Testimonials';
 import TrustBar from '../components/TrustBar';
 import SEOProcess from '../components/SEOProcess';
 import HeroCta, { HeroCtaList } from '../components/HeroCta';
-import Button from '../components/Button';
+import Button, {
+  dualCtaButtonClass,
+  dualCtaRowClass,
+} from '../components/Button';
 import MaintenanceHourPacks from '../components/MaintenanceHourPacks';
 import MaintenancePlans from '../components/MaintenancePlans';
 import MaintenanceLeadForm from '../components/MaintenanceLeadForm';
@@ -45,25 +48,13 @@ import {
 } from '../utils/analytics';
 
 const landingTrustPoints = [
-  { icon: Wrench, text: 'Bonos de horas' },
   { icon: ShieldCheck, text: 'Desde 39,90 €/mes' },
+  { icon: Wrench, text: 'Bonos de horas' },
   { icon: BadgeCheck, text: 'Sin permanencia' },
   { icon: Handshake, text: 'Webs de otros, también' },
 ];
 
 const needCards = [
-  {
-    title: 'Algo se ha roto',
-    text: 'Errores, caídas, HTTPS, formularios, vídeos, integraciones, problemas después de una actualización…',
-    cta: 'Ver bonos de horas',
-    href: `#${MAINTENANCE_BONOS_ID}`,
-  },
-  {
-    title: 'Necesito hacer cambios',
-    text: 'Textos, imágenes, nuevas secciones, ajustes responsive, pequeños desarrollos o mejoras.',
-    cta: 'Ver bonos de horas',
-    href: `#${MAINTENANCE_BONOS_ID}`,
-  },
   {
     title: 'Quiero olvidarme del mantenimiento',
     text: 'Nos ocupamos de actualizaciones, copias, seguridad e incidencias. Los pequeños cambios dependen del plan contratado.',
@@ -75,6 +66,18 @@ const needCards = [
     text: 'WooCommerce, Shopify, ecommerce, frontend/backend o desarrollo a medida.',
     cta: 'Solicitar valoración',
     href: `#${MAINTENANCE_CONTACT_ID}`,
+  },
+  {
+    title: 'Algo se ha roto',
+    text: 'Errores, caídas, HTTPS, formularios, vídeos, integraciones, problemas después de una actualización…',
+    cta: 'Ver bonos de horas',
+    href: `#${MAINTENANCE_BONOS_ID}`,
+  },
+  {
+    title: 'Necesito hacer cambios',
+    text: 'Textos, imágenes, nuevas secciones, ajustes responsive, pequeños desarrollos o mejoras.',
+    cta: 'Ver bonos de horas',
+    href: `#${MAINTENANCE_BONOS_ID}`,
   },
 ];
 
@@ -98,10 +101,7 @@ const whyUs = [
     description: (
       <>
         No nos limitamos a actualizar plugins.{' '}
-        <strong className='font-extrabold'>
-          Arreglamos y evolucionamos
-        </strong>
-        .
+        <strong className='font-extrabold'>Arreglamos y evolucionamos</strong>.
       </>
     ),
   },
@@ -121,7 +121,7 @@ const included = [
   'Actualizaciones',
   'Copias',
   'Pequeñas incidencias',
-  'Pequeñas modificaciones',
+  'Pequeñas modificaciones (según el plan)',
   'Soporte técnico',
   'Monitorización según plan',
   'Seguridad básica',
@@ -168,9 +168,7 @@ const processSteps = [
       <>
         Si es un bono, revisamos y arreglamos. Si es un plan, dejamos
         actualizaciones, copias y soporte en marcha.{' '}
-        <strong className='font-extrabold'>
-          Hablas con quien mira la web
-        </strong>
+        <strong className='font-extrabold'>Hablas con quien mira la web</strong>
         .
       </>
     ),
@@ -256,7 +254,8 @@ const faqs = [
       'En horario laboral. Objetivo: ≤ 48 h en el plan Web y ≤ 24 h en Negocio y Ecommerce. No es un servicio 24/7. Si algo es urgente, WhatsApp o el formulario y lo vemos en cuanto estemos.',
   },
   {
-    question: '¿Puedo empezar con un bono y pasar después a mantenimiento mensual?',
+    question:
+      '¿Puedo empezar con un bono y pasar después a mantenimiento mensual?',
     answer:
       'Sí. Es el camino habitual: arreglar lo que falla, y si encaja, dejarla en un plan mes a mes.',
   },
@@ -305,7 +304,10 @@ const LandingMaintenance = () => {
   ) => {
     event.preventDefault();
     trackMaintenanceWhatsAppClick('LandingMaintenanceHero');
-    trackWhatsAppClick('LandingMaintenanceHero', ADS_MAINTENANCE_WHATSAPP_MESSAGE);
+    trackWhatsAppClick(
+      'LandingMaintenanceHero',
+      ADS_MAINTENANCE_WHATSAPP_MESSAGE,
+    );
     trackGoogleAdsWhatsAppConversion(whatsappUrl);
   };
 
@@ -355,10 +357,10 @@ const LandingMaintenance = () => {
         isTopHero
         convertFirstOnMobile
         ctaContent={
-          <div className='flex w-full flex-col items-center justify-center gap-3 sm:flex-row sm:items-stretch md:justify-start'>
+          <div className={`${dualCtaRowClass} justify-center md:justify-start`}>
             <Button
               href={`#${MAINTENANCE_CONTACT_ID}`}
-              className='!mx-0 !mt-0 !w-full !border-2 !border-accent sm:!w-auto sm:flex-1 sm:max-w-[var(--button-width)]'
+              className={`${dualCtaButtonClass} !border-2 !border-accent`}
               onClick={() =>
                 trackCtaClick('Pedir propuesta', 'LandingMaintenanceHero')
               }
@@ -370,7 +372,7 @@ const LandingMaintenance = () => {
               target='_blank'
               rel='noopener noreferrer'
               variant='outline'
-              className='!mx-0 !mt-0 !w-full sm:!w-auto sm:flex-1 sm:max-w-[var(--button-width)]'
+              className={dualCtaButtonClass}
               onClick={openLandingWhatsApp}
             >
               <WhatsAppIcon />
@@ -421,8 +423,8 @@ const LandingMaintenance = () => {
         </div>
       </section>
 
-      <MaintenanceHourPacks />
       <MaintenancePlans contactFirst />
+      <MaintenanceHourPacks />
 
       <section id='incluye' className='page-section'>
         <div className='container mx-auto flex flex-col gap-page-gap'>
@@ -507,14 +509,14 @@ const LandingMaintenance = () => {
         title='Así se contrata'
         subtitle={
           <>
-            <strong className='font-extrabold'>Cuatro pasos.</strong> Sabes
-            la cuota o las horas antes de empezar. Cancelas cuando quieras.
+            <strong className='font-extrabold'>Cuatro pasos.</strong> Sabes la
+            cuota o las horas antes de empezar. Cancelas cuando quieras.
           </>
         }
         steps={processSteps}
       />
 
-      <Testimonials hasVideo       />
+      <Testimonials hasVideo />
 
       <div id='faq'>
         <SEOFAQ

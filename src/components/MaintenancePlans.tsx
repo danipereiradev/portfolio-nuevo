@@ -1,19 +1,14 @@
 import { Check } from 'lucide-react';
 import Button from './Button';
 import {
-  APP_MAINTENANCE_FROM,
+  getPlanGrossPriceLabel,
   getPlanPriceLabel,
-  MAINTENANCE_APPS_ID,
-  MAINTENANCE_CONTACT_ID,
   MAINTENANCE_PLANS,
-  maintenanceCardAlignClass,
   maintenanceListClass,
   maintenancePriceCardClass,
   maintenancePriceCtaWrapClass,
   type MaintenancePlan,
-  type MaintenancePlanId,
 } from '../config/maintenanceOffer';
-import { formatEuroWithVat } from '../config/payments';
 import { trackMaintenancePlanClick } from '../utils/analytics';
 
 const MaintenancePlans = ({ contactFirst = false }: { contactFirst?: boolean }) => {
@@ -38,44 +33,13 @@ const MaintenancePlans = ({ contactFirst = false }: { contactFirst?: boolean }) 
             <PlanCard key={plan.id} plan={plan} contactFirst={contactFirst} />
           ))}
         </div>
-
-        <article
-          id={MAINTENANCE_APPS_ID}
-          className={`flex flex-col ${maintenanceCardAlignClass} rounded-lg bg-white p-content-pad shadow-xl ring-1 ring-black/10`}
-        >
-          <h3 className='text-2xl font-extrabold text-ink-dark md:text-3xl'>
-            ¿No es WordPress? También.
-          </h3>
-          <p className='mt-text-gap text-lg text-ink-dark md:text-xl'>
-            Mantenemos aplicaciones y proyectos con frontend, backend, APIs,
-            servidores e integraciones. En estos proyectos el precio depende
-            de la arquitectura y de la responsabilidad técnica. Antes se revisa
-            el stack: no prometemos hacernos cargo de cualquier tecnología sin
-            verla.
-          </p>
-          <p className='mt-text-gap text-base text-ink-medium md:text-lg'>
-            React / Next.js, Vue / Angular, Node, PHP / Laravel, APIs, bases de
-            datos, Nginx, Vercel, servidores e integraciones externas.
-          </p>
-          <p className='mt-text-gap text-2xl font-extrabold text-ink-dark md:text-3xl'>
-            Mantenimiento de aplicaciones desde{' '}
-            {formatEuroWithVat(APP_MAINTENANCE_FROM, '/mes')}
-          </p>
-          <Button
-            href={`#${MAINTENANCE_CONTACT_ID}`}
-            className='mt-6 mx-auto md:mx-0'
-            onClick={() => trackMaintenancePlanClick('apps')}
-          >
-            Cuéntanos cómo está construida
-          </Button>
-        </article>
       </div>
     </section>
   );
 };
 
 const PlanCard = ({ plan, contactFirst }: { plan: MaintenancePlan; contactFirst: boolean }) => {
-  const planId = plan.id as Exclude<MaintenancePlanId, 'apps'>;
+  const planId = plan.id;
 
   return (
     <article className={maintenancePriceCardClass(plan.featured)}>
@@ -115,6 +79,9 @@ const PlanCard = ({ plan, contactFirst }: { plan: MaintenancePlan; contactFirst:
         >
           {contactFirst ? 'Consultar este plan' : plan.cta}
         </Button>
+        <p className='mt-3 text-sm text-center md:text-left'>
+          {getPlanGrossPriceLabel(plan)}. Sin permanencia.
+        </p>
       </div>
     </article>
   );
