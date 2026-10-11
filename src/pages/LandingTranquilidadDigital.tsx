@@ -19,7 +19,11 @@ import {
 import Button from '../components/Button';
 import SEOFAQ from '../components/SEOFAQ';
 import { usePageMeta } from '../hooks/usePageMeta';
-import { buildWhatsAppUrl, PHONE_TEL_LINK, getTranquilitySource } from '../config/contact';
+import {
+  buildWhatsAppUrl,
+  PHONE_TEL_LINK,
+  getTranquilitySource,
+} from '../config/contact';
 import {
   trackWhatsAppClick,
   trackGoogleAdsWhatsAppConversion,
@@ -100,7 +104,9 @@ function TrustSection() {
         compact
         label='El equipo de 36WEB'
         title='Una persona de referencia. Un equipo detrás.'
-        paragraphs={['Te asignamos un desarrollador que será tu contacto habitual durante el servicio, con el respaldo del resto del equipo.']}
+        paragraphs={[
+          'Te asignamos un desarrollador que será tu contacto habitual durante el servicio, con el respaldo del resto del equipo.',
+        ]}
       />
       <div className='max-w-3xl mx-auto'>
         {review && (
@@ -144,7 +150,9 @@ function TrustSection() {
           <h3 className='text-xl font-bold'>
             Camisetas Ahora: una compra más visual.
           </h3>
-          <span className='inline-flex rounded-full bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-accent mt-3'>Suscripción Impulso</span>
+          <span className='inline-flex rounded-full bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-accent mt-3'>
+            Suscripción Impulso
+          </span>
           <p className='my-2'>
             Tema propio y personalizador para colocar el diseño y ver el
             resultado antes de comprar. Es un desarrollo especial; no forma
@@ -195,7 +203,9 @@ function SuccessCases() {
                 {project.sector}
               </p>
               <h3 className='text-2xl font-bold mb-3'>{project.name}</h3>
-              <span className='self-start inline-flex rounded-full bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-accent mb-4'>Suscripción {project.plan}</span>
+              <span className='self-start inline-flex rounded-full bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-accent mb-4'>
+                Suscripción {project.plan}
+              </span>
               <p className='text-xl font-semibold mb-5'>{project.title}</p>
               <dl className='space-y-4 mb-6'>
                 <div>
@@ -230,14 +240,24 @@ function SuccessCases() {
   );
 }
 
-export default function LandingTranquilidadDigital({ adsLanding = false }: { adsLanding?: boolean }) {
+export default function LandingTranquilidadDigital({
+  adsLanding = false,
+}: {
+  adsLanding?: boolean;
+}) {
   const contactOrigin = getTranquilitySource();
-  const pagePath = adsLanding ? '/landing-tranquilidad-digital' : '/tranquilidad-digital';
+  const pagePath = adsLanding
+    ? '/landing-tranquilidad-digital'
+    : '/tranquilidad-digital';
   const [openCondition, setOpenCondition] = useState<number | null>(null);
   usePageMeta(pagePath);
   useEffect(() => {
     if (getMeasurementConsent()?.analytics)
-      trackEvent('tranquilidad_view', { service: 'tranquilidad_digital', landing_path: pagePath, acquisition_source: contactOrigin ?? 'direct_or_other' });
+      trackEvent('tranquilidad_view', {
+        service: 'tranquilidad_digital',
+        landing_path: pagePath,
+        acquisition_source: contactOrigin ?? 'direct_or_other',
+      });
   }, [pagePath, contactOrigin]);
   return (
     <>
@@ -245,10 +265,10 @@ export default function LandingTranquilidadDigital({ adsLanding = false }: { ads
         <div className='max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 items-center'>
           <div>
             <p className='font-bold text-sm text-accent mb-3'>
-              36WEB · Acompañamiento digital
+              36WEB · Tranquilidad digital
             </p>
             <h1 className='text-[1.75rem] md:text-5xl font-bold leading-tight mb-4'>
-              Tu web y su mantenimiento, con una persona a quien acudir.
+              Tu web y su posicionamiento, tus redes sociales y publicidad.
             </h1>
             <p className='text-lg mb-4'>
               Para autónomos y pequeños negocios que necesitan una web o tienda
@@ -348,7 +368,10 @@ export default function LandingTranquilidadDigital({ adsLanding = false }: { ads
                 </p>
                 <ul className='space-y-4 mb-6'>
                   {plan.features.map((feature, index) => (
-                    <li key={feature} className={`flex gap-3 ${plan.highlightedFeatures.includes(index) ? 'rounded-lg bg-accent/5 px-3 py-2.5 text-accent font-bold' : ''}`}>
+                    <li
+                      key={feature}
+                      className={`flex gap-3 ${plan.highlightedFeatures.includes(index) ? 'rounded-lg bg-accent/5 px-3 py-2.5 text-accent font-bold' : ''}`}
+                    >
                       <Check
                         className='w-5 h-5 shrink-0 text-accent mt-1'
                         aria-hidden='true'
@@ -495,10 +518,10 @@ export default function LandingTranquilidadDigital({ adsLanding = false }: { ads
             </a>
           </div>
           <p className='text-sm mt-6'>
-            La cuota corresponde al servicio descrito. La inversión en anuncios, licencias de
-            pago, desarrollos especiales y servicios externos no están incluidos
-            salvo acuerdo expreso. No se garantizan posiciones en Google ni
-            ventas. La monitorización 24/7 de Impulso e Integral es
+            La cuota corresponde al servicio descrito. La inversión en anuncios,
+            licencias de pago, desarrollos especiales y servicios externos no
+            están incluidos salvo acuerdo expreso. No se garantizan posiciones
+            en Google ni ventas. La monitorización 24/7 de Impulso e Integral es
             automatizada.
           </p>
         </div>

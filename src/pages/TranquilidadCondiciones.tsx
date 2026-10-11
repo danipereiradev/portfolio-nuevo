@@ -1,36 +1,33 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { ChevronDown } from 'lucide-react';
 import Button from '../components/Button';
 import {
   tranquilityPlans,
+  getTranquilityCheckoutFeatures,
   tranquilityScope,
   tranquilityCancellation,
   tranquilityAttention,
 } from '../config/tranquility';
-import { buildWhatsAppUrl } from '../config/contact';
-import {
-  trackCtaClick,
-  trackEvent,
-  trackWhatsAppClick,
-  trackGoogleAdsWhatsAppConversion,
-} from '../utils/analytics';
+import { trackCtaClick, trackEvent } from '../utils/analytics';
 import { getMeasurementConsent } from '../utils/measurementConsent';
 import { usePageMeta } from '../hooks/usePageMeta';
 
 export default function TranquilidadCondiciones() {
   const [params] = useSearchParams();
-  const plansHref = params.get('origin') === 'ads'
-    ? '/landing-tranquilidad-digital/#planes'
-    : '/tranquilidad-digital/#planes';
+  const plansHref =
+    params.get('origin') === 'ads'
+      ? '/landing-tranquilidad-digital/#planes'
+      : '/tranquilidad-digital/#planes';
   const plan = tranquilityPlans.find(
     (item) => item.name.toLowerCase() === params.get('plan'),
   );
-  const [reviewed, setReviewed] = useState(false);
   const [accepted, setAccepted] = useState(false);
+  const [openCondition, setOpenCondition] = useState<number | null>(0);
   usePageMeta('/pago/tranquilidad-digital');
   useEffect(() => {
-    setReviewed(false);
     setAccepted(false);
+    setOpenCondition(0);
     if (plan && getMeasurementConsent()?.analytics)
       trackEvent('tranquilidad_conditions_view', { plan: plan.name });
   }, [plan]);
@@ -47,9 +44,6 @@ export default function TranquilidadCondiciones() {
         <Button href={plansHref}>Ver planes</Button>
       </main>
     );
-  const contact = buildWhatsAppUrl(
-    `Hola, me interesa el plan ${plan.name} de Tranquilidad Digital. Quiero contaros mi proyecto y recibir el alcance y las condiciones por escrito antes de pagar.`,
-  );
   return (
     <main className='max-w-3xl mx-auto px-5 pt-[calc(var(--site-header-h)+2rem)] pb-16'>
       <a href={plansHref} className='underline text-accent'>
@@ -61,11 +55,7 @@ export default function TranquilidadCondiciones() {
       <h1 className='text-3xl md:text-4xl font-bold'>
         Antes de activar {plan.name}, dejémoslo claro.
       </h1>
-      <p className='text-lg mt-5'>
-        Esta página resume el plan. Tu propuesta escrita concreta el trabajo
-        para tu negocio. No pagues hasta que hayamos revisado el proyecto y
-        confirmado contigo el alcance.
-      </p>
+      <p className='text-lg mt-5'>Esta página resume el plan seleccionado.</p>
       <section className='rounded-2xl bg-surface-muted p-6 my-7'>
         <h2 className='text-2xl font-bold'>Cuánto pagarás</h2>
         <dl className='space-y-3 mt-4'>
@@ -91,88 +81,101 @@ export default function TranquilidadCondiciones() {
           adicionales solo se realizan con presupuesto y aceptación previos.
         </p>
       </section>
-      <section className='my-8'>
-        <h2 className='text-2xl font-bold mb-4'>Qué incluye {plan.name}</h2>
-        <ul className='list-disc pl-5 space-y-3'>
-          {plan.features.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-        <p className='mt-4'>{plan.detail}</p>
-      </section>
-      <section className='my-8'>
-        <h2 className='text-2xl font-bold mb-4'>
-          Alcance y trabajos adicionales
-        </h2>
-        <ul className='list-disc pl-5 space-y-3'>
-          {tranquilityScope.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-      </section>
-      <section className='my-8'>
-        <h2 className='text-2xl font-bold mb-4'>
-          Preparación, plazos y atención
-        </h2>
-        <p>
-          Antes del pago recibirás la fecha estimada de entrega y las fases del
-          proyecto. Necesitamos textos, fotos, accesos y datos del negocio; en
-          tiendas, también catálogo, precios y condiciones de envío. La fecha
-          depende del alcance y de disponer de esos materiales. Si faltan,
-          acordamos un nuevo calendario.
-        </p>
-        <p className='mt-4'>{tranquilityAttention}</p>
-      </section>
-      <section className='my-8'>
-        <h2 className='text-2xl font-bold mb-4'>Si cancelas</h2>
-        <p>{tranquilityCancellation}</p>
-        <p className='mt-4'>
-          Puedes solicitar la baja en{' '}
-          <a href='mailto:hola@36web.es' className='underline'>
-            hola@36web.es
-          </a>
-          . Concretamos contigo la entrega y transferencia para que sepas cómo
-          continuar.
-        </p>
-      </section>
-      <section className='rounded-2xl border border-accent/30 p-6 my-8'>
-        <h2 className='text-2xl font-bold'>
-          ¿Aún no hemos revisado tu proyecto?
-        </h2>
-        <p className='mt-3 mb-5'>
-          Cuéntanos qué necesitas. Te responderemos con el siguiente paso, sin
-          pedirte que pagues ahora.
-        </p>
-        <Button
-          className='!m-0 !w-full'
-          href={contact}
-          allowAdsOutbound
-          onClick={(event) => {
-            event.preventDefault();
-            trackWhatsAppClick(`TranquilidadDigital_Revision_${plan.name}`);
-            trackGoogleAdsWhatsAppConversion(contact);
-          }}
-        >
-          Cuéntanos qué necesitas
-        </Button>
-      </section>
+      <div className='my-8 overflow-hidden rounded-2xl border border-accent/20 divide-y divide-accent/20'>
+        {[
+          {
+            title: `Qué incluye ${plan.name}`,
+            content: (
+              <>
+                <ul className='list-disc pl-5 space-y-3'>
+                  {getTranquilityCheckoutFeatures(plan).map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+                <p className='mt-4'>{plan.detail}</p>
+              </>
+            ),
+          },
+          {
+            title: 'Alcance y trabajos adicionales',
+            content: (
+              <ul className='list-disc pl-5 space-y-3'>
+                {tranquilityScope.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            ),
+          },
+          {
+            title: 'Preparación, plazos y atención',
+            content: (
+              <>
+                <p>
+                  Al activar el plan, te asignamos un desarrollador y
+                  empezamos. Te pedimos textos, fotos, accesos y datos del
+                  negocio; en tiendas, también catálogo, precios y condiciones
+                  de envío. Con esos materiales te confirmamos por escrito la
+                  fecha estimada de entrega y las fases. Si falta algo, te lo
+                  decimos y acordamos un nuevo calendario.
+                </p>
+                <p className='mt-4'>{tranquilityAttention}</p>
+              </>
+            ),
+          },
+          {
+            title: 'Si cancelas',
+            content: (
+              <>
+                <p>{tranquilityCancellation}</p>
+                <p className='mt-4'>
+                  Puedes solicitar la baja en{' '}
+                  <a href='mailto:hola@36web.es' className='underline'>
+                    hola@36web.es
+                  </a>
+                  . Concretamos contigo la entrega y transferencia para que
+                  sepas cómo continuar.
+                </p>
+              </>
+            ),
+          },
+        ].map((item, index) => (
+          <section key={item.title} className='bg-surface-muted'>
+            <h2>
+              <button
+                id={`pago-condition-trigger-${index}`}
+                type='button'
+                aria-expanded={openCondition === index}
+                aria-controls={`pago-condition-panel-${index}`}
+                onClick={() =>
+                  setOpenCondition((current) =>
+                    current === index ? null : index,
+                  )
+                }
+                className='flex w-full items-center justify-between gap-4 px-5 py-5 text-left text-lg font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:-outline-offset-2 md:px-6'
+              >
+                {item.title}
+                <ChevronDown
+                  aria-hidden='true'
+                  className={`h-5 w-5 shrink-0 transition-transform ${openCondition === index ? 'rotate-180' : ''}`}
+                />
+              </button>
+            </h2>
+            <div
+              id={`pago-condition-panel-${index}`}
+              role='region'
+              aria-labelledby={`pago-condition-trigger-${index}`}
+              hidden={openCondition !== index}
+              className='px-5 pb-6 text-base leading-relaxed md:px-6'
+            >
+              {item.content}
+            </div>
+          </section>
+        ))}
+      </div>
       <section className='border-t pt-7' aria-labelledby='activate-title'>
         <h2 id='activate-title' className='text-2xl font-bold mb-4'>
-          ¿Ya tienes nuestra propuesta y quieres empezar?
+          ¿Empezamos con tu proyecto? Estás en buenas manos.
         </h2>
-        <label className='flex gap-3 py-3 items-start'>
-          <input
-            type='checkbox'
-            className='mt-1 w-5 h-5 shrink-0'
-            checked={reviewed}
-            onChange={(event) => setReviewed(event.target.checked)}
-          />
-          <span>
-            36WEB ha revisado mi proyecto y he recibido y aceptado por escrito
-            su alcance, catálogo si corresponde, funciones, plazos y posibles
-            extras.
-          </span>
-        </label>
         <label className='flex gap-3 py-3 items-start'>
           <input
             type='checkbox'
@@ -196,9 +199,9 @@ export default function TranquilidadCondiciones() {
         </label>
         <Button
           className='!mx-0 !w-full'
-          disabled={!reviewed || !accepted}
+          disabled={!accepted}
           onClick={() => {
-            if (!reviewed || !accepted) return;
+            if (!accepted) return;
             trackCtaClick(`Activar ${plan.name}`, 'TranquilidadDigital_Stripe');
             if (getMeasurementConsent()?.analytics)
               trackEvent('begin_checkout', {
@@ -218,7 +221,7 @@ export default function TranquilidadCondiciones() {
           Continuar a pago seguro · {plan.total} €
         </Button>
         <p className='text-sm mt-3'>
-          El cobro se confirma en Stripe. Estas casillas no realizan ningún
+          El cobro se confirma en Stripe. Esta casilla no realiza ningún
           pago.
         </p>
       </section>

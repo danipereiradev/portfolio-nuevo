@@ -38,7 +38,6 @@ export type ProjectId =
   | 'inmobiliaria'
   | 'mhin'
   | 'psicologa'
-  | 'bonobo'
   | 'detectives'
   | 'mcauto'
   | 'somatica'
@@ -115,7 +114,6 @@ export const ALL_SHOWCASE_PROJECT_IDS: readonly ProjectId[] = [
   'chicxs',
   'camisetas',
   'delish',
-  'bonobo',
   'detectives',
   'mcauto',
   'somatica',
@@ -488,17 +486,6 @@ const Portfolio = ({
       sector: t('portfolio.psicologa.sector'),
       exito: t('portfolio.psicologa.desc'),
       kind: 'demo',
-    },
-    bonobo: {
-      title: t('portfolio.bonobo.title'),
-      description: t('portfolio.bonobo.desc'),
-      image: '/img/portfolio/new/escuela-estudio-bonobo.webp',
-      product: SITE_WEB_LABEL,
-      productHref: SITE_WEB_PATH,
-      url: 'https://www.estudobonobo.com/',
-      nofollow: true,
-      sector: t('portfolio.bonobo.sector'),
-      exito: t('portfolio.bonobo.desc'),
     },
     detectives: {
       title: t('portfolio.detectives.title'),

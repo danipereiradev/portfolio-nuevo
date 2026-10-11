@@ -15,7 +15,6 @@ const projects: Project[] = [
   {id:'hoyviajamos',name:'Hoy Viajamos',sector:'Viajes',image:'/img/portfolio/new/hoyviajamos.webp',url:'https://hoyviajamosweb.com'},
   {id:'elefantes',name:'El Viaje de los Elefantes',sector:'Viajes',image:'/img/portfolio/new/elefantes.webp',url:'https://elviajedeloselefantes.com'},
   {id:'silly',name:'Silly',sector:'Diseño web',image:'/img/portfolio/new/silly.webp'},
-  {id:'bonobo',name:'Estudo Bonobo',sector:'Escuela de artes',image:'/img/portfolio/new/escuela-estudio-bonobo.webp',url:'https://www.estudobonobo.com/'},
   {id:'detectives',name:'Beta Detectives',sector:'Investigación privada',image:'/img/portfolio/new/detectives-vigo.webp',url:'https://www.betadetectives.com/'},
   {id:'chicxs',name:'Chicxs de la Calle',sector:'Tienda online',image:'/img/portfolio/new/chicxs.webp',url:'https://chicxsdelacalle.com'},
   {id:'delish',name:'Delish Vegan',sector:'Alimentación',image:'/img/portfolio/new/delish.webp',url:'https://delishvegan.com/'},

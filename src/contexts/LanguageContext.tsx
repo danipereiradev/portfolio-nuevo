@@ -135,10 +135,6 @@ const translations = {
   'portfolio.psicologa.sector': 'Sector Psicología · Ejemplo sectorial',
   'portfolio.psicologa.desc':
     'Diseño estratégico con tono sereno y de autoridad profesional. Incluye una arquitectura pensada exclusivamente para profesionales de la salud que necesitan agendar primeras sesiones de forma automática.',
-  'portfolio.bonobo.title': 'Estudo Bonobo',
-  'portfolio.bonobo.sector': 'Sector Escuela de artes',
-  'portfolio.bonobo.desc':
-    'Web de escuela de artes: cursos, taller y una identidad visual propia.',
   'portfolio.detectives.title': 'Beta Detectives',
   'portfolio.detectives.sector': 'Sector Investigación privada',
   'portfolio.detectives.desc':

@@ -34,6 +34,18 @@ export const tranquilityPlans = [
     ],
     detail:
       'Incluye 3 ajustes puntuales al mes sobre el contenido existente. Las nuevas funcionalidades se valoran aparte. Concretamos las tareas SEO antes de contratar.',
+    checkoutFeatures: [
+      'Web o tienda online incluida, sin límite de secciones',
+      'Dominio estándar y su renovación, alojamiento, SSL y mantenimiento técnico',
+      'Configuración inicial de herramientas de Google: acordamos cuáles necesita tu negocio',
+      'Enlaces e integración básica de tus redes sociales',
+      'Atención personal para las incidencias del servicio',
+      'Monitorización automatizada 24/7',
+      '3 pequeños cambios al mes: textos, imágenes, horarios o precios',
+      'SEO en páginas existentes: títulos, descripciones y enlaces internos, según la propuesta',
+      'Seguimiento de las prioridades de tu web',
+      'Orientación para tus próximos pasos digitales',
+    ],
   },
   {
     name: 'Integral',
@@ -55,8 +67,29 @@ export const tranquilityPlans = [
     ],
     detail:
       'Cambios ilimitados en tu web, una petición a la vez. Acordamos por escrito el contenido para redes y las campañas que gestionamos. La inversión en anuncios se paga aparte. Los desarrollos nuevos se valoran aparte.',
+    checkoutFeatures: [
+      'Web o tienda online incluida, sin límite de secciones',
+      'Dominio estándar y su renovación, alojamiento, SSL y mantenimiento técnico',
+      'Configuración inicial de herramientas de Google: acordamos cuáles necesita tu negocio',
+      'Enlaces e integración básica de tus redes sociales',
+      'Atención personal para las incidencias del servicio',
+      'Monitorización automatizada 24/7',
+      'Cambios ilimitados: una petición a la vez',
+      'SEO en páginas existentes: títulos, descripciones y enlaces internos, según la propuesta',
+      'Seguimiento SEO: revisión de páginas, indexación y prioridades acordadas',
+      'Seguimiento de las prioridades de tu web',
+      'Orientación para tus próximos pasos digitales',
+      'Creación de contenido para redes sociales',
+      'Gestión de publicidad en Google Ads y Meta Ads',
+      'Planificación de mejoras de contenido y diseño',
+      'Atención prioritaria dentro del horario de servicio',
+    ],
   },
 ];
+
+export const getTranquilityCheckoutFeatures = (
+  plan: (typeof tranquilityPlans)[number],
+) => ('checkoutFeatures' in plan ? plan.checkoutFeatures : plan.features);
 
 export const tranquilityScope = [
   'Una web o una tienda online a medida por suscripción. Esencial: hasta 5 secciones. Impulso e Integral: sin límite de secciones, con estructura y calendario acordados.',

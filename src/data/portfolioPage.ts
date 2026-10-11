@@ -86,16 +86,6 @@ export const PORTFOLIO_PAGE_PROJECTS: readonly PortfolioPageProject[] = [
     url: 'https://elviajedeloselefantes.com',
   },
   {
-    id: 'bonobo',
-    category: 'web',
-    name: 'Estudo Bonobo',
-    sector: 'Escuela de artes',
-    description:
-      'Web de escuela de artes: cursos, taller y una identidad visual propia.',
-    image: '/img/portfolio/new/escuela-estudio-bonobo.webp',
-    url: 'https://www.estudobonobo.com/',
-  },
-  {
     id: 'detectives',
     category: 'web',
     name: 'Beta Detectives',
