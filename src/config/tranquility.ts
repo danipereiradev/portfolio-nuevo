@@ -5,6 +5,7 @@ export const tranquilityPlans = [
     total: '72,48',
     checkout: 'https://buy.stripe.com/aFaaEX7CrfSU1wV29c4AU0b',
     intro: 'Para una web o tienda que cambia poco.',
+    highlightedFeatures: [0],
     features: [
       'Web o tienda online incluida, con hasta 5 secciones',
       'Dominio estándar y su renovación, alojamiento, SSL y mantenimiento técnico',
@@ -21,6 +22,7 @@ export const tranquilityPlans = [
     total: '120,88',
     checkout: 'https://buy.stripe.com/fZucN55uj7mo7Vjg024AU0c',
     intro: 'Para actualizar tu negocio cada mes.',
+    highlightedFeatures: [0, 3, 4],
     features: [
       'Web o tienda online incluida, sin límite de secciones',
       'Los servicios de Esencial, ampliando su límite de secciones',
@@ -38,18 +40,21 @@ export const tranquilityPlans = [
     price: '199,90',
     total: '241,88',
     checkout: 'https://buy.stripe.com/9B6dR99Kz6ikfnL4hk4AU0d',
-    intro: 'Para cambios frecuentes, una petición a la vez.',
+    intro: 'Para delegar tu web, tus contenidos y tus campañas.',
+    highlightedFeatures: [0, 3, 4, 5, 6],
     features: [
       'Web o tienda online incluida, sin límite de secciones',
       'Todo lo incluido en Impulso',
       'Monitorización automatizada 24/7',
       'Cambios ilimitados: una petición a la vez',
       'Seguimiento SEO: revisión de páginas, indexación y prioridades acordadas',
+      'Creación de contenido para redes sociales',
+      'Gestión de publicidad en Google Ads y Meta Ads',
       'Planificación de mejoras de contenido y diseño',
       'Atención prioritaria dentro del horario de servicio',
     ],
     detail:
-      'Sin límite de peticiones de cambios sobre tu web. Trabajamos una a la vez y, al terminarla, pasamos a la siguiente. Los desarrollos nuevos se valoran aparte.',
+      'Cambios ilimitados en tu web, una petición a la vez. Acordamos por escrito el contenido para redes y las campañas que gestionamos. La inversión en anuncios se paga aparte. Los desarrollos nuevos se valoran aparte.',
   },
 ];
 
@@ -58,7 +63,8 @@ export const tranquilityScope = [
   'En tiendas concretamos por escrito el catálogo inicial, variantes, envíos y pasarela de pago antes de contratar. Las secciones no equivalen a productos: acordamos qué carga inicial realizamos nosotros.',
   'Reservas, personalizadores, aplicaciones e integraciones especiales no se incluyen automáticamente. Revisamos su viabilidad y cualquier coste adicional en la propuesta, antes de pagar.',
   'Mantenimiento técnico en los tres planes. SEO recurrente en Impulso e Integral, con tareas y frecuencia por escrito; Esencial no incluye una campaña SEO mensual. No se garantizan posiciones ni ventas.',
-  'Publicidad, comisiones de cobro y licencias o servicios de terceros se detallan aparte cuando sean necesarios.',
+  'Integral incluye creación de contenido para redes sociales y gestión de publicidad en Google Ads y Meta Ads. Acordamos por escrito formatos, cantidad y frecuencia del contenido, canales y alcance de las campañas antes de contratar.',
+  'La inversión publicitaria no está incluida en la cuota: el presupuesto de anuncios se acuerda contigo y se paga aparte. Las comisiones de cobro, licencias y servicios de terceros también se detallan aparte cuando sean necesarios.',
 ];
 export const tranquilityCancellation = 'Sin permanencia: puedes solicitar la baja para evitar la siguiente renovación. Al acabar el periodo pagado finalizan el servicio y el alojamiento; la web deja de estar publicada con nosotros. Te entregamos los contenidos, fotos y textos y, en tiendas, pedidos, categorías y demás datos. Transferimos el dominio. Tus datos no se reutilizan para otros negocios. Puedes comprar la web completa con un pago único: preparamos un presupuesto según el proyecto, sin un precio fijo ni compra obligatoria.';
 export const tranquilityAttention = 'WhatsApp, llamada o videollamada con tu desarrollador asignado. Respondemos en el mismo día a los mensajes recibidos de lunes a viernes, de 9:00 a 20:00 (hora peninsular). Fuera de ese horario, el siguiente día de atención. Responder no significa resolver cualquier tarea en el día: acordamos su plazo según la complejidad. La monitorización automatizada 24/7 no es atención humana las 24 horas.';

@@ -347,8 +347,8 @@ export default function LandingTranquilidadDigital({ adsLanding = false }: { ads
                   {plan.price} € + IVA.
                 </p>
                 <ul className='space-y-4 mb-6'>
-                  {plan.features.map((feature) => (
-                    <li key={feature} className='flex gap-3'>
+                  {plan.features.map((feature, index) => (
+                    <li key={feature} className={`flex gap-3 ${plan.highlightedFeatures.includes(index) ? 'rounded-lg bg-accent/5 px-3 py-2.5 text-accent font-bold' : ''}`}>
                       <Check
                         className='w-5 h-5 shrink-0 text-accent mt-1'
                         aria-hidden='true'
@@ -495,7 +495,7 @@ export default function LandingTranquilidadDigital({ adsLanding = false }: { ads
             </a>
           </div>
           <p className='text-sm mt-6'>
-            La cuota corresponde al servicio descrito. Publicidad, licencias de
+            La cuota corresponde al servicio descrito. La inversión en anuncios, licencias de
             pago, desarrollos especiales y servicios externos no están incluidos
             salvo acuerdo expreso. No se garantizan posiciones en Google ni
             ventas. La monitorización 24/7 de Impulso e Integral es
