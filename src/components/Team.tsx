@@ -33,7 +33,12 @@ const memberOrder = [
   'Karen Montero',
 ];
 
-export const Team = ({ label, title, paragraphs, compact = false }: TeamProps) => {
+export const Team = ({
+  label,
+  title,
+  paragraphs,
+  compact = false,
+}: TeamProps) => {
   const teamMembers: TeamMember[] = [
     {
       fullName: 'Sergio Cerdá',
@@ -84,7 +89,7 @@ export const Team = ({ label, title, paragraphs, compact = false }: TeamProps) =
           .
         </>
       ),
-      role: 'Diseño web',
+      role: 'Desarrollo web',
       imageUrl: '/img/team/dani.webp',
       mail: 'hola@36web.es',
     },
@@ -113,7 +118,10 @@ export const Team = ({ label, title, paragraphs, compact = false }: TeamProps) =
         <div className='container mx-auto max-w-5xl'>
           <div className='page-title-block mx-auto mb-6 max-w-3xl text-center'>
             <span className='font-extrabold text-accent'>{label}</span>
-            <h2 id='landing-team-title' className='text-3xl font-extrabold text-ink-dark md:text-4xl'>
+            <h2
+              id='landing-team-title'
+              className='text-3xl font-extrabold text-ink-dark md:text-4xl'
+            >
               {title}
             </h2>
             {paragraphs.map((paragraph, index) => (
@@ -124,7 +132,10 @@ export const Team = ({ label, title, paragraphs, compact = false }: TeamProps) =
           </div>
           <div className='grid grid-cols-2 gap-4 md:grid-cols-4'>
             {members.map((member) => (
-              <article key={member.fullName} className='overflow-hidden rounded-xl bg-surface-muted text-center'>
+              <article
+                key={member.fullName}
+                className='overflow-hidden rounded-xl bg-surface-muted text-center'
+              >
                 {member.imageUrl ? (
                   <img
                     src={member.imageUrl}
@@ -136,12 +147,17 @@ export const Team = ({ label, title, paragraphs, compact = false }: TeamProps) =
                     decoding='async'
                   />
                 ) : (
-                  <div aria-hidden='true' className='flex aspect-square items-center justify-center bg-gray-200 text-4xl font-extrabold text-ink-dark'>
+                  <div
+                    aria-hidden='true'
+                    className='flex aspect-square items-center justify-center bg-gray-200 text-4xl font-extrabold text-ink-dark'
+                  >
                     {memberInitials(member.fullName)}
                   </div>
                 )}
                 <div className='p-3'>
-                  <h3 className='text-base font-extrabold leading-snug text-ink-dark'>{member.fullName}</h3>
+                  <h3 className='text-base font-extrabold leading-snug text-ink-dark'>
+                    {member.fullName}
+                  </h3>
                   <p className='mt-1 text-sm leading-snug text-ink-dark'>
                     Responsable del equipo {member.role}
                   </p>
