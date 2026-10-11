@@ -131,7 +131,7 @@ export const MAINTENANCE_PLANS: MaintenancePlan[] = [
   {
     id: 'web',
     name: 'Mantenimiento Web',
-    amount: 59,
+    amount: 39.90,
     interval: ' / mes',
     ideal: 'Web corporativa, landing, portfolio o WordPress sencillo.',
     includes: [
@@ -143,24 +143,24 @@ export const MAINTENANCE_PLANS: MaintenancePlan[] = [
       'SSL',
       'Soporte por email',
       'Revisión de incidencias',
-      'Hasta 1 hora mensual para pequeños cambios',
+      'Sin cambios de contenido incluidos',
       'Respuesta laboral objetivo ≤ 48 h',
     ],
-    notes: ['No acumulable.'],
+    notes: ['Cambios de contenido y nuevas funcionalidades se presupuestan aparte.'],
     cta: 'Contratar',
     ctaHref: PLAN_WEB_URL,
   },
   {
     id: 'negocio',
     name: 'Mantenimiento Negocio',
-    amount: 99,
+    amount: 79.90,
     interval: ' / mes',
     featured: true,
     featuredLabel: 'Recomendado',
     ideal:
       'Webs que generan contactos, WordPress activo, reservas, integraciones o cambios frecuentes.',
     includes: [
-      'Todo lo del plan Web',
+      'Todo el mantenimiento técnico del plan Web',
       'Monitorización',
       'Mayor prioridad',
       'Revisión básica de rendimiento',
@@ -187,7 +187,7 @@ export const MAINTENANCE_PLANS: MaintenancePlan[] = [
       'Rendimiento',
       'Soporte prioritario',
       'Pequeñas modificaciones',
-      'Hasta 2 horas mensuales como referencia',
+      'Hasta 2 horas mensuales para soporte y pequeños cambios (no acumulables)',
     ],
     notes: [
       'Antes de aceptar el mantenimiento revisamos tu tienda para confirmar que este plan encaja.',

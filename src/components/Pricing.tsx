@@ -64,12 +64,12 @@ const Pricing = () => {
       formPlanName: 'Mantenimiento Web',
       idealFor: 'si ya tienes web y no quieres pelearte con ella cada mes.',
       description:
-        'Actualizaciones, copias, cambios de textos y fotos, y alguien a quien escribir cuando falla algo.',
+        'Actualizaciones, copias y soporte técnico. Cambios de textos y fotos según el plan contratado.',
       path: SITE_MAINTENANCE_PATH,
       deliveryTime: 'Cuota mensual según el plan',
       cta: 'Solicitar presupuesto',
       features: [
-        'Cambios pequeños de textos e imágenes',
+        'Pequeños cambios según el plan contratado',
         'Actualizaciones de seguridad',
         'Copias periódicas',
         'Comprobar que sigue online',

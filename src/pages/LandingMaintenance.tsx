@@ -46,7 +46,7 @@ import {
 
 const landingTrustPoints = [
   { icon: Wrench, text: 'Bonos de horas' },
-  { icon: ShieldCheck, text: 'Desde 59 €/mes' },
+  { icon: ShieldCheck, text: 'Desde 39,90 €/mes' },
   { icon: BadgeCheck, text: 'Sin permanencia' },
   { icon: Handshake, text: 'Webs de otros, también' },
 ];
@@ -66,7 +66,7 @@ const needCards = [
   },
   {
     title: 'Quiero olvidarme del mantenimiento',
-    text: 'Nos ocupamos de actualizaciones, copias, seguridad, incidencias y pequeños cambios.',
+    text: 'Nos ocupamos de actualizaciones, copias, seguridad e incidencias. Los pequeños cambios dependen del plan contratado.',
     cta: 'Ver mantenimiento mensual',
     href: `#${MAINTENANCE_PLANES_ID}`,
   },
@@ -190,7 +190,7 @@ const processSteps = [
 const faqs = [
   {
     question: '¿Cuánto cuesta el mantenimiento de una página web?',
-    answer: `El plan Web empieza en 59 € + IVA/mes. El plan Negocio son 99 € + IVA/mes. Ecommerce, desde 149 € + IVA/mes, según la tienda. Si solo necesitas algo puntual, hay bonos de 3, 6 y 10 horas, válidos durante ${HOUR_PACK_VALIDITY_MONTHS} meses desde la compra. Antes de cobrar, te decimos si el plan encaja.`,
+    answer: `El plan Web empieza en 39,90 € + IVA/mes. El plan Negocio son 79,90 € + IVA/mes. Ecommerce, desde 149 € + IVA/mes, según la tienda. Si solo necesitas algo puntual, hay bonos de 3, 6 y 10 horas, válidos durante ${HOUR_PACK_VALIDITY_MONTHS} meses desde la compra. Antes de cobrar, te decimos si el plan encaja.`,
   },
   {
     question: '¿Puedo contrataros si la web la hizo otra empresa?',
@@ -316,7 +316,7 @@ const LandingMaintenance = () => {
         description={
           <>
             <p>
-              <strong className='font-extrabold'>Planes desde 59 €</strong> +
+              <strong className='font-extrabold'>Planes desde 39,90 €</strong> +
               IVA/mes o bonos de horas para arreglos puntuales. Trabajamos
               también con webs hechas por otras empresas.
             </p>

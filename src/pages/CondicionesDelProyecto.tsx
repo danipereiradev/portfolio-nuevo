@@ -182,8 +182,8 @@ const CondicionesDelProyecto = () => {
               hrefLabel='Ver mantenimiento'
               items={[
                 planWeb
-                  ? `Mantenimiento Web (Plan Base): ${getPlanPriceLabel(planWeb)}. Hasta 1 hora al mes para pequeños cambios. Respuesta laboral objetivo ≤ 48 h.`
-                  : 'Mantenimiento Web (Plan Base): cuota mensual con 1 hora para pequeños cambios.',
+                  ? `Mantenimiento Web (Plan Base): ${getPlanPriceLabel(planWeb)}. Sin cambios de contenido incluidos. Respuesta laboral objetivo ≤ 48 h.`
+                  : 'Mantenimiento Web (Plan Base): cuota mensual de mantenimiento técnico sin cambios de contenido.',
                 planNegocio
                   ? `Mantenimiento Negocio: ${getPlanPriceLabel(planNegocio)}. Más prioridad y hasta 2 horas al mes. Respuesta laboral objetivo ≤ 24 h.`
                   : 'Mantenimiento Negocio: más prioridad y más horas al mes.',

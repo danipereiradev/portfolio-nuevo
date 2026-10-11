@@ -297,11 +297,11 @@ export const paymentConfigs: Record<string, PaymentConfig> = {
     serviceName: 'Mantenimiento Web · Plan Base',
     description:
       'Nos ocupamos de tu web cada mes: que funcione, esté al día y tengas a quién escribir si algo falla.',
-    amount: 59,
+    amount: 39.90,
     vatRate: 21,
     paymentType: 'subscription',
     billingInterval: 'monthly',
-    stripePaymentLink: 'https://buy.stripe.com/3cIbJ12i7gWYa3r4hk4AU06',
+    stripePaymentLink: 'https://buy.stripe.com/3cI7sL7Cr224a3r3dg4AU0e',
     // Success URL: https://36web.es/gracias/mantenimiento-web-base-mensual
     includes: [
       'Revisión mensual de que la web funciona',
@@ -309,11 +309,11 @@ export const paymentConfigs: Record<string, PaymentConfig> = {
       'Copias de seguridad cuando la infraestructura de la web lo permita',
       'Formularios y certificado de seguridad',
       'Soporte por email',
-      'Hasta 1 hora al mes para pequeños cambios',
+      'Mantenimiento técnico sin cambios de contenido incluidos',
     ],
-    excludes: monthlyMaintenanceExcludes(1),
+    excludes: ['Cambios de contenido', 'Rediseños y nuevas funcionalidades', 'SEO recurrente, redes sociales y publicidad'],
     cta: 'Activar mantenimiento mensual',
-    conditions: monthlyMaintenanceConditions,
+    conditions: '*Sin permanencia. Pago mensual. Puedes cancelar. Sin cambios de contenido incluidos; se presupuestan aparte.',
   },
   [MAINTENANCE_PLAN_NEGOCIO_ID]: {
     id: MAINTENANCE_PLAN_NEGOCIO_ID,
@@ -321,14 +321,14 @@ export const paymentConfigs: Record<string, PaymentConfig> = {
     serviceName: 'Mantenimiento Web · Plan Negocio',
     description:
       'Para webs que generan contactos o cambian a menudo. Más prioridad y más tiempo cada mes.',
-    amount: 99,
+    amount: 79.90,
     vatRate: 21,
     paymentType: 'subscription',
     billingInterval: 'monthly',
-    stripePaymentLink: 'https://buy.stripe.com/cNieVdf4T7modfDdRU4AU07',
+    stripePaymentLink: 'https://buy.stripe.com/fZu5kD6yn368cbzeVY4AU0f',
     // Success URL: https://36web.es/gracias/mantenimiento-web-negocio-mensual
     includes: [
-      'Todo lo del Plan Base',
+      'Todo el mantenimiento técnico del Plan Base',
       'Hasta 2 horas al mes para soporte y cambios',
       'Más prioridad cuando algo falla',
       'Revisión periódica del estado de la web',
@@ -355,7 +355,7 @@ export const paymentConfigs: Record<string, PaymentConfig> = {
       'Copias cuando corresponda',
       'Rendimiento',
       'Soporte prioritario',
-      'Hasta 2 horas mensuales como referencia (no acumulable)',
+      'Hasta 2 horas mensuales para soporte y pequeños cambios (no acumulables)',
     ],
     conditions:
       '*Precio de partida. Antes de aceptar el mantenimiento revisamos tu tienda para confirmar que este plan encaja.\nSin permanencia. Pago mensual. Puedes cancelar.',
