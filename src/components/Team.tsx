@@ -103,6 +103,7 @@ export const Team = ({
           <strong className='font-extrabold'>diseño UX/UI</strong>.
         </>
       ),
+      imageUrl: '/img/team/karen.webp',
       role: 'WordPress',
       mail: 'k.montero@36web.es',
     },
