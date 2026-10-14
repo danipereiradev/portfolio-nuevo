@@ -76,7 +76,7 @@ export const Team = ({
         <>
           Más de 12 años{' '}
           <strong className='font-extrabold'>
-            desarrollando webs y posicionando webs
+            desarrollando y posicionando páginas web
           </strong>
           .{' '}
           <strong className='font-extrabold'>
