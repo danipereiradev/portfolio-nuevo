@@ -1,3 +1,11 @@
+# Dominio canónico: https://36web.es (force para que no gane el catch-all SPA).
+https://pereiraweb.es  https://36web.es/  301!
+https://pereiraweb.es/*  https://36web.es/:splat  301!
+https://www.pereiraweb.es  https://36web.es/  301!
+https://www.pereiraweb.es/*  https://36web.es/:splat  301!
+https://www.36web.es  https://36web.es/  301!
+https://www.36web.es/*  https://36web.es/:splat  301!
+
 /api/subscribe  /.netlify/functions/subscribe  200!
 
 /web-a-medida   /diseno-web   301!

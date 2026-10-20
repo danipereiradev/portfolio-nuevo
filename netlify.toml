@@ -2,6 +2,45 @@
   directory = "netlify/functions"
   node_bundler = "esbuild"
 
+# Dominio canónico: https://36web.es
+# pereiraweb.es y www.36web.es sirven hoy el mismo HTML (200). Sin 301,
+# Google indexa el host que rastrea aunque el canonical sea 36web.es.
+[[redirects]]
+  from = "https://pereiraweb.es"
+  to = "https://36web.es/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://pereiraweb.es/*"
+  to = "https://36web.es/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.pereiraweb.es"
+  to = "https://36web.es/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.pereiraweb.es/*"
+  to = "https://36web.es/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.36web.es"
+  to = "https://36web.es/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.36web.es/*"
+  to = "https://36web.es/:splat"
+  status = 301
+  force = true
+
 # Proxy amigable a la función serverless (antes del catch-all SPA).
 [[redirects]]
   from = "/api/subscribe"
