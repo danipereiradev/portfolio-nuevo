@@ -14,7 +14,7 @@ interface HeroProps {
   hasButton: boolean;
   hasBackground: boolean;
   hasReviewBadge: boolean;
-  /** Home escritorio: H1 36Web, sin CTA y vídeo con velado de película. */
+  /** Hero a pantalla completa con vídeo, propuesta y CTA. */
   cinematic?: boolean;
 }
 
@@ -163,12 +163,10 @@ const Hero = ({
             <h1 className='whitespace-nowrap text-[clamp(0.7rem,2.2vw,1.35rem)] font-bold tracking-[0.28em] text-white'>
               {title}
             </h1>
-          ) : cinematic ? (
-            <h1 className='hero-cinematic-title'>36Web</h1>
           ) : (
             <div className='page-title-block md:max-w-4xl'>
               <h1
-                className={`hero-cta-title text-4xl md:text-6xl lg:text-7xl font-extrabold ${
+                className={`${cinematic ? 'hero-cinematic-title' : 'hero-cta-title text-4xl md:text-6xl lg:text-7xl font-extrabold'} ${
                   overlayTone === 'black' || copyOnVideo
                     ? 'text-white'
                     : 'text-ink-dark'
@@ -198,7 +196,7 @@ const Hero = ({
               <TestimonialsBadge />
             </div>
           ) : null}
-          {!titleOnly && hasButton && buttonText && !cinematic ? (
+          {!titleOnly && hasButton && buttonText ? (
             <div className='hero-cta-badge'>
               <Button className='mx-auto text-center' href={buttonHref}>
                 {buttonText}

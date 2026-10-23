@@ -1,5 +1,6 @@
 import InstagramShowcase from '../components/InstagramShowcase';
 import Hero from '../components/Hero';
+import homeHero from '../config/homeHero.json';
 import Services from '../components/Services';
 import Portfolio from '../components/Portfolio';
 import Testimonials from '../components/Testimonials';
@@ -19,18 +20,13 @@ const Home = () => {
   return (
     <>
       <Hero
-        title='Agencia de diseño web y marketing digital'
-        description={
-          <>
-            Ayudamos a pequeñas empresas a construir y hacer funcionar su
-            presencia digital
-          </>
-        }
-        buttonText='CONTACTA AHORA'
+        title={homeHero.title}
+        description={homeHero.description}
+        buttonText={homeHero.buttonText}
         buttonHref={CONTACT_PATH}
         videoUrl='/video/video-hero-36web-corto.mp4'
         backgroundUrl='/video/hero-home-2.jpg'
-        overlay='none'
+        overlay='black'
         hasButton
         hasBackground
         hasReviewBadge={false}

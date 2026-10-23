@@ -43,6 +43,10 @@ const heroLcp = JSON.parse(
   readFileSync(path.join(rootDir, 'src', 'config', 'heroLcp.json'), 'utf-8'),
 );
 
+const homeHero = JSON.parse(
+  readFileSync(path.join(rootDir, 'src', 'config', 'homeHero.json'), 'utf-8'),
+);
+
 const buildHeroPreloadTags = (routePath) => {
   const assets = heroLcp[routePath];
   if (!assets) return '';
@@ -463,6 +467,20 @@ for (const [routePath, meta] of Object.entries(pagesMeta)) {
     );
     html = injectRoot(html, localWeb.buildLocalWebCityBodyHtml(city));
     localWithBody += 1;
+  } else if (routePath === '/') {
+    html = injectRoot(html, `<main><section id="hero" class="page-hero-compact hero-cinematic-section bg-ink-dark text-white">
+      <img src="/video/hero-home-2.jpg" alt="" aria-hidden="true" fetchpriority="high" class="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover object-center" />
+      <div class="absolute inset-0 z-[1] bg-black/60" aria-hidden="true"></div>
+      <div class="relative z-10 mx-auto flex w-[95%] flex-col items-center gap-page-gap text-center">
+        <div class="page-title-block md:max-w-4xl">
+          <h1 class="hero-cinematic-title">${escapeHtml(homeHero.title)}</h1>
+          <span class="mx-auto h-1 w-16 bg-brand" aria-hidden="true"></span>
+          <p class="text-xl md:text-2xl md:max-w-2xl md:mx-auto text-white">${escapeHtml(homeHero.description)}</p>
+        </div>
+        <a href="/contacto" class="inline-flex items-center justify-center rounded-lg border-2 border-accent bg-accent px-6 py-4 font-extrabold text-white">${escapeHtml(homeHero.buttonText)}</a>
+      </div>
+    </section></main>`);
+    html = injectModulePreload(html, findAsset('Home-'));
   } else if (routePath === SITE_WEB_PATH) {
     html = injectBeforeRoot(html, buildDisenoWebHeroHtml());
     html = injectLaunchBootHeroCss(html);

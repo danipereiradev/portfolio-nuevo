@@ -1,11 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import {
-  ABOUT_PATH,
-  ABOUT_LABEL,
-  contactHrefForPath,
-} from '../config/contact';
+import { ABOUT_PATH, ABOUT_LABEL, contactHrefForPath } from '../config/contact';
 import { SERVICE_NAV } from '../config/nav';
 
 const navLinkClass =
@@ -29,57 +25,6 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [typedText, setTypedText] = useState('');
-  const [hasTyped, setHasTyped] = useState(false);
-
-  const fullText = '36Web.es';
-  const dotIndex = typedText.indexOf('.');
-  const namePart = hasTyped
-    ? '36Web'
-    : dotIndex === -1
-      ? typedText
-      : typedText.slice(0, dotIndex);
-  const domainPart = hasTyped
-    ? '.es'
-    : dotIndex === -1
-      ? ''
-      : typedText.slice(dotIndex);
-
-  useEffect(() => {
-    if (hasTyped) return undefined;
-
-    let index = 0;
-    const typingInterval = setInterval(() => {
-      if (index <= fullText.length) {
-        setTypedText(fullText.slice(0, index));
-        index += 1;
-      } else {
-        clearInterval(typingInterval);
-        setHasTyped(true);
-      }
-    }, 80);
-
-    return () => clearInterval(typingInterval);
-  }, [hasTyped]);
-
-  const brandAccentClass = 'text-accent';
-  const brand = (
-    <span className='flex items-baseline whitespace-nowrap font-display text-[calc(1.875rem*1.15*0.8)] font-normal tracking-tight md:text-[calc(1.875rem*1.15)]'>
-      <span
-        className={`text-[calc(1.25rem*1.15*0.8)] md:text-[calc(1.875rem*1.15)] ${brandAccentClass}`}
-      >
-        &gt;&nbsp;
-      </span>
-      <span className='font-bold text-ink-dark'>{namePart}</span>
-      {domainPart ? <span className='text-ink-dark'>{domainPart}</span> : null}
-      <span
-        className={`animate-pulse text-[calc(1.25rem*1.15*0.8)] md:text-[calc(1.875rem*1.15)] ${brandAccentClass}`}
-      >
-        &nbsp;_
-      </span>
-    </span>
-  );
-
   const iconLogo = (
     <img
       src='/img/favicon/android-chrome-512x512.png'
@@ -92,23 +37,35 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
   );
 
   const logo = isHome ? (
-    <span className='overflow-hidden rounded-lg bg-brand-light'>{iconLogo}</span>
+    <span className='overflow-hidden rounded-lg bg-brand-light'>
+      {iconLogo}
+    </span>
   ) : (
-    brand
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      viewBox='0 0 512 512'
+      role='img'
+      aria-label='36web'
+      className='h-12 w-12 shrink-0 rounded-lg lg:h-14 lg:w-14'
+    >
+      <rect width='512' height='512' fill='#303030' />
+      <path
+        d='M165 150 L367 239 L367 287 L165 377 L165 321 L304 263 L165 205 Z'
+        fill='var(--color-brand-light)'
+      />
+    </svg>
   );
 
   return (
     <div
       className={`flex w-full justify-center ${
-        isHome
-          ? 'absolute inset-x-0 top-0 z-50'
-          : 'fixed inset-x-0 top-0 z-50'
+        isHome ? 'absolute inset-x-0 top-0 z-50' : 'fixed inset-x-0 top-0 z-50'
       }`}
     >
       {isHome && isMenuOpen ? (
         <button
           type='button'
-          className='fixed inset-0 z-0 bg-black/70 lg:hidden'
+          className='fixed inset-0 z-0 bg-black/80 lg:hidden'
           aria-label='Cerrar menú'
           onClick={() => {
             setIsMenuOpen(false);
@@ -118,9 +75,7 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
       ) : null}
       <header
         className={`site-header relative z-10 mx-auto mt-4 w-[95%] max-w-page rounded-lg ${
-          isHome
-            ? 'site-header--home'
-            : 'shadow-[0_4px_16px_rgba(0,0,0,0.08)]'
+          isHome ? 'site-header--home' : 'shadow-[0_4px_16px_rgba(0,0,0,0.08)]'
         }`}
       >
         <div className='mx-auto w-full px-page-x py-4'>
@@ -140,7 +95,9 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
               <>
                 <div className='flex items-center justify-end lg:hidden'>
                   <button
-                    className={isHome ? 'text-brand-light' : 'p-2 text-ink-dark'}
+                    className={
+                      isHome ? 'text-brand-light' : 'p-2 text-ink-dark'
+                    }
                     onClick={() => {
                       setIsMenuOpen((open) => {
                         if (open) setIsServicesOpen(false);
@@ -235,7 +192,9 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
                   <a
                     href={contactHrefForPath(pathname)}
                     className={
-                      isHome ? desktopNavClass : `${defaultNavLinkClass} !text-accent`
+                      isHome
+                        ? desktopNavClass
+                        : `${defaultNavLinkClass} !text-accent`
                     }
                   >
                     Contacto
@@ -273,11 +232,7 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
                   />
                 </button>
                 {isServicesOpen ? (
-                  <div
-                    className={
-                      isHome ? '' : 'divide-y divide-ink-dark/15'
-                    }
-                  >
+                  <div className={isHome ? '' : 'divide-y divide-ink-dark/15'}>
                     {SERVICE_NAV.map((service) => (
                       <a
                         key={service.href}
@@ -312,7 +267,9 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
                 href={contactHrefForPath(pathname)}
                 onClick={() => setIsMenuOpen(false)}
                 className={
-                  isHome ? mobileLinksClass : `${mobileNavLinkClass} !text-accent`
+                  isHome
+                    ? mobileLinksClass
+                    : `${mobileNavLinkClass} !text-accent`
                 }
               >
                 Contacto

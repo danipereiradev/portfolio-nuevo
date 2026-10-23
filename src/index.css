@@ -641,10 +641,13 @@ h6 {
 
 /* Home escritorio: velado de película en color antiguo */
 .hero-cinematic-title {
-  font-size: clamp(3.25rem, 18vw, 9.5rem);
-  font-weight: 700;
-  letter-spacing: 0;
-  line-height: 0.95;
+  max-width: 18ch;
+  margin-inline: auto;
+  font-size: clamp(2rem, 5.5vw, 4.75rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  text-wrap: balance;
   color: var(--color-brand-light);
 }
 
@@ -731,15 +734,16 @@ h6 {
 }
 
 .page-hero-compact.hero-cinematic-section {
-  height: 100vh;
+  height: auto;
   min-height: 100vh;
-  padding: 0;
+  min-height: 100svh;
+  padding: calc(var(--site-header-h, 5rem) + 2rem) 1rem 3rem;
   justify-content: center;
 }
 
 @media (min-width: 768px) {
   .page-hero-compact.hero-cinematic-section {
-    height: 100svh;
+    height: auto;
     min-height: 100svh;
   }
 }
