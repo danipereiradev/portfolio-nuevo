@@ -28,6 +28,7 @@ import { useJsonLd } from '../hooks/useJsonLd';
 import { useBootHeroSlot } from '../hooks/useBootHeroSlot';
 import {
   buildWhatsAppUrl,
+  CONTACT_PATH,
   SITE_MAINTENANCE_LABEL,
   SITE_MAINTENANCE_PATH,
   MAINTENANCE_WHATSAPP_MESSAGE,
@@ -62,7 +63,7 @@ const needCards = [
     title: 'Tengo una tienda o aplicación',
     text: 'WooCommerce, Shopify, ecommerce, frontend/backend o desarrollo a medida.',
     cta: 'Solicitar valoración',
-    href: `#${MAINTENANCE_CONTACT_ID}`,
+    href: CONTACT_PATH,
   },
   {
     title: 'Algo se ha roto',
@@ -238,7 +239,7 @@ const MantenimientoWeb = () => {
   const heroCtas = (
     <div className={`${dualCtaRowClass} justify-center md:justify-start`}>
       <Button
-        href={`#${MAINTENANCE_CONTACT_ID}`}
+        href={CONTACT_PATH}
         className={`${dualCtaButtonClass} !border-2 !border-accent`}
         onClick={() => trackCtaClick('Pedir propuesta', 'MaintenanceHero')}
       >
@@ -358,7 +359,7 @@ const MantenimientoWeb = () => {
             </>
           }
           buttonText='Pedir propuesta'
-          buttonHref={`#${MAINTENANCE_CONTACT_ID}`}
+          buttonHref={CONTACT_PATH}
           heroType='offer'
           hasButton={false}
           hasBackground={false}
@@ -425,7 +426,7 @@ const MantenimientoWeb = () => {
               desarrolladas por otras agencias o profesionales. Podemos
               revisarla y decirte si podemos hacernos cargo.
             </p>
-            <Button href={`#${MAINTENANCE_CONTACT_ID}`} className='mt-8'>
+            <Button href={CONTACT_PATH} className='mt-8'>
               Quiero que reviséis mi web
             </Button>
           </article>
@@ -564,7 +565,7 @@ const MantenimientoWeb = () => {
           title='Lo que suele preguntar la gente'
           faqs={faqs}
           ctaText='CUÉNTANOS TU WEB'
-          ctaHref={`#${MAINTENANCE_CONTACT_ID}`}
+          ctaHref={CONTACT_PATH}
         />
       </div>
 

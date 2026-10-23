@@ -37,12 +37,11 @@ https://www.36web.es/*  https://36web.es/:splat  301!
 /about-me          /landing-diseno-web   301!
 /sobre-mi          /landing-diseno-web   301!
 /sobre-el-estudio  /landing-diseno-web   301!
-/contact           /landing-diseno-web   301!
-/contacto          /landing-diseno-web   301!
+/contact           /contacto/   301!
+/contact/          /contacto/   301!
 /preguntas-frecuentes /landing-diseno-web  301!
 /casos-de-exito    /landing-diseno-web   301!
 /testimonios-clientes /landing-diseno-web  301!
-/gracias           /landing-diseno-web   301!
 /ia                /landing-diseno-web   301!
 
 /diseno-web                     /diseno-web/index.html                     200
@@ -52,7 +51,11 @@ https://www.36web.es/*  https://36web.es/:splat  301!
 /diseno-web/valencia/           /diseno-web   301!
 /diseno-web/*                   /404.html                                  404
 /landing-tranquilidad-digital /landing-tranquilidad-digital/index.html 200
-/landing-diseno-web             /landing-diseno-web/index.html             200
+/landing-diseno-web             /landing-web-a-medida/                     301!
+/landing-diseno-web/            /landing-web-a-medida/                     301!
+/landing-web-a-medida           /landing-web-a-medida/index.html           200
+/contacto                      /contacto/index.html                        200
+/gracias                       /gracias/index.html                         200
 /landing-web-profesional-inmobiliarias /landing-web-profesional-inmobiliarias/index.html 200
 /landing-web-profesional        /landing-web-profesional/index.html        200
 /landing-tiendas-online         /landing-tiendas-online/index.html         200

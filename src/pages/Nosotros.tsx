@@ -9,7 +9,6 @@ import {
   ABOUT_LABEL,
   ABOUT_PATH,
   CONTACT_PATH,
-  SITE_WEB_PATH,
 } from '../config/contact';
 
 const SITE_URL = 'https://36web.es';
@@ -158,7 +157,7 @@ const Nosotros = () => {
           </>
         }
         buttonText='PEDIR PROPUESTA'
-        buttonHref={SITE_WEB_PATH}
+        buttonHref={CONTACT_PATH}
         heroType='form'
         hasButton={false}
         formTitle='Te llamamos'

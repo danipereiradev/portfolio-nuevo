@@ -223,7 +223,19 @@
 
 [[redirects]]
   from = "/landing-diseno-web"
-  to = "/landing-diseno-web/index.html"
+  to = "/landing-web-a-medida/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/landing-diseno-web/"
+  to = "/landing-web-a-medida/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/landing-web-a-medida"
+  to = "/landing-web-a-medida/index.html"
   status = 200
 
 [[redirects]]
@@ -284,6 +296,11 @@
 [[redirects]]
   from = "/contacto"
   to = "/contacto/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/gracias"
+  to = "/gracias/index.html"
   status = 200
 
 [[redirects]]
