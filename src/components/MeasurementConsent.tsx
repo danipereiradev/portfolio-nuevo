@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   getMeasurementConsent,
   saveMeasurementConsent,
@@ -8,7 +8,15 @@ const checkboxClass = 'h-4 w-4 accent-accent rounded';
 const actionClass = 'rounded-lg px-4 py-2 text-sm font-semibold';
 
 export default function MeasurementConsent() {
-  const [open, setOpen] = useState(() => !getMeasurementConsent());
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (getMeasurementConsent()) return;
+    const timer = window.setTimeout(() => {
+      if (!getMeasurementConsent()) setOpen(true);
+    }, 10_000);
+    return () => window.clearTimeout(timer);
+  }, []);
   const [analytics, setAnalytics] = useState(
     () => getMeasurementConsent()?.analytics ?? false,
   );
