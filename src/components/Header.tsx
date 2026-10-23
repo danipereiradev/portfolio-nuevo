@@ -37,15 +37,16 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
   );
 
   const logo = isHome ? (
-    <span className='overflow-hidden rounded-lg bg-brand-light'>
-      {iconLogo}
+    <span className='inline-flex shrink-0 items-center gap-2.5 xl:gap-3'>
+      <span aria-hidden='true' className='overflow-hidden rounded-lg bg-brand-light'>{iconLogo}</span>
+      <span className='text-xl font-extrabold tracking-tight text-brand-light xl:text-2xl'>36WEB</span>
     </span>
   ) : (
+    <span className='inline-flex shrink-0 items-center gap-2.5 xl:gap-3'>
     <svg
       xmlns='http://www.w3.org/2000/svg'
       viewBox='0 0 512 512'
-      role='img'
-      aria-label='36web'
+      aria-hidden='true'
       className='h-12 w-12 shrink-0 rounded-lg lg:h-14 lg:w-14'
     >
       <rect width='512' height='512' fill='#303030' />
@@ -54,6 +55,8 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
         fill='var(--color-brand-light)'
       />
     </svg>
+    <span className='text-xl font-extrabold tracking-tight text-[#303030] xl:text-2xl'>36WEB</span>
+    </span>
   );
 
   return (

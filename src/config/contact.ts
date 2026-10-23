@@ -91,14 +91,30 @@ export const getTranquilitySource = (): string | undefined => {
   const { pathname, search } = window.location;
   if (!pathname.includes('tranquilidad-digital')) return undefined;
   const params = new URLSearchParams(search);
-  if (pathname.includes('landing-tranquilidad-digital') || params.get('origin') === 'ads' || params.has('gclid')) return 'ads';
-  if (params.get('utm_source')?.toLowerCase() === 'instagram' || params.get('origin') === 'instagram') return 'instagram';
+  if (
+    pathname.includes('landing-tranquilidad-digital') ||
+    params.get('origin') === 'ads' ||
+    params.has('gclid')
+  )
+    return 'ads';
+  if (
+    params.get('utm_source')?.toLowerCase() === 'instagram' ||
+    params.get('origin') === 'instagram'
+  )
+    return 'instagram';
   return undefined;
 };
 
-export const buildWhatsAppUrl = (message: string = DEFAULT_WHATSAPP_MESSAGE) => {
+export const buildWhatsAppUrl = (
+  message: string = DEFAULT_WHATSAPP_MESSAGE,
+) => {
   const source = getTranquilitySource();
-  const origin = source === 'ads' ? ' Vengo de Google Ads.' : source === 'instagram' ? ' Vengo de Instagram.' : '';
+  const origin =
+    source === 'ads'
+      ? ' Vengo de Google Ads.'
+      : source === 'instagram'
+        ? ' Vengo de Instagram.'
+        : '';
   return `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message + origin)}`;
 };
 
@@ -136,7 +152,7 @@ export const SITE_MAINTENANCE_PATH = '/mantenimiento-web';
 export const SITE_MAINTENANCE_LABEL = 'Mantenimiento Web';
 
 export const ABOUT_PATH = '/sobre-36web';
-export const ABOUT_LABEL = 'Nuestra agencia';
+export const ABOUT_LABEL = '36WEB';
 
 export const CONTACT_PATH = '/contacto';
 export const CONTACT_LABEL = 'Contacto';
@@ -260,7 +276,10 @@ export const getWhatsAppMessageForPath = (pathname: string): string => {
   if (isAdsWebLandingPath(path)) return ADS_WHATSAPP_MESSAGE;
   if (isAdsMaintenanceLandingPath(path))
     return ADS_MAINTENANCE_WHATSAPP_MESSAGE;
-  if (path === TRANQUILIDAD_DIGITAL_PATH || path === '/landing-tranquilidad-digital')
+  if (
+    path === TRANQUILIDAD_DIGITAL_PATH ||
+    path === '/landing-tranquilidad-digital'
+  )
     return TRANQUILIDAD_DIGITAL_WHATSAPP_MESSAGE;
   if (path === '/web-profesional') return WEB_PROFESIONAL_WHATSAPP_MESSAGE;
   if (path === SITE_APPS_PATH)
