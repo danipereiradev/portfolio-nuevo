@@ -23,7 +23,7 @@ const Home = () => {
         title={homeHero.title}
         description={homeHero.description}
         buttonText={homeHero.buttonText}
-        buttonHref={CONTACT_PATH}
+        buttonHref={homeHero.buttonHref}
         videoUrl='/video/video-hero-36web-corto.mp4'
         backgroundUrl='/video/hero-home-2.jpg'
         overlay='black'

@@ -477,7 +477,7 @@ for (const [routePath, meta] of Object.entries(pagesMeta)) {
           <span class="mx-auto h-1 w-16 bg-brand" aria-hidden="true"></span>
           <p class="text-xl md:text-2xl md:max-w-2xl md:mx-auto text-white">${escapeHtml(homeHero.description)}</p>
         </div>
-        <a href="/contacto" class="inline-flex items-center justify-center rounded-lg border-2 border-accent bg-accent px-6 py-4 font-extrabold text-white">${escapeHtml(homeHero.buttonText)}</a>
+        <a href="${escapeHtml(homeHero.buttonHref)}" class="inline-flex items-center justify-center rounded-lg border-2 border-accent bg-accent px-6 py-4 font-extrabold text-white">${escapeHtml(homeHero.buttonText)}</a>
       </div>
     </section></main>`);
     html = injectModulePreload(html, findAsset('Home-'));
