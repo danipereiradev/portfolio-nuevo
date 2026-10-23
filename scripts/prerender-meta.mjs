@@ -161,7 +161,7 @@ const buildTiendasOnlineHeroHtml = () =>
       'Creamos tiendas online claras, rápidas y pensadas para <strong class="font-extrabold">convertir visitas en ventas de verdad</strong>.',
     bullets: [
       'Catálogo, pagos y envíos, listas para vender <strong class="font-extrabold">desde el primer día</strong>.',
-      'Desde <strong class="font-extrabold">590&nbsp;€&nbsp;+&nbsp;IVA</strong>, según el alcance. Precio y plazos por escrito.',
+      '<strong class="font-extrabold">Presupuesto a medida</strong>. Alcance, precio y plazos por escrito.',
       '<strong class="font-extrabold">Hablas con quien te va a hacer la tienda, no con un comercial</strong>.',
     ],
   });
@@ -181,9 +181,9 @@ const buildAplicacionesHeroHtml = () =>
 const buildMantenimientoWebHeroHtml = () =>
   buildLightBootHeroHtml({
     crumbsLabel: 'Mantenimiento Web',
-    h1: 'Mantenimiento y soporte web cuando lo necesitas',
+    h1: '¿Ya tienes web? Nosotros la cuidamos.',
     intro:
-      'Planes desde 39,90 € + IVA/mes o bonos de horas para arreglos puntuales. Trabajamos también con webs hechas por otras empresas.',
+      'Conserva tu web y delega su cuidado técnico desde 39,90 € + IVA/mes. También trabajamos con webs hechas por otras empresas. La creación de una web nueva no está incluida.',
     bullets: [
       '<strong class="font-extrabold">Propuesta en el mismo día</strong>.',
       '<strong class="font-extrabold">Hablas con quien revisa la web, no con un comercial</strong>.',

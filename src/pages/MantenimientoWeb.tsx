@@ -330,13 +330,12 @@ const MantenimientoWeb = () => {
             { href: '/', label: 'Inicio' },
             { label: SITE_MAINTENANCE_LABEL },
           ]}
-          title='Mantenimiento y soporte web cuando lo necesitas'
+          title='¿Ya tienes web? Nosotros la cuidamos.'
           description={
             <>
               <p>
-                Planes desde 39,90 € + IVA/mes o bonos de horas para arreglos
-                puntuales. Trabajamos también con webs hechas por otras
-                empresas.
+                Conserva tu web y delega su cuidado técnico desde 39,90 € + IVA/mes.
+                También trabajamos con webs hechas por otras empresas. La creación de una web nueva no está incluida.
               </p>
               <HeroCtaList
                 className='mx-auto mt-text-gap w-full list-none text-center md:mx-0 md:list-disc md:list-outside md:pl-5 md:text-left'

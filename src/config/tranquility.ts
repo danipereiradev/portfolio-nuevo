@@ -78,7 +78,7 @@ export const tranquilityPlans = [
       'Atención prioritaria dentro del horario de servicio',
     ],
     detail:
-      'Una petición activa a la vez, con plazo según su complejidad. Configuración inicial y orientación de campañas incluidas; inversión publicitaria y gestión continuada, aparte. La producción de publicaciones y los desarrollos especiales se presupuestan aparte.',
+      'Una petición activa a la vez. Cada tarea se concreta y recibe un plazo antes de empezar; las peticiones amplias se dividen en entregas acordadas. No implica disponibilidad exclusiva ni entrega inmediata. Configuración inicial y orientación de campañas incluidas; inversión publicitaria y gestión continuada, aparte. La producción de publicaciones y los desarrollos especiales se presupuestan aparte.',
     checkoutFeatures: [
       'Web a medida ultrarrápida incluida, sin límite de secciones',
       'Dominio estándar .com o .es y su renovación, alojamiento, SSL y mantenimiento técnico',

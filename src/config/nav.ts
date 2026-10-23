@@ -1,6 +1,4 @@
 import {
-  SITE_APPS_PATH,
-  SITE_APPS_LABEL,
   ABOUT_LABEL,
   ABOUT_PATH,
   CONTACT_LABEL,
@@ -21,7 +19,6 @@ export const SERVICE_NAV = [
   { href: TRANQUILIDAD_DIGITAL_PATH, label: TRANQUILIDAD_DIGITAL_LABEL },
   { href: SITE_WEB_PATH, label: SITE_WEB_LABEL },
   { href: SITE_SHOP_PATH, label: SITE_SHOP_LABEL },
-  { href: SITE_APPS_PATH, label: SITE_APPS_LABEL },
   { href: SITE_MAINTENANCE_PATH, label: SITE_MAINTENANCE_LABEL },
 ] as const;
 
