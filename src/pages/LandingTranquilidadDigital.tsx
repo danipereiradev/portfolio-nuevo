@@ -5,6 +5,7 @@ import {
   tranquilityScope,
   tranquilityCancellation,
   tranquilityAttention,
+  tranquilityOwnership,
 } from '../config/tranquility';
 import { allTestimonials } from '../data/testimonials';
 import { getMeasurementConsent } from '../utils/measurementConsent';
@@ -65,20 +66,6 @@ function ContactButton({
 
 const successCases = [
   {
-    name: 'Camisetas Ahora',
-    plan: 'Impulso',
-    sector: 'Productos personalizados',
-    image: 'camisetas',
-    url: 'https://camisetas-ahora.com/',
-    title: 'De un editor limitado a una compra mucho más fácil.',
-    challenge:
-      'Un personalizador basado en un plugin limitaba la experiencia de compra.',
-    solution:
-      'Rediseñamos su tienda WooCommerce con un tema propio y un personalizador visual para mover y redimensionar diseños.',
-    result:
-      'Personalizar es ahora más cómodo y visual: el cliente sube su diseño, lo mueve y ajusta el tamaño, prepara una o dos impresiones y ve el resultado antes de añadirlo al carrito. Menos dudas sobre lo que está comprando y más control sobre su pedido.',
-  },
-  {
     name: 'Clínica Hatena',
     plan: 'Esencial',
     sector: 'Clínica veterinaria · Ourense',
@@ -99,7 +86,7 @@ function TrustSection() {
   return (
     <section
       id='testimonials'
-      className='container mx-auto py-12'
+      className='container mx-auto py-12 text-center'
       aria-label='Equipo y opiniones de clientes'
     >
       <Team
@@ -133,38 +120,7 @@ function TrustSection() {
           </figure>
         )}
       </div>
-      <a
-        href='https://camisetas-ahora.com/'
-        target='_blank'
-        rel='noopener noreferrer'
-        data-ads-outbound='allow'
-        className='mt-6 flex flex-col sm:flex-row items-center gap-5 rounded-2xl border border-accent/20 p-5'
-      >
-        <img
-          src='/img/portfolio/new/camisetas.webp'
-          alt='Tienda online Camisetas Ahora'
-          width='240'
-          height='160'
-          loading='lazy'
-          className='w-full sm:w-60 rounded-lg'
-        />
-        <div>
-          <h3 className='text-xl font-bold'>
-            Camisetas Ahora: una compra más visual.
-          </h3>
-          <span className='inline-flex rounded-full bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-accent mt-3'>
-            Suscripción Impulso
-          </span>
-          <p className='my-2'>
-            Tema propio y personalizador para colocar el diseño y ver el
-            resultado antes de comprar. Es un desarrollo especial; no forma
-            parte automática de la cuota.
-          </p>
-          <span className='text-accent underline font-bold'>
-            Visitar la tienda →
-          </span>
-        </div>
-      </a>
+
     </section>
   );
 }
@@ -173,20 +129,17 @@ function SuccessCases() {
   return (
     <section
       id='casos-de-exito'
-      className='container mx-auto py-16 md:py-24'
+      className='container mx-auto py-16 md:py-24 text-center'
       aria-labelledby='cases-title'
     >
       <p className='font-bold text-accent mb-3'>Casos de éxito</p>
       <h2 id='cases-title' className='text-3xl md:text-5xl font-bold mb-5'>
         Una web que cambia la experiencia de sus clientes.
       </h2>
-      <p className='text-lg max-w-3xl mb-10'>
-        Camisetas Ahora nos acompaña con el plan Impulso y Clínica Hatena con
-        Esencial. Visita sus proyectos y conoce el trabajo realizado. Los
-        desarrollos especiales, como el personalizador, tienen un alcance
-        independiente de la suscripción.
+      <p className='text-lg max-w-3xl mx-auto mb-10 text-center'>
+        Clínica Hatena cuenta con el acompañamiento Esencial. Visita su web y conoce el trabajo realizado: diseño a medida, servicios claros y navegación ágil.
       </p>
-      <div className='grid md:grid-cols-2 gap-7'>
+      <div className='grid gap-7 max-w-3xl mx-auto'>
         {successCases.map((project) => (
           <article
             key={project.name}
@@ -205,7 +158,7 @@ function SuccessCases() {
                 {project.sector}
               </p>
               <h3 className='text-2xl font-bold mb-3'>{project.name}</h3>
-              <span className='self-start inline-flex rounded-full bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-accent mb-4'>
+              <span className='self-center inline-flex rounded-full bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-accent mb-4'>
                 Suscripción {project.plan}
               </span>
               <p className='text-xl font-semibold mb-5'>{project.title}</p>
@@ -251,6 +204,7 @@ export default function LandingTranquilidadDigital({
   const pagePath = adsLanding
     ? '/landing-tranquilidad-digital'
     : '/tranquilidad-digital';
+  const [expandedPlan, setExpandedPlan] = useState<string | null>(null);
   const [openCondition, setOpenCondition] = useState<number | null>(null);
   usePageMeta(pagePath);
   useEffect(() => {
@@ -265,21 +219,22 @@ export default function LandingTranquilidadDigital({
     <>
       <section className='bg-surface-muted pb-16 pt-[calc(var(--site-header-h)+var(--page-hero-offset)+0.5rem)] md:pb-24'>
         <div className='container mx-auto grid lg:grid-cols-2 gap-10 items-start lg:items-center'>
-          <div className='min-w-0'>
+          <div className='min-w-0 text-center lg:text-left'>
             <p className='font-bold text-sm text-accent mb-3'>
               36WEB · Tranquilidad digital
             </p>
             <h1 className='text-[1.75rem] md:text-5xl font-bold leading-tight mb-4'>
-              Tu web y su posicionamiento, tus redes sociales y publicidad.
+              Tu web y su mantenimiento, con una persona a quien acudir.
             </h1>
             <p className='text-lg mb-4'>
-              Para autónomos y pequeños negocios que necesitan una web o tienda
-              online, o quieren delegar la que ya tienen.
+              Para autónomos y pequeños negocios que necesitan una web
+              a medida o quieren delegar la que ya tienen.
             </p>
             <p className='text-2xl font-bold mb-2'>Desde 59,90 € + IVA / mes</p>
             <p className='inline-block rounded-lg border border-accent/20 bg-white px-4 py-3 font-bold text-accent mb-3'>
-              Tu web o tienda online y dominio incluidos. 0 € de alta.
+              Web a medida y dominio incluidos. 0 € de alta.
             </p>
+<p className='font-bold text-accent mb-4'>Tras 12 cuotas pagadas, la web es tuya.</p>
             <div className={dualCtaRowClass}>
               <ContactButton className={dualCtaButtonClass} />
               <Button
@@ -302,9 +257,9 @@ export default function LandingTranquilidadDigital({
               que conoce tu proyecto.
             </p>
           </div>
-          <div className='min-w-0 rounded-3xl bg-white p-7 md:p-10 border border-accent/20 shadow-lg'>
+          <div className='min-w-0 text-center lg:text-left rounded-3xl bg-white p-7 md:p-10 border border-accent/20 shadow-lg'>
             <ShieldCheck
-              className='mx-auto mb-5 h-12 w-12 text-accent md:mx-0'
+              className='mx-auto mb-5 h-12 w-12 text-accent lg:mx-0'
               aria-hidden='true'
             />
             <h2 className='text-3xl font-bold mb-5'>
@@ -316,14 +271,14 @@ export default function LandingTranquilidadDigital({
               ponemos con ello.
             </p>
             {[
-              'Una web o tienda para tu negocio',
+              'Una web a medida para tu negocio',
               'Lo técnico, acompañado',
               'Una cuota que conoces',
-              'Libertad para cancelar',
+              'Tu web en propiedad tras 12 cuotas',
             ].map((text) => (
               <p
                 key={text}
-                className='flex gap-3 items-center py-3 border-t border-gray-100 font-semibold'
+                className='flex gap-3 items-center text-left py-3 border-t border-gray-100 font-semibold'
               >
                 <Check className='text-accent w-5 h-5 shrink-0' />
                 {text}
@@ -338,13 +293,13 @@ export default function LandingTranquilidadDigital({
         className='scroll-mt-28 border-t border-accent/10 bg-white py-16 md:py-24'
       >
         <div className='container mx-auto'>
-          <p className='font-bold text-accent mb-3'>
+          <p className='font-bold text-accent mb-3 text-center'>
             Tres formas de estar acompañado
           </p>
-          <h2 className='text-3xl md:text-5xl font-bold mb-5'>
+          <h2 className='text-3xl md:text-5xl font-bold mb-5 text-center'>
             Elige cuánto necesitas delegar.
           </h2>
-          <p className='text-lg max-w-3xl mb-10'>
+          <p className='text-lg max-w-3xl mx-auto mb-10 text-center'>
             Empieza con lo esencial o cuenta con nosotros para avanzar cada mes.
             Concretamos contigo el alcance antes de activar el servicio.
           </p>
@@ -352,37 +307,52 @@ export default function LandingTranquilidadDigital({
             {plans.map((plan) => (
               <article
                 key={plan.name}
-                className={`rounded-2xl bg-white p-6 md:p-8 flex flex-col border-2 ${plan.name === 'Impulso' ? 'border-accent' : 'border-transparent'}`}
+                className={`rounded-2xl bg-white p-4 sm:p-6 lg:p-8 flex flex-col text-center border-2 ${plan.name === 'Impulso' ? 'border-accent' : 'border-transparent'}`}
               >
-                <h3 className='text-3xl font-bold mb-3'>{plan.name}</h3>
-                <p className='mb-6'>{plan.intro}</p>
-                <p className='text-4xl font-bold'>
+                <h3 className='text-2xl lg:text-3xl font-bold mb-1'>{plan.name}</h3>
+                <p className='font-bold text-accent mb-2'>{plan.subtitle}</p>
+                <p className='hidden lg:block mb-4'>{plan.intro}</p>
+                <p className='text-3xl lg:text-4xl font-bold'>
                   {plan.price} €
                   <span className='text-base font-normal'> / mes</span>
                 </p>
                 <p className='text-sm mt-2 mb-3'>+ IVA · Sin permanencia</p>
-                <p className='rounded-lg bg-surface-muted p-3 font-bold text-accent mb-6'>
-                  Web o tienda y dominio incluidos · 0 € de alta
-                </p>
-                <p className='text-sm mb-5'>
-                  Tras acordar el proyecto, solo la primera cuota de{' '}
-                  {plan.price} € + IVA.
-                </p>
-                <ul className='space-y-4 mb-6'>
-                  {plan.features.map((feature, index) => (
-                    <li
-                      key={feature}
-                      className={`flex gap-3 ${plan.highlightedFeatures.includes(index) ? 'rounded-lg bg-accent/5 px-3 py-2.5 text-accent font-bold' : ''}`}
-                    >
-                      <Check
-                        className='w-5 h-5 shrink-0 text-accent mt-1'
-                        aria-hidden='true'
-                      />
+                <div className='rounded-xl border border-accent/20 bg-accent/5 p-3 mb-3'>
+                  <p className='font-semibold'>{plan.initialDesign}</p>
+                  <p className='mt-1 text-xl lg:text-2xl font-bold text-accent'>Valorado en {plan.initialValue} €</p>
+                  <p className='mt-2 text-sm'>Incluido · 0 € de alta. Solo la primera cuota.</p>
+                </div>
+                <p className='font-bold text-accent mb-4'>Tras 12 cuotas pagadas, la web es tuya.</p>
+
+                <ul className='space-y-2 mb-3 text-left text-sm lg:text-base'>
+                  {plan.summaryFeatures.map((feature) => (
+                    <li key={feature} className='flex gap-2'>
+                      <Check className='w-5 h-5 shrink-0 text-accent' aria-hidden='true' />
                       <span>{feature}</span>
                     </li>
                   ))}
                 </ul>
-                <p className='text-sm mb-7'>{plan.detail}</p>
+                <button
+                  type='button'
+                  aria-expanded={expandedPlan === plan.name}
+                  aria-controls={'plan-details-' + plan.name}
+                  onClick={() => setExpandedPlan(expandedPlan === plan.name ? null : plan.name)}
+                  className='flex min-h-11 items-center justify-center gap-2 text-accent font-semibold underline mb-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent'
+                >
+                  {expandedPlan === plan.name ? 'Ocultar detalles' : 'Ver todo lo que incluye'}
+                  <ChevronDown className={'w-4 h-4 transition-transform ' + (expandedPlan === plan.name ? 'rotate-180' : '')} aria-hidden='true' />
+                </button>
+                <div id={'plan-details-' + plan.name} hidden={expandedPlan !== plan.name} className='text-left text-sm mb-4'>
+                  <ul className='space-y-3 mb-4'>
+                    {plan.features.map((feature) => (
+                      <li key={feature} className='flex gap-2'>
+                        <Check className='w-4 h-4 shrink-0 text-accent mt-1' aria-hidden='true' />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p>{plan.detail}</p>
+                </div>
                 <div className='mt-auto'>
                   <Button
                     href={`/pago/tranquilidad-digital?plan=${plan.name.toLowerCase()}${contactOrigin ? `&origin=${contactOrigin}` : ''}`}
@@ -402,8 +372,7 @@ export default function LandingTranquilidadDigital({
                     />
                   </Button>
                   <p className='text-sm mt-3 text-center'>
-                    {plan.total} €/mes con IVA. Primera cuota al contratar y
-                    renovación mensual. Sin alta ni permanencia.
+                    {plan.total} €/mes con IVA · renovación mensual.
                   </p>
                   <a
                     href={buildWhatsAppUrl(
@@ -427,6 +396,8 @@ export default function LandingTranquilidadDigital({
               </article>
             ))}
           </div>
+          <p className='mt-8 text-center rounded-xl bg-accent/5 p-5 font-bold text-accent'>{tranquilityOwnership}</p>
+          <p className='mt-3 text-sm text-center max-w-3xl mx-auto'>Si cancelas antes, conservas tus contenidos y dominio; la web deja de publicarse con nosotros. Tras 12 cuotas, puedes seguir acompañado o llevarte la web. Consulta la entrega y cancelación debajo.</p>
           <div className='mt-8 overflow-hidden rounded-2xl border border-accent/20 divide-y divide-accent/20'>
             {[
               {
@@ -440,7 +411,7 @@ export default function LandingTranquilidadDigital({
                 ),
               },
               {
-                title: 'Si decides cancelar',
+                title: 'Tu web en propiedad y qué ocurre si cancelas',
                 content: <p>{tranquilityCancellation}</p>,
               },
               {
@@ -448,8 +419,7 @@ export default function LandingTranquilidadDigital({
                 content: (
                   <>
                     <p>
-                      Necesitaremos textos, fotos, datos del negocio y accesos;
-                      en tiendas, también catálogo, precios y datos de envío.
+                      Necesitaremos textos, fotos, datos del negocio y accesos.
                       Recibirás la fecha de entrega por escrito antes de pagar,
                       según el proyecto y los materiales disponibles.
                     </p>
@@ -496,7 +466,7 @@ export default function LandingTranquilidadDigital({
               ¿Prefieres un pago único?
             </h3>
             <p className='mb-4'>
-              También creamos tu web o tienda a medida como proyecto
+              También creamos tu web a medida como proyecto
               independiente. Cuéntanos qué necesitas y recibe un presupuesto con
               alcance, precio y plazo por escrito.
             </p>
@@ -519,7 +489,7 @@ export default function LandingTranquilidadDigital({
               <ArrowRight className='h-5 w-5' aria-hidden='true' />
             </a>
           </div>
-          <p className='text-sm mt-6'>
+          <p className='text-sm mt-6 text-center max-w-3xl mx-auto'>
             La cuota corresponde al servicio descrito. La inversión en anuncios,
             licencias de pago, desarrollos especiales y servicios externos no
             están incluidos salvo acuerdo expreso. No se garantizan posiciones
@@ -530,7 +500,7 @@ export default function LandingTranquilidadDigital({
       </section>
       <SuccessCases />
 
-      <section className='container mx-auto py-16'>
+      <section className='container mx-auto py-16 text-center'>
         <h2 className='text-3xl md:text-4xl font-bold mb-9'>
           Así empieza tu tranquilidad digital.
         </h2>
@@ -544,12 +514,12 @@ export default function LandingTranquilidadDigital({
             [
               '02',
               'Lo dejamos claro',
-              'Recibes por escrito secciones, catálogo inicial, funciones, tareas SEO, calendario y condiciones de salida. Lo revisamos contigo antes de pedir el pago.',
+              'Recibes por escrito secciones, funciones, tareas SEO, calendario y condiciones de salida. Lo revisamos contigo antes de pedir el pago.',
             ],
             [
               '03',
               'Te asignamos tu desarrollador y empezamos',
-              'Cuando aceptas la propuesta, revisas las condiciones y pagas la primera cuota en Stripe. Te asignamos un desarrollador que prepara tu web o tienda y será tu interlocutor durante el servicio.',
+              'Cuando aceptas la propuesta, revisas las condiciones y pagas la primera cuota en Stripe. Te asignamos un desarrollador que prepara tu web y será tu interlocutor durante el servicio.',
             ],
           ].map(([number, title, text]) => (
             <div key={number}>
@@ -566,12 +536,12 @@ export default function LandingTranquilidadDigital({
           {
             question: '¿Cuántas secciones puede tener mi web?',
             answer:
-              'Esencial incluye una web o tienda online con hasta 5 secciones. Impulso e Integral incluyen una web o tienda online sin límite de secciones. Organizamos contigo la estructura, el catálogo cuando corresponda y el calendario de entrega. Concretamos el alcance por escrito antes de empezar; las funcionalidades especiales se valoran aparte.',
+              'Esencial incluye una web con hasta 5 secciones. Impulso e Integral incluyen una web sin límite de secciones. Organizamos contigo la estructura y el calendario de entrega. Concretamos el alcance por escrito antes de empezar; las funcionalidades especiales se valoran aparte.',
           },
           {
             question: '¿Tengo que pagar la creación de la web al empezar?',
             answer:
-              'No hay coste de alta ni un pago adicional por crear la web. Al contratar solo pagas la primera cuota: 59,90 € + IVA en Esencial, 99,90 € + IVA en Impulso o 199,90 € + IVA en Integral. Después se renueva mensualmente. La web permanece incluida mientras la suscripción esté activa.',
+              'No hay coste de alta ni un pago adicional por crear la web. Al contratar solo pagas la primera cuota: 59,90 € + IVA en Esencial, 99,90 € + IVA en Impulso o 199,90 € + IVA en Integral. Después se renueva mensualmente. Tras 12 cuotas mensuales pagadas, la web es tuya sin pago de compra adicional.',
           },
           {
             question: '¿Hay permanencia?',
@@ -590,7 +560,7 @@ export default function LandingTranquilidadDigital({
           {
             question: '¿Qué pasa con mis contenidos y datos?',
             answer:
-              'Tus textos, imágenes, marca y datos de clientes no se reutilizan para otros negocios. Al finalizar el servicio recuperas tus contenidos y datos sin coste. Transferimos el dominio y acordamos contigo la entrega de los contenidos y, si es una tienda, pedidos, categorías y demás datos.',
+              'Tus textos, imágenes, marca y datos de clientes no se reutilizan para otros negocios. Al finalizar el servicio recuperas tus contenidos y datos sin coste. Transferimos el dominio y acordamos contigo la entrega de los contenidos y datos de tu web.',
           },
           {
             question: '¿Puedo contratarlo si ya tengo una web?',
@@ -600,7 +570,7 @@ export default function LandingTranquilidadDigital({
           {
             question: '¿Incluye una tienda online o una aplicación?',
             answer:
-              'Sí, los tres planes incluyen la creación de una web o tienda online, sin pago de alta: solo la primera cuota. Acordamos contigo la estructura y el catálogo inicial antes de empezar. Las reservas, aplicaciones, personalizadores e integraciones especiales se revisan y presupuestan aparte, salvo inclusión expresa en tu propuesta.',
+              'No. Estos planes incluyen solo webs a medida. Las tiendas online, aplicaciones, reservas, personalizadores e integraciones especiales se estudian como proyectos aparte y reciben su propio presupuesto.',
           },
           {
             question: '¿Qué cambios y SEO incluye cada plan?',
@@ -610,7 +580,7 @@ export default function LandingTranquilidadDigital({
           {
             question: '¿Cómo funcionan los cambios ilimitados de Integral?',
             answer:
-              'Puedes solicitar tantos cambios sobre tu web o tienda online como necesites mientras tu suscripción esté activa. Los priorizamos contigo y trabajamos una petición a la vez: terminamos una y continuamos con la siguiente. El plazo depende de la complejidad de cada petición; no implica entregas inmediatas ni un número garantizado de cambios al mes. Las aplicaciones y las integraciones especiales se valoran aparte.',
+              'Puedes solicitar tantos cambios sobre tu web como necesites mientras tu suscripción esté activa. Los priorizamos contigo y trabajamos una petición a la vez: terminamos una y continuamos con la siguiente. El plazo depende de la complejidad de cada petición; no implica entregas inmediatas ni un número garantizado de cambios al mes. Las aplicaciones y las integraciones especiales se valoran aparte.',
           },
           {
             question: '¿Cómo hablo con vosotros?',

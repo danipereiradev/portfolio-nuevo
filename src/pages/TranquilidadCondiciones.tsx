@@ -8,6 +8,7 @@ import {
   tranquilityScope,
   tranquilityCancellation,
   tranquilityAttention,
+  tranquilityOwnership,
 } from '../config/tranquility';
 import { trackCtaClick, trackEvent } from '../utils/analytics';
 import { getMeasurementConsent } from '../utils/measurementConsent';
@@ -58,9 +59,10 @@ export default function TranquilidadCondiciones() {
       <p className='text-lg mt-5'>Esta página resume el plan seleccionado.</p>
       <section className='rounded-2xl bg-surface-muted p-6 my-7'>
         <h2 className='text-2xl font-bold'>Cuánto pagarás</h2>
+        <p className='mt-4 font-semibold text-accent'>{plan.initialDesign}, valorado en {plan.initialValue} €, incluido sin pago inicial adicional.</p>
         <dl className='space-y-3 mt-4'>
           <div className='flex justify-between gap-4'>
-            <dt>Alta y creación de la web o tienda</dt>
+            <dt>Alta y creación de la web</dt>
             <dd className='font-bold'>0 €</dd>
           </div>
           <div className='flex justify-between gap-4'>
@@ -77,9 +79,10 @@ export default function TranquilidadCondiciones() {
           </div>
         </dl>
         <p className='mt-4 text-sm'>
-          Sin permanencia. Una web o una tienda por suscripción. Los trabajos
+          Sin permanencia. Una web por suscripción, sin tienda online. Los trabajos
           adicionales solo se realizan con presupuesto y aceptación previos.
         </p>
+        <p className='mt-4 font-bold text-accent'>{tranquilityOwnership}</p>
       </section>
       <div className='my-8 overflow-hidden rounded-2xl border border-accent/20 divide-y divide-accent/20'>
         {[
@@ -113,9 +116,8 @@ export default function TranquilidadCondiciones() {
                 <p>
                   Al activar el plan, te asignamos un desarrollador y
                   empezamos. Te pedimos textos, fotos, accesos y datos del
-                  negocio; en tiendas, también catálogo, precios y condiciones
-                  de envío. Con esos materiales te confirmamos por escrito la
-                  fecha estimada de entrega y las fases. Si falta algo, te lo
+                  negocio. Antes de pagar, acordamos por escrito el alcance, la
+                  fecha estimada de entrega y las fases según los materiales disponibles. Si falta algo, te lo
                   decimos y acordamos un nuevo calendario.
                 </p>
                 <p className='mt-4'>{tranquilityAttention}</p>
@@ -123,7 +125,7 @@ export default function TranquilidadCondiciones() {
             ),
           },
           {
-            title: 'Si cancelas',
+            title: 'Propiedad tras 12 cuotas y cancelación',
             content: (
               <>
                 <p>{tranquilityCancellation}</p>
@@ -185,7 +187,7 @@ export default function TranquilidadCondiciones() {
           />
           <span>
             He leído estas condiciones, la renovación de {plan.total} €/mes con
-            IVA y las condiciones de cancelación. He leído los{' '}
+            IVA, el alcance de la propuesta acordada, la entrega de la web tras 12 cuotas pagadas y las condiciones de cancelación. He leído los{' '}
             <a
               href='/terminos-y-condiciones/'
               target='_blank'
