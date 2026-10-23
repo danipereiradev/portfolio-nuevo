@@ -8,7 +8,7 @@ export const globalFaqs: GlobalFaqItem[] = [
   {
     question: '¿En qué podéis ayudar a mi negocio?',
     answer:
-      'Diseñamos webs, tiendas online y aplicaciones, y también nos encargamos del mantenimiento. Si necesitas trabajar tu marca o dar visibilidad a tu negocio, podemos ayudarte con diseño gráfico y marketing digital. Nos cuentas dónde estás y qué quieres conseguir, y te recomendamos por dónde empezar. No necesitas contratarlo todo.',
+      'Creamos y cuidamos webs para autónomos y pequeños negocios. Con Tranquilidad Digital tienes web y acompañamiento por una cuota mensual; también puedes contratar una web con pago único o mantenimiento para la que ya tienes. Las tiendas online y aplicaciones se presupuestan como proyectos independientes. Diseño gráfico y marketing son complementos con alcance acordado.',
   },
   {
     question: 'No sé qué necesito exactamente. ¿Me orientáis?',
@@ -33,6 +33,6 @@ export const globalFaqs: GlobalFaqItem[] = [
   {
     question: '¿Y después de la entrega? ¿Seguís ahí?',
     answer:
-      'Sí. Te acompañamos en la entrega y te explicamos cómo usar lo que hemos preparado para ti. Si después necesitas soporte, mantenimiento o ampliar el proyecto, puedes contar con nosotros. El mantenimiento es opcional y cualquier trabajo adicional se valora aparte: sabrás qué incluye y cuánto cuesta antes de dar el paso.',
+      'Sí. Te acompañamos en la entrega y te explicamos cómo usar lo que hemos preparado para ti. Si después necesitas soporte, mantenimiento o ampliar el proyecto, puedes contar con nosotros. En Tranquilidad Digital el mantenimiento está incluido mientras el servicio esté activo. En proyectos de pago único puedes contratarlo aparte. Cualquier trabajo adicional se valora antes de hacerlo.',
   },
 ];

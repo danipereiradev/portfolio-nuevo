@@ -198,7 +198,10 @@ const Hero = ({
           ) : null}
           {!titleOnly && hasButton && buttonText ? (
             <div className='hero-cta-badge'>
-              <Button className='mx-auto text-center' href={buttonHref}>
+              <Button
+                className={`mx-auto text-center ${cinematic ? 'md:!w-auto md:!min-h-12 md:!px-6 md:!py-3 md:!text-base md:!leading-normal md:!whitespace-nowrap' : ''}`}
+                href={buttonHref}
+              >
                 {buttonText}
               </Button>
             </div>
