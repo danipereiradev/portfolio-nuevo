@@ -156,7 +156,7 @@ const Header = ({ hideNav = false }: { hideNav?: boolean }) => {
                         <div
                           className={`rounded-lg py-2 uppercase ${
                             isHome
-                              ? 'bg-transparent'
+                              ? 'bg-black/80'
                               : 'bg-white shadow-[0_8px_24px_rgba(20,20,20,0.12)]'
                           }`}
                         >
