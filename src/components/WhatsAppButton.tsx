@@ -20,11 +20,10 @@ import {
   TRANQUILIDAD_DIGITAL_PATH,
 } from '../config/contact';
 
-const MOBILE_CONTACT_BAR_PATHS = new Set([
-  ADS_CUSTOM_WEB_LANDING_PATH,
-  TRANQUILIDAD_DIGITAL_PATH,
-  '/landing-tranquilidad-digital',
-]);
+// Barra inferior fija en móvil (WhatsApp / Llamar / Ver planes).
+// Se usaba en las landings de anuncios, ya retiradas. Tranquilidad digital
+// ya no la muestra: usa el botón flotante de WhatsApp como el resto.
+const MOBILE_CONTACT_BAR_PATHS = new Set<string>([ADS_CUSTOM_WEB_LANDING_PATH]);
 
 function LandingMobileContactBar({
   source,
