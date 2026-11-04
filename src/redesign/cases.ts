@@ -106,6 +106,11 @@ export const CASES: CaseItem[] = [
       { k: 'Ahora', v: 'Agenda casi llena a diario' },
       { k: 'Cómo llegan', v: 'Desde Google y el mapa' },
     ],
+    quote: {
+      text: 'Excelente servicio, con un gran profesional que te acompaña y entiende tus necesidades, y eso se nota en los resultados. Muy recomendable!',
+      author: 'Deborah García',
+      role: 'Hatena · reseña en Google',
+    },
   },
   {
     slug: 'carper-sonido',
@@ -114,7 +119,7 @@ export const CASES: CaseItem[] = [
     city: 'Vigo',
     services: ['Diseño web', 'SEO'],
     title: ['EL SONIDO', 'QUE SUENA', 'EN VIGO.'],
-    result: 'Posicionada en Google como empresa de sonido en Vigo en numerosas búsquedas.',
+    result: 'En el primer puesto de Google como empresa de sonido en Vigo en numerosas búsquedas.',
     image: '/img/portfolio/new/carper.webp',
     url: 'https://carpersonido.com',
     before: 'Una empresa de sonido que dependía de los contactos de siempre.',
@@ -141,8 +146,13 @@ export const CASES: CaseItem[] = [
     ],
     outcomes: [
       { k: 'Antes', v: 'Poca visibilidad en Google' },
-      { k: 'Ahora', v: 'Arriba en numerosas búsquedas' },
+      { k: 'Ahora', v: 'Primer puesto en muchas búsquedas' },
       { k: 'Dónde', v: 'Sonido y eventos en Vigo' },
     ],
+    quote: {
+      text: 'Nos posicionamos en el primer lugar con bastantes palabras clave. (…) Muy contentos con el resultado.',
+      author: 'Jose Carlos',
+      role: 'Carper Sonido · reseña en Google',
+    },
   },
 ];
