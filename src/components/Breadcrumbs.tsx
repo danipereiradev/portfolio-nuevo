@@ -16,7 +16,12 @@ const labels: Record<string, string> = {
   '/aviso-legal': 'Aviso legal',
 };
 
-const HERO_BREADCRUMB_PATHS = new Set(SERVICE_NAV.map(({ href }) => href));
+// Las páginas del rediseño (src/redesign) llevan su propia cabecera oscura.
+const HERO_BREADCRUMB_PATHS = new Set([
+  ...SERVICE_NAV.map(({ href }) => href),
+  '/portfolio',
+  '/contacto',
+]);
 
 export default function Breadcrumbs() {
   const { pathname } = useLocation();

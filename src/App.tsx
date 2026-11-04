@@ -74,7 +74,7 @@ const CondicionesDelProyecto = lazy(
 );
 const LegalDocument = lazy(() => import('./pages/LegalDocument'));
 const TrabajaConNosotros = lazy(() => import('./pages/TrabajaConNosotros'));
-const PortfolioPage = lazy(() => import('./pages/PortfolioPage'));
+const PortfolioPage = lazy(() => import('./redesign/PortfolioV2'));
 const Gracias = lazy(() => import('./pages/Gracias'));
 const Maintenance = lazy(() => import('./pages/Maintenance'));
 const Pago = lazy(() => import('./pages/Pago'));
