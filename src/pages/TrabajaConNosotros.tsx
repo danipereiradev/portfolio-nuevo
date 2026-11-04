@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
 import TalentForm from '../components/TalentForm';
+import { SpanishOnlyNotice } from '../redesign/prefs';
 import { TALENT_PATH } from '../config/contact';
 
 const SITE_URL = 'https://36web.es';
@@ -102,6 +103,7 @@ const TrabajaConNosotros = () => {
           </div>
         </div>
       </section>
+      <SpanishOnlyNotice />
     </main>
   );
 };

@@ -22,6 +22,7 @@ import { LOCAL_WEB_INCLUDES } from '../data/localWebIncludes';
 import { getLocalWebDemos } from '../data/localWebDemos';
 import { buildLocalWebCityJsonLd } from '../seo/localWebCitySchema';
 import GoogleBadge from './GoogleBadge';
+import { SpanishOnlyNotice } from './prefs';
 
 /** Resalta el nombre de la ciudad en el texto. */
 const withCity = (text: string, ciudad: string) =>
@@ -292,6 +293,7 @@ function CityPage({ city }: { city: LocalWebCity }) {
           </div>
         </div>
       </section>
+      <SpanishOnlyNotice />
     </main>
   );
 }

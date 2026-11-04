@@ -162,40 +162,40 @@
 .rd-light { background: #f4f5f2; color: #141414; }
 .rd-lime { background: var(--rd-lime); color: #0b0c0a; }
 
-.rd-light .text-white, .rd-lime .text-white { color: #141414; }
-.rd-light .text-white\/85, .rd-light .text-white\/80, .rd-light .text-white\/70,
+:is(.rd-light, .rd-theme-light .rd) .text-white, .rd-lime .text-white { color: #141414; }
+:is(.rd-light, .rd-theme-light .rd) .text-white\/85, :is(.rd-light, .rd-theme-light .rd) .text-white\/80, :is(.rd-light, .rd-theme-light .rd) .text-white\/70,
 .rd-lime .text-white\/85, .rd-lime .text-white\/80, .rd-lime .text-white\/70 { color: rgba(20, 20, 20, 0.82); }
-.rd-light .text-white\/65, .rd-light .text-white\/60, .rd-light .text-white\/55,
+:is(.rd-light, .rd-theme-light .rd) .text-white\/65, :is(.rd-light, .rd-theme-light .rd) .text-white\/60, :is(.rd-light, .rd-theme-light .rd) .text-white\/55,
 .rd-lime .text-white\/65, .rd-lime .text-white\/60, .rd-lime .text-white\/55 { color: rgba(20, 20, 20, 0.68); }
-.rd-light .text-white\/50, .rd-light .text-white\/45, .rd-light .text-white\/40, .rd-light .text-white\/30,
+:is(.rd-light, .rd-theme-light .rd) .text-white\/50, :is(.rd-light, .rd-theme-light .rd) .text-white\/45, :is(.rd-light, .rd-theme-light .rd) .text-white\/40, :is(.rd-light, .rd-theme-light .rd) .text-white\/30,
 .rd-lime .text-white\/50, .rd-lime .text-white\/45, .rd-lime .text-white\/40, .rd-lime .text-white\/30 { color: rgba(20, 20, 20, 0.5); }
-.rd-light .text-white\/10, .rd-lime .text-white\/10 { color: rgba(20, 20, 20, 0.14); }
-.rd-light .placeholder\:text-white\/30::placeholder { color: rgba(20, 20, 20, 0.35); }
-.rd-light .border-white\/10, .rd-light .border-white\/15, .rd-light .border-white\/20,
+:is(.rd-light, .rd-theme-light .rd) .text-white\/10, .rd-lime .text-white\/10 { color: rgba(20, 20, 20, 0.14); }
+:is(.rd-light, .rd-theme-light .rd) .placeholder\:text-white\/30::placeholder { color: rgba(20, 20, 20, 0.35); }
+:is(.rd-light, .rd-theme-light .rd) .border-white\/10, :is(.rd-light, .rd-theme-light .rd) .border-white\/15, :is(.rd-light, .rd-theme-light .rd) .border-white\/20,
 .rd-lime .border-white\/10, .rd-lime .border-white\/15, .rd-lime .border-white\/20 { border-color: rgba(20, 20, 20, 0.14); }
-.rd-light .divide-white\/10 > * + * { border-color: rgba(20, 20, 20, 0.12); }
+:is(.rd-light, .rd-theme-light .rd) .divide-white\/10 > * + * { border-color: rgba(20, 20, 20, 0.12); }
 
 /* acento: lima sobre oscuro, azul de marca sobre claro y sobre lima */
-.rd-light .text-\[\#e1f56e\], .rd-lime .text-\[\#e1f56e\],
-.rd-light .group:hover .group-hover\:text-\[\#e1f56e\] { color: var(--rd-accent); }
-.rd-light .rd-eyebrow, .rd-lime .rd-eyebrow { color: var(--rd-accent); }
-.rd-light .rd-outline, .rd-lime .rd-outline { -webkit-text-stroke-color: #141414; }
+:is(.rd-light, .rd-theme-light .rd) .text-\[\#e1f56e\], .rd-lime .text-\[\#e1f56e\],
+:is(.rd-light, .rd-theme-light .rd) .group:hover .group-hover\:text-\[\#e1f56e\] { color: var(--rd-accent); }
+:is(.rd-light, .rd-theme-light .rd) .rd-eyebrow, .rd-lime .rd-eyebrow { color: var(--rd-accent); }
+:is(.rd-light, .rd-theme-light .rd) .rd-outline, .rd-lime .rd-outline { -webkit-text-stroke-color: #141414; }
 
-.rd-light .rd-card { background: #fff; border-color: rgba(20, 20, 20, 0.07); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04); }
-.rd-light .rd-card:hover { border-color: var(--rd-accent); }
-.rd-light .rd-btn { background: #141414; color: #fff; }
-.rd-light .rd-btn:hover { background: var(--rd-accent); }
-.rd-light .rd-btn-ghost { border-color: rgba(20, 20, 20, 0.25); color: #141414; }
+:is(.rd-light, .rd-theme-light .rd) .rd-card { background: #fff; border-color: rgba(20, 20, 20, 0.07); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04); }
+:is(.rd-light, .rd-theme-light .rd) .rd-card:hover { border-color: var(--rd-accent); }
+:is(.rd-light, .rd-theme-light .rd) .rd-btn { background: #141414; color: #fff; }
+:is(.rd-light, .rd-theme-light .rd) .rd-btn:hover { background: var(--rd-accent); }
+:is(.rd-light, .rd-theme-light .rd) .rd-btn-ghost { border-color: rgba(20, 20, 20, 0.25); color: #141414; }
 
 /* método sobre lima: celdas claras con líneas finas */
 .rd-lime .bg-white\/10 { background: rgba(20, 20, 20, 0.14); }
 .rd-lime .bg-\[\#0b0c0a\] { background: #eaf88f; }
-.rd-light .\!text-white\/50 { color: rgba(20, 20, 20, 0.55) !important; }
+:is(.rd-light, .rd-theme-light .rd) .\!text-white\/50 { color: rgba(20, 20, 20, 0.55) !important; }
 .rd-stone { background: #e8e9e3; }
-.rd-light .bg-white\/10 { background: rgba(20, 20, 20, 0.1); }
-.rd-light .bg-\[\#0b0c0a\] { background: #fff; }
+:is(.rd-light, .rd-theme-light .rd) .bg-white\/10 { background: rgba(20, 20, 20, 0.1); }
+:is(.rd-light, .rd-theme-light .rd) .bg-\[\#0b0c0a\] { background: #fff; }
 /* títulos: sin azul en secciones claras */
-.rd-light :is(h1, h2, h3) .text-\[\#e1f56e\], .rd-lime :is(h1, h2, h3) .text-\[\#e1f56e\] { color: #141414; }
+:is(.rd-light, .rd-theme-light .rd) :is(h1, h2, h3) .text-\[\#e1f56e\], .rd-lime :is(h1, h2, h3) .text-\[\#e1f56e\] { color: #141414; }
 
 /* ---- Páginas legales: el texto viene de components/LegalPages.tsx ---- */
 .rd-legal > div > div:first-child { display: none; } /* cabecera antigua (icono + h1) */
@@ -300,3 +300,50 @@
 }
 .rd-talent button[type='submit']:hover { background: var(--rd-accent) !important; }
 .rd-talent input[type='checkbox'] { accent-color: #141414; }
+
+
+/* =====================================================================
+   TEMA CLARO (html.rd-theme-light): reutiliza las reglas de .rd-light
+   en toda la web y ajusta lo que es propio del tema oscuro.
+   ===================================================================== */
+.rd-theme-light .rd-page,
+.rd-theme-light footer.rd { background: #f4f5f2; color: #141414; }
+.rd-theme-light .rd-light { background: #ffffff; }
+.rd-theme-light .rd-light.rd-stone,
+.rd-theme-light .rd-stone { background: #e8e9e3; }
+.rd-theme-light .rd .bg-\[\#101110\] { background: #ecede7; }
+.rd-theme-light .rd .bg-\[\#0b0c0a\] { background: #ffffff; }
+.rd-theme-light .rd .bg-\[\#0e0e0c\]:not(.text-\[\#ffffff\]) { background: #ffffff; }
+.rd-theme-light .rd .bg-\[\#121311\] { background: #ffffff; }
+.rd-theme-light .rd .bg-white\/\[0\.04\] { background: rgba(20, 20, 20, 0.04); }
+.rd-theme-light .rd-grid-bg {
+  background-image:
+    linear-gradient(rgba(20, 20, 20, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 20, 20, 0.05) 1px, transparent 1px);
+}
+
+/* Cabecera y menú */
+.rd-theme-light header.rd { color: #141414; }
+.rd-theme-light header.rd.bg-\[\#0b0c0a\]\/90 { background: rgba(255, 255, 255, 0.92); }
+.rd-theme-light header.rd.border-white\/10 { border-color: rgba(20, 20, 20, 0.1); }
+.rd-theme-light .rd-navlink { color: rgba(20, 20, 20, 0.75); }
+.rd-theme-light .rd-navlink:hover { color: var(--rd-accent); }
+.rd-theme-light .rd-btn-outline { border-color: #141414; color: #141414; }
+.rd-theme-light .rd-btn-outline:hover { background: #141414; color: #fff; }
+.rd-theme-light header.rd .border-white\/15 { border-color: rgba(20, 20, 20, 0.2); }
+.rd-theme-light .rd-settings { background: #ffffff; }
+.rd-theme-light .rd-settings .text-white\/70:hover { color: #141414; }
+
+/* Islas oscuras que se mantienen (ilustración del hero, tarjetas de datos) */
+.rd-theme-light .rd .bg-\[\#141513\] .text-white\/70,
+.rd-theme-light .rd .bg-\[\#141513\] .text-white\/80 { color: rgba(255, 255, 255, 0.8); }
+.rd-theme-light .rd .bg-\[\#141513\] .text-white\/40,
+.rd-theme-light .rd .bg-\[\#141513\] .text-white\/30 { color: rgba(255, 255, 255, 0.4); }
+.rd-theme-light .rd .bg-\[\#141513\] .text-\[\#e1f56e\] { color: #e1f56e; }
+
+/* La marca lima conserva su contraste en ambos temas */
+.rd-theme-light .rd-mark { color: #0b0c0a; }
+.rd-theme-light .rd-footlink { color: rgba(20, 20, 20, 0.7); }
+.rd-theme-light .rd-footlink:hover { color: var(--rd-accent); }
+.rd-theme-light .rd .bg-\[\#141414\].text-white,
+.rd-theme-light .rd .bg-\[\#141414\] .text-white { color: #ffffff; }

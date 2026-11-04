@@ -1,15 +1,18 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { CONTACT_PATH, PORTFOLIO_PATH, buildWhatsAppUrl } from '../config/contact';
-import { CASES, CASES_PATH, CaseItem } from './cases';
+import { CASES_PATH, CaseItem } from './cases';
+import { usePrefs } from './prefs';
+import { useCases } from './i18n/content';
 
 export function CaseCard({ c }: { c: CaseItem }) {
+  const { t } = usePrefs();
   return (
     <a href={`${CASES_PATH}/${c.slug}`} className='rd-card group flex h-full flex-col overflow-hidden'>
       <div className='aspect-[3/2] overflow-hidden bg-black'>
         <img
           src={c.image}
-          alt={`Web de ${c.name}`}
+          alt={t(`Web de ${c.name}`, `${c.name} website`)}
           loading='lazy'
           className='h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.02]'
         />
@@ -33,16 +36,17 @@ export function CaseCard({ c }: { c: CaseItem }) {
 }
 
 function Cta() {
+  const { t } = usePrefs();
   return (
     <section className='px-5 py-24 md:px-8'>
       <div className='mx-auto flex max-w-[1320px] flex-col gap-8 rounded-[1.75rem] bg-[#e1f56e] px-7 py-14 text-[#0b0c0a] md:flex-row md:items-center md:justify-between md:px-14'>
         <div>
           <p className='font-mono text-xs uppercase tracking-[0.2em]'>// let&apos;s build</p>
-          <h2 className='rd-h2 mt-4 max-w-[16ch] !text-[clamp(1.9rem,4vw,3.4rem)]'>¿El próximo caso es el tuyo?</h2>
+          <h2 className='rd-h2 mt-4 max-w-[16ch] !text-[clamp(1.9rem,4vw,3.4rem)]'>{t('¿El próximo caso es el tuyo?', 'Could you be our next case study?')}</h2>
         </div>
         <div className='flex flex-wrap gap-3'>
           <a href={CONTACT_PATH} className='inline-flex items-center gap-2 rounded-full bg-[#0b0c0a] px-7 py-4 text-xs font-bold uppercase tracking-[0.14em] text-white hover:bg-[#3346c1]'>
-            Hablemos ↗
+            {t('Hablemos', 'Let’s talk')} ↗
           </a>
           <a href={buildWhatsAppUrl()} target='_blank' rel='noopener noreferrer' className='inline-flex items-center rounded-full border border-[#0b0c0a]/30 px-7 py-4 text-xs font-bold uppercase tracking-[0.14em]'>
             WhatsApp
@@ -55,13 +59,15 @@ function Cta() {
 
 export function CasesIndex() {
   usePageMeta(CASES_PATH);
+  const { t } = usePrefs();
+  const CASES = useCases();
   return (
     <main className='rd rd-page'>
       <section className='relative overflow-hidden pt-[var(--site-header-h)]'>
         <div className='rd-grid-bg pointer-events-none absolute inset-0' />
         <div className='relative mx-auto grid max-w-[1320px] gap-10 px-5 pb-20 pt-20 md:px-8 lg:grid-cols-[1.3fr_1fr] lg:items-end'>
           <div>
-            <p className='rd-eyebrow mb-6'>00 — Casos de éxito · Resultados reales</p>
+            <p className='rd-eyebrow mb-6'>{t('00 — Casos de éxito · Resultados reales', '00 — Case studies · Real results')}</p>
             <h1 className='rd-h1'>
               NEGOCIOS
               <br />
@@ -72,11 +78,11 @@ export function CasesIndex() {
           </div>
           <div>
             <p className='text-lg leading-relaxed text-white/65'>
-              Talleres, clínicas y empresas de servicios que hoy venden más, salen en Google o tienen la agenda llena. Así lo hicimos.
+              {t('Talleres, clínicas y empresas de servicios que hoy venden más, salen en Google o tienen la agenda llena. Así lo hicimos.', 'Workshops, clinics and service companies that now sell more, show up on Google or have a full schedule. Here’s how we did it.')}
             </p>
             <div className='mt-8 flex flex-wrap gap-3'>
-              <a href={CONTACT_PATH} className='rd-btn'>Pide una revisión gratis ↗</a>
-              <a href={PORTFOLIO_PATH} className='rd-btn-ghost'>Ver portfolio</a>
+              <a href={CONTACT_PATH} className='rd-btn'>{t('Pide una revisión gratis', 'Get a free review')} ↗</a>
+              <a href={PORTFOLIO_PATH} className='rd-btn-ghost'>{t('Ver portfolio', 'See portfolio')}</a>
             </div>
           </div>
         </div>
@@ -87,7 +93,7 @@ export function CasesIndex() {
           {CASES.map((c, i) => (
             <li key={c.slug} className='bg-[#0b0c0a]'>
               <a href={`${CASES_PATH}/${c.slug}`} className='group block h-full p-6'>
-                <span className='font-mono text-xs text-[#e1f56e]'>Caso {String(i + 1).padStart(2, '0')}</span>
+                <span className='font-mono text-xs text-[#e1f56e]'>{t('Caso', 'Case')} {String(i + 1).padStart(2, '0')}</span>
                 <h2 className='mt-4 text-lg font-extrabold uppercase group-hover:text-[#e1f56e]'>{c.name}</h2>
                 <p className='mt-2 text-sm text-white/55'>{c.after}</p>
               </a>
@@ -104,9 +110,9 @@ export function CasesIndex() {
             ))}
           </div>
           <p className='mt-12 text-center text-white/60'>
-            ¿Quieres ver más trabajos?{' '}
+            {t('¿Quieres ver más trabajos?', 'Want to see more work?')}{' '}
             <a href={PORTFOLIO_PATH} className='font-semibold underline underline-offset-4 hover:text-[#3346c1]'>
-              Mira el portfolio completo
+              {t('Mira el portfolio completo', 'Browse the full portfolio')}
             </a>
             .
           </p>
@@ -120,6 +126,8 @@ export function CasesIndex() {
 
 export default function CasePage() {
   const { slug } = useParams();
+  const { t } = usePrefs();
+  const CASES = useCases();
   const idx = CASES.findIndex((c) => c.slug === slug);
   usePageMeta(`${CASES_PATH}/${slug}`);
   if (idx < 0) return <Navigate to={CASES_PATH} replace />;
@@ -133,7 +141,7 @@ export default function CasePage() {
         <div className='rd-grid-bg pointer-events-none absolute inset-0' />
         <div className='relative mx-auto max-w-[1320px] px-5 pb-16 pt-16 md:px-8'>
           <a href={CASES_PATH} className='rd-eyebrow inline-flex items-center gap-2 !text-white/50 hover:!text-[#e1f56e]'>
-            ← Casos de éxito
+            ← {t('Casos de éxito', 'Case studies')}
           </a>
           <div className='mt-10 grid gap-12 lg:grid-cols-[1.25fr_1fr] lg:items-end'>
             <div>
@@ -153,10 +161,10 @@ export default function CasePage() {
 
           <dl className='mt-14 grid gap-px overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4'>
             {[
-              ['Cliente', c.name],
-              ['Sector', c.sector],
-              ['Ciudad', c.city],
-              ['Servicios', c.services.join(' · ')],
+              [t('Cliente', 'Client'), c.name],
+              [t('Sector', 'Industry'), c.sector],
+              [t('Ciudad', 'City'), c.city],
+              [t('Servicios', 'Services'), c.services.join(' · ')],
             ].map(([k, v]) => (
               <div key={k} className='bg-[#0e0e0c] p-5'>
                 <dt className='font-mono text-[10px] uppercase tracking-[0.2em] text-white/45'>{k}</dt>
@@ -170,9 +178,9 @@ export default function CasePage() {
       {/* IMAGEN */}
       <section className='mx-auto max-w-[1320px] px-5 md:px-8'>
         <a href={c.url} target='_blank' rel='noopener noreferrer' className='group relative block overflow-hidden rounded-[1.5rem] border border-white/10'>
-          <img src={c.image} alt={`Web de ${c.name}`} className='w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]' />
+          <img src={c.image} alt={t(`Web de ${c.name}`, `${c.name} website`)} className='w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]' />
           <span className='absolute bottom-5 right-5 rounded-full bg-[#e1f56e] px-5 py-3 text-xs font-bold uppercase tracking-[0.14em] text-[#0b0c0a]'>
-            Ver la web ↗
+            {t('Ver la web', 'Visit website')} ↗
           </span>
         </a>
       </section>
@@ -181,11 +189,11 @@ export default function CasePage() {
       <section className='mx-auto max-w-[1320px] px-5 py-20 md:px-8'>
         <div className='grid gap-4 md:grid-cols-2'>
           <div className='rd-card p-8'>
-            <p className='font-mono text-[11px] uppercase tracking-[0.2em] text-white/45'>Antes</p>
+            <p className='font-mono text-[11px] uppercase tracking-[0.2em] text-white/45'>{t('Antes', 'Before')}</p>
             <p className='mt-4 text-2xl font-extrabold leading-snug'>{c.before}</p>
           </div>
           <div className='rounded-[1.25rem] bg-[#e1f56e] p-8 text-[#0b0c0a]'>
-            <p className='font-mono text-[11px] uppercase tracking-[0.2em] text-[#0b0c0a]/60'>Después</p>
+            <p className='font-mono text-[11px] uppercase tracking-[0.2em] text-[#0b0c0a]/60'>{t('Después', 'After')}</p>
             <p className='mt-4 text-2xl font-extrabold leading-snug'>{c.after}</p>
           </div>
         </div>
@@ -195,9 +203,9 @@ export default function CasePage() {
       <section className='rd-light'>
         <div className='mx-auto grid max-w-[1320px] gap-12 px-5 py-24 md:px-8 lg:grid-cols-[0.8fr_1.2fr]'>
           <div>
-            <p className='rd-eyebrow mb-5'>El punto de partida</p>
+            <p className='rd-eyebrow mb-5'>{t('El punto de partida', 'The starting point')}</p>
             <h2 className='rd-h2'>
-              El <span className='rd-mark'>reto.</span>
+              {t('El', 'The')} <span className='rd-mark'>{t('reto.', 'challenge.')}</span>
             </h2>
           </div>
           <p className='self-end text-xl leading-relaxed text-white/70'>{c.challenge}</p>
@@ -206,9 +214,9 @@ export default function CasePage() {
 
       {/* QUÉ HICIMOS */}
       <section className='mx-auto max-w-[1320px] px-5 py-24 md:px-8'>
-        <p className='rd-eyebrow mb-5'>Qué hicimos</p>
+        <p className='rd-eyebrow mb-5'>{t('Qué hicimos', 'What we did')}</p>
         <h2 className='rd-h2 max-w-[16ch]'>
-          Paso a paso, <span className='rd-mark'>sin humo.</span>
+          {t('Paso a paso,', 'Step by step,')} <span className='rd-mark'>{t('sin humo.', 'no fluff.')}</span>
         </h2>
         <ol className='mt-14 grid gap-4 sm:grid-cols-2'>
           {c.work.map((w, i) => (
@@ -224,7 +232,7 @@ export default function CasePage() {
       {/* RESULTADO */}
       <section className='rd-light bg-white'>
         <div className='mx-auto max-w-[1320px] px-5 py-24 md:px-8'>
-          <p className='rd-eyebrow mb-5'>El resultado</p>
+          <p className='rd-eyebrow mb-5'>{t('El resultado', 'The result')}</p>
           <h2 className='rd-h2 max-w-[18ch]'>{c.after}</h2>
           <dl className='mt-14 grid gap-px overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/10 md:grid-cols-3'>
             {c.outcomes.map((o) => (
@@ -251,7 +259,7 @@ export default function CasePage() {
       {next && next.slug !== c.slug ? (
         <section className='mx-auto max-w-[1320px] px-5 pt-24 md:px-8'>
           <a href={`${CASES_PATH}/${next.slug}`} className='group flex flex-col gap-4 border-y border-white/10 py-10 md:flex-row md:items-center md:justify-between'>
-            <span className='rd-eyebrow'>Siguiente caso</span>
+            <span className='rd-eyebrow'>{t('Siguiente caso', 'Next case')}</span>
             <span className='text-3xl font-black uppercase md:text-5xl'>{next.name}</span>
             <span className='text-white/55 md:max-w-sm'>{next.result}</span>
             <span className='text-3xl text-white/30 transition-transform group-hover:translate-x-1 group-hover:text-[#e1f56e]'>→</span>

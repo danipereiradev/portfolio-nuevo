@@ -5,26 +5,30 @@ import { useJsonLd } from '../hooks/useJsonLd';
 import { CONTACT_PATH, buildWhatsAppUrl } from '../config/contact';
 import {
   BLOG_PATH,
-  formatPostDate,
   getPostBySlug,
   getPostPath,
   getRelatedPosts,
   posts,
   type BlogPost,
 } from '../blog/posts';
+import { SpanishOnlyNotice, usePrefs } from './prefs';
+import { formatDate } from './i18n/content';
 
 const SITE_URL = 'https://36web.es';
 
 function Meta({ post }: { post: BlogPost }) {
+  const { lang, t } = usePrefs();
+  const cat = post.category === 'Diseño web' ? t('Diseño web', 'Web design') : post.category;
   return (
     <>
-      {post.category} · <time dateTime={post.date}>{formatPostDate(post.date)}</time>
+      {cat} · <time dateTime={post.date}>{formatDate(post.date, lang)}</time>
       {post.readingMinutes ? <> · {post.readingMinutes} min</> : null}
     </>
   );
 }
 
 export function PostCard({ post }: { post: BlogPost }) {
+  const { t } = usePrefs();
   return (
     <a
       href={getPostPath(post.slug)}
@@ -49,7 +53,7 @@ export function PostCard({ post }: { post: BlogPost }) {
         </h3>
         <p className='mt-3 text-sm leading-relaxed text-white/60'>{post.description}</p>
         <span className='mt-auto pt-6 text-xs font-bold uppercase tracking-[0.16em] text-white/60 group-hover:text-[#e1f56e]'>
-          Leer artículo →
+          {t('Leer artículo', 'Read article')} →
         </span>
       </div>
     </a>
@@ -57,6 +61,7 @@ export function PostCard({ post }: { post: BlogPost }) {
 }
 
 function Cta({ text }: { text: string }) {
+  const { t } = usePrefs();
   return (
     <section className='px-5 py-24 md:px-8'>
       <div className='mx-auto flex max-w-[1320px] flex-col gap-8 rounded-[1.75rem] bg-[#e1f56e] px-7 py-14 text-[#0b0c0a] md:flex-row md:items-center md:justify-between md:px-14'>
@@ -66,7 +71,7 @@ function Cta({ text }: { text: string }) {
         </div>
         <div className='flex flex-wrap gap-3'>
           <a href={CONTACT_PATH} className='inline-flex items-center gap-2 rounded-full bg-[#0b0c0a] px-7 py-4 text-xs font-bold uppercase tracking-[0.14em] text-white hover:bg-[#3346c1]'>
-            Hablemos ↗
+            {t('Hablemos', 'Let’s talk')} ↗
           </a>
           <a href={buildWhatsAppUrl()} target='_blank' rel='noopener noreferrer' className='inline-flex items-center rounded-full border border-[#0b0c0a]/30 px-7 py-4 text-xs font-bold uppercase tracking-[0.14em]'>
             WhatsApp
@@ -79,6 +84,7 @@ function Cta({ text }: { text: string }) {
 
 export function BlogIndex() {
   usePageMeta(BLOG_PATH);
+  const { t, lang } = usePrefs();
   const sorted = [...posts].sort((a, b) => b.date.localeCompare(a.date));
   const first = sorted[0];
 
@@ -116,19 +122,19 @@ export function BlogIndex() {
         <div className='rd-grid-bg pointer-events-none absolute inset-0' />
         <div className='relative mx-auto grid max-w-[1320px] gap-10 px-5 pb-20 pt-20 md:px-8 lg:grid-cols-[1.3fr_1fr] lg:items-end'>
           <div>
-            <p className='rd-eyebrow mb-6'>00 — Blog · Ideas para crecer</p>
+            <p className='rd-eyebrow mb-6'>{t('00 — Blog · Ideas para crecer', '00 — Blog · Ideas to grow')}</p>
             <h1 className='rd-h1'>
               36<span className='rd-mark'>BLOG.</span>
             </h1>
           </div>
           <div>
             <p className='text-lg leading-relaxed text-white/65'>
-              Guías claras sobre diseño web, tiendas online, SEO y marketing para negocios que quieren más clientes, sin tecnicismos.
+              {t('Guías claras sobre diseño web, tiendas online, SEO y marketing para negocios que quieren más clientes, sin tecnicismos.', 'Clear guides on web design, online stores, SEO and marketing for businesses that want more customers — no jargon.')}
             </p>
             <div className='mt-8 flex flex-wrap gap-3'>
-              <a href={CONTACT_PATH} className='rd-btn'>Pide una revisión gratis ↗</a>
+              <a href={CONTACT_PATH} className='rd-btn'>{t('Pide una revisión gratis', 'Get a free review')} ↗</a>
               {first ? (
-                <a href={getPostPath(first.slug)} className='rd-btn-ghost'>Último artículo</a>
+                <a href={getPostPath(first.slug)} className='rd-btn-ghost'>{t('Último artículo', 'Latest article')}</a>
               ) : null}
             </div>
           </div>
@@ -138,9 +144,9 @@ export function BlogIndex() {
       <section className='mx-auto max-w-[1320px] px-5 pb-20 pt-4 md:px-8'>
         <dl className='grid gap-px overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/10 sm:grid-cols-3'>
           {[
-            ['Artículos', String(posts.length), 'Guías prácticas, sin relleno'],
-            ['Último', first ? formatPostDate(first.date) : '—', first ? first.category : ''],
-            ['Temas', 'Web · SEO · Ventas', 'Para negocios, no para técnicos'],
+            [t('Artículos', 'Articles'), String(posts.length), t('Guías prácticas, sin relleno', 'Practical guides, no filler')],
+            [t('Último', 'Latest'), first ? formatDate(first.date, lang) : '—', first ? t(first.category, first.category === 'Diseño web' ? 'Web design' : first.category) : ''],
+            [t('Temas', 'Topics'), t('Web · SEO · Ventas', 'Web · SEO · Sales'), t('Para negocios, no para técnicos', 'For business owners, not techies')],
           ].map(([k, v, d]) => (
             <div key={k} className='bg-[#0b0c0a] p-6'>
               <dt className='font-mono text-xs text-[#e1f56e]'>{k}</dt>
@@ -161,7 +167,8 @@ export function BlogIndex() {
         </div>
       </section>
 
-      <Cta text='¿Prefieres que te lo hagamos?' />
+      <Cta text={t('¿Prefieres que te lo hagamos?', 'Rather have us do it for you?')} />
+      <SpanishOnlyNotice message='Our articles are currently available in Spanish only.' />
     </main>
   );
 }
@@ -172,6 +179,7 @@ export default function BlogPostV2() {
   const path = post ? getPostPath(post.slug) : BLOG_PATH;
   const related = slug ? getRelatedPosts(slug, 3) : [];
   usePageMeta(path);
+  const { t } = usePrefs();
 
   const jsonLd = useMemo(() => {
     if (!post) return { '@context': 'https://schema.org', '@type': 'WebPage' };
@@ -246,7 +254,7 @@ export default function BlogPostV2() {
             {post.content}
             {post.faq?.length ? (
               <>
-                <h2>Preguntas frecuentes</h2>
+                <h2>{t('Preguntas frecuentes', 'FAQ')}</h2>
                 <div className='rd-faq'>
                   {post.faq.map((f) => (
                     <details key={f.q}>
@@ -260,11 +268,11 @@ export default function BlogPostV2() {
           </article>
           <aside className='lg:sticky lg:top-28 lg:self-start'>
             <div className='rounded-[1.25rem] bg-[#0e0e0c] p-6 text-[#ffffff]'>
-              <p className='font-mono text-[11px] uppercase tracking-[0.2em] text-brand-light'>// revisión gratis</p>
-              <p className='mt-3 text-lg font-extrabold uppercase leading-tight'>¿Tu web comete alguno de estos errores?</p>
-              <p className='mt-3 text-sm text-[#ffffff]/60'>La revisamos y te decimos qué arreglaríamos. Sin compromiso.</p>
+              <p className='font-mono text-[11px] uppercase tracking-[0.2em] text-brand-light'>{t('// revisión gratis', '// free review')}</p>
+              <p className='mt-3 text-lg font-extrabold uppercase leading-tight'>{t('¿Tu web necesita una revisión?', 'Does your website need a check-up?')}</p>
+              <p className='mt-3 text-sm text-[#ffffff]/60'>{t('La revisamos y te decimos qué arreglaríamos. Sin compromiso.', 'We review it and tell you what we’d fix. No strings attached.')}</p>
               <a href={CONTACT_PATH} className='mt-5 inline-flex rounded-full bg-[#e1f56e] px-5 py-3 text-xs font-bold uppercase tracking-[0.14em] text-[#0b0c0a] hover:bg-white'>
-                Pedir revisión ↗
+                {t('Pedir revisión', 'Request a review')} ↗
               </a>
             </div>
           </aside>
@@ -273,9 +281,9 @@ export default function BlogPostV2() {
 
       {related.length ? (
         <section className='mx-auto max-w-[1320px] px-5 pt-24 md:px-8'>
-          <p className='rd-eyebrow mb-5'>Sigue leyendo</p>
+          <p className='rd-eyebrow mb-5'>{t('Sigue leyendo', 'Keep reading')}</p>
           <h2 className='rd-h2 mb-10'>
-            Más del <span className='rd-mark'>36blog.</span>
+            {t('Más del', 'More from the')} <span className='rd-mark'>36blog.</span>
           </h2>
           <div className='grid gap-5 md:grid-cols-2 lg:grid-cols-3'>
             {related.map((p) => (
@@ -285,7 +293,8 @@ export default function BlogPostV2() {
         </section>
       ) : null}
 
-      <Cta text='¿Hablamos de tu web?' />
+      <Cta text={t('¿Hablamos de tu web?', 'Shall we talk about your website?')} />
+      <SpanishOnlyNotice message='This article is currently available in Spanish only.' />
     </main>
   );
 }

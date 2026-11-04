@@ -1,6 +1,14 @@
 import LegalPages, { LegalPageId } from '../components/LegalPages';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { CONTACT_EMAIL, CONTACT_PATH } from '../config/contact';
+import { SpanishOnlyNotice, usePrefs } from './prefs';
+
+const DOCS_EN: Record<string, { label: string; title: [string, string] }> = {
+  privacy: { label: 'Privacy policy', title: ['PRIVACY', 'POLICY.'] },
+  terms: { label: 'Terms and conditions', title: ['TERMS AND', 'CONDITIONS.'] },
+  cookies: { label: 'Cookie policy', title: ['COOKIE', 'POLICY.'] },
+  legal: { label: 'Legal notice', title: ['LEGAL', 'NOTICE.'] },
+};
 
 const DOCS: { id: LegalPageId; href: string; label: string; title: [string, string] }[] = [
   { id: 'privacy', href: '/politica-de-privacidad', label: 'Política de privacidad', title: ['POLÍTICA DE', 'PRIVACIDAD.'] },
@@ -11,7 +19,9 @@ const DOCS: { id: LegalPageId; href: string; label: string; title: [string, stri
 
 export default function LegalV2({ page, path }: { page: LegalPageId; path: string }) {
   usePageMeta(path);
-  const doc = DOCS.find((d) => d.id === page) ?? DOCS[0];
+  const { t, lang } = usePrefs();
+  const L = (d: (typeof DOCS)[number]) => (lang === 'en' ? { ...d, ...DOCS_EN[d.id] } : d);
+  const doc = L(DOCS.find((d) => d.id === page) ?? DOCS[0]);
 
   return (
     <main className='rd rd-page'>
@@ -27,7 +37,7 @@ export default function LegalV2({ page, path }: { page: LegalPageId; path: strin
             </h1>
           </div>
           <p className='text-lg leading-relaxed text-white/65'>
-            Lo importante, claro y sin letra pequeña. Si tienes cualquier duda sobre este texto, escríbenos a{' '}
+            {t('Lo importante, claro y sin letra pequeña. Si tienes cualquier duda sobre este texto, escríbenos a', 'The essentials, clearly and without small print. If you have any questions about this text, write to us at')}{' '}
             <a href={`mailto:${CONTACT_EMAIL}`} className='text-[#e1f56e] underline underline-offset-4'>
               {CONTACT_EMAIL}
             </a>
@@ -39,9 +49,9 @@ export default function LegalV2({ page, path }: { page: LegalPageId; path: strin
       <section className='rd-light'>
         <div className='mx-auto grid max-w-[1320px] gap-12 px-5 py-20 md:px-8 lg:grid-cols-[260px_1fr]'>
           <aside className='lg:sticky lg:top-28 lg:self-start'>
-            <p className='rd-eyebrow mb-4'>Documentos</p>
+            <p className='rd-eyebrow mb-4'>{t('Documentos', 'Documents')}</p>
             <ul className='divide-y divide-white/10 border-y border-white/10'>
-              {DOCS.map((d) => (
+              {DOCS.map(L).map((d) => (
                 <li key={d.id}>
                   <a
                     href={d.href}
@@ -57,7 +67,7 @@ export default function LegalV2({ page, path }: { page: LegalPageId; path: strin
               ))}
             </ul>
             <a href={CONTACT_PATH} className='rd-btn mt-8 w-full justify-center'>
-              Contactar →
+              {t('Contactar', 'Contact us')} →
             </a>
           </aside>
 
@@ -66,6 +76,7 @@ export default function LegalV2({ page, path }: { page: LegalPageId; path: strin
           </article>
         </div>
       </section>
+      <SpanishOnlyNotice message='The full legal text is available in Spanish only.' />
     </main>
   );
 }

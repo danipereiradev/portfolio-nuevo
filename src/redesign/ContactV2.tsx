@@ -25,10 +25,10 @@ import {
   trackWhatsAppClick,
   unlockGoogleAdsFormConversion,
 } from '../utils/analytics';
-import { ALL_SERVICES } from './services';
+import { usePrefs } from './prefs';
+import { useServices } from './i18n/content';
 
 const FORM_ORIGIN = 'Página de contacto';
-const OPTIONS = [...ALL_SERVICES.map((s) => s.name), 'No sé cuál necesito'];
 
 type Form = {
   name: string;
@@ -47,6 +47,9 @@ const field =
 const label = 'rd-eyebrow !text-white/50';
 
 export default function ContactV2() {
+  const { t } = usePrefs();
+  const { all: ALL_SERVICES } = useServices();
+  const OPTIONS = [...ALL_SERVICES.map((s) => s.name), t('No sé cuál necesito', 'I’m not sure yet')];
   usePageMeta(CONTACT_PATH);
   const navigate = useNavigate();
   const [f, setF] = useState<Form>(empty);
@@ -65,12 +68,12 @@ export default function ContactV2() {
 
   const validate = () => {
     const e: Record<string, string> = {};
-    if (f.name.trim().length < 2) e.name = 'Dinos tu nombre';
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email.trim())) e.email = 'Introduce un email válido';
-    if (f.phone.replace(/\D/g, '').length < 9) e.phone = 'Introduce un teléfono válido';
-    if (!f.service) e.service = 'Elige un área';
-    if (f.message.trim().length < 10) e.message = 'Cuéntanos un poco más';
-    if (!f.consent) e.consent = 'Acepta la política de privacidad';
+    if (f.name.trim().length < 2) e.name = t('Dinos tu nombre', 'Tell us your name');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email.trim())) e.email = t('Introduce un email válido', 'Enter a valid email');
+    if (f.phone.replace(/\D/g, '').length < 9) e.phone = t('Introduce un teléfono válido', 'Enter a valid phone number');
+    if (!f.service) e.service = t('Elige un área', 'Choose an area');
+    if (f.message.trim().length < 10) e.message = t('Cuéntanos un poco más', 'Tell us a bit more');
+    if (!f.consent) e.consent = t('Acepta la política de privacidad', 'Please accept the privacy policy');
     setErrors(e);
     return Object.keys(e).length === 0;
   };
@@ -133,15 +136,15 @@ export default function ContactV2() {
         <div className='rd-grid-bg pointer-events-none absolute inset-0' />
         <div className='relative mx-auto grid max-w-[1320px] items-center gap-12 px-5 pb-20 pt-16 md:px-8 lg:grid-cols-[1.4fr_1fr]'>
           <div>
-            <p className='rd-eyebrow mb-6'>Contacto — Hablemos</p>
+            <p className='rd-eyebrow mb-6'>{t('Contacto — Hablemos', 'Contact — Let’s talk')}</p>
             <h1 className='rd-h1'>
-              ¿Qué le falta
+              {t('¿Qué le falta', 'What is your')}
               <br />
-              a tu <span className='rd-mark'>negocio</span>
-              <span className='text-[#e1f56e]'>?</span>
+              {t('a tu', '')} <span className='rd-mark'>{t('negocio', 'business')}</span>
+              <span className='text-[#e1f56e]'>{t('?', ' missing?')}</span>
             </h1>
             <p className='mt-7 max-w-lg text-lg text-white/65'>
-              Cuéntanos qué quieres conseguir, dónde estás ahora y qué te frena. Te respondemos el mismo día con próximos pasos claros. Sin compromiso.
+              {t('Cuéntanos qué quieres conseguir, dónde estás ahora y qué te frena. Te respondemos el mismo día con próximos pasos claros. Sin compromiso.', 'Tell us what you want to achieve, where you are now and what’s holding you back. We reply the same day with clear next steps. No strings attached.')}
             </p>
           </div>
           <div className='relative mx-auto hidden aspect-square w-full max-w-[340px] lg:block' aria-hidden='true'>
@@ -159,7 +162,7 @@ export default function ContactV2() {
       <section className='rd-light'>
         <div className='mx-auto grid max-w-[1320px] gap-14 px-5 py-20 md:px-8 lg:grid-cols-[0.8fr_1.2fr]'>
           <aside>
-            <p className='rd-eyebrow mb-6'>Canales directos</p>
+            <p className='rd-eyebrow mb-6'>{t('Canales directos', 'Direct channels')}</p>
             <ul className='divide-y divide-white/10 border-y border-white/10'>
               <li>
                 <a href={wa} target='_blank' rel='noopener noreferrer' onClick={() => trackWhatsAppClick('ContactPage')} className='group flex items-center justify-between py-5'>
@@ -169,7 +172,7 @@ export default function ContactV2() {
               </li>
               <li>
                 <a href={PHONE_TEL_LINK} onClick={() => trackPhoneClick('ContactPage')} className='group flex items-center justify-between py-5'>
-                  <span><span className={label}>Teléfono</span><span className='mt-1 block text-xl font-bold'>{PHONE_DISPLAY}</span></span>
+                  <span><span className={label}>{t('Teléfono', 'Phone')}</span><span className='mt-1 block text-xl font-bold'>{PHONE_DISPLAY}</span></span>
                   <span className='text-white/30 group-hover:text-[#e1f56e]'>↗</span>
                 </a>
               </li>
@@ -188,60 +191,60 @@ export default function ContactV2() {
             </ul>
             <div className='mt-8 space-y-1 text-sm text-white/45'>
               <p>{BUSINESS_ADDRESS}</p>
-              <p>{BUSINESS_HOURS}</p>
+              <p>{t(BUSINESS_HOURS, 'Mon–Fri, 9:00–20:00')}</p>
             </div>
           </aside>
 
           <form onSubmit={submit} noValidate className='rd-card !transform-none p-7 md:p-10'>
-            <p className='rd-eyebrow mb-8'>Tu proyecto</p>
+            <p className='rd-eyebrow mb-8'>{t('Tu proyecto', 'Your project')}</p>
             <div className='grid gap-x-8 gap-y-7 md:grid-cols-2'>
               <div>
-                <label htmlFor='c-name' className={label}>Nombre</label>
-                <input id='c-name' className={field} placeholder='Tu nombre' value={f.name} onChange={(e) => set('name', e.target.value)} autoComplete='name' />
+                <label htmlFor='c-name' className={label}>{t('Nombre', 'Name')}</label>
+                <input id='c-name' className={field} placeholder={t('Tu nombre', 'Your name')} value={f.name} onChange={(e) => set('name', e.target.value)} autoComplete='name' />
                 {err('name')}
               </div>
               <div>
-                <label htmlFor='c-company' className={label}>Empresa (opcional)</label>
-                <input id='c-company' className={field} placeholder='¿Desde qué negocio nos escribes?' value={f.company} onChange={(e) => set('company', e.target.value)} autoComplete='organization' />
+                <label htmlFor='c-company' className={label}>{t('Empresa (opcional)', 'Company (optional)')}</label>
+                <input id='c-company' className={field} placeholder={t('¿Desde qué negocio nos escribes?', 'Which business are you writing from?')} value={f.company} onChange={(e) => set('company', e.target.value)} autoComplete='organization' />
               </div>
               <div>
                 <label htmlFor='c-email' className={label}>Email</label>
-                <input id='c-email' type='email' className={field} placeholder='tu@negocio.com' value={f.email} onChange={(e) => set('email', e.target.value)} autoComplete='email' />
+                <input id='c-email' type='email' className={field} placeholder={t('tu@negocio.com', 'you@business.com')} value={f.email} onChange={(e) => set('email', e.target.value)} autoComplete='email' />
                 {err('email')}
               </div>
               <div>
-                <label htmlFor='c-phone' className={label}>Teléfono</label>
-                <input id='c-phone' type='tel' className={field} placeholder='Para llamarte si lo prefieres' value={f.phone} onChange={(e) => set('phone', e.target.value)} autoComplete='tel' />
+                <label htmlFor='c-phone' className={label}>{t('Teléfono', 'Phone')}</label>
+                <input id='c-phone' type='tel' className={field} placeholder={t('Para llamarte si lo prefieres', 'So we can call you if you prefer')} value={f.phone} onChange={(e) => set('phone', e.target.value)} autoComplete='tel' />
                 {err('phone')}
               </div>
               <div>
-                <label htmlFor='c-service' className={label}>¿Qué necesitas?</label>
+                <label htmlFor='c-service' className={label}>{t('¿Qué necesitas?', 'What do you need?')}</label>
                 <select id='c-service' className={`${field} [&>option]:text-[#141414]`} value={f.service} onChange={(e) => set('service', e.target.value)}>
-                  <option value=''>Elige un área</option>
+                  <option value=''>{t('Elige un área', 'Choose an area')}</option>
                   {OPTIONS.map((o) => <option key={o} value={o}>{o}</option>)}
                 </select>
                 {err('service')}
               </div>
               <div>
-                <label htmlFor='c-web' className={label}>Tu web (opcional)</label>
-                <input id='c-web' className={field} placeholder='tunegocio.es' value={f.web} onChange={(e) => set('web', e.target.value)} autoComplete='url' />
+                <label htmlFor='c-web' className={label}>{t('Tu web (opcional)', 'Your website (optional)')}</label>
+                <input id='c-web' className={field} placeholder={t('tunegocio.es', 'yourbusiness.com')} value={f.web} onChange={(e) => set('web', e.target.value)} autoComplete='url' />
               </div>
               <div className='md:col-span-2'>
-                <label htmlFor='c-msg' className={label}>Cuéntanos</label>
-                <textarea id='c-msg' rows={4} className={`${field} resize-none`} placeholder='Qué quieres conseguir, qué tienes ahora y qué te frena.' value={f.message} onChange={(e) => set('message', e.target.value)} maxLength={1000} />
+                <label htmlFor='c-msg' className={label}>{t('Cuéntanos', 'Tell us more')}</label>
+                <textarea id='c-msg' rows={4} className={`${field} resize-none`} placeholder={t('Qué quieres conseguir, qué tienes ahora y qué te frena.', 'What you want to achieve, what you have now and what’s holding you back.')} value={f.message} onChange={(e) => set('message', e.target.value)} maxLength={1000} />
                 {err('message')}
               </div>
             </div>
             <label className='mt-8 flex cursor-pointer items-start gap-3 text-sm text-white/60'>
               <input type='checkbox' checked={f.consent} onChange={(e) => set('consent', e.target.checked)} className='mt-0.5 h-4 w-4 rounded border-white/30 bg-transparent accent-[#e1f56e]' />
               <span>
-                He leído y acepto la <a href='/politica-de-privacidad' className='underline hover:text-[#e1f56e]'>política de privacidad</a>.
+                {t('He leído y acepto la', 'I have read and accept the')} <a href='/politica-de-privacidad' className='underline hover:text-[#e1f56e]'>{t('política de privacidad', 'privacy policy')}</a>.
               </span>
             </label>
             {err('consent')}
-            {failed ? <p className='mt-6 text-sm text-[#ff8a7a]'>No se ha podido enviar. Prueba otra vez o escríbenos por WhatsApp.</p> : null}
+            {failed ? <p className='mt-6 text-sm text-[#ff8a7a]'>{t('No se ha podido enviar. Prueba otra vez o escríbenos por WhatsApp.', 'We couldn’t send your message. Please try again or message us on WhatsApp.')}</p> : null}
             <button type='submit' disabled={sending} className='rd-btn mt-8 disabled:opacity-60'>
-              {sending ? 'Enviando…' : 'Enviar ↗'}
+              {sending ? t('Enviando…', 'Sending…') : t('Enviar ↗', 'Send ↗')}
             </button>
           </form>
         </div>

@@ -1,0 +1,26 @@
+// Traducción al inglés de sector y descripción de src/data/portfolioPage.ts
+// y src/data/appProjects.ts (clave = id del proyecto).
+export const PORTFOLIO_EN: Record<string, { sector: string; description: string; name?: string; technologies?: string }> = {
+  beachvans: { sector: 'Travel and adventure', description: 'A catalogue of camper vans that’s easy to browse on mobile, with a short path to request a quote.' },
+  vidal: { sector: 'Healthcare', description: 'A medical website with clear services and appointment booking from mobile and desktop.' },
+  hatena: { sector: 'Veterinary clinic', description: 'Services, team and an appointment form, all on one website.' },
+  carper: { sector: 'Professional sound', description: 'A showcase website for a sound and events business.' },
+  alicornio: { sector: 'Rural tourism', description: 'A country house in O Courel, built on WordPress. In high season it usually fills up through Google searches.' },
+  hoyviajamos: { sector: 'Travel', description: 'A travel blog with galleries, categories and subscription guides.' },
+  elefantes: { sector: 'Travel', description: 'A travel blog with a gallery and a structure built for search engines.' },
+  detectives: { sector: 'Private investigation', description: 'Clear services and direct contact to discuss your case.' },
+  mhin: { sector: 'Real estate services', description: 'Brand presentation, what they do and direct contact from Lleida.' },
+  mcauto: { sector: 'Events and motoring', description: 'Event calendar, photos and direct contact for classic car events.' },
+  somatica: { sector: 'Health and wellbeing', description: 'A practice website: approach, services and a clear path to request information.' },
+  itzalak: { sector: 'Psychology', description: 'A professional presence for the centre: services, team and contact.' },
+  noma: { sector: 'Legal services', description: 'A law firm with clear services and direct contact to discuss your case.' },
+  obrador: { sector: 'Artisan food', description: 'Identity and catalogue for an artisan bakery, with simple contact.' },
+  noemi: { sector: 'Sports psychology', description: 'Method, services and a contact to get started.' },
+  chicxs: { sector: 'Online store', description: 'A band merch store: catalogue, stock and orders.' },
+  camisetas: { sector: 'Online store', description: 'A WooCommerce store with filters by sector to find and buy without friction.' },
+  delish: { sector: 'Food', description: 'Vegan bakery with online orders and nationwide delivery.' },
+  onygo: { sector: 'Mobility · Android and iOS', description: 'An app for drivers and passengers to share their daily trips, both regular and one-off.' },
+  'score-padel': { sector: 'Sport · Web and Android TV', description: 'Padel match setup and real-time scoreboards, with the rules of the game and ads between side and set changes.' },
+  'lets-play': { sector: 'Leisure · Web app', description: 'A games platform for bars and leisure venues. Players join from their phone and play right in the browser.' },
+  'asistente-educativo': { sector: 'Education · Web app', description: 'A chatbot for a public school, with conversations and supporting documents in one tool.', name: 'AI education assistant', technologies: 'Web app · AI chat · Admin dashboard' },
+};

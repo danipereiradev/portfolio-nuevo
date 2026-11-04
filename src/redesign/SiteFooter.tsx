@@ -1,4 +1,5 @@
-import { SERVICES } from './services';
+import { usePrefs } from './prefs';
+import { useServices } from './i18n/content';
 import { CASES_PATH } from './cases';
 import { Logo36 } from './SiteHeader';
 import {
@@ -16,21 +17,23 @@ import {
 import { BLOG_PATH } from '../blog/posts';
 
 const LEGAL = [
-  { href: '/politica-de-privacidad', label: 'Privacidad' },
-  { href: '/terminos-y-condiciones', label: 'Términos' },
-  { href: '/politica-de-cookies', label: 'Cookies' },
-  { href: '/aviso-legal', label: 'Aviso legal' },
+  { href: '/politica-de-privacidad', label: ['Privacidad', 'Privacy'] },
+  { href: '/terminos-y-condiciones', label: ['Términos', 'Terms'] },
+  { href: '/politica-de-cookies', label: ['Cookies', 'Cookies'] },
+  { href: '/aviso-legal', label: ['Aviso legal', 'Legal notice'] },
 ];
 
 const COMPANY = [
-  { href: CASES_PATH, label: 'Casos de éxito' },
-  { href: PORTFOLIO_PATH, label: 'Portfolio' },
-  { href: BLOG_PATH, label: '36Blog' },
-  { href: TALENT_PATH, label: 'Trabaja con nosotros' },
-  { href: CONTACT_PATH, label: 'Contacto' },
+  { href: CASES_PATH, label: ['Casos de éxito', 'Case studies'] },
+  { href: PORTFOLIO_PATH, label: ['Portfolio', 'Portfolio'] },
+  { href: BLOG_PATH, label: ['36Blog', '36Blog'] },
+  { href: TALENT_PATH, label: ['Trabaja con nosotros', 'Careers'] },
+  { href: CONTACT_PATH, label: ['Contacto', 'Contact'] },
 ];
 
 export default function SiteFooter() {
+  const { t } = usePrefs();
+  const { services: SERVICES } = useServices();
   return (
     <footer className='rd relative overflow-hidden border-t border-white/10 bg-[#0b0c0a] text-white'>
       <div className='mx-auto max-w-[1320px] px-5 pb-10 pt-20 md:px-8'>
@@ -38,11 +41,11 @@ export default function SiteFooter() {
           <div>
             <p className='rd-eyebrow mb-5'>// let&apos;s build</p>
             <h2 className='rd-h2 max-w-[14ch]'>
-              ¿TIENES UN <span className='rd-mark'>PROYECTO</span> <span className='text-[#e1f56e]'>EN MENTE?</span>
+              {t('¿TIENES UN', 'GOT A')} <span className='rd-mark'>{t('PROYECTO', 'PROJECT')}</span> <span className='text-[#e1f56e]'>{t('EN MENTE?', 'IN MIND?')}</span>
             </h2>
           </div>
           <div className='flex flex-wrap gap-3'>
-            <a href={CONTACT_PATH} className='rd-btn'>Hablemos ↗</a>
+            <a href={CONTACT_PATH} className='rd-btn'>{t('Hablemos', 'Let’s talk')} ↗</a>
             <a href={buildWhatsAppUrl()} target='_blank' rel='noopener noreferrer' className='rd-btn-ghost'>
               WhatsApp {PHONE_DISPLAY}
             </a>
@@ -56,11 +59,11 @@ export default function SiteFooter() {
               <span className='text-xl font-extrabold'>36WEB<span className='text-[#e1f56e]'>.</span></span>
             </a>
             <p className='max-w-xs text-sm leading-relaxed text-white/55'>
-              Web, tiendas online, posicionamiento y redes para negocios que quieren crecer sin tener que entender de tecnología.
+              {t('Web, tiendas online, posicionamiento y redes para negocios que quieren crecer sin tener que entender de tecnología.', 'Websites, online stores, SEO and social media for businesses that want to grow without having to understand technology.')}
             </p>
           </div>
           <div>
-            <p className='rd-eyebrow mb-4'>Servicios</p>
+            <p className='rd-eyebrow mb-4'>{t('Servicios', 'Services')}</p>
             <ul className='space-y-2.5'>
               {SERVICES.map((s) => (
                 <li key={s.slug}>
@@ -74,19 +77,19 @@ export default function SiteFooter() {
             <ul className='space-y-2.5'>
               {COMPANY.map((l) => (
                 <li key={l.href}>
-                  <a href={l.href} className='rd-footlink'>{l.label}</a>
+                  <a href={l.href} className='rd-footlink'>{t(l.label[0], l.label[1])}</a>
                 </li>
               ))}
             </ul>
           </div>
           <div>
-            <p className='rd-eyebrow mb-4'>Contacto</p>
+            <p className='rd-eyebrow mb-4'>{t('Contacto', 'Contact')}</p>
             <ul className='space-y-2.5 text-sm text-white/70'>
               <li><a href={PHONE_TEL_LINK} className='rd-footlink'>{PHONE_DISPLAY}</a></li>
               <li><a href={`mailto:${CONTACT_EMAIL}`} className='rd-footlink'>{CONTACT_EMAIL}</a></li>
               <li><a href={INSTAGRAM_URL} target='_blank' rel='noopener noreferrer' className='rd-footlink'>Instagram</a></li>
               <li className='pt-2 text-white/45'>{BUSINESS_ADDRESS}</li>
-              <li className='text-white/45'>L-V {BUSINESS_HOURS.replace('L-V de ', '')}</li>
+              <li className='text-white/45'>{t('L-V', 'Mon–Fri')} {BUSINESS_HOURS.replace('L-V de ', '').replace(' a ', t(' a ', ' – '))}</li>
             </ul>
           </div>
         </div>
@@ -95,7 +98,7 @@ export default function SiteFooter() {
           <p>© {new Date().getFullYear()} 36web</p>
           <ul className='flex flex-wrap gap-5'>
             {LEGAL.map((l) => (
-              <li key={l.href}><a href={l.href} className='hover:text-white'>{l.label}</a></li>
+              <li key={l.href}><a href={l.href} className='hover:text-white'>{t(l.label[0], l.label[1])}</a></li>
             ))}
           </ul>
         </div>

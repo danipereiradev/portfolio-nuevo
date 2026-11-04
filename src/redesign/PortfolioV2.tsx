@@ -9,6 +9,9 @@ import {
 } from '../data/portfolioPage';
 import { APP_PROJECTS, appImage, type AppProject } from '../data/appProjects';
 import { CASES, CASES_PATH } from './cases';
+import { usePrefs } from './prefs';
+import { usePortfolioText } from './i18n/content';
+import { PORTFOLIO_EN } from './i18n/portfolioEn';
 
 const SITE_URL = 'https://36web.es';
 
@@ -20,14 +23,16 @@ const CASE_BY_PROJECT: Record<string, string> = {
 };
 
 const FILTERS = [
-  { id: 'all', label: 'Todos' },
-  { id: 'web', label: 'Webs' },
-  { id: 'shop', label: 'Tiendas online' },
-  { id: 'app', label: 'Apps' },
+  { id: 'all', label: ['Todos', 'All'] },
+  { id: 'web', label: ['Webs', 'Websites'] },
+  { id: 'shop', label: ['Tiendas online', 'Online stores'] },
+  { id: 'app', label: ['Apps', 'Apps'] },
 ] as const;
 type FilterId = (typeof FILTERS)[number]['id'];
 
 function ProjectCard({ p }: { p: PortfolioPageProject }) {
+  const { t } = usePrefs();
+  const tx = usePortfolioText()(p.id, p.sector, p.description);
   const caseSlug = CASE_BY_PROJECT[p.id];
   const hasCase = Boolean(caseSlug && CASES.some((c) => c.slug === caseSlug));
   const href = hasCase ? `${CASES_PATH}/${caseSlug}` : p.url;
@@ -37,22 +42,22 @@ function ProjectCard({ p }: { p: PortfolioPageProject }) {
       <div className='aspect-[3/2] overflow-hidden bg-black'>
         <img
           src={p.image}
-          alt={`Web de ${p.name}`}
+          alt={t(`Web de ${p.name}`, `${p.name} website`)}
           loading='lazy'
           className='h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.02]'
         />
       </div>
       <div className='flex flex-1 flex-col p-6'>
-        <p className='rd-eyebrow mb-3'>{p.sector}</p>
+        <p className='rd-eyebrow mb-3'>{tx.sector}</p>
         <h3 className='text-2xl font-extrabold uppercase'>{p.name}</h3>
-        <p className='mt-3 text-sm leading-relaxed text-white/60'>{p.description}</p>
+        <p className='mt-3 text-sm leading-relaxed text-white/60'>{tx.description}</p>
         <div className='mt-auto flex flex-wrap gap-2 pt-6'>
           <span className='rounded-full border border-white/15 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-white/60'>
-            {p.category === 'shop' ? 'eCommerce' : 'Diseño web'}
+            {p.category === 'shop' ? 'eCommerce' : t('Diseño web', 'Web design')}
           </span>
           {hasCase ? (
             <span className='rounded-full bg-[#e1f56e] px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-[#0b0c0a]'>
-              Caso de éxito
+              {t('Caso de éxito', 'Case study')}
             </span>
           ) : null}
         </div>
@@ -62,6 +67,9 @@ function ProjectCard({ p }: { p: PortfolioPageProject }) {
 }
 
 function AppCard({ a }: { a: AppProject }) {
+  const { t, lang } = usePrefs();
+  const en = lang === 'en' ? PORTFOLIO_EN[a.id] : undefined;
+  const name = en?.name ?? a.name;
   const shots = a.images.filter((f) => !f.endsWith('-04.webp')).slice(0, 3);
   const isIllustration = 'illustration' in a && a.illustration;
   const url = 'url' in a ? a.url : undefined;
@@ -72,7 +80,7 @@ function AppCard({ a }: { a: AppProject }) {
           <img
             key={f}
             src={appImage(f)}
-            alt={`Pantalla de ${a.name}`}
+            alt={t(`Pantalla de ${name}`, `${name} screen`)}
             loading='lazy'
             className={`h-full rounded-xl object-contain shadow-[0_10px_30px_rgba(0,0,0,0.12)] transition-transform duration-500 group-hover:-translate-y-1 ${
               isIllustration ? 'w-auto' : 'w-auto max-w-[31%]'
@@ -81,17 +89,17 @@ function AppCard({ a }: { a: AppProject }) {
         ))}
       </div>
       <div className='flex flex-1 flex-col p-6'>
-        <p className='rd-eyebrow mb-3'>{a.sector}</p>
-        <h3 className='text-2xl font-extrabold uppercase'>{a.name}</h3>
-        <p className='mt-3 text-sm leading-relaxed text-white/60'>{a.description}</p>
-        <p className='mt-3 font-mono text-[11px] leading-relaxed text-white/45'>{a.technologies}</p>
+        <p className='rd-eyebrow mb-3'>{en?.sector ?? a.sector}</p>
+        <h3 className='text-2xl font-extrabold uppercase'>{name}</h3>
+        <p className='mt-3 text-sm leading-relaxed text-white/60'>{en?.description ?? a.description}</p>
+        <p className='mt-3 font-mono text-[11px] leading-relaxed text-white/45'>{en?.technologies ?? a.technologies}</p>
         <div className='mt-auto flex flex-wrap gap-2 pt-6'>
           <span className='rounded-full border border-white/15 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-white/60'>
             App
           </span>
           {isIllustration ? (
             <span className='rounded-full border border-white/15 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-white/60'>
-              Imagen recreada
+              {t('Imagen recreada', 'Illustrative image')}
             </span>
           ) : null}
         </div>
@@ -109,6 +117,7 @@ function AppCard({ a }: { a: AppProject }) {
 
 export default function PortfolioV2() {
   usePageMeta(PORTFOLIO_PATH);
+  const { t } = usePrefs();
   const [filter, setFilter] = useState<FilterId>('all');
 
   const jsonLd = useMemo(
@@ -150,22 +159,22 @@ export default function PortfolioV2() {
         <div className='rd-grid-bg pointer-events-none absolute inset-0' />
         <div className='relative mx-auto grid max-w-[1320px] gap-10 px-5 pb-20 pt-20 md:px-8 lg:grid-cols-[1.3fr_1fr] lg:items-end'>
           <div>
-            <p className='rd-eyebrow mb-6'>00 — Portfolio · Proyectos reales</p>
+            <p className='rd-eyebrow mb-6'>{t('00 — Portfolio · Proyectos reales', '00 — Portfolio · Real projects')}</p>
             <h1 className='rd-h1'>
-              WEBS QUE
+              {t('WEBS QUE', 'WEBSITES')}
               <br />
-              <span className='rd-mark'>YA ESTÁN</span>
+              <span className='rd-mark'>{t('YA ESTÁN', 'ALREADY')}</span>
               <br />
-              <span className='text-[#e1f56e]'>TRABAJANDO.</span>
+              <span className='text-[#e1f56e]'>{t('TRABAJANDO.', 'AT WORK.')}</span>
             </h1>
           </div>
           <div>
             <p className='text-lg leading-relaxed text-white/65'>
-              Webs, tiendas online y apps de negocios reales: clínicas, talleres, tiendas, despachos y productos digitales. Entra en cualquiera y compruébalo tú mismo.
+              {t('Webs, tiendas online y apps de negocios reales: clínicas, talleres, tiendas, despachos y productos digitales. Entra en cualquiera y compruébalo tú mismo.', 'Websites, online stores and apps for real businesses: clinics, workshops, shops, firms and digital products. Visit any of them and see for yourself.')}
             </p>
             <div className='mt-8 flex flex-wrap gap-3'>
-              <a href={CONTACT_PATH} className='rd-btn'>Pide una revisión gratis ↗</a>
-              <a href={CASES_PATH} className='rd-btn-ghost'>Casos de éxito</a>
+              <a href={CONTACT_PATH} className='rd-btn'>{t('Pide una revisión gratis', 'Get a free review')} ↗</a>
+              <a href={CASES_PATH} className='rd-btn-ghost'>{t('Casos de éxito', 'Case studies')}</a>
             </div>
           </div>
         </div>
@@ -174,10 +183,10 @@ export default function PortfolioV2() {
       <section className='mx-auto max-w-[1320px] px-5 pb-20 pt-4 md:px-8'>
         <dl className='grid gap-px overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4'>
           {[
-            ['Proyectos', count('all'), 'Webs, tiendas y apps'],
-            ['Webs', count('web'), 'Negocios de servicios'],
-            ['Tiendas online', count('shop'), 'Vendiendo en internet'],
-            ['Apps', count('app'), 'Web, Android e iOS'],
+            [t('Proyectos', 'Projects'), count('all'), t('Webs, tiendas y apps', 'Websites, stores and apps')],
+            [t('Webs', 'Websites'), count('web'), t('Negocios de servicios', 'Service businesses')],
+            [t('Tiendas online', 'Online stores'), count('shop'), t('Vendiendo en internet', 'Selling online')],
+            ['Apps', count('app'), t('Web, Android e iOS', 'Web, Android and iOS')],
           ].map(([k, v, d]) => (
             <div key={k} className='bg-[#0b0c0a] p-6'>
               <dt className='font-mono text-xs text-[#e1f56e]'>{k}</dt>
@@ -191,7 +200,7 @@ export default function PortfolioV2() {
       {/* GRID */}
       <section className='rd-light'>
         <div className='mx-auto max-w-[1320px] px-5 py-20 md:px-8'>
-          <div className='mb-10 flex flex-wrap gap-2' role='tablist' aria-label='Filtrar proyectos'>
+          <div className='mb-10 flex flex-wrap gap-2' role='tablist' aria-label={t('Filtrar proyectos', 'Filter projects')}>
             {FILTERS.map((f) => {
               const on = filter === f.id;
               return (
@@ -205,7 +214,7 @@ export default function PortfolioV2() {
                     on ? 'border-[#141414] bg-[#141414] text-[#ffffff]' : 'border-black/15 bg-white text-[#141414] hover:border-[#141414]'
                   }`}
                 >
-                  {f.label} <span className='ml-1 font-mono opacity-60'>{count(f.id)}</span>
+                  {t(f.label[0], f.label[1])} <span className='ml-1 font-mono opacity-60'>{count(f.id)}</span>
                 </button>
               );
             })}
@@ -226,11 +235,11 @@ export default function PortfolioV2() {
         <div className='mx-auto flex max-w-[1320px] flex-col gap-8 rounded-[1.75rem] bg-[#e1f56e] px-7 py-14 text-[#0b0c0a] md:flex-row md:items-center md:justify-between md:px-14'>
           <div>
             <p className='font-mono text-xs uppercase tracking-[0.2em]'>// let&apos;s build</p>
-            <h2 className='rd-h2 mt-4 max-w-[16ch] !text-[clamp(1.9rem,4vw,3.4rem)]'>¿Quieres una web así?</h2>
+            <h2 className='rd-h2 mt-4 max-w-[16ch] !text-[clamp(1.9rem,4vw,3.4rem)]'>{t('¿Quieres una web así?', 'Want a website like these?')}</h2>
           </div>
           <div className='flex flex-wrap gap-3'>
             <a href={CONTACT_PATH} className='inline-flex items-center gap-2 rounded-full bg-[#0b0c0a] px-7 py-4 text-xs font-bold uppercase tracking-[0.14em] text-white hover:bg-[#3346c1]'>
-              Hablemos ↗
+              {t('Hablemos', 'Let’s talk')} ↗
             </a>
             <a href={buildWhatsAppUrl()} target='_blank' rel='noopener noreferrer' className='inline-flex items-center rounded-full border border-[#0b0c0a]/30 px-7 py-4 text-xs font-bold uppercase tracking-[0.14em]'>
               WhatsApp

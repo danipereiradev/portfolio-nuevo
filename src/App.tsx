@@ -7,6 +7,7 @@ import { LanguageProvider } from './contexts/LanguageContext';
 import { ContactModalProvider } from './contexts/ContactModalContext';
 import Header from './redesign/SiteHeader';
 import './redesign/redesign.css';
+import { PrefsProvider } from './redesign/prefs';
 import Footer from './redesign/SiteFooter';
 import MeasurementConsent from './components/MeasurementConsent';
 import ContactFormModal from './components/ContactFormModal';
@@ -223,10 +224,12 @@ function App() {
 
   return (
     <LanguageProvider>
-      <ContactModalProvider>
-        <AppContent />
-        <MeasurementConsent />
-      </ContactModalProvider>
+      <PrefsProvider>
+        <ContactModalProvider>
+          <AppContent />
+          <MeasurementConsent />
+        </ContactModalProvider>
+      </PrefsProvider>
     </LanguageProvider>
   );
 }

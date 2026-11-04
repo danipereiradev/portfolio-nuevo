@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
+import { SpanishOnlyNotice } from '../redesign/prefs';
 import { useContactModal } from '../contexts/ContactModalContext';
 import {
   SITE_MAINTENANCE_PATH,
@@ -284,6 +285,7 @@ const CondicionesDelProyecto = () => {
           </button>
         </div>
       </section>
+      <SpanishOnlyNotice />
     </main>
   );
 };
