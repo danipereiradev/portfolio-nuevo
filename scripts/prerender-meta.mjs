@@ -467,42 +467,16 @@ for (const [routePath, meta] of Object.entries(pagesMeta)) {
     );
     html = injectRoot(html, localWeb.buildLocalWebCityBodyHtml(city));
     localWithBody += 1;
-  } else if (routePath === '/') {
-    html = injectRoot(html, `<main><section id="hero" class="page-hero-compact hero-cinematic-section bg-ink-dark text-white">
-      <img src="/video/hero-home-2.jpg" alt="" aria-hidden="true" fetchpriority="high" class="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover object-center" />
-      <div class="absolute inset-0 z-[1] bg-black/60" aria-hidden="true"></div>
-      <div class="relative z-10 mx-auto flex w-[95%] flex-col items-center gap-page-gap text-center">
-        <div class="page-title-block md:max-w-4xl">
-          <h1 class="hero-cinematic-title">${escapeHtml(homeHero.title)}</h1>
-          <span class="mx-auto h-1 w-16 bg-brand" aria-hidden="true"></span>
-          <p class="text-xl md:text-2xl md:max-w-2xl md:mx-auto text-white">${escapeHtml(homeHero.description)}</p>
-        </div>
-        <a href="${escapeHtml(homeHero.buttonHref)}" class="inline-flex items-center justify-center rounded-lg border-2 border-accent bg-accent px-6 py-4 font-extrabold text-white">${escapeHtml(homeHero.buttonText)}</a>
-      </div>
-    </section></main>`);
-    html = injectModulePreload(html, findAsset('Home-'));
   } else if (routePath === SITE_WEB_PATH) {
-    html = injectBeforeRoot(html, buildDisenoWebHeroHtml());
-    html = injectLaunchBootHeroCss(html);
+    // Rediseño: sin hero de arranque antiguo (quedaba visible encima de la página nueva).
     html = injectRoot(
       html,
-      `<main>${localWeb.buildLocalWebSpainSectionHtml()}</main>`,
+      buildIndexableShellHtml(meta).replace(
+        '</div></main>',
+        `</div>${localWeb.buildLocalWebSpainSectionHtml()}</main>`,
+      ),
     );
-    html = injectModulePreload(html, findAsset('DisenoWeb-'));
-  } else if (routePath === SITE_SHOP_PATH) {
-    html = injectBeforeRoot(html, buildTiendasOnlineHeroHtml());
-    html = injectLaunchBootHeroCss(html);
-    html = injectModulePreload(html, findAsset('TiendasOnline-'));
-  } else if (routePath === '/aplicaciones') {
-    html = injectBeforeRoot(html, buildAplicacionesHeroHtml());
-    html = injectLaunchBootHeroCss(html);
-    html = injectModulePreload(html, findAsset('Aplicaciones-'));
-  } else if (routePath === SITE_MAINTENANCE_PATH) {
-    html = injectBeforeRoot(html, buildMantenimientoWebHeroHtml());
-    html = injectLaunchBootHeroCss(html);
-    html = injectModulePreload(html, findAsset('MantenimientoWeb-'));
   } else if (
-    routePath !== '/' &&
     !(typeof meta.robots === 'string' && meta.robots.includes('noindex'))
   ) {
     html = injectRoot(html, buildIndexableShellHtml(meta));
