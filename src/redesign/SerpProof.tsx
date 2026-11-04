@@ -54,9 +54,9 @@ export default function SerpProof({ serp, name }: { serp: Serp; name: string }) 
   const done = typed === serp.queries[qi];
 
   return (
-    <div className='grid overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#121311] lg:grid-cols-[1.35fr_1fr]'>
+    <div className='grid grid-cols-1 overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#121311] lg:grid-cols-[1.35fr_1fr]'>
       {/* Buscador */}
-      <div className='relative p-6 md:p-10'>
+      <div className='relative min-w-0 p-5 md:p-10'>
         <div className='rd-grid-bg pointer-events-none absolute inset-0 opacity-60' />
         <div className='relative'>
           <p className='font-mono text-[10px] uppercase tracking-[0.22em] text-white/45'>
@@ -83,7 +83,7 @@ export default function SerpProof({ serp, name }: { serp: Serp; name: string }) 
               <span className={`font-mono text-xs font-bold ${done ? 'text-[#0b0c0a]' : 'text-white/40'}`}>01</span>
               <div className='min-w-0'>
                 <p className={`truncate font-mono text-[11px] ${done ? 'text-[#0b0c0a]/65' : 'text-white/45'}`}>{serp.domain}</p>
-                <p className={`mt-1 truncate font-bold ${done ? 'text-[#0b0c0a]' : 'text-white/80'}`}>{serp.resultTitle}</p>
+                <p className={`mt-1 font-bold leading-snug ${done ? 'text-[#0b0c0a]' : 'text-white/80'}`}>{serp.resultTitle}</p>
               </div>
             </li>
             {[0.75, 0.6].map((w, i) => (
@@ -100,7 +100,7 @@ export default function SerpProof({ serp, name }: { serp: Serp; name: string }) 
       </div>
 
       {/* Resultado */}
-      <div className='flex flex-col justify-between gap-10 border-t border-white/10 p-6 md:p-10 lg:border-l lg:border-t-0'>
+      <div className='flex min-w-0 flex-col justify-between gap-8 border-t border-white/10 p-5 md:gap-10 md:p-10 lg:border-l lg:border-t-0'>
         <div>
           <p className='font-mono text-[10px] uppercase tracking-[0.22em] text-white/45'>{t('Posición', 'Position')}</p>
           <p className='mt-3 text-[clamp(4.5rem,11vw,8rem)] font-black leading-none tracking-tight'>
