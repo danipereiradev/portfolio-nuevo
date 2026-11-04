@@ -1,7 +1,7 @@
 {
   "/": {
-    "title": "Diseño web y mantenimiento para pequeños negocios | 36web",
-    "description": "Tu web a medida con acompañamiento personal desde 59,90 € + IVA/mes. Descubre Tranquilidad Digital, sin alta ni permanencia. También proyectos de pago único."
+    "title": "Agencia de diseño web, SEO, SEM y redes sociales | 36web",
+    "description": "Diseño web, tiendas online, SEO, Google Ads, posicionamiento en IA y redes sociales. Un solo equipo para que tus clientes te encuentren y te escriban."
   },
   "/diseno-web": {
     "title": "Diseño web a medida para empresas | 36web",
@@ -40,8 +40,8 @@
     "description": "Creamos tiendas online: WooCommerce, Shopify o a medida. Catálogo, pagos y envíos. Estudio en Madrid, toda España. Presupuesto y plazos por escrito."
   },
   "/mantenimiento-web": {
-    "title": "Mantenimiento Web y Soporte Técnico | Desde 39,90 €/mes | 36web",
-    "description": "Mantenimiento y soporte para webs, WordPress, ecommerce y aplicaciones. Planes mensuales y bonos de horas. Soporte técnico directo desde 39,90 €/mes."
+    "title": "Mantenimiento web y soporte técnico | 36web",
+    "description": "Mantenimiento y soporte para webs, WordPress, ecommerce y aplicaciones: actualizaciones, copias, seguridad y arreglos, aunque la web la hiciera otra empresa."
   },
   "/landing-tiendas-online": {
     "title": "Tiendas online | 36web",
@@ -73,7 +73,7 @@
   },
   "/contacto": {
     "title": "Contacto | Cuéntanos tu proyecto | 36web",
-    "description": "Cuéntanos tu proyecto. Nombre, email, teléfono y qué necesitas. Te respondemos con una propuesta, con precio y plazos por escrito."
+    "description": "Cuéntanos qué quieres conseguir y qué te frena. Te respondemos el mismo día con próximos pasos claros. Formulario, WhatsApp, teléfono o email."
   },
   "/gracias": {
     "title": "Mensaje enviado | 36web",
@@ -219,8 +219,8 @@
     "robots": "noindex, nofollow, noarchive"
   },
   "/tranquilidad-digital": {
-    "title": "Tranquilidad Digital · Web y acompañamiento por suscripción | 36WEB",
-    "description": "Tu web a medida, dominio y mantenimiento desde 59,90 € + IVA/mes. Sin alta ni permanencia. Tras 12 cuotas pagadas, la web es tuya. Atención personal.",
+    "title": "Tranquilidad digital: representación técnica para tu negocio | 36web",
+    "description": "Actuamos de tu lado frente a proveedores, programadores y plataformas: traducimos lo que necesitas, coordinamos el trabajo y validamos cada entrega.",
     "robots": "noindex, nofollow"
   },
   "/landing-web-a-medida": {
@@ -245,5 +245,25 @@
     "title": "Tranquilidad Digital · Web y acompañamiento por suscripción | 36WEB",
     "description": "Tu web a medida, dominio y mantenimiento desde 59,90 € + IVA/mes. Sin alta ni permanencia. Tras 12 cuotas pagadas, la web es tuya. Atención personal.",
     "robots": "noindex, nofollow, noarchive"
+  },
+  "/servicios": {
+    "title": "Servicios de marketing digital: web, eCommerce, SEO, SEM, GEO y redes | 36web",
+    "description": "Diseño web, tiendas online, SEO, Google Ads, posicionamiento en IA, redes sociales y Tranquilidad digital. Un solo equipo para que tus clientes te encuentren."
+  },
+  "/servicios/seo": {
+    "title": "Agencia SEO y SEO local | 36web",
+    "description": "Posicionamiento en Google para negocios: auditoría técnica, SEO local, contenidos y autoridad, con un informe mensual claro."
+  },
+  "/servicios/sem": {
+    "title": "Gestión de Google Ads (SEM) | 36web",
+    "description": "Campañas de Google Ads que traen clientes desde el primer día, con medición de llamadas, WhatsApp y formularios."
+  },
+  "/servicios/geo": {
+    "title": "GEO: posicionamiento en ChatGPT, Gemini e IA | 36web",
+    "description": "Preparamos tu web y tu presencia online para que ChatGPT, Gemini y las respuestas de IA de Google recomienden tu negocio."
+  },
+  "/servicios/redes-sociales": {
+    "title": "Gestión de redes sociales y reels | 36web",
+    "description": "Estrategia, reels, carruseles y perfil optimizado en Instagram, TikTok y LinkedIn para que te escriban más clientes."
   }
 }

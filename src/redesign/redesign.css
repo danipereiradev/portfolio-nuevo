@@ -1,0 +1,149 @@
+@import '@fontsource/inter/latin-800.css';
+@import '@fontsource/inter/latin-900.css';
+
+.rd {
+  --rd-lime: #e1f56e;
+  --rd-lime-strong: #b1d004;
+  --rd-accent: #3346c1;
+  --rd-bg: #0b0c0a;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.rd-page {
+  background: var(--rd-bg);
+  color: #fff;
+}
+
+.rd-eyebrow {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rd-lime);
+}
+
+.rd-h1 {
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+  font-size: clamp(2.9rem, 7.4vw, 6.4rem);
+}
+
+.rd-h2 {
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  font-size: clamp(2.2rem, 5vw, 4.4rem);
+}
+
+.rd-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.85);
+}
+
+.rd-navlink {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  transition: color 0.2s;
+}
+.rd-navlink:hover {
+  color: var(--rd-lime);
+}
+
+.rd-btn,
+.rd-btn-outline,
+.rd-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  border-radius: 999px;
+  padding: 0.95rem 1.6rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: all 0.2s;
+}
+.rd-btn {
+  background: var(--rd-lime);
+  color: #0b0c0a;
+}
+.rd-btn:hover {
+  background: #fff;
+}
+.rd-btn-outline {
+  border: 1px solid var(--rd-lime);
+  color: var(--rd-lime);
+  padding: 0.7rem 1.3rem;
+}
+.rd-btn-outline:hover {
+  background: var(--rd-lime);
+  color: #0b0c0a;
+}
+.rd-btn-ghost {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+.rd-btn-ghost:hover {
+  border-color: #fff;
+}
+
+.rd-footlink {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.2s;
+}
+.rd-footlink:hover {
+  color: var(--rd-lime);
+}
+
+.rd-card {
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01));
+  border-radius: 1.25rem;
+  transition: border-color 0.25s, transform 0.25s, background 0.25s;
+}
+.rd-card:hover {
+  border-color: rgba(225, 245, 110, 0.55);
+  transform: translateY(-3px);
+}
+
+.rd-grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at 50% 40%, #000 30%, transparent 75%);
+}
+
+@keyframes rd-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes rd-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes rd-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+@keyframes rd-grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+.rd-float { animation: rd-float 6s ease-in-out infinite; }
+.rd-float-2 { animation: rd-float 7.5s ease-in-out infinite 0.8s; }
+.rd-float-3 { animation: rd-float 9s ease-in-out infinite 1.6s; }
+.rd-marquee { animation: rd-marquee 38s linear infinite; }
+.rd-caret { animation: rd-blink 1s steps(1) infinite; }
+.rd-bar { transform-origin: left; animation: rd-grow 2.4s cubic-bezier(.2,.8,.2,1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .rd-float, .rd-float-2, .rd-float-3, .rd-marquee, .rd-caret, .rd-bar { animation: none; }
+}

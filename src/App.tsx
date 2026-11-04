@@ -5,8 +5,9 @@ import { useScrollToHash } from './hooks/useScrollToHash';
 import { useLandingScrollDepth } from './hooks/useLandingScrollDepth';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { ContactModalProvider } from './contexts/ContactModalContext';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from './redesign/SiteHeader';
+import './redesign/redesign.css';
+import Footer from './redesign/SiteFooter';
 import MeasurementConsent from './components/MeasurementConsent';
 import ContactFormModal from './components/ContactFormModal';
 import BackToTopButton from './components/BackToTopButton';
@@ -47,13 +48,14 @@ const LandingWebPsicologos = lazy(() => import('./pages/LandingWebPsicologos'));
 const LandingWebAMedida = lazy(() => import('./pages/LandingWebAMedida'));
 const TranquilidadCondiciones = lazy(() => import("./pages/TranquilidadCondiciones"));
 const LandingTranquilidadDigital = lazy(() => import('./pages/LandingTranquilidadDigital'));
-const Home = lazy(() => import('./pages/Home'));
-const DisenoWeb = lazy(() => import('./pages/DisenoWeb'));
+const Home = lazy(() => import('./redesign/HomeV2'));
+const ContactV2 = lazy(() => import('./redesign/ContactV2'));
+const ServicePageV2 = lazy(() => import('./redesign/ServicePageV2'));
+const ServicesIndex = lazy(() =>
+  import('./redesign/ServicePageV2').then((m) => ({ default: m.ServicesIndex })),
+);
 const DisenoWebLocal = lazy(() => import('./pages/DisenoWebLocal'));
 const Nosotros = lazy(() => import('./pages/Nosotros'));
-const TiendasOnline = lazy(() => import('./pages/TiendasOnline'));
-const Aplicaciones = lazy(() => import('./pages/Aplicaciones'));
-const MantenimientoWeb = lazy(() => import('./pages/MantenimientoWeb'));
 const Blog = lazy(() => import('./pages/Blog'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
 const LandingWebInmobiliarias = lazy(() => import('./pages/LandingWebInmobiliarias'));
@@ -69,7 +71,6 @@ const CondicionesDelProyecto = lazy(
 const LegalDocument = lazy(() => import('./pages/LegalDocument'));
 const TrabajaConNosotros = lazy(() => import('./pages/TrabajaConNosotros'));
 const PortfolioPage = lazy(() => import('./pages/PortfolioPage'));
-const Contacto = lazy(() => import('./pages/Contacto'));
 const Gracias = lazy(() => import('./pages/Gracias'));
 const Maintenance = lazy(() => import('./pages/Maintenance'));
 const Pago = lazy(() => import('./pages/Pago'));
@@ -136,12 +137,14 @@ function AppContent() {
           <Suspense fallback={<PageFallback />}>
           <Routes>
             <Route path='/' element={<Home />} />
+            <Route path='/servicios' element={<ServicesIndex />} />
+            <Route path='/servicios/:slug' element={<ServicePageV2 />} />
             <Route path='/landing-web-psicologos' element={<LandingWebPsicologos />} />
             <Route path={ADS_CUSTOM_WEB_LANDING_PATH} element={<LandingWebAMedida />} />
-            <Route path='/tranquilidad-digital' element={<LandingTranquilidadDigital />} />
+            <Route path='/tranquilidad-digital' element={<ServicePageV2 slug='tranquilidad-digital' />} />
             <Route path='/landing-tranquilidad-digital' element={<LandingTranquilidadDigital adsLanding />} />
             <Route path={ABOUT_PATH} element={<Nosotros />} />
-            <Route path={SITE_WEB_PATH} element={<DisenoWeb />} />
+            <Route path={SITE_WEB_PATH} element={<ServicePageV2 slug='diseno-web' />} />
             <Route
               path={`${SITE_WEB_PATH}/:ciudad`}
               element={<DisenoWebLocal />}
@@ -150,13 +153,13 @@ function AppContent() {
               path={SITE_WEB_PATH_N}
               element={<Navigate to={SITE_WEB_PATH} replace />}
             />
-            <Route path={SITE_SHOP_PATH} element={<TiendasOnline />} />
-            <Route path={SITE_APPS_PATH} element={<Aplicaciones />} />
+            <Route path={SITE_SHOP_PATH} element={<ServicePageV2 slug='ecommerce' />} />
+            <Route path={SITE_APPS_PATH} element={<ServicePageV2 slug='aplicaciones' />} />
             <Route
               path='/tienda-online'
               element={<Navigate to={SITE_SHOP_PATH} replace />}
             />
-            <Route path={SITE_MAINTENANCE_PATH} element={<MantenimientoWeb />} />
+            <Route path={SITE_MAINTENANCE_PATH} element={<ServicePageV2 slug='mantenimiento-web' />} />
             <Route path={BLOG_PATH} element={<Blog />} />
             <Route path={`${BLOG_PATH}/:slug`} element={<BlogPost />} />
             <Route
@@ -215,7 +218,7 @@ function AppContent() {
             />
             <Route path={TALENT_PATH} element={<TrabajaConNosotros />} />
             <Route path={PORTFOLIO_PATH} element={<PortfolioPage />} />
-            <Route path={CONTACT_PATH} element={<Contacto />} />
+            <Route path={CONTACT_PATH} element={<ContactV2 />} />
             <Route path={FORM_THANKS_PATH} element={<Gracias />} />
             <Route path='*' element={<Navigate to='/' replace />} />
           </Routes>
