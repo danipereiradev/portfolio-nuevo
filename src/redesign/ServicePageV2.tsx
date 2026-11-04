@@ -1,6 +1,7 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { CONTACT_PATH, buildWhatsAppUrl } from '../config/contact';
+import GoogleBadge from './GoogleBadge';
 import { ALL_SERVICES, EXTRA_SERVICES, SERVICES, SERVICES_PATH } from './services';
 
 function CtaBand({ text }: { text: string }) {
@@ -96,6 +97,7 @@ export default function ServicePageV2({ slug: slugProp }: { slug?: string }) {
               <a href={CONTACT_PATH} className='rd-btn'>Pide una revisión gratis ↗</a>
               <a href='#incluye' className='rd-btn-ghost'>Qué incluye</a>
             </div>
+            <GoogleBadge className='mt-8' />
           </div>
         </div>
       </section>

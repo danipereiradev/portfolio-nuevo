@@ -8,6 +8,7 @@ import {
 import { SERVICES, SERVICES_PATH } from './services';
 import { CASES, CASES_PATH } from './cases';
 import { CaseCard } from './CasePages';
+import GoogleBadge from './GoogleBadge';
 import { PORTFOLIO_PAGE_PROJECTS } from '../data/portfolioPage';
 
 // Prueba social: clientes reales del portfolio (src/data/portfolioPage.ts).
@@ -297,6 +298,7 @@ export default function HomeV2() {
                 Ver casos
               </a>
             </div>
+            <GoogleBadge className='mt-8' />
           </div>
 
           <HeroVisual />

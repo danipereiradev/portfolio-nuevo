@@ -14,7 +14,7 @@ export const Logo36 = ({ className = 'h-10 w-10' }: { className?: string }) => (
 
 const NAV = [
   { href: CASES_PATH, label: 'Casos de éxito' },
-  { href: BLOG_PATH, label: 'Blog' },
+  { href: BLOG_PATH, label: '36Blog' },
 ];
 
 export default function SiteHeader({ hideNav = false }: { hideNav?: boolean }) {

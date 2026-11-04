@@ -27,7 +27,7 @@ const COMPANY = [
   { href: ABOUT_PATH, label: 'Sobre 36web' },
   { href: CASES_PATH, label: 'Casos de éxito' },
   { href: PORTFOLIO_PATH, label: 'Portfolio' },
-  { href: BLOG_PATH, label: 'Blog' },
+  { href: BLOG_PATH, label: '36Blog' },
   { href: TALENT_PATH, label: 'Trabaja con nosotros' },
   { href: CONTACT_PATH, label: 'Contacto' },
 ];

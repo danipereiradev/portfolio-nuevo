@@ -24,25 +24,27 @@ function Meta({ post }: { post: BlogPost }) {
   );
 }
 
-export function PostCard({ post, featured = false }: { post: BlogPost; featured?: boolean }) {
+export function PostCard({ post }: { post: BlogPost }) {
   return (
     <a
       href={getPostPath(post.slug)}
-      className={`rd-card group flex h-full overflow-hidden ${featured ? 'flex-col lg:flex-row' : 'flex-col'}`}
+      className='rd-card group flex h-full flex-col overflow-hidden'
     >
-      <div className={`overflow-hidden bg-black ${featured ? 'aspect-[3/2] lg:aspect-auto lg:w-[56%]' : 'aspect-[3/2]'}`}>
+      <div className='aspect-[3/2] overflow-hidden bg-black'>
         <img
           src={post.image}
           alt={post.imageAlt}
           loading='lazy'
-          className='h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]'
+          className={`h-full w-full transition-transform duration-500 group-hover:scale-[1.03] ${
+            post.image.startsWith('/img/portfolio') ? 'object-contain' : 'object-cover'
+          }`}
         />
       </div>
-      <div className={`flex flex-1 flex-col ${featured ? 'p-7 md:p-10' : 'p-6'}`}>
+      <div className='flex flex-1 flex-col p-6'>
         <p className='rd-eyebrow mb-3'>
           <Meta post={post} />
         </p>
-        <h3 className={`font-extrabold uppercase leading-tight ${featured ? 'text-[clamp(1.6rem,2.6vw,2.4rem)]' : 'text-xl'}`}>
+        <h3 className='text-2xl font-extrabold uppercase leading-tight'>
           {post.title}
         </h3>
         <p className='mt-3 text-sm leading-relaxed text-white/60'>{post.description}</p>
@@ -78,7 +80,7 @@ function Cta({ text }: { text: string }) {
 export function BlogIndex() {
   usePageMeta(BLOG_PATH);
   const sorted = [...posts].sort((a, b) => b.date.localeCompare(a.date));
-  const [first, ...rest] = sorted;
+  const first = sorted[0];
 
   const jsonLd = useMemo(
     () => ({
@@ -133,16 +135,29 @@ export function BlogIndex() {
         </div>
       </section>
 
+      <section className='mx-auto max-w-[1320px] px-5 pb-20 pt-4 md:px-8'>
+        <dl className='grid gap-px overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/10 sm:grid-cols-3'>
+          {[
+            ['Artículos', String(posts.length), 'Guías prácticas, sin relleno'],
+            ['Último', first ? formatPostDate(first.date) : '—', first ? first.category : ''],
+            ['Temas', 'Web · SEO · Ventas', 'Para negocios, no para técnicos'],
+          ].map(([k, v, d]) => (
+            <div key={k} className='bg-[#0b0c0a] p-6'>
+              <dt className='font-mono text-xs text-[#e1f56e]'>{k}</dt>
+              <dd className='mt-4 text-2xl font-black uppercase'>{v}</dd>
+              <dd className='mt-2 text-sm text-white/55'>{d}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
       <section className='rd-light'>
         <div className='mx-auto max-w-[1320px] px-5 py-20 md:px-8'>
-          {first ? <PostCard post={first} featured /> : null}
-          {rest.length ? (
-            <div className='mt-5 grid gap-5 md:grid-cols-2 lg:grid-cols-3'>
-              {rest.map((p) => (
-                <PostCard key={p.slug} post={p} />
-              ))}
-            </div>
-          ) : null}
+          <div className='grid gap-5 md:grid-cols-2 lg:grid-cols-3'>
+            {sorted.map((p) => (
+              <PostCard key={p.slug} post={p} />
+            ))}
+          </div>
         </div>
       </section>
 

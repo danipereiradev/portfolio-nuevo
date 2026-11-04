@@ -16,7 +16,7 @@ export interface Testimonial {
   sourceUrl: string;
 }
 
-const GOOGLE_REVIEWS_URL =
+export const GOOGLE_REVIEWS_URL =
   'https://www.google.com/search?sa=X&sca_esv=5e96d5e0bf8ebf29&hl=es&authuser=0&biw=1192&bih=593&sxsrf=APpeQnsDm8NS9Z3dkZuru3opsjKau09VJg:1784101247771&q=opiniones%20de%20dani%20pereira%20web%20torrej%C3%B3n%20de%20ardoz&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxNDeyNDQxNzQ0sDA1NjMztjQxNNjAyPiK0SC_IDMvMz8vtVghJVUhJTEvU6EgtSg1syhRoTw1SaEkv6goNevw5jyQbGJRSn7VIlaStQAAR2og-IEAAAA&rldimm=17291471108536639410&tbm=lcl&ved=0CAgQ5foLahcKEwiIgaeJl9SVAxUAAAAAHQAAAAAQCQ#lkt=LocalPoiReviews&arid=Ci9DQUlRQUNvZENodHljRjlvT2psd2IxWmxSalZGZEdGTFpFSnJjRmRxZWtjeGJIYxAB';
 
 const MALT_PROFILE_URL = 'https://www.malt.es/profile/danipereiragesteiro';
