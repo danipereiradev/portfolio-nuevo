@@ -18,7 +18,7 @@ export default function TranquilidadCondiciones() {
   const [params] = useSearchParams();
   const plansHref =
     params.get('origin') === 'ads'
-      ? '/landing-tranquilidad-digital/#planes'
+      ? '/tranquilidad-digital'
       : '/tranquilidad-digital/#planes';
   const plan = tranquilityPlans.find(
     (item) => item.name.toLowerCase() === params.get('plan'),

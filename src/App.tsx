@@ -17,15 +17,6 @@ import {
   isMaintenancePreviewPath,
 } from './config/maintenance';
 import {
-  ADS_LANDING_PATH,
-  ADS_LANDING_PATH_N,
-  ADS_LAUNCH_LANDING_PATH,
-  ADS_CUSTOM_WEB_LANDING_PATH,
-  ADS_REAL_ESTATE_LANDING_PATH,
-  ADS_MAINTENANCE_LANDING_PATH,
-  ADS_MAINTENANCE_INFRA_LANDING_PATH,
-  ADS_GOOGLE_ADS_LANDING_PATH,
-  ADS_SHOP_LANDING_PATH,
   ABOUT_PATH,
   CONTACT_PATH,
   FORM_THANKS_PATH,
@@ -44,10 +35,7 @@ import {
   type ThankYouVariant,
 } from './config/payments';
 
-const LandingWebPsicologos = lazy(() => import('./pages/LandingWebPsicologos'));
-const LandingWebAMedida = lazy(() => import('./pages/LandingWebAMedida'));
 const TranquilidadCondiciones = lazy(() => import("./pages/TranquilidadCondiciones"));
-const LandingTranquilidadDigital = lazy(() => import('./pages/LandingTranquilidadDigital'));
 const Home = lazy(() => import('./redesign/HomeV2'));
 const ContactV2 = lazy(() => import('./redesign/ContactV2'));
 const CasePage = lazy(() => import('./redesign/CasePages'));
@@ -63,13 +51,6 @@ const Blog = lazy(() =>
   import('./redesign/BlogV2').then((m) => ({ default: m.BlogIndex })),
 );
 const BlogPost = lazy(() => import('./redesign/BlogV2'));
-const LandingWebInmobiliarias = lazy(() => import('./pages/LandingWebInmobiliarias'));
-const LandingShop = lazy(() => import('./pages/LandingShop'));
-const LandingMaintenance = lazy(() => import('./pages/LandingMaintenance'));
-const LandingGoogleAds = lazy(() => import('./pages/LandingGoogleAds'));
-const LandingMaintenanceInfra = lazy(
-  () => import('./pages/LandingMaintenanceInfra'),
-);
 const CondicionesDelProyecto = lazy(
   () => import('./pages/CondicionesDelProyecto'),
 );
@@ -146,10 +127,7 @@ function AppContent() {
             <Route path='/casos-de-exito' element={<CasesIndex />} />
             <Route path='/casos-de-exito/:slug' element={<CasePage />} />
             <Route path='/servicios/:slug' element={<ServicePageV2 />} />
-            <Route path='/landing-web-psicologos' element={<LandingWebPsicologos />} />
-            <Route path={ADS_CUSTOM_WEB_LANDING_PATH} element={<LandingWebAMedida />} />
             <Route path='/tranquilidad-digital' element={<ServicePageV2 slug='tranquilidad-digital' />} />
-            <Route path='/landing-tranquilidad-digital' element={<LandingTranquilidadDigital adsLanding />} />
             <Route path={ABOUT_PATH} element={<Navigate to='/' replace />} />
             <Route path={SITE_WEB_PATH} element={<ServicePageV2 slug='diseno-web' />} />
             <Route
@@ -169,36 +147,23 @@ function AppContent() {
             <Route path={SITE_MAINTENANCE_PATH} element={<ServicePageV2 slug='mantenimiento-web' />} />
             <Route path={BLOG_PATH} element={<Blog />} />
             <Route path={`${BLOG_PATH}/:slug`} element={<BlogPost />} />
-            <Route
-              path={ADS_LANDING_PATH}
-              element={<Navigate to={ADS_CUSTOM_WEB_LANDING_PATH} replace />}
-            />
-            <Route
-              path={ADS_LANDING_PATH_N}
-              element={<Navigate to={ADS_CUSTOM_WEB_LANDING_PATH} replace />}
-            />
-            <Route
-              path={ADS_LAUNCH_LANDING_PATH}
-              element={<Navigate to={ADS_CUSTOM_WEB_LANDING_PATH} replace />}
-            />
-            <Route path={ADS_REAL_ESTATE_LANDING_PATH} element={<LandingWebInmobiliarias />} />
-            <Route path={ADS_SHOP_LANDING_PATH} element={<LandingShop />} />
-            <Route
-              path='/landing-tienda-online'
-              element={<Navigate to={ADS_SHOP_LANDING_PATH} replace />}
-            />
-            <Route
-              path={ADS_MAINTENANCE_LANDING_PATH}
-              element={<LandingMaintenance />}
-            />
-            <Route
-              path={ADS_GOOGLE_ADS_LANDING_PATH}
-              element={<LandingGoogleAds />}
-            />
-            <Route
-              path={ADS_MAINTENANCE_INFRA_LANDING_PATH}
-              element={<LandingMaintenanceInfra />}
-            />
+            {/* Landings de anuncios retiradas: redirigen al servicio equivalente. */}
+            {[
+              ['/landing-diseno-web', SITE_WEB_PATH],
+              ['/landing-diseño-web', SITE_WEB_PATH],
+              ['/landing-web-a-medida', SITE_WEB_PATH],
+              ['/landing-web-psicologos', SITE_WEB_PATH],
+              ['/landing-web-profesional', SITE_WEB_PATH],
+              ['/landing-web-profesional-inmobiliarias', SITE_WEB_PATH],
+              ['/landing-tiendas-online', SITE_SHOP_PATH],
+              ['/landing-tienda-online', SITE_SHOP_PATH],
+              ['/landing-mantenimiento-web', SITE_MAINTENANCE_PATH],
+              ['/landing-mantenimiento-infra', SITE_MAINTENANCE_PATH],
+              ['/landing-google-ads', '/servicios/sem'],
+              ['/landing-tranquilidad-digital', '/tranquilidad-digital'],
+            ].map(([from, to]) => (
+              <Route key={from} path={from} element={<Navigate to={to} replace />} />
+            ))}
             <Route
               path='/condiciones-del-proyecto'
               element={<CondicionesDelProyecto />}

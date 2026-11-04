@@ -56,43 +56,43 @@
 
 [[redirects]]
   from = "/landing-express"
-  to = "/landing-diseno-web"
+  to = "/diseno-web"
   status = 301
   force = true
 
 [[redirects]]
   from = "/web-autonomos-pymes"
-  to = "/landing-diseno-web"
+  to = "/diseno-web"
   status = 301
   force = true
 
 [[redirects]]
   from = "/web-profesional-360"
-  to = "/landing-diseno-web"
+  to = "/diseno-web"
   status = 301
   force = true
 
 [[redirects]]
   from = "/web-profesional-360/"
-  to = "/landing-diseno-web"
+  to = "/diseno-web"
   status = 301
   force = true
 
 [[redirects]]
   from = "/web-profesional-negocios"
-  to = "/landing-diseno-web"
+  to = "/diseno-web"
   status = 301
   force = true
 
 [[redirects]]
   from = "/web-start"
-  to = "/landing-diseno-web"
+  to = "/diseno-web"
   status = 301
   force = true
 
 [[redirects]]
   from = "/web-start/"
-  to = "/landing-diseno-web"
+  to = "/diseno-web"
   status = 301
   force = true
 
@@ -104,7 +104,7 @@
 
 [[redirects]]
   from = "/landing-tienda-online"
-  to = "/landing-tiendas-online"
+  to = "/tiendas-online"
   status = 301
   force = true
 
@@ -134,7 +134,7 @@
 
 [[redirects]]
   from = "/paginas-web-empresas"
-  to = "/landing-diseno-web"
+  to = "/diseno-web"
   status = 301
   force = true
 
@@ -146,7 +146,7 @@
 
 [[redirects]]
   from = "/desarrollo-aplicaciones-web"
-  to = "/landing-diseno-web"
+  to = "/diseno-web"
   status = 301
   force = true
 
@@ -174,13 +174,13 @@
 
 [[redirects]]
   from = "/web-profesional-a-medida"
-  to = "/landing-diseno-web"
+  to = "/diseno-web"
   status = 301
   force = true
 
 [[redirects]]
   from = "/landing-diseño-web"
-  to = "/landing-diseno-web"
+  to = "/diseno-web"
   status = 301
   force = true
 
@@ -220,38 +220,6 @@
   from = "/diseno-web/*"
   to = "/404.html"
   status = 404
-
-[[redirects]]
-  from = "/landing-diseno-web"
-  to = "/landing-web-a-medida/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/landing-diseno-web/"
-  to = "/landing-web-a-medida/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/landing-web-a-medida"
-  to = "/landing-web-a-medida/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/landing-tiendas-online"
-  to = "/landing-tiendas-online/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/landing-mantenimiento-web"
-  to = "/landing-mantenimiento-web/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/landing-google-ads"
-  to = "/landing-google-ads/index.html"
-  status = 200
 
 [[redirects]]
   from = "/web-profesional"
@@ -349,11 +317,6 @@
 [[redirects]]
   from = "/aviso-legal"
   to = "/aviso-legal/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/landing-tranquilidad-digital"
-  to = "/landing-tranquilidad-digital/index.html"
   status = 200
 
 [[redirects]]

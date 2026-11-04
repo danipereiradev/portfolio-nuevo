@@ -43,26 +43,6 @@
     "title": "Mantenimiento web y soporte técnico | 36web",
     "description": "Mantenimiento y soporte para webs, WordPress, ecommerce y aplicaciones: actualizaciones, copias, seguridad y arreglos, aunque la web la hiciera otra empresa."
   },
-  "/landing-tiendas-online": {
-    "title": "Tiendas online | 36web",
-    "description": "Te montamos la tienda online: catálogo, pagos, envíos y móvil. WooCommerce, Shopify o a medida. Te decimos precio y plazos antes de cobrar nada.",
-    "robots": "noindex, nofollow, noarchive"
-  },
-  "/landing-mantenimiento-web": {
-    "title": "Mantenimiento y soporte web cuando lo necesitas | 36web",
-    "description": "Planes desde 39,90 € + IVA/mes o bonos de horas para arreglos puntuales. Trabajamos también con webs hechas por otras empresas. Propuesta el mismo día. Sin permanencia.",
-    "robots": "noindex, nofollow, noarchive"
-  },
-  "/landing-google-ads": {
-    "title": "Google Ads con landing incluida | 250 € + 200 €/mes | 36web",
-    "description": "Campañas de Google Ads para que te encuentren. Setup 250 € + IVA y 200 € + IVA/mes. Landing incluida. Sin permanencia. La inversión la pagas tú a Google.",
-    "robots": "noindex, nofollow, noarchive"
-  },
-  "/landing-mantenimiento-infra": {
-    "title": "Mantenimiento Negocio + Infraestructura | 139 €/mes | 36web",
-    "description": "Mantenimiento WordPress, hosting, correo, monitorización y backups. Puesta en marcha 199 € + IVA. Mensual 139 € + IVA. Precio cerrado.",
-    "robots": "noindex, nofollow, noarchive"
-  },
   "/blog": {
     "title": "36blog: diseño web, SEO y marketing para negocios | 36web",
     "description": "Guías claras sobre diseño web, tiendas online, SEO y marketing para negocios que quieren más clientes. Precios, errores a evitar y consejos prácticos."
@@ -87,11 +67,6 @@
   "/blog/cuanto-cuesta-una-pagina-web-profesional": {
     "title": "Cuánto cuesta una página web profesional en 2026 | 36web",
     "description": "En 2026 una página web profesional suele ir de 590 € a 3.000 € + IVA. Qué entra en el precio, qué no, y cómo pedir presupuesto sin compromiso.",
-    "ogType": "article"
-  },
-  "/blog/tecnologias-para-crear-una-pagina-web": {
-    "title": "Tecnologías para crear una página web | 36web",
-    "description": "HTML, CSS, JavaScript, WordPress, React y más. Qué lenguajes, CMS y frameworks usar para crear una página web, y cuándo encaja cada uno.",
     "ogType": "article"
   },
   "/politica-de-privacidad": {
@@ -209,24 +184,10 @@
     "description": "Gracias. Hemos recibido el pago del plan Negocio. En breve nos pondremos en contacto contigo para activar el mantenimiento.",
     "robots": "noindex, nofollow, noarchive"
   },
-  "/landing-web-profesional-inmobiliarias": {
-    "title": "Diseño web para inmobiliarias por 590 € + IVA | 36web",
-    "description": "Web para tu inmobiliaria con catálogo, panel de edición, formulario y WhatsApp. Diseño adaptado a tu agencia. Hosting y dominio incluidos el primer año.",
-    "robots": "noindex, nofollow, noarchive"
-  },
   "/tranquilidad-digital": {
     "title": "Tranquilidad digital: representación técnica para tu negocio | 36web",
     "description": "Actuamos de tu lado frente a proveedores, programadores y plataformas: traducimos lo que necesitas, coordinamos el trabajo y validamos cada entrega.",
     "robots": "noindex, nofollow"
-  },
-  "/landing-web-a-medida": {
-    "title": "Ultra-Velocidad y SEO · Tienda sin Fricciones | 36WEB",
-    "description": "Creamos y renovamos webs y tiendas online para facilitar el contacto y la compra. Descubre Ultra-Velocidad y SEO y Tienda sin Fricciones. Pide tu propuesta."
-  },
-  "/landing-web-psicologos": {
-    "title": "Diseño web para psicólogos y consultas | 36WEB",
-    "description": "Webs a medida para profesionales y centros de psicología. Visita proyectos reales y una demo de psicología y pide una propuesta sin compromiso.",
-    "robots": "noindex, nofollow, noarchive"
   },
   "/aplicaciones": {
     "title": "Desarrollo de aplicaciones web y móviles a medida | 36web",
@@ -236,11 +197,6 @@
     "title": "Alcance y condiciones de Tranquilidad Digital | 36WEB",
     "description": "Revisa el alcance de tu web, la cuota y la entrega en propiedad tras 12 cuotas pagadas antes de contratar Tranquilidad Digital.",
     "robots": "noindex, nofollow"
-  },
-  "/landing-tranquilidad-digital": {
-    "title": "Tranquilidad Digital · Web y acompañamiento por suscripción | 36WEB",
-    "description": "Tu web a medida, dominio y mantenimiento desde 59,90 € + IVA/mes. Sin alta ni permanencia. Tras 12 cuotas pagadas, la web es tuya. Atención personal.",
-    "robots": "noindex, nofollow, noarchive"
   },
   "/servicios": {
     "title": "Servicios de marketing digital: web, eCommerce, SEO, SEM, GEO y redes | 36web",
