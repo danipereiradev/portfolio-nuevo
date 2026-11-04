@@ -100,9 +100,6 @@ export default function SiteFooter() {
           </ul>
         </div>
       </div>
-      <p aria-hidden='true' className='pointer-events-none select-none whitespace-nowrap text-center text-[22vw] font-black leading-[0.8] tracking-tighter text-white/[0.03]'>
-        36WEB
-      </p>
     </footer>
   );
 }
