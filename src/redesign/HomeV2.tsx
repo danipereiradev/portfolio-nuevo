@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { CONTACT_PATH, PORTFOLIO_PATH, TRANQUILIDAD_DIGITAL_PATH, buildWhatsAppUrl } from '../config/contact';
 import { SERVICES, SERVICES_PATH } from './services';
@@ -80,6 +81,86 @@ function HeroVisual() {
       <div className='rd-float-3 absolute bottom-[4%] left-[8%] flex items-center gap-3 rounded-full border border-white/10 bg-[#141513] py-2 pl-2 pr-4 shadow-2xl'>
         <span className='flex h-8 w-8 items-center justify-center rounded-full bg-[#e1f56e] text-sm font-black text-[#0b0c0a]'>+1</span>
         <span className='text-[11px] text-white/80'>«Hola, ¿tenéis hueco el jueves?»</span>
+      </div>
+    </div>
+  );
+}
+
+// Anillo animado de retención: se dibuja y cuenta hasta 90 al entrar en pantalla.
+function RetentionRing({ value = 90 }: { value?: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [on, setOn] = useState(false);
+  const [n, setN] = useState(0);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) {
+      setOn(true);
+      setN(value);
+      return;
+    }
+    const io = new IntersectionObserver(
+      ([e]) => {
+        if (!e.isIntersecting) return;
+        io.disconnect();
+        setOn(true);
+        const t0 = performance.now();
+        const tick = (t: number) => {
+          const k = Math.min(1, (t - t0) / 1600);
+          setN(Math.round(value * (1 - Math.pow(1 - k, 3))));
+          if (k < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      },
+      { threshold: 0.4 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [value]);
+
+  const R = 88;
+  const C = 2 * Math.PI * R;
+  const ticks = Array.from({ length: 10 }, (_, i) => i);
+
+  return (
+    <div ref={ref} className='relative mx-auto aspect-square w-full max-w-[340px]'>
+      <svg viewBox='0 0 220 220' className='h-full w-full -rotate-90' aria-hidden='true'>
+        <circle cx='110' cy='110' r={R} fill='none' stroke='rgba(255,255,255,0.08)' strokeWidth='18' />
+        <circle
+          cx='110'
+          cy='110'
+          r={R}
+          fill='none'
+          stroke='#e1f56e'
+          strokeWidth='18'
+          strokeLinecap='round'
+          strokeDasharray={C}
+          strokeDashoffset={on ? C * (1 - value / 100) : C}
+          style={{ transition: 'stroke-dashoffset 1.6s cubic-bezier(.2,.8,.2,1)' }}
+        />
+        {ticks.map((i) => {
+          const a = (i / 10) * 2 * Math.PI;
+          return (
+            <line
+              key={i}
+              x1={110 + Math.cos(a) * 104}
+              y1={110 + Math.sin(a) * 104}
+              x2={110 + Math.cos(a) * 109}
+              y2={110 + Math.sin(a) * 109}
+              stroke='rgba(255,255,255,0.35)'
+              strokeWidth='2'
+            />
+          );
+        })}
+      </svg>
+      <div className='absolute inset-0 flex flex-col items-center justify-center text-center'>
+        <span className='text-[clamp(3.5rem,8vw,5.5rem)] font-black leading-none tracking-tighter'>
+          {n}
+          <span className='text-brand-light'>%</span>
+        </span>
+        <span className='mt-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[#ffffff]/60'>se quedan</span>
       </div>
     </div>
   );
@@ -293,19 +374,13 @@ export default function HomeV2() {
             </dl>
           </div>
           <div className='rounded-[1.75rem] bg-[#0e0e0c] p-8 text-[#ffffff] md:p-12'>
-            <p className='font-mono text-[11px] uppercase tracking-[0.2em] text-brand-light'>// de cada 10 clientes</p>
-            <p className='mt-4 text-[clamp(5rem,14vw,10rem)] font-black leading-[0.85] tracking-tighter'>
-              9<span className='text-brand-light'>/</span>10
+            <p className='font-mono text-[11px] uppercase tracking-[0.2em] text-brand-light'>// retención de clientes</p>
+            <div className='mt-6'>
+              <RetentionRing value={90} />
+            </div>
+            <p className='mt-6 text-center text-lg font-semibold'>
+              9 de cada 10 clientes siguen con nosotros mes a mes.
             </p>
-            <p className='mt-4 text-lg font-semibold'>siguen con nosotros mes a mes.</p>
-            <ul className='mt-8 grid grid-cols-10 gap-2' aria-hidden='true'>
-              {Array.from({ length: 10 }, (_, i) => (
-                <li
-                  key={i}
-                  className={`aspect-square rounded-full ${i < 9 ? 'bg-[#e1f56e]' : 'border-2 border-dashed border-[#e1f56e]/40'}`}
-                />
-              ))}
-            </ul>
           </div>
         </div>
       </section>
