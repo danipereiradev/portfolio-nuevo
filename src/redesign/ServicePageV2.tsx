@@ -114,6 +114,7 @@ export default function ServicePageV2({ slug: slugProp }: { slug?: string }) {
         </section>
       ) : null}
 
+      <div className='rd-light'>
       <section id='incluye' className='mx-auto max-w-[1320px] scroll-mt-28 px-5 py-20 md:px-8'>
         <p className='rd-eyebrow mb-5'>Qué incluye</p>
         <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
@@ -127,7 +128,9 @@ export default function ServicePageV2({ slug: slugProp }: { slug?: string }) {
         </div>
       </section>
 
-      <section className='border-y border-white/10 bg-[#101110]'>
+      </div>
+
+      <section className='bg-[#101110]'>
         <div className='mx-auto grid max-w-[1320px] gap-12 px-5 py-20 md:px-8 lg:grid-cols-2'>
           <div>
             <p className='rd-eyebrow mb-5'>Para quién es</p>
@@ -157,6 +160,7 @@ export default function ServicePageV2({ slug: slugProp }: { slug?: string }) {
         </div>
       </section>
 
+      <div className='rd-light mb-0'>
       <section className='mx-auto max-w-[1320px] px-5 py-20 md:px-8'>
         <p className='rd-eyebrow mb-5'>Funciona mejor junto a</p>
         <div className='grid gap-4 md:grid-cols-3'>
@@ -169,8 +173,11 @@ export default function ServicePageV2({ slug: slugProp }: { slug?: string }) {
           ))}
         </div>
       </section>
+      </div>
 
-      <CtaBand text={`¿Empezamos con ${s.name}?`} />
+      <div className='pt-24'>
+        <CtaBand text={`¿Empezamos con ${s.name}?`} />
+      </div>
     </main>
   );
 }

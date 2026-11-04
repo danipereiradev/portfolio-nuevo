@@ -142,6 +142,7 @@ export default function HomeV2() {
       </div>
 
       {/* SISTEMA */}
+      <div className='rd-light'>
       <section id='servicios' className='mx-auto max-w-[1320px] px-5 py-24 md:px-8 md:py-32'>
         <div className='mb-14 grid gap-8 lg:grid-cols-2 lg:items-end'>
           <div>
@@ -175,9 +176,10 @@ export default function HomeV2() {
           </a>
         </div>
       </section>
+      </div>
 
       {/* TRANQUILIDAD DIGITAL */}
-      <section className='border-y border-white/10 bg-[#101110]'>
+      <section className='bg-[#101110]'>
         <div className='mx-auto grid max-w-[1320px] gap-14 px-5 py-24 md:px-8 md:py-32 lg:grid-cols-2'>
           <div>
             <p className='rd-eyebrow mb-5'>02 — Tranquilidad digital</p>
@@ -211,6 +213,7 @@ export default function HomeV2() {
       </section>
 
       {/* MÉTODO */}
+      <div className='rd-lime'>
       <section className='mx-auto max-w-[1320px] px-5 py-24 md:px-8 md:py-32'>
         <p className='rd-eyebrow mb-5'>03 — Método</p>
         <h2 className='rd-h2 max-w-[16ch]'>
@@ -226,9 +229,11 @@ export default function HomeV2() {
           ))}
         </ol>
       </section>
+      </div>
 
       {/* PRINCIPIOS */}
-      <section className='mx-auto max-w-[1320px] px-5 pb-24 md:px-8 md:pb-32'>
+      <div className='rd-light'>
+      <section className='mx-auto max-w-[1320px] px-5 py-24 md:px-8 md:py-32'>
         <div className='grid gap-12 lg:grid-cols-[0.9fr_1.1fr]'>
           <div>
             <p className='rd-eyebrow mb-5'>04 — Por qué 36web</p>
@@ -246,6 +251,7 @@ export default function HomeV2() {
           </dl>
         </div>
       </section>
+      </div>
 
       {/* CASOS DE ÉXITO (se muestra cuando haya casos en cases.ts) */}
       {CASES.length > 0 ? (

@@ -156,7 +156,7 @@ export default function ContactV2() {
         </div>
       </section>
 
-      <section className='border-t border-white/10 bg-[#101110]'>
+      <section className='rd-light'>
         <div className='mx-auto grid max-w-[1320px] gap-14 px-5 py-20 md:px-8 lg:grid-cols-[0.8fr_1.2fr]'>
           <aside>
             <p className='rd-eyebrow mb-6'>Canales directos</p>
