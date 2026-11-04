@@ -154,7 +154,7 @@ export const CASES: CaseItem[] = [
       { k: 'Dónde', v: 'Sonido y eventos en Vigo' },
     ],
     serp: {
-      queries: ['contratar sonido vigo', 'alquilar sonido vigo', 'reparar sonido vigo'],
+      queries: ['contratar sonido en vigo', 'alquilar sonido en vigo', 'reparar sonido en vigo'],
       domain: 'carpersonido.com',
       resultTitle: 'Carper Sonido · Sonido profesional en Vigo y Pontevedra',
       checked: ['noviembre 2026', 'November 2026'],
