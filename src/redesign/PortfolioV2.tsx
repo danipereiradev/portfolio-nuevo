@@ -28,37 +28,34 @@ type FilterId = (typeof FILTERS)[number]['id'];
 function ProjectCard({ p }: { p: PortfolioPageProject }) {
   const caseSlug = CASE_BY_PROJECT[p.id];
   const hasCase = Boolean(caseSlug && CASES.some((c) => c.slug === caseSlug));
+  const href = hasCase ? `${CASES_PATH}/${caseSlug}` : p.url;
+  const ext = hasCase ? {} : { target: '_blank', rel: PORTFOLIO_PROJECT_LINK_REL };
   return (
-    <article className='rd-card group flex h-full flex-col overflow-hidden'>
-      <a href={p.url} target='_blank' rel={PORTFOLIO_PROJECT_LINK_REL} className='relative block aspect-[4/3] overflow-hidden bg-[#1a1b18]'>
+    <a href={href} {...ext} className='rd-card group flex h-full flex-col overflow-hidden'>
+      <div className='aspect-[4/3] overflow-hidden bg-[#1a1b18]'>
         <img
           src={p.image}
           alt={`Web de ${p.name}`}
           loading='lazy'
           className='h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]'
         />
-        {hasCase ? (
-          <span className='absolute left-4 top-4 rounded-full bg-[#e1f56e] px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-[#0b0c0a]'>
-            Caso de éxito
-          </span>
-        ) : null}
-      </a>
+      </div>
       <div className='flex flex-1 flex-col p-6'>
         <p className='rd-eyebrow mb-3'>{p.sector}</p>
-        <h2 className='text-2xl font-extrabold uppercase'>{p.name}</h2>
+        <h3 className='text-2xl font-extrabold uppercase'>{p.name}</h3>
         <p className='mt-3 text-sm leading-relaxed text-white/60'>{p.description}</p>
-        <div className='mt-auto flex flex-wrap items-center gap-5 pt-6 text-xs font-bold uppercase tracking-[0.14em]'>
-          <a href={p.url} target='_blank' rel={PORTFOLIO_PROJECT_LINK_REL} className='text-white/70 hover:text-[#e1f56e]'>
-            Ver la web ↗
-          </a>
+        <div className='mt-auto flex flex-wrap gap-2 pt-6'>
+          <span className='rounded-full border border-white/15 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-white/60'>
+            {p.category === 'shop' ? 'eCommerce' : 'Diseño web'}
+          </span>
           {hasCase ? (
-            <a href={`${CASES_PATH}/${caseSlug}`} className='text-white/70 hover:text-[#e1f56e]'>
-              Leer el caso →
-            </a>
+            <span className='rounded-full bg-[#e1f56e] px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-[#0b0c0a]'>
+              Caso de éxito
+            </span>
           ) : null}
         </div>
       </div>
-    </article>
+    </a>
   );
 }
 
@@ -98,26 +95,44 @@ export default function PortfolioV2() {
       {/* HERO */}
       <section className='relative overflow-hidden pt-[var(--site-header-h)]'>
         <div className='rd-grid-bg pointer-events-none absolute inset-0' />
-        <div className='relative mx-auto grid max-w-[1320px] gap-10 px-5 pb-16 pt-20 md:px-8 lg:grid-cols-[1.3fr_1fr] lg:items-end'>
+        <div className='relative mx-auto grid max-w-[1320px] gap-10 px-5 pb-20 pt-20 md:px-8 lg:grid-cols-[1.3fr_1fr] lg:items-end'>
           <div>
-            <p className='rd-eyebrow mb-6'>Portfolio</p>
+            <p className='rd-eyebrow mb-6'>00 — Portfolio · Proyectos reales</p>
             <h1 className='rd-h1'>
-              Webs que
+              WEBS QUE
               <br />
-              <span className='rd-mark'>ya están</span>
+              <span className='rd-mark'>YA ESTÁN</span>
               <br />
-              <span className='text-[#e1f56e]'>trabajando.</span>
+              <span className='text-[#e1f56e]'>TRABAJANDO.</span>
             </h1>
           </div>
           <div>
             <p className='text-lg leading-relaxed text-white/65'>
               Webs y tiendas online de negocios reales: clínicas, talleres, tiendas, despachos y empresas de servicios. Entra en cualquiera y compruébalo tú mismo.
             </p>
-            <a href={CASES_PATH} className='rd-btn mt-8'>
-              Ver casos de éxito →
-            </a>
+            <div className='mt-8 flex flex-wrap gap-3'>
+              <a href={CONTACT_PATH} className='rd-btn'>Pide una revisión gratis ↗</a>
+              <a href={CASES_PATH} className='rd-btn-ghost'>Casos de éxito</a>
+            </div>
           </div>
         </div>
+      </section>
+
+      <section className='mx-auto max-w-[1320px] px-5 pb-20 pt-4 md:px-8'>
+        <dl className='grid gap-px overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4'>
+          {[
+            ['Proyectos', PORTFOLIO_PAGE_PROJECTS.length, 'Webs y tiendas publicadas'],
+            ['Webs', count('web'), 'Negocios de servicios'],
+            ['Tiendas online', count('shop'), 'Vendiendo en internet'],
+            ['Casos de éxito', CASES.length, 'Con resultados contados'],
+          ].map(([k, v, d]) => (
+            <div key={k} className='bg-[#0b0c0a] p-6'>
+              <dt className='font-mono text-xs text-[#e1f56e]'>{k}</dt>
+              <dd className='mt-4 text-4xl font-black'>{v}</dd>
+              <dd className='mt-2 text-sm text-white/55'>{d}</dd>
+            </div>
+          ))}
+        </dl>
       </section>
 
       {/* GRID */}

@@ -59,19 +59,41 @@ export function CasesIndex() {
     <main className='rd rd-page'>
       <section className='relative overflow-hidden pt-[var(--site-header-h)]'>
         <div className='rd-grid-bg pointer-events-none absolute inset-0' />
-        <div className='relative mx-auto grid max-w-[1320px] gap-10 px-5 pb-16 pt-20 md:px-8 lg:grid-cols-[1.3fr_1fr] lg:items-end'>
+        <div className='relative mx-auto grid max-w-[1320px] gap-10 px-5 pb-20 pt-20 md:px-8 lg:grid-cols-[1.3fr_1fr] lg:items-end'>
           <div>
-            <p className='rd-eyebrow mb-6'>Casos de éxito</p>
+            <p className='rd-eyebrow mb-6'>00 — Casos de éxito · Resultados reales</p>
             <h1 className='rd-h1'>
-              Negocios
+              NEGOCIOS
               <br />
-              que <span className='rd-mark'>crecen.</span>
+              <span className='rd-mark'>QUE CRECEN</span>
+              <br />
+              <span className='text-[#e1f56e]'>CON NOSOTROS.</span>
             </h1>
           </div>
-          <p className='text-lg leading-relaxed text-white/65'>
-            Talleres, clínicas y empresas de servicios que hoy venden más, salen en Google o tienen la agenda llena. Así lo hicimos.
-          </p>
+          <div>
+            <p className='text-lg leading-relaxed text-white/65'>
+              Talleres, clínicas y empresas de servicios que hoy venden más, salen en Google o tienen la agenda llena. Así lo hicimos.
+            </p>
+            <div className='mt-8 flex flex-wrap gap-3'>
+              <a href={CONTACT_PATH} className='rd-btn'>Pide una revisión gratis ↗</a>
+              <a href={PORTFOLIO_PATH} className='rd-btn-ghost'>Ver portfolio</a>
+            </div>
+          </div>
         </div>
+      </section>
+
+      <section className='mx-auto max-w-[1320px] px-5 pb-20 pt-4 md:px-8'>
+        <ol className='grid gap-px overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-3'>
+          {CASES.map((c, i) => (
+            <li key={c.slug} className='bg-[#0b0c0a]'>
+              <a href={`${CASES_PATH}/${c.slug}`} className='group block h-full p-6'>
+                <span className='font-mono text-xs text-[#e1f56e]'>Caso {String(i + 1).padStart(2, '0')}</span>
+                <h2 className='mt-4 text-lg font-extrabold uppercase group-hover:text-[#e1f56e]'>{c.name}</h2>
+                <p className='mt-2 text-sm text-white/55'>{c.after}</p>
+              </a>
+            </li>
+          ))}
+        </ol>
       </section>
 
       <section className='rd-light'>
