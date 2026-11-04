@@ -268,13 +268,55 @@ export default function HomeV2() {
       </section>
       </div>
 
+      {/* CONTINUIDAD */}
+      <section className='rd-light bg-white'>
+        <div className='mx-auto grid max-w-[1320px] items-center gap-14 px-5 py-24 md:px-8 md:py-32 lg:grid-cols-[1.1fr_0.9fr]'>
+          <div>
+            <p className='rd-eyebrow mb-5'>05 — Continuidad</p>
+            <h2 className='rd-h2'>
+              Clientes que
+              <br />
+              se <span className='rd-mark'>quedan.</span>
+            </h2>
+            <p className='mt-7 max-w-md text-white/60'>
+              Se quedan porque su web les trae clientes y porque, cuando algo pasa, siempre hay alguien al otro lado que conoce su negocio.
+            </p>
+            <dl className='mt-10 flex flex-wrap gap-x-12 gap-y-6'>
+              <div>
+                <dt className='font-mono text-[11px] uppercase tracking-[0.2em] text-white/50'>Clientes desde que abrimos</dt>
+                <dd className='mt-1 text-3xl font-black'>+20</dd>
+              </div>
+              <div>
+                <dt className='font-mono text-[11px] uppercase tracking-[0.2em] text-white/50'>Siguen con nosotros</dt>
+                <dd className='mt-1 text-3xl font-black'>9 de 10</dd>
+              </div>
+            </dl>
+          </div>
+          <div className='rounded-[1.75rem] bg-[#0e0e0c] p-8 text-[#ffffff] md:p-12'>
+            <p className='font-mono text-[11px] uppercase tracking-[0.2em] text-brand-light'>// de cada 10 clientes</p>
+            <p className='mt-4 text-[clamp(5rem,14vw,10rem)] font-black leading-[0.85] tracking-tighter'>
+              9<span className='text-brand-light'>/</span>10
+            </p>
+            <p className='mt-4 text-lg font-semibold'>siguen con nosotros mes a mes.</p>
+            <ul className='mt-8 grid grid-cols-10 gap-2' aria-hidden='true'>
+              {Array.from({ length: 10 }, (_, i) => (
+                <li
+                  key={i}
+                  className={`aspect-square rounded-full ${i < 9 ? 'bg-[#e1f56e]' : 'border-2 border-dashed border-[#e1f56e]/40'}`}
+                />
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
       {/* CASOS DE ÉXITO (se muestra cuando haya casos en cases.ts) */}
       {CASES.length > 0 ? (
         <section id='casos' className='border-t border-white/10'>
           <div className='mx-auto max-w-[1320px] px-5 py-24 md:px-8 md:py-32'>
             <div className='mb-12 flex flex-wrap items-end justify-between gap-6'>
               <div>
-                <p className='rd-eyebrow mb-5'>05 — Casos de éxito</p>
+                <p className='rd-eyebrow mb-5'>06 — Casos de éxito</p>
                 <h2 className='rd-h2'>Resultados <span className='rd-mark'>reales.</span></h2>
               </div>
               <a href={PORTFOLIO_PATH} className='rd-btn-ghost'>Ver todos ↗</a>
@@ -287,7 +329,7 @@ export default function HomeV2() {
       ) : null}
 
       {/* FAQ */}
-      <section className='rd-light'>
+      <section className='border-t border-white/10'>
         <div className='mx-auto grid max-w-[1320px] gap-12 px-5 py-24 md:px-8 md:py-32 lg:grid-cols-[0.8fr_1.2fr]'>
           <div>
             <p className='rd-eyebrow mb-5'>Preguntas frecuentes</p>
