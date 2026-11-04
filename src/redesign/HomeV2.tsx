@@ -2,8 +2,14 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import { CONTACT_PATH, PORTFOLIO_PATH, TRANQUILIDAD_DIGITAL_PATH, buildWhatsAppUrl } from '../config/contact';
 import { SERVICES, SERVICES_PATH } from './services';
 import { CaseItem, CASES } from './cases';
+import { PORTFOLIO_PAGE_PROJECTS } from '../data/portfolioPage';
 
-const KEYWORDS = ['Diseño web', 'eCommerce', 'SEO local', 'Google Ads', 'GEO · IA', 'Reels', 'Instagram', 'Tranquilidad digital'];
+// Prueba social: clientes reales del portfolio (src/data/portfolioPage.ts).
+const PROOF = [
+  'Confían en nosotros',
+  '★★★★★ Clientes de 5 estrellas',
+  ...PORTFOLIO_PAGE_PROJECTS.map((p) => p.name),
+];
 
 const STEPS = [
   { n: '01', t: 'Escuchamos', d: 'Una llamada de 30 minutos para entender tu negocio, tus clientes y qué necesitas de verdad.' },
@@ -129,13 +135,13 @@ export default function HomeV2() {
         </div>
       </section>
 
-      {/* MARQUEE */}
-      <div className='overflow-hidden border-y border-white/10 bg-[#e1f56e] py-4 text-[#0b0c0a]'>
-        <div className='rd-marquee flex w-max gap-10 whitespace-nowrap text-sm font-black uppercase tracking-[0.2em]'>
-          {[...KEYWORDS, ...KEYWORDS, ...KEYWORDS, ...KEYWORDS].map((k, i) => (
-            <span key={i} className='flex items-center gap-10'>
+      {/* PRUEBA SOCIAL */}
+      <div className='overflow-hidden border-y border-white/10 bg-[#e1f56e] py-4 text-[#0b0c0a]' aria-label='Clientes que confían en 36web'>
+        <div className='rd-marquee flex w-max items-center gap-8 whitespace-nowrap text-sm font-black uppercase tracking-[0.16em]'>
+          {[...PROOF, ...PROOF].map((k, i) => (
+            <span key={i} className='flex items-center gap-8'>
+              <span aria-hidden='true' className='text-[#0b0c0a]/40'>&gt;</span>
               {k}
-              <span aria-hidden='true'>✦</span>
             </span>
           ))}
         </div>
