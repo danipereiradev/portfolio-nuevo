@@ -4,6 +4,7 @@ import { CONTACT_PATH, PORTFOLIO_PATH, buildWhatsAppUrl } from '../config/contac
 import { CASES_PATH, CaseItem } from './cases';
 import { usePrefs } from './prefs';
 import { useCases } from './i18n/content';
+import SerpProof from './SerpProof';
 
 export function CaseCard({ c }: { c: CaseItem }) {
   const { t } = usePrefs();
@@ -198,6 +199,16 @@ export default function CasePage() {
           </div>
         </div>
       </section>
+
+            {c.serp && (
+        <section className='mx-auto max-w-[1320px] px-5 pb-20 md:px-8'>
+          <p className='rd-eyebrow mb-5'>{t('Resultado en Google', 'Google result')}</p>
+          <h2 className='rd-h2 mb-10'>
+            {t('Cuando buscan,', 'When they search,')} <span className='rd-mark'>{t('salen ellos.', 'they show up.')}</span>
+          </h2>
+          <SerpProof serp={c.serp} name={c.name} />
+        </section>
+      )}
 
       {/* RETO */}
       <section className='rd-light'>

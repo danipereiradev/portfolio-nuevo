@@ -3,6 +3,8 @@
 // Los resultados son los que ha contado cada cliente: no añadir cifras que no
 // estén confirmadas.
 
+import type { Serp } from './SerpProof';
+
 export const CASES_PATH = '/casos-de-exito';
 
 export type CaseItem = {
@@ -23,6 +25,8 @@ export type CaseItem = {
   work: { t: string; d: string }[];
   outcomes: { k: string; v: string }[];
   quote?: { text: string; author: string; role: string };
+  /** Búsquedas en las que sale el primero (solo si está comprobado) */
+  serp?: Serp;
 };
 
 export const CASES: CaseItem[] = [
@@ -149,6 +153,12 @@ export const CASES: CaseItem[] = [
       { k: 'Ahora', v: 'Primer puesto en muchas búsquedas' },
       { k: 'Dónde', v: 'Sonido y eventos en Vigo' },
     ],
+    serp: {
+      queries: ['contratar sonido vigo', 'alquilar sonido vigo', 'reparar sonido vigo'],
+      domain: 'carpersonido.com',
+      resultTitle: 'Carper Sonido · Sonido profesional en Vigo y Pontevedra',
+      checked: ['noviembre 2026', 'November 2026'],
+    },
     quote: {
       text: 'Nos posicionamos en el primer lugar con bastantes palabras clave. (…) Muy contentos con el resultado.',
       author: 'Jose Carlos',
