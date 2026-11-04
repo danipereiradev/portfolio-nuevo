@@ -55,8 +55,8 @@ export default function SiteHeader({ hideNav = false }: { hideNav?: boolean }) {
     >
       <div className='mx-auto flex h-[var(--site-header-h)] max-w-[1320px] items-center justify-between gap-6 px-5 md:px-8'>
         <a href='/' className='flex items-center gap-3 outline-none' aria-label='36web, inicio'>
-          <Logo36 className='h-[2.875rem] w-[2.875rem]' />
-          <span className='text-[1.4375rem] font-extrabold tracking-tight text-white'>
+          <Logo36 className='h-[3.3rem] w-[3.3rem]' />
+          <span className='text-[1.65rem] font-extrabold tracking-tight text-white'>
             36WEB<span className='text-[#e1f56e]'>.</span>
           </span>
         </a>
