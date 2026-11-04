@@ -17,7 +17,7 @@ export const PORTFOLIO_PROJECT_LINK_REL =
 export const PORTFOLIO_PAGE_PROJECTS: readonly PortfolioPageProject[] = [
   {
     id: 'beachvans',
-    category: 'web',
+    category: 'shop',
     name: 'Beachvans',
     sector: 'Viajes y aventura',
     description:
