@@ -194,3 +194,5 @@
 .rd-stone { background: #e8e9e3; }
 .rd-light .bg-white\/10 { background: rgba(20, 20, 20, 0.1); }
 .rd-light .bg-\[\#0b0c0a\] { background: #fff; }
+/* títulos: sin azul en secciones claras */
+.rd-light :is(h1, h2, h3) .text-\[\#e1f56e\], .rd-lime :is(h1, h2, h3) .text-\[\#e1f56e\] { color: #141414; }
