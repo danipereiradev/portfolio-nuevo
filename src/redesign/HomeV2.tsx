@@ -5,10 +5,19 @@ import { CaseItem, CASES } from './cases';
 import { PORTFOLIO_PAGE_PROJECTS } from '../data/portfolioPage';
 
 // Prueba social: clientes reales del portfolio (src/data/portfolioPage.ts).
+const PROOF_HIDE = [
+  'MH Projects',
+  'McAuto Lleida Classic',
+  'Psicoterapia Somática',
+  'Itzalak Psicología',
+  'Noma Abogados',
+  'Noemí Bonet Psicología',
+  'L’Obrador de Ponent',
+];
 const PROOF = [
   'Confían en nosotros',
   '★★★★★ Clientes de 5 estrellas',
-  ...PORTFOLIO_PAGE_PROJECTS.map((p) => p.name),
+  ...PORTFOLIO_PAGE_PROJECTS.map((p) => p.name).filter((n) => !PROOF_HIDE.includes(n)),
 ];
 
 const STEPS = [
