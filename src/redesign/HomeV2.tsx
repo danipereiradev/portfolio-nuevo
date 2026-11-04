@@ -97,7 +97,7 @@ export default function HomeV2() {
             <h1 className='rd-h1'>
               Tu negocio,
               <br />
-              <span className='rd-outline'>visible</span>
+              <span className='rd-mark'>visible</span>
               <br />
               <span className='text-[#e1f56e]'>y sin líos.</span>
             </h1>

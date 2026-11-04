@@ -137,7 +137,7 @@ export default function ContactV2() {
             <h1 className='rd-h1'>
               ¿Qué le falta
               <br />
-              a tu <span className='rd-outline'>negocio</span>
+              a tu <span className='rd-mark'>negocio</span>
               <span className='text-[#e1f56e]'>?</span>
             </h1>
             <p className='mt-7 max-w-lg text-lg text-white/65'>

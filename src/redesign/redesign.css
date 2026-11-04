@@ -43,6 +43,16 @@
   -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.85);
 }
 
+.rd-mark {
+  display: inline-block;
+  background: var(--rd-lime);
+  color: #0b0c0a;
+  padding: 0.1em 0.16em 0.06em;
+  margin: 0.14em 0;
+  border-radius: 0.06em;
+  line-height: 0.92;
+}
+
 .rd-navlink {
   font-size: 0.78rem;
   font-weight: 600;

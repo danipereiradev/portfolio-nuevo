@@ -26,7 +26,7 @@ export function ServicesIndex() {
         <div className='relative mx-auto max-w-[1320px] px-5 pb-16 pt-20 md:px-8'>
           <p className='rd-eyebrow mb-6'>00 — Todos los servicios</p>
           <h1 className='rd-h1 max-w-[12ch]'>
-            Todo lo digital, <span className='text-[#e1f56e]'>en un sitio.</span>
+            Todo lo digital, <span className='rd-mark'>en un sitio.</span>
           </h1>
         </div>
       </section>
@@ -85,7 +85,7 @@ export default function ServicePageV2({ slug: slugProp }: { slug?: string }) {
             <h1 className='rd-h1'>
               {p.title[0]}
               <br />
-              <span className='rd-outline'>{p.title[1]}</span>
+              <span className='rd-mark'>{p.title[1]}</span>
               <br />
               <span className='text-[#e1f56e]'>{p.title[2]}</span>
             </h1>
