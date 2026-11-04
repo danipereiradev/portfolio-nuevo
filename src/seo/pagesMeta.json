@@ -265,5 +265,21 @@
   "/servicios/redes-sociales": {
     "title": "Gestión de redes sociales y reels | 36web",
     "description": "Estrategia, reels, carruseles y perfil optimizado en Instagram, TikTok y LinkedIn para que te escriban más clientes."
+  },
+  "/casos-de-exito": {
+    "title": "Casos de éxito de diseño web, eCommerce y SEO | 36web",
+    "description": "Negocios que hoy venden en toda España, llenan su agenda o salen primero en Google. Cómo lo hicimos con Camisetas Ahora, Hatena y Carper Sonido."
+  },
+  "/casos-de-exito/camisetas-ahora": {
+    "title": "Caso Camisetas Ahora: de taller en Logroño a vender en toda España | 36web",
+    "description": "Cómo un taller de serigrafía de Logroño empezó a vender camisetas personalizadas en toda España con una tienda online y un personalizador de prendas."
+  },
+  "/casos-de-exito/hatena": {
+    "title": "Caso Hatena: clínica veterinaria en Ourense con la agenda llena | 36web",
+    "description": "De no aparecer en Google a tener la agenda prácticamente llena: web a medida, SEO local y ficha de Google para una clínica veterinaria de Ourense."
+  },
+  "/casos-de-exito/carper-sonido": {
+    "title": "Caso Carper Sonido: empresa de sonido posicionada en Vigo | 36web",
+    "description": "Cómo Carper Sonido se posicionó en Google como empresa de sonido y eventos en Vigo en numerosas búsquedas, con una web y SEO por servicio."
   }
 }

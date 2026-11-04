@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { SERVICES, SERVICES_PATH } from './services';
-import { CONTACT_PATH, PORTFOLIO_PATH } from '../config/contact';
+import { CASES_PATH } from './cases';
+import { CONTACT_PATH } from '../config/contact';
 import { BLOG_PATH } from '../blog/posts';
 
 export const Logo36 = ({ className = 'h-10 w-10' }: { className?: string }) => (
@@ -12,7 +13,7 @@ export const Logo36 = ({ className = 'h-10 w-10' }: { className?: string }) => (
 );
 
 const NAV = [
-  { href: PORTFOLIO_PATH, label: 'Casos de éxito' },
+  { href: CASES_PATH, label: 'Casos de éxito' },
   { href: BLOG_PATH, label: 'Blog' },
 ];
 

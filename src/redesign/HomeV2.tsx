@@ -2,12 +2,12 @@ import { useEffect, useRef, useState } from 'react';
 import { usePageMeta } from '../hooks/usePageMeta';
 import {
   CONTACT_PATH,
-  PORTFOLIO_PATH,
   TRANQUILIDAD_DIGITAL_PATH,
   buildWhatsAppUrl,
 } from '../config/contact';
 import { SERVICES, SERVICES_PATH } from './services';
-import { CaseItem, CASES } from './cases';
+import { CASES, CASES_PATH } from './cases';
+import { CaseCard } from './CasePages';
 import { PORTFOLIO_PAGE_PROJECTS } from '../data/portfolioPage';
 
 // Prueba social: clientes reales del portfolio (src/data/portfolioPage.ts).
@@ -263,25 +263,6 @@ function RetentionRing({ value = 90 }: { value?: number }) {
   );
 }
 
-function CaseCard({ c }: { c: CaseItem }) {
-  return (
-    <a href={c.href} className='rd-card group block overflow-hidden'>
-      {c.image ? (
-        <img
-          src={c.image}
-          alt={c.name}
-          loading='lazy'
-          className='aspect-[4/3] w-full object-cover opacity-90 transition-opacity group-hover:opacity-100'
-        />
-      ) : null}
-      <div className='p-6'>
-        <p className='rd-eyebrow mb-2'>{c.services.join(' · ')}</p>
-        <h3 className='text-xl font-extrabold uppercase'>{c.name}</h3>
-        <p className='mt-2 text-sm text-white/60'>{c.result}</p>
-      </div>
-    </a>
-  );
-}
 
 export default function HomeV2() {
   usePageMeta('/');
@@ -312,7 +293,7 @@ export default function HomeV2() {
               <a href={CONTACT_PATH} className='rd-btn'>
                 Pide una revisión gratis ↗
               </a>
-              <a href={PORTFOLIO_PATH} className='rd-btn-ghost'>
+              <a href={CASES_PATH} className='rd-btn-ghost'>
                 Ver casos
               </a>
             </div>
@@ -498,28 +479,29 @@ export default function HomeV2() {
         </section>
       </div>
 
-      {/* PRINCIPIOS */}
-      <div>
-        <section className='mx-auto max-w-[1320px] px-5 py-24 md:px-8 md:py-32'>
-          <div className='grid gap-12 lg:grid-cols-[0.9fr_1.1fr]'>
-            <div>
-              <p className='rd-eyebrow mb-5'>04 — Por qué 36web</p>
-              <h2 className='rd-h2'>
-                La confianza <span className='rd-mark'>se gana</span>{' '}
-                <span className='text-[#e1f56e]'>trabajando.</span>
-              </h2>
+      {/* CASOS DE ÉXITO */}
+      {CASES.length > 0 ? (
+        <section id='casos' className='border-t border-white/10'>
+          <div className='mx-auto max-w-[1320px] px-5 py-24 md:px-8 md:py-32'>
+            <div className='mb-12 flex flex-wrap items-end justify-between gap-6'>
+              <div>
+                <p className='rd-eyebrow mb-5'>04 — Casos de éxito</p>
+                <h2 className='rd-h2'>
+                  Resultados <span className='rd-mark'>reales.</span>
+                </h2>
+              </div>
+              <a href={CASES_PATH} className='rd-btn-ghost'>
+                Ver todos ↗
+              </a>
             </div>
-            <dl className='grid gap-x-10 gap-y-10 sm:grid-cols-2'>
-              {PRINCIPLES.map((p) => (
-                <div key={p.t} className='border-t border-white/15 pt-5'>
-                  <dt className='text-lg font-extrabold uppercase'>{p.t}</dt>
-                  <dd className='mt-2 text-sm text-white/55'>{p.d}</dd>
-                </div>
+            <div className='grid gap-4 md:grid-cols-3'>
+              {CASES.slice(0, 3).map((c) => (
+                <CaseCard key={c.slug} c={c} />
               ))}
-            </dl>
+            </div>
           </div>
         </section>
-      </div>
+      ) : null}
 
       {/* CONTINUIDAD */}
       <section className='rd-light bg-white'>
@@ -564,32 +546,31 @@ export default function HomeV2() {
         </div>
       </section>
 
-      {/* CASOS DE ÉXITO (se muestra cuando haya casos en cases.ts) */}
-      {CASES.length > 0 ? (
-        <section id='casos' className='border-t border-white/10'>
-          <div className='mx-auto max-w-[1320px] px-5 py-24 md:px-8 md:py-32'>
-            <div className='mb-12 flex flex-wrap items-end justify-between gap-6'>
-              <div>
-                <p className='rd-eyebrow mb-5'>06 — Casos de éxito</p>
-                <h2 className='rd-h2'>
-                  Resultados <span className='rd-mark'>reales.</span>
-                </h2>
-              </div>
-              <a href={PORTFOLIO_PATH} className='rd-btn-ghost'>
-                Ver todos ↗
-              </a>
+      {/* PRINCIPIOS */}
+      <div>
+        <section className='mx-auto max-w-[1320px] px-5 py-24 md:px-8 md:py-32'>
+          <div className='grid gap-12 lg:grid-cols-[0.9fr_1.1fr]'>
+            <div>
+              <p className='rd-eyebrow mb-5'>06 — Por qué 36web</p>
+              <h2 className='rd-h2'>
+                La confianza <span className='rd-mark'>se gana</span>{' '}
+                <span className='text-[#e1f56e]'>trabajando.</span>
+              </h2>
             </div>
-            <div className='grid gap-4 md:grid-cols-3'>
-              {CASES.slice(0, 3).map((c) => (
-                <CaseCard key={c.name} c={c} />
+            <dl className='grid gap-x-10 gap-y-10 sm:grid-cols-2'>
+              {PRINCIPLES.map((p) => (
+                <div key={p.t} className='border-t border-white/15 pt-5'>
+                  <dt className='text-lg font-extrabold uppercase'>{p.t}</dt>
+                  <dd className='mt-2 text-sm text-white/55'>{p.d}</dd>
+                </div>
               ))}
-            </div>
+            </dl>
           </div>
         </section>
-      ) : null}
+      </div>
 
       {/* FAQ */}
-      <section className='border-t border-white/10'>
+      <section className='rd-light'>
         <div className='mx-auto grid max-w-[1320px] gap-12 px-5 py-24 md:px-8 md:py-32 lg:grid-cols-[0.8fr_1.2fr]'>
           <div>
             <p className='rd-eyebrow mb-5'>Preguntas frecuentes</p>

@@ -50,6 +50,10 @@ const TranquilidadCondiciones = lazy(() => import("./pages/TranquilidadCondicion
 const LandingTranquilidadDigital = lazy(() => import('./pages/LandingTranquilidadDigital'));
 const Home = lazy(() => import('./redesign/HomeV2'));
 const ContactV2 = lazy(() => import('./redesign/ContactV2'));
+const CasePage = lazy(() => import('./redesign/CasePages'));
+const CasesIndex = lazy(() =>
+  import('./redesign/CasePages').then((m) => ({ default: m.CasesIndex })),
+);
 const ServicePageV2 = lazy(() => import('./redesign/ServicePageV2'));
 const ServicesIndex = lazy(() =>
   import('./redesign/ServicePageV2').then((m) => ({ default: m.ServicesIndex })),
@@ -138,6 +142,8 @@ function AppContent() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/servicios' element={<ServicesIndex />} />
+            <Route path='/casos-de-exito' element={<CasesIndex />} />
+            <Route path='/casos-de-exito/:slug' element={<CasePage />} />
             <Route path='/servicios/:slug' element={<ServicePageV2 />} />
             <Route path='/landing-web-psicologos' element={<LandingWebPsicologos />} />
             <Route path={ADS_CUSTOM_WEB_LANDING_PATH} element={<LandingWebAMedida />} />
