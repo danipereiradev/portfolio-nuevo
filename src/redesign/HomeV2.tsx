@@ -213,7 +213,7 @@ export default function HomeV2() {
       </section>
 
       {/* MÉTODO */}
-      <div className='rd-lime'>
+      <div className='rd-light rd-stone'>
       <section className='mx-auto max-w-[1320px] px-5 py-24 md:px-8 md:py-32'>
         <p className='rd-eyebrow mb-5'>03 — Método</p>
         <h2 className='rd-h2 max-w-[16ch]'>
@@ -232,7 +232,7 @@ export default function HomeV2() {
       </div>
 
       {/* PRINCIPIOS */}
-      <div className='rd-light'>
+      <div>
       <section className='mx-auto max-w-[1320px] px-5 py-24 md:px-8 md:py-32'>
         <div className='grid gap-12 lg:grid-cols-[0.9fr_1.1fr]'>
           <div>
@@ -272,7 +272,7 @@ export default function HomeV2() {
       ) : null}
 
       {/* FAQ */}
-      <section className='border-t border-white/10'>
+      <section className='rd-light'>
         <div className='mx-auto grid max-w-[1320px] gap-12 px-5 py-24 md:px-8 md:py-32 lg:grid-cols-[0.8fr_1.2fr]'>
           <div>
             <p className='rd-eyebrow mb-5'>Preguntas frecuentes</p>
@@ -293,7 +293,7 @@ export default function HomeV2() {
       </section>
 
       {/* CTA FINAL */}
-      <section className='px-5 pb-24 md:px-8'>
+      <section className='px-5 py-24 md:px-8'>
         <div className='relative mx-auto max-w-[1320px] overflow-hidden rounded-[1.75rem] bg-[#e1f56e] px-7 py-16 text-[#0b0c0a] md:px-14 md:py-20'>
           <div className='absolute -right-16 -top-16 h-72 w-72 rounded-full bg-[#b1d004]/50 blur-3xl' aria-hidden='true' />
           <p className='font-mono text-xs uppercase tracking-[0.2em]'>// let&apos;s build</p>
