@@ -5,7 +5,7 @@
   --rd-lime: #e1f56e;
   --rd-lime-strong: #b1d004;
   --rd-accent: #3346c1;
-  --rd-bg: #0b0c0a;
+  --rd-bg: #0e0e0c;
   font-family: Inter, system-ui, sans-serif;
 }
 
@@ -38,9 +38,13 @@
   font-size: clamp(2.2rem, 5vw, 4.4rem);
 }
 
-.rd-outline {
-  color: transparent;
-  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.85);
+.rd-mark {
+  background: var(--rd-lime);
+  color: #0b0c0a;
+  padding: 0 0.14em;
+  margin: 0 -0.04em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 .rd-navlink {

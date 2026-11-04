@@ -6,17 +6,17 @@ import { CaseItem, CASES } from './cases';
 const KEYWORDS = ['Diseño web', 'eCommerce', 'SEO local', 'Google Ads', 'GEO · IA', 'Reels', 'Instagram', 'Tranquilidad digital'];
 
 const STEPS = [
-  { n: '01', t: 'Escuchamos', d: 'Una llamada de 30 minutos para entender tu negocio, tus clientes y qué necesitas de verdad.' },
-  { n: '02', t: 'Auditamos', d: 'Revisamos tu web, tu Google y tus redes. Te enseñamos qué falla y qué es prioritario.' },
+  { n: '01', t: 'Te grabamos un vídeo', d: 'Revisamos tu web, tu Google y tus redes y te enseñamos en menos de un minuto qué te está quitando clientes.' },
+  { n: '02', t: 'Hablamos 10 minutos', d: 'Te contamos qué arreglaríamos primero y por qué. Sin compromiso.' },
   { n: '03', t: 'Construimos', d: 'Diseñamos, desarrollamos y lanzamos. Tú apruebas cada paso; nosotros nos ocupamos del resto.' },
   { n: '04', t: 'Medimos y mejoramos', d: 'Llamadas, mensajes y ventas en un informe claro. Lo que no funciona, se cambia.' },
 ];
 
 const PRINCIPLES = [
-  { t: 'Hablas con quien lo hace', d: 'Sin cadenas de comerciales ni tickets. Un interlocutor que conoce tu proyecto.' },
-  { t: 'Todo es tuyo', d: 'Dominio, web, cuentas de Google y redes, siempre a tu nombre.' },
-  { t: 'Lenguaje claro', d: 'Te explicamos qué hacemos y por qué, sin tecnicismos.' },
-  { t: 'Pensado para vender', d: 'Cada decisión de diseño se mide en llamadas, mensajes y ventas.' },
+  { t: 'Hablas con Dani', d: 'Ni comerciales ni tickets: hablas directamente con quien hace tu proyecto.' },
+  { t: 'La web es tuya', d: 'Dominio, archivos y cuentas de Google, siempre a tu nombre.' },
+  { t: 'Revisión gratis en vídeo', d: 'Antes de hablar de nada, te enseñamos lo que vemos en tu web.' },
+  { t: 'Negocios de verdad', d: 'Talleres, reformas, tiendas y despachos: sabemos qué necesita un negocio local.' },
 ];
 
 const FAQS = [
@@ -28,42 +28,51 @@ const FAQS = [
 ];
 
 function HeroVisual() {
+  // Captura ficticia de una web auditada: fallos en rojo y arreglos en lima,
+  // como en los vídeos de revisión de 36web.
   return (
-    <div className='relative mx-auto aspect-square w-full max-w-[460px]' aria-hidden='true'>
-      <div className='absolute inset-[8%] rounded-full border border-dashed border-white/10' />
-      <div className='absolute inset-[22%] rounded-full border border-white/10' />
-      <div className='absolute inset-0 rounded-full bg-[radial-gradient(circle,rgba(51,70,193,0.35),transparent_60%)]' />
-
-      <div className='rd-float absolute left-[4%] top-[10%] w-[64%] overflow-hidden rounded-xl border border-white/10 bg-[#141513] shadow-2xl'>
-        <div className='flex items-center gap-1.5 border-b border-white/10 px-3 py-2'>
-          <span className='h-2 w-2 rounded-full bg-white/20' />
-          <span className='h-2 w-2 rounded-full bg-white/20' />
-          <span className='h-2 w-2 rounded-full bg-[#e1f56e]' />
-          <span className='ml-2 truncate font-mono text-[10px] text-white/40'>tunegocio.es</span>
+    <div className='relative mx-auto w-full max-w-[560px]' aria-hidden='true'>
+      <div className='rd-float overflow-hidden rounded-2xl border border-white/10 bg-[#f4f5f2] text-[#141414] shadow-2xl'>
+        <div className='flex items-center gap-1.5 border-b border-black/10 bg-white px-4 py-2.5'>
+          <span className='h-2.5 w-2.5 rounded-full bg-black/15' />
+          <span className='h-2.5 w-2.5 rounded-full bg-black/15' />
+          <span className='h-2.5 w-2.5 rounded-full bg-black/15' />
+          <span className='ml-3 rounded-full bg-black/5 px-3 py-0.5 font-mono text-[10px] text-black/50'>tunegocio.es</span>
         </div>
-        <div className='space-y-2 p-4 font-mono text-[11px] leading-relaxed'>
-          <p className='text-[#e1f56e]'>// let&apos;s build</p>
-          <p className='text-white/70'>web<span className='text-white/30'>.</span>publish<span className='text-white/30'>()</span></p>
-          <p className='text-white/70'>seo<span className='text-white/30'>.</span>rank<span className='text-white/30'>(&apos;local&apos;)</span></p>
-          <p className='text-white/70'>ads<span className='text-white/30'>.</span>launch<span className='text-white/30'>()</span><span className='rd-caret ml-0.5 inline-block h-3 w-1.5 translate-y-0.5 bg-[#e1f56e]' /></p>
-          <div className='mt-3 h-1.5 overflow-hidden rounded-full bg-white/10'>
-            <div className='rd-bar h-full w-[82%] rounded-full bg-[#e1f56e]' />
+        <div className='space-y-4 p-6'>
+          <div className='flex items-center justify-between'>
+            <span className='h-3 w-20 rounded bg-black/80' />
+            <span className='flex gap-2'>
+              <span className='h-2 w-10 rounded bg-black/20' />
+              <span className='h-2 w-10 rounded bg-black/20' />
+              <span className='h-2 w-10 rounded bg-black/20' />
+            </span>
+          </div>
+          <div className='relative rounded-lg border-[3px] border-[#e86054] p-3'>
+            <span className='absolute -top-3 right-3 rounded bg-[#e86054] px-2 py-0.5 font-mono text-[9px] font-bold uppercase text-white'>Fallo #1</span>
+            <span className='block h-4 w-3/4 rounded bg-black/70' />
+            <span className='mt-2 block h-2 w-full rounded bg-black/15' />
+            <span className='mt-1.5 block h-2 w-5/6 rounded bg-black/15' />
+          </div>
+          <div className='grid grid-cols-3 gap-3'>
+            <span className='h-16 rounded-lg bg-black/10' />
+            <span className='h-16 rounded-lg bg-black/10' />
+            <span className='relative h-16 rounded-lg border-[3px] border-[#e86054] bg-black/10'>
+              <span className='absolute -top-3 left-2 rounded bg-[#e86054] px-2 py-0.5 font-mono text-[9px] font-bold uppercase text-white'>Fallo #2</span>
+            </span>
+          </div>
+          <div className='flex items-center gap-3'>
+            <span className='rounded-full bg-black/15 px-4 py-2 font-mono text-[10px] text-black/40'>Contactar</span>
+            <span className='font-mono text-[10px] text-[#e86054]'>← no funciona en el móvil</span>
           </div>
         </div>
       </div>
-
-      <div className='rd-float-2 absolute bottom-[16%] right-[2%] w-[60%] rounded-xl border border-white/10 bg-white p-4 text-[#141414] shadow-2xl'>
-        <p className='text-[10px] text-[#4d4d4c]'>Google · cerca de ti</p>
-        <p className='mt-1 text-sm font-bold text-[#3346c1]'>Tu negocio · Web oficial</p>
-        <p className='mt-1 text-[11px] text-[#e3a008]'>★★★★★ <span className='text-[#4d4d4c]'>· Abierto ahora</span></p>
-        <div className='mt-3 flex gap-2'>
-          <span className='rounded-full bg-[#141414] px-2.5 py-1 text-[10px] font-semibold text-white'>Llamar</span>
-          <span className='rounded-full border border-[#cbccc7] px-2.5 py-1 text-[10px] font-semibold'>Cómo llegar</span>
-        </div>
+      <div className='rd-float-2 absolute -bottom-6 -left-4 max-w-[260px] rounded-xl bg-[#e1f56e] p-4 text-[#0b0c0a] shadow-2xl md:-left-10'>
+        <p className='font-mono text-[10px] uppercase tracking-[0.18em]'>// let&apos;s build</p>
+        <p className='mt-1 text-sm font-black uppercase leading-tight'>3 fallos encontrados. Te los enseñamos en vídeo.</p>
       </div>
-
-      <div className='rd-float-3 absolute bottom-[4%] left-[8%] flex items-center gap-3 rounded-full border border-white/10 bg-[#141513] py-2 pl-2 pr-4 shadow-2xl'>
-        <span className='flex h-8 w-8 items-center justify-center rounded-full bg-[#e1f56e] text-sm font-black text-[#0b0c0a]'>+1</span>
+      <div className='rd-float-3 absolute -right-2 -top-5 flex items-center gap-2 rounded-full border border-white/10 bg-[#161614] py-2 pl-2 pr-4 shadow-2xl md:-right-8'>
+        <span className='flex h-7 w-7 items-center justify-center rounded-full bg-[#e1f56e] text-xs font-black text-[#0b0c0a]'>+1</span>
         <span className='text-[11px] text-white/80'>«Hola, ¿tenéis hueco el jueves?»</span>
       </div>
     </div>
@@ -91,43 +100,41 @@ export default function HomeV2() {
       {/* HERO */}
       <section className='relative overflow-hidden pt-[var(--site-header-h)]'>
         <div className='rd-grid-bg pointer-events-none absolute inset-0' />
-        <div className='relative mx-auto grid min-h-[calc(100svh-var(--site-header-h))] max-w-[1320px] items-center gap-12 px-5 py-14 md:px-8 lg:grid-cols-[1.15fr_1fr_0.75fr]'>
+        <div className='relative mx-auto grid min-h-[calc(100svh-var(--site-header-h))] max-w-[1320px] items-center gap-12 px-5 py-14 md:px-8 lg:grid-cols-[1.05fr_1fr]'>
           <div>
-            <p className='rd-eyebrow mb-6'>Web · eCommerce · SEO · SEM · GEO · Redes</p>
+            <p className='rd-eyebrow mb-6'>// let&apos;s build — web, google y redes</p>
             <h1 className='rd-h1'>
-              Tu negocio,
+              Más clientes
               <br />
-              <span className='rd-outline'>visible</span>
-              <br />
-              <span className='text-[#e1f56e]'>y sin líos.</span>
+              desde <span className='rd-mark'>tu web.</span>
             </h1>
             <p className='mt-7 max-w-md text-base leading-relaxed text-white/65 md:text-lg'>
-              Hacemos tu web, te ponemos en Google y en la IA, y llevamos tus redes. Un solo equipo para que tus clientes te encuentren y te escriban.
+              Revisamos tu web gratis, te enseñamos en vídeo qué te está quitando clientes y lo arreglamos: web, Google, IA y redes, con trato directo y todo a tu nombre.
             </p>
             <div className='mt-9 flex flex-wrap gap-3'>
-              <a href={CONTACT_PATH} className='rd-btn'>Pide una revisión gratis ↗</a>
+              <a href={CONTACT_PATH} className='rd-btn'>Quiero mi vídeo de revisión →</a>
               <a href={PORTFOLIO_PATH} className='rd-btn-ghost'>Ver casos</a>
             </div>
           </div>
 
           <HeroVisual />
 
-          <aside className='hidden lg:block'>
-            <p className='rd-eyebrow mb-4 text-white/50'>Nuestros servicios</p>
-            <ul className='divide-y divide-white/10 border-y border-white/10'>
-              {SERVICES.map((s) => (
-                <li key={s.slug}>
-                  <a href={s.href} className='group flex items-center gap-3 py-3.5'>
-                    <span className='font-mono text-[11px] text-[#e1f56e]'>{s.num}</span>
-                    <span className='text-sm font-semibold uppercase tracking-wide text-white/85 group-hover:text-white'>{s.name}</span>
-                    <span className='ml-auto text-white/30 transition-transform group-hover:translate-x-0.5 group-hover:text-[#e1f56e]'>↗</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </aside>
         </div>
       </section>
+
+      {/* SERVICIOS EN FILA */}
+      <nav aria-label='Servicios' className='border-t border-white/10'>
+        <ul className='mx-auto grid max-w-[1320px] grid-cols-2 sm:grid-cols-4 lg:grid-cols-7'>
+          {SERVICES.map((s) => (
+            <li key={s.slug} className='border-b border-r border-white/10 lg:border-b-0'>
+              <a href={s.href} className='group flex h-full flex-col gap-1 px-5 py-5 transition-colors hover:bg-[#e1f56e] hover:text-[#0b0c0a]'>
+                <span className='font-mono text-[10px] uppercase tracking-widest text-white/40 group-hover:text-[#0b0c0a]/60'>{s.area}</span>
+                <span className='text-sm font-extrabold uppercase'>{s.name}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
 
       {/* MARQUEE */}
       <div className='overflow-hidden border-y border-white/10 bg-[#e1f56e] py-4 text-[#0b0c0a]'>
@@ -145,15 +152,15 @@ export default function HomeV2() {
       <section id='servicios' className='mx-auto max-w-[1320px] px-5 py-24 md:px-8 md:py-32'>
         <div className='mb-14 grid gap-8 lg:grid-cols-2 lg:items-end'>
           <div>
-            <p className='rd-eyebrow mb-5'>01 — Sistema 36web</p>
+            <p className='rd-eyebrow mb-5'>// lo que hacemos</p>
             <h2 className='rd-h2'>
-              Un solo equipo,
+              Si te buscan,
               <br />
-              <span className='text-[#e1f56e]'>todos tus canales.</span>
+              <span className='text-[#e1f56e]'>que te encuentren.</span>
             </h2>
           </div>
           <p className='max-w-lg text-white/60 lg:justify-self-end'>
-            La web, Google, la IA y las redes funcionan mejor cuando las lleva el mismo equipo. Elegimos lo que tu negocio necesita y lo hacemos trabajar junto, con un objetivo: que te contacten más.
+            Da igual si te buscan en Google, le preguntan a ChatGPT o te ven en Instagram: al final todos acaban en tu web. Nos ocupamos de cada paso para que ese camino termine en una llamada o un mensaje.
           </p>
         </div>
         <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
@@ -165,13 +172,13 @@ export default function HomeV2() {
               </div>
               <h3 className='mt-8 text-2xl font-extrabold uppercase leading-tight'>{s.name}</h3>
               <p className='mt-3 text-sm leading-relaxed text-white/55'>{s.short}</p>
-              <span className='mt-auto pt-6 text-xs font-bold uppercase tracking-[0.16em] text-white/60 group-hover:text-[#e1f56e]'>Explorar ↗</span>
+              <span className='mt-auto pt-6 text-xs font-bold uppercase tracking-[0.16em] text-white/60 group-hover:text-[#e1f56e]'>Explorar →</span>
             </a>
           ))}
           <a href={SERVICES_PATH} className='group flex min-h-[250px] flex-col justify-between rounded-[1.25rem] bg-[#e1f56e] p-6 text-[#0b0c0a] transition-transform hover:-translate-y-1'>
             <span className='font-mono text-xs'>+</span>
             <span className='text-2xl font-black uppercase leading-tight'>¿No sabes por dónde empezar?</span>
-            <span className='text-xs font-bold uppercase tracking-[0.16em]'>Te lo decimos gratis ↗</span>
+            <span className='text-xs font-bold uppercase tracking-[0.16em]'>Te lo decimos gratis →</span>
           </a>
         </div>
       </section>
@@ -180,18 +187,18 @@ export default function HomeV2() {
       <section className='border-y border-white/10 bg-[#101110]'>
         <div className='mx-auto grid max-w-[1320px] gap-14 px-5 py-24 md:px-8 md:py-32 lg:grid-cols-2'>
           <div>
-            <p className='rd-eyebrow mb-5'>02 — Tranquilidad digital</p>
+            <p className='rd-eyebrow mb-5'>// tranquilidad digital</p>
             <h2 className='rd-h2'>
               Tú a lo tuyo.
               <br />
-              <span className='rd-outline'>Nosotros,</span>
+              <span className='rd-mark'>Nosotros,</span>
               <br />
               <span className='text-[#e1f56e]'>a lo digital.</span>
             </h2>
             <p className='mt-7 max-w-md text-white/60'>
               Cuando hay hosting, dominios, programadores, plataformas y facturas de por medio, alguien tiene que estar de tu lado. Ese somos nosotros.
             </p>
-            <a href={TRANQUILIDAD_DIGITAL_PATH} className='rd-btn mt-9'>Cómo funciona ↗</a>
+            <a href={TRANQUILIDAD_DIGITAL_PATH} className='rd-btn mt-9'>Cómo funciona →</a>
           </div>
           <ul className='grid gap-4 sm:grid-cols-2'>
             {[
@@ -212,9 +219,9 @@ export default function HomeV2() {
 
       {/* MÉTODO */}
       <section className='mx-auto max-w-[1320px] px-5 py-24 md:px-8 md:py-32'>
-        <p className='rd-eyebrow mb-5'>03 — Método</p>
+        <p className='rd-eyebrow mb-5'>// cómo trabajamos</p>
         <h2 className='rd-h2 max-w-[16ch]'>
-          Primero entender. <span className='text-[#e1f56e]'>Después construir.</span>
+          Primero un vídeo. <span className='text-[#e1f56e]'>Después, manos a la obra.</span>
         </h2>
         <ol className='mt-14 grid gap-px overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/10 md:grid-cols-2 lg:grid-cols-4'>
           {STEPS.map((s) => (
@@ -231,9 +238,9 @@ export default function HomeV2() {
       <section className='mx-auto max-w-[1320px] px-5 pb-24 md:px-8 md:pb-32'>
         <div className='grid gap-12 lg:grid-cols-[0.9fr_1.1fr]'>
           <div>
-            <p className='rd-eyebrow mb-5'>04 — Por qué 36web</p>
+            <p className='rd-eyebrow mb-5'>// por qué 36web</p>
             <h2 className='rd-h2'>
-              La confianza <span className='rd-outline'>se gana</span> <span className='text-[#e1f56e]'>trabajando.</span>
+              Sin humo. <span className='rd-mark'>Con nombre</span> <span className='text-[#e1f56e]'>y apellidos.</span>
             </h2>
           </div>
           <dl className='grid gap-x-10 gap-y-10 sm:grid-cols-2'>
@@ -253,10 +260,10 @@ export default function HomeV2() {
           <div className='mx-auto max-w-[1320px] px-5 py-24 md:px-8 md:py-32'>
             <div className='mb-12 flex flex-wrap items-end justify-between gap-6'>
               <div>
-                <p className='rd-eyebrow mb-5'>05 — Casos de éxito</p>
+                <p className='rd-eyebrow mb-5'>// casos reales</p>
                 <h2 className='rd-h2'>Resultados <span className='text-[#e1f56e]'>reales.</span></h2>
               </div>
-              <a href={PORTFOLIO_PATH} className='rd-btn-ghost'>Ver todos ↗</a>
+              <a href={PORTFOLIO_PATH} className='rd-btn-ghost'>Ver todos →</a>
             </div>
             <div className='grid gap-4 md:grid-cols-3'>
               {CASES.slice(0, 3).map((c) => <CaseCard key={c.name} c={c} />)}
@@ -297,7 +304,7 @@ export default function HomeV2() {
           </p>
           <div className='relative mt-9 flex flex-wrap gap-3'>
             <a href={CONTACT_PATH} className='inline-flex items-center gap-2 rounded-full bg-[#0b0c0a] px-7 py-4 text-xs font-bold uppercase tracking-[0.14em] text-white hover:bg-[#3346c1]'>
-              Quiero mi revisión ↗
+              Quiero mi revisión →
             </a>
             <a href={buildWhatsAppUrl('Hola, quiero que reviséis mi web.')} target='_blank' rel='noopener noreferrer' className='inline-flex items-center gap-2 rounded-full border border-[#0b0c0a]/30 px-7 py-4 text-xs font-bold uppercase tracking-[0.14em] hover:border-[#0b0c0a]'>
               Escríbenos por WhatsApp

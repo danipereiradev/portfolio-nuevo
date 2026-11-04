@@ -133,25 +133,26 @@ export default function ContactV2() {
         <div className='rd-grid-bg pointer-events-none absolute inset-0' />
         <div className='relative mx-auto grid max-w-[1320px] items-center gap-12 px-5 pb-20 pt-16 md:px-8 lg:grid-cols-[1.4fr_1fr]'>
           <div>
-            <p className='rd-eyebrow mb-6'>Contacto — Hablemos</p>
+            <p className='rd-eyebrow mb-6'>// hablemos</p>
             <h1 className='rd-h1'>
-              ¿Qué le falta
+              Cuéntanos
               <br />
-              a tu <span className='rd-outline'>negocio</span>
-              <span className='text-[#e1f56e]'>?</span>
+              <span className='rd-mark'>qué pasa</span>
+              <br />
+              <span className='text-[#e1f56e]'>con tu web.</span>
             </h1>
             <p className='mt-7 max-w-lg text-lg text-white/65'>
-              Cuéntanos qué quieres conseguir, dónde estás ahora y qué te frena. Te respondemos el mismo día con próximos pasos claros. Sin compromiso.
+              Escríbenos como se lo contarías a un amigo. Te respondemos el mismo día y, si quieres, te grabamos un vídeo gratis con lo que vemos en tu web.
             </p>
           </div>
-          <div className='relative mx-auto hidden aspect-square w-full max-w-[340px] lg:block' aria-hidden='true'>
-            <div className='absolute inset-0 rounded-full border border-dashed border-white/15' />
-            <div className='absolute inset-[18%] rounded-full border border-white/10' />
-            <div className='absolute inset-0 rounded-full bg-[radial-gradient(circle,rgba(51,70,193,0.4),transparent_62%)]' />
-            <div className='rd-float absolute inset-[34%] flex flex-col items-center justify-center rounded-full bg-[#e1f56e] text-[#0b0c0a]'>
-              <span className='font-mono text-[10px] uppercase tracking-[0.2em]'>// let&apos;s</span>
-              <span className='text-2xl font-black uppercase'>build</span>
+          <div className='relative mx-auto hidden w-full max-w-[380px] space-y-3 lg:block' aria-hidden='true'>
+            <div className='rd-float ml-auto w-fit max-w-[290px] rounded-2xl rounded-br-sm bg-[#e1f56e] px-5 py-4 text-sm font-semibold text-[#0b0c0a]'>
+              Hola, tengo una web pero no me llama nadie. ¿Me echáis un ojo?
             </div>
+            <div className='rd-float-2 w-fit max-w-[290px] rounded-2xl rounded-bl-sm border border-white/10 bg-[#161614] px-5 py-4 text-sm text-white/85'>
+              ¡Claro! Te grabamos un vídeo con lo que vemos y te lo mandamos hoy.
+            </div>
+            <p className='pl-1 font-mono text-[10px] uppercase tracking-[0.2em] text-white/35'>// let&apos;s build · respuesta en el día</p>
           </div>
         </div>
       </section>
@@ -159,30 +160,30 @@ export default function ContactV2() {
       <section className='border-t border-white/10 bg-[#101110]'>
         <div className='mx-auto grid max-w-[1320px] gap-14 px-5 py-20 md:px-8 lg:grid-cols-[0.8fr_1.2fr]'>
           <aside>
-            <p className='rd-eyebrow mb-6'>Canales directos</p>
+            <p className='rd-eyebrow mb-6'>// sin formularios, si prefieres</p>
             <ul className='divide-y divide-white/10 border-y border-white/10'>
               <li>
                 <a href={wa} target='_blank' rel='noopener noreferrer' onClick={() => trackWhatsAppClick('ContactPage')} className='group flex items-center justify-between py-5'>
                   <span><span className={label}>WhatsApp</span><span className='mt-1 block text-xl font-bold'>{PHONE_DISPLAY}</span></span>
-                  <span className='text-white/30 group-hover:text-[#e1f56e]'>↗</span>
+                  <span className='text-white/30 group-hover:text-[#e1f56e]'>→</span>
                 </a>
               </li>
               <li>
                 <a href={PHONE_TEL_LINK} onClick={() => trackPhoneClick('ContactPage')} className='group flex items-center justify-between py-5'>
                   <span><span className={label}>Teléfono</span><span className='mt-1 block text-xl font-bold'>{PHONE_DISPLAY}</span></span>
-                  <span className='text-white/30 group-hover:text-[#e1f56e]'>↗</span>
+                  <span className='text-white/30 group-hover:text-[#e1f56e]'>→</span>
                 </a>
               </li>
               <li>
                 <a href={`mailto:${CONTACT_EMAIL}`} onClick={() => trackEmailClick('ContactPage')} className='group flex items-center justify-between py-5'>
                   <span><span className={label}>Email</span><span className='mt-1 block text-xl font-bold'>{CONTACT_EMAIL}</span></span>
-                  <span className='text-white/30 group-hover:text-[#e1f56e]'>↗</span>
+                  <span className='text-white/30 group-hover:text-[#e1f56e]'>→</span>
                 </a>
               </li>
               <li>
                 <a href={INSTAGRAM_URL} target='_blank' rel='noopener noreferrer' className='group flex items-center justify-between py-5'>
                   <span><span className={label}>Instagram</span><span className='mt-1 block text-xl font-bold'>@36web.es</span></span>
-                  <span className='text-white/30 group-hover:text-[#e1f56e]'>↗</span>
+                  <span className='text-white/30 group-hover:text-[#e1f56e]'>→</span>
                 </a>
               </li>
             </ul>
@@ -193,7 +194,7 @@ export default function ContactV2() {
           </aside>
 
           <form onSubmit={submit} noValidate className='rd-card !transform-none p-7 md:p-10'>
-            <p className='rd-eyebrow mb-8'>Tu proyecto</p>
+            <p className='rd-eyebrow mb-8'>// o déjanos tus datos</p>
             <div className='grid gap-x-8 gap-y-7 md:grid-cols-2'>
               <div>
                 <label htmlFor='c-name' className={label}>Nombre</label>
@@ -241,7 +242,7 @@ export default function ContactV2() {
             {err('consent')}
             {failed ? <p className='mt-6 text-sm text-[#ff8a7a]'>No se ha podido enviar. Prueba otra vez o escríbenos por WhatsApp.</p> : null}
             <button type='submit' disabled={sending} className='rd-btn mt-8 disabled:opacity-60'>
-              {sending ? 'Enviando…' : 'Enviar ↗'}
+              {sending ? 'Enviando…' : 'Enviar →'}
             </button>
           </form>
         </div>
