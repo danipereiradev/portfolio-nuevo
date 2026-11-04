@@ -12,6 +12,10 @@ export type BlogPost = {
   imageAlt: string;
   category: string;
   content: ReactNode;
+  /** Preguntas frecuentes: se muestran al final y van al JSON-LD (FAQPage). */
+  faq?: { q: string; a: string }[];
+  /** Minutos de lectura aproximados */
+  readingMinutes?: number;
 };
 
 export const getPostPath = (slug: string) => `${BLOG_PATH}/${slug}`;

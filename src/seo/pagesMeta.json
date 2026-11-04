@@ -64,8 +64,8 @@
     "robots": "noindex, nofollow, noarchive"
   },
   "/blog": {
-    "title": "Blog de diseño web y tiendas online | 36web",
-    "description": "Artículos sobre diseño web, tecnologías para crear una página web, tiendas online y precios. Estudio en Madrid, toda España."
+    "title": "36blog: diseño web, SEO y marketing para negocios | 36web",
+    "description": "Guías claras sobre diseño web, tiendas online, SEO y marketing para negocios que quieren más clientes. Precios, errores a evitar y consejos prácticos."
   },
   "/sobre-36web": {
     "title": "La Agencia | Estudio de diseño web en Madrid | 36web",
@@ -281,5 +281,10 @@
   "/casos-de-exito/carper-sonido": {
     "title": "Caso Carper Sonido: empresa de sonido posicionada en Vigo | 36web",
     "description": "Cómo Carper Sonido llegó al primer puesto de Google como empresa de sonido y eventos en Vigo en numerosas búsquedas, con una web y SEO por servicio."
+  },
+  "/blog/errores-al-contratar-una-pagina-web": {
+    "title": "10 errores al contratar una página web y cómo evitarlos | 36web",
+    "description": "Dominio a nombre de otro, presupuestos sin detalle, webs que no se ven en el móvil… Los 10 errores más comunes al contratar una página web y cómo evitarlos.",
+    "ogType": "article"
   }
 }

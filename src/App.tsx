@@ -60,8 +60,10 @@ const ServicesIndex = lazy(() =>
 );
 const DisenoWebLocal = lazy(() => import('./pages/DisenoWebLocal'));
 const Nosotros = lazy(() => import('./pages/Nosotros'));
-const Blog = lazy(() => import('./pages/Blog'));
-const BlogPost = lazy(() => import('./pages/BlogPost'));
+const Blog = lazy(() =>
+  import('./redesign/BlogV2').then((m) => ({ default: m.BlogIndex })),
+);
+const BlogPost = lazy(() => import('./redesign/BlogV2'));
 const LandingWebInmobiliarias = lazy(() => import('./pages/LandingWebInmobiliarias'));
 const LandingShop = lazy(() => import('./pages/LandingShop'));
 const LandingMaintenance = lazy(() => import('./pages/LandingMaintenance'));
