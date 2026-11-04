@@ -51,10 +51,8 @@ const CV_TYPES = [
 ];
 
 const fieldClass = (hasError: boolean) =>
-  `w-full rounded-lg border-2 bg-white px-4 py-3 text-ink-dark caret-ink-dark transition-all duration-150 focus:border-accent focus:shadow-[3px_3px_0_0_var(--color-accent)] focus:outline-none ${
-    hasError
-      ? 'border-accent shadow-[3px_3px_0_0_var(--color-accent)]'
-      : 'border-ink-dark'
+  `w-full rounded-xl border bg-[#f7f8f4] px-4 py-3 text-ink-dark caret-ink-dark transition-colors duration-150 focus:border-[#141414] focus:bg-white focus:outline-none ${
+    hasError ? 'border-[#e86054]' : 'border-black/10'
   }`;
 
 const ErrorMessage = ({ error }: { error: string }) => (
@@ -276,7 +274,7 @@ Mensaje: ${formData.mensaje.trim() || '—'}
 
   if (submitStatus === 'success') {
     return (
-      <div className='rounded-lg border-2 border-ink-dark bg-white p-8 text-center shadow-[7px_7px_0_0_#1a1a1a]'>
+      <div className='rounded-xl bg-white p-8 text-center'>
         <Check className='mx-auto mb-4 h-10 w-10 text-accent' />
         <p className='text-xl font-extrabold text-ink-dark md:text-2xl'>
           Hemos recibido tu candidatura
@@ -290,8 +288,8 @@ Mensaje: ${formData.mensaje.trim() || '—'}
   }
 
   return (
-    <div className='overflow-hidden rounded-lg border-2 border-ink-dark bg-white shadow-[7px_7px_0_0_#1a1a1a]'>
-      <form onSubmit={handleSubmit} className='space-y-6 p-6 text-ink-dark md:p-8' noValidate>
+    <div className='rd-talent overflow-hidden bg-white'>
+      <form onSubmit={handleSubmit} className='space-y-6 text-ink-dark' noValidate>
         <input
           type='text'
           name='_gotcha'

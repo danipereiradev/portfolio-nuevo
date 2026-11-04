@@ -58,8 +58,7 @@ const ServicePageV2 = lazy(() => import('./redesign/ServicePageV2'));
 const ServicesIndex = lazy(() =>
   import('./redesign/ServicePageV2').then((m) => ({ default: m.ServicesIndex })),
 );
-const DisenoWebLocal = lazy(() => import('./pages/DisenoWebLocal'));
-const Nosotros = lazy(() => import('./pages/Nosotros'));
+const DisenoWebLocal = lazy(() => import('./redesign/CityPageV2'));
 const Blog = lazy(() =>
   import('./redesign/BlogV2').then((m) => ({ default: m.BlogIndex })),
 );
@@ -151,7 +150,7 @@ function AppContent() {
             <Route path={ADS_CUSTOM_WEB_LANDING_PATH} element={<LandingWebAMedida />} />
             <Route path='/tranquilidad-digital' element={<ServicePageV2 slug='tranquilidad-digital' />} />
             <Route path='/landing-tranquilidad-digital' element={<LandingTranquilidadDigital adsLanding />} />
-            <Route path={ABOUT_PATH} element={<Nosotros />} />
+            <Route path={ABOUT_PATH} element={<Navigate to='/' replace />} />
             <Route path={SITE_WEB_PATH} element={<ServicePageV2 slug='diseno-web' />} />
             <Route
               path={`${SITE_WEB_PATH}/:ciudad`}

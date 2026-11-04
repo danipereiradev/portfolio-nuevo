@@ -21,6 +21,8 @@ const HERO_BREADCRUMB_PATHS = new Set([
   ...SERVICE_NAV.map(({ href }) => href),
   '/portfolio',
   '/contacto',
+  '/trabaja-con-nosotros',
+  '/condiciones-del-proyecto',
   '/blog',
   '/politica-de-privacidad',
   '/terminos-y-condiciones',

@@ -285,3 +285,18 @@
 .rd-trustindex { width: fit-content; max-width: 100%; }
 .rd-trustindex .ti-widget { text-align: left !important; }
 .rd-trustindex .ti-widget > * { margin-left: 0 !important; }
+
+/* Formulario de candidaturas con el estilo del rediseño */
+.rd-talent label { font-weight: 700; color: #141414; }
+.rd-talent button[type='submit'] {
+  background: #141414 !important;
+  color: #fff !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  box-shadow: none !important;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+.rd-talent button[type='submit']:hover { background: var(--rd-accent) !important; }
+.rd-talent input[type='checkbox'] { accent-color: #141414; }

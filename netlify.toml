@@ -110,19 +110,19 @@
 
 [[redirects]]
   from = "/about"
-  to = "/sobre-el-estudio"
+  to = "/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/about-me"
-  to = "/sobre-el-estudio"
+  to = "/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/sobre-mi"
-  to = "/sobre-el-estudio"
+  to = "/"
   status = 301
   force = true
 
@@ -265,8 +265,15 @@
 
 [[redirects]]
   from = "/sobre-36web"
-  to = "/sobre-36web/index.html"
-  status = 200
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/sobre-36web/"
+  to = "/"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/trabaja-con-nosotros"
@@ -305,8 +312,9 @@
 
 [[redirects]]
   from = "/sobre-el-estudio"
-  to = "/sobre-el-estudio/index.html"
-  status = 200
+  to = "/"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/condiciones-del-proyecto"

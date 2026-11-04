@@ -1,9 +1,7 @@
 import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import HeroCta from '../components/HeroCta';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useContactModal } from '../contexts/ContactModalContext';
-import Button from '../components/Button';
 import {
   SITE_MAINTENANCE_PATH,
   SITE_SHOP_PATH,
@@ -36,11 +34,11 @@ const planNegocio = MAINTENANCE_PLANS.find((plan) => plan.id === 'negocio');
 const planEcommerce = MAINTENANCE_PLANS.find((plan) => plan.id === 'ecommerce');
 
 const ConditionList = ({ items }: { items: ReactNode[] }) => (
-  <div className='mt-6 flex justify-center'>
-    <ul className='w-full max-w-[42rem] space-y-3 text-left text-base text-ink-dark md:text-lg'>
+  <div className='mt-6 flex'>
+    <ul className='w-full max-w-[46rem] space-y-3 text-left text-base text-[#141414]/80 md:text-lg'>
       {items.map((item, index) => (
         <li key={index} className='flex gap-3'>
-          <span className='mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent' />
+          <span className='mt-2.5 h-2 w-2 shrink-0 rounded-[2px] bg-[#b1d004]' />
           <span>{item}</span>
         </li>
       ))}
@@ -61,17 +59,17 @@ const ConditionBlock = ({
   hrefLabel?: string;
   items: ReactNode[];
 }) => (
-  <article className='rounded-lg border-2 border-ink-dark bg-white p-content-pad text-center'>
-    <h3 className='text-2xl font-extrabold text-ink-dark md:text-3xl'>
+  <article className='rounded-[1.25rem] bg-white p-7 text-left shadow-[0_1px_2px_rgba(0,0,0,0.04)] md:p-10'>
+    <h3 className='text-2xl font-black uppercase tracking-[-0.02em] text-[#141414] md:text-3xl'>
       {title}
     </h3>
-    <p className='mt-text-gap text-lg text-ink-dark md:text-xl'>{intro}</p>
+    <p className='mt-3 text-base text-[#141414]/70 md:text-lg'>{intro}</p>
     <ConditionList items={items} />
     {href && hrefLabel ? (
       <p className='mt-6'>
         <Link
           to={href}
-          className='font-extrabold text-accent underline underline-offset-4 hover:text-accent-hover'
+          className='text-xs font-bold uppercase tracking-[0.14em] text-[#3346c1] underline underline-offset-4'
         >
           {hrefLabel}
         </Link>
@@ -85,27 +83,40 @@ const CondicionesDelProyecto = () => {
   const { openModal } = useContactModal();
 
   return (
-    <>
-      <HeroCta
-        label='Condiciones del proyecto'
-        title='Cómo se contrata y se paga cada servicio'
-        description='Precio, plazos, qué entra y qué no: queda por escrito antes de empezar. Aquí está el resumen de cada servicio.'
-        heroType='clean'
-        hasButton={false}
-        hasBackground={false}
-        hasReviewBadge={false}
-        isTopHero
-        ctaContent={
-          <Button className='!mt-0' onClick={() => openModal()}>
-            Pedir propuesta
-          </Button>
-        }
-      />
+    <main className='rd rd-page'>
+      <section className='relative overflow-hidden pt-[var(--site-header-h)]'>
+        <div className='rd-grid-bg pointer-events-none absolute inset-0' />
+        <div className='relative mx-auto grid max-w-[1320px] gap-10 px-5 pb-20 pt-20 md:px-8 lg:grid-cols-[1.3fr_1fr] lg:items-end'>
+          <div>
+            <p className='rd-eyebrow mb-6'>00 — Condiciones del proyecto</p>
+            <h1 className='rd-h1'>
+              CÓMO SE
+              <br />
+              <span className='rd-mark'>CONTRATA</span>
+              <br />
+              <span className='text-[#e1f56e]'>Y SE PAGA.</span>
+            </h1>
+          </div>
+          <div>
+            <p className='text-lg leading-relaxed text-white/65'>
+              Precio, plazos, qué entra y qué no: queda por escrito antes de empezar. Aquí tienes el resumen de cada servicio.
+            </p>
+            <div className='mt-8 flex flex-wrap gap-3'>
+              <button type='button' onClick={() => openModal()} className='rd-btn'>
+                Pedir propuesta ↗
+              </button>
+              <Link to='/terminos-y-condiciones' className='rd-btn-ghost'>
+                Términos y condiciones
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <section className='page-section bg-surface-muted'>
-        <div className='container mx-auto max-w-3xl'>
-          <div className='page-title-block text-center'>
-            <h2 className='text-3xl font-extrabold text-ink-dark md:text-4xl'>
+      <section className='rd-light'>
+        <div className='mx-auto max-w-[1320px] px-5 py-20 md:px-8'>
+          <div className='max-w-3xl'>
+            <h2 className='rd-h2'>
               Lo que aplica a todos
             </h2>
           </div>
@@ -120,7 +131,7 @@ const CondicionesDelProyecto = () => {
                 El marco legal de contratación está en los{' '}
                 <Link
                   to='/terminos-y-condiciones'
-                  className='font-extrabold text-accent underline underline-offset-4'
+                  className='font-semibold text-[#3346c1] underline underline-offset-4'
                 >
                   términos y condiciones
                 </Link>
@@ -131,19 +142,19 @@ const CondicionesDelProyecto = () => {
         </div>
       </section>
 
-      <section className='page-section'>
-        <div className='container mx-auto flex flex-col gap-page-gap'>
-          <div className='page-title-block mx-auto max-w-5xl text-center'>
-            <h2 className='text-3xl font-extrabold text-ink-dark md:text-4xl lg:text-5xl'>
+      <section className='rd-light rd-stone'>
+        <div className='mx-auto flex max-w-[1320px] flex-col gap-10 px-5 py-20 md:px-8'>
+          <div className='max-w-3xl'>
+            <h2 className='rd-h2'>
               Condiciones por servicio
             </h2>
-            <p className='text-xl text-ink-dark md:text-2xl'>
+            <p className='mt-4 text-lg text-[#141414]/70'>
               No todos se pagan igual. Elige el que te encaja y mira cómo
               funciona.
             </p>
           </div>
 
-          <div className='grid items-stretch gap-page-gap'>
+          <div className='grid items-stretch gap-5 lg:grid-cols-2'>
             <ConditionBlock
               title='Diseño web a medida'
               intro='Para un negocio que necesita una web propia, con precio y plazos en la propuesta.'
@@ -242,10 +253,10 @@ const CondicionesDelProyecto = () => {
         </div>
       </section>
 
-      <section className='page-section bg-surface-muted'>
-        <div className='container mx-auto max-w-3xl'>
-          <div className='page-title-block text-center'>
-            <h2 className='text-3xl font-extrabold text-ink-dark md:text-4xl'>
+      <section className='rd-light'>
+        <div className='mx-auto max-w-[1320px] px-5 py-20 md:px-8'>
+          <div className='max-w-3xl'>
+            <h2 className='rd-h2'>
               Publicación, propiedad y garantía
             </h2>
           </div>
@@ -261,21 +272,19 @@ const CondicionesDelProyecto = () => {
         </div>
       </section>
 
-      <HeroCta
-        title='¿Dudas sobre cómo se paga tu caso?'
-        description='Cuéntanos el servicio y te decimos por escrito qué entra, cuánto sale y cómo se cobra.'
-        buttonText='Pedir propuesta'
-        heroType='clean'
-        hasButton={false}
-        hasBackground={false}
-        hasReviewBadge={false}
-        ctaContent={
-          <Button className='!mt-0' onClick={() => openModal()}>
-            Pedir propuesta
-          </Button>
-        }
-      />
-    </>
+      <section className='px-5 py-24 md:px-8'>
+        <div className='mx-auto flex max-w-[1320px] flex-col gap-8 rounded-[1.75rem] bg-[#e1f56e] px-7 py-14 text-[#0b0c0a] md:flex-row md:items-center md:justify-between md:px-14'>
+          <div>
+            <p className='font-mono text-xs uppercase tracking-[0.2em]'>// let&apos;s build</p>
+            <h2 className='rd-h2 mt-4 max-w-[18ch] !text-[clamp(1.9rem,4vw,3.4rem)]'>¿Dudas sobre cómo se paga tu caso?</h2>
+            <p className='mt-4 max-w-lg text-[#0b0c0a]/70'>Cuéntanos el servicio y te decimos por escrito qué entra, cuánto sale y cómo se cobra.</p>
+          </div>
+          <button type='button' onClick={() => openModal()} className='inline-flex w-fit items-center gap-2 rounded-full bg-[#0b0c0a] px-7 py-4 text-xs font-bold uppercase tracking-[0.14em] text-white hover:bg-[#3346c1]'>
+            Pedir propuesta ↗
+          </button>
+        </div>
+      </section>
+    </main>
   );
 };
 

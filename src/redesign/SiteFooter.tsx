@@ -2,7 +2,6 @@ import { SERVICES } from './services';
 import { CASES_PATH } from './cases';
 import { Logo36 } from './SiteHeader';
 import {
-  ABOUT_PATH,
   BUSINESS_ADDRESS,
   BUSINESS_HOURS,
   CONTACT_EMAIL,
@@ -24,7 +23,6 @@ const LEGAL = [
 ];
 
 const COMPANY = [
-  { href: ABOUT_PATH, label: 'Sobre 36web' },
   { href: CASES_PATH, label: 'Casos de éxito' },
   { href: PORTFOLIO_PATH, label: 'Portfolio' },
   { href: BLOG_PATH, label: '36Blog' },
