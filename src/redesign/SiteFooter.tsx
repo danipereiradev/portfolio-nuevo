@@ -38,7 +38,7 @@ export default function SiteFooter() {
           <div>
             <p className='rd-eyebrow mb-5'>// let&apos;s build</p>
             <h2 className='rd-h2 max-w-[14ch]'>
-              ¿TIENES UN PROYECTO <span className='text-[#e1f56e]'>EN MENTE?</span>
+              ¿TIENES UN <span className='rd-mark'>PROYECTO</span> <span className='text-[#e1f56e]'>EN MENTE?</span>
             </h2>
           </div>
           <div className='flex flex-wrap gap-3'>

@@ -150,7 +150,7 @@ export default function HomeV2() {
             <h2 className='rd-h2'>
               Un solo equipo,
               <br />
-              <span className='text-[#e1f56e]'>todos tus canales.</span>
+              <span className='rd-mark'>todos</span> <span className='text-[#e1f56e]'>tus canales.</span>
             </h2>
           </div>
           <p className='max-w-lg text-white/60 lg:justify-self-end'>
@@ -186,7 +186,7 @@ export default function HomeV2() {
             <h2 className='rd-h2'>
               Tú a lo tuyo.
               <br />
-              <span className='rd-outline'>Nosotros,</span>
+              <span className='rd-mark'>Nosotros,</span>
               <br />
               <span className='text-[#e1f56e]'>a lo digital.</span>
             </h2>
@@ -217,7 +217,7 @@ export default function HomeV2() {
       <section className='mx-auto max-w-[1320px] px-5 py-24 md:px-8 md:py-32'>
         <p className='rd-eyebrow mb-5'>03 — Método</p>
         <h2 className='rd-h2 max-w-[16ch]'>
-          Primero entender. <span className='text-[#e1f56e]'>Después construir.</span>
+          Primero <span className='rd-mark'>entender.</span> <span className='text-[#e1f56e]'>Después construir.</span>
         </h2>
         <ol className='mt-14 grid gap-px overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/10 md:grid-cols-2 lg:grid-cols-4'>
           {STEPS.map((s) => (
@@ -238,7 +238,7 @@ export default function HomeV2() {
           <div>
             <p className='rd-eyebrow mb-5'>04 — Por qué 36web</p>
             <h2 className='rd-h2'>
-              La confianza <span className='rd-outline'>se gana</span> <span className='text-[#e1f56e]'>trabajando.</span>
+              La confianza <span className='rd-mark'>se gana</span> <span className='text-[#e1f56e]'>trabajando.</span>
             </h2>
           </div>
           <dl className='grid gap-x-10 gap-y-10 sm:grid-cols-2'>
@@ -260,7 +260,7 @@ export default function HomeV2() {
             <div className='mb-12 flex flex-wrap items-end justify-between gap-6'>
               <div>
                 <p className='rd-eyebrow mb-5'>05 — Casos de éxito</p>
-                <h2 className='rd-h2'>Resultados <span className='text-[#e1f56e]'>reales.</span></h2>
+                <h2 className='rd-h2'>Resultados <span className='rd-mark'>reales.</span></h2>
               </div>
               <a href={PORTFOLIO_PATH} className='rd-btn-ghost'>Ver todos ↗</a>
             </div>
@@ -276,7 +276,7 @@ export default function HomeV2() {
         <div className='mx-auto grid max-w-[1320px] gap-12 px-5 py-24 md:px-8 md:py-32 lg:grid-cols-[0.8fr_1.2fr]'>
           <div>
             <p className='rd-eyebrow mb-5'>Preguntas frecuentes</p>
-            <h2 className='rd-h2'>Hablemos <span className='text-[#e1f56e]'>claro.</span></h2>
+            <h2 className='rd-h2'>Hablemos <span className='rd-mark'>claro.</span></h2>
           </div>
           <div className='divide-y divide-white/10 border-y border-white/10'>
             {FAQS.map((f) => (
