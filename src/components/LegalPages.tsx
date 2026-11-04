@@ -6,9 +6,11 @@ export type LegalPageId = 'privacy' | 'terms' | 'cookies' | 'legal';
 
 interface LegalPagesProps {
   page: LegalPageId;
+  /** Solo el contenido, sin el contenedor de página (lo usa el rediseño). */
+  bare?: boolean;
 }
 
-const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
+const LegalPages: React.FC<LegalPagesProps> = ({ page, bare = false }) => {
   const getPageContent = () => {
     switch (page) {
       case 'privacy':
@@ -879,6 +881,8 @@ const LegalPages: React.FC<LegalPagesProps> = ({ page }) => {
         return null;
     }
   };
+
+  if (bare) return getPageContent();
 
   return (
     <main className='pt-28 pb-20 bg-white min-h-screen'>

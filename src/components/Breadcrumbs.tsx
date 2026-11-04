@@ -21,6 +21,10 @@ const HERO_BREADCRUMB_PATHS = new Set([
   ...SERVICE_NAV.map(({ href }) => href),
   '/portfolio',
   '/contacto',
+  '/politica-de-privacidad',
+  '/terminos-y-condiciones',
+  '/politica-de-cookies',
+  '/aviso-legal',
 ]);
 
 export default function Breadcrumbs() {

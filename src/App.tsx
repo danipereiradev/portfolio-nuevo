@@ -72,7 +72,7 @@ const LandingMaintenanceInfra = lazy(
 const CondicionesDelProyecto = lazy(
   () => import('./pages/CondicionesDelProyecto'),
 );
-const LegalDocument = lazy(() => import('./pages/LegalDocument'));
+const LegalDocument = lazy(() => import('./redesign/LegalV2'));
 const TrabajaConNosotros = lazy(() => import('./pages/TrabajaConNosotros'));
 const PortfolioPage = lazy(() => import('./redesign/PortfolioV2'));
 const Gracias = lazy(() => import('./pages/Gracias'));
