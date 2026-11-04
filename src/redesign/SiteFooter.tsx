@@ -1,4 +1,3 @@
-import { useLocation } from 'react-router-dom';
 import { SERVICES } from './services';
 import { Logo36 } from './SiteHeader';
 import {
@@ -32,12 +31,9 @@ const COMPANY = [
 ];
 
 export default function SiteFooter() {
-  const { pathname } = useLocation();
-  const showCta = !pathname.startsWith(CONTACT_PATH);
   return (
     <footer className='rd relative overflow-hidden border-t border-white/10 bg-[#0b0c0a] text-white'>
       <div className='mx-auto max-w-[1320px] px-5 pb-10 pt-20 md:px-8'>
-        {showCta ? (
         <div className='flex flex-col gap-10 border-b border-white/10 pb-14 lg:flex-row lg:items-end lg:justify-between'>
           <div>
             <p className='rd-eyebrow mb-5'>// let&apos;s build</p>
@@ -46,13 +42,12 @@ export default function SiteFooter() {
             </h2>
           </div>
           <div className='flex flex-wrap gap-3'>
-            <a href={CONTACT_PATH} className='rd-btn'>Hablemos →</a>
+            <a href={CONTACT_PATH} className='rd-btn'>Hablemos ↗</a>
             <a href={buildWhatsAppUrl()} target='_blank' rel='noopener noreferrer' className='rd-btn-ghost'>
               WhatsApp {PHONE_DISPLAY}
             </a>
           </div>
         </div>
-        ) : null}
 
         <div className='grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4'>
           <div>

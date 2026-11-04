@@ -89,11 +89,11 @@ export default function SiteHeader({ hideNav = false }: { hideNav?: boolean }) {
                           <span className='block text-sm font-semibold text-white'>{s.name}</span>
                           <span className='block text-xs leading-snug text-white/50'>{s.area}</span>
                         </span>
-                        <span className='ml-auto text-white/30 transition-colors group-hover:text-[#e1f56e]'>→</span>
+                        <span className='ml-auto text-white/30 transition-colors group-hover:text-[#e1f56e]'>↗</span>
                       </a>
                     ))}
                     <a href={SERVICES_PATH} className='col-span-2 mt-1 rounded-xl border border-white/10 p-3 text-center text-xs font-semibold uppercase tracking-[0.18em] text-white/70 hover:border-[#e1f56e] hover:text-[#e1f56e]'>
-                      Todos los servicios →
+                      Todos los servicios ↗
                     </a>
                   </div>
                 </div>
@@ -106,7 +106,7 @@ export default function SiteHeader({ hideNav = false }: { hideNav?: boolean }) {
             </nav>
 
             <a href={CONTACT_PATH} className='rd-btn-outline hidden lg:inline-flex'>
-              Hablemos <span aria-hidden='true'>→</span>
+              Hablemos <span aria-hidden='true'>↗</span>
             </a>
 
             <button
@@ -132,7 +132,7 @@ export default function SiteHeader({ hideNav = false }: { hideNav?: boolean }) {
             <a key={l.href} href={l.href} className='flex items-baseline gap-4 border-b border-white/10 py-4 text-2xl font-extrabold uppercase text-white'>
               <span className='font-mono text-xs text-[#e1f56e]'>{String(i).padStart(2, '0')}</span>
               {l.label}
-              <span className='ml-auto text-base text-white/40'>→</span>
+              <span className='ml-auto text-base text-white/40'>↗</span>
             </a>
           ))}
           <p className='rd-eyebrow mb-3 mt-8'>Servicios</p>
@@ -140,11 +140,11 @@ export default function SiteHeader({ hideNav = false }: { hideNav?: boolean }) {
             <a key={s.slug} href={s.href} className='flex items-baseline gap-4 border-b border-white/10 py-3 text-lg font-bold text-white'>
               <span className='font-mono text-xs text-[#e1f56e]'>{s.num}</span>
               {s.name}
-              <span className='ml-auto text-sm text-white/40'>→</span>
+              <span className='ml-auto text-sm text-white/40'>↗</span>
             </a>
           ))}
           <a href={CONTACT_PATH} className='rd-btn mt-8 w-full justify-center'>
-            Hablemos →
+            Hablemos ↗
           </a>
         </div>
       ) : null}

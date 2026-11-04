@@ -9,7 +9,7 @@ function CtaBand({ text }: { text: string }) {
       <div className='mx-auto flex max-w-[1320px] flex-col gap-8 rounded-[1.75rem] bg-[#e1f56e] px-7 py-14 text-[#0b0c0a] md:flex-row md:items-center md:justify-between md:px-14'>
         <h2 className='rd-h2 max-w-[16ch] !text-[clamp(1.9rem,4vw,3.4rem)]'>{text}</h2>
         <div className='flex flex-wrap gap-3'>
-          <a href={CONTACT_PATH} className='inline-flex items-center gap-2 rounded-full bg-[#0b0c0a] px-7 py-4 text-xs font-bold uppercase tracking-[0.14em] text-white hover:bg-[#3346c1]'>Hablemos →</a>
+          <a href={CONTACT_PATH} className='inline-flex items-center gap-2 rounded-full bg-[#0b0c0a] px-7 py-4 text-xs font-bold uppercase tracking-[0.14em] text-white hover:bg-[#3346c1]'>Hablemos ↗</a>
           <a href={buildWhatsAppUrl()} target='_blank' rel='noopener noreferrer' className='inline-flex items-center rounded-full border border-[#0b0c0a]/30 px-7 py-4 text-xs font-bold uppercase tracking-[0.14em]'>WhatsApp</a>
         </div>
       </div>
@@ -24,7 +24,7 @@ export function ServicesIndex() {
       <section className='relative overflow-hidden pt-[var(--site-header-h)]'>
         <div className='rd-grid-bg pointer-events-none absolute inset-0' />
         <div className='relative mx-auto max-w-[1320px] px-5 pb-16 pt-20 md:px-8'>
-          <p className='rd-eyebrow mb-6'>// todos los servicios</p>
+          <p className='rd-eyebrow mb-6'>00 — Todos los servicios</p>
           <h1 className='rd-h1 max-w-[12ch]'>
             Todo lo digital, <span className='text-[#e1f56e]'>en un sitio.</span>
           </h1>
@@ -38,7 +38,7 @@ export function ServicesIndex() {
                 <span className='font-mono text-sm text-[#e1f56e]'>{s.num}</span>
                 <span className='text-3xl font-black uppercase md:text-4xl'>{s.name}</span>
                 <span className='text-white/55'>{s.short}</span>
-                <span className='text-2xl text-white/30 group-hover:text-[#e1f56e]'>→</span>
+                <span className='text-2xl text-white/30 group-hover:text-[#e1f56e]'>↗</span>
               </a>
             </li>
           ))}
@@ -52,7 +52,7 @@ export function ServicesIndex() {
                   <span className='block text-2xl font-black uppercase'>{s.name}</span>
                   <span className='mt-2 block text-sm text-white/55'>{s.short}</span>
                 </span>
-                <span className='text-xl text-white/30 group-hover:text-[#e1f56e]'>→</span>
+                <span className='text-xl text-white/30 group-hover:text-[#e1f56e]'>↗</span>
               </a>
             </li>
           ))}
@@ -80,12 +80,12 @@ export default function ServicePageV2({ slug: slugProp }: { slug?: string }) {
         <div className='relative mx-auto grid max-w-[1320px] gap-10 px-5 pb-20 pt-20 md:px-8 lg:grid-cols-[1.3fr_1fr] lg:items-end'>
           <div>
             <p className='rd-eyebrow mb-6'>
-              // {s.name.toLowerCase()} · {s.area.toLowerCase()}
+              {s.num} — {s.area} · {s.name}
             </p>
             <h1 className='rd-h1'>
               {p.title[0]}
               <br />
-              <span className='rd-mark'>{p.title[1]}</span>
+              <span className='rd-outline'>{p.title[1]}</span>
               <br />
               <span className='text-[#e1f56e]'>{p.title[2]}</span>
             </h1>
@@ -93,7 +93,7 @@ export default function ServicePageV2({ slug: slugProp }: { slug?: string }) {
           <div>
             <p className='text-lg leading-relaxed text-white/65'>{p.intro}</p>
             <div className='mt-8 flex flex-wrap gap-3'>
-              <a href={CONTACT_PATH} className='rd-btn'>Pide una revisión gratis →</a>
+              <a href={CONTACT_PATH} className='rd-btn'>Pide una revisión gratis ↗</a>
               <a href='#incluye' className='rd-btn-ghost'>Qué incluye</a>
             </div>
           </div>
