@@ -233,3 +233,6 @@
 .rd-legal table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0 1.5rem; }
 .rd-legal th, .rd-legal td { border-bottom: 1px solid rgba(20, 20, 20, 0.1); padding: 0.65rem 0.5rem; text-align: left; vertical-align: top; }
 .rd-legal th { font-weight: 800; color: #141414; }
+.rd-legal .bg-yellow-50 { background: #f6fcd2; border-radius: 0.75rem; border-left: 4px solid var(--rd-lime-strong); }
+.rd-legal .text-yellow-800, .rd-legal .text-yellow-900, .rd-legal .text-gray-800 { color: #141414; }
+.rd-legal .border-l-4 { border-left-color: var(--rd-lime-strong) !important; }
