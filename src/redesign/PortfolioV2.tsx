@@ -7,6 +7,7 @@ import {
   PORTFOLIO_PROJECT_LINK_REL,
   PortfolioPageProject,
 } from '../data/portfolioPage';
+import { APP_PROJECTS, appImage, type AppProject } from '../data/appProjects';
 import { CASES, CASES_PATH } from './cases';
 
 const SITE_URL = 'https://36web.es';
@@ -22,6 +23,7 @@ const FILTERS = [
   { id: 'all', label: 'Todos' },
   { id: 'web', label: 'Webs' },
   { id: 'shop', label: 'Tiendas online' },
+  { id: 'app', label: 'Apps' },
 ] as const;
 type FilterId = (typeof FILTERS)[number]['id'];
 
@@ -59,6 +61,52 @@ function ProjectCard({ p }: { p: PortfolioPageProject }) {
   );
 }
 
+function AppCard({ a }: { a: AppProject }) {
+  const shots = a.images.filter((f) => !f.endsWith('-04.webp')).slice(0, 3);
+  const isIllustration = 'illustration' in a && a.illustration;
+  const url = 'url' in a ? a.url : undefined;
+  const inner = (
+    <>
+      <div className='flex aspect-[3/2] items-center justify-center gap-3 overflow-hidden bg-[#e8e9e3] px-6 py-5'>
+        {shots.map((f) => (
+          <img
+            key={f}
+            src={appImage(f)}
+            alt={`Pantalla de ${a.name}`}
+            loading='lazy'
+            className={`h-full rounded-xl object-contain shadow-[0_10px_30px_rgba(0,0,0,0.12)] transition-transform duration-500 group-hover:-translate-y-1 ${
+              isIllustration ? 'w-auto' : 'w-auto max-w-[31%]'
+            }`}
+          />
+        ))}
+      </div>
+      <div className='flex flex-1 flex-col p-6'>
+        <p className='rd-eyebrow mb-3'>{a.sector}</p>
+        <h3 className='text-2xl font-extrabold uppercase'>{a.name}</h3>
+        <p className='mt-3 text-sm leading-relaxed text-white/60'>{a.description}</p>
+        <p className='mt-3 font-mono text-[11px] leading-relaxed text-white/45'>{a.technologies}</p>
+        <div className='mt-auto flex flex-wrap gap-2 pt-6'>
+          <span className='rounded-full border border-white/15 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-white/60'>
+            App
+          </span>
+          {isIllustration ? (
+            <span className='rounded-full border border-white/15 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-white/60'>
+              Imagen recreada
+            </span>
+          ) : null}
+        </div>
+      </div>
+    </>
+  );
+  return url ? (
+    <a href={url} target='_blank' rel={PORTFOLIO_PROJECT_LINK_REL} className='rd-card group flex h-full flex-col overflow-hidden'>
+      {inner}
+    </a>
+  ) : (
+    <article className='rd-card group flex h-full flex-col overflow-hidden'>{inner}</article>
+  );
+}
+
 export default function PortfolioV2() {
   usePageMeta(PORTFOLIO_PATH);
   const [filter, setFilter] = useState<FilterId>('all');
@@ -87,8 +135,13 @@ export default function PortfolioV2() {
   useJsonLd('jsonld-portfolio', jsonLd);
 
   const projects = PORTFOLIO_PAGE_PROJECTS.filter((p) => filter === 'all' || p.category === filter);
+  const apps = filter === 'all' || filter === 'app' ? APP_PROJECTS : [];
   const count = (id: FilterId) =>
-    id === 'all' ? PORTFOLIO_PAGE_PROJECTS.length : PORTFOLIO_PAGE_PROJECTS.filter((p) => p.category === id).length;
+    id === 'all'
+      ? PORTFOLIO_PAGE_PROJECTS.length + APP_PROJECTS.length
+      : id === 'app'
+        ? APP_PROJECTS.length
+        : PORTFOLIO_PAGE_PROJECTS.filter((p) => p.category === id).length;
 
   return (
     <main className='rd rd-page'>
@@ -108,7 +161,7 @@ export default function PortfolioV2() {
           </div>
           <div>
             <p className='text-lg leading-relaxed text-white/65'>
-              Webs y tiendas online de negocios reales: clínicas, talleres, tiendas, despachos y empresas de servicios. Entra en cualquiera y compruébalo tú mismo.
+              Webs, tiendas online y apps de negocios reales: clínicas, talleres, tiendas, despachos y productos digitales. Entra en cualquiera y compruébalo tú mismo.
             </p>
             <div className='mt-8 flex flex-wrap gap-3'>
               <a href={CONTACT_PATH} className='rd-btn'>Pide una revisión gratis ↗</a>
@@ -121,10 +174,10 @@ export default function PortfolioV2() {
       <section className='mx-auto max-w-[1320px] px-5 pb-20 pt-4 md:px-8'>
         <dl className='grid gap-px overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4'>
           {[
-            ['Proyectos', PORTFOLIO_PAGE_PROJECTS.length, 'Webs y tiendas publicadas'],
+            ['Proyectos', count('all'), 'Webs, tiendas y apps'],
             ['Webs', count('web'), 'Negocios de servicios'],
             ['Tiendas online', count('shop'), 'Vendiendo en internet'],
-            ['Casos de éxito', CASES.length, 'Con resultados contados'],
+            ['Apps', count('app'), 'Web, Android e iOS'],
           ].map(([k, v, d]) => (
             <div key={k} className='bg-[#0b0c0a] p-6'>
               <dt className='font-mono text-xs text-[#e1f56e]'>{k}</dt>
@@ -160,6 +213,9 @@ export default function PortfolioV2() {
           <div className='grid gap-5 md:grid-cols-2 lg:grid-cols-3'>
             {projects.map((p) => (
               <ProjectCard key={p.id} p={p} />
+            ))}
+            {apps.map((a) => (
+              <AppCard key={a.id} a={a} />
             ))}
           </div>
         </div>
