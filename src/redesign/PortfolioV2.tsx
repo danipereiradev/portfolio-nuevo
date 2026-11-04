@@ -32,12 +32,12 @@ function ProjectCard({ p }: { p: PortfolioPageProject }) {
   const ext = hasCase ? {} : { target: '_blank', rel: PORTFOLIO_PROJECT_LINK_REL };
   return (
     <a href={href} {...ext} className='rd-card group flex h-full flex-col overflow-hidden'>
-      <div className='aspect-[4/3] overflow-hidden bg-[#1a1b18]'>
+      <div className='aspect-[3/2] overflow-hidden bg-black'>
         <img
           src={p.image}
           alt={`Web de ${p.name}`}
           loading='lazy'
-          className='h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]'
+          className='h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.02]'
         />
       </div>
       <div className='flex flex-1 flex-col p-6'>
