@@ -347,3 +347,20 @@
 .rd-theme-light .rd-footlink:hover { color: var(--rd-accent); }
 .rd-theme-light .rd .bg-\[\#141414\].text-white,
 .rd-theme-light .rd .bg-\[\#141414\] .text-white { color: #ffffff; }
+
+/* Tema claro: ningún hover puede acabar en blanco o lima pálida sobre fondo claro */
+.rd-theme-light .rd .hover\:text-white:hover,
+.rd-theme-light .rd .group:hover .group-hover\:text-white { color: #141414; }
+.rd-theme-light .rd .hover\:\!text-white:hover { color: #141414 !important; }
+.rd-theme-light .rd .hover\:text-\[\#e1f56e\]:hover { color: var(--rd-accent); }
+.rd-theme-light .rd .hover\:\!text-\[\#e1f56e\]:hover { color: var(--rd-accent) !important; }
+.rd-theme-light .rd .hover\:border-\[\#e1f56e\]:hover { border-color: var(--rd-accent); }
+.rd-theme-light .rd .hover\:bg-white:hover { background: #141414; color: #e1f56e; }
+.rd-theme-light .rd .hover\:bg-white\/5:hover { background: rgba(20, 20, 20, 0.05); }
+.rd-theme-light .rd .rd-btn-ghost:hover { border-color: #141414; background: #141414; color: #fff; }
+.rd-theme-light .rd .rd-btn-outline:hover { background: #141414; color: #fff; }
+/* islas oscuras dentro del tema claro: el hover vuelve a ser blanco/lima */
+.rd-theme-light .rd .bg-\[\#141513\] .group:hover .group-hover\:text-white,
+.rd-theme-light .rd .bg-\[\#141513\] .hover\:text-white:hover { color: #fff; }
+.rd-theme-light .rd .bg-\[\#141513\] .group:hover .group-hover\:text-\[\#e1f56e\],
+.rd-theme-light .rd .bg-\[\#141513\] .hover\:text-\[\#e1f56e\]:hover { color: #e1f56e; }

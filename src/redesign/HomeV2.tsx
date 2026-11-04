@@ -144,21 +144,21 @@ function HeroVisual() {
           <span className='h-2 w-2 rounded-full bg-white/20' />
           <span className='h-2 w-2 rounded-full bg-[#e1f56e]' />
           <span className='ml-2 truncate font-mono text-[10px] text-white/40'>
-            tunegocio.es
+            {t('tunegocio.es', 'yourbusiness.com')}
           </span>
         </div>
         <div className='space-y-2 p-4 font-mono text-[11px] leading-relaxed'>
-          <p className='text-[#e1f56e]'>// let&apos;s build</p>
+          <p className='text-[#e1f56e]'>{t('// a construir', "// let's build")}</p>
           <p className='text-white/70'>
-            web<span className='text-white/30'>.</span>publish
+            web<span className='text-white/30'>.</span>{t('publicar', 'publish')}
             <span className='text-white/30'>()</span>
           </p>
           <p className='text-white/70'>
-            seo<span className='text-white/30'>.</span>rank
+            seo<span className='text-white/30'>.</span>{t('posicionar', 'rank')}
             <span className='text-white/30'>(&apos;local&apos;)</span>
           </p>
           <p className='text-white/70'>
-            ads<span className='text-white/30'>.</span>launch
+            ads<span className='text-white/30'>.</span>{t('lanzar', 'launch')}
             <span className='text-white/30'>()</span>
             <span className='rd-caret ml-0.5 inline-block h-3 w-1.5 translate-y-0.5 bg-[#e1f56e]' />
           </p>
