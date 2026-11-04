@@ -280,3 +280,8 @@
 .rd-faq summary::after { content: '+'; color: var(--rd-accent); font-weight: 900; }
 .rd-faq details[open] summary::after { content: '–'; }
 .rd-faq details p { margin-top: 0.6rem; }
+
+/* Sello de Trustindex alineado a la izquierda en los hero */
+.rd-trustindex { width: fit-content; max-width: 100%; }
+.rd-trustindex .ti-widget { text-align: left !important; }
+.rd-trustindex .ti-widget > * { margin-left: 0 !important; }
