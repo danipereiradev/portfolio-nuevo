@@ -13,7 +13,6 @@ import { CaseCard } from './CasePages';
 import GoogleBadge from './GoogleBadge';
 import BgDigit from './BgDigit';
 
-
 const STEPS = [
   {
     n: '01',
@@ -79,32 +78,74 @@ const FAQS = [
   },
 ];
 
-
 const STEPS_EN = [
-  { n: '01', t: 'We listen', d: 'A 30-minute call to understand your business, your customers and what you really need.' },
-  { n: '02', t: 'We audit', d: 'We review your website, your Google presence and your social media, and show you what’s failing and what matters most.' },
-  { n: '03', t: 'We build', d: 'We design, develop and launch. You approve every step; we take care of the rest.' },
-  { n: '04', t: 'We measure and improve', d: 'Calls, messages and sales in a clear report. Whatever doesn’t work gets changed.' },
+  {
+    n: '01',
+    t: 'We listen',
+    d: 'A 30-minute call to understand your business, your customers and what you really need.',
+  },
+  {
+    n: '02',
+    t: 'We audit',
+    d: 'We review your website, your Google presence and your social media, and show you what’s failing and what matters most.',
+  },
+  {
+    n: '03',
+    t: 'We build',
+    d: 'We design, develop and launch. You approve every step; we take care of the rest.',
+  },
+  {
+    n: '04',
+    t: 'We measure and improve',
+    d: 'Calls, messages and sales in a clear report. Whatever doesn’t work gets changed.',
+  },
 ];
 
 const PRINCIPLES_EN = [
-  { t: 'You talk to the people doing the work', d: 'No chains of sales reps or support tickets. One point of contact who knows your project.' },
-  { t: 'Everything is yours', d: 'Domain, website, Google accounts and social profiles, always in your name.' },
+  {
+    t: 'You talk to the people doing the work',
+    d: 'No chains of sales reps or support tickets. One point of contact who knows your project.',
+  },
+  {
+    t: 'Everything is yours',
+    d: 'Domain, website, Google accounts and social profiles, always in your name.',
+  },
   { t: 'Plain language', d: 'We explain what we do and why, without jargon.' },
-  { t: 'Built to sell', d: 'Every design decision is measured in calls, messages and sales.' },
+  {
+    t: 'Built to sell',
+    d: 'Every design decision is measured in calls, messages and sales.',
+  },
 ];
 
 const FAQS_EN = [
-  { q: 'Do I have to hire every service?', a: 'No. We start with whatever has the biggest impact on your business and add the rest only if it makes sense.' },
-  { q: 'Do you only work in Madrid?', a: 'We work remotely with businesses all over Spain. If you’re near Madrid, Galicia or Valencia, we can also meet in person.' },
-  { q: 'How long does a website take?', a: 'A service website is usually ready two or three weeks after we have the content.' },
-  { q: 'What is Digital peace of mind?', a: 'A service where we act on your side with suppliers, developers and platforms: we review, negotiate and make sure everything works.' },
-  { q: 'How do we get started?', a: 'Write to us or book a call. We review your situation for free and tell you what we would do.' },
+  {
+    q: 'Do I have to hire every service?',
+    a: 'No. We start with whatever has the biggest impact on your business and add the rest only if it makes sense.',
+  },
+  {
+    q: 'Do you only work in Madrid?',
+    a: 'We work remotely with businesses all over Spain. If you’re near Madrid, Galicia or Valencia, we can also meet in person.',
+  },
+  {
+    q: 'How long does a website take?',
+    a: 'A service website is usually ready two or three weeks after we have the content.',
+  },
+  {
+    q: 'What is Digital peace of mind?',
+    a: 'A service where we act on your side with suppliers, developers and platforms: we review, negotiate and make sure everything works.',
+  },
+  {
+    q: 'How do we get started?',
+    a: 'Write to us or book a call. We review your situation for free and tell you what we would do.',
+  },
 ];
 
 const PEACE_EN: [string, string][] = [
   ['One point of contact', 'We deal with suppliers and platforms for you.'],
-  ['We review before you pay', 'Quotes and invoices checked with technical judgement.'],
+  [
+    'We review before you pay',
+    'Quotes and invoices checked with technical judgement.',
+  ],
   ['Backups and security', 'Your website monitored, updated and backed up.'],
   ['You decide', 'We explain it clearly and you give the go-ahead.'],
 ];
@@ -130,17 +171,22 @@ function HeroVisual() {
           </span>
         </div>
         <div className='space-y-2 p-4 font-mono text-[11px] leading-relaxed'>
-          <p className='text-[#e1f56e]'>{t('// a construir', "// let's build")}</p>
+          <p className='text-[#e1f56e]'>
+            {t('// a construir', "// let's build")}
+          </p>
           <p className='text-white/70'>
-            web<span className='text-white/30'>.</span>{t('publicar', 'publish')}
+            web<span className='text-white/30'>.</span>
+            {t('publicar', 'publish')}
             <span className='text-white/30'>()</span>
           </p>
           <p className='text-white/70'>
-            seo<span className='text-white/30'>.</span>{t('posicionar', 'rank')}
+            seo<span className='text-white/30'>.</span>
+            {t('posicionar', 'rank')}
             <span className='text-white/30'>(&apos;local&apos;)</span>
           </p>
           <p className='text-white/70'>
-            ads<span className='text-white/30'>.</span>{t('lanzar', 'launch')}
+            ads<span className='text-white/30'>.</span>
+            {t('lanzar', 'launch')}
             <span className='text-white/30'>()</span>
             <span className='rd-caret ml-0.5 inline-block h-3 w-1.5 translate-y-0.5 bg-[#e1f56e]' />
           </p>
@@ -151,16 +197,25 @@ function HeroVisual() {
       </div>
 
       <div className='rd-float-2 absolute bottom-[16%] right-[2%] w-[60%] rounded-xl border border-white/10 bg-white p-4 text-[#141414] shadow-2xl'>
-        <p className='text-[10px] text-[#4d4d4c]'>{t('Google · cerca de ti', 'Google · near you')}</p>
+        <p className='text-[10px] text-[#4d4d4c]'>
+          {t('Google · cerca de ti', 'Google · near you')}
+        </p>
         <p className='mt-1 text-sm font-bold text-[#3346c1]'>
           {t('Tu negocio · Web oficial', 'Your business · Official site')}
         </p>
         <p className='mt-1 text-[11px] text-[#e3a008]'>
-          ★★★★★ <span className='text-[#4d4d4c]'>{t('· Abierto ahora', '· Open now')}</span>
+          ★★★★★{' '}
+          <span className='text-[#4d4d4c]'>
+            {t('· Abierto ahora', '· Open now')}
+          </span>
         </p>
         <div className='mt-3 flex gap-2'>
-          <span className='rounded-full bg-[#141414] px-2.5 py-1 text-[10px] font-semibold text-white'>{t('Llamar', 'Call')}</span>
-          <span className='rounded-full border border-[#cbccc7] px-2.5 py-1 text-[10px] font-semibold'>{t('Cómo llegar', 'Directions')}</span>
+          <span className='rounded-full bg-[#141414] px-2.5 py-1 text-[10px] font-semibold text-white'>
+            {t('Llamar', 'Call')}
+          </span>
+          <span className='rounded-full border border-[#cbccc7] px-2.5 py-1 text-[10px] font-semibold'>
+            {t('Cómo llegar', 'Directions')}
+          </span>
         </div>
       </div>
 
@@ -169,7 +224,10 @@ function HeroVisual() {
           +1
         </span>
         <span className='text-[11px] text-white/80'>
-          {t('«Hola, ¿tenéis hueco el jueves?»', '“Hi, any slots on Thursday?”')}
+          {t(
+            '«Hola, ¿tenéis hueco el jueves?»',
+            '“Hi, any slots on Thursday?”',
+          )}
         </span>
       </div>
     </div>
@@ -270,12 +328,12 @@ function RetentionRing({ value = 90 }: { value?: number }) {
           <span className='text-brand-light'>%</span>
         </span>
         <span className='mt-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[#ffffff]/60'>
-          {t('se quedan', 'stay')}</span>
+          {t('se quedan', 'stay')}
+        </span>
       </div>
     </div>
   );
 }
-
 
 export default function HomeV2() {
   usePageMeta('/');
@@ -295,23 +353,33 @@ export default function HomeV2() {
         <div className='relative mx-auto grid min-h-[calc(100svh-var(--site-header-h))] max-w-[1320px] items-center gap-12 px-5 pb-20 pt-14 md:pb-28 md:px-8 lg:grid-cols-[1.15fr_1fr_0.75fr]'>
           <div>
             <p className='rd-eyebrow mb-6'>
-              {t('Web · eCommerce · SEO · SEM · GEO · Redes', 'Web · eCommerce · SEO · SEM · GEO · Social')}
+              {t(
+                'Web · eCommerce · SEO · SEM · GEO · Redes',
+                'Web · eCommerce · SEO · SEM · GEO · Social',
+              )}
             </p>
             <h1 className='rd-h1'>
               {t('Tu negocio,', 'Your business,')}
               <br />
               <span className='rd-mark'>{t('visible', 'visible')}</span>
               <br />
-              <span className='text-[#e1f56e]'>{t('y sin líos.', 'hassle-free.')}</span>
+              <span className='text-[#e1f56e]'>
+                {t('y sin líos.', 'hassle-free.')}
+              </span>
             </h1>
             <p className='mt-7 max-w-md text-base leading-relaxed text-white/65 md:text-lg'>
-              {t('Hacemos tu web, te ponemos en Google y en la IA, y llevamos tus redes. Un solo equipo para que tus clientes te encuentren y te escriban.', 'We build your website, put you on Google and in AI answers, and run your social media. One team so your customers find you and get in touch.')}
+              {t(
+                'Hacemos tu web, te ponemos en Google y en la IA, y llevamos tus redes. Un solo equipo para que tus clientes te encuentren y te escriban.',
+                'We build your website, put you on Google and in AI answers, and run your social media. One team so your customers find you and get in touch.',
+              )}
             </p>
             <div className='mt-9 flex flex-wrap gap-3'>
               <a href={CONTACT_PATH} className='rd-btn'>
                 {t('Pide una revisión gratis', 'Get a free review')} ↗
               </a>
-              <a href={CASES_PATH} className='rd-btn-ghost'>{t('Ver casos', 'See case studies')}</a>
+              <a href={CASES_PATH} className='rd-btn-ghost'>
+                {t('Ver resultados', 'See results')}
+              </a>
             </div>
             <GoogleBadge className='mt-8' />
           </div>
@@ -319,7 +387,9 @@ export default function HomeV2() {
           <HeroVisual />
 
           <aside className='hidden lg:block'>
-            <p className='rd-eyebrow mb-4 text-white/50'>{t('Nuestros servicios', 'Our services')}</p>
+            <p className='rd-eyebrow mb-4 text-white/50'>
+              {t('Nuestros servicios', 'Our services')}
+            </p>
             <ul className='divide-y divide-white/10 border-y border-white/10'>
               {SERVICES.map((s) => (
                 <li key={s.slug}>
@@ -338,7 +408,7 @@ export default function HomeV2() {
                 </li>
               ))}
             </ul>
-                    </aside>
+          </aside>
         </div>
 
         {/* Divisor en ola hacia la sección clara */}
@@ -381,16 +451,23 @@ export default function HomeV2() {
         >
           <div className='mb-14 grid gap-8 lg:grid-cols-2 lg:items-end'>
             <div>
-              <p className='rd-eyebrow mb-5'>{t('Sistema 36web', 'The 36web system')}</p>
+              <p className='rd-eyebrow mb-5'>
+                {t('Todo en un equipo', 'All in one team')}
+              </p>
               <h2 className='rd-h2'>
                 {t('Un solo equipo,', 'One team,')}
                 <br />
                 <span className='rd-mark'>{t('todos', 'all')}</span>{' '}
-                <span className='text-[#e1f56e]'>{t('tus canales.', 'your channels.')}</span>
+                <span className='text-[#e1f56e]'>
+                  {t('tus canales.', 'your channels.')}
+                </span>
               </h2>
             </div>
             <p className='max-w-lg text-white/60 lg:justify-self-end'>
-              {t('La web, Google, la IA y las redes funcionan mejor cuando las lleva el mismo equipo. Elegimos lo que tu negocio necesita y lo hacemos trabajar junto, con un objetivo: que te contacten más.', 'Your website, Google, AI and social media work better when one team runs them. We pick what your business needs and make it work together, with one goal: more people getting in touch.')}
+              {t(
+                'La web, Google, la IA y las redes funcionan mejor cuando las lleva el mismo equipo. Elegimos lo que tu negocio necesita y lo hacemos trabajar junto, con un objetivo: que te contacten más.',
+                'Your website, Google, AI and social media work better when one team runs them. We pick what your business needs and make it work together, with one goal: more people getting in touch.',
+              )}
             </p>
           </div>
           <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
@@ -413,7 +490,7 @@ export default function HomeV2() {
                   {s.short}
                 </p>
                 <span className='mt-auto pt-6 text-xs font-bold uppercase tracking-[0.16em] text-white/60 group-hover:text-[#e1f56e]'>
-                  {t('Explorar', 'Explore')} ↗
+                  {t('Ver servicio', 'View service')} →
                 </span>
               </a>
             ))}
@@ -437,16 +514,23 @@ export default function HomeV2() {
       <section className='bg-[#101110]'>
         <div className='mx-auto grid max-w-[1320px] gap-14 px-5 py-24 md:px-8 md:py-32 lg:grid-cols-2'>
           <div>
-            <p className='rd-eyebrow mb-5'>{t('Tranquilidad digital', 'Digital peace of mind')}</p>
+            <p className='rd-eyebrow mb-5'>
+              {t('Tranquilidad digital', 'Digital peace of mind')}
+            </p>
             <h2 className='rd-h2'>
               {t('Tú a lo tuyo.', 'You run your business.')}
               <br />
               <span className='rd-mark'>{t('Nosotros,', 'We handle')}</span>
               <br />
-              <span className='text-[#e1f56e]'>{t('a lo digital.', 'digital.')}</span>
+              <span className='text-[#e1f56e]'>
+                {t('a lo digital.', 'digital.')}
+              </span>
             </h2>
             <p className='mt-7 max-w-md text-white/60'>
-              {t('Cuando hay hosting, dominios, programadores, plataformas y facturas de por medio, alguien tiene que estar de tu lado. Ese somos nosotros.', 'When hosting, domains, developers, platforms and invoices are involved, someone needs to be on your side. That’s us.')}
+              {t(
+                'Cuando hay hosting, dominios, programadores, plataformas y facturas de por medio, alguien tiene que estar de tu lado. Ese somos nosotros.',
+                'When hosting, domains, developers, platforms and invoices are involved, someone needs to be on your side. That’s us.',
+              )}
             </p>
             <a href={TRANQUILIDAD_DIGITAL_PATH} className='rd-btn mt-9'>
               {t('Cómo funciona', 'How it works')} ↗
@@ -456,20 +540,23 @@ export default function HomeV2() {
             {(en
               ? PEACE_EN
               : ([
-              [
-                'Un solo interlocutor',
-                'Hablamos nosotros con proveedores y plataformas.',
-              ],
-              [
-                'Revisamos antes de pagar',
-                'Presupuestos y facturas con criterio técnico.',
-              ],
-              [
-                'Copias y seguridad',
-                'Tu web vigilada, actualizada y con copias al día.',
-              ],
-              ['Decides tú', 'Te lo explicamos claro y tú das el visto bueno.'],
-            ] as [string, string][])
+                  [
+                    'Un solo interlocutor',
+                    'Hablamos nosotros con proveedores y plataformas.',
+                  ],
+                  [
+                    'Revisamos antes de pagar',
+                    'Presupuestos y facturas con criterio técnico.',
+                  ],
+                  [
+                    'Copias y seguridad',
+                    'Tu web vigilada, actualizada y con copias al día.',
+                  ],
+                  [
+                    'Decides tú',
+                    'Te lo explicamos claro y tú das el visto bueno.',
+                  ],
+                ] as [string, string][])
             ).map(([tt, d]) => (
               <li key={tt} className='rd-card p-6'>
                 <span className='rd-dot' aria-hidden='true' />
@@ -486,8 +573,11 @@ export default function HomeV2() {
         <section className='mx-auto max-w-[1320px] px-5 py-24 md:px-8 md:py-32'>
           <p className='rd-eyebrow mb-5'>{t('Método', 'Method')}</p>
           <h2 className='rd-h2 max-w-[16ch]'>
-            {t('Primero', 'First,')} <span className='rd-mark'>{t('entender.', 'understand.')}</span>{' '}
-            <span className='text-[#e1f56e]'>{t('Después construir.', 'Then build.')}</span>
+            {t('Primero', 'First,')}{' '}
+            <span className='rd-mark'>{t('entender.', 'understand.')}</span>{' '}
+            <span className='text-[#e1f56e]'>
+              {t('Después construir.', 'Then build.')}
+            </span>
           </h2>
           <ol className='mt-14 grid gap-px overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/10 md:grid-cols-2 lg:grid-cols-4'>
             {STEPS_L.map((s) => (
@@ -509,9 +599,12 @@ export default function HomeV2() {
           <div className='mx-auto max-w-[1320px] px-5 py-24 md:px-8 md:py-32'>
             <div className='mb-12 flex flex-wrap items-end justify-between gap-6'>
               <div>
-                <p className='rd-eyebrow mb-5'>{t('Casos de éxito', 'Case studies')}</p>
+                <p className='rd-eyebrow mb-5'>
+                  {t('Casos de éxito', 'Case studies')}
+                </p>
                 <h2 className='rd-h2'>
-                  {t('Resultados', 'Real')} <span className='rd-mark'>{t('reales.', 'results.')}</span>
+                  {t('Resultados', 'Real')}{' '}
+                  <span className='rd-mark'>{t('reales.', 'results.')}</span>
                 </h2>
               </div>
               <a href={CASES_PATH} className='rd-btn-ghost'>
@@ -538,20 +631,25 @@ export default function HomeV2() {
               <span className='rd-mark'>{t('se quedan.', 'stay.')}</span>
             </h2>
             <p className='mt-7 max-w-md text-white/60'>
-              {t('Se quedan porque su web les trae clientes y porque, cuando algo pasa, siempre hay alguien al otro lado que conoce su negocio.', 'They stay because their website brings them customers and because, when something comes up, there’s always someone on the other end who knows their business.')}
+              {t(
+                'Se quedan porque su web les trae clientes y porque, cuando algo pasa, siempre hay alguien al otro lado que conoce su negocio.',
+                'They stay because their website brings them customers and because, when something comes up, there’s always someone on the other end who knows their business.',
+              )}
             </p>
             <dl className='mt-10 flex flex-wrap gap-x-12 gap-y-6'>
               <div>
                 <dt className='font-mono text-[11px] uppercase tracking-[0.2em] text-white/50'>
                   {t('Clientes desde que abrimos', 'Clients since we opened')}
                 </dt>
-                <dd className='mt-1 text-3xl font-black'>+20</dd>
+                <dd className='mt-1 text-3xl font-black'>+23</dd>
               </div>
               <div>
                 <dt className='font-mono text-[11px] uppercase tracking-[0.2em] text-white/50'>
                   {t('Siguen con nosotros', 'Still with us')}
                 </dt>
-                <dd className='mt-1 text-3xl font-black'>{t('9 de 10', '9 in 10')}</dd>
+                <dd className='mt-1 text-3xl font-black'>
+                  {t('9 de 10', '9 in 10')}
+                </dd>
               </div>
             </dl>
           </div>
@@ -563,7 +661,10 @@ export default function HomeV2() {
               <RetentionRing value={90} />
             </div>
             <p className='mt-6 text-center text-lg font-semibold'>
-              {t('9 de cada 10 clientes siguen con nosotros.', '9 out of 10 clients stay with us.')}
+              {t(
+                '9 de cada 10 clientes siguen con nosotros.',
+                '9 out of 10 clients stay with us.',
+              )}
             </p>
           </div>
         </div>
@@ -575,10 +676,15 @@ export default function HomeV2() {
         <section className='mx-auto max-w-[1320px] px-5 py-24 md:px-8 md:py-32'>
           <div className='grid gap-12 lg:grid-cols-[0.9fr_1.1fr]'>
             <div>
-              <p className='rd-eyebrow mb-5'>{t('Por qué 36web', 'Why 36web')}</p>
+              <p className='rd-eyebrow mb-5'>
+                {t('Por qué 36web', 'Why 36web')}
+              </p>
               <h2 className='rd-h2'>
-                {t('La confianza', 'Trust is')} <span className='rd-mark'>{t('se gana', 'earned')}</span>{' '}
-                <span className='text-[#e1f56e]'>{t('trabajando.', 'by working.')}</span>
+                {t('La confianza', 'Trust is')}{' '}
+                <span className='rd-mark'>{t('se gana', 'earned')}</span>{' '}
+                <span className='text-[#e1f56e]'>
+                  {t('trabajando.', 'by working.')}
+                </span>
               </h2>
             </div>
             <dl className='grid gap-x-10 gap-y-10 sm:grid-cols-2'>
@@ -597,9 +703,12 @@ export default function HomeV2() {
       <section className='rd-light'>
         <div className='mx-auto grid max-w-[1320px] gap-12 px-5 py-24 md:px-8 md:py-32 lg:grid-cols-[0.8fr_1.2fr]'>
           <div>
-            <p className='rd-eyebrow mb-5'>{t('Preguntas frecuentes', 'FAQ')}</p>
+            <p className='rd-eyebrow mb-5'>
+              {t('Preguntas frecuentes', 'FAQ')}
+            </p>
             <h2 className='rd-h2'>
-              {t('Hablemos', 'Straight')} <span className='rd-mark'>{t('claro.', 'talk.')}</span>
+              {t('Hablemos', 'Straight')}{' '}
+              <span className='rd-mark'>{t('claro.', 'talk.')}</span>
             </h2>
           </div>
           <div className='divide-y divide-white/10 border-y border-white/10'>
@@ -629,10 +738,16 @@ export default function HomeV2() {
             // let&apos;s build
           </p>
           <h2 className='rd-h2 relative mt-5 max-w-[15ch]'>
-            {t('¿Revisamos tu web gratis?', 'Shall we review your website for free?')}
+            {t(
+              '¿Revisamos tu web gratis?',
+              'Shall we review your website for free?',
+            )}
           </h2>
           <p className='relative mt-5 max-w-lg text-[#0b0c0a]/75'>
-            {t('Te decimos qué está frenando a tus clientes y cómo lo arreglaríamos. Sin compromiso.', 'We’ll tell you what’s holding your customers back and how we’d fix it. No strings attached.')}
+            {t(
+              'Te decimos qué está frenando a tus clientes y cómo lo arreglaríamos. Sin compromiso.',
+              'We’ll tell you what’s holding your customers back and how we’d fix it. No strings attached.',
+            )}
           </p>
           <div className='relative mt-9 flex flex-wrap gap-3'>
             <a
