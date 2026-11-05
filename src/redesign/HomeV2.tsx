@@ -641,7 +641,7 @@ export default function HomeV2() {
                 <dt className='font-mono text-[11px] uppercase tracking-[0.2em] text-white/50'>
                   {t('Clientes desde que abrimos', 'Clients since we opened')}
                 </dt>
-                <dd className='mt-1 text-3xl font-black'>+23</dd>
+                <dd className='mt-1 text-3xl font-black'>+20</dd>
               </div>
               <div>
                 <dt className='font-mono text-[11px] uppercase tracking-[0.2em] text-white/50'>
