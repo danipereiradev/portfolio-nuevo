@@ -769,3 +769,9 @@ h6 {
     min-height: 100svh;
   }
 }
+
+/* Selección de texto en toda la web: amarillo accent de 36web */
+::selection {
+  background: #e1f56e;
+  color: #0b0c0a;
+}
