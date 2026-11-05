@@ -380,7 +380,7 @@
   z-index: -1;
   top: 50%;
   font-weight: 900;
-  font-size: clamp(15rem, 36vw, 34rem);
+  font-size: clamp(30rem, 72vw, 68rem);
   line-height: 0.8;
   letter-spacing: -0.06em;
   pointer-events: none;
