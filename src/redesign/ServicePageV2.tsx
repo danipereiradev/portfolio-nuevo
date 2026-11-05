@@ -6,6 +6,8 @@ import { SERVICES_PATH } from './services';
 import { usePrefs } from './prefs';
 import { useServices } from './i18n/content';
 import BgDigit from './BgDigit';
+import { LOCAL_WEB_LISTED_CITIES } from '../data/localWebCities';
+import { localWebCityHref } from '../config/contact';
 
 function CtaBand({ text }: { text: string }) {
   const { t } = usePrefs();
@@ -140,6 +142,21 @@ export default function ServicePageV2({ slug: slugProp }: { slug?: string }) {
           ))}
         </div>
       </section>
+
+      {s.slug === 'diseno-web' ? (
+        <section className='mx-auto max-w-[1320px] px-5 pb-20 md:px-8'>
+          <p className='rd-eyebrow mb-5'>{t('Diseño web por zonas', 'Web design by area')}</p>
+          <ul className='flex flex-wrap gap-2'>
+            {LOCAL_WEB_LISTED_CITIES.map((c) => (
+              <li key={c.slug}>
+                <a href={localWebCityHref(c.slug)} className='inline-block rounded-full border border-white/15 px-4 py-2 text-sm font-semibold hover:border-[#141414]'>
+                  {t(`Diseño web en ${c.ciudad}`, `Web design in ${c.ciudad}`)}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
 
       </div>
 

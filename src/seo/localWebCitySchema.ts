@@ -22,7 +22,7 @@ export const buildLocalWebCityJsonLd = (city: LocalWebCity) => {
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': 'Organization',
+        '@type': 'ProfessionalService',
         '@id': `${SITE_URL}/#organization`,
         name: '36web',
         url: `${SITE_URL}/`,

@@ -11,7 +11,7 @@ import {
   SITE_WEB_LABEL,
   SITE_WEB_PATH,
   TALENT_PATH,
-  localWebCityPath,
+  localWebCityHref,
 } from '../config/contact';
 import {
   LOCAL_WEB_LISTED_CITIES,
@@ -40,7 +40,7 @@ const pOnMedia = (text: string) =>
   `<p class="text-xl text-white md:text-2xl">${escapeHtml(text)}</p>`;
 
 const cityLink = (slug: string, label: string) =>
-  `<a href="${escapeHtml(localWebCityPath(slug))}" class="font-bold text-link underline">${escapeHtml(label)}</a>`;
+  `<a href="${escapeHtml(localWebCityHref(slug))}" class="font-bold text-link underline">${escapeHtml(label)}</a>`;
 
 export const buildLocalWebSpainSectionHtml = (currentSlug?: string) => {
   if (LOCAL_WEB_LISTED_CITIES.length === 0) return '';
@@ -149,7 +149,7 @@ export const buildLocalWebCityBodyHtml = (city: LocalWebCity) => {
                 <ol class="flex flex-wrap items-center justify-center gap-x-1.5">
                   <li><a href="/" class="underline decoration-current/25 underline-offset-4">Inicio</a></li>
                   <li aria-hidden="true">/</li>
-                  <li><a href="${SITE_WEB_PATH}" class="underline decoration-current/25 underline-offset-4">${escapeHtml(SITE_WEB_LABEL)}</a></li>
+                  <li><a href="${SITE_WEB_PATH}/" class="underline decoration-current/25 underline-offset-4">${escapeHtml(SITE_WEB_LABEL)}</a></li>
                   <li aria-hidden="true">/</li>
                   <li>${escapeHtml(h1)}</li>
                 </ol>
@@ -287,7 +287,7 @@ export const buildNotFoundBodyHtml = () => `
       <p class="mt-6 text-lg">
         <a href="/" class="font-bold text-link underline">Inicio</a>
         ·
-        <a href="${SITE_WEB_PATH}" class="font-bold text-link underline">${escapeHtml(SITE_WEB_LABEL)}</a>
+        <a href="${SITE_WEB_PATH}/" class="font-bold text-link underline">${escapeHtml(SITE_WEB_LABEL)}</a>
       </p>
     </div>
   </main>`;

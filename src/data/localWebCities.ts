@@ -230,6 +230,11 @@ const torrejon: LocalWebCity = {
   ],
   faq_local: [
     {
+      question: '¿Dónde está 36web en Torrejón de Ardoz?',
+      answer:
+        'En la calle Condega 7, 28850 Torrejón de Ardoz. Atendemos de lunes a viernes de 9:00 a 20:00.',
+    },
+    {
       question:
         '¿Hacéis webs en Torrejón de Ardoz para empresas del Corredor del Henares?',
       answer:
@@ -455,9 +460,9 @@ const coslada: LocalWebCity = {
   ciudad: 'Coslada',
   provincia: 'Madrid',
   comunidad: 'Comunidad de Madrid',
-  title: 'Diseño web en Coslada para autónomos y empresas | 36web',
+  title: 'Diseño web en Coslada | Páginas web para empresas | 36web',
   description:
-    'Diseño web en Coslada para logística, comercios de barrio, oficios y clínicas. Atención directa. Precio y plazos por escrito.',
+    'Diseño de páginas web en Coslada para comercios, logística, oficios y clínicas. Atención directa en el Corredor del Henares y propuesta por escrito el mismo día.',
   hero_lead:
     'Diseño web en Coslada para quien factura cerca del aeropuerto o en el barrio. Clara, móvil y con contacto a la vista.',
   intro_local: [
@@ -520,6 +525,11 @@ const coslada: LocalWebCity = {
   ],
   faq_local: [
     {
+      question: '¿Hacéis diseño de páginas web en Coslada para empresas de logística y polígono?',
+      answer:
+        'Sí. Para una empresa de transporte, almacén o servicios cerca del aeropuerto, la web explica qué mueves, a qué zonas das servicio y cómo pedir presupuesto, sin rodeos.',
+    },
+    {
       question:
         '¿Montáis webs para empresas de logística cerca del aeropuerto?',
       answer:
@@ -554,15 +564,16 @@ const vigo: LocalWebCity = {
   ciudad: 'Vigo',
   provincia: 'Pontevedra',
   comunidad: 'Galicia',
-  title: 'Diseño web en Vigo para empresas y autónomos | 36web',
+  title: 'Diseño web en Vigo | Páginas web con SEO para empresas | 36web',
   description:
-    'Diseño web en Vigo para empresas, profesionales, comercios e industria. Webs claras, rápidas y pensadas para captar contactos.',
+    'Diseño de páginas web en Vigo con SEO desde el primer día. Carper Sonido, cliente de Vigo, sale primero en Google en sus búsquedas. Propuesta por escrito.',
   hero_lead:
     'Diseño web en Vigo para negocios que necesitan explicar bien lo que hacen y convertir visitas en contactos.',
   intro_local: [
     'Diseñamos páginas web para empresas y profesionales de Vigo que necesitan presentar bien sus servicios, generar contactos y tener una presencia online a la altura de su negocio.',
     'Vigo tiene un tejido empresarial muy distinto al de una ciudad puramente comercial: industria, automoción, logística, actividad portuaria, comercio y servicios conviven en una misma plaza. La web tiene que adaptarse al tipo de cliente que buscas, no seguir una plantilla genérica.',
     'Trabajamos tanto con negocios que venden directamente al público como con empresas B2B que necesitan explicar servicios técnicos, proyectos, zonas de trabajo o formas de solicitar presupuesto.',
+    'Un ejemplo en Vigo: hicimos la web y el SEO de Carper Sonido, empresa de sonido profesional y eventos. Hoy sale primera en Google cuando alguien busca contratar, alquilar o reparar sonido en Vigo.',
   ],
   contexto_local: {
     area: 'Área de Vigo',
@@ -666,6 +677,7 @@ const vigo: LocalWebCity = {
   ],
   verified_at: '2026-09-22',
   relatedCitySlugs: [],
+  caso_slug: 'carper-sonido',
 };
 
 /**
@@ -677,15 +689,16 @@ const logrono: LocalWebCity = {
   ciudad: 'Logroño',
   provincia: 'La Rioja',
   comunidad: 'La Rioja',
-  title: 'Diseño web en Logroño para empresas y autónomos | 36web',
+  title: 'Diseño web y tiendas online en Logroño | 36web',
   description:
-    'Diseño web en Logroño para empresas, comercios, bodegas y profesionales. Webs claras, rápidas y pensadas para captar contactos.',
+    'Diseño de páginas web y tiendas online en Logroño. Hicimos la tienda de Camisetas Ahora, que pasó de taller en Logroño a vender en toda España.',
   hero_lead:
     'Diseño web en Logroño para negocios que quieren explicar bien lo que hacen y convertir visitas en clientes.',
   intro_local: [
     'Diseñamos páginas web para empresas, autónomos y negocios de Logroño que necesitan presentar bien sus servicios, generar contactos y tener una web que funcione de verdad en móvil.',
     'Logroño combina comercio local, servicios profesionales, industria y una actividad muy vinculada al vino, la gastronomía y el turismo. Por eso no planteamos igual la web de una bodega, un despacho, un comercio del centro o una empresa de La Portalada.',
     'La estructura se adapta a cómo compra tu cliente: reservar, pedir presupuesto, conocer tus servicios, localizar el negocio o contactar directamente contigo.',
+    'También hacemos tiendas online en Logroño. Camisetas Ahora era un taller de serigrafía que vendía a clientes de Logroño y alrededores; con su tienda online vende prendas personalizadas en toda España.',
   ],
   contexto_local: {
     area: 'Logroño y su entorno',
@@ -796,6 +809,7 @@ const logrono: LocalWebCity = {
   ],
   verified_at: '2026-09-22',
   relatedCitySlugs: [],
+  caso_slug: 'camisetas-ahora',
 };
 
 export const LOCAL_WEB_CITIES: Record<string, LocalWebCity> = {

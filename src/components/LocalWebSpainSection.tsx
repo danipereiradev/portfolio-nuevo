@@ -1,7 +1,7 @@
 import {
   SITE_WEB_LABEL,
   SITE_WEB_PATH,
-  localWebCityPath,
+  localWebCityHref,
 } from '../config/contact';
 import {
   LOCAL_WEB_LISTED_CITIES,
@@ -59,7 +59,7 @@ export const LocalWebSpainSection = ({
           {cities.map((city) => (
             <li key={city.slug}>
               <a
-                href={localWebCityPath(city.slug)}
+                href={localWebCityHref(city.slug)}
                 className='font-bold text-link underline'
               >
                 Diseño web en {city.ciudad}

@@ -66,6 +66,8 @@ export type LocalWebCity = {
   /** Fecha ISO `YYYY-MM-DD` de la última revisión del contenido local. */
   verified_at: string;
   relatedCitySlugs: string[];
+  /** Slug de un caso de éxito REAL de esta ciudad (src/redesign/cases.ts). Nunca inventar. */
+  caso_slug?: string;
 };
 
 export const LOCAL_WEB_PRESENCIA_TIPOS: readonly LocalWebPresenciaTipo[] = [

@@ -1,5 +1,7 @@
 import { usePrefs } from './prefs';
 import { useServices } from './i18n/content';
+import { LOCAL_WEB_LISTED_CITIES } from '../data/localWebCities';
+import { localWebCityHref } from '../config/contact';
 import { CASES_PATH } from './cases';
 import { Logo36 } from './SiteHeader';
 import {
@@ -95,6 +97,16 @@ export default function SiteFooter() {
             </ul>
           </div>
         </div>
+
+        {/* Zonas: enlaces internos a las páginas locales */}
+        <nav aria-label={t('Diseño web por zonas', 'Web design by area')} className='flex flex-wrap items-baseline gap-x-5 gap-y-2 border-t border-white/10 py-6'>
+          <span className='rd-eyebrow'>{t('Zonas', 'Areas')}</span>
+          {LOCAL_WEB_LISTED_CITIES.map((c) => (
+            <a key={c.slug} href={localWebCityHref(c.slug)} className='rd-footlink !text-xs'>
+              {t(`Diseño web en ${c.ciudad}`, `Web design in ${c.ciudad}`)}
+            </a>
+          ))}
+        </nav>
 
         <div className='flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-white/40 md:flex-row md:items-center md:justify-between'>
           <p>© {new Date().getFullYear()} 36web</p>

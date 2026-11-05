@@ -140,6 +140,8 @@ export const SITE_WEB_LABEL = 'Diseño web';
 
 /** SEO local: /diseno-web/{slug}/. El slug vive en `src/data/localWebCities.ts`. */
 export const localWebCityPath = (slug: string) => `${SITE_WEB_PATH}/${slug}`;
+/** Enlace interno a una ciudad, con barra final como la canonical (evita URLs duplicadas en Google). */
+export const localWebCityHref = (slug: string) => `${SITE_WEB_PATH}/${slug}/`;
 
 /** Página de servicio (orgánica). Menú Servicios → Tiendas online. */
 export const SITE_SHOP_PATH = '/tiendas-online';

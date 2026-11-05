@@ -6,6 +6,8 @@ import { usePrefs } from './prefs';
 import { useCases } from './i18n/content';
 import SerpProof from './SerpProof';
 import BgDigit from './BgDigit';
+import { LOCAL_WEB_LISTED_CITIES } from '../data/localWebCities';
+import { localWebCityHref } from '../config/contact';
 
 export function CaseCard({ c }: { c: CaseItem }) {
   const { t } = usePrefs();
@@ -270,6 +272,22 @@ export default function CasePage() {
           ) : null}
         </div>
       </section>
+
+      {/* CIUDAD DEL CASO: enlace a su página local */}
+      {(() => {
+        const local = LOCAL_WEB_LISTED_CITIES.find((x) => x.caso_slug === c.slug);
+        return local ? (
+          <section className='mx-auto max-w-[1320px] px-5 pt-24 md:px-8'>
+            <a href={localWebCityHref(local.slug)} className='rd-card group flex flex-col gap-3 p-8 md:flex-row md:items-center md:justify-between'>
+              <span>
+                <span className='rd-eyebrow'>{t('¿Tu negocio está en', 'Is your business in')} {local.ciudad}?</span>
+                <span className='mt-2 block text-2xl font-extrabold uppercase'>{t(`Diseño web en ${local.ciudad}`, `Web design in ${local.ciudad}`)}</span>
+              </span>
+              <span className='text-sm font-bold uppercase tracking-[0.14em] text-white/60 group-hover:text-[#e1f56e]'>{t('Ver página', 'See page')} →</span>
+            </a>
+          </section>
+        ) : null;
+      })()}
 
       {/* SIGUIENTE CASO */}
       {next && next.slug !== c.slug ? (

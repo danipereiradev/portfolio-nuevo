@@ -8,7 +8,7 @@ import {
   SITE_SHOP_PATH,
   SITE_WEB_PATH,
   buildWhatsAppUrl,
-  localWebCityPath,
+  localWebCityHref,
 } from '../config/contact';
 import {
   getLocalGeoContext,
@@ -24,6 +24,9 @@ import { buildLocalWebCityJsonLd } from '../seo/localWebCitySchema';
 import GoogleBadge from './GoogleBadge';
 import { SpanishOnlyNotice } from './prefs';
 import BgDigit from './BgDigit';
+import { CASES } from './cases';
+import { CaseCard } from './CasePages';
+import SerpProof from './SerpProof';
 
 /** Resalta el nombre de la ciudad en el texto. */
 const withCity = (text: string, ciudad: string) =>
@@ -51,6 +54,7 @@ function CityPage({ city }: { city: LocalWebCity }) {
   const demos = getLocalWebDemos(city);
   const related = getRelatedCities(city);
   const faqs = getPublishedLocalWebFaqs(city);
+  const caso = city.caso_slug ? CASES.find((c) => c.slug === city.caso_slug) : undefined;
 
   return (
     <main className='rd rd-page'>
@@ -60,7 +64,7 @@ function CityPage({ city }: { city: LocalWebCity }) {
         <div className='rd-grid-bg pointer-events-none absolute inset-0' />
         <div className='relative mx-auto grid max-w-[1320px] gap-10 px-5 pb-20 pt-20 md:px-8 lg:grid-cols-[1.3fr_1fr] lg:items-end'>
           <div>
-            <a href={SITE_WEB_PATH} className='rd-eyebrow mb-6 inline-block hover:!text-white'>
+            <a href={`${SITE_WEB_PATH}/`} className='rd-eyebrow mb-6 inline-block hover:!text-white'>
               Presencia · Diseño web · {city.provincia}
             </a>
             <h1 className='rd-h1'>
@@ -119,6 +123,30 @@ function CityPage({ city }: { city: LocalWebCity }) {
           </div>
         </div>
       </section>
+
+      {/* CASO REAL EN LA CIUDAD */}
+      {caso ? (
+        <section className='mx-auto max-w-[1320px] px-5 py-24 md:px-8'>
+          <p className='rd-eyebrow mb-5'>Caso real en {city.ciudad}</p>
+          <h2 className='rd-h2 max-w-[20ch]'>
+            Ya trabajamos <span className='rd-mark'>en {city.ciudad}.</span>
+          </h2>
+          <div className='mt-14 grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-start'>
+            <CaseCard c={caso} />
+            {caso.serp ? (
+              <SerpProof serp={caso.serp} name={caso.name} />
+            ) : (
+              <div className='rd-card p-8'>
+                <p className='font-mono text-[11px] uppercase tracking-[0.2em] text-white/45'>Antes</p>
+                <p className='mt-3 text-xl font-extrabold leading-snug'>{caso.before}</p>
+                <p className='mt-8 font-mono text-[11px] uppercase tracking-[0.2em] text-[#e1f56e]'>Después</p>
+                <p className='mt-3 text-xl font-extrabold leading-snug'>{caso.after}</p>
+                <a href={`/casos-de-exito/${caso.slug}`} className='rd-btn-ghost mt-8'>Ver el caso completo →</a>
+              </div>
+            )}
+          </div>
+        </section>
+      ) : null}
 
       {/* NECESIDADES */}
       {needs.length ? (
@@ -238,7 +266,7 @@ function CityPage({ city }: { city: LocalWebCity }) {
                   <ul className='flex flex-wrap gap-2'>
                     {related.map((c) => (
                       <li key={c.slug}>
-                        <a href={localWebCityPath(c.slug)} className='inline-block rounded-full border border-black/15 bg-white px-4 py-2 font-semibold text-[#141414] hover:border-[#141414]'>
+                        <a href={localWebCityHref(c.slug)} className='inline-block rounded-full border border-black/15 bg-white px-4 py-2 font-semibold text-[#141414] hover:border-[#141414]'>
                           {c.ciudad}
                         </a>
                       </li>
@@ -282,7 +310,7 @@ function CityPage({ city }: { city: LocalWebCity }) {
       <section className='px-5 py-24 md:px-8'>
         <div className='mx-auto flex max-w-[1320px] flex-col gap-8 rounded-[1.75rem] bg-[#e1f56e] px-7 py-14 text-[#0b0c0a] md:flex-row md:items-center md:justify-between md:px-14'>
           <div>
-            <p className='font-mono text-xs uppercase tracking-[0.2em]'>// let&apos;s build</p>
+            <p className='font-mono text-xs uppercase tracking-[0.2em]'>// a construir</p>
             <h2 className='rd-h2 mt-4 max-w-[18ch] !text-[clamp(1.9rem,4vw,3.4rem)]'>{city.cta_local.title}</h2>
             <p className='mt-4 max-w-lg text-[#0b0c0a]/70'>{city.cta_local.description}</p>
           </div>

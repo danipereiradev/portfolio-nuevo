@@ -189,18 +189,44 @@
       {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
+        "@id": "https://36web.es/#organization",
         "name": "36web",
+        "url": "https://36web.es/",
+        "logo": "https://36web.es/img/favicon/apple-touch-icon.png",
+        "image": "https://36web.es/img/portfolio/new/carper.webp",
+        "telephone": "+34644665352",
+        "email": "hola@36web.es",
         "description": "Agencia de diseño web y marketing digital, tiendas online y mantenimiento para autónomos y empresas de toda España.",
         "address": {
           "@type": "PostalAddress",
+          "streetAddress": "Calle Condega 7",
+          "postalCode": "28850",
+          "addressLocality": "Torrejón de Ardoz",
+          "addressRegion": "Madrid",
           "addressCountry": "ES"
         },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "20:00"
+        },
+        "sameAs": ["https://www.instagram.com/36web.es/"],
         "founder": {
           "@type": "Person",
           "name": "Dani Pereira",
           "jobTitle": "Desarrollador Web Senior"
         },
-        "areaServed": "ES",
+        "areaServed": [
+          { "@type": "City", "name": "Torrejón de Ardoz" },
+          { "@type": "City", "name": "Coslada" },
+          { "@type": "City", "name": "San Fernando de Henares" },
+          { "@type": "City", "name": "Alcalá de Henares" },
+          { "@type": "City", "name": "Madrid" },
+          { "@type": "City", "name": "Vigo" },
+          { "@type": "City", "name": "Logroño" },
+          { "@type": "Country", "name": "España" }
+        ],
         "serviceType": ["Diseño web", "Tiendas Online", "Mantenimiento Web"]
       }
     </script>
