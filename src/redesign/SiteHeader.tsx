@@ -30,7 +30,9 @@ export default function SiteHeader({ hideNav = false }: { hideNav?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const closeTimer = useRef<number>();
   const { t } = usePrefs();
-  const { services: SERVICES } = useServices();
+  const { services, extra } = useServices();
+  // Menú: los 7 servicios principales + mantenimiento web
+  const SERVICES = [...services, ...extra.filter((s) => s.slug === 'mantenimiento-web')];
   const NAV = useNav();
 
   useEffect(() => {
