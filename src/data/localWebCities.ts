@@ -230,9 +230,9 @@ const torrejon: LocalWebCity = {
   ],
   faq_local: [
     {
-      question: '¿Dónde está 36web en Torrejón de Ardoz?',
+      question: '¿36web es de Torrejón de Ardoz?',
       answer:
-        'En la calle Condega 7, 28850 Torrejón de Ardoz. Atendemos de lunes a viernes de 9:00 a 20:00.',
+        'Sí, somos de Torrejón de Ardoz. Trabajamos en remoto: hablamos por teléfono, WhatsApp o videollamada, de lunes a viernes de 9:00 a 18:00 y los sábados de 9:00 a 14:00.',
     },
     {
       question:

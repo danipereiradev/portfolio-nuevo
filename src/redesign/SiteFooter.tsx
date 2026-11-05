@@ -93,7 +93,7 @@ export default function SiteFooter() {
               <li><a href={`mailto:${CONTACT_EMAIL}`} className='rd-footlink'>{CONTACT_EMAIL}</a></li>
               <li><a href={INSTAGRAM_URL} target='_blank' rel='noopener noreferrer' className='rd-footlink'>Instagram</a></li>
               <li className='pt-2 text-white/45'>{BUSINESS_ADDRESS}</li>
-              <li className='text-white/45'>{t('L-V', 'Mon–Fri')} {BUSINESS_HOURS.replace('L-V de ', '').replace(' a ', t(' a ', ' – '))}</li>
+              <li className='text-white/45'>{t(BUSINESS_HOURS, 'Mon–Fri 9:00–18:00 · Sat 9:00–14:00')}</li>
             </ul>
           </div>
         </div>

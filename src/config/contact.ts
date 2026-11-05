@@ -4,14 +4,15 @@ export const PHONE_NUMBER = '34644665352';
 export const PHONE_DISPLAY = '644 665 352';
 export const PHONE_TEL_LINK = `tel:+${PHONE_NUMBER}`;
 export const CONTACT_EMAIL = 'hola@36web.es';
-export const BUSINESS_ADDRESS =
-  'Calle Condega 7, 28850, Torrejón de Ardoz, Madrid';
+/** Sin calle: trabajamos en remoto y la ficha de Google es de área de servicio. */
+export const BUSINESS_ADDRESS = 'Torrejón de Ardoz, Madrid · En remoto';
 export const INSTAGRAM_HANDLE = '36web.es';
 export const INSTAGRAM_URL = `https://www.instagram.com/${INSTAGRAM_HANDLE}/`;
 export const INSTAGRAM_EMBED_URL = `${INSTAGRAM_URL}embed/`;
 // Formspree ya entrega a CONTACT_EMAIL; el CC tiene que ser otra dirección.
 export const FORM_CC_EMAIL = 'info.danipereira@gmail.com';
-export const BUSINESS_HOURS = 'L-V de 9:00h a 20:00h';
+/** Igual que en Google Business. */
+export const BUSINESS_HOURS = 'L-V de 9:00h a 18:00h · S de 9:00h a 14:00h';
 export const BUSINESS_HOURS_LABEL = `Horario: ${BUSINESS_HOURS}`;
 
 // Ficha oficial de Google Maps (Pereira Web) para el mapa embebido en /contacto.

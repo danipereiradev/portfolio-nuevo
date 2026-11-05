@@ -194,7 +194,7 @@ export default function ContactV2() {
             </ul>
             <div className='mt-8 space-y-1 text-sm text-white/45'>
               <p>{BUSINESS_ADDRESS}</p>
-              <p>{t(BUSINESS_HOURS, 'Mon–Fri, 9:00–20:00')}</p>
+              <p>{t(BUSINESS_HOURS, 'Mon–Fri 9:00–18:00 · Sat 9:00–14:00')}</p>
             </div>
           </aside>
 
