@@ -120,7 +120,7 @@ export default function SiteHeader({ hideNav = false }: { hideNav?: boolean }) {
             <div className='ml-auto flex items-center gap-3 lg:ml-0'>
               <SettingsMenu />
               <a href={CONTACT_PATH} className='rd-btn-outline hidden lg:inline-flex'>
-                {t('Hablemos', 'Let’s talk')} <span aria-hidden='true'>↗</span>
+                {t('Cuéntanos', 'Tell us')} <span aria-hidden='true'>↗</span>
               </a>
             </div>
 
@@ -161,7 +161,7 @@ export default function SiteHeader({ hideNav = false }: { hideNav?: boolean }) {
             <SettingsPanel />
           </div>
           <a href={CONTACT_PATH} className='rd-btn mt-8 w-full justify-center'>
-            {t('Hablemos', 'Let’s talk')} ↗
+            {t('Cuéntanos', 'Tell us')} ↗
           </a>
         </div>
       ) : null}

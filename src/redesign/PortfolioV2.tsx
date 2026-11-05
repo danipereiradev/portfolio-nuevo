@@ -241,7 +241,7 @@ export default function PortfolioV2() {
           </div>
           <div className='flex flex-wrap gap-3'>
             <a href={CONTACT_PATH} className='inline-flex items-center gap-2 rounded-full bg-[#0b0c0a] px-7 py-4 text-xs font-bold uppercase tracking-[0.14em] text-white hover:bg-[#3346c1]'>
-              {t('Hablemos', 'Let’s talk')} ↗
+              {t('Cuéntanos', 'Tell us')} ↗
             </a>
             <a href={buildWhatsAppUrl()} target='_blank' rel='noopener noreferrer' className='inline-flex items-center rounded-full border border-[#0b0c0a]/30 px-7 py-4 text-xs font-bold uppercase tracking-[0.14em]'>
               WhatsApp

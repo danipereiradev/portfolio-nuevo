@@ -46,7 +46,7 @@ export default function SiteFooter() {
             </h2>
           </div>
           <div className='flex flex-wrap gap-3'>
-            <a href={CONTACT_PATH} className='rd-btn'>{t('Hablemos', 'Let’s talk')} ↗</a>
+            <a href={CONTACT_PATH} className='rd-btn'>{t('Cuéntanos', 'Tell us')} ↗</a>
             <a href={buildWhatsAppUrl()} target='_blank' rel='noopener noreferrer' className='rd-btn-ghost'>
               WhatsApp {PHONE_DISPLAY}
             </a>

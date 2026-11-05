@@ -138,7 +138,7 @@ export default function ContactV2() {
         <div className='rd-grid-bg pointer-events-none absolute inset-0' />
         <div className='relative mx-auto grid max-w-[1320px] items-center gap-12 px-5 pb-20 pt-16 md:px-8 lg:grid-cols-[1.4fr_1fr]'>
           <div>
-            <p className='rd-eyebrow mb-6'>{t('Contacto — Hablemos', 'Contact — Let’s talk')}</p>
+            <p className='rd-eyebrow mb-6'>{t('Contacto — Cuéntanos', 'Contact — Tell us')}</p>
             <h1 className='rd-h1'>
               {t('¿Qué le falta', 'What is your')}
               <br />
