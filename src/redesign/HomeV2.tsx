@@ -291,7 +291,7 @@ export default function HomeV2() {
       {/* HERO */}
       <section className='relative overflow-hidden pt-[var(--site-header-h)]'>
         <div className='rd-grid-bg pointer-events-none absolute inset-0' />
-        <div className='relative mx-auto grid min-h-[calc(100svh-var(--site-header-h)-3rem)] max-w-[1320px] items-center gap-12 px-5 py-14 md:px-8 lg:grid-cols-[1.15fr_1fr_0.75fr]'>
+        <div className='relative mx-auto grid min-h-[calc(100svh-var(--site-header-h))] max-w-[1320px] items-center gap-12 px-5 pb-20 pt-14 md:pb-28 md:px-8 lg:grid-cols-[1.15fr_1fr_0.75fr]'>
           <div>
             <p className='rd-eyebrow mb-6'>
               {t('Web · eCommerce · SEO · SEM · GEO · Redes', 'Web · eCommerce · SEO · SEM · GEO · Social')}
@@ -340,14 +340,35 @@ export default function HomeV2() {
                     </aside>
         </div>
 
-        {/* Divisor: regla con marcas y tramo lima */}
-        <div className='relative mx-auto max-w-[1320px] px-5 pb-6 md:px-8' aria-hidden='true'>
-          <div className='flex items-end gap-4 font-mono text-[10px] uppercase tracking-[0.22em] text-white/40'>
-            <span className='rd-nudge shrink-0 leading-none'>↓ {t('Sigue', 'Scroll')}</span>
-            <span className='rd-ruler flex-1' />
-            <span className='hidden shrink-0 leading-none sm:inline'>{t('Madrid · toda España', 'Madrid · all of Spain')}</span>
-          </div>
-        </div>
+        {/* Divisor en ola hacia la sección clara */}
+        <svg
+          className='pointer-events-none absolute inset-x-0 -bottom-px h-14 w-full md:h-24'
+          viewBox='0 0 1440 120'
+          preserveAspectRatio='none'
+          aria-hidden='true'
+        >
+          <path
+            className='rd-wave-fill'
+            opacity='0.06'
+            d='M0,58 C220,104 470,10 735,44 C985,76 1190,118 1440,50 L1440,120 L0,120 Z'
+          />
+          <path
+            className='rd-wave-line rd-wave-line--soft'
+            d='M0,58 C220,104 470,10 735,44 C985,76 1190,118 1440,50'
+            fill='none'
+            vectorEffect='non-scaling-stroke'
+          />
+          <path
+            className='rd-wave-fill'
+            d='M0,96 C300,38 575,122 870,84 C1105,54 1265,70 1440,98 L1440,120 L0,120 Z'
+          />
+          <path
+            className='rd-wave-line'
+            d='M0,96 C300,38 575,122 870,84 C1105,54 1265,70 1440,98'
+            fill='none'
+            vectorEffect='non-scaling-stroke'
+          />
+        </svg>
       </section>
 
       {/* SISTEMA */}

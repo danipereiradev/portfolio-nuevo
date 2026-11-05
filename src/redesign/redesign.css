@@ -150,7 +150,7 @@
 .rd-bar { transform-origin: left; animation: rd-grow 2.4s cubic-bezier(.2,.8,.2,1) both; }
 
 @media (prefers-reduced-motion: reduce) {
-  .rd-float, .rd-float-2, .rd-float-3, .rd-caret, .rd-bar, .rd-ruler::after, .rd-nudge { animation: none; }
+  .rd-float, .rd-float-2, .rd-float-3, .rd-caret, .rd-bar { animation: none; }
 }
 
 /* ---- Ritmo de fondos entre secciones ---- */
@@ -365,41 +365,11 @@
 :is(.rd-light, .rd-theme-light .rd) .rd-dot { background: #141414; }
 .rd-theme-light .rd .bg-\[\#141513\] .rd-dot { background: var(--rd-lime); }
 
-/* Divisor inferior del hero: regla con marcas finas y un tramo lima que crece */
-.rd-ruler {
-  position: relative;
-  display: block;
-  height: 14px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
-  background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.35) 1px, transparent 1px),
-    linear-gradient(to right, rgba(255, 255, 255, 0.14) 1px, transparent 1px);
-  background-size: 80px 14px, 16px 6px;
-  background-repeat: repeat-x;
-  background-position: left bottom, left bottom;
-}
-.rd-ruler::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -1px;
-  height: 3px;
-  width: 24%;
-  border-radius: 2px;
-  background: var(--rd-lime);
-  box-shadow: 0 0 12px rgba(225, 245, 110, 0.45);
-  transform-origin: left;
-  animation: rd-grow 2.4s cubic-bezier(.2, .8, .2, 1) 0.4s both;
-}
-@keyframes rd-nudge {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(3px); }
-}
-.rd-nudge { display: inline-block; animation: rd-nudge 2s ease-in-out infinite; }
-.rd-theme-light .rd-ruler {
-  border-bottom-color: rgba(20, 20, 20, 0.16);
-  background-image:
-    linear-gradient(to right, rgba(20, 20, 20, 0.35) 1px, transparent 1px),
-    linear-gradient(to right, rgba(20, 20, 20, 0.14) 1px, transparent 1px);
-}
-.rd-theme-light .rd-ruler::after { background: #141414; box-shadow: none; }
+/* Divisor en ola al final del hero: mismo color que la sección clara siguiente */
+.rd-wave-fill { fill: #f4f5f2; }
+.rd-wave-line { stroke: var(--rd-lime); stroke-width: 2; opacity: 0.9; }
+.rd-theme-light .rd-wave-fill { fill: #ffffff; }
+.rd-wave-line--soft { stroke-width: 1; opacity: 0.3; }
+.rd-theme-light .rd-wave-fill[opacity] { fill: #141414; }
+.rd-theme-light .rd-wave-line { stroke: #141414; opacity: 0.35; }
+.rd-theme-light .rd-wave-line--soft { opacity: 0.15; }
