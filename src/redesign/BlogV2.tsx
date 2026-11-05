@@ -13,6 +13,7 @@ import {
 } from '../blog/posts';
 import { SpanishOnlyNotice, usePrefs } from './prefs';
 import { formatDate } from './i18n/content';
+import BgDigit from './BgDigit';
 
 const SITE_URL = 'https://36web.es';
 
@@ -118,7 +119,8 @@ export function BlogIndex() {
 
   return (
     <main className='rd rd-page'>
-      <section className='relative overflow-hidden pt-[var(--site-header-h)]'>
+      <section className='relative overflow-hidden pt-[var(--site-header-h)] isolate'>
+        <BgDigit d='6' side='right' />
         <div className='rd-grid-bg pointer-events-none absolute inset-0' />
         <div className='relative mx-auto grid max-w-[1320px] gap-10 px-5 pb-20 pt-20 md:px-8 lg:grid-cols-[1.3fr_1fr] lg:items-end'>
           <div>
@@ -157,7 +159,8 @@ export function BlogIndex() {
         </dl>
       </section>
 
-      <section className='rd-light'>
+      <section className='rd-light relative isolate overflow-hidden'>
+        <BgDigit d='3' side='left' />
         <div className='mx-auto max-w-[1320px] px-5 py-20 md:px-8'>
           <div className='grid gap-5 md:grid-cols-2 lg:grid-cols-3'>
             {sorted.map((p) => (
@@ -226,7 +229,8 @@ export default function BlogPostV2() {
 
   return (
     <main className='rd rd-page'>
-      <section className='relative overflow-hidden pt-[var(--site-header-h)]'>
+      <section className='relative overflow-hidden pt-[var(--site-header-h)] isolate'>
+        <BgDigit d='3' side='right' />
         <div className='rd-grid-bg pointer-events-none absolute inset-0' />
         <div className='relative mx-auto max-w-[1100px] px-5 pb-14 pt-16 md:px-8'>
           <a href={BLOG_PATH} className='rd-eyebrow inline-flex items-center gap-2 !text-white/50 hover:!text-[#e1f56e]'>

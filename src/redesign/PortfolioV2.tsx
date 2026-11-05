@@ -12,6 +12,7 @@ import { CASES, CASES_PATH } from './cases';
 import { usePrefs } from './prefs';
 import { usePortfolioText } from './i18n/content';
 import { PORTFOLIO_EN } from './i18n/portfolioEn';
+import BgDigit from './BgDigit';
 
 const SITE_URL = 'https://36web.es';
 
@@ -155,7 +156,8 @@ export default function PortfolioV2() {
   return (
     <main className='rd rd-page'>
       {/* HERO */}
-      <section className='relative overflow-hidden pt-[var(--site-header-h)]'>
+      <section className='relative overflow-hidden pt-[var(--site-header-h)] isolate'>
+        <BgDigit d='3' side='right' />
         <div className='rd-grid-bg pointer-events-none absolute inset-0' />
         <div className='relative mx-auto grid max-w-[1320px] gap-10 px-5 pb-20 pt-20 md:px-8 lg:grid-cols-[1.3fr_1fr] lg:items-end'>
           <div>
@@ -198,7 +200,8 @@ export default function PortfolioV2() {
       </section>
 
       {/* GRID */}
-      <section className='rd-light'>
+      <section className='rd-light relative isolate overflow-hidden'>
+        <BgDigit d='6' side='left' />
         <div className='mx-auto max-w-[1320px] px-5 py-20 md:px-8'>
           <div className='mb-10 flex flex-wrap gap-2' role='tablist' aria-label={t('Filtrar proyectos', 'Filter projects')}>
             {FILTERS.map((f) => {

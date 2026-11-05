@@ -27,6 +27,7 @@ import {
 } from '../utils/analytics';
 import { usePrefs } from './prefs';
 import { useServices } from './i18n/content';
+import BgDigit from './BgDigit';
 
 const FORM_ORIGIN = 'Página de contacto';
 
@@ -132,7 +133,8 @@ export default function ContactV2() {
 
   return (
     <main className='rd rd-page'>
-      <section className='relative overflow-hidden pt-[var(--site-header-h)]'>
+      <section className='relative overflow-hidden pt-[var(--site-header-h)] isolate'>
+        <BgDigit d='6' side='left' />
         <div className='rd-grid-bg pointer-events-none absolute inset-0' />
         <div className='relative mx-auto grid max-w-[1320px] items-center gap-12 px-5 pb-20 pt-16 md:px-8 lg:grid-cols-[1.4fr_1fr]'>
           <div>
@@ -159,7 +161,8 @@ export default function ContactV2() {
         </div>
       </section>
 
-      <section className='rd-light'>
+      <section className='rd-light relative isolate overflow-hidden'>
+        <BgDigit d='3' side='right' />
         <div className='mx-auto grid max-w-[1320px] gap-14 px-5 py-20 md:px-8 lg:grid-cols-[0.8fr_1.2fr]'>
           <aside>
             <p className='rd-eyebrow mb-6'>{t('Canales directos', 'Direct channels')}</p>

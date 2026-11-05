@@ -2,6 +2,7 @@ import LegalPages, { LegalPageId } from '../components/LegalPages';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { CONTACT_EMAIL, CONTACT_PATH } from '../config/contact';
 import { SpanishOnlyNotice, usePrefs } from './prefs';
+import BgDigit from './BgDigit';
 
 const DOCS_EN: Record<string, { label: string; title: [string, string] }> = {
   privacy: { label: 'Privacy policy', title: ['PRIVACY', 'POLICY.'] },
@@ -25,7 +26,8 @@ export default function LegalV2({ page, path }: { page: LegalPageId; path: strin
 
   return (
     <main className='rd rd-page'>
-      <section className='relative overflow-hidden pt-[var(--site-header-h)]'>
+      <section className='relative overflow-hidden pt-[var(--site-header-h)] isolate'>
+        <BgDigit d='6' side='right' />
         <div className='rd-grid-bg pointer-events-none absolute inset-0' />
         <div className='relative mx-auto grid max-w-[1320px] gap-10 px-5 pb-20 pt-20 md:px-8 lg:grid-cols-[1.3fr_1fr] lg:items-end'>
           <div>

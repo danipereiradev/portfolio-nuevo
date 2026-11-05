@@ -5,6 +5,7 @@ import { CASES_PATH, CaseItem } from './cases';
 import { usePrefs } from './prefs';
 import { useCases } from './i18n/content';
 import SerpProof from './SerpProof';
+import BgDigit from './BgDigit';
 
 export function CaseCard({ c }: { c: CaseItem }) {
   const { t } = usePrefs();
@@ -64,7 +65,8 @@ export function CasesIndex() {
   const CASES = useCases();
   return (
     <main className='rd rd-page'>
-      <section className='relative overflow-hidden pt-[var(--site-header-h)]'>
+      <section className='relative overflow-hidden pt-[var(--site-header-h)] isolate'>
+        <BgDigit d='3' side='right' />
         <div className='rd-grid-bg pointer-events-none absolute inset-0' />
         <div className='relative mx-auto grid max-w-[1320px] gap-10 px-5 pb-20 pt-20 md:px-8 lg:grid-cols-[1.3fr_1fr] lg:items-end'>
           <div>
@@ -103,7 +105,8 @@ export function CasesIndex() {
         </ol>
       </section>
 
-      <section className='rd-light'>
+      <section className='rd-light relative isolate overflow-hidden'>
+        <BgDigit d='6' side='left' />
         <div className='mx-auto max-w-[1320px] px-5 py-24 md:px-8'>
           <div className='grid gap-5 md:grid-cols-2 lg:grid-cols-3'>
             {CASES.map((c) => (
@@ -211,7 +214,8 @@ export default function CasePage() {
       )}
 
       {/* RETO */}
-      <section className='rd-light'>
+      <section className='rd-light relative isolate overflow-hidden'>
+        <BgDigit d='3' side='right' />
         <div className='mx-auto grid max-w-[1320px] gap-12 px-5 py-24 md:px-8 lg:grid-cols-[0.8fr_1.2fr]'>
           <div>
             <p className='rd-eyebrow mb-5'>{t('El punto de partida', 'The starting point')}</p>
@@ -241,7 +245,8 @@ export default function CasePage() {
       </section>
 
       {/* RESULTADO */}
-      <section className='rd-light bg-white'>
+      <section className='rd-light bg-white relative isolate overflow-hidden'>
+        <BgDigit d='6' side='left' />
         <div className='mx-auto max-w-[1320px] px-5 py-24 md:px-8'>
           <p className='rd-eyebrow mb-5'>{t('El resultado', 'The result')}</p>
           <h2 className='rd-h2 max-w-[18ch]'>{c.after}</h2>

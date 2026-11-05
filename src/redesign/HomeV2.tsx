@@ -11,6 +11,7 @@ import { usePrefs } from './prefs';
 import { useCases, useServices } from './i18n/content';
 import { CaseCard } from './CasePages';
 import GoogleBadge from './GoogleBadge';
+import BgDigit from './BgDigit';
 
 
 const STEPS = [
@@ -372,7 +373,8 @@ export default function HomeV2() {
       </section>
 
       {/* SISTEMA */}
-      <div className='rd-light'>
+      <div className='rd-light relative isolate overflow-hidden'>
+        <BgDigit d='3' side='right' />
         <section
           id='servicios'
           className='mx-auto max-w-[1320px] px-5 py-24 md:px-8 md:py-32'
@@ -568,7 +570,8 @@ export default function HomeV2() {
       </section>
 
       {/* PRINCIPIOS */}
-      <div>
+      <div className='relative isolate overflow-hidden'>
+        <BgDigit d='6' side='left' />
         <section className='mx-auto max-w-[1320px] px-5 py-24 md:px-8 md:py-32'>
           <div className='grid gap-12 lg:grid-cols-[0.9fr_1.1fr]'>
             <div>

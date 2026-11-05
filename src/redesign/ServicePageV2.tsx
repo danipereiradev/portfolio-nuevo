@@ -5,6 +5,7 @@ import GoogleBadge from './GoogleBadge';
 import { SERVICES_PATH } from './services';
 import { usePrefs } from './prefs';
 import { useServices } from './i18n/content';
+import BgDigit from './BgDigit';
 
 function CtaBand({ text }: { text: string }) {
   const { t } = usePrefs();
@@ -27,7 +28,8 @@ export function ServicesIndex() {
   const { services: SERVICES, extra: EXTRA_SERVICES } = useServices();
   return (
     <main className='rd rd-page'>
-      <section className='relative overflow-hidden pt-[var(--site-header-h)]'>
+      <section className='relative overflow-hidden pt-[var(--site-header-h)] isolate'>
+        <BgDigit d='3' side='right' />
         <div className='rd-grid-bg pointer-events-none absolute inset-0' />
         <div className='relative mx-auto max-w-[1320px] px-5 pb-16 pt-20 md:px-8'>
           <p className='rd-eyebrow mb-6'>{t('Todos los servicios', 'All services')}</p>
@@ -83,7 +85,8 @@ export default function ServicePageV2({ slug: slugProp }: { slug?: string }) {
 
   return (
     <main className='rd rd-page'>
-      <section className='relative overflow-hidden pt-[var(--site-header-h)]'>
+      <section className='relative overflow-hidden pt-[var(--site-header-h)] isolate'>
+        <BgDigit d='6' side='right' />
         <div className='rd-grid-bg pointer-events-none absolute inset-0' />
         <div className='relative mx-auto grid max-w-[1320px] gap-10 px-5 pb-20 pt-20 md:px-8 lg:grid-cols-[1.3fr_1fr] lg:items-end'>
           <div>
@@ -123,7 +126,8 @@ export default function ServicePageV2({ slug: slugProp }: { slug?: string }) {
         </section>
       ) : null}
 
-      <div className='rd-light'>
+      <div className='rd-light relative isolate overflow-hidden'>
+        <BgDigit d='3' side='left' />
       <section id='incluye' className='mx-auto max-w-[1320px] scroll-mt-28 px-5 py-20 md:px-8'>
         <p className='rd-eyebrow mb-5'>{t('Qué incluye', 'What’s included')}</p>
         <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>

@@ -23,6 +23,7 @@ import { getLocalWebDemos } from '../data/localWebDemos';
 import { buildLocalWebCityJsonLd } from '../seo/localWebCitySchema';
 import GoogleBadge from './GoogleBadge';
 import { SpanishOnlyNotice } from './prefs';
+import BgDigit from './BgDigit';
 
 /** Resalta el nombre de la ciudad en el texto. */
 const withCity = (text: string, ciudad: string) =>
@@ -54,7 +55,8 @@ function CityPage({ city }: { city: LocalWebCity }) {
   return (
     <main className='rd rd-page'>
       {/* HERO */}
-      <section className='relative overflow-hidden pt-[var(--site-header-h)]'>
+      <section className='relative overflow-hidden pt-[var(--site-header-h)] isolate'>
+        <BgDigit d='6' side='right' />
         <div className='rd-grid-bg pointer-events-none absolute inset-0' />
         <div className='relative mx-auto grid max-w-[1320px] gap-10 px-5 pb-20 pt-20 md:px-8 lg:grid-cols-[1.3fr_1fr] lg:items-end'>
           <div>
@@ -95,7 +97,8 @@ function CityPage({ city }: { city: LocalWebCity }) {
       </section>
 
       {/* INTRO LOCAL */}
-      <section className='rd-light'>
+      <section className='rd-light relative isolate overflow-hidden'>
+        <BgDigit d='3' side='left' />
         <div className='mx-auto grid max-w-[1320px] gap-12 px-5 py-24 md:px-8 lg:grid-cols-[0.9fr_1.1fr]'>
           <div>
             <p className='rd-eyebrow mb-5'>Diseño web en {city.ciudad}</p>
