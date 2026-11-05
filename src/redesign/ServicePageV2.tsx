@@ -30,7 +30,7 @@ export function ServicesIndex() {
       <section className='relative overflow-hidden pt-[var(--site-header-h)]'>
         <div className='rd-grid-bg pointer-events-none absolute inset-0' />
         <div className='relative mx-auto max-w-[1320px] px-5 pb-16 pt-20 md:px-8'>
-          <p className='rd-eyebrow mb-6'>{t('00 — Todos los servicios', '00 — All services')}</p>
+          <p className='rd-eyebrow mb-6'>{t('Todos los servicios', 'All services')}</p>
           <h1 className='rd-h1 max-w-[12ch]'>
             {t('Todo lo digital,', 'All things digital,')} <span className='rd-mark'>{t('en un sitio.', 'in one place.')}</span>
           </h1>
@@ -41,7 +41,7 @@ export function ServicesIndex() {
           {SERVICES.map((s) => (
             <li key={s.slug}>
               <a href={s.href} className='group grid items-center gap-4 py-8 md:grid-cols-[80px_1fr_1.2fr_40px]'>
-                <span className='font-mono text-sm text-[#e1f56e]'>{s.num}</span>
+                <span className='rd-dot' aria-hidden='true' />
                 <span className='text-3xl font-black uppercase md:text-4xl'>{s.name}</span>
                 <span className='text-white/55'>{s.short}</span>
                 <span className='text-2xl text-white/30 group-hover:text-[#e1f56e]'>↗</span>
@@ -88,7 +88,7 @@ export default function ServicePageV2({ slug: slugProp }: { slug?: string }) {
         <div className='relative mx-auto grid max-w-[1320px] gap-10 px-5 pb-20 pt-20 md:px-8 lg:grid-cols-[1.3fr_1fr] lg:items-end'>
           <div>
             <p className='rd-eyebrow mb-6'>
-              {s.num} — {s.area} · {s.name}
+              {s.area} · {s.name}
             </p>
             <h1 className='rd-h1'>
               {p.title[0]}
@@ -127,9 +127,9 @@ export default function ServicePageV2({ slug: slugProp }: { slug?: string }) {
       <section id='incluye' className='mx-auto max-w-[1320px] scroll-mt-28 px-5 py-20 md:px-8'>
         <p className='rd-eyebrow mb-5'>{t('Qué incluye', 'What’s included')}</p>
         <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
-          {p.includes.map((it, i) => (
+          {p.includes.map((it) => (
             <div key={it.t} className='rd-card p-7'>
-              <span className='font-mono text-xs text-[#e1f56e]'>{String(i + 1).padStart(2, '0')}</span>
+              <span className='rd-dot' aria-hidden='true' />
               <h2 className='mt-6 text-xl font-extrabold uppercase'>{it.t}</h2>
               <p className='mt-3 text-sm leading-relaxed text-white/55'>{it.d}</p>
             </div>
@@ -175,7 +175,7 @@ export default function ServicePageV2({ slug: slugProp }: { slug?: string }) {
         <div className='grid gap-4 md:grid-cols-3'>
           {others.map((o) => (
             <a key={o.slug} href={o.href} className='rd-card group p-6'>
-              <span className='font-mono text-xs text-[#e1f56e]'>{o.num}</span>
+              <span className='rd-dot' aria-hidden='true' />
               <h3 className='mt-5 text-xl font-extrabold uppercase'>{o.name}</h3>
               <p className='mt-2 text-sm text-white/55'>{o.short}</p>
             </a>

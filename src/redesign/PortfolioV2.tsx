@@ -159,7 +159,7 @@ export default function PortfolioV2() {
         <div className='rd-grid-bg pointer-events-none absolute inset-0' />
         <div className='relative mx-auto grid max-w-[1320px] gap-10 px-5 pb-20 pt-20 md:px-8 lg:grid-cols-[1.3fr_1fr] lg:items-end'>
           <div>
-            <p className='rd-eyebrow mb-6'>{t('00 — Portfolio · Proyectos reales', '00 — Portfolio · Real projects')}</p>
+            <p className='rd-eyebrow mb-6'>{t('Portfolio · Proyectos reales', 'Portfolio · Real projects')}</p>
             <h1 className='rd-h1'>
               {t('WEBS QUE', 'WEBSITES')}
               <br />

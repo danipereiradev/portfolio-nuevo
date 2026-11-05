@@ -346,9 +346,7 @@ export default function HomeV2() {
                     href={s.href}
                     className='group flex items-center gap-3 py-3.5'
                   >
-                    <span className='font-mono text-[11px] text-[#e1f56e]'>
-                      {s.num}
-                    </span>
+                    <span className='rd-dot' aria-hidden='true' />
                     <span className='text-sm font-semibold uppercase tracking-wide text-white/85 group-hover:text-white'>
                       {s.name}
                     </span>
@@ -388,7 +386,7 @@ export default function HomeV2() {
         >
           <div className='mb-14 grid gap-8 lg:grid-cols-2 lg:items-end'>
             <div>
-              <p className='rd-eyebrow mb-5'>{t('01 — Sistema 36web', '01 — The 36web system')}</p>
+              <p className='rd-eyebrow mb-5'>{t('Sistema 36web', 'The 36web system')}</p>
               <h2 className='rd-h2'>
                 {t('Un solo equipo,', 'One team,')}
                 <br />
@@ -408,9 +406,7 @@ export default function HomeV2() {
                 className='rd-card group flex min-h-[250px] flex-col p-6'
               >
                 <div className='flex items-center justify-between'>
-                  <span className='font-mono text-xs text-[#e1f56e]'>
-                    {s.num}
-                  </span>
+                  <span className='rd-dot' aria-hidden='true' />
                   <span className='rounded-full border border-white/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-white/50'>
                     {s.area}
                   </span>
@@ -446,7 +442,7 @@ export default function HomeV2() {
       <section className='bg-[#101110]'>
         <div className='mx-auto grid max-w-[1320px] gap-14 px-5 py-24 md:px-8 md:py-32 lg:grid-cols-2'>
           <div>
-            <p className='rd-eyebrow mb-5'>{t('02 — Tranquilidad digital', '02 — Digital peace of mind')}</p>
+            <p className='rd-eyebrow mb-5'>{t('Tranquilidad digital', 'Digital peace of mind')}</p>
             <h2 className='rd-h2'>
               {t('Tú a lo tuyo.', 'You run your business.')}
               <br />
@@ -479,11 +475,9 @@ export default function HomeV2() {
               ],
               ['Decides tú', 'Te lo explicamos claro y tú das el visto bueno.'],
             ] as [string, string][])
-            ).map(([tt, d], i) => (
+            ).map(([tt, d]) => (
               <li key={tt} className='rd-card p-6'>
-                <span className='font-mono text-xs text-[#e1f56e]'>
-                  0{i + 1}
-                </span>
+                <span className='rd-dot' aria-hidden='true' />
                 <h3 className='mt-6 text-lg font-extrabold uppercase'>{tt}</h3>
                 <p className='mt-2 text-sm text-white/55'>{d}</p>
               </li>
@@ -495,7 +489,7 @@ export default function HomeV2() {
       {/* MÉTODO */}
       <div className='rd-light rd-stone'>
         <section className='mx-auto max-w-[1320px] px-5 py-24 md:px-8 md:py-32'>
-          <p className='rd-eyebrow mb-5'>{t('03 — Método', '03 — Method')}</p>
+          <p className='rd-eyebrow mb-5'>{t('Método', 'Method')}</p>
           <h2 className='rd-h2 max-w-[16ch]'>
             {t('Primero', 'First,')} <span className='rd-mark'>{t('entender.', 'understand.')}</span>{' '}
             <span className='text-[#e1f56e]'>{t('Después construir.', 'Then build.')}</span>
@@ -520,7 +514,7 @@ export default function HomeV2() {
           <div className='mx-auto max-w-[1320px] px-5 py-24 md:px-8 md:py-32'>
             <div className='mb-12 flex flex-wrap items-end justify-between gap-6'>
               <div>
-                <p className='rd-eyebrow mb-5'>{t('04 — Casos de éxito', '04 — Case studies')}</p>
+                <p className='rd-eyebrow mb-5'>{t('Casos de éxito', 'Case studies')}</p>
                 <h2 className='rd-h2'>
                   {t('Resultados', 'Real')} <span className='rd-mark'>{t('reales.', 'results.')}</span>
                 </h2>
@@ -542,7 +536,7 @@ export default function HomeV2() {
       <section className='rd-light bg-white'>
         <div className='mx-auto grid max-w-[1320px] items-center gap-14 px-5 py-24 md:px-8 md:py-32 lg:grid-cols-[1.1fr_0.9fr]'>
           <div>
-            <p className='rd-eyebrow mb-5'>{t('05 — Continuidad', '05 — Retention')}</p>
+            <p className='rd-eyebrow mb-5'>{t('Continuidad', 'Retention')}</p>
             <h2 className='rd-h2'>
               {t('Clientes que', 'Clients who')}
               <br />
@@ -585,7 +579,7 @@ export default function HomeV2() {
         <section className='mx-auto max-w-[1320px] px-5 py-24 md:px-8 md:py-32'>
           <div className='grid gap-12 lg:grid-cols-[0.9fr_1.1fr]'>
             <div>
-              <p className='rd-eyebrow mb-5'>{t('06 — Por qué 36web', '06 — Why 36web')}</p>
+              <p className='rd-eyebrow mb-5'>{t('Por qué 36web', 'Why 36web')}</p>
               <h2 className='rd-h2'>
                 {t('La confianza', 'Trust is')} <span className='rd-mark'>{t('se gana', 'earned')}</span>{' '}
                 <span className='text-[#e1f56e]'>{t('trabajando.', 'by working.')}</span>

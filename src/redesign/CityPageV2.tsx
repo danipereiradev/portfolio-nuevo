@@ -59,7 +59,7 @@ function CityPage({ city }: { city: LocalWebCity }) {
         <div className='relative mx-auto grid max-w-[1320px] gap-10 px-5 pb-20 pt-20 md:px-8 lg:grid-cols-[1.3fr_1fr] lg:items-end'>
           <div>
             <a href={SITE_WEB_PATH} className='rd-eyebrow mb-6 inline-block hover:!text-white'>
-              01 — Presencia · Diseño web · {city.provincia}
+              Presencia · Diseño web · {city.provincia}
             </a>
             <h1 className='rd-h1'>
               <span className='rd-mark'>DISEÑO WEB</span>
@@ -125,9 +125,9 @@ function CityPage({ city }: { city: LocalWebCity }) {
             Qué necesita tu <span className='rd-mark'>web.</span>
           </h2>
           <div className='mt-14 grid gap-4 md:grid-cols-3'>
-            {needs.map((n, i) => (
+            {needs.map((n) => (
               <div key={n.title} className='rd-card p-7'>
-                <span className='font-mono text-xs text-[#e1f56e]'>{String(i + 1).padStart(2, '0')}</span>
+                <span className='rd-dot' aria-hidden='true' />
                 <h3 className='mt-6 text-xl font-extrabold uppercase'>{n.title}</h3>
                 <p className='mt-3 text-sm leading-relaxed text-white/60'>{n.description}</p>
               </div>
@@ -151,9 +151,9 @@ function CityPage({ city }: { city: LocalWebCity }) {
             </p>
           </div>
           <div className='grid gap-4 sm:grid-cols-2'>
-            {city.sectores_locales.map((s, i) => (
+            {city.sectores_locales.map((s) => (
               <div key={s.title} className='rd-card p-7'>
-                <span className='font-mono text-xs text-[#e1f56e]'>{String(i + 1).padStart(2, '0')}</span>
+                <span className='rd-dot' aria-hidden='true' />
                 <h3 className='mt-6 text-xl font-extrabold uppercase'>{s.title}</h3>
                 <p className='mt-3 text-sm leading-relaxed text-white/60'>{withCity(s.description, city.ciudad)}</p>
               </div>
@@ -170,9 +170,9 @@ function CityPage({ city }: { city: LocalWebCity }) {
         </h2>
         <p className='mt-6 max-w-2xl text-white/60'>{LOCAL_WEB_INCLUDES.intro}</p>
         <div className='mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
-          {LOCAL_WEB_INCLUDES.items.map((it, i) => (
+          {LOCAL_WEB_INCLUDES.items.map((it) => (
             <div key={it.title} className='rd-card p-7'>
-              <span className='font-mono text-xs text-[#e1f56e]'>{String(i + 1).padStart(2, '0')}</span>
+              <span className='rd-dot' aria-hidden='true' />
               <h3 className='mt-6 text-lg font-extrabold uppercase'>{it.title}</h3>
               <p className='mt-3 text-sm leading-relaxed text-white/60'>{it.description}</p>
             </div>

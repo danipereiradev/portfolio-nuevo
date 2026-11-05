@@ -364,3 +364,8 @@
 .rd-theme-light .rd .bg-\[\#141513\] .hover\:text-white:hover { color: #fff; }
 .rd-theme-light .rd .bg-\[\#141513\] .group:hover .group-hover\:text-\[\#e1f56e\],
 .rd-theme-light .rd .bg-\[\#141513\] .hover\:text-\[\#e1f56e\]:hover { color: #e1f56e; }
+
+/* Marca decorativa en listas sin orden (sustituye a la numeración) */
+.rd-dot { display: inline-block; flex-shrink: 0; width: 0.5rem; height: 0.5rem; border-radius: 2px; background: var(--rd-lime); }
+:is(.rd-light, .rd-theme-light .rd) .rd-dot { background: #141414; }
+.rd-theme-light .rd .bg-\[\#141513\] .rd-dot { background: var(--rd-lime); }

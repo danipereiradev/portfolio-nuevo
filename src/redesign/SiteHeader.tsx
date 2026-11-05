@@ -94,7 +94,7 @@ export default function SiteHeader({ hideNav = false }: { hideNav?: boolean }) {
                   <div className='grid grid-cols-2 gap-1 rounded-2xl border border-white/10 bg-[#121311] p-3 shadow-2xl'>
                     {SERVICES.map((s) => (
                       <a key={s.slug} href={s.href} className='group flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-white/5'>
-                        <span className='mt-0.5 font-mono text-xs text-[#e1f56e]'>{s.num}</span>
+                        <span className='rd-dot mt-1.5' aria-hidden='true' />
                         <span>
                           <span className='block text-sm font-semibold text-white'>{s.name}</span>
                           <span className='block text-xs leading-snug text-white/50'>{s.area}</span>
@@ -141,9 +141,8 @@ export default function SiteHeader({ hideNav = false }: { hideNav?: boolean }) {
       {open && !hideNav ? (
         <div className='h-[calc(100svh-var(--site-header-h))] overflow-y-auto bg-[#0b0c0a] px-5 pb-10 pt-4 lg:hidden'>
           <p className='rd-eyebrow mb-3'>{t('Menú', 'Menu')}</p>
-          {[{ href: '/', label: t('Inicio', 'Home') }, ...NAV, { href: CONTACT_PATH, label: t('Contacto', 'Contact') }].map((l, i) => (
+          {[{ href: '/', label: t('Inicio', 'Home') }, ...NAV, { href: CONTACT_PATH, label: t('Contacto', 'Contact') }].map((l) => (
             <a key={l.href} href={l.href} className='flex items-baseline gap-4 border-b border-white/10 py-4 text-2xl font-extrabold uppercase text-white'>
-              <span className='font-mono text-xs text-[#e1f56e]'>{String(i).padStart(2, '0')}</span>
               {l.label}
               <span className='ml-auto text-base text-white/40'>↗</span>
             </a>
@@ -151,7 +150,7 @@ export default function SiteHeader({ hideNav = false }: { hideNav?: boolean }) {
           <p className='rd-eyebrow mb-3 mt-8'>{t('Servicios', 'Services')}</p>
           {SERVICES.map((s) => (
             <a key={s.slug} href={s.href} className='flex items-baseline gap-4 border-b border-white/10 py-3 text-lg font-bold text-white'>
-              <span className='font-mono text-xs text-[#e1f56e]'>{s.num}</span>
+              <span className='rd-dot' aria-hidden='true' />
               {s.name}
               <span className='ml-auto text-sm text-white/40'>↗</span>
             </a>

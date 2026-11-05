@@ -68,7 +68,7 @@ export function CasesIndex() {
         <div className='rd-grid-bg pointer-events-none absolute inset-0' />
         <div className='relative mx-auto grid max-w-[1320px] gap-10 px-5 pb-20 pt-20 md:px-8 lg:grid-cols-[1.3fr_1fr] lg:items-end'>
           <div>
-            <p className='rd-eyebrow mb-6'>{t('00 — Casos de éxito · Resultados reales', '00 — Case studies · Real results')}</p>
+            <p className='rd-eyebrow mb-6'>{t('Casos de éxito · Resultados reales', 'Case studies · Real results')}</p>
             <h1 className='rd-h1'>
               NEGOCIOS
               <br />
@@ -91,10 +91,10 @@ export function CasesIndex() {
 
       <section className='mx-auto max-w-[1320px] px-5 pb-20 pt-4 md:px-8'>
         <ol className='grid gap-px overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-3'>
-          {CASES.map((c, i) => (
+          {CASES.map((c) => (
             <li key={c.slug} className='bg-[#0b0c0a]'>
               <a href={`${CASES_PATH}/${c.slug}`} className='group block h-full p-6'>
-                <span className='font-mono text-xs text-[#e1f56e]'>{t('Caso', 'Case')} {String(i + 1).padStart(2, '0')}</span>
+                <span className='font-mono text-xs text-[#e1f56e]'>{c.sector} · {c.city}</span>
                 <h2 className='mt-4 text-lg font-extrabold uppercase group-hover:text-[#e1f56e]'>{c.name}</h2>
                 <p className='mt-2 text-sm text-white/55'>{c.after}</p>
               </a>
@@ -230,9 +230,9 @@ export default function CasePage() {
           {t('Paso a paso,', 'Step by step,')} <span className='rd-mark'>{t('sin humo.', 'no fluff.')}</span>
         </h2>
         <ol className='mt-14 grid gap-4 sm:grid-cols-2'>
-          {c.work.map((w, i) => (
+          {c.work.map((w) => (
             <li key={w.t} className='rd-card p-7'>
-              <span className='font-mono text-xs text-[#e1f56e]'>{String(i + 1).padStart(2, '0')}</span>
+              <span className='rd-dot' aria-hidden='true' />
               <h3 className='mt-6 text-xl font-extrabold uppercase'>{w.t}</h3>
               <p className='mt-3 text-sm leading-relaxed text-white/60'>{w.d}</p>
             </li>
