@@ -31,8 +31,8 @@ export default function SiteHeader({ hideNav = false }: { hideNav?: boolean }) {
   const closeTimer = useRef<number>();
   const { t } = usePrefs();
   const { services, extra } = useServices();
-  // Menú: los 7 servicios principales + mantenimiento web
-  const SERVICES = [...services, ...extra.filter((s) => s.slug === 'mantenimiento-web')];
+  // Menú: los 7 servicios principales + mantenimiento web y aplicaciones
+  const SERVICES = [...services, ...extra];
   const NAV = useNav();
 
   useEffect(() => {
@@ -89,11 +89,11 @@ export default function SiteHeader({ hideNav = false }: { hideNav?: boolean }) {
                   </svg>
                 </button>
                 <div
-                  className={`absolute left-1/2 top-full w-[560px] -translate-x-1/2 pt-5 transition-all duration-200 ${
+                  className={`absolute left-1/2 top-full w-[780px] -translate-x-1/2 pt-5 transition-all duration-200 ${
                     svcOpen ? 'visible opacity-100' : 'invisible -translate-y-1 opacity-0'
                   }`}
                 >
-                  <div className='grid grid-cols-2 gap-1 rounded-2xl border border-white/10 bg-[#121311] p-3 shadow-2xl'>
+                  <div className='grid grid-cols-3 gap-1 rounded-2xl border border-white/10 bg-[#121311] p-3 shadow-2xl'>
                     {SERVICES.map((s) => (
                       <a key={s.slug} href={s.href} className='group flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-white/5'>
                         <span className='rd-dot mt-1.5' aria-hidden='true' />
@@ -104,7 +104,7 @@ export default function SiteHeader({ hideNav = false }: { hideNav?: boolean }) {
                         <span className='ml-auto text-white/30 transition-colors group-hover:text-[#e1f56e]'>↗</span>
                       </a>
                     ))}
-                    <a href={SERVICES_PATH} className='col-span-2 mt-1 rounded-xl border border-white/10 p-3 text-center text-xs font-semibold uppercase tracking-[0.18em] text-white/70 hover:border-[#e1f56e] hover:text-[#e1f56e]'>
+                    <a href={SERVICES_PATH} className='col-span-3 mt-1 rounded-xl border border-white/10 p-3 text-center text-xs font-semibold uppercase tracking-[0.18em] text-white/70 hover:border-[#e1f56e] hover:text-[#e1f56e]'>
                       {t('Todos los servicios', 'All services')} ↗
                     </a>
                   </div>
