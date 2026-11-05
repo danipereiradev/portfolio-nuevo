@@ -291,7 +291,7 @@ export default function HomeV2() {
       {/* HERO */}
       <section className='relative overflow-hidden pt-[var(--site-header-h)]'>
         <div className='rd-grid-bg pointer-events-none absolute inset-0' />
-        <div className='relative mx-auto grid min-h-[calc(100svh-var(--site-header-h))] max-w-[1320px] items-center gap-12 px-5 py-14 md:px-8 lg:grid-cols-[1.15fr_1fr_0.75fr]'>
+        <div className='relative mx-auto grid min-h-[calc(100svh-var(--site-header-h)-3rem)] max-w-[1320px] items-center gap-12 px-5 py-14 md:px-8 lg:grid-cols-[1.15fr_1fr_0.75fr]'>
           <div>
             <p className='rd-eyebrow mb-6'>
               {t('Web · eCommerce · SEO · SEM · GEO · Redes', 'Web · eCommerce · SEO · SEM · GEO · Social')}
@@ -337,7 +337,16 @@ export default function HomeV2() {
                 </li>
               ))}
             </ul>
-          </aside>
+                    </aside>
+        </div>
+
+        {/* Divisor: regla con marcas y tramo lima */}
+        <div className='relative mx-auto max-w-[1320px] px-5 pb-6 md:px-8' aria-hidden='true'>
+          <div className='flex items-end gap-4 font-mono text-[10px] uppercase tracking-[0.22em] text-white/40'>
+            <span className='rd-nudge shrink-0 leading-none'>↓ {t('Sigue', 'Scroll')}</span>
+            <span className='rd-ruler flex-1' />
+            <span className='hidden shrink-0 leading-none sm:inline'>{t('Madrid · toda España', 'Madrid · all of Spain')}</span>
+          </div>
         </div>
       </section>
 
