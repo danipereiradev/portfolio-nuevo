@@ -120,7 +120,7 @@ export function BlogIndex() {
   return (
     <main className='rd rd-page'>
       <section className='relative overflow-hidden pt-[var(--site-header-h)] isolate'>
-        <BgDigit d='6' side='right' />
+        <BgDigit d='3' side='right' />
         <div className='rd-grid-bg pointer-events-none absolute inset-0' />
         <div className='relative mx-auto grid max-w-[1320px] gap-10 px-5 pb-20 pt-20 md:px-8 lg:grid-cols-[1.3fr_1fr] lg:items-end'>
           <div>
@@ -160,7 +160,7 @@ export function BlogIndex() {
       </section>
 
       <section className='rd-light relative isolate overflow-hidden'>
-        <BgDigit d='3' side='left' />
+        <BgDigit d='6' side='left' />
         <div className='mx-auto max-w-[1320px] px-5 py-20 md:px-8'>
           <div className='grid gap-5 md:grid-cols-2 lg:grid-cols-3'>
             {sorted.map((p) => (

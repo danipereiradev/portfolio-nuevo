@@ -201,7 +201,6 @@ export default function PortfolioV2() {
 
       {/* GRID */}
       <section className='rd-light relative isolate overflow-hidden'>
-        <BgDigit d='6' side='left' />
         <div className='mx-auto max-w-[1320px] px-5 py-20 md:px-8'>
           <div className='mb-10 flex flex-wrap gap-2' role='tablist' aria-label={t('Filtrar proyectos', 'Filter projects')}>
             {FILTERS.map((f) => {
@@ -237,7 +236,7 @@ export default function PortfolioV2() {
       <section className='px-5 py-24 md:px-8'>
         <div className='mx-auto flex max-w-[1320px] flex-col gap-8 rounded-[1.75rem] bg-[#e1f56e] px-7 py-14 text-[#0b0c0a] md:flex-row md:items-center md:justify-between md:px-14'>
           <div>
-            <p className='font-mono text-xs uppercase tracking-[0.2em]'>// let&apos;s build</p>
+            <p className='font-mono text-xs uppercase tracking-[0.2em]'>{t('// a construir', "// let's build")}</p>
             <h2 className='rd-h2 mt-4 max-w-[16ch] !text-[clamp(1.9rem,4vw,3.4rem)]'>{t('¿Quieres una web así?', 'Want a website like these?')}</h2>
           </div>
           <div className='flex flex-wrap gap-3'>

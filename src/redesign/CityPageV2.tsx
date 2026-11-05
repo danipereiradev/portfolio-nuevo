@@ -56,7 +56,7 @@ function CityPage({ city }: { city: LocalWebCity }) {
     <main className='rd rd-page'>
       {/* HERO */}
       <section className='relative overflow-hidden pt-[var(--site-header-h)] isolate'>
-        <BgDigit d='6' side='right' />
+        <BgDigit d='3' side='right' />
         <div className='rd-grid-bg pointer-events-none absolute inset-0' />
         <div className='relative mx-auto grid max-w-[1320px] gap-10 px-5 pb-20 pt-20 md:px-8 lg:grid-cols-[1.3fr_1fr] lg:items-end'>
           <div>
@@ -98,7 +98,7 @@ function CityPage({ city }: { city: LocalWebCity }) {
 
       {/* INTRO LOCAL */}
       <section className='rd-light relative isolate overflow-hidden'>
-        <BgDigit d='3' side='left' />
+        <BgDigit d='6' side='left' />
         <div className='mx-auto grid max-w-[1320px] gap-12 px-5 py-24 md:px-8 lg:grid-cols-[0.9fr_1.1fr]'>
           <div>
             <p className='rd-eyebrow mb-5'>Diseño web en {city.ciudad}</p>

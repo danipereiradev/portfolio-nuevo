@@ -35,11 +35,12 @@ export default function SiteFooter() {
   const { t } = usePrefs();
   const { services: SERVICES } = useServices();
   return (
-    <footer className='rd relative overflow-hidden border-t border-white/10 bg-[#0b0c0a] text-white'>
+    <footer className='rd relative isolate overflow-hidden border-t border-white/10 bg-[#0b0c0a] text-white'>
+      <span aria-hidden='true' className='rd-bgword'>36WEB</span>
       <div className='mx-auto max-w-[1320px] px-5 pb-10 pt-20 md:px-8'>
         <div className='flex flex-col gap-10 border-b border-white/10 pb-14 lg:flex-row lg:items-end lg:justify-between'>
           <div>
-            <p className='rd-eyebrow mb-5'>// let&apos;s build</p>
+            <p className='rd-eyebrow mb-5'>{t('// a construir', "// let's build")}</p>
             <h2 className='rd-h2 max-w-[14ch]'>
               {t('¿TIENES UN', 'GOT A')} <span className='rd-mark'>{t('PROYECTO', 'PROJECT')}</span> <span className='text-[#e1f56e]'>{t('EN MENTE?', 'IN MIND?')}</span>
             </h2>
