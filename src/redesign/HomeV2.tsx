@@ -11,25 +11,7 @@ import { usePrefs } from './prefs';
 import { useCases, useServices } from './i18n/content';
 import { CaseCard } from './CasePages';
 import GoogleBadge from './GoogleBadge';
-import { PORTFOLIO_PAGE_PROJECTS } from '../data/portfolioPage';
 
-// Prueba social: clientes reales del portfolio (src/data/portfolioPage.ts).
-const PROOF_HIDE = [
-  'MH Projects',
-  'McAuto Lleida Classic',
-  'Psicoterapia Somática',
-  'Itzalak Psicología',
-  'Noma Abogados',
-  'Noemí Bonet Psicología',
-  'L’Obrador de Ponent',
-];
-const PROOF = [
-  'Confían en nosotros',
-  '★★★★★ Clientes de 5 estrellas',
-  ...PORTFOLIO_PAGE_PROJECTS.map((p) => p.name).filter(
-    (n) => !PROOF_HIDE.includes(n),
-  ),
-];
 
 const STEPS = [
   {
@@ -96,7 +78,6 @@ const FAQS = [
   },
 ];
 
-const PROOF_EN = ['Trusted by', '★★★★★ 5-star clients', ...PROOF.slice(2)];
 
 const STEPS_EN = [
   { n: '01', t: 'We listen', d: 'A 30-minute call to understand your business, your customers and what you really need.' },
@@ -304,7 +285,6 @@ export default function HomeV2() {
   const STEPS_L = en ? STEPS_EN : STEPS;
   const PRINCIPLES_L = en ? PRINCIPLES_EN : PRINCIPLES;
   const FAQS_L = en ? FAQS_EN : FAQS;
-  const PROOF_L = en ? PROOF_EN : PROOF;
 
   return (
     <main className='rd rd-page'>
@@ -360,23 +340,6 @@ export default function HomeV2() {
           </aside>
         </div>
       </section>
-
-      {/* PRUEBA SOCIAL */}
-      <div
-        className='overflow-hidden border-y border-white/10 bg-[#e1f56e] py-4 text-[#0b0c0a]'
-        aria-label={t('Clientes que confían en 36web', 'Clients who trust 36web')}
-      >
-        <div className='rd-marquee flex w-max items-center gap-8 whitespace-nowrap text-sm font-black uppercase tracking-[0.16em]'>
-          {[...PROOF_L, ...PROOF_L].map((k, i) => (
-            <span key={i} className='flex items-center gap-8'>
-              <span aria-hidden='true' className='text-[#0b0c0a]/40'>
-                &gt;
-              </span>
-              {k}
-            </span>
-          ))}
-        </div>
-      </div>
 
       {/* SISTEMA */}
       <div className='rd-light'>
