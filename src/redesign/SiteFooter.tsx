@@ -33,7 +33,8 @@ const COMPANY = [
 
 export default function SiteFooter() {
   const { t } = usePrefs();
-  const { services: SERVICES } = useServices();
+  const { services, extra } = useServices();
+  const SERVICES = [...services, ...extra];
   return (
     <footer className='rd relative isolate overflow-hidden border-t border-white/10 bg-[#0b0c0a] text-white'>
       <span aria-hidden='true' className='rd-bgword'>36WEB</span>

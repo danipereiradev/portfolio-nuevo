@@ -278,6 +278,30 @@ const loadLocalWebSnapshot = async () => {
   }
 };
 
+const loadBlogSnapshot = async () => {
+  const { build } = await import('esbuild');
+  const tmpDir = path.join(rootDir, '.prerender-tmp-blog');
+  mkdirSync(tmpDir, { recursive: true });
+  const outfile = path.join(tmpDir, 'blogSnapshot.mjs');
+
+  try {
+    await build({
+      absWorkingDir: rootDir,
+      entryPoints: [path.join(rootDir, 'src', 'seo', 'blogSnapshot.tsx')],
+      bundle: true,
+      format: 'esm',
+      platform: 'node',
+      jsx: 'automatic',
+      packages: 'external',
+      outfile,
+      logLevel: 'silent',
+    });
+    return await import(pathToFileURL(outfile).href);
+  } finally {
+    rmSync(tmpDir, { recursive: true, force: true });
+  }
+};
+
 const LANDING_ROBOTS = 'noindex, nofollow, noarchive';
 const isLandingPath = (routePath) =>
   routePath.startsWith('/landing-') || routePath === '/landing-diseño-web';
@@ -437,6 +461,8 @@ const writeNotFoundPage = (bodyHtml) => {
 };
 
 const localWeb = await loadLocalWebSnapshot();
+const blog = await loadBlogSnapshot();
+let blogWithBody = 0;
 const cityList = localWeb.LOCAL_WEB_LISTED_CITIES ?? [];
 const listedCityPaths = new Set(
   cityList.map((city) => `${SITE_WEB_PATH}/${city.slug}`),
@@ -467,6 +493,16 @@ for (const [routePath, meta] of Object.entries(pagesMeta)) {
     );
     html = injectRoot(html, localWeb.buildLocalWebCityBodyHtml(city));
     localWithBody += 1;
+  } else if (routePath === '/blog') {
+    html = injectRoot(html, blog.buildBlogIndexHtml());
+  } else if (
+    routePath.startsWith('/blog/') &&
+    blog.BLOG_POST_SLUGS.includes(routePath.slice('/blog/'.length))
+  ) {
+    const slug = routePath.slice('/blog/'.length);
+    html = injectJsonLd(html, 'jsonld-blog-post', blog.buildBlogPostJsonLd(slug));
+    html = injectRoot(html, blog.buildBlogPostBodyHtml(slug));
+    blogWithBody += 1;
   } else if (routePath === SITE_WEB_PATH) {
     // Rediseño: sin hero de arranque antiguo (quedaba visible encima de la página nueva).
     html = injectRoot(
@@ -525,5 +561,5 @@ const sitemapUrls = writeSitemap(cityList);
 patchDistRedirects(cityList);
 
 console.log(
-  `[prerender-meta] Generadas ${generated} páginas (${localWithBody} locales con contenido completo), sitemap (${sitemapUrls} URLs) y 404.html.`,
+  `[prerender-meta] Generadas ${generated} páginas (${localWithBody} locales y ${blogWithBody} artículos con contenido completo), sitemap (${sitemapUrls} URLs) y 404.html.`,
 );
