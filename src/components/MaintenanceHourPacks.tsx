@@ -11,30 +11,34 @@ import {
   maintenancePriceCardClass,
   maintenancePriceCtaWrapClass,
   type HourPack,
-  type HourPackId,
 } from '../config/maintenanceOffer';
 import { trackHourPackClick } from '../utils/analytics';
 
-const MaintenanceHourPacks = ({ contactFirst = false }: { contactFirst?: boolean }) => {
+const MaintenanceHourPacks = ({
+  contactFirst = false,
+}: {
+  contactFirst?: boolean;
+}) => {
   return (
-    <section
-      id='bonos'
-      className='page-section'
-    >
+    <section id='bonos' className='page-section'>
       <div className='container mx-auto flex flex-col gap-page-gap'>
         <div className='page-title-block mx-auto max-w-5xl text-center'>
           <h2 className='text-3xl font-extrabold text-ink-dark md:text-4xl lg:text-5xl'>
             ¿Solo necesitas ayuda puntual?
           </h2>
           <p className='text-xl text-ink-dark md:text-2xl'>
-            No necesitas contratar una cuota mensual. Compra un bono de horas
-            y utilizamos ese tiempo exclusivamente en lo que necesita tu web.
+            No necesitas contratar una cuota mensual. Compra un bono de horas y
+            utilizamos ese tiempo exclusivamente en lo que necesita tu web.
           </p>
         </div>
 
         <div className='grid items-stretch gap-page-gap md:grid-cols-3'>
           {HOUR_PACKS.map((pack) => (
-            <HourPackCard key={pack.id} pack={pack} contactFirst={contactFirst} />
+            <HourPackCard
+              key={pack.id}
+              pack={pack}
+              contactFirst={contactFirst}
+            />
           ))}
         </div>
 
@@ -56,9 +60,15 @@ const MaintenanceHourPacks = ({ contactFirst = false }: { contactFirst?: boolean
   );
 };
 
-const HourPackCard = ({ pack, contactFirst }: { pack: HourPack; contactFirst: boolean }) => {
+const HourPackCard = ({
+  pack,
+  contactFirst,
+}: {
+  pack: HourPack;
+  contactFirst: boolean;
+}) => {
   const href = contactFirst ? '#contacto' : getHourPackHref(pack);
-  const hours = pack.hours as HourPackId;
+  const hours = pack.hours;
 
   return (
     <article className={maintenancePriceCardClass(pack.featured)}>
@@ -77,7 +87,9 @@ const HourPackCard = ({ pack, contactFirst }: { pack: HourPack; contactFirst: bo
       <p className='mt-3 text-sm font-bold text-ink-dark'>
         {getHourPackValidityCopy()}
       </p>
-      <ul className={`mt-6 space-y-2 text-sm md:text-base ${maintenanceListClass}`}>
+      <ul
+        className={`mt-6 space-y-2 text-sm md:text-base ${maintenanceListClass}`}
+      >
         {pack.ideal.map((item) => (
           <li key={item} className='flex items-start gap-2'>
             <Check
