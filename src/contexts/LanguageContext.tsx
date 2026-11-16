@@ -127,10 +127,6 @@ const translations = {
   'portfolio.inmobiliaria.sector': 'Sector Inmobiliaria · Ejemplo sectorial',
   'portfolio.inmobiliaria.desc':
     'Estructura clara de fichas de viviendas y un camino directo para captar propietarios. Pensada para que una inmobiliaria muestre cartera y reciba consultas desde el móvil.',
-  'portfolio.mhin.title': 'Web para MH Projects',
-  'portfolio.mhin.sector': 'Sector Inmobiliaria · Cliente real',
-  'portfolio.mhin.desc':
-    'Web de servicios inmobiliarios desde Lleida: presentación de la marca, lo que hacen y un contacto directo para empezar el proyecto.',
   'portfolio.psicologa.title': 'Web para consulta de psicología',
   'portfolio.psicologa.sector': 'Sector Psicología · Ejemplo sectorial',
   'portfolio.psicologa.desc':
@@ -139,10 +135,6 @@ const translations = {
   'portfolio.detectives.sector': 'Sector Investigación privada',
   'portfolio.detectives.desc':
     'Web de detectives: servicios claros y un contacto directo para consultar el caso.',
-  'portfolio.mcauto.title': 'McAuto Lleida Classic',
-  'portfolio.mcauto.sector': 'Sector Eventos y motor',
-  'portfolio.mcauto.desc':
-    'Web de eventos de motor clásico: agenda, fotos y un contacto directo.',
   'portfolio.somatica.title': 'Psicoterapia Somática',
   'portfolio.somatica.sector': 'Sector Salud y bienestar',
   'portfolio.somatica.desc':
@@ -151,18 +143,6 @@ const translations = {
   'portfolio.itzalak.sector': 'Sector Psicología',
   'portfolio.itzalak.desc':
     'Web de consulta de psicología: servicios, enfoque y contacto para primera sesión.',
-  'portfolio.noma.title': 'Noma Abogados',
-  'portfolio.noma.sector': 'Sector Servicios jurídicos',
-  'portfolio.noma.desc':
-    'Web de despacho: áreas de práctica y un contacto directo para consultar el caso.',
-  'portfolio.obrador.title': 'L’Obrador de Ponent',
-  'portfolio.obrador.sector': 'Sector Alimentación artesanal',
-  'portfolio.obrador.desc':
-    'Web de obrador: productos, historia y un pedido o contacto sin rodeos.',
-  'portfolio.noemi.title': 'Noemí Bonet Psicología',
-  'portfolio.noemi.sector': 'Sector Psicología deportiva',
-  'portfolio.noemi.desc':
-    'Web de psicología deportiva: método, servicios y un contacto para empezar.',
 
   // Categorías de contacto
   'contact.project.ecommerce': 'E-commerce',

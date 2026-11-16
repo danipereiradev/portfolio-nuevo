@@ -75,7 +75,7 @@ const Home = () => {
         />
       )}
       <Services description='Una web profesional que puedas delegar, con atención directa y una cuota que conoces. Si prefieres pagar tu proyecto de una vez o cuidar la web que ya tienes, también podemos ayudarte.' />      <Portfolio
-        ids={['beachvans', 'vidal', 'noemi']}
+        ids={['beachvans', 'vidal', 'hatena']}
         ctaText='Ver más'
         ctaHref={PORTFOLIO_PATH}
       />

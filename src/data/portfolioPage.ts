@@ -96,26 +96,6 @@ export const PORTFOLIO_PAGE_PROJECTS: readonly PortfolioPageProject[] = [
     url: 'https://www.betadetectives.com/',
   },
   {
-    id: 'mhin',
-    category: 'web',
-    name: 'MH Projects',
-    sector: 'Servicios inmobiliarios',
-    description:
-      'Presentación de la marca, lo que hacen y un contacto directo desde Lleida.',
-    image: '/img/portfolio/new/mhin.webp',
-    url: 'https://mhinprojects.com/',
-  },
-  {
-    id: 'mcauto',
-    category: 'web',
-    name: 'McAuto Lleida Classic',
-    sector: 'Eventos y motor',
-    description:
-      'Agenda, fotos y un contacto directo para eventos de motor clásico.',
-    image: '/img/portfolio/new/mcauto.webp',
-    url: 'https://mcautoclassic.com/',
-  },
-  {
     id: 'somatica',
     category: 'web',
     name: 'Psicoterapia Somática',
@@ -134,36 +114,6 @@ export const PORTFOLIO_PAGE_PROJECTS: readonly PortfolioPageProject[] = [
       'Presencia profesional para el centro: servicios, equipo y contacto.',
     image: '/img/portfolio/new/itzalak.webp',
     url: 'https://itzalakpsicologia.com/',
-  },
-  {
-    id: 'noma',
-    category: 'web',
-    name: 'Noma Abogados',
-    sector: 'Servicios jurídicos',
-    description:
-      'Despacho con servicios claros y un contacto directo para consultar el caso.',
-    image: '/img/portfolio/new/noma.webp',
-    url: 'https://nomaabogados.com/',
-  },
-  {
-    id: 'obrador',
-    category: 'web',
-    name: 'L’Obrador de Ponent',
-    sector: 'Alimentación artesanal',
-    description:
-      'Identidad y catálogo de obrador artesanal, con un contacto sencillo.',
-    image: '/img/portfolio/new/obrador.webp',
-    url: 'https://lobradordeponent.com/',
-  },
-  {
-    id: 'noemi',
-    category: 'web',
-    name: 'Noemí Bonet Psicología',
-    sector: 'Psicología deportiva',
-    description:
-      'Método, servicios y un contacto para empezar.',
-    image: '/img/portfolio/new/noemi.webp',
-    url: 'https://noemibonetpsicologia.com/',
   },
   {
     id: 'chicxs',

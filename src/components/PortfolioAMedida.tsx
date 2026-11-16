@@ -19,13 +19,8 @@ const projects: Project[] = [
   {id:'chicxs',name:'Chicxs de la Calle',sector:'Tienda online',image:'/img/portfolio/new/chicxs.webp',url:'https://chicxsdelacalle.com'},
   {id:'delish',name:'Delish Vegan',sector:'Alimentación',image:'/img/portfolio/new/delish.webp',url:'https://delishvegan.com/'},
   {id:'desmundando',name:'Desmundando',sector:'Viajes',image:'/img/portfolio/new/desmundando.webp'},
-  {id:'mhin',name:'MH Projects',sector:'Servicios inmobiliarios',image:'/img/portfolio/new/mhin.webp',url:'https://mhinprojects.com/'},
-  {id:'mcauto',name:'McAuto Lleida Classic',sector:'Eventos y motor',image:'/img/portfolio/new/mcauto.webp',url:'https://mcautoclassic.com/'},
   {id:'somatica',name:'Psicoterapia Somática',sector:'Salud y bienestar',image:'/img/portfolio/new/somatica.webp',url:'https://psicoterapiasomatica.es/'},
   {id:'itzalak',name:'Itzalak Psicología',sector:'Psicología',image:'/img/portfolio/new/itzalak.webp',url:'https://itzalakpsicologia.com/'},
-  {id:'noma',name:'Noma Abogados',sector:'Servicios jurídicos',image:'/img/portfolio/new/noma.webp',url:'https://nomaabogados.com/'},
-  {id:'obrador',name:'L’Obrador de Ponent',sector:'Alimentación artesanal',image:'/img/portfolio/new/obrador.webp',url:'https://lobradordeponent.com/'},
-  {id:'noemi',name:'Noemí Bonet Psicología',sector:'Psicología deportiva',image:'/img/portfolio/new/noemi.webp',url:'https://noemibonetpsicologia.com/'},
 ];
 
 type PortfolioAMedidaProps = { ids?: string[]; title?: string; description?: string };

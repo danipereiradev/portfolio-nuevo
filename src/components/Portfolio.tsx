@@ -36,15 +36,10 @@ export type ProjectId =
   | 'vidal'
   | 'reformas'
   | 'inmobiliaria'
-  | 'mhin'
   | 'psicologa'
   | 'detectives'
-  | 'mcauto'
   | 'somatica'
-  | 'itzalak'
-  | 'noma'
-  | 'obrador'
-  | 'noemi';
+  | 'itzalak';
 
 interface PortfolioProps {
   /** En /web-profesional: badges de packs y sin proyectos de tienda online. */
@@ -110,17 +105,12 @@ export const ALL_SHOWCASE_PROJECT_IDS: readonly ProjectId[] = [
   'elefantes',
   'silly',
   'desmundando',
-  'mhin',
   'chicxs',
   'camisetas',
   'delish',
   'detectives',
-  'mcauto',
   'somatica',
   'itzalak',
-  'noma',
-  'obrador',
-  'noemi',
 ];
 
 export const pickRandomProjectIds = (
@@ -466,17 +456,6 @@ const Portfolio = ({
       exito: t('portfolio.inmobiliaria.desc'),
       kind: 'demo',
     },
-    mhin: {
-      title: t('portfolio.mhin.title'),
-      description: t('portfolio.mhin.desc'),
-      image: '/img/portfolio/new/mhin.webp',
-      product: SITE_WEB_LABEL,
-      productHref: SITE_WEB_PATH,
-      url: 'https://mhinprojects.com/',
-      nofollow: true,
-      sector: t('portfolio.mhin.sector'),
-      exito: t('portfolio.mhin.desc'),
-    },
     psicologa: {
       title: t('portfolio.psicologa.title'),
       description: t('portfolio.psicologa.desc'),
@@ -497,17 +476,6 @@ const Portfolio = ({
       nofollow: true,
       sector: t('portfolio.detectives.sector'),
       exito: t('portfolio.detectives.desc'),
-    },
-    mcauto: {
-      title: t('portfolio.mcauto.title'),
-      description: t('portfolio.mcauto.desc'),
-      image: '/img/portfolio/new/mcauto.webp',
-      product: SITE_WEB_LABEL,
-      productHref: SITE_WEB_PATH,
-      url: 'https://mcautoclassic.com/',
-      nofollow: true,
-      sector: t('portfolio.mcauto.sector'),
-      exito: t('portfolio.mcauto.desc'),
     },
     somatica: {
       title: t('portfolio.somatica.title'),
@@ -530,39 +498,6 @@ const Portfolio = ({
       nofollow: true,
       sector: t('portfolio.itzalak.sector'),
       exito: t('portfolio.itzalak.desc'),
-    },
-    noma: {
-      title: t('portfolio.noma.title'),
-      description: t('portfolio.noma.desc'),
-      image: '/img/portfolio/new/noma.webp',
-      product: SITE_WEB_LABEL,
-      productHref: SITE_WEB_PATH,
-      url: 'https://nomaabogados.com/',
-      nofollow: true,
-      sector: t('portfolio.noma.sector'),
-      exito: t('portfolio.noma.desc'),
-    },
-    obrador: {
-      title: t('portfolio.obrador.title'),
-      description: t('portfolio.obrador.desc'),
-      image: '/img/portfolio/new/obrador.webp',
-      product: SITE_WEB_LABEL,
-      productHref: SITE_WEB_PATH,
-      url: 'https://lobradordeponent.com/',
-      nofollow: true,
-      sector: t('portfolio.obrador.sector'),
-      exito: t('portfolio.obrador.desc'),
-    },
-    noemi: {
-      title: t('portfolio.noemi.title'),
-      description: t('portfolio.noemi.desc'),
-      image: '/img/portfolio/new/noemi.webp',
-      product: SITE_WEB_LABEL,
-      productHref: SITE_WEB_PATH,
-      url: 'https://noemibonetpsicologia.com/',
-      nofollow: true,
-      sector: t('portfolio.noemi.sector'),
-      exito: t('portfolio.noemi.desc'),
     },
   };
 
