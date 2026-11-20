@@ -5,7 +5,7 @@ import { usePrefs } from './prefs';
 import { useServices } from './i18n/content';
 import SettingsMenu, { SettingsPanel } from './SettingsMenu';
 import { CASES_PATH } from './cases';
-import { CONTACT_PATH } from '../config/contact';
+import { CONTACT_PATH, withSlash } from '../config/contact';
 import { BLOG_PATH } from '../blog/posts';
 
 export const Logo36 = ({ className = 'h-10 w-10' }: { className?: string }) => (
@@ -95,7 +95,7 @@ export default function SiteHeader({ hideNav = false }: { hideNav?: boolean }) {
                 >
                   <div className='grid grid-cols-3 gap-1 rounded-2xl border border-white/10 bg-[#121311] p-3 shadow-2xl'>
                     {SERVICES.map((s) => (
-                      <a key={s.slug} href={s.href} className='group flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-white/5'>
+                      <a key={s.slug} href={withSlash(s.href)} className='group flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-white/5'>
                         <span className='rd-dot mt-1.5' aria-hidden='true' />
                         <span>
                           <span className='block text-sm font-semibold text-white'>{s.name}</span>
@@ -104,14 +104,14 @@ export default function SiteHeader({ hideNav = false }: { hideNav?: boolean }) {
                         <span className='ml-auto text-white/30 transition-colors group-hover:text-[#e1f56e]'>↗</span>
                       </a>
                     ))}
-                    <a href={SERVICES_PATH} className='col-span-3 mt-1 rounded-xl border border-white/10 p-3 text-center text-xs font-semibold uppercase tracking-[0.18em] text-white/70 hover:border-[#e1f56e] hover:text-[#e1f56e]'>
+                    <a href={withSlash(SERVICES_PATH)} className='col-span-3 mt-1 rounded-xl border border-white/10 p-3 text-center text-xs font-semibold uppercase tracking-[0.18em] text-white/70 hover:border-[#e1f56e] hover:text-[#e1f56e]'>
                       {t('Todos los servicios', 'All services')} ↗
                     </a>
                   </div>
                 </div>
               </div>
               {NAV.map((l) => (
-                <a key={l.href} href={l.href} className='rd-navlink'>
+                <a key={l.href} href={withSlash(l.href)} className='rd-navlink'>
                   {l.label}
                 </a>
               ))}
@@ -119,7 +119,7 @@ export default function SiteHeader({ hideNav = false }: { hideNav?: boolean }) {
 
             <div className='ml-auto flex items-center gap-3 lg:ml-0'>
               <SettingsMenu />
-              <a href={CONTACT_PATH} className='rd-btn-outline hidden lg:inline-flex'>
+              <a href={withSlash(CONTACT_PATH)} className='rd-btn-outline hidden lg:inline-flex'>
                 {t('Cuéntanos', 'Tell us')} <span aria-hidden='true'>↗</span>
               </a>
             </div>
@@ -144,14 +144,14 @@ export default function SiteHeader({ hideNav = false }: { hideNav?: boolean }) {
         <div className='h-[calc(100svh-var(--site-header-h))] overflow-y-auto bg-[#0b0c0a] px-5 pb-10 pt-4 lg:hidden'>
           <p className='rd-eyebrow mb-3'>{t('Menú', 'Menu')}</p>
           {[{ href: '/', label: t('Inicio', 'Home') }, ...NAV, { href: CONTACT_PATH, label: t('Contacto', 'Contact') }].map((l) => (
-            <a key={l.href} href={l.href} className='flex items-baseline gap-4 border-b border-white/10 py-4 text-2xl font-extrabold uppercase text-white'>
+            <a key={l.href} href={withSlash(l.href)} className='flex items-baseline gap-4 border-b border-white/10 py-4 text-2xl font-extrabold uppercase text-white'>
               {l.label}
               <span className='ml-auto text-base text-white/40'>↗</span>
             </a>
           ))}
           <p className='rd-eyebrow mb-3 mt-8'>{t('Servicios', 'Services')}</p>
           {SERVICES.map((s) => (
-            <a key={s.slug} href={s.href} className='flex items-baseline gap-4 border-b border-white/10 py-3 text-lg font-bold text-white'>
+            <a key={s.slug} href={withSlash(s.href)} className='flex items-baseline gap-4 border-b border-white/10 py-3 text-lg font-bold text-white'>
               <span className='rd-dot' aria-hidden='true' />
               {s.name}
               <span className='ml-auto text-sm text-white/40'>↗</span>
@@ -160,7 +160,7 @@ export default function SiteHeader({ hideNav = false }: { hideNav?: boolean }) {
           <div className='rd-settings mt-8 rounded-2xl border border-white/10 bg-[#121311] p-5'>
             <SettingsPanel />
           </div>
-          <a href={CONTACT_PATH} className='rd-btn mt-8 w-full justify-center'>
+          <a href={withSlash(CONTACT_PATH)} className='rd-btn mt-8 w-full justify-center'>
             {t('Cuéntanos', 'Tell us')} ↗
           </a>
         </div>

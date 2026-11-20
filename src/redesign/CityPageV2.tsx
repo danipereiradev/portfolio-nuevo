@@ -4,12 +4,13 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
 import {
   CONTACT_PATH,
+  PHONE_DISPLAY,
+  PHONE_TEL_LINK,
   SITE_MAINTENANCE_PATH,
   SITE_SHOP_PATH,
   SITE_WEB_PATH,
   buildWhatsAppUrl,
-  localWebCityHref,
-} from '../config/contact';
+  localWebCityHref, withSlash } from '../config/contact';
 import {
   getLocalGeoContext,
   getLocalWebCity,
@@ -76,8 +77,8 @@ function CityPage({ city }: { city: LocalWebCity }) {
           <div>
             <p className='text-lg leading-relaxed text-white/65'>{city.hero_lead}</p>
             <div className='mt-8 flex flex-wrap gap-3'>
-              <a href={CONTACT_PATH} className='rd-btn'>Pide una revisión gratis ↗</a>
-              <a href='#incluye' className='rd-btn-ghost'>Qué incluye</a>
+              <a href={withSlash(CONTACT_PATH)} className='rd-btn'>Pide una revisión gratis ↗</a>
+              <a href={PHONE_TEL_LINK} className='rd-btn-ghost'>Llámanos · {PHONE_DISPLAY}</a>
             </div>
             <GoogleBadge className='mt-8' />
           </div>
@@ -141,7 +142,7 @@ function CityPage({ city }: { city: LocalWebCity }) {
                 <p className='mt-3 text-xl font-extrabold leading-snug'>{caso.before}</p>
                 <p className='mt-8 font-mono text-[11px] uppercase tracking-[0.2em] text-[#e1f56e]'>Después</p>
                 <p className='mt-3 text-xl font-extrabold leading-snug'>{caso.after}</p>
-                <a href={`/casos-de-exito/${caso.slug}`} className='rd-btn-ghost mt-8'>Ver el caso completo →</a>
+                <a href={`/casos-de-exito/${caso.slug}/`} className='rd-btn-ghost mt-8'>Ver el caso completo →</a>
               </div>
             )}
           </div>
@@ -315,11 +316,14 @@ function CityPage({ city }: { city: LocalWebCity }) {
             <p className='mt-4 max-w-lg text-[#0b0c0a]/70'>{city.cta_local.description}</p>
           </div>
           <div className='flex flex-wrap gap-3'>
-            <a href={CONTACT_PATH} className='inline-flex items-center gap-2 rounded-full bg-[#0b0c0a] px-7 py-4 text-xs font-bold uppercase tracking-[0.14em] text-white hover:bg-[#3346c1]'>
+            <a href={withSlash(CONTACT_PATH)} className='inline-flex items-center gap-2 rounded-full bg-[#0b0c0a] px-7 py-4 text-xs font-bold uppercase tracking-[0.14em] text-white hover:bg-[#3346c1]'>
               Cuéntanos ↗
             </a>
             <a href={buildWhatsAppUrl()} target='_blank' rel='noopener noreferrer' className='inline-flex items-center rounded-full border border-[#0b0c0a]/30 px-7 py-4 text-xs font-bold uppercase tracking-[0.14em]'>
               WhatsApp
+            </a>
+            <a href={PHONE_TEL_LINK} className='inline-flex items-center rounded-full border border-[#0b0c0a]/30 px-7 py-4 text-xs font-bold uppercase tracking-[0.14em]'>
+              {PHONE_DISPLAY}
             </a>
           </div>
         </div>

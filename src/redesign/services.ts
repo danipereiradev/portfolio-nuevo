@@ -17,6 +17,8 @@ export type Service = {
     faq: { q: string; a: string }[];
     steps?: { t: string; d: string }[];
     image?: string;
+    /** Bloque de SEO local (Corredor del Henares). Enlaza a las páginas de ciudad. */
+    local?: { eyebrow: string; heading: string; paragraphs: string[] };
   };
 };
 
@@ -86,7 +88,16 @@ export const SERVICES: Service[] = [
         { t: 'Lanzamiento', d: 'Publicamos y te formamos para gestionar pedidos.' },
       ],
       forWho: ['Marcas que empiezan a vender online', 'Negocios con tienda física que quieren vender fuera de su barrio', 'Tiendas que hay que rehacer porque no convierten'],
+      local: {
+        eyebrow: 'Tiendas online en el Corredor del Henares',
+        heading: 'Tu tienda online, hecha desde Torrejón de Ardoz',
+        paragraphs: [
+          'Trabajamos desde Torrejón de Ardoz con comercios y marcas de Coslada, San Fernando de Henares, Alcalá de Henares y Madrid. Si además tienes tienda física, configuramos la recogida en tienda y los envíos por zonas para que tus clientes de la zona compren online sin pagar envíos de más.',
+          'Trabajamos en remoto: hablamos por teléfono, WhatsApp o videollamada. Te damos el precio y el plazo por escrito antes de empezar.',
+        ],
+      },
       faq: [
+        { q: '¿Hacéis tiendas online para negocios de Torrejón y alrededores?', a: 'Sí. Estamos en Torrejón de Ardoz y trabajamos con negocios de Coslada, San Fernando de Henares, Alcalá de Henares y Madrid, además del resto de España. Hablamos por teléfono, WhatsApp o videollamada.' },
         { q: '¿WooCommerce, Shopify o a medida?', a: 'Lo que pida el caso. Con una plataforma tú llevas el control de la tienda; a medida suele ser para catálogos o procesos más complejos.' },
         { q: '¿Cuánto se tarda?', a: 'Una tienda suele llevar de 4 a 8 semanas cuando tenemos productos, fotos y textos.' },
         { q: '¿Podéis mejorar mi tienda actual?', a: 'Sí. Revisamos dónde se pierden las ventas y te decimos si compensa mejorarla o rehacerla.' },
@@ -251,7 +262,16 @@ export const EXTRA_SERVICES: Service[] = [
         { t: 'Horas claras', d: 'Planes y bonos definidos antes de empezar. Nunca consumimos horas sin tu aprobación.' },
       ],
       forWho: ['Quien quiere olvidarse del mantenimiento', 'Webs hechas por otra empresa que nadie cuida', 'Webs rotas que hay que sanear'],
+      local: {
+        eyebrow: 'Mantenimiento web en el Corredor del Henares',
+        heading: 'Mantenimiento web en Torrejón, Coslada, San Fernando y Alcalá',
+        paragraphs: [
+          'Si tienes un negocio en Torrejón de Ardoz, Coslada, San Fernando de Henares o Alcalá de Henares, nos ocupamos de tu web desde aquí: actualizaciones, copias de seguridad, seguridad y arreglos, aunque la web la hiciera otra empresa.',
+          'Cuando algo falla hablas directamente con quien revisa tu web, por teléfono o WhatsApp, de lunes a viernes de 9:00 a 18:00 y los sábados de 9:00 a 14:00.',
+        ],
+      },
       faq: [
+        { q: '¿Dais mantenimiento web a negocios de Torrejón y el Corredor del Henares?', a: 'Sí. Estamos en Torrejón de Ardoz y mantenemos webs de negocios de Coslada, San Fernando de Henares, Alcalá de Henares y Madrid, además del resto de España. Trabajamos en remoto, así que no hace falta que nos veamos para empezar.' },
         { q: '¿Y si la web la hizo otra empresa?', a: 'No pasa nada: la mayoría de incidencias que vemos vienen de webs hechas por otros. Primero la revisamos y te decimos si podemos hacernos cargo.' },
         { q: '¿Qué pasa si mi web ya está rota?', a: 'Empezamos por un bono de horas: revisamos, arreglamos y te decimos qué queda. Luego, si quieres, pasas a mantenimiento.' },
         { q: '¿Qué es un pequeño cambio?', a: 'Un texto, una foto, un horario o un ajuste visual. Una página nueva o una funcionalidad van aparte, con presupuesto antes.' },

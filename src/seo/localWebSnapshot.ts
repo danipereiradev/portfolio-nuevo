@@ -4,6 +4,9 @@
  * enlaces internos y schema en el HTML inicial, sin esperar a React.
  */
 import {
+  BUSINESS_HOURS,
+  PHONE_DISPLAY,
+  PHONE_TEL_LINK,
   SITE_MAINTENANCE_LABEL,
   SITE_MAINTENANCE_PATH,
   SITE_SHOP_LABEL,
@@ -245,8 +248,8 @@ export const buildLocalWebCityBodyHtml = (city: LocalWebCity) => {
             <h2 class="text-3xl font-extrabold text-ink-dark md:text-4xl">Diseño web, tienda o mantenimiento</h2>
             ${p(`Esta página es para una web de presentación en ${city.ciudad}. Si el proyecto es otra cosa, ve al servicio que toca.`)}
             <ul class="mt-page-gap flex flex-col items-center gap-3 text-lg md:text-xl">
-              <li><a href="${SITE_SHOP_PATH}" class="font-bold text-link underline">${escapeHtml(SITE_SHOP_LABEL)}</a></li>
-              <li><a href="${SITE_MAINTENANCE_PATH}" class="font-bold text-link underline">${escapeHtml(SITE_MAINTENANCE_LABEL)}</a></li>
+              <li><a href="${SITE_SHOP_PATH}/" class="font-bold text-link underline">${escapeHtml(SITE_SHOP_LABEL)}</a></li>
+              <li><a href="${SITE_MAINTENANCE_PATH}/" class="font-bold text-link underline">${escapeHtml(SITE_MAINTENANCE_LABEL)}</a></li>
             </ul>
           </div>
         </section>
@@ -264,6 +267,8 @@ export const buildLocalWebCityBodyHtml = (city: LocalWebCity) => {
           <div class="container mx-auto max-w-5xl text-center">
             <h2 class="text-3xl font-extrabold text-ink-dark md:text-4xl">${escapeHtml(city.cta_local.title)}</h2>
             ${p(city.cta_local.description)}
+            <p class="mt-6 text-2xl font-extrabold text-ink-dark md:text-3xl">Llámanos: <a href="${PHONE_TEL_LINK}" class="text-link underline">${escapeHtml(PHONE_DISPLAY)}</a></p>
+            ${p(`${BUSINESS_HOURS}. Trabajamos desde Torrejón de Ardoz para todo el Corredor del Henares.`)}
           </div>
         </section>
 

@@ -131,6 +131,20 @@ const normalizePath = (pathname: string): string => {
   }
 };
 
+/**
+ * Enlace interno con barra final, igual que la canonical y el sitemap.
+ * Las rutas sin barra hacen 301 (netlify/edge-functions/trailing-slash.ts);
+ * enlazar ya con barra evita ese salto. Externos, anclas y archivos no se tocan.
+ */
+export const withSlash = (href: string): string => {
+  if (!href.startsWith('/') || href.startsWith('//')) return href;
+  const match = href.match(/^([^?#]*)(.*)$/);
+  const path = match?.[1] ?? href;
+  const rest = match?.[2] ?? '';
+  if (path === '/' || path.endsWith('/') || /\.[a-z0-9]+$/i.test(path)) return href;
+  return `${path}/${rest}`;
+};
+
 /** Catálogo de trabajos. No va en el menú: se entra por URL. */
 export const PORTFOLIO_PATH = '/portfolio';
 

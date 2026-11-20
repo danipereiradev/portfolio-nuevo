@@ -1,6 +1,6 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
-import { CONTACT_PATH, buildWhatsAppUrl } from '../config/contact';
+import { CONTACT_PATH, buildWhatsAppUrl, withSlash } from '../config/contact';
 import GoogleBadge from './GoogleBadge';
 import { SERVICES_PATH } from './services';
 import { usePrefs } from './prefs';
@@ -16,7 +16,7 @@ function CtaBand({ text }: { text: string }) {
       <div className='mx-auto flex max-w-[1320px] flex-col gap-8 rounded-[1.75rem] bg-[#e1f56e] px-7 py-14 text-[#0b0c0a] md:flex-row md:items-center md:justify-between md:px-14'>
         <h2 className='rd-h2 max-w-[16ch] !text-[clamp(1.9rem,4vw,3.4rem)]'>{text}</h2>
         <div className='flex flex-wrap gap-3'>
-          <a href={CONTACT_PATH} className='inline-flex items-center gap-2 rounded-full bg-[#0b0c0a] px-7 py-4 text-xs font-bold uppercase tracking-[0.14em] text-white hover:bg-[#3346c1]'>{t('Cuéntanos', 'Tell us')} ↗</a>
+          <a href={withSlash(CONTACT_PATH)} className='inline-flex items-center gap-2 rounded-full bg-[#0b0c0a] px-7 py-4 text-xs font-bold uppercase tracking-[0.14em] text-white hover:bg-[#3346c1]'>{t('Cuéntanos', 'Tell us')} ↗</a>
           <a href={buildWhatsAppUrl()} target='_blank' rel='noopener noreferrer' className='inline-flex items-center rounded-full border border-[#0b0c0a]/30 px-7 py-4 text-xs font-bold uppercase tracking-[0.14em]'>WhatsApp</a>
         </div>
       </div>
@@ -44,7 +44,7 @@ export function ServicesIndex() {
         <ul className='divide-y divide-white/10 border-y border-white/10'>
           {SERVICES.map((s) => (
             <li key={s.slug}>
-              <a href={s.href} className='group grid items-center gap-4 py-8 md:grid-cols-[80px_1fr_1.2fr_40px]'>
+              <a href={withSlash(s.href)} className='group grid items-center gap-4 py-8 md:grid-cols-[80px_1fr_1.2fr_40px]'>
                 <span className='rd-dot' aria-hidden='true' />
                 <span className='text-3xl font-black uppercase md:text-4xl'>{s.name}</span>
                 <span className='text-white/55'>{s.short}</span>
@@ -57,7 +57,7 @@ export function ServicesIndex() {
         <ul className='grid gap-4 md:grid-cols-2'>
           {EXTRA_SERVICES.map((s) => (
             <li key={s.slug}>
-              <a href={s.href} className='rd-card group flex h-full items-start justify-between gap-6 p-6'>
+              <a href={withSlash(s.href)} className='rd-card group flex h-full items-start justify-between gap-6 p-6'>
                 <span>
                   <span className='block text-2xl font-black uppercase'>{s.name}</span>
                   <span className='mt-2 block text-sm text-white/55'>{s.short}</span>
@@ -76,12 +76,12 @@ export function ServicesIndex() {
 export default function ServicePageV2({ slug: slugProp }: { slug?: string }) {
   const params = useParams();
   const slug = slugProp ?? params.slug;
-  const { t } = usePrefs();
+  const { t, lang } = usePrefs();
   const { services: SERVICES, all: ALL_SERVICES } = useServices();
   const s = ALL_SERVICES.find((x) => x.slug === slug);
   usePageMeta(s && !s.href.startsWith(SERVICES_PATH) ? s.href : `${SERVICES_PATH}/${slug}`);
-  if (!s || !s.page) return <Navigate to={SERVICES_PATH} replace />;
-  if (!slugProp && !s.href.startsWith(SERVICES_PATH)) return <Navigate to={s.href} replace />;
+  if (!s || !s.page) return <Navigate to={withSlash(SERVICES_PATH)} replace />;
+  if (!slugProp && !s.href.startsWith(SERVICES_PATH)) return <Navigate to={withSlash(s.href)} replace />;
   const p = s.page;
   const others = SERVICES.filter((x) => x.slug !== s.slug).slice(0, 3);
 
@@ -106,7 +106,7 @@ export default function ServicePageV2({ slug: slugProp }: { slug?: string }) {
           <div>
             <p className='text-lg leading-relaxed text-white/65'>{p.intro}</p>
             <div className='mt-8 flex flex-wrap gap-3'>
-              <a href={CONTACT_PATH} className='rd-btn'>{t('Pide una revisión gratis', 'Get a free review')} ↗</a>
+              <a href={withSlash(CONTACT_PATH)} className='rd-btn'>{t('Pide una revisión gratis', 'Get a free review')} ↗</a>
               <a href='#incluye' className='rd-btn-ghost'>{t('Qué incluye', 'What’s included')}</a>
             </div>
             <GoogleBadge className='mt-8' />
@@ -142,6 +142,27 @@ export default function ServicePageV2({ slug: slugProp }: { slug?: string }) {
           ))}
         </div>
       </section>
+
+      {p.local && lang === 'es' ? (
+        <section className='mx-auto max-w-[1320px] px-5 pb-20 md:px-8'>
+          <p className='rd-eyebrow mb-5'>{p.local.eyebrow}</p>
+          <h2 className='rd-h2 max-w-[24ch] !text-[clamp(1.7rem,3.4vw,2.8rem)]'>{p.local.heading}</h2>
+          <div className='mt-6 max-w-3xl space-y-4 text-lg leading-relaxed text-white/65'>
+            {p.local.paragraphs.map((para) => (
+              <p key={para}>{para}</p>
+            ))}
+          </div>
+          <ul className='mt-8 flex flex-wrap gap-2'>
+            {LOCAL_WEB_LISTED_CITIES.filter((c) => c.provincia === 'Madrid').map((c) => (
+              <li key={c.slug}>
+                <a href={localWebCityHref(c.slug)} className='inline-block rounded-full border border-white/15 px-4 py-2 text-sm font-semibold hover:border-[#141414]'>
+                  {`Diseño web en ${c.ciudad}`}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
 
       {s.slug === 'diseno-web' ? (
         <section className='mx-auto max-w-[1320px] px-5 pb-20 md:px-8'>
@@ -195,7 +216,7 @@ export default function ServicePageV2({ slug: slugProp }: { slug?: string }) {
         <p className='rd-eyebrow mb-5'>{t('Funciona mejor junto a', 'Works best with')}</p>
         <div className='grid gap-4 md:grid-cols-3'>
           {others.map((o) => (
-            <a key={o.slug} href={o.href} className='rd-card group p-6'>
+            <a key={o.slug} href={withSlash(o.href)} className='rd-card group p-6'>
               <span className='rd-dot' aria-hidden='true' />
               <h3 className='mt-5 text-xl font-extrabold uppercase'>{o.name}</h3>
               <p className='mt-2 text-sm text-white/55'>{o.short}</p>

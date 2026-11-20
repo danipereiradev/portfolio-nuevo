@@ -1,7 +1,7 @@
 import { usePrefs } from './prefs';
 import { useServices } from './i18n/content';
 import { LOCAL_WEB_LISTED_CITIES } from '../data/localWebCities';
-import { localWebCityHref } from '../config/contact';
+import { localWebCityHref, withSlash } from '../config/contact';
 import { CASES_PATH } from './cases';
 import { Logo36 } from './SiteHeader';
 import {
@@ -19,10 +19,10 @@ import {
 import { BLOG_PATH } from '../blog/posts';
 
 const LEGAL = [
-  { href: '/politica-de-privacidad', label: ['Privacidad', 'Privacy'] },
-  { href: '/terminos-y-condiciones', label: ['Términos', 'Terms'] },
-  { href: '/politica-de-cookies', label: ['Cookies', 'Cookies'] },
-  { href: '/aviso-legal', label: ['Aviso legal', 'Legal notice'] },
+  { href: '/politica-de-privacidad/', label: ['Privacidad', 'Privacy'] },
+  { href: '/terminos-y-condiciones/', label: ['Términos', 'Terms'] },
+  { href: '/politica-de-cookies/', label: ['Cookies', 'Cookies'] },
+  { href: '/aviso-legal/', label: ['Aviso legal', 'Legal notice'] },
 ];
 
 const COMPANY = [
@@ -49,7 +49,7 @@ export default function SiteFooter() {
             </h2>
           </div>
           <div className='flex flex-wrap gap-3'>
-            <a href={CONTACT_PATH} className='rd-btn'>{t('Cuéntanos', 'Tell us')} ↗</a>
+            <a href={withSlash(CONTACT_PATH)} className='rd-btn'>{t('Cuéntanos', 'Tell us')} ↗</a>
             <a href={buildWhatsAppUrl()} target='_blank' rel='noopener noreferrer' className='rd-btn-ghost'>
               WhatsApp {PHONE_DISPLAY}
             </a>
@@ -71,7 +71,7 @@ export default function SiteFooter() {
             <ul className='space-y-2.5'>
               {SERVICES.map((s) => (
                 <li key={s.slug}>
-                  <a href={s.href} className='rd-footlink'>{s.name}</a>
+                  <a href={withSlash(s.href)} className='rd-footlink'>{s.name}</a>
                 </li>
               ))}
             </ul>
@@ -81,7 +81,7 @@ export default function SiteFooter() {
             <ul className='space-y-2.5'>
               {COMPANY.map((l) => (
                 <li key={l.href}>
-                  <a href={l.href} className='rd-footlink'>{t(l.label[0], l.label[1])}</a>
+                  <a href={withSlash(l.href)} className='rd-footlink'>{t(l.label[0], l.label[1])}</a>
                 </li>
               ))}
             </ul>
@@ -112,7 +112,7 @@ export default function SiteFooter() {
           <p>© {new Date().getFullYear()} 36web</p>
           <ul className='flex flex-wrap gap-5'>
             {LEGAL.map((l) => (
-              <li key={l.href}><a href={l.href} className='hover:text-white'>{t(l.label[0], l.label[1])}</a></li>
+              <li key={l.href}><a href={withSlash(l.href)} className='hover:text-white'>{t(l.label[0], l.label[1])}</a></li>
             ))}
           </ul>
         </div>

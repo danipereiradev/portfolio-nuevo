@@ -3,8 +3,7 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import {
   CONTACT_PATH,
   TRANQUILIDAD_DIGITAL_PATH,
-  buildWhatsAppUrl,
-} from '../config/contact';
+  buildWhatsAppUrl, withSlash } from '../config/contact';
 import { SERVICES_PATH } from './services';
 import { CASES_PATH } from './cases';
 import { usePrefs } from './prefs';
@@ -374,10 +373,10 @@ export default function HomeV2() {
               )}
             </p>
             <div className='mt-9 flex flex-wrap gap-3'>
-              <a href={CONTACT_PATH} className='rd-btn'>
+              <a href={withSlash(CONTACT_PATH)} className='rd-btn'>
                 {t('Pide una revisión gratis', 'Get a free review')} ↗
               </a>
-              <a href={CASES_PATH} className='rd-btn-ghost'>
+              <a href={withSlash(CASES_PATH)} className='rd-btn-ghost'>
                 {t('Ver resultados', 'See results')}
               </a>
             </div>
@@ -394,7 +393,7 @@ export default function HomeV2() {
               {SERVICES.map((s) => (
                 <li key={s.slug}>
                   <a
-                    href={s.href}
+                    href={withSlash(s.href)}
                     className='group flex items-center gap-3 py-3.5'
                   >
                     <span className='rd-dot' aria-hidden='true' />
@@ -474,7 +473,7 @@ export default function HomeV2() {
             {SERVICES.map((s) => (
               <a
                 key={s.slug}
-                href={s.href}
+                href={withSlash(s.href)}
                 className='rd-card group flex min-h-[250px] flex-col p-6'
               >
                 <div className='flex items-center justify-between'>
@@ -495,7 +494,7 @@ export default function HomeV2() {
               </a>
             ))}
             <a
-              href={SERVICES_PATH}
+              href={withSlash(SERVICES_PATH)}
               className='group flex min-h-[250px] flex-col justify-between rounded-[1.25rem] bg-[#e1f56e] p-6 text-[#0b0c0a] transition-transform hover:-translate-y-1'
             >
               <span className='font-mono text-xs'>+</span>
@@ -532,7 +531,7 @@ export default function HomeV2() {
                 'When hosting, domains, developers, platforms and invoices are involved, someone needs to be on your side. That’s us.',
               )}
             </p>
-            <a href={TRANQUILIDAD_DIGITAL_PATH} className='rd-btn mt-9'>
+            <a href={withSlash(TRANQUILIDAD_DIGITAL_PATH)} className='rd-btn mt-9'>
               {t('Cómo funciona', 'How it works')} ↗
             </a>
           </div>
@@ -607,7 +606,7 @@ export default function HomeV2() {
                   <span className='rd-mark'>{t('reales.', 'results.')}</span>
                 </h2>
               </div>
-              <a href={CASES_PATH} className='rd-btn-ghost'>
+              <a href={withSlash(CASES_PATH)} className='rd-btn-ghost'>
                 {t('Ver todos', 'See all')} ↗
               </a>
             </div>
@@ -751,7 +750,7 @@ export default function HomeV2() {
           </p>
           <div className='relative mt-9 flex flex-wrap gap-3'>
             <a
-              href={CONTACT_PATH}
+              href={withSlash(CONTACT_PATH)}
               className='inline-flex items-center gap-2 rounded-full bg-[#0b0c0a] px-7 py-4 text-xs font-bold uppercase tracking-[0.14em] text-white hover:bg-[#3346c1]'
             >
               {t('Quiero mi revisión', 'I want my review')} ↗

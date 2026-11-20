@@ -1,6 +1,6 @@
 import LegalPages, { LegalPageId } from '../components/LegalPages';
 import { usePageMeta } from '../hooks/usePageMeta';
-import { CONTACT_EMAIL, CONTACT_PATH } from '../config/contact';
+import { CONTACT_EMAIL, CONTACT_PATH, withSlash } from '../config/contact';
 import { SpanishOnlyNotice, usePrefs } from './prefs';
 import BgDigit from './BgDigit';
 
@@ -12,10 +12,10 @@ const DOCS_EN: Record<string, { label: string; title: [string, string] }> = {
 };
 
 const DOCS: { id: LegalPageId; href: string; label: string; title: [string, string] }[] = [
-  { id: 'privacy', href: '/politica-de-privacidad', label: 'Política de privacidad', title: ['POLÍTICA DE', 'PRIVACIDAD.'] },
-  { id: 'terms', href: '/terminos-y-condiciones', label: 'Términos y condiciones', title: ['TÉRMINOS Y', 'CONDICIONES.'] },
-  { id: 'cookies', href: '/politica-de-cookies', label: 'Política de cookies', title: ['POLÍTICA DE', 'COOKIES.'] },
-  { id: 'legal', href: '/aviso-legal', label: 'Aviso legal', title: ['AVISO', 'LEGAL.'] },
+  { id: 'privacy', href: '/politica-de-privacidad/', label: 'Política de privacidad', title: ['POLÍTICA DE', 'PRIVACIDAD.'] },
+  { id: 'terms', href: '/terminos-y-condiciones/', label: 'Términos y condiciones', title: ['TÉRMINOS Y', 'CONDICIONES.'] },
+  { id: 'cookies', href: '/politica-de-cookies/', label: 'Política de cookies', title: ['POLÍTICA DE', 'COOKIES.'] },
+  { id: 'legal', href: '/aviso-legal/', label: 'Aviso legal', title: ['AVISO', 'LEGAL.'] },
 ];
 
 export default function LegalV2({ page, path }: { page: LegalPageId; path: string }) {
@@ -68,7 +68,7 @@ export default function LegalV2({ page, path }: { page: LegalPageId; path: strin
                 </li>
               ))}
             </ul>
-            <a href={CONTACT_PATH} className='rd-btn mt-8 w-full justify-center'>
+            <a href={withSlash(CONTACT_PATH)} className='rd-btn mt-8 w-full justify-center'>
               {t('Contactar', 'Contact us')} →
             </a>
           </aside>

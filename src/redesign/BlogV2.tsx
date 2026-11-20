@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
-import { CONTACT_PATH, buildWhatsAppUrl } from '../config/contact';
+import { CONTACT_PATH, buildWhatsAppUrl, withSlash } from '../config/contact';
 import {
   BLOG_PATH,
   getPostBySlug,
@@ -71,7 +71,7 @@ function Cta({ text }: { text: string }) {
           <h2 className='rd-h2 mt-4 max-w-[16ch] !text-[clamp(1.9rem,4vw,3.4rem)]'>{text}</h2>
         </div>
         <div className='flex flex-wrap gap-3'>
-          <a href={CONTACT_PATH} className='inline-flex items-center gap-2 rounded-full bg-[#0b0c0a] px-7 py-4 text-xs font-bold uppercase tracking-[0.14em] text-white hover:bg-[#3346c1]'>
+          <a href={withSlash(CONTACT_PATH)} className='inline-flex items-center gap-2 rounded-full bg-[#0b0c0a] px-7 py-4 text-xs font-bold uppercase tracking-[0.14em] text-white hover:bg-[#3346c1]'>
             {t('Cuéntanos', 'Tell us')} ↗
           </a>
           <a href={buildWhatsAppUrl()} target='_blank' rel='noopener noreferrer' className='inline-flex items-center rounded-full border border-[#0b0c0a]/30 px-7 py-4 text-xs font-bold uppercase tracking-[0.14em]'>
@@ -134,7 +134,7 @@ export function BlogIndex() {
               {t('Guías claras sobre diseño web, tiendas online, SEO y marketing para negocios que quieren más clientes, sin tecnicismos.', 'Clear guides on web design, online stores, SEO and marketing for businesses that want more customers — no jargon.')}
             </p>
             <div className='mt-8 flex flex-wrap gap-3'>
-              <a href={CONTACT_PATH} className='rd-btn'>{t('Pide una revisión gratis', 'Get a free review')} ↗</a>
+              <a href={withSlash(CONTACT_PATH)} className='rd-btn'>{t('Pide una revisión gratis', 'Get a free review')} ↗</a>
               {first ? (
                 <a href={getPostPath(first.slug)} className='rd-btn-ghost'>{t('Último artículo', 'Latest article')}</a>
               ) : null}
@@ -225,7 +225,7 @@ export default function BlogPostV2() {
   }, [post]);
   useJsonLd('jsonld-blog-post', jsonLd);
 
-  if (!post) return <Navigate to={BLOG_PATH} replace />;
+  if (!post) return <Navigate to={withSlash(BLOG_PATH)} replace />;
 
   return (
     <main className='rd rd-page'>
@@ -233,7 +233,7 @@ export default function BlogPostV2() {
         <BgDigit d='3' side='right' />
         <div className='rd-grid-bg pointer-events-none absolute inset-0' />
         <div className='relative mx-auto max-w-[1100px] px-5 pb-14 pt-16 md:px-8'>
-          <a href={BLOG_PATH} className='rd-eyebrow inline-flex items-center gap-2 !text-white/50 hover:!text-[#e1f56e]'>
+          <a href={withSlash(BLOG_PATH)} className='rd-eyebrow inline-flex items-center gap-2 !text-white/50 hover:!text-[#e1f56e]'>
             ← 36blog
           </a>
           <p className='rd-eyebrow mb-6 mt-10'>
@@ -275,7 +275,7 @@ export default function BlogPostV2() {
               <p className='font-mono text-[11px] uppercase tracking-[0.2em] text-brand-light'>{t('// revisión gratis', '// free review')}</p>
               <p className='mt-3 text-lg font-extrabold uppercase leading-tight'>{t('¿Tu web necesita una revisión?', 'Does your website need a check-up?')}</p>
               <p className='mt-3 text-sm text-[#ffffff]/60'>{t('La revisamos y te decimos qué arreglaríamos. Sin compromiso.', 'We review it and tell you what we’d fix. No strings attached.')}</p>
-              <a href={CONTACT_PATH} className='mt-5 inline-flex rounded-full bg-[#e1f56e] px-5 py-3 text-xs font-bold uppercase tracking-[0.14em] text-[#0b0c0a] hover:bg-white'>
+              <a href={withSlash(CONTACT_PATH)} className='mt-5 inline-flex rounded-full bg-[#e1f56e] px-5 py-3 text-xs font-bold uppercase tracking-[0.14em] text-[#0b0c0a] hover:bg-white'>
                 {t('Pedir revisión', 'Request a review')} ↗
               </a>
             </div>

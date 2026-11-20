@@ -241,7 +241,7 @@ export default function ContactV2() {
             <label className='mt-8 flex cursor-pointer items-start gap-3 text-sm text-white/60'>
               <input type='checkbox' checked={f.consent} onChange={(e) => set('consent', e.target.checked)} className='mt-0.5 h-4 w-4 rounded border-white/30 bg-transparent accent-[#e1f56e]' />
               <span>
-                {t('He leído y acepto la', 'I have read and accept the')} <a href='/politica-de-privacidad' className='underline hover:text-[#e1f56e]'>{t('política de privacidad', 'privacy policy')}</a>.
+                {t('He leído y acepto la', 'I have read and accept the')} <a href='/politica-de-privacidad/' className='underline hover:text-[#e1f56e]'>{t('política de privacidad', 'privacy policy')}</a>.
               </span>
             </label>
             {err('consent')}

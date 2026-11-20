@@ -1,6 +1,6 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
-import { CONTACT_PATH, PORTFOLIO_PATH, buildWhatsAppUrl } from '../config/contact';
+import { CONTACT_PATH, PORTFOLIO_PATH, buildWhatsAppUrl, withSlash } from '../config/contact';
 import { CASES_PATH, CaseItem } from './cases';
 import { usePrefs } from './prefs';
 import { useCases } from './i18n/content';
@@ -49,7 +49,7 @@ function Cta() {
           <h2 className='rd-h2 mt-4 max-w-[16ch] !text-[clamp(1.9rem,4vw,3.4rem)]'>{t('¿El próximo caso es el tuyo?', 'Could you be our next case study?')}</h2>
         </div>
         <div className='flex flex-wrap gap-3'>
-          <a href={CONTACT_PATH} className='inline-flex items-center gap-2 rounded-full bg-[#0b0c0a] px-7 py-4 text-xs font-bold uppercase tracking-[0.14em] text-white hover:bg-[#3346c1]'>
+          <a href={withSlash(CONTACT_PATH)} className='inline-flex items-center gap-2 rounded-full bg-[#0b0c0a] px-7 py-4 text-xs font-bold uppercase tracking-[0.14em] text-white hover:bg-[#3346c1]'>
             {t('Cuéntanos', 'Tell us')} ↗
           </a>
           <a href={buildWhatsAppUrl()} target='_blank' rel='noopener noreferrer' className='inline-flex items-center rounded-full border border-[#0b0c0a]/30 px-7 py-4 text-xs font-bold uppercase tracking-[0.14em]'>
@@ -86,8 +86,8 @@ export function CasesIndex() {
               {t('Talleres, clínicas y empresas de servicios que hoy venden más, salen en Google o tienen la agenda llena. Así lo hicimos.', 'Workshops, clinics and service companies that now sell more, show up on Google or have a full schedule. Here’s how we did it.')}
             </p>
             <div className='mt-8 flex flex-wrap gap-3'>
-              <a href={CONTACT_PATH} className='rd-btn'>{t('Pide una revisión gratis', 'Get a free review')} ↗</a>
-              <a href={PORTFOLIO_PATH} className='rd-btn-ghost'>{t('Ver portfolio', 'See portfolio')}</a>
+              <a href={withSlash(CONTACT_PATH)} className='rd-btn'>{t('Pide una revisión gratis', 'Get a free review')} ↗</a>
+              <a href={withSlash(PORTFOLIO_PATH)} className='rd-btn-ghost'>{t('Ver portfolio', 'See portfolio')}</a>
             </div>
           </div>
         </div>
@@ -117,7 +117,7 @@ export function CasesIndex() {
           </div>
           <p className='mt-12 text-center text-white/60'>
             {t('¿Quieres ver más trabajos?', 'Want to see more work?')}{' '}
-            <a href={PORTFOLIO_PATH} className='font-semibold underline underline-offset-4 hover:text-[#3346c1]'>
+            <a href={withSlash(PORTFOLIO_PATH)} className='font-semibold underline underline-offset-4 hover:text-[#3346c1]'>
               {t('Mira el portfolio completo', 'Browse the full portfolio')}
             </a>
             .
@@ -136,7 +136,7 @@ export default function CasePage() {
   const CASES = useCases();
   const idx = CASES.findIndex((c) => c.slug === slug);
   usePageMeta(`${CASES_PATH}/${slug}`);
-  if (idx < 0) return <Navigate to={CASES_PATH} replace />;
+  if (idx < 0) return <Navigate to={withSlash(CASES_PATH)} replace />;
   const c = CASES[idx];
   const next = CASES[(idx + 1) % CASES.length];
 
@@ -146,7 +146,7 @@ export default function CasePage() {
       <section className='relative overflow-hidden pt-[var(--site-header-h)]'>
         <div className='rd-grid-bg pointer-events-none absolute inset-0' />
         <div className='relative mx-auto max-w-[1320px] px-5 pb-16 pt-16 md:px-8'>
-          <a href={CASES_PATH} className='rd-eyebrow inline-flex items-center gap-2 !text-white/50 hover:!text-[#e1f56e]'>
+          <a href={withSlash(CASES_PATH)} className='rd-eyebrow inline-flex items-center gap-2 !text-white/50 hover:!text-[#e1f56e]'>
             ← {t('Casos de éxito', 'Case studies')}
           </a>
           <div className='mt-10 grid gap-12 lg:grid-cols-[1.25fr_1fr] lg:items-end'>

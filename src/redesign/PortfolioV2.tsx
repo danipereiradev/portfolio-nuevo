@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
-import { CONTACT_PATH, PORTFOLIO_PATH, buildWhatsAppUrl } from '../config/contact';
+import { CONTACT_PATH, PORTFOLIO_PATH, buildWhatsAppUrl, withSlash } from '../config/contact';
 import {
   PORTFOLIO_PAGE_PROJECTS,
   PORTFOLIO_PROJECT_LINK_REL,
@@ -175,8 +175,8 @@ export default function PortfolioV2() {
               {t('Webs, tiendas online y apps de negocios reales: clínicas, talleres, tiendas, despachos y productos digitales. Entra en cualquiera y compruébalo tú mismo.', 'Websites, online stores and apps for real businesses: clinics, workshops, shops, firms and digital products. Visit any of them and see for yourself.')}
             </p>
             <div className='mt-8 flex flex-wrap gap-3'>
-              <a href={CONTACT_PATH} className='rd-btn'>{t('Pide una revisión gratis', 'Get a free review')} ↗</a>
-              <a href={CASES_PATH} className='rd-btn-ghost'>{t('Casos de éxito', 'Case studies')}</a>
+              <a href={withSlash(CONTACT_PATH)} className='rd-btn'>{t('Pide una revisión gratis', 'Get a free review')} ↗</a>
+              <a href={withSlash(CASES_PATH)} className='rd-btn-ghost'>{t('Casos de éxito', 'Case studies')}</a>
             </div>
           </div>
         </div>
@@ -240,7 +240,7 @@ export default function PortfolioV2() {
             <h2 className='rd-h2 mt-4 max-w-[16ch] !text-[clamp(1.9rem,4vw,3.4rem)]'>{t('¿Quieres una web así?', 'Want a website like these?')}</h2>
           </div>
           <div className='flex flex-wrap gap-3'>
-            <a href={CONTACT_PATH} className='inline-flex items-center gap-2 rounded-full bg-[#0b0c0a] px-7 py-4 text-xs font-bold uppercase tracking-[0.14em] text-white hover:bg-[#3346c1]'>
+            <a href={withSlash(CONTACT_PATH)} className='inline-flex items-center gap-2 rounded-full bg-[#0b0c0a] px-7 py-4 text-xs font-bold uppercase tracking-[0.14em] text-white hover:bg-[#3346c1]'>
               {t('Cuéntanos', 'Tell us')} ↗
             </a>
             <a href={buildWhatsAppUrl()} target='_blank' rel='noopener noreferrer' className='inline-flex items-center rounded-full border border-[#0b0c0a]/30 px-7 py-4 text-xs font-bold uppercase tracking-[0.14em]'>
