@@ -15,7 +15,8 @@ export const FORM_CC_EMAIL = 'info.danipereira@gmail.com';
 export const BUSINESS_HOURS = 'L-V de 9:00h a 18:00h · S de 9:00h a 14:00h';
 export const BUSINESS_HOURS_LABEL = `Horario: ${BUSINESS_HOURS}`;
 
-// Ficha oficial de Google Maps (Pereira Web) para el mapa embebido en /contacto.
+// Ficha oficial de Google Maps (36web) para el mapa embebido en /contacto.
+// La URL conserva "Pereira Web", el nombre antiguo; el ID del lugar es el mismo.
 export const GOOGLE_MAPS_EMBED_URL =
   'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d194347.47826694263!2d-3.844350133832642!3d40.4380986114016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fbfaf5298cafb17%3A0xeff7a55bec419fb2!2sPereira%20Web!5e0!3m2!1ses!2ses!4v1786271937055!5m2!1ses!2ses';
 
