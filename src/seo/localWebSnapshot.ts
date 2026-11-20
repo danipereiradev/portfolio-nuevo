@@ -28,6 +28,7 @@ import { getLocalWebDemos } from '../data/localWebDemos';
 import { buildLocalWebCityJsonLd } from './localWebCitySchema';
 
 export { LOCAL_WEB_LISTED_CITIES, buildLocalWebCityJsonLd };
+export { SERVICE_ROUTES, buildHomeBodyHtml, buildServiceBodyHtml } from './siteSnapshot';
 
 const escapeHtml = (value: string) =>
   value

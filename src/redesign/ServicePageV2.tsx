@@ -95,13 +95,25 @@ export default function ServicePageV2({ slug: slugProp }: { slug?: string }) {
             <p className='rd-eyebrow mb-6'>
               {s.area} · {s.name}
             </p>
-            <h1 className='rd-h1'>
-              {p.title[0]}
-              <br />
-              <span className='rd-mark'>{p.title[1]}</span>
-              <br />
-              <span className='text-[#e1f56e]'>{p.title[2]}</span>
-            </h1>
+            {p.h1 && lang === 'es' ? (
+              <>
+                {/* H1 con la palabra clave (igual que el <title>); el eslogan va debajo como texto. */}
+                <h1 className='rd-h1 rd-h1-seo'>
+                  {p.h1[0] ? <>{p.h1[0]} </> : null}
+                  <span className='rd-mark'>{p.h1[1]}</span>{' '}
+                  <span className='text-[#e1f56e]'>{p.h1[2]}</span>
+                </h1>
+                <p className='rd-slogan mt-6'>{p.title.join(' ')}</p>
+              </>
+            ) : (
+              <h1 className='rd-h1'>
+                {p.title[0]}
+                <br />
+                <span className='rd-mark'>{p.title[1]}</span>
+                <br />
+                <span className='text-[#e1f56e]'>{p.title[2]}</span>
+              </h1>
+            )}
           </div>
           <div>
             <p className='text-lg leading-relaxed text-white/65'>{p.intro}</p>

@@ -11,71 +11,7 @@ import { useCases, useServices } from './i18n/content';
 import { CaseCard } from './CasePages';
 import GoogleBadge from './GoogleBadge';
 import BgDigit from './BgDigit';
-
-const STEPS = [
-  {
-    n: '01',
-    t: 'Escuchamos',
-    d: 'Una llamada de 30 minutos para entender tu negocio, tus clientes y qué necesitas de verdad.',
-  },
-  {
-    n: '02',
-    t: 'Auditamos',
-    d: 'Revisamos tu web, tu Google y tus redes. Te enseñamos qué falla y qué es prioritario.',
-  },
-  {
-    n: '03',
-    t: 'Construimos',
-    d: 'Diseñamos, desarrollamos y lanzamos. Tú apruebas cada paso; nosotros nos ocupamos del resto.',
-  },
-  {
-    n: '04',
-    t: 'Medimos y mejoramos',
-    d: 'Llamadas, mensajes y ventas en un informe claro. Lo que no funciona, se cambia.',
-  },
-];
-
-const PRINCIPLES = [
-  {
-    t: 'Hablas con quien lo hace',
-    d: 'Sin cadenas de comerciales ni tickets. Un interlocutor que conoce tu proyecto.',
-  },
-  {
-    t: 'Todo es tuyo',
-    d: 'Dominio, web, cuentas de Google y redes, siempre a tu nombre.',
-  },
-  {
-    t: 'Lenguaje claro',
-    d: 'Te explicamos qué hacemos y por qué, sin tecnicismos.',
-  },
-  {
-    t: 'Pensado para vender',
-    d: 'Cada decisión de diseño se mide en llamadas, mensajes y ventas.',
-  },
-];
-
-const FAQS = [
-  {
-    q: '¿Tengo que contratar todos los servicios?',
-    a: 'No. Empezamos por lo que más impacto tenga en tu negocio y sumamos el resto solo si tiene sentido.',
-  },
-  {
-    q: '¿Trabajáis solo en Madrid?',
-    a: 'Trabajamos en remoto con negocios de toda España. Si estás cerca de Madrid, Galicia o Valencia, también podemos vernos.',
-  },
-  {
-    q: '¿Cuánto se tarda en tener la web?',
-    a: 'Una web de servicios suele estar lista en dos o tres semanas desde que tenemos los contenidos.',
-  },
-  {
-    q: '¿Qué es Tranquilidad digital?',
-    a: 'Un servicio en el que actuamos de tu lado frente a proveedores, programadores y plataformas: revisamos, negociamos y nos aseguramos de que todo funcione.',
-  },
-  {
-    q: '¿Cómo empezamos?',
-    a: 'Escríbenos o reserva una llamada. Revisamos tu situación gratis y te decimos qué haríamos nosotros.',
-  },
-];
+import { FAQS, PEACE, PRINCIPLES, STEPS } from './homeContent';
 
 const STEPS_EN = [
   {
@@ -353,19 +289,28 @@ export default function HomeV2() {
           <div>
             <p className='rd-eyebrow mb-6'>
               {t(
-                'Web · eCommerce · SEO · SEM · GEO · Redes',
+                'Torrejón de Ardoz · Corredor del Henares · Toda España',
                 'Web · eCommerce · SEO · SEM · GEO · Social',
               )}
             </p>
-            <h1 className='rd-h1'>
-              {t('Tu negocio,', 'Your business,')}
-              <br />
-              <span className='rd-mark'>{t('visible', 'visible')}</span>
-              <br />
-              <span className='text-[#e1f56e]'>
-                {t('y sin líos.', 'hassle-free.')}
-              </span>
-            </h1>
+            {en ? (
+              <h1 className='rd-h1'>
+                Your business,
+                <br />
+                <span className='rd-mark'>visible</span>
+                <br />
+                <span className='text-[#e1f56e]'>hassle-free.</span>
+              </h1>
+            ) : (
+              <>
+                {/* H1 con la palabra clave, igual que el <title> de la home. */}
+                <h1 className='rd-h1 rd-h1-seo'>
+                  Agencia de <span className='rd-mark'>diseño web,</span>{' '}
+                  <span className='text-[#e1f56e]'>SEO, SEM y redes sociales.</span>
+                </h1>
+                <p className='rd-slogan mt-6'>Tu negocio, visible y sin líos.</p>
+              </>
+            )}
             <p className='mt-7 max-w-md text-base leading-relaxed text-white/65 md:text-lg'>
               {t(
                 'Hacemos tu web, te ponemos en Google y en la IA, y llevamos tus redes. Un solo equipo para que tus clientes te encuentren y te escriban.',
@@ -536,27 +481,7 @@ export default function HomeV2() {
             </a>
           </div>
           <ul className='grid gap-4 sm:grid-cols-2'>
-            {(en
-              ? PEACE_EN
-              : ([
-                  [
-                    'Un solo interlocutor',
-                    'Hablamos nosotros con proveedores y plataformas.',
-                  ],
-                  [
-                    'Revisamos antes de pagar',
-                    'Presupuestos y facturas con criterio técnico.',
-                  ],
-                  [
-                    'Copias y seguridad',
-                    'Tu web vigilada, actualizada y con copias al día.',
-                  ],
-                  [
-                    'Decides tú',
-                    'Te lo explicamos claro y tú das el visto bueno.',
-                  ],
-                ] as [string, string][])
-            ).map(([tt, d]) => (
+            {(en ? PEACE_EN : PEACE).map(([tt, d]) => (
               <li key={tt} className='rd-card p-6'>
                 <span className='rd-dot' aria-hidden='true' />
                 <h3 className='mt-6 text-lg font-extrabold uppercase'>{tt}</h3>

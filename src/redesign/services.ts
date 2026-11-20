@@ -10,7 +10,13 @@ export type Service = {
   href: string;
   /** Solo para los servicios que usan la página genérica /servicios/:slug */
   page?: {
+    /** Eslogan grande del hero (va como texto, no como titular). */
     title: string[];
+    /**
+     * H1 de SEO: [antes, resaltado, después]. Igual que el <title> de
+     * pagesMeta.json para que Google vea la misma intención en los dos.
+     */
+    h1?: [string, string, string];
     intro: string;
     includes: { t: string; d: string }[];
     forWho: string[];
@@ -34,6 +40,7 @@ export const SERVICES: Service[] = [
     href: '/diseno-web',
     page: {
       title: ['WEBS QUE', 'HACEN', 'SONAR EL MÓVIL.'],
+      h1: ['', 'DISEÑO WEB', 'A MEDIDA PARA EMPRESAS.'],
       intro:
         'Diseñamos y desarrollamos tu web a medida o con WordPress, según lo que pida tu negocio. Rápida, clara en el móvil y con el contacto siempre a mano para que quien entre acabe llamando o escribiendo.',
       image: '/img/services/paginas-web.png',
@@ -70,6 +77,7 @@ export const SERVICES: Service[] = [
     href: '/tiendas-online',
     page: {
       title: ['TIENDAS QUE', 'VENDEN', 'DESDE EL MÓVIL.'],
+      h1: ['', 'TIENDAS ONLINE', 'EN TORREJÓN Y EL CORREDOR DEL HENARES.'],
       intro:
         'Creamos tu tienda online con WooCommerce, Shopify o a medida, con un proceso de compra corto, pagos rápidos y un panel para que gestiones productos, stock y pedidos sin complicarte.',
       image: '/img/services/tiendas-online.png',
@@ -114,6 +122,7 @@ export const SERVICES: Service[] = [
     href: `${SERVICES_PATH}/seo`,
     page: {
       title: ['QUE TE', 'ENCUENTREN', 'EN GOOGLE.'],
+      h1: ['AGENCIA', 'SEO', 'Y SEO LOCAL.'],
       intro:
         'Ordenamos tu web por dentro, escribimos lo que tus clientes buscan y cuidamos tu ficha de Google para que aparezcas antes que la competencia, sobre todo en tu zona.',
       includes: [
@@ -139,6 +148,7 @@ export const SERVICES: Service[] = [
     href: `${SERVICES_PATH}/sem`,
     page: {
       title: ['CLIENTES', 'DESDE EL', 'PRIMER DÍA.'],
+      h1: ['GESTIÓN DE', 'GOOGLE ADS', '(SEM).'],
       intro:
         'Montamos y gestionamos tus campañas en Google Ads para que aparezcas justo cuando alguien está buscando lo que vendes, y medimos cada llamada, formulario y venta que llega.',
       includes: [
@@ -163,6 +173,7 @@ export const SERVICES: Service[] = [
     href: `${SERVICES_PATH}/geo`,
     page: {
       title: ['QUE LA IA', 'TE', 'RECOMIENDE.'],
+      h1: ['GEO:', 'POSICIONAMIENTO', 'EN CHATGPT, GEMINI E IA.'],
       intro:
         'Cada vez más gente pregunta a ChatGPT o a Gemini en vez de buscar en Google. Preparamos tu web y tu presencia online para que esas respuestas te nombren a ti.',
       includes: [
@@ -187,6 +198,7 @@ export const SERVICES: Service[] = [
     href: `${SERVICES_PATH}/redes-sociales`,
     page: {
       title: ['REDES QUE', 'TRAEN', 'MENSAJES.'],
+      h1: ['GESTIÓN DE', 'REDES SOCIALES', 'Y REELS.'],
       intro:
         'Planificamos, creamos y publicamos contenido que enseña tu trabajo de verdad: reels, carruseles y stories pensados para que te escriban, no solo para sumar likes.',
       includes: [
@@ -211,6 +223,7 @@ export const SERVICES: Service[] = [
     href: '/tranquilidad-digital',
     page: {
       title: ['TÚ A LO TUYO.', 'NOSOTROS,', 'A LO DIGITAL.'],
+      h1: ['', 'TRANQUILIDAD DIGITAL:', 'REPRESENTACIÓN TÉCNICA PARA TU NEGOCIO.'],
       intro:
         'Para negocios que saben lo que quieren pero no tienen a nadie técnico de su lado. Nos sentamos en tu silla frente a proveedores, programadores y plataformas: traducimos lo que necesitas, coordinamos a quien lo hace y comprobamos que se entrega bien.',
       image: '/img/services/tranquilidad-digital.webp',
@@ -250,6 +263,7 @@ export const EXTRA_SERVICES: Service[] = [
     href: '/mantenimiento-web',
     page: {
       title: ['TU WEB,', 'SIEMPRE', 'FUNCIONANDO.'],
+      h1: ['', 'MANTENIMIENTO WEB', 'EN TORREJÓN Y EL CORREDOR DEL HENARES.'],
       intro:
         'Nos ocupamos de actualizaciones, copias, seguridad e incidencias de tu web o tienda, sea WordPress, WooCommerce, Shopify o desarrollo a medida. Te atiende quien revisa la web, no un call center.',
       image: '/img/services/mantenimiento-web.png',
@@ -288,6 +302,7 @@ export const EXTRA_SERVICES: Service[] = [
     href: '/aplicaciones',
     page: {
       title: ['APPS QUE', 'RESUELVEN', 'ALGO DE VERDAD.'],
+      h1: ['DESARROLLO DE', 'APLICACIONES', 'WEB Y MÓVILES A MEDIDA.'],
       intro:
         'Desarrollamos aplicaciones web y móviles a medida: herramientas internas, plataformas y productos nuevos. Empezamos por una primera versión útil y la hacemos crecer con el proyecto.',
       image: '/img/services/aplicaciones.png',

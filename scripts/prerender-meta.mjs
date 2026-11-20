@@ -473,6 +473,7 @@ const cityByRoute = new Map(
 
 let generated = 0;
 let localWithBody = 0;
+let pagesWithBody = 0;
 
 for (const [routePath, meta] of Object.entries(pagesMeta)) {
   if (
@@ -503,15 +504,17 @@ for (const [routePath, meta] of Object.entries(pagesMeta)) {
     html = injectJsonLd(html, 'jsonld-blog-post', blog.buildBlogPostJsonLd(slug));
     html = injectRoot(html, blog.buildBlogPostBodyHtml(slug));
     blogWithBody += 1;
-  } else if (routePath === SITE_WEB_PATH) {
-    // Rediseño: sin hero de arranque antiguo (quedaba visible encima de la página nueva).
+  } else if (routePath === '/') {
+    // Home completa en el HTML inicial (antes solo H1 + descripción).
+    html = injectRoot(html, localWeb.buildHomeBodyHtml());
+    pagesWithBody += 1;
+  } else if (localWeb.SERVICE_ROUTES[routePath]) {
+    // Páginas de servicio completas: qué incluye, zona, FAQ y contacto.
     html = injectRoot(
       html,
-      buildIndexableShellHtml(meta).replace(
-        '</div></main>',
-        `</div>${localWeb.buildLocalWebSpainSectionHtml()}</main>`,
-      ),
+      localWeb.buildServiceBodyHtml(localWeb.SERVICE_ROUTES[routePath]),
     );
+    pagesWithBody += 1;
   } else if (
     !(typeof meta.robots === 'string' && meta.robots.includes('noindex'))
   ) {
@@ -561,5 +564,5 @@ const sitemapUrls = writeSitemap(cityList);
 patchDistRedirects(cityList);
 
 console.log(
-  `[prerender-meta] Generadas ${generated} páginas (${localWithBody} locales y ${blogWithBody} artículos con contenido completo), sitemap (${sitemapUrls} URLs) y 404.html.`,
+  `[prerender-meta] Generadas ${generated} páginas (${localWithBody} locales, ${pagesWithBody} home/servicios y ${blogWithBody} artículos con contenido completo), sitemap (${sitemapUrls} URLs) y 404.html.`,
 );
