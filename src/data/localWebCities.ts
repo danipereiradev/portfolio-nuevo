@@ -462,7 +462,7 @@ const coslada: LocalWebCity = {
   comunidad: 'Comunidad de Madrid',
   title: 'Diseño web en Coslada | Páginas web para empresas | 36web',
   description:
-    'Diseño de páginas web en Coslada para comercios, logística, oficios y clínicas. Atención directa en el Corredor del Henares y propuesta por escrito el mismo día.',
+    'Diseño de páginas web en Coslada para comercios, logística, oficios y clínicas. Atención directa en el Corredor del Henares y propuesta por escrito.',
   hero_lead:
     'Diseño web en Coslada para quien factura cerca del aeropuerto o en el barrio. Clara, móvil y con contacto a la vista.',
   intro_local: [
@@ -564,7 +564,7 @@ const vigo: LocalWebCity = {
   ciudad: 'Vigo',
   provincia: 'Pontevedra',
   comunidad: 'Galicia',
-  title: 'Diseño web en Vigo | Páginas web con SEO para empresas | 36web',
+  title: 'Diseño web en Vigo | Páginas web con SEO | 36web',
   description:
     'Diseño de páginas web en Vigo con SEO desde el primer día. Carper Sonido, cliente de Vigo, sale primero en Google en sus búsquedas. Propuesta por escrito.',
   hero_lead:
