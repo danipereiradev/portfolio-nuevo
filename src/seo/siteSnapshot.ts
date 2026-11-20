@@ -75,7 +75,7 @@ export const buildHomeBodyHtml = () => `
   <main class="rd rd-page">
     <section class="mx-auto max-w-[1320px] px-5 pb-16 pt-[calc(var(--site-header-h,5rem)+3.5rem)] md:px-8">
       ${eyebrow('Torrejón de Ardoz · Corredor del Henares · Toda España')}
-      <h1 class="rd-h1 rd-h1-seo">Agencia de diseño web, SEO, SEM y redes sociales.</h1>
+      <h1 class="rd-h1 rd-h1-seo">Agencia de diseño web y marketing digital.</h1>
       <p class="rd-slogan mt-6">Tu negocio, visible y sin líos.</p>
       <p class="mt-7 max-w-md text-lg">Hacemos tu web, te ponemos en Google y en la IA, y llevamos tus redes. Un solo equipo para que tus clientes te encuentren y te escriban.</p>
       <p class="mt-6">${link(CONTACT_PATH, 'Pide una revisión gratis')} · ${link(CASES_PATH, 'Ver resultados')}</p>

@@ -305,8 +305,8 @@ export default function HomeV2() {
               <>
                 {/* H1 con la palabra clave, igual que el <title> de la home. */}
                 <h1 className='rd-h1 rd-h1-seo'>
-                  Agencia de <span className='rd-mark'>diseño web,</span>{' '}
-                  <span className='text-[#e1f56e]'>SEO, SEM y redes sociales.</span>
+                  Agencia de <span className='rd-mark'>diseño web</span>{' '}
+                  <span className='text-[#e1f56e]'>y marketing digital.</span>
                 </h1>
                 <p className='rd-slogan mt-6'>Tu negocio, visible y sin líos.</p>
               </>

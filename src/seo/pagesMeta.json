@@ -1,7 +1,7 @@
 {
   "/": {
-    "title": "Agencia de diseño web, SEO, SEM y redes sociales | 36web",
-    "description": "Diseño web, tiendas online, SEO, Google Ads, posicionamiento en IA y redes sociales. Un solo equipo para que tus clientes te encuentren y te escriban."
+    "title": "Agencia de diseño web y marketing digital | 36web",
+    "description": "Agencia de diseño web, tiendas online, SEO, Google Ads, IA y redes sociales en Torrejón de Ardoz para toda España. Un solo equipo para que te contacten."
   },
   "/diseno-web": {
     "title": "Diseño web a medida para empresas | 36web",
@@ -25,10 +25,10 @@
   },
   "/diseno-web/coslada": {
     "title": "Diseño web en Coslada | Páginas web para empresas | 36web",
-    "description": "Diseño de páginas web en Coslada para comercios, logística, oficios y clínicas. Atención directa en el Corredor del Henares y propuesta por escrito el mismo día."
+    "description": "Diseño de páginas web en Coslada para comercios, logística, oficios y clínicas. Atención directa en el Corredor del Henares y propuesta por escrito."
   },
   "/diseno-web/vigo": {
-    "title": "Diseño web en Vigo | Páginas web con SEO para empresas | 36web",
+    "title": "Diseño web en Vigo | Páginas web con SEO | 36web",
     "description": "Diseño de páginas web en Vigo con SEO desde el primer día. Carper Sonido, cliente de Vigo, sale primero en Google en sus búsquedas. Propuesta por escrito."
   },
   "/diseno-web/logrono": {
@@ -185,9 +185,8 @@
     "robots": "noindex, nofollow, noarchive"
   },
   "/tranquilidad-digital": {
-    "title": "Tranquilidad digital: representación técnica para tu negocio | 36web",
-    "description": "Actuamos de tu lado frente a proveedores, programadores y plataformas: traducimos lo que necesitas, coordinamos el trabajo y validamos cada entrega.",
-    "robots": "noindex, nofollow"
+    "title": "Tranquilidad digital: tu representante técnico | 36web",
+    "description": "Actuamos de tu lado frente a proveedores, programadores y plataformas: traducimos lo que necesitas, coordinamos el trabajo y validamos cada entrega."
   },
   "/aplicaciones": {
     "title": "Desarrollo de aplicaciones web y móviles a medida | 36web",
@@ -199,8 +198,8 @@
     "robots": "noindex, nofollow"
   },
   "/servicios": {
-    "title": "Servicios de marketing digital: web, eCommerce, SEO, SEM, GEO y redes | 36web",
-    "description": "Diseño web, tiendas online, SEO, Google Ads, posicionamiento en IA, redes sociales y Tranquilidad digital. Un solo equipo para que tus clientes te encuentren."
+    "title": "Servicios de diseño web, SEO, SEM, GEO y redes | 36web",
+    "description": "Diseño web, tiendas online, SEO, Google Ads, posicionamiento en IA y redes sociales. Un solo equipo para que tus clientes te encuentren."
   },
   "/servicios/seo": {
     "title": "Agencia SEO y SEO local | 36web",
@@ -223,20 +222,20 @@
     "description": "Negocios que hoy venden en toda España, llenan su agenda o salen primero en Google. Cómo lo hicimos con Camisetas Ahora, Hatena y Carper Sonido."
   },
   "/casos-de-exito/camisetas-ahora": {
-    "title": "Caso Camisetas Ahora: de taller en Logroño a vender en toda España | 36web",
+    "title": "Caso Camisetas Ahora: tienda online desde Logroño | 36web",
     "description": "Cómo un taller de serigrafía de Logroño empezó a vender camisetas personalizadas en toda España con una tienda online y un personalizador de prendas."
   },
   "/casos-de-exito/hatena": {
-    "title": "Caso Hatena: clínica veterinaria en Ourense con la agenda llena | 36web",
+    "title": "Caso Hatena: SEO local para una clínica en Ourense | 36web",
     "description": "De no aparecer en Google a tener la agenda prácticamente llena: web a medida, SEO local y ficha de Google para una clínica veterinaria de Ourense."
   },
   "/casos-de-exito/carper-sonido": {
-    "title": "Caso Carper Sonido: empresa de sonido posicionada en Vigo | 36web",
+    "title": "Caso Carper Sonido: primeros en Google en Vigo | 36web",
     "description": "Cómo Carper Sonido llegó al primer puesto de Google como empresa de sonido y eventos en Vigo en numerosas búsquedas, con una web y SEO por servicio."
   },
   "/blog/errores-al-contratar-una-pagina-web": {
-    "title": "10 errores al contratar una página web y cómo evitarlos | 36web",
-    "description": "Dominio a nombre de otro, presupuestos sin detalle, webs que no se ven en el móvil… Los 10 errores más comunes al contratar una página web y cómo evitarlos.",
+    "title": "10 errores al contratar una página web | 36web",
+    "description": "Dominio a nombre de otro, presupuestos sin detalle, webs que no se ven en el móvil… Los 10 errores al contratar una página web y cómo evitarlos.",
     "ogType": "article"
   }
 }

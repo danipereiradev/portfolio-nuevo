@@ -56,55 +56,55 @@
 
 [[redirects]]
   from = "/landing-express"
-  to = "/diseno-web"
+  to = "/diseno-web/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/web-autonomos-pymes"
-  to = "/diseno-web"
+  to = "/diseno-web/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/web-profesional-360"
-  to = "/diseno-web"
+  to = "/diseno-web/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/web-profesional-360/"
-  to = "/diseno-web"
+  to = "/diseno-web/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/web-profesional-negocios"
-  to = "/diseno-web"
+  to = "/diseno-web/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/web-start"
-  to = "/diseno-web"
+  to = "/diseno-web/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/web-start/"
-  to = "/diseno-web"
+  to = "/diseno-web/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/tienda-online"
-  to = "/tiendas-online"
+  to = "/tiendas-online/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/landing-tienda-online"
-  to = "/tiendas-online"
+  to = "/tiendas-online/"
   status = 301
   force = true
 
@@ -128,25 +128,25 @@
 
 [[redirects]]
   from = "/contact"
-  to = "/contacto"
+  to = "/contacto/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/paginas-web-empresas"
-  to = "/diseno-web"
+  to = "/diseno-web/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/diseño-web"
-  to = "/diseno-web"
+  to = "/diseno-web/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/desarrollo-aplicaciones-web"
-  to = "/diseno-web"
+  to = "/diseno-web/"
   status = 301
   force = true
 
@@ -158,7 +158,7 @@
 
 [[redirects]]
   from = "/auditoria-ecommerce"
-  to = "/tiendas-online"
+  to = "/tiendas-online/"
   status = 301
   force = true
 
@@ -168,19 +168,19 @@
 # (fichero estático: 200). Un slug no publicado no se genera: 404 de verdad.
 [[redirects]]
   from = "/web-a-medida"
-  to = "/diseno-web"
+  to = "/diseno-web/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/web-profesional-a-medida"
-  to = "/diseno-web"
+  to = "/diseno-web/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/landing-diseño-web"
-  to = "/diseno-web"
+  to = "/diseno-web/"
   status = 301
   force = true
 
@@ -192,25 +192,25 @@
 # URLs locales antiguas que nunca se publicaron.
 [[redirects]]
   from = "/diseno-web/a-coruna"
-  to = "/diseno-web"
+  to = "/diseno-web/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/diseno-web/a-coruna/"
-  to = "/diseno-web"
+  to = "/diseno-web/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/diseno-web/valencia"
-  to = "/diseno-web"
+  to = "/diseno-web/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/diseno-web/valencia/"
-  to = "/diseno-web"
+  to = "/diseno-web/"
   status = 301
   force = true
 
